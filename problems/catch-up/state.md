@@ -14,7 +14,7 @@
 
 | Thread | Session | Since | Note |
 |---|---|---|---|
-| Solver: CUDA engine, then N = 33–36 | solver session | 2026-10-22 | blocked on the CUDA install |
+| Solver: GPU tile streaming for N ≥ 32, then N = 33–36 | solver session | 2026-10-22 | `cuda` engine done for N ≤ 31 (results/values-n1-31.md); from N = 32 two layers exceed 8 GB, so tiles must stream |
 
 ## Next step
 
@@ -22,7 +22,7 @@ Line A1 (main), survey/conjecture, B1 near-pair switches: check value(S ⊎ {x, 
 
 ## Awaiting review
 
-- CUDA Toolkit 13.3 install (user): `winget download --id Nvidia.CUDA --version 13.3 --download-directory F:\WIN_DATA\cuda\installer`, run the installer with extraction path `F:\WIN_DATA\cuda\extract`, Custom, only CUDA Development and Runtime, location `F:\WIN_DATA\cuda\v13.3`.
+None.
 
 ## Last review
 
