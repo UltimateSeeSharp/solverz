@@ -13,5 +13,3 @@ Haiku overrated famous problems again: Mahler's 3/2 problem (`Books/.../Equidist
 | `Paper/CatchUpConjecture` | Catch-Up on {1..N} is a draw when N(N+1)/2 is even | Verified by computer to N = 28 (von Stengel); no proof or partial result found |
 | `Arxiv/2507.17780/3` (TxGraffiti 3) | Regular graphs: independent domination number ≤ min maximal matching (= edge domination number) | Open since 2020; weaker γ ≤ γ_e proven for degree ≥ 7 via the Local Lemma (arXiv 2608.22498, Aug 2026) |
 | `Mathoverflow/339137` = `GreensOpenProblems/28` | "Unfair 0-1 polynomial": nonnegative monic factors of a 0/1 polynomial are 0/1 | Small expert community (Ghidelli, Hare, Dvorsky); only special families done, latest arXiv 2608.19173 (trinomials 1 + ax² + x^k) |
-
-The Catch-Up Lean formalization matches the published rules on a read-through (first move, continue-while-behind, losing when unable to catch up).

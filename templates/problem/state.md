@@ -1,9 +1,6 @@
 # State
 
-The handoff between sessions: read first, rewritten at the end of every iteration. History lives in [log.md](log.md).
-
-- **Stage:** <Choose / Frame / Explore / Consolidate / Formalize / Digest (CLAUDE.md, Workflow)>.
-- **Updated:** <date>, after <what>.
+- **Stage:** <Choose / Frame / Explore / Consolidate / Formalize / Digest>.
 
 ## Where things stand
 

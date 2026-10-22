@@ -29,7 +29,3 @@ Scripts: this folder; raw scores: `data/results_erdos.jsonl`. Haiku scores are a
 | 614 | Min edges so every k+2 vertices have a degree-k vertex | 1 comment; reduces to Turán problems, k = 2 is the open C4 case |
 | 985 | A prime primitive root below every prime p | 2 comments; open unconditionally, true under GRH for large p |
 | 889 | v₀(n) → ∞ (new prime factors of n + k) | 2 comments; a sibling variant proven in Lean, main problem sieve-hard |
-
-## Lesson
-
-Right before committing to a problem, check its open PRs in formal-conjectures and its erdosproblems.com proof-claims page.

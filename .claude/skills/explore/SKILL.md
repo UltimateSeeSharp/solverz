@@ -40,7 +40,7 @@ Never do these unattended; add the item under "Awaiting review" in `state.md` wi
 - editing files the problem's README marks as off-limits, or compute beyond the budget.
 
 ## 7. Hand over: rewrite `state.md`
-The next iteration starts from this file, so leave it complete and current (format: `templates/problem/state.md`). Rewrite, don't append: update "Where things stand", "Open threads", "Awaiting review" and the date, and set "Next step" to one concrete action with its reason. Change the stage only when the workflow's criterion is met (`CLAUDE.md`, Workflow), e.g. Explore → Consolidate once a claim on the main line survives the refuter.
+The next iteration starts from this file, so leave it complete and current (format: `templates/problem/state.md`). Rewrite, don't append: update "Where things stand", "Open threads" and "Awaiting review", and set "Next step" to one concrete action with its reason. Change the stage only when the workflow's criterion is met (`CLAUDE.md`, Workflow), e.g. Explore → Consolidate once a claim on the main line survives the refuter.
 
 ## 8. End
 Three lines: idea, result, next. Explain in plain terms; the user is a developer, not a mathematician.

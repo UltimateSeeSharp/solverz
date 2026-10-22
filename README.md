@@ -1,8 +1,6 @@
 # solverz
 
-AI-assisted attacks on open math problems, with every claimed result machine-checked in Lean 4.
-
-A full proof of an open problem would be extraordinary. Realistic wins are machine-checked partial results and write-ups of failed ideas. Lean checks proofs but doesn't find them; its job is to keep the AI honest.
+AI-assisted attacks on open math problems, with every claimed result machine-checked in Lean 4. Rules and workflow: [CLAUDE.md](CLAUDE.md).
 
 ## Layout
 
@@ -13,7 +11,7 @@ One folder per problem; one Lean project (one Mathlib) and one Rust workspace at
 | `problems/<problem>/README.md` | Stable reference: statement, goals, literature, agent rules | No |
 | `problems/<problem>/state.md` | Current stage, results, open threads, next step: the handoff between sessions | No |
 | `problems/<problem>/log.md`, `backlog.md`, `obstructions.md`, `blueprint.md` | Every attempt (failures included), idea queue, ruled-out approaches, lemmas toward a proof | No |
-| `problems/<problem>/lean/` | Lean library `<Problem>` (Mathlib) | Yes, if it builds with no `sorry` or custom `axiom` |
+| `problems/<problem>/lean/` | Lean library `<Problem>` (Mathlib) | Yes, under the trust rules |
 | `problems/<problem>/solver/` | Rust crate: search/compute code; kept experiments in `src/bin/`; catalog in its `README.md` | No |
 | `problems/<problem>/results/` | Curated solver outputs with run metadata | No |
 | `problems/<problem>/scratch/` | Playground, git-ignored | No |
@@ -21,8 +19,6 @@ One folder per problem; one Lean project (one Mathlib) and one Rust workspace at
 | `templates/problem/` | Starting files for a new problem: README, state, log, backlog, obstructions, blueprint, solver/README | No |
 | `.claude/` | `explore` skill (one research-loop iteration) and `refuter` agent | No |
 | `tools/survey/` | Problem-finding pipeline (Python, stdlib only) and its findings | No |
-
-Computations may produce certificates; a certificate counts only once a Lean proof checks it.
 
 ## Setup
 
@@ -32,14 +28,13 @@ Computations may produce certificates; a certificate counts only once a Lean pro
 
 ## Verify
 
-- `lake build --wfail` fails on any `sorry` (Lean reports it as a warning). `#print axioms` on each main theorem must list only `propext`, `Classical.choice`, `Quot.sound`.
-- `cargo test --release` runs every solver's tests.
+`lake build --wfail` (fails on any `sorry`) and `cargo test --release`; what counts as verified is in the trust rules.
 
 ## Problems
 
 | Problem | Stage | State |
 |---|---|---|
 | [Catch-Up conjecture](problems/catch-up/README.md): optimal play on {1..N} is a draw when 1 + … + N is even | Explore | [state.md](problems/catch-up/state.md) |
-| [Collatz](problems/collatz/README.md) | Shelved: very unlikely to fall | — |
+| [Collatz](problems/collatz/README.md) | Shelved | — |
 
 - **Choosing a target**: surveys of [Erdős problems](tools/survey/erdos.md) and [other formal-conjectures collections](tools/survey/collections.md).

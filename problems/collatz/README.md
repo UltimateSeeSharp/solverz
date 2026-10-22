@@ -1,8 +1,6 @@
 # Collatz
 
-Idea log, failures included. Nothing here is trusted until it's proven in `lean/`.
-
-**Status: shelved**, very unlikely to fall.
+**Status: shelved.**
 
 ## Definitions
 
@@ -26,7 +24,3 @@ Search with an LP for a ranking function f(n) = log2(n) + a correction from the 
 If it fails, classify the solver's counterexamples: genuine integers vs 2-adic fakes with infinitely many 1 bits.
 Prior work: Yolcu, Aaronson & Heule 2021 (SAT / rewriting termination; it worked for weaker variants).
 Expected failure point: telling integers apart from 2-adic fakes.
-
-## Log
-
-- 2026-10-22: project set up; nothing tried yet.
