@@ -1,9 +1,9 @@
 # Blueprint
 
-Status: a step of the promotion ladder (`CLAUDE.md`, Workflow).
+Status and Approved: `CLAUDE.md`, Workflow.
 
-| ID | Name | Statement (plain terms) | Uses | Line | Lean | Status |
-|---|---|---|---|---|---|---|
+| ID | Name | Statement (plain terms) | Uses | Line | Lean | Status | Approved |
+|---|---|---|---|---|---|---|---|
 
 ## L1 <Name>
 **Proof.** <paper proof, every case listed; or "Open", or exactly how far a partial attempt got>

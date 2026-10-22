@@ -1,7 +1,7 @@
 # Lean
 
 ## Statements
-- **A human writes or reviews every statement**; proofs can be delegated. A proof of the wrong statement is worthless. `[Methods]`
+- **A human writes or reviews every statement that is reported**; proofs can be delegated, helper lemmas included, since Lean checks them. A proof of the wrong statement is worthless. `[Methods]`
 - Common misformalizations: a missing degenerate case, swapped "for all" / "there exists". They show up as a statement that is false, suspiciously easy, or fails to imply what it should downstream. `[Methods]`
 - **Unit-test statements and definitions**: removing a hypothesis should let a standard counterexample through; basic facts (monotonicity, symmetry, degenerate cases) should hold. `[Methods]`
 - Don't hard-code constants; parameterize, so changing one (Tao: 12 → 11) breaks only a few lines. `[Lex]`

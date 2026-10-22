@@ -1,7 +1,6 @@
 # State
 
-- **Stage:** <Choose / Frame / Explore / Consolidate / Formalize / Digest> (criteria: `CLAUDE.md`, Workflow).
-- **Loop:** <running / stopped: reason>. Iterations since last review: <n>. Reviews in a row without metric movement: <k>.
+- **Stage:** <Choose / Frame / Attack / done>, or `<stage>, shelved: <reason>` (criteria: `CLAUDE.md`, Workflow).
 
 ## Where things stand
 
@@ -12,17 +11,17 @@
 
 ## Claims
 
-| Thread | Session | Since | Note |
+| Work | Resources | Since | Note |
 |---|---|---|---|
 
 ## Next step
 
-<The one concrete thing the next iteration should do: line, mode, action, and why.>
+<The one concrete thing to do next: line, action, and why.>
 
 ## Awaiting review
 
-<Items an agent stopped on: a statement to approve, a claimed result, a commit, an install. Each with what the user must decide. "None" if empty.>
+<What needs the user: a statement to approve, a claimed result, a commit, an install, a stop rule that fired. Each with what the user must decide. "None" if empty.>
 
 ## Last review
 
-<Date, and the plain-language progress report from `review`.>
+<Date; last log entry covered; reviews in a row without metric movement; the plain-language report.>
