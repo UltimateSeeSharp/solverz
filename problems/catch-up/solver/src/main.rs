@@ -1,10 +1,13 @@
-//! Usage: catch-up [--engine dfs|layered|tiled] [--top H] [--from N] [to]   (defaults: dfs, 8, 1, 20)
+//! Usage: catch-up [--engine dfs|layered|tiled|gpu] [--top H] [--from N] [to]   (defaults: dfs, 8, 1, 20)
+//! The gpu engine needs `--features gpu`.
 //! Prints, for each N, the optimal-play outcome of Catch-Up on {1..N} and player 1's opening options.
 
 use catch_up::layered::Layered;
 use catch_up::tiled::Tiled;
 use catch_up::{interval, Outcome, Solver};
 use std::time::Instant;
+#[cfg(feature = "gpu")]
+use {catch_up::gpu::Gpu, std::sync::OnceLock};
 
 const DEFAULT_TO: u64 = 20;
 const DEFAULT_FROM: u64 = 1;
@@ -15,6 +18,7 @@ enum Engine {
     Dfs,
     Layered,
     Tiled,
+    Gpu,
 }
 
 struct Args {
@@ -34,7 +38,8 @@ fn parse_args() -> Args {
                     Some("dfs") => Engine::Dfs,
                     Some("layered") => Engine::Layered,
                     Some("tiled") => Engine::Tiled,
-                    other => panic!("unknown engine {other:?}; use dfs, layered or tiled"),
+                    Some("gpu") => Engine::Gpu,
+                    other => panic!("unknown engine {other:?}; use dfs, layered, tiled or gpu"),
                 }
             }
             "--top" => args.top = it.next().and_then(|s| s.parse().ok()).expect("--top needs a number"),
@@ -43,6 +48,22 @@ fn parse_args() -> Args {
         }
     }
     args
+}
+
+#[cfg(feature = "gpu")]
+fn gpu_openings(numbers: &[u64], top: usize) -> Vec<(u64, Outcome)> {
+    static GPU: OnceLock<Gpu> = OnceLock::new();
+    let gpu = GPU.get_or_init(|| {
+        let gpu = Gpu::new().expect("no usable GPU");
+        eprintln!("GPU: {}", gpu.adapter);
+        gpu
+    });
+    Tiled::new(numbers, top).openings_gpu(gpu)
+}
+
+#[cfg(not(feature = "gpu"))]
+fn gpu_openings(_: &[u64], _: usize) -> Vec<(u64, Outcome)> {
+    panic!("built without GPU support; rebuild with --features gpu")
 }
 
 fn list(openings: &[(u64, Outcome)], want: Outcome) -> String {
@@ -66,6 +87,7 @@ fn main() {
             // The layered engines evaluate every position: 2^n masks × (n + 1) gaps.
             Engine::Layered => (Layered::new(&numbers).openings(), (1u64 << n) * (n + 1)),
             Engine::Tiled => (Tiled::new(&numbers, args.top.min(n as usize)).openings(), (1u64 << n) * (n + 1)),
+            Engine::Gpu => (gpu_openings(&numbers, args.top.min(n as usize)), (1u64 << n) * (n + 1)),
         };
         let value = openings.iter().map(|&(_, o)| o).max().unwrap_or(Outcome::Draw);
         println!(

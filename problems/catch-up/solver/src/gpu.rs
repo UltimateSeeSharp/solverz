@@ -71,7 +71,13 @@ impl Gpu {
             pipeline,
             binom,
             max_groups: limits.max_compute_workgroups_per_dimension as usize,
-            adapter: format!("{} ({:?})", info.name, info.backend),
+            adapter: format!(
+                "{} ({:?}; max buffer {} MiB, max storage binding {} MiB)",
+                info.name,
+                info.backend,
+                limits.max_buffer_size >> 20,
+                limits.max_storage_buffer_binding_size >> 20
+            ),
         })
     }
 
