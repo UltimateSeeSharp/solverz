@@ -1,0 +1,13 @@
+# Lean
+.lake/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Rust
+target/
+
+# Secrets / local config
+.env
