@@ -1,6 +1,8 @@
 # Collatz
 
-Idea log, failures included. Nothing here is trusted until it's proven in `Solverz/Collatz/`.
+Idea log, failures included. Nothing here is trusted until it's proven in `lean/`.
+
+**Status: shelved**, very unlikely to fall.
 
 ## Definitions
 

@@ -11,3 +11,6 @@ target/
 
 # Secrets / local config
 .env
+
+# Per-problem playground: persists on disk, never committed
+problems/*/scratch/

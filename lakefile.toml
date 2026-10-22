@@ -1,7 +1,7 @@
 name = "solverz"
 version = "0.1.0"
 keywords = ["math"]
-defaultTargets = ["Solverz"]
+defaultTargets = ["CatchUp"]
 
 [leanOptions]
 pp.unicode.fun = true # pretty-prints `fun a ↦ b`
@@ -15,5 +15,7 @@ name = "mathlib"
 scope = "leanprover-community"
 rev = "v4.35.0"
 
+# One lib per problem; Lean files live in problems/<problem>/lean.
 [[lean_lib]]
-name = "Solverz"
+name = "CatchUp"
+srcDir = "problems/catch-up/lean"
