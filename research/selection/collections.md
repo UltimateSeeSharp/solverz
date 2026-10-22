@@ -1,8 +1,8 @@
 # formal-conjectures collections survey (2026-10-22)
 
-Same pipeline as [erdos.md](erdos.md), over every non-Erdős collection: 432 files, 767 open statements, scored by six Haiku agents (`data/results_collections.jsonl`).
+Same pipeline as [erdos.md](erdos.md), over every non-Erdős collection: 432 files, 767 open statements, scored by six Haiku agents (`tools/survey/data/results_collections.jsonl`).
 
-Freshness check (`freshness.py`, files changed by open PRs): almost no top-40 file has a substantive open PR, unlike the Erdős list. Exceptions: `Arxiv/1601.03081` (crystals, PR #7051), `GreensOpenProblems/14` (a variant marked solved).
+Freshness check (`tools/survey/freshness.py`, files changed by open PRs): almost no top-40 file has a substantive open PR, unlike the Erdős list. Exceptions: `Arxiv/1601.03081` (crystals, PR #7051), `GreensOpenProblems/14` (a variant marked solved).
 
 Haiku overrated famous problems again: Mahler's 3/2 problem (`Books/.../Equidistribution`), `Mathoverflow/17560` (four exponentials), `Wikipedia/MagicSquares`. `OEIS/113010` looks easy but hides digit sums of powers.
 

@@ -9,7 +9,7 @@ Goal: find open problems bottlenecked on reasoning (not compute) that we could r
 3. Five Haiku agents scored each: bottleneck, elementary, fame, tractability, Lean-friendliness. Ranked by 2·tractability + (6 − fame) + elementary + lean_friendly, compute-bound excluded.
 4. Reviewed the top ~40 by hand, then read the erdosproblems.com forum threads of the shortlist.
 
-Scripts: this folder; raw scores: `data/results_erdos.jsonl`. Haiku scores are a rough pre-filter; it overrated famous problems (#159, #1003, #850).
+Scripts: `tools/survey/`; raw scores: `tools/survey/data/results_erdos.jsonl`. Haiku scores are a rough pre-filter; it overrated famous problems (#159, #1003, #850).
 
 ## Findings
 

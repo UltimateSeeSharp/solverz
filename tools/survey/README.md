@@ -1,6 +1,6 @@
 # Problem survey
 
-Finds open, Lean-formalized problems bottlenecked on reasoning. Findings: [erdos.md](erdos.md), [collections.md](collections.md).
+Finds open, Lean-formalized problems bottlenecked on reasoning. Findings: [research/selection/](../../research/selection/).
 
 ## Run
 

@@ -19,7 +19,9 @@ One folder per problem; one Lean project (one Mathlib) and one Rust workspace at
 | `principles/` | How we work: problem-solving heuristics, scepticism, AI use, Lean, values; distilled from Tao and others, with sources | No |
 | `templates/problem/` | Starting files for a new problem: README, state, lines, log, backlog, obstructions, blueprint, solver/README | No |
 | `.claude/` | Skills `explore`, `review`, `audit-statement`, `formalize`; `refuter` agent | No |
-| `tools/survey/` | Problem-finding pipeline (Python, stdlib only) and its findings | No |
+| `tools/survey/` | Problem-finding pipeline (Python, stdlib only) | No |
+| `tools/principles/` | Transcript fetcher for principles research (needs `pip install youtube-transcript-api`) | No |
+| `research/selection/` | Problem surveys and shortlists | No |
 
 ## Setup
 
@@ -38,4 +40,4 @@ One folder per problem; one Lean project (one Mathlib) and one Rust workspace at
 | [Catch-Up conjecture](problems/catch-up/README.md): optimal play on {1..N} is a draw when 1 + … + N is even | Explore | [state.md](problems/catch-up/state.md) |
 | [Collatz](problems/collatz/README.md) | Shelved | — |
 
-- **Choosing a target**: surveys of [Erdős problems](tools/survey/erdos.md) and [other formal-conjectures collections](tools/survey/collections.md).
+- **Choosing a target**: surveys of [Erdős problems](research/selection/erdos.md) and [other formal-conjectures collections](research/selection/collections.md).

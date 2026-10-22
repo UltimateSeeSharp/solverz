@@ -1,6 +1,6 @@
 """Save YouTube transcripts as plain text for principles research.
 
-Usage: python tools/transcript.py <video id or URL>... [--out DIR]
+Usage: python tools/principles/transcript.py <video id or URL>... [--out DIR]
 Needs `pip install youtube-transcript-api`. Default output: F:\\WIN_DATA\\Documents\\transcripts
 (outside the repo: transcripts are third-party text and stay out of git).
 """

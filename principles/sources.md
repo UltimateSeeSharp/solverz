@@ -62,7 +62,7 @@ Read in full on 2026-10-22 unless marked. "Secondary" means only coverage or a s
 | `[LittEpoch]` | [Daniel Litt on Epoch AI](https://www.youtube.com/watch?v=jFJku8sxLWY) (2026), transcript | Making friends with objects, cost of trying, benchmarks |
 | `[NSWeek]` | [Academia on the Line #2: Navier–Stokes week](https://www.youtube.com/watch?v=U4bFeT1Vw1o) (Sep 2026, with Gómez-Serrano), transcript | Scooping, confidentiality, forced vs unforced |
 
-Transcripts are stored outside the repo in `F:\WIN_DATA\Documents\transcripts\` (fetch with `tools/transcript.py`).
+Transcripts are stored outside the repo in `F:\WIN_DATA\Documents\transcripts\` (fetch with `tools/principles/transcript.py`).
 
 ## To read next
 Lakatos, *Proofs and Refutations*; Pólya, *How to Solve It*; Thurston, "On proof and progress"; Google's AI co-scientist; FunSearch.
