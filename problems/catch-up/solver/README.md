@@ -22,8 +22,16 @@ Verification chain (`cargo test --release`, CUDA tests with `--features cuda`): 
 |---|---|---|
 | `row_stats` | How are a position's values arranged by gap (parity pattern, distinct rows)? | `cargo run --release -p catch-up --bin row_stats -- 22` |
 | `quad_step` | Does adding a balanced quadruple keep a drawn set drawn? Also: values of complete sets | `cargo run --release -p catch-up --bin quad_step -- 30` |
+| `pair_step` | Do top twins {x, x} cancel? Does a top pair {x, x+1} act on V(R, ·) by a local rule in g? | `cargo run --release -p catch-up --bin pair_step -- 22` |
+| `strategy_eval` | Which fixed pick rules hold a draw against a perfect opponent? Reusable evaluator: a rule is a function (numbers left, gap) → pick | `cargo run --release -p catch-up --bin strategy_eval -- 20` |
+| `interval_rows` | Where do interval rows V({1..m}, g), all gaps, break the parity rule? Census over all R ⊆ {1..U} by completeness and holes; near-intervals at gap 0 | `cargo run --release -p catch-up --bin interval_rows -- 22` (1 GB) |
+| `near_intervals` | Are {1..m} ∖ H, \|H\| ≤ 6, draws (gap 0, and moderate gaps)? | `cargo run --release -p catch-up --bin near_intervals -- 30` (64 s, ~3 GB) |
+| `hole_game` | With both players restricted to drawing picks, how few holes (four measures, incl. broken adjacent pairs) can a defender keep at its turn starts? `line <measure> <1\|2> <h>` prints an optimal line | `cargo run --release -p catch-up --bin hole_game -- 24` (4 min, ~7 GB) |
+| `partner_reply` | Is answering the attacker's last pick with its adjacent partner a drawing reply? By broken pairs and game phase | `cargo run --release -p catch-up --bin partner_reply -- 24` (30 s, ~1 GB) |
+| `partner_game` | When must a pairing defender refuse the partner? Explores every position reachable when D answers with the partner whenever it draws | `cargo run --release -p catch-up --bin partner_game -- 20` (36 s) |
 
 ## Recipes
 
 - **value(S) for every S ⊆ {1..U} at once:** one `Layered` run on {1..U}; the row of S at gap 0 is value(S), because a gap-0 turn is a single pick like the opening (`quad_step::all_values`). Not `tiled-cuda`: it stores gap 0 only for S whose complement sums to an even number.
-- **One position:** `Solver::position(mask, gap)` = mover's value with `mask` left, trailing by `gap`.
+- **One position:** `Solver::position(mask, gap)` = mover's value with `mask` left, trailing by `gap`. Only for gap ≤ the largest number: the memo has no check, and a larger gap reads another mask's slot.
+- **Every gap up to sum(R):** `interval_rows`'s own table (stride sum + 1; 1 GB at U = 22).
