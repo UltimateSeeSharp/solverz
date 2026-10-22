@@ -4,6 +4,8 @@
 
 use std::cmp::Ordering;
 
+pub mod layered;
+
 /// Game value from the point of view of the player about to move. Ordered Loss < Draw < Win.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Outcome {
@@ -104,6 +106,12 @@ impl Solver {
                 (x, self.aux(full & !(1 << i), total - x, -(x as i64)).neg())
             })
             .collect()
+    }
+
+    /// The mover's value in a non-opening position: `mask` = numbers left, trailing by `gap`.
+    pub fn position(&mut self, mask: usize, gap: u64) -> Outcome {
+        let sum = (0..self.numbers.len()).filter(|&i| mask >> i & 1 == 1).map(|i| self.numbers[i]).sum();
+        self.aux(mask, sum, -(gap as i64))
     }
 
     /// `valueAux` for a non-first move: `mask` = numbers left, `diff` = mover's score minus opponent's.
