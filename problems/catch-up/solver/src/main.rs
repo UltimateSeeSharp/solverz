@@ -1,13 +1,13 @@
-//! Usage: catch-up [--engine dfs|layered|tiled|gpu] [--top H] [--from N] [to]   (defaults: dfs, 8, 1, 20)
-//! The gpu engine needs `--features gpu`.
+//! Usage: catch-up [--engine dfs|layered|tiled|cuda] [--top H] [--from N] [to]   (defaults: dfs, 8, 1, 20)
+//! The cuda engine needs `--features cuda`.
 //! Prints, for each N, the optimal-play outcome of Catch-Up on {1..N} and player 1's opening options.
 
 use catch_up::layered::Layered;
 use catch_up::tiled::Tiled;
 use catch_up::{interval, Outcome, Solver};
 use std::time::Instant;
-#[cfg(feature = "gpu")]
-use {catch_up::gpu::Gpu, std::sync::OnceLock};
+#[cfg(feature = "cuda")]
+use {catch_up::cuda::Cuda, std::sync::OnceLock};
 
 const DEFAULT_TO: u64 = 20;
 const DEFAULT_FROM: u64 = 1;
@@ -18,7 +18,7 @@ enum Engine {
     Dfs,
     Layered,
     Tiled,
-    Gpu,
+    Cuda,
 }
 
 struct Args {
@@ -38,8 +38,8 @@ fn parse_args() -> Args {
                     Some("dfs") => Engine::Dfs,
                     Some("layered") => Engine::Layered,
                     Some("tiled") => Engine::Tiled,
-                    Some("gpu") => Engine::Gpu,
-                    other => panic!("unknown engine {other:?}; use dfs, layered, tiled or gpu"),
+                    Some("cuda") => Engine::Cuda,
+                    other => panic!("unknown engine {other:?}; use dfs, layered, tiled or cuda"),
                 }
             }
             "--top" => args.top = it.next().and_then(|s| s.parse().ok()).expect("--top needs a number"),
@@ -50,20 +50,20 @@ fn parse_args() -> Args {
     args
 }
 
-#[cfg(feature = "gpu")]
-fn gpu_openings(numbers: &[u64], top: usize) -> Vec<(u64, Outcome)> {
-    static GPU: OnceLock<Gpu> = OnceLock::new();
-    let gpu = GPU.get_or_init(|| {
-        let gpu = Gpu::new().expect("no usable GPU");
-        eprintln!("GPU: {}", gpu.adapter);
-        gpu
+#[cfg(feature = "cuda")]
+fn cuda_openings(numbers: &[u64]) -> Vec<(u64, Outcome)> {
+    static CUDA: OnceLock<Cuda> = OnceLock::new();
+    let cuda = CUDA.get_or_init(|| {
+        let cuda = Cuda::new().expect("no usable CUDA device");
+        eprintln!("CUDA: {}", cuda.device);
+        cuda
     });
-    Tiled::new(numbers, top).openings_gpu(gpu)
+    Layered::new(numbers).openings_cuda(cuda).expect("CUDA run failed")
 }
 
-#[cfg(not(feature = "gpu"))]
-fn gpu_openings(_: &[u64], _: usize) -> Vec<(u64, Outcome)> {
-    panic!("built without GPU support; rebuild with --features gpu")
+#[cfg(not(feature = "cuda"))]
+fn cuda_openings(_: &[u64]) -> Vec<(u64, Outcome)> {
+    panic!("built without CUDA support; rebuild with --features cuda")
 }
 
 fn list(openings: &[(u64, Outcome)], want: Outcome) -> String {
@@ -87,7 +87,7 @@ fn main() {
             // The layered engines evaluate every position: 2^n masks × (n + 1) gaps.
             Engine::Layered => (Layered::new(&numbers).openings(), (1u64 << n) * (n + 1)),
             Engine::Tiled => (Tiled::new(&numbers, args.top.min(n as usize)).openings(), (1u64 << n) * (n + 1)),
-            Engine::Gpu => (gpu_openings(&numbers, args.top.min(n as usize)), (1u64 << n) * (n + 1)),
+            Engine::Cuda => (cuda_openings(&numbers), (1u64 << n) * (n + 1)),
         };
         let value = openings.iter().map(|&(_, o)| o).max().unwrap_or(Outcome::Draw);
         println!(

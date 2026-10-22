@@ -5,11 +5,9 @@ edition = "2024"
 default-run = "catch-up"
 
 [dependencies]
-bytemuck = { version = "1", optional = true }
-pollster = { version = "0.4", optional = true }
+cudarc = { version = "0.19", default-features = false, features = ["std", "driver", "nvrtc", "cuda-13030", "dynamic-loading"], optional = true }
 rayon = "1"
-wgpu = { version = "25", optional = true }
 
 [features]
-# GPU engine (wgpu). Off by default; on windows-gnu it needs GNU binutils (dlltool, as) on PATH.
-gpu = ["dep:bytemuck", "dep:pollster", "dep:wgpu"]
+# CUDA engine. Off by default; needs the CUDA driver and NVRTC DLLs on PATH at runtime.
+cuda = ["dep:cudarc"]

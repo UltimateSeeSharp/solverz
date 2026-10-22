@@ -4,8 +4,8 @@
 
 use std::cmp::Ordering;
 
-#[cfg(feature = "gpu")]
-pub mod gpu;
+#[cfg(feature = "cuda")]
+pub mod cuda;
 pub mod layered;
 pub mod tiled;
 

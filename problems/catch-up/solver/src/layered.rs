@@ -31,11 +31,11 @@ pub(crate) fn decode(v: u32) -> Outcome {
 }
 
 pub struct Layered {
-    numbers: Vec<u64>,
-    max_gap: usize,
-    words_per_row: usize,
+    pub(crate) numbers: Vec<u64>,
+    pub(crate) max_gap: usize,
+    pub(crate) words_per_row: usize,
     /// binom[p][i] = C(p, i)
-    binom: Vec<Vec<u64>>,
+    pub(crate) binom: Vec<Vec<u64>>,
 }
 
 impl Layered {
@@ -98,12 +98,18 @@ impl Layered {
             return Vec::new();
         }
         let last = self.run(|_, _| {});
+        self.openings_from(&last)
+    }
+
+    /// Openings read from layer n − 1.
+    pub(crate) fn openings_from(&self, last: &[u32]) -> Vec<(u64, Outcome)> {
+        let n = self.n();
         let full = (1u64 << n) - 1;
         (0..n)
             .map(|i| {
                 // After the opening the opponent moves, trailing by the number taken.
                 let x = self.numbers[i];
-                (x, decode(neg(self.cell(&last, self.rank(full & !(1 << i)), x as usize))))
+                (x, decode(neg(self.cell(last, self.rank(full & !(1 << i)), x as usize))))
             })
             .collect()
     }
