@@ -14,6 +14,11 @@
 
 ## Toward others
 - **Disclose** AI and tool use; humans take responsibility for correctness and authorship; attribute properly, including when an AI rediscovers a known argument. `[Leiden]` `[1026]`
+- **Don't play the slot machine for theorems.** Litt had an agent "find five recent conjectures and prove them": three correct, publishable-looking papers in an hour, no understanding gained. A paper no human has engaged with can't be high quality. `[LittCMSA]` `[LittA16z]`
+- **Answer first, insight second.** When an AI answer arrives before understanding, don't stop at the answer: read it as little as possible, take a hint, try to prove things yourself, take the next hint. `[GowersSummer]`
+- The new bar for a contribution: prove something the models can't prove alone, possibly with their help. `[Gowers55]`
 - **Don't strip-mine.** In October 2026 a lab released ~300 AI proofs without consulting anyone, wiping out junior researchers' projects. Before attacking a problem, check whether someone is working on it; prefer problems where the work adds understanding. `[NoHeroes]`
 - Second proofs and partial results still have value; don't abandon a line because AI might get there first. `[Taback]`
-- Beware sharing unpublished ideas of others with commercial models. `[Golden]`
+- Beware sharing unpublished ideas of others with commercial models. `[Golden]` In September 2026 researchers who had used a lab's models on unpublished Navier–Stokes work, or left a draft on an unlinked web page, worried their work had reached a competitor's training data. Turn off training on your data; treat anything online as public. `[NSWeek]`
+- **Check exactly which version was solved.** The October Navier–Stokes result is the forced equation; the unforced Millennium version is still open. Read the statement before the headline. `[NSWeek]`
+- **Release failures.** AlphaEvolve's paper listed where it failed; labs' logs of failed attempts would teach more than their wins. `[NSWeek]` `[AE]`

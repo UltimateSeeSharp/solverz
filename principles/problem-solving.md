@@ -8,6 +8,8 @@
 - **Ask dumb questions.** Delete a hypothesis; strengthen the conclusion; prove it with a different method; does X imply Y, is the converse true? `[Dumb]`
 - **Think ahead.** Before proving a lemma: how will it be used, which features matter, would a weaker version do, is there a simpler formulation, can a hard-to-verify hypothesis be dropped? `[Ahead]`
 - **Keep a list of ~10 favourite problems** and test every new trick you learn against them (Feynman). `[Fut]`
+- **Make friends with the object.** Play with a new object: work out examples and special cases; find the smallest case your tools can't handle and attack that until it gives. Or go the other way: take a technique you have and ask which problems it is relevant to. `[LittEpoch]`
+- **Motivated moves** (Gowers): every step should come from a standard move, not a rabbit out of a hat: look for an intermediate property; "pretend we've chosen it" (treat the unknown object as a variable and collect the properties it needs); generalize (from a yes/no property to a function with values); try the simplest example (addition before other operations, {0} before other sets); backtrack with what you learned ("we're done unless k is odd"). The chessboard-domino invariant falls out of these moves alone. `[GowersDB]`
 
 ## Making progress
 - **Value partial progress.** Keeping a partial argument costs nothing. Ask which part a failed method *did* handle; split the problem by regime and use a different tool per piece; the leftover gap shows exactly what still needs a new idea. `[Partial]`
@@ -22,6 +24,8 @@
 - **Robustness test.** Change the input slightly (delete a few primes, swap one number): if the property dies, any proof must use a delicate feature; if it survives, a broader statement may be true and easier. `[Lex]`
 - **Structure vs randomness.** Show the object is either structured or random-like and handle both cases. `[Lex]`
 - **Know your tools' limits.** Keep a library of counterexamples and model cases; know which obstructions each tool can handle; if a tool works like a magic wand, study it until you could do without it. `[Limits]`
+- **Random models.** Number theorists predict by listing every known property of an object, building a random object with those properties, and asking what holds with probability 1 (Cohen–Lenstra). A cheap way to guess which way a conjecture goes. Expert credence about truth is only a little better than chance; views flip (elliptic curve ranks). `[LittEpoch]`
+- **Let a predictor point to the features that matter.** In knot theory, a network predicted the signature from 20 hyperbolic invariants; checking which inputs it was sensitive to left 3, plotting those suggested inequalities (the first ones were false), and the right one was then proved by hand. `[MAP]`
 - **How big problems usually fall:** toy cases solved → the method turns out to need property P → counterexamples where P fails → methods borrowed from other fields → reduction to a key conjecture → a special case → cascade. `[Sceptical]`
 
 ## After solving

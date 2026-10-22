@@ -1,6 +1,6 @@
 # Principles
 
-How we attack problems, distilled mainly from Terence Tao (blog, talks, papers, videos) plus a few others. Agents and humans read these before working on a problem; workflow rules in `CLAUDE.md` and agent prompts cite them.
+How we attack problems, distilled mainly from Terence Tao (blog, talks, papers, videos) plus a few others.
 
 | File | Covers |
 |---|---|
@@ -13,4 +13,4 @@ How we attack problems, distilled mainly from Terence Tao (blog, talks, papers, 
 
 Tags like `[ICM]` point to entries in `sources.md`. Paraphrases, not quotes, unless in quotation marks. Raw transcripts stay out of git.
 
-Living document: when a source or our own experience teaches something new, add it here with its tag.
+New lessons go into the matching file with their source tag.

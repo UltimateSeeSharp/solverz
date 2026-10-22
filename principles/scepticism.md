@@ -28,3 +28,8 @@
 - Don't rely on an AI to correct its own errors; verify externally.
 - AI literature search: of six suggested papers maybe one is real and relevant, four invented. Cite only what you opened. `[Lex]`
 - Reporting bias: successes are announced, failures aren't. Judge capability with negative results included. `[ICM]`
+- Experts reject a wrong proof from its structure ("this would imply something too strong") before finding the line with the error. Models can't do this big-picture check yet, so the refuter must try it explicitly. `[LittA16z]`
+- AI-written crank papers now read plausibly: 12 of 13 recent arXiv papers with "Hodge conjecture" in the title were nonsense that took minutes, not seconds, to reject. `[LittEpoch]`
+- Judge an AI result like a human one ("if a colleague did this, would I be pleased?"); a grind proof of a real problem is still signal. Novelty shows later, in whether the ideas get reused. `[LittEpoch]`
+- Calibrate on length: a huge AI proof of a major result is almost surely wrong; nobody, human or model, has checked it. `[LittA16z]`
+- A Lean artifact certifies the Lean statement, not the accompanying informal proof (`lean.md`). `[NSLost]`
