@@ -1,6 +1,8 @@
 module
 
 public import CatchUp.Statement
+public import CatchUp.Parity
+public import CatchUp.Best
 
 /-!
 # Catch-Up conjecture
