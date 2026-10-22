@@ -15,6 +15,9 @@ One folder per problem; one Lean project (one Mathlib) and one Rust workspace at
 | `problems/<problem>/solver/` | Rust crate: search/compute code; kept experiments in `src/bin/` | No |
 | `problems/<problem>/results/` | Curated solver outputs with run metadata | No |
 | `problems/<problem>/scratch/` | Playground, git-ignored | No |
+| `principles/` | How we work: problem-solving heuristics, scepticism, AI use, Lean, values; distilled from Tao and others, with sources | No |
+| `templates/problem/` | Starting files for a new problem: README, log, backlog, obstructions, blueprint | No |
+| `.claude/` | `explore` skill (one research-loop iteration) and `refuter` agent | No |
 | `tools/survey/` | Problem-finding pipeline (Python, stdlib only) and its findings | No |
 
 Computations may produce certificates; a certificate counts only once a Lean proof checks it.
