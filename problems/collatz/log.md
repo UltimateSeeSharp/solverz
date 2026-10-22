@@ -2,7 +2,7 @@
 
 Newest last. Entry format:
 
-### <date>: <title> (<line>, <mode>)
+### <date>: <title> (<line, or —>)
 - **Claim / question.** <precise and falsifiable; for literature, the question>
 - **Approach.** <experiment (file, command, runtime, how checked), proof attempt, or search>
 - **Outcome.** <holds up to …, the first counterexample, the proof step reached, or what the search found>
