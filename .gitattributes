@@ -1,0 +1,2 @@
+# LF everywhere; overrides the core.autocrlf=true Windows default on checkout
+* text=auto eol=lf

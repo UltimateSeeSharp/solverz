@@ -1,4 +1,4 @@
-# math-lab
+# solverz
 
 AI-assisted attacks on open math problems, with every claimed result machine-checked in Lean 4.
 
@@ -6,7 +6,7 @@ AI-assisted attacks on open math problems, with every claimed result machine-che
 
 | Path | Contents | Trusted? |
 |---|---|---|
-| `MathLab/` | Lean library (Mathlib), one folder per problem | Yes, if it builds with no `sorry` |
+| `Solverz/` | Lean library (Mathlib), one folder per problem | Yes, if it builds with no `sorry` |
 | `experiments/<problem>/` | Python (uv) and Rust search/compute code | No, exploration only |
 | `notes/<problem>.md` | Idea log, including failed attempts and why | No |
 
