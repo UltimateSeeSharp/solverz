@@ -2,19 +2,17 @@
 
 Grouped by line, most promising first.
 
-## A1
-
-- **B1 Near-pair switches.** Paper sketch, untested: for multisets, value(S ⊎ {x, x}) = value(S) if x ≥ max(S), since answering x with the other x restores the position (gaps never exceed max(S), so taking x always ends the turn); the solver accepts repeated numbers, so check this first. For a pair {x, x+1} above max(R), the same answer shifts the gap by ±1, the first taker choosing the sign. Test whether V(R ∪ {x, x+1}, g) (V = mover's value with R left at gap g) is a function of V(R, g−1), V(R, g), V(R, g+1) for all R ⊆ {1..20}, x > max(R). If so, {1..N} peels into pairs from the top: a position-level induction on intervals.
-
 ## A2
 
-- **B2 Draw region of positions.** Set-level laws fail (log 2026-10-22), so a proof needs a class of positions (numbers left, gap) both players can stay in. From the layered tables (N ≤ 22): where exactly are even-parity positions draws? Start at the parity rule's deviations (gaps ≤ 2, largest gaps), then test closure: from each class position the mover has a turn into the class, and every turn leaves the opponent at least a draw.
-- **B5 Endgames.** Exact value formulas for ≤ 3 numbers left, as Lean lemmas; compare with Feng's case analysis (README, Known) first.
+- **B9 When must the defender refuse the partner?** Drawing play looks like adjacent pairing, but an unconditional partner reply loses from N = 11 (O6), even at one broken pair and gap 3. In the forced-partner game (reference: refuter's `scratch/refuter/partner/forced2.mjs`), list for N ≤ 20 the positions reached where the partner loses but another pick draws, and find what separates them (sum left against the gap, as in the Win tail of the interval rows; broken pairs; phase). A rule "partner unless P" is then evaluated in that game, not by per-position rates (log 2026-10-22: answering with the partner is not a strategy).
+- **B2 A class whose defects may grow.** Fixed hole bounds don't close (O5). Candidates: broken adjacent pairs ≤ ⌈N/6⌉ (holds the whole game for N ≤ 24); defects weighted by height or by the gap they cost; "paired above k, anything below". Test each with `hole_game` (cost = numbers left).
+- **B10 Hole game beyond N = 24.** To see whether adjacent defects grow like N/6: a boolean "can D keep ≤ h broken pairs all game" table at 2 bits per position, layered and parallel, for N = 27, 28 (~2 GB).
+- **B5 Endgames in Lean.** Formalize L7 (paper proof; statement shape in its section) via a membership form of `valueAux` (using L6); then three numbers left, cross-checked against Feng's case analysis (README, Known).
 
 ## A3
 
-- **B4 Drawing strategies.** Test simple rules for player 2 and for player 1 against a perfect opponent (largest number that catches up; smallest; minimal overshoot; mirror x ↦ N+1−x); report the first N where each fails, then patch the best rules at their failure positions. Build a reusable evaluator (`strategy_eval.rs`) and keep a leaderboard here.
+- **B4 Patch drawing strategies.** `strategy_eval` exists; leaderboard: fixed pick rules (Largest, Smallest, SmallestCatch, Exact, LeadOne, StayBehind) fail at N = 4 as player 1; rules that repair broken adjacent pairs hold N = 3, 4 as player 2 only. Patching fixed rules is aimless; a rule needs a region to steer into (A2) or the opponent's last pick (B9).
 
 ## A4
 
-- **B3 Richer density notion.** Completeness nearly characterizes even-sum draws; find what its 523 exceptions with max ≤ 30 lack (`quad_step 30` lists the first). Candidates: consecutive numbers differ by ≤ 2; every amount payable in two disjoint ways; S ⊇ {1..k} with k ≥ max(S)/2.
+- **B3 Richer density notion.** Completeness nearly characterizes even-sum draws; find what its 523 exceptions with max ≤ 30 lack (`quad_step 30` lists the first). Complete sets fail badly at moderate gaps ({1,2,4,8,16} at gap 5 is a mover win), near-intervals don't (L4). Candidates: few holes relative to max (L4); consecutive numbers differ by ≤ 2; S ⊇ {1..k} with k ≥ max(S)/2.
