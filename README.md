@@ -31,7 +31,7 @@ One folder per problem; one Lean project (one Mathlib) and one Rust workspace at
 | `problems/<problem>/scratch/` | Playground, git-ignored | No |
 | `principles/` | How we work: problem-solving heuristics, scepticism, AI use, Lean, values; distilled from Tao and others, with sources | No |
 | `templates/problem/` | Starting files for a new problem: README, state, lines, log, backlog, obstructions, blueprint, solver/README | No |
-| `.claude/` | Skill `audit-statement`; `refuter` agent | No |
+| `.claude/` | Skill `audit-statement`; agents `refuter` and `ideator` (effort max) | No |
 | `tools/survey/` | Problem-finding pipeline (Python, stdlib only) | No |
 | `tools/principles/` | Transcript fetcher for principles research (needs `pip install youtube-transcript-api`) | No |
 | `research/selection/` | Problem surveys and shortlists | No |

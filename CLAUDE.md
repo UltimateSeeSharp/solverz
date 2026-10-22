@@ -25,7 +25,7 @@ Read `principles/` before working on a problem; it is the why behind these rules
 **Approved**, a separate column: the date **the user** approved the node's Lean statement after the `audit-statement` skill. Required for the goal and any node reported as a result; `—` otherwise.
 
 **Attacking a problem.** Repeat until a stop rule fires or the request is done:
-1. **Pick** the Next step in `state.md`, else the main line's best backlog item. Skip what is logged, ruled out in `obstructions.md`, or held by a claim. At least one unit in five goes to another line or to an idea unlike anything logged.
+1. **Pick** the Next step in `state.md`, else the main line's best backlog item. Skip what is logged, ruled out in `obstructions.md`, or held by a claim. At least one unit in five goes to another line or to an idea unlike anything logged. New ideas come from the `ideator` agent (effort max; sessions run at xhigh): call it for that fifth unit, at each review, and when a line's backlog is empty; add the ideas you keep to `backlog.md` with new IDs.
 2. **Work** one unit: compute data, state a conjecture, run a search, prove a node on paper, formalize a `paper proof` node, or answer one literature question. Stay within the README's agent rules.
 3. **Refute**: a claim or search result goes to the `refuter` agent in claim mode, a paper proof in proof mode; record its verdict as given. A proof-mode SURVIVES moves the node to `paper proof`.
 4. **Record**: one log entry; the line's metric; counterexamples in `obstructions.md`; the backlog (remove the item, add at most two follow-ups); blueprint changes; kept experiments in `solver/README.md`.
