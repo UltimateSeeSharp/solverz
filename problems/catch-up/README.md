@@ -12,6 +12,8 @@ Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taki
 
 - Exhaustive search to N = 28: von Stengel, talk abstract, CGT Colloquium III, Lisbon 2019 ([ludicum.org/?p=4151](https://ludicum.org/?p=4151)). No paper, code or data found.
 - OEIS [A278587](https://oeis.org/A278587): values for N = 3..20.
+- Original paper ([MPRA 108784](https://mpra.ub.uni-muenchen.de/108784/)): proves only the parity facts; notes that even-sum sets in general need not draw (multiset {2,2,2,3,3}).
+- Endgames with 3–4 numbers left, case analysis: K. C. G. Feng, honors thesis, College of Staten Island 2024 ([pdf](https://www.math.csi.cuny.edu/Undergraduate/HonorsTheses/2024-feng.pdf)).
 - No proof or partial proof found (searched 2026-10-22).
 
 ## Our solver
@@ -29,4 +31,26 @@ Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taki
 ## Next
 
 1. Reproduce N = 25..28, then N = 31 (new; about 17 GB table). N = 32 needs a smaller encoding.
-2. Look for a simple drawing strategy: test candidate rules (e.g. "pick the largest number that catches up") against a perfect opponent with the solver; a rule that never loses for all N ≤ 24 is a proof target.
+
+## Backlog
+
+Proof-hunt ideas, most promising first; each iteration takes one, logs it and updates this list.
+
+1. **Near-pair switches** (wild). Paper sketch, untested: for multisets, value(S ⊎ {x, x}) = value(S) if x ≥ max(S), since answering x with the other x restores the position (gaps never exceed max(S), so taking x always ends the turn); the solver accepts repeated numbers, so check this first. For a pair {x, x+1} above max(R), the same answer shifts the gap by ±1, the first taker choosing the sign. Test whether V(R ∪ {x, x+1}, g) (V = mover's value with R left at gap g) is a function of V(R, g−1), V(R, g), V(R, g+1) for all R ⊆ {1..20}, x > max(R). If so, {1..N} peels into pairs from the top: a position-level induction on intervals.
+2. **Draw region of positions** (seed items "position structure" and "parity rule"). Set-level laws fail (Log), so a proof needs a class of positions (numbers left, gap) both players can stay in. From the layered tables (N ≤ 22): where exactly are even-parity positions draws? Start at the parity rule's deviations (gaps ≤ 2, largest gaps), then test closure: from each class position the mover has a turn into the class, and every turn leaves the opponent at least a draw.
+3. **Richer density notion** (variation of the Log's best result). Completeness nearly characterizes even-sum draws; find what its 523 exceptions with max ≤ 30 lack (`quad_step 30` lists the first). Candidates: consecutive numbers differ by ≤ 2; every amount payable in two disjoint ways; S ⊇ {1..k} with k ≥ max(S)/2.
+4. **Drawing strategies.** Test simple rules for player 2 and for player 1 against a perfect opponent (largest number that catches up; smallest; minimal overshoot; mirror x ↦ N+1−x); report the first N where each fails, then patch the best rules at their failure positions. Build a reusable evaluator (`strategy_eval.rs`) and keep a leaderboard here.
+5. **Endgames.** Exact value formulas for ≤ 3 numbers left, as Lean lemmas; compare with Feng's case analysis (Known) first.
+
+## Log
+
+### 2026-10-22: induction by four fails, even for complete sets
+
+- **Claim.** If S has even sum and is a draw, adding a balanced quadruple Q = {a < b < c < d}, a + d = b + c, above max(S) keeps it a draw. Q = the next four numbers is the step {1..N} → {1..N+4}, which with N = 0, 3 would prove the conjecture.
+- **Experiment.** `solver/src/bin/quad_step.rs`: `cargo run --release -p catch-up --bin quad_step -- 30` (2 min, about 4 GB; output in `scratch/quad_step-30.md`). One layered table on {1..U} gives value(S) for every S ⊆ {1..U}: its gap-0 entry, since a gap-0 turn is one pick like the opening. Checked against `Solver` on all subsets of {1..10} and 100 random ones; every reported set re-solved with `Solver` and, up to 9 numbers, with `reference_value`. Identical output with the library at 740f565 and 4b1ce2b.
+- **Outcome: false.**
+  - Any S: smallest break {2,7,9,14} (draw) + {15,16,17,18} → player-1 win. At U = 30, 32,652 of 32.7M even-sum draws break (0.1%).
+  - Complete S (each number ≤ 1 + the sum of the smaller ones, so every amount up to the total can be paid exactly; {1..N} is complete): no break for S ⊆ {1..24}; first break {1,2,4,8,15,17,18,20,25} + {26,27,28,29} → player-1 win (1 of 5.86M complete draws). Non-consecutive quadruples break sooner: {1,2,3,5,6,9,14,18} + {20,22,24,26} → player-1 win.
+  - Side result: every complete even-sum S with max ≤ 21 is a draw. Up to max 30, 523 of 93.7M are not, all sparse: first {1,2,3,7,9,11,14,15,22} (player 1 wins by opening 2); all player-1 wins except one loss, {1,2,3,4,6,7,8,16,18,21,22,26,27,29,30}.
+  - Literature (web search 2026-10-22): nothing on complete sets or quadruple steps.
+- **Meaning.** Adding four numbers doesn't preserve draws, not even for complete sets, so the interval induction needs more than completeness. The breaks are sparse sets, often starting 1, 2, 4, 8 (guess: few ways to pay each amount; Backlog 3). Completeness is also lost after one move (taking 1 breaks it), so the invariant must be about positions (numbers left + gap), not starting sets.
