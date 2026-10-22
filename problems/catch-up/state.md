@@ -4,7 +4,7 @@
 
 ## Where things stand
 
-- **Computed** ([results/](results/)): every even-total N ≤ 32 is a draw, and for N ≥ 12 every opening move draws. N = 31 and 32 go beyond the published N = 28.
+- **Computed** ([results/](results/)): every even-total N ≤ 35 is a draw, and for even totals with N ≥ 12 every opening move draws. N = 33 and 34 (odd totals) are player-1 wins, only by opening 1 and 2 respectively. N = 31–35 go beyond the published N = 28; N = 33–35 come from one engine (`tiled-cuda`) and are not independently checked.
 - **Blueprint** ([blueprint.md](blueprint.md)): L1–L3 at `conjecture`, goal statement approved; L3 (parity law) has a draft paper proof the refuter hasn't seen.
 - **Ruled out** ([obstructions.md](obstructions.md)): O1–O3, induction by four on sets (even complete ones) and completeness as the characterization of draws.
 - **Leads:** complete even-sum sets are draws up to max 21, with sparse exceptions beyond; most positions follow the parity rule "mover wins where a draw is impossible, draws where it is possible" (deviations at gaps ≤ 2 and the largest gaps). The invariant must be about positions (numbers left + gap), not starting sets.
@@ -13,7 +13,6 @@
 
 | Work | Resources | Since | Note |
 |---|---|---|---|
-| Solver: compact rows + GPU tile streaming for N ≥ 32, then N = 33–36 (tiled-cuda session) | GPU; RAM and disk for streamed tiles | 2026-10-22 | `cuda` engine done for N ≤ 31 (results/values-n1-31.md); building `tiled_cuda`: only reachable-parity gaps, base-3 packed, 4 B/row; tiles stream through RAM/disk |
 
 ## Next step
 
@@ -21,7 +20,9 @@ Line A1 (main), B1 near-pair switches: check value(S ⊎ {x, x}) = value(S) for 
 
 ## Awaiting review
 
-None.
+- **Compressed tiles?** Layer data compresses to 13–15% (zlib/lzma on N = 28's middle layer: ~6 bits of information per 32-bit row). Compressing tiles in RAM would keep N = 35 and 36 entirely in the 16 GB budget, with no disk. Needs the `zstd` crate (a download for the user to run).
+- **N = 36?** Estimated 50–60 min, ~170 GB written to F: and ~230 GB read, peak ~55 GB of layer files (434 GB free), 16 GB RAM, GPU alone. Waiting for a go-ahead.
+- `results/values-n27-32.md` repeats its rows for N = 30–32 at the end of the table (harmless; results are never edited).
 
 ## Last review
 
