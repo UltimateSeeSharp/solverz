@@ -10,14 +10,15 @@ One folder per problem; one Lean project (one Mathlib) and one Rust workspace at
 |---|---|---|
 | `problems/<problem>/README.md` | Stable reference: statement, goals, literature, agent rules | No |
 | `problems/<problem>/state.md` | Current stage, results, open threads, next step: the handoff between sessions | No |
-| `problems/<problem>/log.md`, `backlog.md`, `obstructions.md`, `blueprint.md` | Every attempt (failures included), idea queue, ruled-out approaches, lemmas toward a proof | No |
+| `problems/<problem>/lines.md` | Lines of attack: routes to the goal with metric, budget, kill criteria | No |
+| `problems/<problem>/log.md`, `backlog.md`, `obstructions.md`, `blueprint.md` | Every attempt (failures included), idea queue per line, ruled-out approaches, lemmas with their promotion status | No |
 | `problems/<problem>/lean/` | Lean library `<Problem>` (Mathlib) | Yes, under the trust rules |
 | `problems/<problem>/solver/` | Rust crate: search/compute code; kept experiments in `src/bin/`; catalog in its `README.md` | No |
 | `problems/<problem>/results/` | Curated solver outputs with run metadata | No |
 | `problems/<problem>/scratch/` | Playground, git-ignored | No |
 | `principles/` | How we work: problem-solving heuristics, scepticism, AI use, Lean, values; distilled from Tao and others, with sources | No |
-| `templates/problem/` | Starting files for a new problem: README, state, log, backlog, obstructions, blueprint, solver/README | No |
-| `.claude/` | `explore` skill (one research-loop iteration) and `refuter` agent | No |
+| `templates/problem/` | Starting files for a new problem: README, state, lines, log, backlog, obstructions, blueprint, solver/README | No |
+| `.claude/` | Skills `explore`, `review`, `audit-statement`, `formalize`; `refuter` agent | No |
 | `tools/survey/` | Problem-finding pipeline (Python, stdlib only) and its findings | No |
 
 ## Setup

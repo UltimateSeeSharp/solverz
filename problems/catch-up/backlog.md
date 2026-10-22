@@ -1,9 +1,20 @@
 # Backlog
 
-Most promising first.
+Grouped by line, most promising first.
 
-1. **Near-pair switches.** Paper sketch, untested: for multisets, value(S ⊎ {x, x}) = value(S) if x ≥ max(S), since answering x with the other x restores the position (gaps never exceed max(S), so taking x always ends the turn); the solver accepts repeated numbers, so check this first. For a pair {x, x+1} above max(R), the same answer shifts the gap by ±1, the first taker choosing the sign. Test whether V(R ∪ {x, x+1}, g) (V = mover's value with R left at gap g) is a function of V(R, g−1), V(R, g), V(R, g+1) for all R ⊆ {1..20}, x > max(R). If so, {1..N} peels into pairs from the top: a position-level induction on intervals.
-2. **Draw region of positions.** Set-level laws fail (log 2026-10-22), so a proof needs a class of positions (numbers left, gap) both players can stay in. From the layered tables (N ≤ 22): where exactly are even-parity positions draws? Start at the parity rule's deviations (gaps ≤ 2, largest gaps), then test closure: from each class position the mover has a turn into the class, and every turn leaves the opponent at least a draw.
-3. **Richer density notion.** Completeness nearly characterizes even-sum draws; find what its 523 exceptions with max ≤ 30 lack (`quad_step 30` lists the first). Candidates: consecutive numbers differ by ≤ 2; every amount payable in two disjoint ways; S ⊇ {1..k} with k ≥ max(S)/2.
-4. **Drawing strategies.** Test simple rules for player 2 and for player 1 against a perfect opponent (largest number that catches up; smallest; minimal overshoot; mirror x ↦ N+1−x); report the first N where each fails, then patch the best rules at their failure positions. Build a reusable evaluator (`strategy_eval.rs`) and keep a leaderboard here.
-5. **Endgames.** Exact value formulas for ≤ 3 numbers left, as Lean lemmas; compare with Feng's case analysis (README, Known) first.
+## A1
+
+- **B1 Near-pair switches.** Paper sketch, untested: for multisets, value(S ⊎ {x, x}) = value(S) if x ≥ max(S), since answering x with the other x restores the position (gaps never exceed max(S), so taking x always ends the turn); the solver accepts repeated numbers, so check this first. For a pair {x, x+1} above max(R), the same answer shifts the gap by ±1, the first taker choosing the sign. Test whether V(R ∪ {x, x+1}, g) (V = mover's value with R left at gap g) is a function of V(R, g−1), V(R, g), V(R, g+1) for all R ⊆ {1..20}, x > max(R). If so, {1..N} peels into pairs from the top: a position-level induction on intervals.
+
+## A2
+
+- **B2 Draw region of positions.** Set-level laws fail (log 2026-10-22), so a proof needs a class of positions (numbers left, gap) both players can stay in. From the layered tables (N ≤ 22): where exactly are even-parity positions draws? Start at the parity rule's deviations (gaps ≤ 2, largest gaps), then test closure: from each class position the mover has a turn into the class, and every turn leaves the opponent at least a draw.
+- **B5 Endgames.** Exact value formulas for ≤ 3 numbers left, as Lean lemmas; compare with Feng's case analysis (README, Known) first.
+
+## A3
+
+- **B4 Drawing strategies.** Test simple rules for player 2 and for player 1 against a perfect opponent (largest number that catches up; smallest; minimal overshoot; mirror x ↦ N+1−x); report the first N where each fails, then patch the best rules at their failure positions. Build a reusable evaluator (`strategy_eval.rs`) and keep a leaderboard here.
+
+## A4
+
+- **B3 Richer density notion.** Completeness nearly characterizes even-sum draws; find what its 523 exceptions with max ≤ 30 lack (`quad_step 30` lists the first). Candidates: consecutive numbers differ by ≤ 2; every amount payable in two disjoint ways; S ⊇ {1..k} with k ≥ max(S)/2.

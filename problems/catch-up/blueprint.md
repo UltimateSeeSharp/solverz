@@ -1,9 +1,21 @@
 # Blueprint
 
-Status: `conjectured` (holds in all computed cases) → `paper proof` → `statement approved` (user) → `formalized` (Lean, `lake build --wfail`, `#print axioms` clean).
+Status: a step of the promotion ladder (`CLAUDE.md`, Workflow).
 
-| Lemma | Statement (plain terms) | Depends on | Status | Evidence |
-|---|---|---|---|---|
-| Main conjecture | On {1..N} with 1 + … + N even, optimal play is a draw | (open) | conjectured; Lean statement approved | Every even-total N ≤ 32 ([results/](results/)) |
-| Every opening draws | For even-total N ≥ 12, every opening move of player 1 still leads to a draw (implies the main conjecture for those N) | (open) | conjectured | N ≤ 32 ([results/](results/)) |
-| Parity law | In any position, the final score difference ≡ gap + sum of the numbers left (mod 2); so a draw needs gap ≡ sum left (mod 2) | none | paper proof | The two players take every remaining number between them: mover's final lead = −gap + (own − other's), and own − other's ≡ own + other's = sum left (mod 2) |
+| ID | Name | Statement | Uses | Lean | Status |
+|---|---|---|---|---|---|
+| L1 | Main conjecture | On {1..N} with 1 + … + N even, optimal play is a draw | — | `CatchUp.Conjecture` (statement) | computed (N ≤ 32); statement approved |
+| L2 | Every opening draws | For even-total N ≥ 12, every opening move of player 1 still leads to a draw; implies L1 for those N | — | — | computed (12 ≤ N ≤ 32) |
+| L3 | Parity law | In any position, the final score difference ≡ gap + sum of the numbers left (mod 2); so a draw needs gap ≡ sum left (mod 2) | — | — | paper proof |
+
+## L1 Main conjecture
+**Proof.** Open.
+**Evidence.** Every even-total N ≤ 32 is a draw ([results/](results/)).
+
+## L2 Every opening draws
+**Proof.** Open.
+**Evidence.** Every opening draws for each even-total N with 12 ≤ N ≤ 32 ([results/](results/)).
+
+## L3 Parity law
+**Proof.** The two players take every remaining number between them. If the mover's future picks sum to A and the opponent's to B, the mover's final lead is −gap + A − B, and A − B ≡ A + B = sum of the numbers left (mod 2). A draw means a final lead of 0, so gap ≡ sum left (mod 2).
+**Evidence.** Consistent with `row_stats` (N ≤ 22): the most common rows alternate with the gap's parity. Not checked exhaustively.

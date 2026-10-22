@@ -1,12 +1,12 @@
 # Log
 
-Newest last. One entry per attempt, failures included.
+Newest last. Entry format:
 
-Entry format:
-### <date>: <short title>
-- **Claim.** <precise, falsifiable>
-- **Experiment.** <file, command, runtime; how the code was checked against known values>
-- **Outcome.** <holds up to …, or the first counterexample>
-- **Refuter.** <verdict and main findings, or "not run (failed in testing)">
-- **Literature.** <what was searched, what was found>
+### <date>: <title> (<line>, <mode>)
+- **Claim / question.** <precise and falsifiable; for literature, the question>
+- **Approach.** <experiment (file, command, runtime, how checked), proof attempt, or search>
+- **Outcome.** <holds up to …, the first counterexample, the proof step reached, or what the search found>
+- **Refuter.** <verdict and main findings, or "not run (why)">
+- **Literature.** <searched what where, found what, or "not searched">
+- **Metric.** <line metric before → after>
 - **Meaning.** <what it tells us; for failures: why, and how the claim could be weakened>

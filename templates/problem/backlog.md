@@ -1,5 +1,7 @@
 # Backlog
 
-Most promising first.
+Grouped by line, most promising first.
 
-1. <idea>: <why promising, how to test>
+## A1
+
+- **B1** <idea> (<mode>): <why promising, how to test>

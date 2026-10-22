@@ -1,3 +1,3 @@
 # Obstructions
 
-- **<what fails>** (<log entry>): <counterexample>. Rules out: <approach>.
+- **O1 <what fails>** (<log entry>): <counterexample>. Rules out: <approach>.

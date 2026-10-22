@@ -1,6 +1,10 @@
 # Blueprint
 
-Status: `conjectured` (holds in all computed cases) → `paper proof` → `statement approved` (user) → `formalized` (Lean, `lake build --wfail`, `#print axioms` clean).
+Status: a step of the promotion ladder (`CLAUDE.md`, Workflow).
 
-| Lemma | Statement (plain terms) | Depends on | Status | Evidence |
-|---|---|---|---|---|
+| ID | Name | Statement (plain terms) | Uses | Line | Lean | Status |
+|---|---|---|---|---|---|---|
+
+## L1 <Name>
+**Proof.** <paper proof, every case listed; or "Open", or exactly how far a partial attempt got>
+**Evidence.** <computations and refuter verdicts, with log dates>
