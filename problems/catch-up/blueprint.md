@@ -2,11 +2,11 @@
 
 Status: a step of the promotion ladder (`CLAUDE.md`, Workflow).
 
-| ID | Name | Statement | Uses | Lean | Status |
-|---|---|---|---|---|---|
-| L1 | Main conjecture | On {1..N} with 1 + … + N even, optimal play is a draw | — | `CatchUp.Conjecture` (statement) | computed (N ≤ 32); statement approved |
-| L2 | Every opening draws | For even-total N ≥ 12, every opening move of player 1 still leads to a draw; implies L1 for those N | — | — | computed (12 ≤ N ≤ 32) |
-| L3 | Parity law | In any position, the final score difference ≡ gap + sum of the numbers left (mod 2); so a draw needs gap ≡ sum left (mod 2) | — | — | paper proof |
+| ID | Name | Statement | Uses | Line | Lean | Status |
+|---|---|---|---|---|---|---|
+| L1 | Main conjecture | On {1..N} with 1 + … + N even, optimal play is a draw | — | all | `CatchUp.Conjecture` (statement) | computed (N ≤ 32); statement approved |
+| L2 | Every opening draws | For even-total N ≥ 12, every opening move of player 1 still leads to a draw; implies L1 for those N | — | A3 | — | computed (12 ≤ N ≤ 32) |
+| L3 | Parity law | In any position, the final score difference ≡ gap + sum of the numbers left (mod 2); so a draw needs gap ≡ sum left (mod 2) | — | A2 | — | paper proof |
 
 ## L1 Main conjecture
 **Proof.** Open.
