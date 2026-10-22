@@ -2,6 +2,14 @@
 name = "catch-up"
 version = "0.1.0"
 edition = "2024"
+default-run = "catch-up"
 
 [dependencies]
+bytemuck = { version = "1", optional = true }
+pollster = { version = "0.4", optional = true }
 rayon = "1"
+wgpu = { version = "25", optional = true }
+
+[features]
+# GPU engine (wgpu). Off by default; on windows-gnu it needs GNU binutils (dlltool, as) on PATH.
+gpu = ["dep:bytemuck", "dep:pollster", "dep:wgpu"]

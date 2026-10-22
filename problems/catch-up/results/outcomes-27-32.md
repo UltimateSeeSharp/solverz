@@ -1,0 +1,19 @@
+# Catch-Up outcomes, N = 27..32
+
+Same columns as [outcomes.md](outcomes.md). N = 28 reproduces von Stengel's unpublished result (CGT Colloquium III, 2019); N = 31 and 32 are, as far as we know, new.
+
+- Date: 2026-10-22
+- Solver: `problems/catch-up/solver` at commit 740f565, layered engine (binary copied from that build)
+- Command: `catch-up --engine layered --from 27 32`
+- Machine: AMD Ryzen 7 3700X (16 threads, shared with other work during the run), 32 GB RAM; rustc 1.99.1
+- Total time: about 11 min; peak memory about 14 GB (N = 32)
+- `positions` = every position evaluated: 2^N × (N + 1)
+
+| N | total even | value (P1) | openings that win | draw | lose | positions | ms |
+|---|---|---|---|---|---|---|---|
+| 27 | true | Draw | - | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27 | - | 3758096384 | 7750 |
+| 28 | true | Draw | - | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28 | - | 7784628224 | 17463 |
+| 29 | false | Win | 3 | - | 1,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29 | 16106127360 | 36671 |
+| 30 | false | Win | 2 | - | 1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30 | 33285996544 | 72648 |
+| 31 | true | Draw | - | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31 | - | 68719476736 | 154947 |
+| 32 | true | Draw | - | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 | - | 141733920768 | 350044 |

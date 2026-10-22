@@ -22,6 +22,8 @@ Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taki
 
 - Draw for every even-total N, matching the literature.
 - Player 2 wins only at N = 9, 10, 14, 18; from N = 21 player 1 wins with opening 3 (N ≡ 1 mod 4) or 2 (N ≡ 2 mod 4).
+- **Parity law** (easy to prove): both players together take everything left, so the final score difference ≡ gap + (sum of numbers left) (mod 2). A draw is only possible when the parities match; otherwise the position is a win or a loss. Hence every position's values alternate with the gap's parity.
+- **Parity rule, empirical** (`solver/src/bin/row_stats.rs`, N ≤ 22): the most common rows are exactly "mover wins where a draw is impossible, draw where it is possible" (`WDWD…`/`DWDW…`, gap 0, 1, 2, …). Deviations cluster at gaps ≤ 2 and at the largest gaps. When does the rule hold exactly? A candidate characterization for a proof.
 - **Every opening move draws for even-total N ≥ 12** (exceptions only below: N = 3 opening 2, N = 4 openings 3–4, N = 7 openings 5–7, N = 11 opening 10). Both drawing strategies are robust, so a simple description may exist.
 
 ## Next

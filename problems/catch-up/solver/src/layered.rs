@@ -18,11 +18,11 @@ const MASKS_PER_TASK: usize = 1 << 14;
 pub const MAX_NUMBERS: usize = 32;
 
 /// Outcome seen by the other player: win ↔ loss.
-fn neg(v: u32) -> u32 {
+pub(crate) fn neg(v: u32) -> u32 {
     WIN - v
 }
 
-fn decode(v: u32) -> Outcome {
+pub(crate) fn decode(v: u32) -> Outcome {
     match v {
         LOSS => Outcome::Loss,
         DRAW => Outcome::Draw,
@@ -43,19 +43,7 @@ impl Layered {
         assert!(numbers.len() <= MAX_NUMBERS, "at most {MAX_NUMBERS} numbers");
         assert!(numbers.iter().all(|&x| x > 0), "numbers must be positive");
         let max_gap = numbers.iter().copied().max().unwrap_or(0) as usize;
-        let mut binom = vec![vec![0u64; MAX_NUMBERS + 2]; MAX_NUMBERS + 1];
-        for p in 0..=MAX_NUMBERS {
-            binom[p][0] = 1;
-            for i in 1..=p {
-                binom[p][i] = binom[p - 1][i - 1] + binom[p - 1][i];
-            }
-        }
-        Layered {
-            numbers: numbers.to_vec(),
-            max_gap,
-            words_per_row: (max_gap + 1).div_ceil(GAPS_PER_WORD),
-            binom,
-        }
+        Layered { numbers: numbers.to_vec(), max_gap, words_per_row: words_per_row(max_gap), binom: binomials() }
     }
 
     pub fn n(&self) -> usize {
@@ -69,27 +57,11 @@ impl Layered {
 
     /// Colex rank of a mask among masks with the same number of bits.
     pub fn rank(&self, mask: u64) -> usize {
-        let (mut r, mut m, mut i) = (0u64, mask, 1);
-        while m != 0 {
-            r += self.binom[m.trailing_zeros() as usize][i];
-            m &= m - 1;
-            i += 1;
-        }
-        r as usize
+        rank(&self.binom, mask)
     }
 
-    /// Inverse of `rank` for masks with k bits.
-    fn unrank(&self, mut r: u64, k: usize) -> u64 {
-        let mut mask = 0u64;
-        for i in (1..=k).rev() {
-            let mut p = i - 1;
-            while self.binom[p + 1][i] <= r {
-                p += 1;
-            }
-            mask |= 1 << p;
-            r -= self.binom[p][i];
-        }
-        mask
+    fn unrank(&self, r: u64, k: usize) -> u64 {
+        unrank(&self.binom, r, k)
     }
 
     pub fn get(&self, layer: &[u32], rank: usize, gap: usize) -> Outcome {
@@ -148,46 +120,109 @@ impl Layered {
             *p = m.trailing_zeros() as usize;
             m &= m - 1;
         }
-        let sum: u64 = pos[..k].iter().map(|&p| self.numbers[p]).sum();
-        // Removing the j-th set bit: bits below keep their index, bits above drop by one.
-        let mut pred = [0usize; MAX_NUMBERS];
-        let mut below = 0u64;
-        let mut above: u64 = (1..k).map(|i| self.binom[pos[i]][i]).sum();
+        let pred = pred_ranks(&pos[..k], &self.binom);
+        let mut takes = [0usize; MAX_NUMBERS];
+        let mut preds: [&[u32]; MAX_NUMBERS] = [&[]; MAX_NUMBERS];
         for j in 0..k {
-            pred[j] = (below + above) as usize;
-            below += self.binom[pos[j]][j + 1];
-            if j + 1 < k {
-                above -= self.binom[pos[j + 1]][j + 1];
-            }
+            takes[j] = self.numbers[pos[j]] as usize;
+            preds[j] = &prev[pred[j] * self.words_per_row..][..self.words_per_row];
         }
-        for g in 0..=self.max_gap {
-            let v = if (sum as usize) < g {
-                LOSS // cannot catch up even by taking everything
-            } else if k == 0 {
-                DRAW // no numbers left, scores level
-            } else {
-                let mut best = LOSS;
-                for j in 0..k {
-                    let x = self.numbers[pos[j]] as usize;
-                    let o = if x >= g {
-                        neg(self.cell(prev, pred[j], x - g)) // caught up: opponent trails by x − g
-                    } else {
-                        self.cell(prev, pred[j], g - x) // still behind: same mover
-                    };
-                    best = best.max(o);
-                    if best == WIN {
-                        break;
-                    }
+        evaluate_row(&takes[..k], &preds[..k], self.max_gap, row);
+    }
+}
+
+/// binom[p][i] = C(p, i) for p ≤ MAX_NUMBERS.
+pub(crate) fn binomials() -> Vec<Vec<u64>> {
+    let mut binom = vec![vec![0u64; MAX_NUMBERS + 2]; MAX_NUMBERS + 1];
+    for p in 0..=MAX_NUMBERS {
+        binom[p][0] = 1;
+        for i in 1..=p {
+            binom[p][i] = binom[p - 1][i - 1] + binom[p - 1][i];
+        }
+    }
+    binom
+}
+
+pub(crate) fn words_per_row(max_gap: usize) -> usize {
+    (max_gap + 1).div_ceil(GAPS_PER_WORD)
+}
+
+/// Colex rank of a mask among masks with the same number of bits (combinatorial number system).
+pub(crate) fn rank(binom: &[Vec<u64>], mask: u64) -> usize {
+    let (mut r, mut m, mut i) = (0u64, mask, 1);
+    while m != 0 {
+        r += binom[m.trailing_zeros() as usize][i];
+        m &= m - 1;
+        i += 1;
+    }
+    r as usize
+}
+
+/// Inverse of `rank` for masks with k bits.
+pub(crate) fn unrank(binom: &[Vec<u64>], mut r: u64, k: usize) -> u64 {
+    let mut mask = 0u64;
+    for i in (1..=k).rev() {
+        let mut p = i - 1;
+        while binom[p + 1][i] <= r {
+            p += 1;
+        }
+        mask |= 1 << p;
+        r -= binom[p][i];
+    }
+    mask
+}
+
+/// Colex ranks of the masks obtained by removing each set bit, given the ascending bit positions.
+/// Removing the j-th bit: bits below keep their index, bits above drop by one.
+pub(crate) fn pred_ranks(pos: &[usize], binom: &[Vec<u64>]) -> [usize; MAX_NUMBERS] {
+    let k = pos.len();
+    let mut pred = [0usize; MAX_NUMBERS];
+    let mut below = 0u64;
+    let mut above: u64 = (1..k).map(|i| binom[pos[i]][i]).sum();
+    for j in 0..k {
+        pred[j] = (below + above) as usize;
+        below += binom[pos[j]][j + 1];
+        if j + 1 < k {
+            above -= binom[pos[j + 1]][j + 1];
+        }
+    }
+    pred
+}
+
+pub(crate) fn row_cell(row: &[u32], gap: usize) -> u32 {
+    (row[gap / GAPS_PER_WORD] >> (BITS_PER_GAP * (gap % GAPS_PER_WORD))) & GAP_MASK
+}
+
+/// The row kernel shared by every engine: the mover's value for each gap 0..=max_gap, where move j
+/// takes `takes[j]` and leads to the position whose row is `preds[j]`.
+pub(crate) fn evaluate_row(takes: &[usize], preds: &[&[u32]], max_gap: usize, row: &mut [u32]) {
+    let sum: usize = takes.iter().sum();
+    for g in 0..=max_gap {
+        let v = if sum < g {
+            LOSS // cannot catch up even by taking everything
+        } else if takes.is_empty() {
+            DRAW // no numbers left, scores level
+        } else {
+            let mut best = LOSS;
+            for (&x, &pred) in takes.iter().zip(preds) {
+                let o = if x >= g {
+                    neg(row_cell(pred, x - g)) // caught up: opponent trails by x − g
+                } else {
+                    row_cell(pred, g - x) // still behind: same mover
+                };
+                best = best.max(o);
+                if best == WIN {
+                    break;
                 }
-                best
-            };
-            row[g / GAPS_PER_WORD] |= v << (BITS_PER_GAP * (g % GAPS_PER_WORD));
-        }
+            }
+            best
+        };
+        row[g / GAPS_PER_WORD] |= v << (BITS_PER_GAP * (g % GAPS_PER_WORD));
     }
 }
 
 /// Next larger mask with the same number of bits (Gosper's hack); colex order.
-fn next_combination(mask: u64) -> u64 {
+pub(crate) fn next_combination(mask: u64) -> u64 {
     if mask == 0 {
         return 0;
     }
