@@ -8,6 +8,8 @@ use std::cmp::Ordering;
 pub mod cuda;
 pub mod layered;
 pub mod tiled;
+#[cfg(feature = "cuda")]
+pub mod tiled_cuda;
 
 /// Game value from the point of view of the player about to move. Ordered Loss < Draw < Win.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord)]

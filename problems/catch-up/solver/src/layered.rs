@@ -139,8 +139,13 @@ impl Layered {
 
 /// binom[p][i] = C(p, i) for p ≤ MAX_NUMBERS.
 pub(crate) fn binomials() -> Vec<Vec<u64>> {
-    let mut binom = vec![vec![0u64; MAX_NUMBERS + 2]; MAX_NUMBERS + 1];
-    for p in 0..=MAX_NUMBERS {
+    binomials_upto(MAX_NUMBERS)
+}
+
+/// binom[p][i] = C(p, i) for p ≤ max, rows of length max + 2.
+pub(crate) fn binomials_upto(max: usize) -> Vec<Vec<u64>> {
+    let mut binom = vec![vec![0u64; max + 2]; max + 1];
+    for p in 0..=max {
         binom[p][0] = 1;
         for i in 1..=p {
             binom[p][i] = binom[p - 1][i - 1] + binom[p - 1][i];
