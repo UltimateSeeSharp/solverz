@@ -6,7 +6,7 @@ Optimal play on {1..N} is a draw when 1 + … + N is even. **Current stage and n
 
 Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taking one number; afterwards the mover keeps taking numbers while strictly behind, and the turn ends on the pick that catches up (≥). A mover who can't catch up even with everything left loses. When the numbers run out, the higher score wins.
 
-**Conjecture:** if 1 + … + N is even (N ≡ 0, 3 mod 4), optimal play is a draw. Lean: `CatchUp.Conjecture` in `lean/CatchUp/Statement.lean` (approved 2026-10-22), from formal-conjectures' `value_of_even_mul_succ_self_div_two`.
+**Conjecture:** if 1 + … + N is even (N ≡ 0, 3 mod 4), optimal play is a draw. Lean: `CatchUp.Conjecture` in `lean/CatchUp/Statement.lean`, from formal-conjectures' `value_of_even_mul_succ_self_div_two`.
 
 ## Goals
 
@@ -24,9 +24,9 @@ Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taki
 ## Agent rules
 
 - Never edit `lean/CatchUp/Statement.lean` (approved statement).
-- Experiments don't modify the engines (`solver/src/lib.rs`, `layered.rs`, `tiled.rs`, `gpu.rs`, `tile.wgsl`, `main.rs`); they add files in `solver/src/bin/` that use the library API ([solver/README.md](solver/README.md)).
+- Experiments don't modify the engines (`solver/src/lib.rs`, `layered.rs`, `tiled.rs`, `cuda.rs`, `layered.cu`, `main.rs`); they add files in `solver/src/bin/` that use the library API ([solver/README.md](solver/README.md)).
 - Compute per experiment: about 10 minutes and at most 16 GB RAM (of 32 GB, shared).
 
 ## Files
 
-[state.md](state.md) · [log.md](log.md) · [backlog.md](backlog.md) · [obstructions.md](obstructions.md) · [blueprint.md](blueprint.md) · [solver/README.md](solver/README.md) · [results/](results/)
+[state.md](state.md) · [lines.md](lines.md) · [log.md](log.md) · [backlog.md](backlog.md) · [obstructions.md](obstructions.md) · [blueprint.md](blueprint.md) · [solver/README.md](solver/README.md) · [results/](results/)

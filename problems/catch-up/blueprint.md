@@ -1,12 +1,12 @@
 # Blueprint
 
-Status: a step of the promotion ladder (`CLAUDE.md`, Workflow).
+Status and Approved: `CLAUDE.md`, Workflow.
 
-| ID | Name | Statement | Uses | Line | Lean | Status |
-|---|---|---|---|---|---|---|
-| L1 | Main conjecture | On {1..N} with 1 + … + N even, optimal play is a draw | — | all | `CatchUp.Conjecture` (statement) | computed (N ≤ 32); statement approved |
-| L2 | Every opening draws | For even-total N ≥ 12, every opening move of player 1 still leads to a draw; implies L1 for those N | — | A3 | — | computed (12 ≤ N ≤ 32) |
-| L3 | Parity law | In any position, the final score difference ≡ gap + sum of the numbers left (mod 2); so a draw needs gap ≡ sum left (mod 2) | — | A2 | — | paper proof |
+| ID | Name | Statement | Uses | Line | Lean | Status | Approved |
+|---|---|---|---|---|---|---|---|
+| L1 | Main conjecture | On {1..N} with 1 + … + N even, optimal play is a draw | — | all | `CatchUp.Conjecture` (statement) | conjecture | 2026-10-22 |
+| L2 | Every opening draws | For even-total N ≥ 12, every opening move of player 1 still leads to a draw; implies L1 for those N | — | A3 | — | conjecture | — |
+| L3 | Parity law | In any position, the final score difference ≡ gap + sum of the numbers left (mod 2); so a draw needs gap ≡ sum left (mod 2) | — | A2 | — | conjecture | — |
 
 ## L1 Main conjecture
 **Proof.** Open.
@@ -18,4 +18,4 @@ Status: a step of the promotion ladder (`CLAUDE.md`, Workflow).
 
 ## L3 Parity law
 **Proof.** The two players take every remaining number between them. If the mover's future picks sum to A and the opponent's to B, the mover's final lead is −gap + A − B, and A − B ≡ A + B = sum of the numbers left (mod 2). A draw means a final lead of 0, so gap ≡ sum left (mod 2).
-**Evidence.** Consistent with `row_stats` (N ≤ 22): the most common rows alternate with the gap's parity. Not checked exhaustively.
+**Evidence.** Consistent with `row_stats` (N ≤ 22): the most common rows alternate with the gap's parity. Not checked exhaustively. Refuter not run on the proof.
