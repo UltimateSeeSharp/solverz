@@ -70,5 +70,6 @@ Read `principles/` before working on a problem; it is the why behind these rules
 ## This machine
 - The Lean toolchain is on F: because C: is short on space: `ELAN_HOME=F:\WIN_DATA\lean\elan`, `MATHLIB_CACHE_DIR=F:\WIN_DATA\lean\mathlib-cache`, `F:\WIN_DATA\lean\elan\bin` on the user PATH. If `lake` isn't found, the shell predates the install; set them in-process. If VS Code offers to install Lean or elan, it was started without these variables: decline, restart VS Code from the Start menu.
 - Rust is on F: too: `RUSTUP_HOME=F:\WIN_DATA\rust\rustup`, `CARGO_HOME=F:\WIN_DATA\rust\cargo`. Toolchain: MSVC (`x86_64-pc-windows-msvc`) with the installed Visual Studio Build Tools 2022 and Windows SDK.
-- GPU: RTX 3060 Ti, 8 GB, driver 610.88 (supports CUDA ≤ 13.3). CUDA Toolkit 13.3 in `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3` (`CUDA_PATH`; DLLs in `bin\x64`).
+- GPU: RTX 3060 Ti, 8 GB, driver 610.88 (supports CUDA ≤ 13.3). CUDA Toolkit 13.3 in `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3` (`CUDA_PATH`; DLLs in `bin\x64`, which must be on `PATH` for NVRTC).
+- RAM: 32 GB, about 16 GB free with the usual apps open. Disks: F: is a SanDisk SSD PLUS 2 TB (QLC, reads ~500 MB/s, writes ~100 MB/s sustained once its cache fills); C: is a Samsung 870 EVO 1 TB. Jobs that spill gigabytes to disk are bound by F:'s writes.
 - The user runs every install and download: give them the exact command instead of running it.
