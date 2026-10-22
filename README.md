@@ -10,13 +10,15 @@ One folder per problem; one Lean project (one Mathlib) and one Rust workspace at
 
 | Path | Contents | Trusted? |
 |---|---|---|
-| `problems/<problem>/README.md` | Statement, status, idea log including failed attempts and why | No |
+| `problems/<problem>/README.md` | Stable reference: statement, goals, literature, agent rules | No |
+| `problems/<problem>/state.md` | Current stage, results, open threads, next step: the handoff between sessions | No |
+| `problems/<problem>/log.md`, `backlog.md`, `obstructions.md`, `blueprint.md` | Every attempt (failures included), idea queue, ruled-out approaches, lemmas toward a proof | No |
 | `problems/<problem>/lean/` | Lean library `<Problem>` (Mathlib) | Yes, if it builds with no `sorry` or custom `axiom` |
-| `problems/<problem>/solver/` | Rust crate: search/compute code; kept experiments in `src/bin/` | No |
+| `problems/<problem>/solver/` | Rust crate: search/compute code; kept experiments in `src/bin/`; catalog in its `README.md` | No |
 | `problems/<problem>/results/` | Curated solver outputs with run metadata | No |
 | `problems/<problem>/scratch/` | Playground, git-ignored | No |
 | `principles/` | How we work: problem-solving heuristics, scepticism, AI use, Lean, values; distilled from Tao and others, with sources | No |
-| `templates/problem/` | Starting files for a new problem: README, log, backlog, obstructions, blueprint | No |
+| `templates/problem/` | Starting files for a new problem: README, state, log, backlog, obstructions, blueprint, solver/README | No |
 | `.claude/` | `explore` skill (one research-loop iteration) and `refuter` agent | No |
 | `tools/survey/` | Problem-finding pipeline (Python, stdlib only) and its findings | No |
 
@@ -35,6 +37,9 @@ Computations may produce certificates; a certificate counts only once a Lean pro
 
 ## Problems
 
-- **[Catch-Up conjecture](problems/catch-up/README.md)** (active): optimal play on {1..N} is a draw when 1 + … + N is even.
-- **[Collatz](problems/collatz/README.md)**: shelved; very unlikely to fall.
+| Problem | Stage | State |
+|---|---|---|
+| [Catch-Up conjecture](problems/catch-up/README.md): optimal play on {1..N} is a draw when 1 + … + N is even | Explore | [state.md](problems/catch-up/state.md) |
+| [Collatz](problems/collatz/README.md) | Shelved: very unlikely to fall | — |
+
 - **Choosing a target**: surveys of [Erdős problems](tools/survey/erdos.md) and [other formal-conjectures collections](tools/survey/collections.md).
