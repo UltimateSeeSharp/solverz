@@ -7,7 +7,9 @@ default-run = "catch-up"
 [dependencies]
 cudarc = { version = "0.19", default-features = false, features = ["std", "driver", "nvrtc", "cuda-13030", "dynamic-loading"], optional = true }
 rayon = "1"
+zstd = { version = "0.14.3", optional = true }
 
 [features]
-# CUDA engine. Off by default; needs the CUDA driver and NVRTC DLLs on PATH at runtime.
-cuda = ["dep:cudarc"]
+# CUDA engines. Off by default; need the CUDA driver and NVRTC DLLs on PATH at runtime.
+# zstd compresses tiled-cuda's stored tiles.
+cuda = ["dep:cudarc", "dep:zstd"]

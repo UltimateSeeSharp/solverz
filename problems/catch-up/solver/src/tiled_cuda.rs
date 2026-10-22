@@ -4,18 +4,20 @@
 //! row is gap p + 2i (p its parity); cells are packed in base 3, 5 per byte, so a row is one word
 //! up to max gap 39 (2-bit cells would double the storage for N = 32..39). Each output tile is one
 //! launch of `tile` (`tiled.cu`), which evaluates all cells of a row at once on bit planes. Layers
-//! live in host RAM, or in files when over the RAM budget; input tiles are cached in VRAM, output
+//! are stored tile by tile, zstd-compressed (lossless, checksummed), in host RAM up to its budget
+//! and in a file beyond; input tiles are cached in VRAM uncompressed, output
 //! tiles run in popcount order, and the cache evicts the tile needed farthest ahead (the schedule
 //! is known). Three streams overlap upload, compute and download; threads overlap file I/O.
 
 use crate::layered::{binomials_upto, decode, rank};
 use crate::Outcome;
-use cudarc::driver::sys::{CUevent_flags, CU_MEMHOSTALLOC_WRITECOMBINED};
+use cudarc::driver::sys::CUevent_flags;
 use cudarc::driver::{
     CudaContext, CudaEvent, CudaFunction, CudaSlice, CudaStream, DevicePtr, DeviceRepr, LaunchConfig,
     PinnedHostSlice, PushKernelArg,
 };
 use cudarc::nvrtc::{compile_ptx_with_opts, CompileOptions};
+use rayon::prelude::*;
 use std::collections::{BTreeSet, HashMap};
 use std::fs::{File, OpenOptions};
 use std::path::PathBuf;
@@ -35,6 +37,13 @@ const CELLS_PER_BYTE: usize = 5;
 const BYTES_PER_WORD: usize = 4;
 const CELLS_PER_WORD: usize = CELLS_PER_BYTE * BYTES_PER_WORD;
 const BASE: u32 = 3;
+/// Stored tiles are cut into chunks of this many words, compressed independently so that all
+/// threads share the work; a multiple of every row length.
+const CHUNK_WORDS: usize = 1 << 16;
+/// Page-locked host memory with default caching.
+const PINNED_FLAGS: u32 = 0;
+/// zstd's fastest regular level: layers compress to ~15% (N = 28) at several 100 MB/s per thread.
+const ZSTD_LEVEL: i32 = 1;
 /// Pinned staging buffers for uploads and for downloads.
 const IN_STAGING: usize = 4;
 const OUT_STAGING: usize = 3;
@@ -78,6 +87,8 @@ pub struct Stats {
     pub disk_written: u64,
     /// Largest total of the layer files that existed at once.
     pub peak_disk: u64,
+    /// Compressed size of all layers (RAM and file).
+    pub stored: u64,
     /// GPU time spent in the kernel, summed over launches.
     pub kernel_ms: f64,
 }
@@ -159,14 +170,23 @@ impl Drop for Staged {
     }
 }
 
-/// One layer: its tiles, contiguous in the order they were computed; the first `ram.len()` words
-/// in RAM, the rest in a file. The split falls between tiles.
+/// A stored tile: its chunks of `CHUNK_WORDS`, each a zstd frame with a checksum.
+enum Stored {
+    Ram(Vec<Vec<u8>>),
+    /// Byte offset in the layer file, then each chunk's length; chunks are contiguous.
+    File(u64, Vec<usize>),
+}
+
+/// One layer, tile by tile, compressed: in RAM up to `ram_limit` bytes, the rest appended to a file.
 pub struct Layer {
     k: usize,
-    /// Word offset of each tile, by top pattern.
-    offsets: Vec<Option<usize>>,
+    tiles: Vec<Option<Stored>>,
+    /// Uncompressed size.
     words: usize,
-    ram: Vec<u32>,
+    ram_limit: usize,
+    ram_bytes: usize,
+    disk_bytes: usize,
+    spill_dir: PathBuf,
     file: Option<(File, PathBuf)>,
 }
 
@@ -224,40 +244,86 @@ impl Layer {
     }
 
     fn ram_bytes(&self) -> usize {
-        self.ram.len() * BYTES_PER_WORD
+        self.ram_bytes
     }
 
     fn disk_bytes(&self) -> usize {
-        (self.words - self.ram.len()) * BYTES_PER_WORD
+        self.disk_bytes
     }
 
-    fn in_file(&self, pattern: usize) -> bool {
-        self.offsets[pattern].expect("tile exists") >= self.ram.len()
-    }
-
-    /// Reads words within one tile.
-    fn read(&self, offset: usize, out: &mut [u32]) -> Result<(), String> {
-        match offset.checked_sub(self.ram.len()) {
-            None => out.copy_from_slice(&self.ram[offset..][..out.len()]),
-            Some(at) => {
-                let (file, _) = self.file.as_ref().expect("layer has a file");
-                read_at(file, as_bytes_mut(out), (at * BYTES_PER_WORD) as u64).map_err(err)?
-            }
+    /// Compressed bytes of a tile in the file (0 if in RAM).
+    fn file_bytes(&self, pattern: usize) -> usize {
+        match &self.tiles[pattern] {
+            Some(Stored::File(_, lens)) => lens.iter().sum(),
+            _ => 0,
         }
+    }
+
+    /// Compresses a tile on all threads and keeps it in RAM if the limit allows, else in the file.
+    fn store(&mut self, pattern: usize, data: &[u32]) -> Result<(), String> {
+        let chunks: Vec<Vec<u8>> = data
+            .par_chunks(CHUNK_WORDS)
+            .map_init(compressor, |c, chunk| c.as_mut().map_err(err)?.compress(as_bytes(chunk)).map_err(err))
+            .collect::<Result<_, String>>()?;
+        let len: usize = chunks.iter().map(Vec::len).sum();
+        let stored = if self.ram_bytes + len <= self.ram_limit {
+            self.ram_bytes += len;
+            Stored::Ram(chunks)
+        } else {
+            if self.file.is_none() {
+                std::fs::create_dir_all(&self.spill_dir).map_err(err)?;
+                let id = LAYER_FILES.fetch_add(1, Ordering::Relaxed);
+                let path = self.spill_dir.join(format!("layer-{}-{id}.bin", std::process::id()));
+                let file = OpenOptions::new().read(true).write(true).create(true).truncate(true).open(&path).map_err(err)?;
+                self.file = Some((file, path));
+            }
+            let (file, _) = self.file.as_ref().expect("file just created");
+            let offset = self.disk_bytes as u64;
+            write_at(file, &chunks.concat(), offset).map_err(err)?;
+            self.disk_bytes += len;
+            Stored::File(offset, chunks.iter().map(Vec::len).collect())
+        };
+        self.tiles[pattern] = Some(stored);
         Ok(())
     }
 
-    /// Writes words within one tile.
-    fn write(&mut self, offset: usize, data: &[u32]) -> Result<(), String> {
-        match offset.checked_sub(self.ram.len()) {
-            None => self.ram[offset..][..data.len()].copy_from_slice(data),
-            Some(at) => {
+    /// Decompresses a tile into `out` (its exact size) on all threads.
+    fn load(&self, pattern: usize, out: &mut [u32]) -> Result<(), String> {
+        let read;
+        let chunks: Vec<&[u8]> = match self.tiles[pattern].as_ref().expect("tile stored") {
+            Stored::Ram(chunks) => chunks.iter().map(Vec::as_slice).collect(),
+            Stored::File(offset, lens) => {
                 let (file, _) = self.file.as_ref().expect("layer has a file");
-                write_at(file, as_bytes(data), (at * BYTES_PER_WORD) as u64).map_err(err)?
+                let mut bytes = vec![0u8; lens.iter().sum()];
+                read_at(file, &mut bytes, *offset).map_err(err)?;
+                read = bytes;
+                let mut rest = read.as_slice();
+                lens.iter()
+                    .map(|&len| {
+                        let (chunk, tail) = rest.split_at(len);
+                        rest = tail;
+                        chunk
+                    })
+                    .collect()
             }
-        }
-        Ok(())
+        };
+        assert_eq!(chunks.len(), out.len().div_ceil(CHUNK_WORDS), "chunk count");
+        chunks.into_par_iter().zip(out.par_chunks_mut(CHUNK_WORDS)).try_for_each_init(decompressor, |d, (src, dst)| {
+            let want = std::mem::size_of_val(dst);
+            let got = d.as_mut().map_err(err)?.decompress_to_buffer(src, as_bytes_mut(dst)).map_err(err)?;
+            if got == want { Ok(()) } else { Err(format!("chunk decompressed to {got} bytes, expected {want}")) }
+        })
     }
+}
+
+fn compressor() -> std::io::Result<zstd::bulk::Compressor<'static>> {
+    let mut c = zstd::bulk::Compressor::new(ZSTD_LEVEL)?;
+    c.include_checksum(true)?;
+    Ok(c)
+}
+
+fn decompressor() -> std::io::Result<zstd::bulk::Decompressor<'static>> {
+    zstd::bulk::Decompressor::new()
 }
 
 impl Drop for Layer {
@@ -389,7 +455,7 @@ impl TiledCuda {
                 let need = self.tile_words(k - 1, q);
                 while used + need > cache_words {
                     let Some(&(next, victim)) = cached.last() else {
-                        return Err(format!("tile of {} MB exceeds the VRAM cache; raise --top", need * BYTES_PER_WORD >> 20));
+                        return Err(format!("tile of {} MB exceeds the VRAM cache; raise --top", (need * BYTES_PER_WORD) >> 20));
                     };
                     if next == i {
                         let ws = self.working_set_words(k) * BYTES_PER_WORD;
@@ -417,32 +483,18 @@ impl TiledCuda {
         Ok(steps)
     }
 
-    /// Layer k: its first tiles in the RAM left next to `ram_in_use`, the rest in a new file in the
-    /// spill folder.
-    fn new_layer(&self, k: usize, ram_in_use: usize, config: &Config) -> Result<Layer, String> {
-        let ram_words = config.ram_bytes.saturating_sub(ram_in_use) / BYTES_PER_WORD;
-        let mut offsets = vec![None; 1 << self.top];
-        let (mut words, mut split) = (0, 0);
-        for p in self.schedule(k) {
-            offsets[p] = Some(words);
-            words += self.tile_words(k, p);
-            if split == words - self.tile_words(k, p) && words <= ram_words {
-                split = words;
-            }
+    /// Empty layer k, which may keep what RAM is left next to `ram_in_use`.
+    fn new_layer(&self, k: usize, ram_in_use: usize, config: &Config) -> Layer {
+        Layer {
+            k,
+            tiles: (0..1 << self.top).map(|_| None).collect(),
+            words: self.schedule(k).into_iter().map(|p| self.tile_words(k, p)).sum(),
+            ram_limit: config.ram_bytes.saturating_sub(ram_in_use),
+            ram_bytes: 0,
+            disk_bytes: 0,
+            spill_dir: config.spill_dir.clone(),
+            file: None,
         }
-        let file = if split == words {
-            None
-        } else {
-            std::fs::create_dir_all(&config.spill_dir).map_err(err)?;
-            let id = LAYER_FILES.fetch_add(1, Ordering::Relaxed);
-            let path = config.spill_dir.join(format!("layer-{}-{id}.bin", std::process::id()));
-            let file = OpenOptions::new().read(true).write(true).create(true).truncate(true).open(&path).map_err(err)?;
-            // Reserving the whole file up front fails early when the disk is too small.
-            let bytes = (words - split) * BYTES_PER_WORD;
-            file.set_len(bytes as u64).map_err(|e| format!("cannot reserve {:.1} GB in {}: {e}", bytes as f64 / GB, path.display()))?;
-            Some((file, path))
-        };
-        Ok(Layer { k, offsets, words, ram: vec![0; split], file })
     }
 
     fn cell(row: &[u32], i: usize) -> u32 {
@@ -464,18 +516,19 @@ impl TiledCuda {
             return Ok(None);
         }
         let low_mask = mask & ((1u64 << self.low) - 1);
-        let tile = layer.offsets[(mask >> self.low) as usize].expect("tile exists");
-        let mut row = vec![0u32; self.words];
-        layer.read(tile + rank(&self.binom, low_mask) * self.words, &mut row)?;
-        Ok(Some(decode(Self::cell(&row, gap / 2))))
+        let pattern = (mask >> self.low) as usize;
+        let mut tile = vec![0u32; self.tile_words(layer.k, pattern)];
+        layer.load(pattern, &mut tile)?;
+        Ok(Some(decode(Self::cell(&tile[rank(&self.binom, low_mask) * self.words..], gap / 2))))
     }
 
     /// Computes layers 0..=n−1, calling `on_layer` after each; returns layer n − 1.
     pub fn run(&self, gpu: &Gpu, config: &Config, mut on_layer: impl FnMut(&Layer)) -> Result<(Layer, Stats), String> {
         let mut stats = Stats::default();
         let max_tile = self.max_tile_words();
+        assert_eq!(CHUNK_WORDS % self.words, 0, "rows never straddle chunks");
         if max_tile * BYTES_PER_WORD > MAX_TILE_BYTES {
-            return Err(format!("tiles up to {} MB; raise --top", max_tile * BYTES_PER_WORD >> 20));
+            return Err(format!("tiles up to {} MB; raise --top", (max_tile * BYTES_PER_WORD) >> 20));
         }
         let (free, _) = gpu.ctx.mem_get_info().map_err(err)?;
         let reserve = OUT_STAGING * max_tile * BYTES_PER_WORD + VRAM_RESERVE_BYTES;
@@ -493,29 +546,31 @@ impl TiledCuda {
                 .map(|_| Ok(Staged { host: unsafe { gpu.ctx.alloc_pinned_with_flags(max_tile, flags) }.map_err(err)?, busy: None }))
                 .collect()
         };
-        // Write-combined suits buffers the CPU only writes; downloads are read back, so plain pinned.
-        let mut pools = (staging(CU_MEMHOSTALLOC_WRITECOMBINED, IN_STAGING)?, staging(0, OUT_STAGING)?);
+        // Plain pinned memory, not write-combined: decompression reads back what it just wrote, and
+        // uncached reads made it ~80× slower.
+        let mut pools = (staging(PINNED_FLAGS, IN_STAGING)?, staging(PINNED_FLAGS, OUT_STAGING)?);
 
         let mut prev: Option<Layer> = None;
         for k in 0..self.n() {
             let start = Instant::now();
             let plan = self.plan(k, cache_words)?;
-            let out = self.new_layer(k, prev.as_ref().map_or(0, Layer::ram_bytes), config)?;
-            let disk_now = prev.as_ref().map_or(0, Layer::disk_bytes) + out.disk_bytes();
-            stats.peak_disk = stats.peak_disk.max(disk_now as u64);
-            let bytes = |q: &usize| (self.tile_words(k - 1, *q) * BYTES_PER_WORD) as u64;
-            let fetched: u64 = plan.iter().flat_map(|s| &s.fetch).map(bytes).sum();
+            let out = self.new_layer(k, prev.as_ref().map_or(0, Layer::ram_bytes), config);
+            let fetched: u64 = plan.iter().flat_map(|s| &s.fetch).map(|&q| (self.tile_words(k - 1, q) * BYTES_PER_WORD) as u64).sum();
             stats.fetched += fetched;
             if let Some(layer) = &prev {
-                stats.disk_read += plan.iter().flat_map(|s| &s.fetch).filter(|&&q| layer.in_file(q)).map(bytes).sum::<u64>();
+                stats.disk_read += plan.iter().flat_map(|s| &s.fetch).map(|&q| layer.file_bytes(q) as u64).sum::<u64>();
             }
-            stats.disk_written += out.disk_bytes() as u64;
             let (out, kernel_ms) = self.compute_layer(gpu, k, &plan, prev.as_ref(), out, &mut pools, &d_numbers, &d_binom)?;
             stats.kernel_ms += kernel_ms;
+            stats.disk_written += out.disk_bytes() as u64;
+            stats.stored += (out.ram_bytes() + out.disk_bytes()) as u64;
+            let disk_now = prev.as_ref().map_or(0, Layer::disk_bytes) + out.disk_bytes();
+            stats.peak_disk = stats.peak_disk.max(disk_now as u64);
             if config.progress {
                 eprintln!(
-                    "  layer {k:2}: {:5} tiles, {:6.2} GB in RAM + {:6.2} GB in file, fetched {:6.2} GB, {:7} ms ({:7.0} ms in kernels)",
+                    "  layer {k:2}: {:5} tiles, {:6.2} GB -> {:5.2} GB in RAM + {:5.2} GB in file, fetched {:6.2} GB, {:7} ms ({:7.0} ms in kernels)",
                     plan.len(),
+                    (out.words * BYTES_PER_WORD) as f64 / GB,
                     out.ram_bytes() as f64 / GB,
                     out.disk_bytes() as f64 / GB,
                     fetched as f64 / GB,
@@ -528,7 +583,7 @@ impl TiledCuda {
         }
         let last = match prev {
             Some(layer) => layer,
-            None => self.new_layer(0, 0, config)?,
+            None => self.new_layer(0, 0, config),
         };
         Ok((last, stats))
     }
@@ -567,8 +622,7 @@ impl TiledCuda {
                     let Ok(mut buf) = free_in_rx.recv() else { break };
                     buf.wait()?;
                     let len = self.tile_words(k - 1, q);
-                    let layer = input.expect("layer k − 1 exists");
-                    layer.read(layer.offsets[q].expect("input tile exists"), &mut buf.host.as_mut_slice().map_err(err)?[..len])?;
+                    input.expect("layer k − 1 exists").load(q, &mut buf.host.as_mut_slice().map_err(err)?[..len])?;
                     if loaded_tx.send((q, buf)).is_err() {
                         break;
                     }
@@ -578,7 +632,7 @@ impl TiledCuda {
             let writer = s.spawn(move || -> Result<Layer, String> {
                 for (pattern, len, mut buf) in done_rx {
                     buf.wait()?;
-                    output.write(output.offsets[pattern].expect("output tile exists"), &buf.host.as_slice().map_err(err)?[..len])?;
+                    output.store(pattern, &buf.host.as_slice().map_err(err)?[..len])?;
                     if free_out_tx.send(buf).is_err() {
                         break;
                     }
@@ -778,6 +832,36 @@ mod tests {
     }
 
     #[test]
+    fn stored_tiles_round_trip_and_detect_corruption() {
+        let engine = TiledCuda::new(&interval(12), 2);
+        let (k, pattern) = (6, 0);
+        // Two and a half chunks of words that compress poorly.
+        let data: Vec<u32> = (0..5 * CHUNK_WORDS as u32 / 2).map(|i| i.wrapping_mul(2654435761)).collect();
+        for ram_bytes in [usize::MAX, 0] {
+            let mut layer = engine.new_layer(k, 0, &Config { ram_bytes, ..Config::default() });
+            layer.store(pattern, &data).unwrap();
+            assert_eq!(layer.on_disk(), ram_bytes == 0);
+            let mut back = vec![0; data.len()];
+            layer.load(pattern, &mut back).unwrap();
+            assert_eq!(back, data);
+            match layer.tiles[pattern].as_mut().unwrap() {
+                Stored::Ram(chunks) => {
+                    let mid = chunks[1].len() / 2;
+                    chunks[1][mid] ^= 0xff;
+                }
+                Stored::File(offset, lens) => {
+                    let at = *offset + (lens[0] + lens[1] / 2) as u64;
+                    let file = &layer.file.as_ref().unwrap().0;
+                    let mut byte = [0u8];
+                    read_at(file, &mut byte, at).unwrap();
+                    write_at(file, &[byte[0] ^ 0xff], at).unwrap();
+                }
+            }
+            assert!(layer.load(pattern, &mut back).is_err(), "ram_bytes {ram_bytes}");
+        }
+    }
+
+    #[test]
     fn every_layer_matches_tiled() {
         let Some(gpu) = gpu() else { return };
         for n in 0..=FULL_TABLE_MAX_N {
@@ -790,14 +874,17 @@ mod tests {
                 });
                 let engine = TiledCuda::new(&numbers, top);
                 // Default resources; a tight VRAM cache with every layer in a file; layers split
-                // between RAM and file.
-                let largest = (0..n as usize).map(|k| engine.schedule(k).iter().map(|&p| engine.tile_words(k, p)).sum::<usize>()).max();
-                let half = largest.unwrap_or(0) * BYTES_PER_WORD / 2;
-                let configs = [Config::default(), Config { ram_bytes: 0, ..tight(&engine) }, Config { ram_bytes: half, ..tight(&engine) }];
-                for config in &configs {
+                // between RAM and file (half the largest compressed layer, known after the first run).
+                let mut largest = 0;
+                for config in 0..3 {
+                    let config = match config {
+                        0 => Config::default(),
+                        1 => Config { ram_bytes: 0, ..tight(&engine) },
+                        _ => Config { ram_bytes: largest / 2, ..tight(&engine) },
+                    };
                     let (mut layers, mut split) = (0, 0);
                     engine
-                        .run(&gpu, config, |layer| {
+                        .run(&gpu, &config, |layer| {
                             let k = layer.k;
                             let (layout, cpu) = &reference[k];
                             for mask in (0u64..1 << n).filter(|m| m.count_ones() as usize == k) {
@@ -814,11 +901,12 @@ mod tests {
                             assert!(layer.ram_bytes() <= config.ram_bytes);
                             assert_eq!(layer.on_disk(), layer.disk_bytes() > 0);
                             split += (layer.ram_bytes() > 0 && layer.on_disk()) as usize;
+                            largest = largest.max(layer.ram_bytes() + layer.disk_bytes());
                             layers += 1;
                         })
                         .unwrap();
                     assert_eq!(layers, n);
-                    if config.ram_bytes == half && top > 0 && n >= 4 {
+                    if config.ram_bytes == largest / 2 && top > 0 && n >= 4 {
                         assert!(split > 0, "n {n} top {top}: some layer is split");
                     }
                 }
