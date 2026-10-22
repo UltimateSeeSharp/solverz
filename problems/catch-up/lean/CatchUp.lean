@@ -1,3 +1,7 @@
+module
+
+public import CatchUp.Statement
+
 /-!
 # Catch-Up conjecture
 

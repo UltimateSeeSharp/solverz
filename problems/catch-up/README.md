@@ -6,7 +6,7 @@ Idea log, failures included. Nothing here is trusted until proven in `lean/`.
 
 Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taking one number; afterwards the mover keeps taking numbers while strictly behind, and the turn ends on the pick that catches up (≥). A mover who can't catch up even with everything left loses. When the numbers run out, the higher score wins.
 
-**Conjecture:** if 1 + … + N is even (N ≡ 0, 3 mod 4), optimal play is a draw. Lean statement: formal-conjectures `FormalConjectures/Paper/CatchUpConjecture.lean`, `value_of_even_mul_succ_self_div_two` (read-through: matches the rules).
+**Conjecture:** if 1 + … + N is even (N ≡ 0, 3 mod 4), optimal play is a draw. Lean: `CatchUp.Conjecture` in `lean/CatchUp/Statement.lean`, ported from formal-conjectures `value_of_even_mul_succ_self_div_two`; reviewed and approved by the user 2026-10-22.
 
 ## Known
 
