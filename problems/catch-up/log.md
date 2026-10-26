@@ -650,3 +650,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A3 (shelved): unchanged; the lead is confirmed to N = 24.
 - **Meaning.** At height 1 a defender never needs a middle number up to N = 24, while on blocks the window must grow with p (tb3 fails at p = 9, 10): {1..N} is easier for the two-ended defender than translated blocks. Next: where it must pick from the top (B35's side rule).
+
+### 2026-10-26: Hyb2's debt bound survives proof mode (A7, B30)
+
+- **Claim / question.** Does L25's paper proof (the potential W never rises over a Hyb2 round) survive the refuter in proof mode?
+- **Approach.** Refuter, proof mode, own literal code (`scratch/refuter/l25/`).
+- **Outcome.** L25 SURVIVES → `paper proof`. Two wording fixes applied (part 7). L24 now has every step on paper: (a) = L25, (b) via the formalized, relaxed L22, (c) L15 and L20, (d) parity; L24 itself still needs its own proof-mode check before it counts.
+- **Refuter.** Proof mode (2026-10-26): SURVIVES; 58 step-level claims, 0 failures over all sets within {0..16} containing 0 and random sets within {0..60}; parity hypothesis shown necessary.
+- **Literature.** Refuter: OEIS A278587, the von Stengel talk abstract (computation to 28, no proof); no Catch-Up proof or matching-cost potential found.
+- **Metric.** A7: unchanged until L24 passes proof mode (would move the paper range to a ≥ 2p − 1).
+- **Meaning.** The high-block line's last open step is closed on paper. Whether it helps {1..N} depends on whether the two-ended defender's top-pick positions are high sets (B35's side rule, next).
