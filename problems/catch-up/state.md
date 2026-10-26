@@ -1,6 +1,6 @@
 # State
 
-- **Stage:** Attack. Main line A8 (low phase, high phase; again from the review after 87 entries, 2026-10-26: A9 shelved by O16; A7 active). Overnight session 2026-10-26: [overnight/2026-10-26.md](overnight/2026-10-26.md).
+- **Stage:** Attack. Main line A8 (low phase, high phase); A10 (moving quadruples) opened at the review after 93 entries, 2026-10-26; A7 active; A9 shelved (O16). Overnight session 2026-10-26: [overnight/2026-10-26.md](overnight/2026-10-26.md).
 
 ## Where things stand
 
@@ -16,10 +16,11 @@
 
 ## Next step
 
-A8: act on the review ideator's ideas (running); until then B35's outcome side, a describable safe set for a high strategy, starting from the sets where Hyb2T and exact play differ.
+A10: B54, the refuter in claim mode on the ideator's Const data and its one-strategy claim; meanwhile Const(N, 1) at N = 19, 20 with `scratch/ideator/review5/deform2.rs`.
 
 ## Awaiting review
 
+- **New line A10, possibly the next main line** (review after 93 entries, 2026-10-26): L1 reduces to one deformation lemma, Const: lifting the top four numbers of {1..M} by any c does not change the value (with far blocks above, by induction). No counterexample to N = 20 and one strategy covers every c (ideator, unchecked). I kept A8 as main until the refuter checks A10's data (B54); say if you want A10 main now.
 - **Main line back to A8** (review after 87 entries, 2026-10-26): A9 (halving induction) is shelved; R_N draws to N = 28 (refuter-checked), but after the opponent's first top-half pick no answer rule works and the low play must react to the top half (O16), which is A8's open part (ii). Revert if you disagree.
 - **Statement to approve, if blocks are reported: `CatchUp.block_draw_hyb2`** (`lean/CatchUp/Hyb2.lean`; audited 2026-10-26). It supersedes `block_draw_linear` (below) and `block_draw_high`: the same statement with the height condition `2 * p - 1 ≤ a`.
   - Lean: `theorem block_draw_hyb2 {p a : ℕ} (hp : 1 ≤ p) (ha : 2 * p - 1 ≤ a) (s : ℕ) : valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false = .draw`
@@ -46,9 +47,10 @@ A8: act on the review ideator's ideas (running); until then B35's outcome side, 
 
 ## Last review
 
-2026-10-26, after 87 log entries (8 since the previous review; overnight).
-- A9 (main since the last review): metric moved, R_N draws to N = 28 (refuter SURVIVES, two engines); but its escalation lemma met the kill criterion: no answer rule, no return to R, top-half answers fail from N = 24 (O16). Shelved; revive via B52. Cost: 3 units.
-- A7: metric moved, TI Lean-checked at a ≥ 2p − 1 (L24); its rows too (B38 done). Descent still blocked (O9).
-- A8: L25 (its high phase's debt side) Lean-checked; outcome side and (ii) open (O14). Main again: A9's open part is A8's (ii).
-- Pruned: B28, B30, B38 (done in Lean). Known checked today (refuter: no announced proof).
-- Ideator called for this review (running).
+2026-10-26, after 93 log entries (6 since the previous review; overnight, last unit of the session).
+- A7: metric moved: `block_draw_hyb2` audited (refuter: says what we mean); new conjecture L32, blocks draw at every real height, exact for p ≤ 8. But no strategy works across all heights (O17). Cost: 4 units.
+- A9 (shelved): the fixed halving chain is essential, scaled prefixes fail. Cost: 1 unit.
+- A8 (main): no unit this round; the ideator gives it B55–B57, including its kill-criterion check (B57).
+- A10 opened from the ideator: L1 ⇐ one deformation lemma moving four numbers, with a one-strategy property O17 rules out for blocks. Next unit: B54.
+- No line meets its kill criteria. Known checked today (refuters, ideator: nothing announced).
+- Ideator called for this review.

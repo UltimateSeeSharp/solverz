@@ -940,3 +940,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None (O17).
 - **Meaning.** Drawing play must know roughly which integer band h lies in, and the number of bands grows with p, so L32 does not come with one strategy uniform in the height; a descent in h (B53) has to switch strategies at integer heights. Within a band one strategy covers all real h, so integrality itself is never used.
+
+### 2026-10-26: review ideator: moving quadruples, and where low play meets Hyb2 (A10, A8)
+
+- **Claim / question.** Ideas after the review of 87 log entries (open brief: best chance of proving the conjecture).
+- **Approach.** Ideator (effort max), `scratch/ideator/review5/`; everything unchecked.
+- **Outcome.** (1) Moving quadruples, new line A10: H(M, k) = "{1..M} plus k far 4-blocks draws at its parity gap"; L1(N) = H(N, 0), and H(M, k) ⇐ H(M − 4, k + 1) ∧ Const(M, k), where Const says V({1..M−4} ∪ ({M−3..M} + c) ∪ far blocks) does not depend on c ≥ 0. No non-draw of Const found (N ≤ 16 to c = 120, N = 19, 20 to c = 400, N = 23, 24 to c = 60; with one far block to N = 16, two to N = 12); unlike O17, one strategy draws every shift c at once (N ≤ 16, both roles). The direct simulation proof fails (D needs low "change grabs" in the far game). (2) A8: smallest-first play is safe in a deep class (min R < 0.3·span, D's numbers below min R) to N = 24 position-wise, but steers into hand-overs Hyb2 loses (smallest-first below 0.2·span with Hyb2 once high fails at N = 23, 24); the separating feature of those hand-overs is the open question. (3) A8 (ii) reduced to the deep class's exits, a conjecture to test beyond N = 24 with suffix tables. (4) A8's window of smallest numbers grows (k = 4 fails at 19, 5 at 23, 6 holds to 24), toward its kill criterion. Dropped, with data: a spine chain into L24 (P_N(k* − 1) is a mover win for N = 24, 28, 31, …), rounds play with boundedly many breaks (D needs about N/8), deque reduction, partner menus, smallest-plus-one turns, a single switch to Hyb2, other change pools (O3's set is a pool), rows at real heights.
+- **Refuter.** Not run yet; A10's data is the first candidate.
+- **Literature.** Ideator: three searches, seven sources opened; no proof or new result announced, nothing on deformations or far blocks.
+- **Metric.** A10: Const checked to N = 20 (c ≤ 400), unchecked.
+- **Meaning.** A10 is the first reduction of L1 to a deformation in which only four numbers move, with evidence that one strategy covers the whole deformation, which is exactly what O17 showed blocks lack. A8 gets a sharper question at its hand-over and a kill-criterion check.
