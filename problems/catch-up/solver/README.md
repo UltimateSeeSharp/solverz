@@ -41,6 +41,7 @@ Verification chain (`cargo test --release`, CUDA tests with `--features cuda`): 
 | `round_potential` | Is a round-by-round invariant for L15 (always-max) closed under play, over every state satisfying it? (No from p = 6.) | `cargo run --release -p catch-up --bin round_potential -- 8 18 120` (11 min) |
 | `lead_regime` | Can the defender draw while keeping the opponent behind by less than 2·min(left), in ≤ 3 picks per turn (B31)? Intervals, blocks at g0, other caps, and fixed turn rules inside the regime; `check` compares the unrestricted engine with `Solver` | `cargo run --release -p catch-up --bin lead_regime -- intervals 24 2 1 -1 3` (2 min) |
 | `hyb2_states` | Does the frugal switch (Hyb2, B30) keep the real game on blocks free of two-pick turns? Real game with Z on a rule (`am`, `hyb`, `hyb2`), Y perfect; `reach`: debts at round starts in the rounds game; `thresholds`: least height from which the rule draws | `cargo run --release -p catch-up --bin hyb2_states -- 9 hyb2 reach` (1 s) |
+| `two_ended_blocks` | Do two-ended menus draw even blocks (B35)? Defender restricted to the k smallest and k largest numbers left, opponent perfect; D's minimax margin in both roles per height (dense memo, a + 2p ≤ 64) | `cargo run --release -p catch-up --bin two_ended_blocks -- 10 10 20 4` (~2.5 min) |
 
 ## Recipes
 

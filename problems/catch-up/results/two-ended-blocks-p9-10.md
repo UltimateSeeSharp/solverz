@@ -1,0 +1,21 @@
+# Two-ended menus on blocks, p = 9, 10
+
+Does a defender D who picks only among the k smallest and k largest numbers left (menu tb_k) still draw even blocks {a..a+2p−1} at debt p mod 2, as mover and as the other player, against a perfect opponent (B35)? D's minimax final margin; D fails if it is negative in either role.
+
+- Date: 2026-10-26
+- Command: `two_ended_blocks 9 9 18 3`; `two_ended_blocks 10 10 20 3`; `two_ended_blocks 10 10 20 4` (`cargo run --release -p catch-up --bin two_ended_blocks -- …`)
+- Commit: 8fbccd0
+- Machine: AMD Ryzen 7 3700X, 32 GB RAM; rustc 1.99.1 (MSVC)
+- Runtime: 6 min 50 s for all three (p = 10 needs 256 MB per height)
+- Checked: reproduces the ideator's independent engine (`scratch/ideator/review2/blockmenus2.rs`) on tb2 (p = 5 fails at a = 5, 6; p = 6 at a = 8–10, a ≤ 14), tb3 (p = 5–7 draw at every a ≤ 16) and tb3 at p = 9 (fails only at a = 12). A first run from a scratch build of the same code gave identical output.
+- Data: `scratch/b35/two_ended_blocks-9-10.txt`, SHA-256 `eeabb522f3afd419bda77834b3bcac7373999e63801148d01e516b15a6b52911`
+
+## Outcome
+
+| p | menu | heights | D fails at | margins there (mover, other) |
+|---|---|---|---|---|
+| 9 | tb3 | 9..18 | a = 12 | (−2, 0) |
+| 10 | tb3 | 10..20 | a = 13, 14, 15 | (−2, 0) each |
+| 10 | tb4 | 10..20 | none | |
+
+Every other height draws in both roles (margins 0, 0). So the window of 3 is not enough from p = 9 on, at heights a ≈ 1.3p–1.5p, and only in the mover's role; a window of 4 holds at p = 10 for a ∈ [p, 2p].

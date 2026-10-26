@@ -580,3 +580,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged.
 - **Meaning.** If W survives, its transitions become arithmetic on these two facts plus the pair structure, which suits Lean.
+
+### 2026-10-26: two-ended menus need a growing window on blocks (A3, B35)
+
+- **Claim / question.** B35's cheap check: does the two-ended menu tb3 (3 smallest or 3 largest left) keep drawing even blocks at p = 9, 10, heights a ∈ [p, 2p], and does tb4?
+- **Approach.** New experiment `two_ended_blocks` (dense memo over (subset, gap)); reproduced the ideator's tb2 and tb3 values for p ≤ 9 first. Commands and data in [results/two-ended-blocks-p9-10.md](results/two-ended-blocks-p9-10.md).
+- **Outcome.** tb3 fails as mover (margin −2) at p = 9, a = 12 and p = 10, a = 13–15; tb4 draws p = 10 at every a ∈ [10, 20]. The other role never fails.
+- **Refuter.** Not run (a measurement; reproduced against the ideator's engine).
+- **Literature.** Not searched.
+- **Metric.** A3 (shelved): unchanged.
+- **Meaning.** The needed window grows with p (tb2 fails from p = 5, tb3 from p = 9), so "two-ended" is a search-space restriction, not yet a bounded strategy; the side-rule test should be posed with windows growing with p.
