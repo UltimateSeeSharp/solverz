@@ -139,7 +139,8 @@ impl Game {
             let x = self.numbers[i];
             let next = mask & !(1 << i);
             if x >= need {
-                if next == 0 || self.regime.allows(x - need, self.min_left(next)) {
+                // An opponent who cannot catch up at all has lost, whatever the cap.
+                if next == 0 || x - need > sum - x || self.regime.allows(x - need, self.min_left(next)) {
                     out.push(Turn { mask: next, sum: sum - x, lead: x - need, picks: picks + 1, largest: largest.max(x), taken: taken + x });
                 }
             } else if picks + 1 < self.regime.max_picks && next != 0 {
