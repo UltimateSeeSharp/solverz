@@ -32,6 +32,7 @@ Status and Approved: `CLAUDE.md`, Workflow.
 | L26 | Token lemma | R finite, t = min R, any score s. If V(R − {t}, t) = draw (`valueAux (R.erase t) s (s + t) false = .draw`), then the level mover draws R: `valueAux R s s b = .draw` for either opening flag b | L6 | A7, A8 | `CatchUp.token_lemma` (`CatchUp/Token.lean`) | formalized | — |
 | L27 | Two block families suffice | L12 at (a = 1, p even) and at (a = 2, p odd) implies L1: for N ≡ 0 mod 4, {1..N} is the block a = 1, p = N/2 at debt 0; for N ≡ 3 mod 4, {2..N} is the block a = 2, p = (N − 1)/2 (odd) at debt 1, and L26 with t = 1 gives value({1..N}) = draw | L26, L12 | all | `CatchUp.conjecture_of_two_families` (`CatchUp/Token.lean`) | formalized | — |
 | L28 | Level law | At equal scores, if some pick t ∈ R leaves the opponent drawing (`valueAux (R.erase t) s (s + t) false = .draw`), the level mover draws: no pick wins. So a level position is a draw iff some pick draws. L26 is the case t = min R | L6 | A7, A8 | — | conjecture | — |
+| L29 | One family at height 2 | If V({2..N}, 1) = draw (read at score 0) for every N ≥ 2 with 1 + … + N even, then L1. Both residues N ≡ 0, 3 mod 4 at once; for N ≥ 12 also necessary | L26 | A7, A8 | — | conjecture | — |
 
 ## L1 Main conjecture
 **Proof.** Open.
@@ -507,4 +508,11 @@ Refuter, proof mode (2026-10-26): SURVIVES. Every step checked by hand; cases co
 - y < t: the opponent catches up (s + t ≥ s + y), so its option is neg(P_y) with P_y = `valueAux ((R − y) − t) (s + y) (s + t) false`, the level mover now trailing by t − y. In the hypothesis game the mover's pick y leaves it strictly behind (s + y < s + t), so that option is P_y itself, on the same set with the same scores. The hypothesis game is a draw, so P_y ≠ win (L6), so the opponent's option neg(P_y) ≠ loss. A_y is not empty (it holds t) and not an early loss (its numbers sum to at least t > y). So A_y ≠ loss.
 - In both cases neg(A_y) ≠ win; with the draw at y = t the value is a draw (L6). Minimality of t is never used; L26 is the special case.
 **Consequence.** L1(N) holds iff some opening t of {1..N} leaves player 2 drawing at deficit t: one good opening suffices, at any rank. The refuter's observation on L26 (all R ⊆ {0..15}: whenever a level option draws, none wins) is exactly this law.
+
+## L29 One family at height 2
+**Statement.** If `valueAux (Icc 2 N) 0 1 false = .draw` for every N ≥ 2 with 1 + … + N even, then L1.
+**Proof.** N = 0: no numbers, a draw. N = 1: odd total, nothing to prove. N ≥ 2: value({1..N}) = `valueAux (Icc 1 N) 0 0 false` (`valueAux_true_eq_false`), and L26 with R = {1..N}, t = 1, s = 0 needs exactly `valueAux (Icc 2 N) 0 1 false = .draw`, since {1..N} − {1} = {2..N}.
+**Necessity.** For N ≥ 12 every opening of {1..N} draws (results), in particular opening 1, so V({2..N}, 1) = draw there: the family is equivalent to L1 from N = 12 on.
+**Evidence.** Two-pick class (`turn_cap ranges 2 18 1 2 2`): the defender draws {2..N} at deficit 1 for every even-total N ≤ 16 with both players' turns ≤ 2 picks.
+**Lean draft** (`scratch/lean/Level.lean`, compiles, standard axioms): `conjecture_of_height_two`.
 
