@@ -490,3 +490,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A2 (shelved): unchanged.
 - **Meaning.** In the rounds game deficits are offsets below the round's pick size; at height 1 they are raw numbers. A depth class for the real game would need a deficit measured against the numbers left (e.g. relative to min or 2·min, as R2 does), not this literal one.
+
+### 2026-10-26: the depth invariant survives proof mode (A7)
+
+- **Claim / question.** Does L23's paper proof (the depth invariant K for AM+T) survive the refuter in proof mode?
+- **Approach.** Refuter, proof mode, own code written without the ideator's (`scratch/refuter/l23/`). I applied its fixes.
+- **Outcome.** L23 SURVIVES → `paper proof`. Fixes: the consequence is only the draw entries of t_p (L17 stays a conjecture; its section now lists what is proved and what is open); KZ/KY named in the statement; the start's mover at s = 0 is the given one; (B) and (C) need q ≥ 2, (B)'s last case reworded; three unstated last steps written out; (E) renamed (D); Uses L13; the ideator's "(9 cases)" replaced by the refuter's count.
+- **Refuter.** Proof mode (2026-10-26): SURVIVES. Closure on 1,000,627 K-states within {0..15} and 3,856,947 within {0..16}; Z's guarantee ≥ −1 from all 987,901 K-states within {0..15} against a perfect Y; every intermediate claim of every case; 1,016,606 random boundary states; every mutation breaks closure. Exact minimax matches t_p for p ≤ 8, d ≤ p + 3.
+- **Literature.** Refuter: OEIS A278587 opened (values only); nothing on rounds games or hole-depth invariants.
+- **Metric.** A7: unchanged (TI's range stays a ≥ 6p − 2; L23 adds the rows' draw entries at heights where L13 applies).
+- **Meaning.** The draw entries of every high block's row now have a refuter-checked per-round proof, the form that suits Lean: with L13 or L22 and parity it gives TI in Lean once K is formalized.
