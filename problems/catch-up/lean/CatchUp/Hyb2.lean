@@ -1304,8 +1304,9 @@ theorem block_row_draw_hyb2 {p a d : ℕ} (hp : 1 ≤ p) (ha : 2 * p - 1 ≤ a) 
   revert hZ' hY'
   cases valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + d) false <;> simp
 
-/-- **L24, Lean form.** The block `{a, …, a + 2p − 1}` with `a ≥ 2p − 1` is a draw for the player
-to move trailing by `p mod 2`, from any common base score `s`. -/
+/-- **L24, Lean form** (pending the user's approval). The block `{a, …, a + 2p − 1}` with
+`a ≥ 2p − 1` is a draw for the player to move trailing by `p mod 2`, from any common base score
+`s`. -/
 theorem block_draw_hyb2 {p a : ℕ} (hp : 1 ≤ p) (ha : 2 * p - 1 ≤ a) (s : ℕ) :
     valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false = .draw :=
   block_row_draw_hyb2 hp ha (by omega) (Nat.mod_mod p 2) s

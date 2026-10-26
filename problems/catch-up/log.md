@@ -910,3 +910,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None.
 - **Meaning.** Unchanged.
+
+### 2026-10-26: `block_draw_hyb2` audited: it says what we mean (A7)
+
+- **Claim / question.** Does the Lean statement `block_draw_hyb2` (L24) say what its plain reading says, with no trap at the new height boundary a = 2p − 1?
+- **Approach.** `audit-statement`: tests in `Tests/BlockDrawHyb2.lean` (Catch-Up on the block for p even; implies `block_draw_linear` and, added now, `block_draw_high` for every p ≥ 1); refuter in statement mode with two engines of its own (`scratch/refuter/hyb2stmt/`).
+- **Outcome.** No gap: literal reading, ℕ subtraction, the flag, the base score and the boundary cases (p = 1, a = 2p − 1) check out; the claim and every row hold for p ≤ 7 at a ∈ [2p − 1, 2p + 5] and p = 8 at a = 15, 16. The block still draws at a = 2p − 4..2p − 2 (p ≤ 8), so 2p − 1 is the proof's limit, not the game's; the rows version does need it ({2,3,4,5} at deficit 2 is a mover win). Doc comment marked pending approval.
+- **Refuter.** Statement mode: SAYS WHAT WE MEAN.
+- **Literature.** Refuter: nothing on blocks or consecutive sets beyond the README's sources; no proof announced in 2026.
+- **Metric.** A7: unchanged (the statement is ready for approval).
+- **Meaning.** If blocks are reported, `block_draw_hyb2` is the one statement to approve; it covers the two earlier block theorems.
