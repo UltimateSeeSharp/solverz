@@ -450,3 +450,13 @@ Newest last. Entry format:
 - **Literature.** Ideator: nothing using this rule or a hole-depth potential (picking-sequence work only).
 - **Metric.** A7: unchanged until the verdict.
 - **Meaning.** A per-round invariant with explicit sums is the Lean-friendly route to TI for blocks and to L17's draw entries; only the parity-forced entries of t_p would remain open.
+
+### 2026-10-26: Lean: the matching bound (A7)
+
+- **Claim / question.** Formalize L20 (paper proof since today).
+- **Approach.** `lean/CatchUp/Matching.lean`: `matchCost` (two smallest, then recurse), `matchCost_of_min` (unfolding at the two smallest), `matchCost_nonneg`, `exists_partner` (every i has a j with c(O − {i, j}) + \|i − j\| ≤ c(O)), `roundsMargin_le_matchCost` by strong induction with `roundsMargin_le_neg`. Drafted in scratch while the refuter ran, moved in after the verdict.
+- **Outcome.** L20 → `formalized`; `lake build --wfail` clean; axioms propext, Classical.choice, Quot.sound. Deviation (in its section): the answer is given by `exists_partner` rather than named.
+- **Refuter.** Not run (kernel-checked; L20 survived proof mode today).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged.
+- **Meaning.** The loss half of L17's rows (d > p) and the switch half of L21 are checked; a checked L21 or L16 still needs L22 in Lean and L15 or L23.
