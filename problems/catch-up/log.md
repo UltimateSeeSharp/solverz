@@ -720,3 +720,13 @@ Newest last. Entry format:
 - **Literature.** Ideator: no proof announced; Cooper–Dutle "Greedy Galois Games" (arXiv 1110.1137) has the Thue–Morse order of always-max play on {1..N} but no item choice, so it does not apply.
 - **Metric.** None yet (L26 pending its verdict).
 - **Meaning.** If L26 survives, the goal is exactly TI(1, p even) ∧ TI(2, p odd), and half of it lives at height 2, where two-pick turns still draw.
+
+### 2026-10-26: Hyb2 can take over once the set is high (A8, B35)
+
+- **Claim / question.** A8's feasibility: if D plays freely while the set is low and Hyb2 from the first high position (min ≥ span) on, does it still draw {1..N}?
+- **Approach.** `low_high` with a memoryless Hyb2 high phase (a8a9b7b); [results/low-high-hyb2-n24.md](results/low-high-hyb2-n24.md).
+- **Outcome.** Yes for every even-total N ≤ 24, in both roles; also when switching later (min ≥ 2·span). Switching earlier fails (min ≥ span/2: from N = 7). With only the 8 smallest numbers before the switch it fails at 23, 24; the 12 smallest suffice to 24.
+- **Refuter.** Not run (feasibility data; the Hyb2 rule matches L24 on blocks).
+- **Literature.** Not searched.
+- **Metric.** A8: the high phase is settled as Hyb2 for N ≤ 24; left: describe the class H of switch positions the low phase can force (Hyb2 fails on about 6% of high positions, log 2026-10-26: Hyb2 is not a universal high-phase strategy).
+- **Meaning.** A proof along A8 needs only the low phase plus a description of the hand-over positions; L25 already bounds the debts after it. The bottom-k window must grow with N, so the low phase is not just "make change from the bottom".
