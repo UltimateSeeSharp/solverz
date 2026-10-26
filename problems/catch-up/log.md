@@ -380,3 +380,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged.
 - **Meaning.** The Lean route to L16 needs only the strategy induction (L18 with L19) on top of these two theorems and L13.
+
+### 2026-10-26: the potential step survives proof mode (A7)
+
+- **Claim / question.** Does L18's paper proof (the catch-up potential step) survive the refuter in proof mode?
+- **Approach.** Refuter, proof mode, with its own literal move generator (`scratch/refuter/l18/`). I applied its fixes to the statement and proof.
+- **Outcome.** L18 moves to `paper proof`. Fixes: Uses L13, L14; the statement unifies the last round (c'' = 0), states the drop's size and that only Y's pick t1 causes it, and defines exact tie and second largest; part (a) is the other direction from L14 (s + c, not s − c); the exception needs \|T\| ≥ 4; the converse uses c'' > 0. A false evidence sentence corrected: with d = p + 1 a drop can also come at \|T\| = 4 (outside L19's range); at most one drop of 1 per line still holds for all starts with p ≤ 9. Plain always-max satisfies L18 as well.
+- **Refuter.** Proof mode (2026-10-26): SURVIVES. 671,662 states (every even T ⊆ {0..13}, debts ≤ 40) and 6.26M random states near the thresholds, 0 mismatches; threshold mutations ±1 detected.
+- **Literature.** Refuter: nothing on greedy or alternating-sum analyses of Catch-Up or of "player behind moves next" picking games.
+- **Metric.** A7: unchanged (B26: L18 paper proof; L19 open).
+- **Meaning.** The per-round half of the route to every row's floor, and to a Lean proof of L16, is checked; L19 is the remaining gap.
