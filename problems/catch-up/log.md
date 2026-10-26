@@ -470,3 +470,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged (L24 conjecture).
 - **Meaning.** One lemma (Hyb2's debt bound) separates A7 from TI at every doubling-free height; below a = 2p − 1 double picks are unavoidable for this strategy.
+
+### 2026-10-26: Lean: strategy transfer from the rounds game to the real game (A7)
+
+- **Claim / question.** Formalize L22 (paper proof since today), the step every high-block result shares.
+- **Approach.** `lean/CatchUp/Transfer.lean`: helpers for `best` (`best_ne_win`, `best_ne_loss`), `neg`, `valueAux_step` (one unfolding outside the opening), list membership on translated offsets; `valueAux_transfer` by strong induction over the set left, unfolding the mover's node and the answerer's node, with the early-loss rule ruled out at round starts (one pick covers the debt) and at Z's answer node (Z's answer catches up, or two numbers are left).
+- **Outcome.** L22 → `formalized` in invariant-class form with the draw threshold; it needs only debt ≤ a + min R at round starts, which is the form L24 uses. `lake build --wfail` clean; axioms propext, Classical.choice, Quot.sound. Deviations in L22's section.
+- **Refuter.** Not run (kernel-checked; L22 survived proof mode as L21 (b)).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged.
+- **Meaning.** A checked TI for high blocks now needs, in Lean, only a strategy class with a debt bound and a margin guarantee: L23 (once verified) plus a debt bound (B32), or L15, or L24 (a).
