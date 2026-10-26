@@ -430,3 +430,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A2 (shelved): unchanged; R2 is a class that holds the whole game for N ≤ 24 but is defined through values, not by an explicit rule.
 - **Meaning.** Bounded turns are compatible with drawing at every height tested, but which allowed turn draws is no simple key, as for unrestricted play (A3's rules lose at N = 4). R2 does not revive A2 or A3 by itself; it narrows the strategy space a proof would need to describe.
+
+### 2026-10-26: high pair sets draw at linear height: L20, L21 survive proof mode (A7)
+
+- **Claim / question.** Do the paper proofs of L20 (matching bound) and L21 (TI for pair sets at a > 3m via Hyb) survive the refuter in proof mode?
+- **Approach.** Refuter, proof mode, with its own rounds-game engines and a literal `valueAux` port (`scratch/refuter/l21/`). I applied its fixes.
+- **Outcome.** Both SURVIVE → `paper proof`. Fixes: the per-round transfer, used by L21 (b), is its own node L22 (strategy transfer; `valueAux_map_add` needs d + sum(O) < a and does not apply at a = 3m + 1); Hyb in the real game numbers picks from the start, picks 2k − 1 and 2k forming round k; "same outcome" instead of "same final margin" (early-loss endings leave a number untaken); L20 uses no lemma; L21 needs p ≥ 1; the largest round-start debt against Hyb on blocks is 4p − 5 = 2m − 3, not 4p − 4.
+- **Refuter.** Proof mode (2026-10-26): SURVIVES. L20 tight on every even O ⊆ {0..9}; (a)'s bounds on all 4,181 pair sets within {0..19} and all even sets within {0..14}; per-node rounds/real agreement on 650,774 nodes; Hyb draws all 610 pair sets within {0..15} at a = 3m − 2..3m + 1; mutation detected.
+- **Literature.** Refuter: nothing new on matching or pairing strategies for Catch-Up.
+- **Metric.** A7 moved: TI on paper for every p at a ≥ 6p − 2 (L21), besides a > 1 + p(2p−1) (L16) and p ≤ 2.
+- **Meaning.** The height bound is linear. The method (bound the debts along one strategy's plays, then L22) applies to any strategy with a debt bound; Hyb's measured bound 2m − 3 and Hyb2's (B30) suggest a ≥ 2p − 1 is in reach.
