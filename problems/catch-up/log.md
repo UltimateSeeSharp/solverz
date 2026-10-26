@@ -620,3 +620,23 @@ Newest last. Entry format:
 - **Literature.** Not searched (refuter will).
 - **Metric.** A7: unchanged until L25 survives.
 - **Meaning.** With L25, L24 (TI at a ≥ 2p − 1) has a complete paper route: L25 → L22 (offsets ≤ a, Lean) → L15 and L20 → parity.
+
+### 2026-10-26: the potential W holds in claim mode (A7, B30)
+
+- **Claim / question.** L25's claim: W never increases over a Hyb2 round from any start with even debt + sum, starts at 2p − 1, so Y's debt ≤ 2p − 1 + min R and Z's ≤ 2p − 1.
+- **Approach.** Refuter in claim mode with its own engine (Rust, and a literal Python port that matches it exactly at U = 11); first reproduced L24's measured evidence and the ideator's state count.
+- **Outcome.** HOLDS: no rise over 1.14·10⁹ round starts (all even sets of span ≤ 26, debts up to c + 20), span ≤ 21 to c + 100, sparse and random sets, every reachable start for p ≤ 13. Every mutation breaks it; the definition's sharp points (e ≥ c, ≥ in "valid", o₂ absolute, parity) are as L25 states them.
+- **Refuter.** Claim mode (2026-10-26): HOLDS (tested range). Proof mode on L25 running.
+- **Literature.** Refuter: Delon–Salomon–Sobolevski (arXiv 1102.1558, nested minimum matchings on the line) has no odd-count form of the cost; nothing on this potential.
+- **Metric.** A7: unchanged until proof mode.
+- **Meaning.** The numerical side of L24 (a) is settled to span 26; what remains is the proof-mode check of L25's argument.
+
+### 2026-10-26: deque Catch-Up rows have two clean regimes (A7, B36)
+
+- **Claim / question.** B36: in the deque model (every pick the smallest or largest left), can the rows of even blocks be described by a few thresholds?
+- **Approach.** `scratch/b36/deque_rows.rs` (exact margins by interval and debt, DP by length); first reproduced the ideator's values: deque TI holds for p ≤ 12, a ≤ 60, and every even-total {1..N} draws for N ≤ 100. Then the draw-parity rows of [lo, lo + 2p − 1] for p ≤ 30, lo ≤ 200 as runs (`runs-200-30.txt`).
+- **Outcome.** For p ≥ 3: at lo ≤ p − 1 the row is a draw at every draw-parity debt up to the top; from lo = 3p − 4 on (exactly, every lo ≤ 200) it is D for g ≤ p, L for p < g ≤ lo, W for g > lo (the mover then takes two picks and jumps ahead); p ≤ lo ≤ 3p − 5 are mixed. p = 1, 2: the pattern holds from lo = 1, 2.
+- **Refuter.** Not run (toy model, scratch).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged.
+- **Meaning.** In the toy, TI holds at every height and the high regime starts at a linear height, as in the real game; the mixed band p ≤ lo ≤ 3p − 5 is where a descent must work. A full proof would need the values of odd lengths and off-parity debts too (next step of B36).
