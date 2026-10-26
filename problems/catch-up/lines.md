@@ -9,7 +9,7 @@ Status: `main`, `active`, `shelved` (with reason), `dead` (killed by an obstruct
 - **Evidence.** Top twins {x, x} do cancel (mirror strategy), but a pair's effect depends on R globally (log 2026-10-22: a top pair does not act locally).
 - **Kill criteria.** A counterexample to the pair rule that no extra position feature repairs. Met: O4.
 
-## A2: An invariant region of positions (`main`)
+## A2: An invariant region of positions (`shelved`: fixed-bound classes and partner pairing fail closure, O5, O6, and when to refuse the partner has no cheap rule; revive with a class closed under play from A5, B12)
 
 - **Reduction.** For each player P a class C_P of positions (numbers left, gap, P to move) such that: P's first turn start is in C_P (for player 2, after every opening); from each C_P position P has a turn after which every opponent turn returns P to C_P or ends the game without P losing. Then P never loses; with both players, the game is a draw. Blueprint root: L1.
 - **Metric.** Violations of that closure for the best candidate class, as the earliest point (numbers left) where the opponent can force P out of it. Now: no fixed-h hole class closes (O5); adjacent pairs with ≤ 2 broken hold until 0–11 numbers are left for N ≤ 24, ≤ 4 broken hold the whole game for N ≤ 24 (2026-10-22).
@@ -29,3 +29,24 @@ Status: `main`, `active`, `shelved` (with reason), `dead` (killed by an obstruct
 - **Metric.** Even-sum sets with max ≤ 30 that have P but don't draw. Now: 523 for P = complete (O3); 0 for P = "near-interval with |H| ≤ 4 and m ≥ 14" (L4).
 - **Evidence.** Completeness is almost right (O3); few holes is better (L4).
 - **Kill criteria.** Already shaky: P must survive moves, and completeness doesn't (log 2026-10-22). Revive if a refined P (B3) is preserved by play; holes grow with play, which B6 measures.
+
+## A5: Sets made of adjacent pairs (`dead`: O7)
+
+- **Reduction.** Prove L8 (pair sets draw at gap p mod 2; plus {1,2,3} ∪ pairs); it contains L1 at N ≡ 0, 3 mod 4. Try the toy cases first (far-apart pairs, p = 2), then a class closed under play containing (E, g0).
+- **Metric.** Largest family of E sets with a paper proof of L8. Now: p ≤ 2 (L7, L11) and far-apart pairs for every p (L9); false from p = 5 (O7; none found for p ≤ 4). Reductions (L10): T ⇐ E for "≥ draw"; for p even, "≤ draw" ⇐ L8 for p − 1; for p odd the partner reply fails (B14).
+- **Evidence.** That entry; top twins cancel (mirror, log: a top pair does not act locally).
+- **Kill criteria.** A counterexample to L8, or neither far-apart pairs nor p = 2 yields a paper proof. O4 warns that adding a top pair is not a local rule for arbitrary R; O6 that forced partner replies fail.
+
+## A6: Inert top quadruple (`shelved`: Γ_N draws to N = 28, but Lemma A has no local form (O8), so the split fails; revive with an invariant along the defender's play, e.g. "early openings only rescue attacker losses")
+
+- **Reduction.** Γ_N: the defender never takes from Q = {N−3..N} except to close a pair the attacker opened, or when only Q is left. A defender strategy in Γ_N is one in the real game, so L1(N) ⇐ the defender draws Γ_N as player 1 and as player 2. Splits into Lemma A (opening a Q-pair while lower numbers remain never helps the attacker; the dense analogue of L9 (P2)) and Lemma B (the game on {1..N−4} with Q as final payoff: the player to move when {1..N−4} runs out draws at debt 0 or 2, loses otherwise).
+- **Metric.** Largest N with Γ_N drawn in both roles: 28 (log 2026-10-22: the top quadruple can wait, but not by a local lemma), then the status of Lemmas A and B (A: false position-wise, O8).
+- **Evidence.** Ideator (scratch, unchecked; log 2026-10-22: line review, new lines): Γ_N drawn for every even-total N ≤ 24; reserving 3 or more top pairs loses (N = 12 as P2, 16–24 both); with both players barred from early openings every reserved block of 2–5 pairs draws for N ≤ 20, so Lemma A carries the content. L9 (top pairs act as a final payoff).
+- **Kill criteria.** A loss in Γ_N at an even-total N; or Lemma B no easier than L1(N − 4) (the reduction is one step: stacking quadruples loses).
+
+## A7: Even blocks at any height (`main`: revived by you 2026-10-22 for B20, the high-block proof; the descent to a = 1 stays blocked by O9)
+
+- **Reduction.** TI: V({a..a+2p−1}, p mod 2) = draw for all a, p ≥ 1. a = 1 with p even is L1 for N ≡ 0 mod 4; a = 2 with L10 (a) gives "player 1 doesn't lose" for N ≡ 3 mod 4. Route: prove TI for large a (debts stay below a or near a, as in L9), then show the draw band does not shrink as a decreases.
+- **Metric.** The range of (a, p) with a paper proof of TI (now p ≤ 2, every a: L7, L11).
+- **Evidence.** Ideator (scratch, unchecked): translated even blocks draw at g0 for p ≤ 6, a ≤ 60, while O7's separated pairs fail at the same heights; for a ≥ 12 (p ≤ 6) the row at debts below a is t_p: draw at draw-parity debts ≤ p, loss elsewhere, except a win at debt 0 for p odd.
+- **Kill criteria.** A translated even block that is not a draw at g0; or a band that loses part of [0, p] at some height. The descent to a = 1 is the hard part; shelve if the large-a proof gives no handle on it.

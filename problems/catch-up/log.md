@@ -146,3 +146,97 @@ Newest last. Entry format:
 - **Literature.** Not searched (covered by the earlier entries).
 - **Metric.** A2: unchanged.
 - **Meaning.** Whether to refuse the partner is a question about where the opponent's new deficit lands in its draw band, which depends on the whole set; no cheap feature predicts it. Together with O5 and O6 this nearly meets A2's kill criterion; a new idea is needed.
+
+### 2026-10-22: sets made of adjacent pairs draw (A5)
+
+- **Claim / question.** Ideator idea (fresh-idea unit). L8: (E) every S whose maximal runs of consecutive numbers all have even length (S = p disjoint pairs {x, x+1}) has V(S, p mod 2) = draw; (T) the same for {1,2,3} ∪ (an E set above 3), p = its pairs. {1..N} is E at gap 0 for N ≡ 0 mod 4 and T at gap 0 for N ≡ 3 mod 4, so L8 implies L1.
+- **Approach.** `solver/src/bin/pair_sets.rs`: `cargo run --release -p catch-up --bin pair_sets -- 30` (71 s, ~3 GB; output `scratch/pair_sets-30.md`, SHA-256 1049e6a8…). One layered table on {1..30}; every member with max ≤ 16 matches `Solver` at every draw-parity gap ≤ its max; at U = 20 it reproduces the ideator's independent counts (5,472 / 5,473). Independent DP without the crate (`scratch/pair_sets_indep/main.rs`, DP from `scratch/ideator/eap2.rs`): same result on {1..26} (196,417 E, 46,368 T sets).
+- **Outcome.** No exception: all 1,346,268 E sets and 317,811 T sets ⊆ {1..30} draw at g0, including sparse ones ({1,2,29,30}). Not robust at other gaps: sparse E sets fail already at g0 + 2 ({26,27,29,30} at gap 2); 426,644 E sets draw at every draw-parity gap ≤ min(sum, 30). Ideator (unchecked): E positions at g0 are not closed under play ({1,2,3,4}, attacker takes 2: no reply returns to an E set at its g0); pairs {x, x+d} with one common d and APs of length 4k also draw; |M({1..N}, 0)| ≤ 1 (final margin) for N ≤ 23.
+- **Refuter.** Not run (user stopped for usage); the independent DP is the check so far.
+- **Literature.** Ideator: nothing on Catch-Up beyond Known; balancer and discrepancy games are asymptotic only.
+- **Metric.** A5 (new): G1' proved for p ≤ 1 (L7 at {a, a+1}, gap 1), checked to U = 30.
+- **Meaning.** A sharper statement than L1 that holds on very sparse sets, so a proof must rest on the pair structure, not density (unlike L4, A4). Heuristic: a pair = twins (which cancel by mirroring) plus a unit offset; p units at gap p mod 2 draw. The forced partner reply still fails (O6), so the proof needs a larger class than (E, g0).
+
+### 2026-10-22: far-apart pairs proved (A5)
+
+- **Claim / question.** B11. For S = p pairs P_i = {a_i, a_i + 1} with a_1 ≥ p and a_{i+1} > sum(P_1 ∪ … ∪ P_i) + a_i + 1: V(S, g) = f_p(g) for g ≤ a_1, where f_p(g) = draw if g ≤ p and g ≡ p (mod 2), win if g < p and g ≢ p, loss if g > p (blueprint L9). At g = p mod 2 this is L8 (E) for these sets.
+- **Approach.** Paper proof (blueprint L9): a value G(L, g; f) where f replaces "draw at 0, loss above" as the payoff when L runs out; opening the top pair while a smaller number is left loses, since the opponent then takes everything below along with the partner, so the top pair only changes f; each pair turns f_j into f_{j+1}. Check: `solver/src/bin/far_pairs.rs`, `cargo run --release -p catch-up --bin far_pairs` (1 s; output `scratch/far_pairs.md`): minimal sequences of the regime for p ≤ 7, and every pair set with p = 2, 3, 4 (max ≤ 80, 60, 40) by which hypotheses hold; V(S, 0) cross-checked with `reference_value` for p ≤ 4.
+- **Outcome.** Proved on paper and matched in every tested case: rows g ≤ a_1 for p ≤ 7 (largest number 28,198). Every 2- and 3-pair set in which each pair exceeds the sum below it matches f_p at g ≤ min(p + 1, a_1). Mechanism: pairs are opened from the bottom, each opened and closed in consecutive turns.
+- **Refuter.** SURVIVES (proof mode): every step checked with its own engine, including (P2) on random arbitrary sets L (389,848 cases) and the full statement on 1,650 random sequences with p ≤ 7. Two wording fixes (a gap-0 turn ends with a lead equal to its pick; m ≥ 0 made explicit), applied. My note that (A) looks unnecessary was wrong: {1,2,4,5,13,14,40,41} at g = 1 is a loss where f_4 says win (all such failures have a_1 = 1, none at g0). Under F0 alone (P2) fails, so weakening (F) needs another induction.
+- **Literature.** Refuter: nothing on Catch-Up for super-increasing or pair sets.
+- **Metric.** A5: L8 proved for p ≤ 1 → also for far-apart pair sets with any p.
+- **Meaning.** An infinite family of L8 instances, and a picture of why pairs act as tempo units: each pair flips the parity of the drawn gaps and widens their range by one. It says little about {1..N} directly, where pairs are dense and the high pairs are not protected; but it hands A5 the tool of a modified final payoff.
+
+### 2026-10-22: pair sets, first picks; two pairs proved (A5)
+
+- **Claim / question.** Which first picks draw in pair sets at g0 (E, and T = {1,2,3} ∪ E')? Does a partner-reply defence prove "≤ draw" by induction on p? Prove L8 at p = 2 (B12).
+- **Approach.** `solver/src/bin/pair_moves.rs`: `cargo run --release -p catch-up --bin pair_moves -- 28` (25 s; output `scratch/pair_moves-28.md`): one layered table on {1..28}; pick values neg V(S − x, x − g0) by role; V(E, g0 + 2j), j ≤ 3. Members with max ≤ 14 re-solved with `Solver` pick by pick. Paper proofs from L6, L7 (blueprint L10, L11).
+- **Outcome.**
+  - T (121,393 sets): picks 1 and 3 always draw; pick 1 leaves the opponent in the pair set {2,3} ∪ E' at its g0 (L10 (a)), so T's "≥ draw" follows from E's "≤ draw".
+  - E (514,228 sets): no pick role always draws; a_1 + 1 fails in 2,498 sets, all dense high blocks ({23,…,28}: only 26, 27, 28 draw).
+  - Partner replies: for p even, "≤ draw" follows from L8 at p − 1 (L10 (b)). For p odd, a bottom pick answered by its partner leaves the mover at gap 2 with an even number of pairs, a mover win in 446 sets (smallest {2,3,4,5}: pick 4 wins), so no partner induction.
+  - L11: every 2-pair set draws at gap 0 (≤ by L10 (b) and L7; ≥ by the pick a + 1).
+- **Refuter.** L10, L11 (proof mode): SURVIVES; own DP and a literal port, (b)'s partner inequalities on every R ⊆ {1..26} (419M checks), L11 for all b ≤ 61; it reproduced `pair_moves` at U = 22 exactly. Notes: the early-loss check of `valueAux` must be shown not to fire, and a Lean version needs "V depends only on the deficit" (added to the proofs).
+- **Literature.** Refuter: nothing on pair sets or partner strategies for Catch-Up.
+- **Metric.** A5: L8 proved for p ≤ 1 and far-apart pairs → also p = 2 for all sets.
+- **Meaning.** Reductions inside L8 work for p even and for T, but the odd-p upper bound needs replies other than the partner (O6 again). The next entry shows L8 itself is false.
+
+### 2026-10-22: pair sets do not all draw (A5; corrects 2026-10-22: sets made of adjacent pairs draw)
+
+- **Claim / question.** L8 (all pair sets draw at gap p mod 2), claimed from `pair_sets 30` with no exception among sets ⊆ {1..30}.
+- **Approach.** Refuter (claim mode): audit of `pair_sets.rs`; an independent full-table DP; memoized and whole-turn engines on sparse sets with max up to 200; exhaustive and random hunts. Re-checked here with the crate's `Solver` (`scratch/l8check/`).
+- **Outcome.** False just above the tested range. C = {17,18,20,21,25,26,28,29,31,32} (p = 5): V(C, 1) = loss for the mover. {1,2} ∪ C (p = 6): player 1 wins, only by opening 2; {1,2,3,4,5} ∪ C (T, p = 6) and {1,2,3} ∪ C at gap 1 (T, p = 5) fail too. E with p = 5 and max ≤ 44 has 232 exceptions, all losses with min ≥ 17; random pair sets with p = 5–8 and max 100–200 fail in about 0.5–1%. None found with p ≤ 4 (E exhaustive: p = 3 with max ≤ 200, p = 4 with max ≤ 80).
+- **Refuter.** BROKEN. `pair_sets.rs` is correct (enumeration complete, table exact at every gap ≤ U, the full set handled); the error was concluding from a universe that stops at 30. The reduction L8 ⇒ L1 and value(S) = V(S, 0) are correct (checked on all subsets of {1..26}).
+- **Literature.** Refuter: nothing on Catch-Up for pair sets.
+- **Metric.** A5: kill criterion met (a counterexample to L8).
+- **Meaning.** The claim "a proof must rest on the pair structure, not density" is wrong: the exceptions are exactly the sparse, high pair sets. Pair structure alone does not force a draw; density matters too, as in L4. L9, L10, L11 stay true. Every exception found has a sparse part high up (the p = 5 cores have min ≥ 17), and adding small pairs below does not repair it ({1,2} ∪ C); pair sets with few holes, as in L4, may still draw.
+
+### 2026-10-22: aligned pair sets do not all draw either (—)
+
+- **Claim / question.** Partner exchanges from {1..N} only remove the aligned pairs {2j−1, 2j}, so the sets they reach are aligned pair sets. Do all aligned pair sets draw at gap p mod 2? That would give a class closed under partner exchanges, unlike L8 (O7).
+- **Approach.** Filtered the refuter's list of exceptions (`scratch/refuter/l8/hunt-E5-31-44.txt`: every pair set with p = 5 and max 31–44) for sets whose pair bottoms are all odd; re-solved the hits with `Solver` (`scratch/l8check/`).
+- **Outcome.** False. 2 of the 232 exceptions are aligned: {21,22,25,26,31,32,35,36,39,40} and {23,24,27,28,33,34,37,38,41,42} are losses at gap 1, and with {1,2} added both are player-1 wins at gap 0. Both are sparse and high, like the rest of O7.
+- **Refuter.** Not run (a filter of refuter-checked data, re-solved with `Solver`).
+- **Literature.** Not searched.
+- **Metric.** — (no main line; a candidate line killed before it started).
+- **Meaning.** No pair-structure class closes on its own: the partner-reachable family contains sparse, high sets that are not draws. Any class must also bound sparseness, and the defender must steer away from sparse sets rather than answer with the partner.
+
+### 2026-10-22: line review, new lines (A6, A7)
+
+- **Claim / question.** With every line dead or shelved, which new lines does the evidence support? Ideator (max effort), called for the review.
+- **Approach.** Ideator's own scratch DPs (`scratch/ideator/r2/`, 30 s–2 min each, ≤ 1 GB); its counterexample to the low-change law re-solved with `Solver` (`scratch/l8check/`).
+- **Outcome.** Kept: A6 inert top quadruple (a defender that never opens {N−3..N} first draws every even-total N ≤ 24 in both roles; 3+ reserved top pairs lose); A7 even blocks {a..a+2p−1} at any height (draw at g0 for p ≤ 6, a ≤ 60; row t_p for a ≥ 12); low-change law for A4 (B22): adding {1..k} cures an O7 core at a sharp k near 1+…+k ≈ 2·min C, but {1..9} ∪ {25,26,28,29,36,37,39,40,43,44} is a player-2 win (confirmed); margin bound M(R, g+1) ≥ M(R, g) − 1 on R ⊆ {1..16} (B21). Dropped, each losing in the ideator's runs: keeping the low block {1..k} for last (every k, N = 7–20); a run-parity defender (any pick restoring even runs) from N = 15–16, so O6 extends to flexible re-pairing; greedy defenders by random-continuation potentials (by N = 7); any fixed bound on the attacker's debt (paper argument). |M| ≤ 1 at every opening of {1..N}, N ≤ 20.
+- **Refuter.** Not run (ideas and unchecked scratch data; each line's first unit checks its own claim).
+- **Literature.** Ideator: nothing beyond Known; scoring-play surveys (arXiv 1202.4653, 1107.5092) not opened, none treats this turn rule.
+- **Metric.** — (new lines; A6 main by evidence: closest to {1..N} and a cheap kill test).
+- **Meaning.** Two new routes: A6 treats the top four numbers like L9's far pairs (a final payoff), A7 works in a two-parameter family that contains {1..N} and has a provable end at large a. Density matters (O7, B22), and pairing rules fail as strategies in every form tried.
+
+### 2026-10-22: low change cures sparse cores, without a clean law (A4)
+
+- **Claim / question.** B22. For an O7 core C (5 pairs, not a draw at gap 1), how large must k be for {1..k} ∪ C to draw at its draw-parity gap? Is there a law in min C (ideator: 1+…+k ≈ 2·min C)?
+- **Approach.** `solver/src/bin/low_change.rs`: `cargo run --release -p catch-up --bin low_change -- 6 20 1` (40 s; output `scratch/low_change-6-20.md`). Regenerates the failing cores with max 31–44 (232, as the refuter found), profiles every 6th (39) and 20 random failing cores with numbers 13–60; one layered table on {1..12} ∪ C per core, gives V({1..k} ∪ C, g0) for k ≤ 12.
+- **Outcome.** For k = 0..7 the profile is L W W L W W W L for every core: the value depends on k alone, as if C were a fixed final payoff for the game on {1..k} (L9's mechanism). From k(C) on, all draw: k(C) = 8 or 9 for min C = 17–18, 9 for 19–23, 10 for 24, 10 or 11 for 25, 11 for 26–28, 12 or more than 12 for 29–36. 1+…+k(C) lies between 1.96 and 2.7 times min C, and 1+…+(k(C) − 1) between 1.6 and 2.3 times; cores with the same min need different k.
+- **Refuter.** Not run (no claim kept: the law fails).
+- **Literature.** Not searched.
+- **Metric.** A4 (shelved): unchanged.
+- **Meaning.** A sparse high part acts as a terminal payoff, and enough low change, about twice its smallest number, restores the draw. The threshold also depends on the rest of C, so "low change ≥ 2·min" is not a characterization. This explains O7 but gives no invariant.
+
+### 2026-10-22: the top quadruple can wait, but not by a local lemma (A6)
+
+- **Claim / question.** B16, B17. (1) Does the defender draw Γ_N (it never takes from the top four numbers T except to close a pair the attacker opened, or when only T is left) for even-total N up to 28? (2) Lemma A: at positions with T intact, does barring the attacker the same way (Γ') leave every value unchanged?
+- **Approach.** `solver/src/bin/top_reserve.rs`: own full tables (restricted defender to move, attacker to move), one u64 row per set. `cargo run --release -p catch-up --bin top_reserve -- 3 20 0 1 2 3 4` (1 s) and `-- 23 28 0 1 2 3` (4 min, 4.3 GB at N = 28; outputs `scratch/top_reserve-20.md`, `top_reserve-23-28.md`); `-- compare 7 24 2` (6 s; `scratch/top_reserve-compare-24.md`). Checks: q = 0 equals `Solver` on every set and gap for N ≤ 12; restricted tables equal a plain recursion for N ≤ 8; the table to N = 20 equals the ideator's independent one.
+- **Outcome.** (1) Γ_N with the top quadruple (q = 2) is a draw in both roles for every even-total N from 7 to 28, and with one top pair (q = 1) from 3 to 28; three reserved pairs lose (N = 12 as player 2, both roles at 16–28). (2) False: early openings change the value at about 30% of the positions with T intact, even where the gap is payable without T (N = 8: the defender opens 4, the attacker takes 1 and, 3 behind with {2,3,5,6,7,8}, wins in Γ by taking 7 but only draws in Γ').
+- **Refuter.** (1) SURVIVES: two independent engines of its own (a literal Python `valueAux` with history, and a bitset retrograde) reproduce every cell, N = 27, 28 included; Γ' openings also draw at 27, 28. (2) SURVIVES with caveats: counts reproduce for N ≤ 24; my N = 7 example ({1..7} at gap 1) is unreachable; reachable differences start at N = 8; among positions reachable in Γ at N = 24, 7.4% (defender to move) and 58.1% (attacker to move) differ. Along the defender's value-keeping play, every difference is "Γ draw, Γ' attacker loss": the attacker opens early only to save a lost game, never to win.
+- **Literature.** Refuter: nothing on reserved-top strategies for Catch-Up.
+- **Metric.** A6: largest N with Γ_N drawn: 24 (ideator, unchecked) → 28, checked by two engines.
+- **Meaning.** The defender can always leave the top four numbers for last, to N = 28. But Lemma A has no local form, so the split into Lemmas A and B fails (O8); a proof would need an invariant tied to the defender's play, the same obstacle as A2's closed classes.
+
+### 2026-10-22: even blocks draw at every height, but the band can shrink (A7)
+
+- **Claim / question.** B19. For blocks B(a, p) = {a..a+2p−1}: (1) TI, V(B, p mod 2) = draw; (2) from which height a0(p) the row at g < a is t_p (draw at draw-parity g ≤ p, win at 0 for p odd, loss otherwise); (3) does the drawn band always contain every draw-parity g ≤ p (A7's descent route)?
+- **Approach.** `solver/src/bin/block_rows.rs`: `cargo run --release -p catch-up --bin block_rows -- 8 80` (5 s; output `scratch/block_rows-8-80.md`), `Solver` per block, rows at every gap ≤ max.
+- **Outcome.** (1) TI holds for every p ≤ 8, a ≤ 80. (2) a0 = 1, 3, 7, 8, 11, 12, 14, 16 for p = 1..8 (about 2p); below a0 the band widens (draws continue at draw parity past p, wins in between). (3) One miss: p = 2, a = 2, {2,3,4,5} at gap 2 is a mover win, while {3,4,5,6} draws there; so the band shrinks from a = 3 to a = 2.
+- **Refuter.** All three SURVIVE (own engine, matched against a literal `valueAux` on 70 blocks and OEIS): TI and a0 also hold to a ≤ 200, and TI for p = 9, 10 (a0 = 17, 19) at a ≤ 80; (2,2) stays the only miss. Wording: a0 is the least height from which every row matches; some lower heights match too.
+- **Literature.** Refuter: nothing on blocks at any height.
+- **Metric.** A7: unchanged (paper proofs for p ≤ 2); kill criterion met (a band losing part of [0, p], O9).
+- **Meaning.** Translated even blocks draw at g0 at every height tested, unlike O7's separated pairs, so TI is a robust conjecture containing L1 (N ≡ 0 mod 4). But the band is not monotone in the height, so a descent from large a to a = 1 has no simple invariant.
