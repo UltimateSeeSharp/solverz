@@ -560,3 +560,13 @@ Newest last. Entry format:
 - **Literature.** Ideator: Catch-Up proof searches (only the README's sources); matching-potential searches found game matching and greedy matching papers, nothing on this game.
 - **Metric.** A7: unchanged until W survives.
 - **Meaning.** If W holds, L24 needs a paper proof of W, the relaxed L22, and (c), giving TI at a ≥ 2p − 1: the doubling-free height, below which every round-based method needs double picks.
+
+### 2026-10-26: Lean: strategy transfer with offsets up to a (A7, B30)
+
+- **Claim / question.** Does `valueAux_transfer` (L22) hold with offsets ≤ a instead of < a, as L24 (b) needs at a = 2p − 1?
+- **Approach.** Weakened the hypotheses `hZa`, `hYa` in `lean/CatchUp/Transfer.lean` to `o ≤ a ∧ d ≤ a + o`; the proof's `omega` steps went through unchanged (the strict bound only fed 2a ≥ a + i).
+- **Outcome.** Builds clean (`lake build --wfail`; axioms propext, Classical.choice, Quot.sound); `block_draw_linear` and the tests unchanged. L24 (b) now holds at a ≥ 2p − 1 given (a).
+- **Refuter.** Not run (kernel-checked).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged.
+- **Meaning.** L24 now rests only on (a) (W, refuter running) and (c).

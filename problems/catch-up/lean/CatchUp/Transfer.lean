@@ -7,10 +7,10 @@ public import CatchUp.Rounds
 
 Blueprint L22. On offsets placed high, `{a + o : o ∈ T}`, a strategy for Z in the rounds game
 carries over to the real game along its own plays, as long as every round start it allows has
-offsets below `a` and a debt that any single pick of the mover covers (`d ≤ a + o` for every offset
-`o` left). The strategy is given as two classes of round starts closed under its rounds: `KZ T d`
-(Z moves, trailing by `d`) and `KY T e` (the opponent moves, trailing by `e`). Then Z never loses
-from a `KZ` state and the opponent never wins from a `KY` state (`valueAux_transfer`).
+offsets at most `a` and a debt that any single pick of the mover covers (`d ≤ a + o` for every
+offset `o` left). The strategy is given as two classes of round starts closed under its rounds:
+`KZ T d` (Z moves, trailing by `d`) and `KY T e` (the opponent moves, trailing by `e`). Then Z never
+loses from a `KZ` state and the opponent never wins from a `KY` state (`valueAux_transfer`).
 -/
 
 @[expose] public section
@@ -82,8 +82,8 @@ theorem step_mem_list {T : Finset ℕ} {a sm so i : ℕ} (hi : i ∈ T) :
 to the real game on translated offsets: Z never loses from `KZ`, the opponent never wins from
 `KY`. -/
 theorem valueAux_transfer (a : ℕ) (KZ KY : Finset ℕ → ℕ → Prop)
-    (hZa : ∀ T d, KZ T d → ∀ o ∈ T, o < a ∧ d ≤ a + o)
-    (hYa : ∀ T e, KY T e → ∀ o ∈ T, o < a ∧ e ≤ a + o)
+    (hZa : ∀ T d, KZ T d → ∀ o ∈ T, o ≤ a ∧ d ≤ a + o)
+    (hYa : ∀ T e, KY T e → ∀ o ∈ T, o ≤ a ∧ e ≤ a + o)
     (hendZ : ∀ d, KZ ∅ d → d = 0)
     (hZ : ∀ T d, KZ T d → T.Nonempty → ∃ i ∈ T, ∀ j ∈ T.erase i,
       (i ≤ d + j → KZ ((T.erase i).erase j) (d + j - i)) ∧
