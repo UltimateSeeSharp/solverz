@@ -390,3 +390,23 @@ Newest last. Entry format:
 - **Literature.** Refuter: nothing on greedy or alternating-sum analyses of Catch-Up or of "player behind moves next" picking games.
 - **Metric.** A7: unchanged (B26: L18 paper proof; L19 open).
 - **Meaning.** The per-round half of the route to every row's floor, and to a Lean proof of L16, is checked; L19 is the remaining gap.
+
+### 2026-10-26: Lean: the catch-up potential guarantee (A7)
+
+- **Claim / question.** Formalize L18 (paper proof since today) in the form its use needs: Z's margin is at least Γ − 1 along any class of states where the condition holds.
+- **Approach.** `lean/CatchUp/Potential.lean`: AM+T's answer `amtReply`; `altSum_nonneg`, `altSum_le_max'`; two bounds on `roundsMargin` from one pick or one answer per pick (`neg_le_roundsMargin`, `roundsMargin_le_neg`); `potential_le_roundsMargin`, a joint strong induction over both movers, the case split of L18's proof (Z moves; Y takes another number; Y takes t1 with an exact tie, without, and at the last round).
+- **Outcome.** `potential_le_roundsMargin` proved; `lake build --wfail` clean; axioms propext, Classical.choice, Quot.sound. L18 → `formalized` (guarantee form; deviations in its section). `max'_erase_of_ne`, `erase_nonempty_of_even` made public.
+- **Refuter.** Not run (kernel-checked; L18's proof survived proof mode earlier today).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged.
+- **Meaning.** With L19 as the closed class (Z trailing by at most the top run), every row's floor in Lean needs only L19's proof and its formal statement; L16 then needs parity (`even_roundsMargin_add`) and L13.
+
+### 2026-10-26: ideator on A7's descent: avoid carries instead of analysing them (A7)
+
+- **Claim / question.** How to lower the height bound of L16 (B27) and approach the descent past O9? (ideator, called at the previous review)
+- **Approach.** Ideator with its own real-game and rounds-game engines (`scratch/ideator/a7/`, standalone Rust); its engine reproduces the refuter's always-max thresholds a = 1, 2, 7, 12, 21, 30 for p = 1..6.
+- **Outcome.** Unchecked scratch data. (1) "Hyb": Z plays always-max until Y, as round mover, trails by more than c(R) (U0's matching cost of the numbers left), then answers each pick with its U0 partner. Sketch: Z's round-start debts stay ≤ max(g, m), Y's ≤ 3m (m the largest offset), so for a > 3m the real game equals the rounds game along every play against Hyb, and L15 + U0 give ≥ draw: blocks at a ≥ 6p − 2 instead of a > 1 + p(2p−1). Data: Hyb keeps AM's margins and AM+T's rows with max debt 4p − 4 (p ≤ 10); real game draws B(a, p) at g0 in both roles for a ≥ 4p − 6 (p = 3..8); all 1,597 pair sets with 0 within {0..17} draw at a = 3·span + 1..3. (2) "Hyb2" (take the smallest answer that leaves Y lost by U0, else AM): draws blocks in the real game exactly from a = 2p − 1 (p = 3..8); below, the last pair goes to Y in one turn. A real-game U0 is false just above the span (a = 10, R = {10, 11, 12, 17}, mover trailing by 6 wins). (3) Restricted defender games: never more than 2 picks per own turn (R1), or opponent always left under 2·min(left) behind (R2): the defender still draws {1..N} for every even-total N ≤ 24 and blocks p ≤ 7, a ≤ 40 (R2: except {2,3,4,5} and {1..6} at g0). Dropped: fixed lead caps (fail from N = 7), capped-max (loses from N = 4), same-part composition of strategies (fails on {1..2k} ∪ block for k ≥ 2).
+- **Refuter.** Not run yet (B29 sends Hyb's proof in proof mode).
+- **Literature.** Ideator, web: only the README's known sources; fair-division picking sequences are not this game.
+- **Metric.** A7: unchanged (ideas only).
+- **Meaning.** Hyb would make A7's height linear in p with a short argument on top of L13, L15 and U0; R2 is a strategy class that looks the same from a = 1 up, the kind of handle the descent lacks.

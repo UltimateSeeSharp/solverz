@@ -115,7 +115,7 @@ private theorem inner_eq (O : Finset ℕ) (d i : ℕ) (hi : i ∈ O) (h' : (O.er
     exact ⟨⟨j, hj⟩, key j hj⟩
 
 /-- An even set has an answer to every pick. -/
-private theorem erase_nonempty_of_even {O : Finset ℕ} (hev : Even O.card) {i : ℕ} (hi : i ∈ O) :
+theorem erase_nonempty_of_even {O : Finset ℕ} (hev : Even O.card) {i : ℕ} (hi : i ∈ O) :
     (O.erase i).Nonempty := by
   by_contra hc
   have h1 := Finset.card_erase_add_one hi

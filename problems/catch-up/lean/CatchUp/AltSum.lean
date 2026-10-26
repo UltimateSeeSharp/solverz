@@ -34,7 +34,7 @@ theorem altSum_of_nonempty {T : Finset ℕ} (h : T.Nonempty) :
   rw [altSum]; simp only [h, ↓reduceDIte]
 
 /-- Removing a number other than the maximum keeps the maximum. -/
-private theorem max'_erase_of_ne {U : Finset ℕ} (hU : U.Nonempty) {x : ℕ}
+theorem max'_erase_of_ne {U : Finset ℕ} (hU : U.Nonempty) {x : ℕ}
     (hx : x ≠ U.max' hU) (h' : (U.erase x).Nonempty) : (U.erase x).max' h' = U.max' hU := by
   apply le_antisymm
   · exact Finset.max'_le _ _ _ fun y hy => Finset.le_max' U y (Finset.mem_of_mem_erase hy)
