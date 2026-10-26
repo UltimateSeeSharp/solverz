@@ -2,6 +2,7 @@
 //!        lead_regime intervals <max_n> <num> <den> <off> <max_picks>
 //!        lead_regime blocks <max_p> <max_a> <num> <den> <off> <max_picks>
 //!        lead_regime rules <max_n> <num> <den> <off> <max_picks>
+//!        (in each, `<num> <den> <off>` may be `s2`: the cap is the sum of the two smallest numbers left)
 //! Can the defender keep the game in a bounded-turn regime and still draw (B31)? The defender D must
 //! end each of its turns with the opponent trailing by at most ⌊num·m/den⌋ + off, m the smallest
 //! number left, using at most `max_picks` picks per turn; the opponent plays perfectly and freely.
@@ -19,6 +20,7 @@ const CHECK_MAX_VALUE: u64 = 30;
 const CHECK_INTERVAL_MAX_N: u64 = 12;
 const ENTRIES_PER_BYTE: usize = 4;
 const UNKNOWN: u8 = 0;
+const TWO_SMALLEST_ARG: &str = "s2";
 
 /// 2-bit memo over (numbers left, gap).
 struct Table {
@@ -52,16 +54,29 @@ impl Table {
     }
 }
 
+/// The bound on the opponent's deficit after D's turn.
+#[derive(Clone, Copy)]
+enum Cap {
+    /// ⌊num·m/den⌋ + off, m the smallest number left.
+    Linear { num: u64, den: u64, off: i64 },
+    /// The sum of the two smallest numbers left: the opponent catches up within two picks.
+    TwoSmallest,
+}
+
 /// The defender's restriction; `None` cap means unrestricted.
 #[derive(Clone, Copy)]
 struct Regime {
-    cap: Option<(u64, u64, i64)>,
+    cap: Option<Cap>,
     max_picks: usize,
 }
 
 impl Regime {
-    fn allows(&self, lead: u64, min_left: u64) -> bool {
-        self.cap.is_none_or(|(num, den, off)| (lead as i64) <= (num * min_left / den) as i64 + off)
+    fn allows(&self, lead: u64, smallest: u64, two_smallest: u64) -> bool {
+        match self.cap {
+            None => true,
+            Some(Cap::Linear { num, den, off }) => (lead as i64) <= (num * smallest / den) as i64 + off,
+            Some(Cap::TwoSmallest) => lead <= two_smallest,
+        }
     }
 }
 
@@ -140,7 +155,7 @@ impl Game {
             let next = mask & !(1 << i);
             if x >= need {
                 // An opponent who cannot catch up at all has lost, whatever the cap.
-                if next == 0 || x - need > sum - x || self.regime.allows(x - need, self.min_left(next)) {
+                if next == 0 || x - need > sum - x || self.regime.allows(x - need, self.min_left(next), self.two_smallest(next)) {
                     out.push(Turn { mask: next, sum: sum - x, lead: x - need, picks: picks + 1, largest: largest.max(x), taken: taken + x });
                 }
             } else if picks + 1 < self.regime.max_picks && next != 0 {
@@ -166,6 +181,12 @@ impl Game {
         self.numbers[mask.trailing_zeros() as usize]
     }
 
+    /// The sum of the two smallest numbers in `mask` (the one number if only one).
+    fn two_smallest(&self, mask: usize) -> u64 {
+        let rest = mask & (mask - 1);
+        self.min_left(mask) + if rest == 0 { 0 } else { self.min_left(rest) }
+    }
+
     fn sum(&self, mask: usize) -> u64 {
         (0..self.numbers.len()).filter(|&i| mask >> i & 1 == 1).map(|i| self.numbers[i]).sum()
     }
@@ -176,7 +197,7 @@ impl Game {
             return Some(of_lead(lead as i64));
         }
         // A lead beyond everything left wins outright, whatever the cap.
-        (lead > sum || self.regime.allows(lead, self.min_left(mask))).then(|| self.a_node(mask, sum, lead))
+        (lead > sum || self.regime.allows(lead, self.min_left(mask), self.two_smallest(mask))).then(|| self.a_node(mask, sum, lead))
     }
 
     /// D at a turn start trailing by `gap`.
@@ -283,8 +304,13 @@ fn arg<T: std::str::FromStr>(args: &[String], i: usize) -> T {
     args.get(i).and_then(|s| s.parse().ok()).unwrap_or_else(|| panic!("argument {i} missing or invalid"))
 }
 
+/// `<num> <den> <off> <max_picks>` (linear cap) or `s2 <max_picks>` (two smallest).
 fn regime(args: &[String], at: usize) -> Regime {
-    Regime { cap: Some((arg(args, at), arg(args, at + 1), arg(args, at + 2))), max_picks: arg(args, at + 3) }
+    if args.get(at).map(String::as_str) == Some(TWO_SMALLEST_ARG) {
+        return Regime { cap: Some(Cap::TwoSmallest), max_picks: arg(args, at + 1) };
+    }
+    let cap = Cap::Linear { num: arg(args, at), den: arg(args, at + 1), off: arg(args, at + 2) };
+    Regime { cap: Some(cap), max_picks: arg(args, at + 3) }
 }
 
 fn show(o: Outcome) -> &'static str {
