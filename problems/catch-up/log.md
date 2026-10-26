@@ -460,3 +460,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged.
 - **Meaning.** The loss half of L17's rows (d > p) and the switch half of L21 are checked; a checked L21 or L16 still needs L22 in Lean and L15 or L23.
+
+### 2026-10-26: the frugal switch keeps the opponent from double picks at a ≥ 2p − 1 (A7)
+
+- **Claim / question.** B30: along Hyb2 play on blocks, how far behind does Y get, and does the real game ever allow Y a two-pick turn at a ≥ 2p − 1?
+- **Approach.** New experiment `solver/src/bin/hyb2_states.rs` (real game, Z on a rule, Y perfect; rounds-game reach; height thresholds). It reproduces always-max's thresholds 1, 2, 7, 12, 21, 30 (refuter), Hyb's 4p − 6 (ideator) and Hyb's largest round-start debt 4p − 5 (refuter). `scratch/b20/hyb2_closure.py` tests a candidate invariant, `hyb2_trace.py` finds lines reaching the bound.
+- **Outcome.** Under Hyb2, Y's round-start debt minus the smallest offset left is ≤ 2p − 1 (equality for p ≥ 3, p ≤ 9), Z's ≤ 1. So for a ≥ 2p − 1 every pick by a round mover catches up, and (with L22's proof, which needs only that) the real game against Hyb2 is the rounds game; Hyb2 guarantees ≥ draw there (L15 before the switch, L20's invariant after). Real game, p ≤ 8, a ∈ [2p − 1, 4p]: no Y round start allows a double pick, Z secures ≥ 0 in both roles. Hyb2 draws exactly from a = 2p − 1. The debt bound is not closed over arbitrary states (R = {0,1,2,3}, e = 3). Written as L24 (conjecture; open step: the debt bound).
+- **Refuter.** Not run (conjecture; the proof of its open step goes to an ideator first).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged (L24 conjecture).
+- **Meaning.** One lemma (Hyb2's debt bound) separates A7 from TI at every doubling-free height; below a = 2p − 1 double picks are unavoidable for this strategy.

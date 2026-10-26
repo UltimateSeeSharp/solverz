@@ -9,6 +9,8 @@
 //! starts where Y trails by more than a + min left (a carry is possible), how many, the largest
 //! excess, and Z's guarantee there. `reach` mode (`hyb2_states <max_p> <rule> reach`): the rounds
 //! game (a huge), the largest debt minus smallest offset left at Y's and at Z's round starts.
+//! `thresholds` mode (`hyb2_states <max_p> <rule> thresholds`): per p, the least height from which Z
+//! secures a draw at every height up to 6p.
 
 use std::collections::HashMap;
 
@@ -126,6 +128,21 @@ fn main() {
         Some(r) => panic!("unknown rule {r}"),
     };
     println!("rule {rule:?}");
+    if args.get(3).map(String::as_str) == Some("thresholds") {
+        // Least a0 ≤ 6p such that Z secures margin ≥ 0 in both roles at every a ∈ [a0, 6p].
+        for p in 1..=max_p {
+            let full = (1u32 << (2 * p)) - 1;
+            let g0 = (p % 2) as i64;
+            let holds = |a: i64| {
+                let mut e = Engine { a, rule, memo: HashMap::new() };
+                e.go(full, g0, true, false, 0) >= 0 && e.go(full, g0, false, false, 0) >= 0
+            };
+            let top = 6 * p as i64;
+            let a0 = (1..=top).rev().take_while(|&a| holds(a)).last().unwrap_or(top + 1);
+            println!("p = {p}: Z secures a draw at g0 in both roles for every a in [{a0}, {top}]");
+        }
+        return;
+    }
     if args.get(3).map(String::as_str) == Some("reach") {
         println!("| p | Y round starts | max (debt − min left), Y | Z round starts | max (debt − min left), Z | max debt, Y |");
         println!("|---|---|---|---|---|---|");
