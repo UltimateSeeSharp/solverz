@@ -320,3 +320,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged (pending L15). If AM+T is proved: T1 for every p and d (L17), hence TI for a > 1 + p(2p−1) from both roles and the full rows.
 - **Meaning.** One rule a person can play, "take the largest, but never let an exact tie hand the opponent the move", is optimal on every row of high blocks and on pair sets at debts 0 and 1. It supersedes AM+X (B25) and turns B26 into one proof target.
+
+### 2026-10-26: the always-max lemma survives proof mode; high pair sets draw on paper (A7)
+
+- **Claim / question.** Do the paper proofs of L15 (always-max ends ≥ −1 on pair sets) and L16 (pair sets placed above their sum draw at g0, hence TI for blocks with a > 1 + p(2p−1)) survive the refuter in proof mode?
+- **Approach.** Refuter, proof mode, on the blueprint sections of 2026-10-26 (a paper proof of the always-max lemma). It audited every step and checked the induction from every balanced state that meets its hypotheses, not only reachable ones, with its own code (`scratch/refuter/l15/`). I applied its wording fixes.
+- **Outcome.** L15 and L16 move to `paper proof`. Fixes adopted: the proof is a joint induction (Φ ≥ −1, and Y moves with s ≥ 1 at balanced starts with remainders), with all three routes into such starts argued (the refuter supplied the first, I added the other two); u ≥ 0 throughout a stretch follows from the first round's shape; Z's closes are assigned to j = (Y's doubles so far) + 1; final margin and l = 0 are defined; L16's parity is exact because the rounds game takes all numbers.
+- **Refuter.** Proof mode (2026-10-26): L15 SURVIVES, L16 SURVIVES. Checks: every path within {0..13} (270M paths from 221k starts) and memoized within {0..17} (3.3M starts); Facts A–C, the ten one-round classes, the counting identity, the order of doubles and the close assignment all hold; the stretch bound is tight. A mutation test (Φ = −2 allowed, or Z moving at x-and-w starts) gives violations, so the checker is not vacuous. L16: always-max on all 4,181 pair sets containing 0 within {0..19} (least margin −1); a literal `valueAux` port draws all 232 pair sets within {0..11} at a = sum(E) + 2 and sum(E) + 1 + g0.
+- **Literature.** Refuter: nothing on greedy strategies in Catch-Up or catch-up-order picking games (two unrelated papers opened: LIPIcs FUN 2026 paper 8, arXiv 2512.16722).
+- **Metric.** A7 moved: paper proofs of TI for p ≤ 2 at every a (L7, L11), and now for every p at a > 1 + p(2p−1) (L16). Not formalized.
+- **Meaning.** Even blocks high above their own size draw, for every block size, with an explicit drawing strategy for both players (take the largest number). What remains of A7 is the descent from these heights to a = 1, blocked by O9.
