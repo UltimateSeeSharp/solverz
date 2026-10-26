@@ -890,3 +890,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A9 (c) in describable form: no rule settles every escalation position (best 99.4% at N = 20).
 - **Meaning.** After an escalation D needs free play and low play that sees the top half; A9's kill criterion "the escalation lemma needs free play with no describable answer" is met (O16), and what is left of (c) is a value statement on mixed positions, as hard as A8's (ii).
+
+### 2026-10-26: A9's prefixes must be the fixed halving chain (A9)
+
+- **Claim / question.** Is R_N's halving chain essential, or does a prefix adapted to the opponent's picks work too (D plays the best-margin move of the game cut at {1..min(N, f·x)}, x the largest number E has picked)? Such a rule would describe play after an escalation.
+- **Approach.** The refuter's checker (`scratch/refuter/a9/a9.rs`) with other chains, `scratch/a9/prefix.rs`: every prefix as a level; levels moved out one at a time or, when used up, straight to free play; f = 1, 1.5, 2, 2.5, 3; adversarial and friendly tie-breaks; even-total N ≤ 20.
+- **Outcome.** All fail. f = 1 fails from N = 4 (P2 after E opens a high number); a continuous top half with halving inside fails from N = 4; f = 1.5–3 fail with adversarial ties from N = 3–7, with friendly ties f = 2 fails at N = 7, 11, 15, 19 and f = 2.5, 3 at N = 8, 12, 16 or 19. The halving chain itself draws at every N in the same runs.
+- **Refuter.** Not run (negative search on the refuter's own code).
+- **Literature.** Not searched.
+- **Metric.** None (A9 shelved; a variant ruled out).
+- **Meaning.** R_N's success depends on fixed nested levels N, N/2, N/4, …, not on scaling D's horizon to E's picks; an escalation rule cannot simply re-centre the prefix on E's pick.
