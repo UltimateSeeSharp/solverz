@@ -1,6 +1,6 @@
 # State
 
-- **Stage:** Attack. Main line A7 (you chose B20, 2026-10-22). Overnight session 2026-10-26: [overnight/2026-10-26.md](overnight/2026-10-26.md).
+- **Stage:** Attack. Main line A8 (low phase, high phase; from the review of 2026-10-26; A7, your choice of 2026-10-22, stays active as its high phase). Overnight session 2026-10-26: [overnight/2026-10-26.md](overnight/2026-10-26.md).
 
 ## Where things stand
 
@@ -20,6 +20,7 @@ B35: compute the positions where the set first becomes high (min ≥ span) under
 
 ## Awaiting review
 
+- **Main line moved to A8** (review 2026-10-26): low phase of change with the defender's smallest numbers, high phase by Hyb2 (L24, L25). A7, your choice of 2026-10-22, stays active as its high phase. Revert if you disagree.
 - **Branch `overnight/2026-10-26`** (not pushed): first two commits are the 2026-10-22 session's uncommitted work, as it proposed (`feat` for the six experiments, `explore` for the records); then one commit per overnight unit. Merge if you agree.
 - **Statement to approve: `CatchUp.block_draw_linear`** (`lean/CatchUp/Linear.lean`; audited 2026-10-26 with `audit-statement`). Only needed if you want to report it: a partial result, not a solution (it says nothing about {1..N}).
   - Lean: `theorem block_draw_linear {p a : ℕ} (hp : 1 ≤ p) (ha : 3 * (2 * p - 1) < a) (s : ℕ) : valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false = .draw`
@@ -36,9 +37,9 @@ B35: compute the positions where the set first becomes high (min ≥ span) under
 
 ## Last review
 
-2026-10-26, after 57 log entries (8 since the previous review; overnight; due at 5, held late).
-- A7 main: metric unchanged (TI on paper and in Lean at a ≥ 6p − 2). Moved toward it: rows' draw entries in Lean (`block_row_draw_linear`); `block_draw_linear` audited (refuter: says what we mean); for L24 (a ≥ 2p − 1) a candidate potential W (refuter in claim mode running), L22 relaxed to offsets ≤ a and the cost's parity form in Lean. Cost: 6 units.
-- Descent data: two-pick turns for both draw blocks p = 3..9 at every a ≥ 2 (fail at a = 1); one-pick opponent turns are impossible (B41 answered). Passed to the descent ideator.
-- A3 (shelved): the two-ended defender draws {1..N} to N = 28 (ideator) but its window grows with p on blocks (tb3 fails at p = 9, 10; B35). Revival condition (a class with tested closure) not met.
-- No line meets its kill criteria; A1, A5 dead. A7 stays main. Backlog ≤ 10 per line (A7: 9). Known checked today.
-- Ideator due at this review: all 3 agent slots busy (descent ideator, L24 ideator writing W's proof, W refuter); launch on B33 (parity-forced row entries) when a slot frees.
+2026-10-26, after 67 log entries (10 since the previous review; overnight; held late).
+- A7: metric moved: TI on paper at a ≥ 2p − 1 (L25 and L24 survived proof mode), the lowest height where every turn is one pick. Cost: 5 units. Its monotone descent stays blocked (O9).
+- Height 1, new: turns of ≤ 2 picks for both players draw {1..N} to N = 24 (A2; an older "fails at a = 1" was an engine flaw, fixed); while the set is low the defender needs only its 2–4 smallest numbers (A3, B35). Cost: 4 units.
+- Main line moved to new A8 (low phase of change, high phase by Hyb2): it uses A7's results and attacks the descent directly. A7 active (Lean for L24 when it pays). Revert if you disagree (Awaiting review).
+- No line meets its kill criteria; A1, A5 dead. Backlog ≤ 10 per line. Known checked today.
+- Ideator: fresh-ideas ideator running (counts for this review).

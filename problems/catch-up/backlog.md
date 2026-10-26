@@ -2,6 +2,9 @@
 
 Grouped by line, most promising first.
 
+## A8
+- **B35 Low phase, high phase.** While the set is low D needs only its smallest numbers: 2 while max > 3·min, 4 until min ≥ span, for N ≤ 24 ([results/low-high-n24.md](results/low-high-n24.md)); top picks are needed on high sets and in endgames (log 2026-10-26: while the set is low, the defender needs only its smallest numbers). tb3 draws {1..N} to N = 24 ([results/two-ended-intervals-n24.md](results/two-ended-intervals-n24.md)); on blocks the window must grow with p ([results/two-ended-blocks-p9-10.md](results/two-ended-blocks-p9-10.md)). Next: the positions at the switch to high (sets, debts, mover) under drawing low play: does L25's class (offsets ≤ min, parity, W ≤ min) contain them, or can D steer into it? Then whether the needed k stays bounded beyond N = 24 (hash memo).
+
 ## A2
 - **B31 Two-pick game (R1/R2).** D keeping every turn of both players to ≤ 2 picks (opponent behind by ≤ its 2 smallest numbers left) draws {1..N} to N = 24 ([results/turn-cap-intervals-n24.md](results/turn-cap-intervals-n24.md)); for N ≤ 12 also with cap 2m − 1 and inside tb3. Earlier failures at a = 1 came from an engine flaw (log 2026-10-26: two-pick turns for both players suffice). Next: rerun the fixed `lead_regime` (blocks, rules) and look for a potential in the two-pick game, the way W works for the rounds game.
 
@@ -11,7 +14,6 @@ Grouped by line, most promising first.
 
 ## A3
 
-- **B35 Low phase, high phase.** While the set is low D needs only its smallest numbers: 2 while max > 3·min, 4 until min ≥ span, for N ≤ 24 ([results/low-high-n24.md](results/low-high-n24.md)); top picks are needed on high sets and in endgames (log 2026-10-26: while the set is low, the defender needs only its smallest numbers). tb3 draws {1..N} to N = 24 ([results/two-ended-intervals-n24.md](results/two-ended-intervals-n24.md)); on blocks the window must grow with p ([results/two-ended-blocks-p9-10.md](results/two-ended-blocks-p9-10.md)). Next: the positions at the switch to high (sets, debts, mover) under drawing low play: does L25's class (offsets ≤ min, parity, W ≤ min) contain them, or can D steer into it? Then whether the needed k stays bounded beyond N = 24 (hash memo).
 - **B4 Patch drawing strategies.** `strategy_eval` exists; leaderboard: fixed pick rules (Largest, Smallest, SmallestCatch, Exact, LeadOne, StayBehind) fail at N = 4 as player 1; rules that repair broken adjacent pairs hold N = 3, 4 as player 2 only. Patching fixed rules is aimless; a rule needs a region to steer into (A2) or the opponent's last pick (B9).
 
 ## A4
