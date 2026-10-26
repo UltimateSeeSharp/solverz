@@ -3,7 +3,6 @@
 Grouped by line, most promising first.
 
 ## A8
-- **B46 Level positions: a draw option excludes a win.** Refuter (2026-10-26, all R ⊆ {0..15}): whenever some option of a level mover draws, no option wins; and L26's conclusion held with the token at any rank. Test on larger sets (R ⊆ {1..22} with `Solver`), then look for a strategy-copying proof as in L26; true in general → a tool for level positions (the opening, and every exact tie in play).
 - **B43 Height 2 in a two-pick world.** For the N ≡ 3 mod 4 half (L27): run `lead_regime blocks` (cap 2m − 1, D ≤ 2 picks) at a ≤ 2 for p = 11, 13; holds → define a two-pick rounds game with an L22-style transfer and look for a Hyb2-like rule at a = 2; fails → A8 needs a class, not a rounds abstraction (ideator 2026-10-26, idea 2).
 - **B35 Low phase, high phase.** While the set is low D needs only its smallest numbers: 2 while max > 3·min, 4 until min ≥ span, for N ≤ 24 ([results/low-high-n24.md](results/low-high-n24.md)); top picks are needed on high sets and in endgames (log 2026-10-26: while the set is low, the defender needs only its smallest numbers). tb3 draws {1..N} to N = 24 ([results/two-ended-intervals-n24.md](results/two-ended-intervals-n24.md)); on blocks the window must grow with p ([results/two-ended-blocks-p9-10.md](results/two-ended-blocks-p9-10.md)). Next: the positions at the switch to high (sets, debts, mover) under drawing low play: does L25's class (offsets ≤ min, parity, W ≤ min) contain them, or can D steer into it? Then whether the needed k stays bounded beyond N = 24 (hash memo).
 

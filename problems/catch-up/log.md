@@ -740,3 +740,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: no reduction relating {1..N} to {2..N} found (MPRA paper and Feng thesis not readable here).
 - **Metric.** A7/A8: the target shrinks from TI at height 1 for all p to TI(1, p even) ∧ TI(2, p odd), now a Lean-checked reduction.
 - **Meaning.** The N ≡ 3 mod 4 half lives at height 2, where the two-pick regime with cap 2m − 1 holds for every p ≤ 11 (`lead_regime blocks 11 2 2 1 -1 2`). The refuter's side pattern, if true in general, would be a strong level-position law (B46).
+
+### 2026-10-26: the token works at any rank: a level law (A7, A8, B46)
+
+- **Claim / question.** The refuter saw L26's conclusion hold with the token at any rank, and "a drawing level option excludes a winning one" (B46). Is there a proof?
+- **Approach.** Paper: the copying argument of L26 with a pick y < t answered by t, which catches up and leaves the mover at the very node the hypothesis game reaches after its mover's y. Node L28 with a full proof; Lean draft `scratch/lean/Level.lean` compiles (standard axioms).
+- **Outcome.** L28 stated (conjecture until proof mode): at a level position, if some pick draws then no pick wins. B46 answered by it and removed from the backlog.
+- **Refuter.** Proof mode running.
+- **Literature.** Not searched (refuter will).
+- **Metric.** None yet.
+- **Meaning.** L1(N) ⟺ some opening t of {1..N} leaves player 2 drawing at deficit t; "player 1 cannot win" comes for free once one opening draws. The same holds at every exact tie during play.
