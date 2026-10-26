@@ -16,7 +16,7 @@
 
 ## Next step
 
-Act on the refuter's verdict on L20, L21 (`scratch/refuter/l21/`): on SURVIVES move both to `paper proof` and formalize L20 (`CatchUp/Matching.lean`, on `roundsMargin`); else fix or log the failure in obstructions.md.
+Lean: TI for blocks at linear height (a ≥ 6p − 2) with L22's `valueAux_transfer`: classes for Hyb on AM+T (L23 before the switch, L20's partners after), debts ≤ 3(2p − 1), parity in the classes.
 
 ## Awaiting review
 
