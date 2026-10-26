@@ -820,3 +820,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: nothing on two-token-type lemmas for Catch-Up; von Stengel's abstract (computation to 28, induction proof wanted) is the newest relevant source.
 - **Metric.** A8: the target in Lean is one role (the leader's defense) from two starts.
 - **Meaning.** A strategy proof needs only one player's defense: the leader by 1, opponent to move, on {2..N} and on {3..N}.
+
+### 2026-10-26: two-pick class on {3..N} at deficit 1 holds to N = 28 (A8, B43)
+
+- **Claim / question.** L31 (b)'s second start, {3..N} at deficit 1, in the exact two-pick class; and whether one role allows a smaller class.
+- **Approach.** `lead_regime ranges 3 28 1 s2 2`, [results/two-pick-suffix3-n28.md](results/two-pick-suffix3-n28.md). One-role probes on {2..N} and {3..N} (N ≤ 20): D ≤ 1 pick with the exact cap; cap m (the opponent catches up in one pick) with D ≤ 2 picks; D ≤ 1 pick with no cap.
+- **Outcome.** {3..N}: D draws in both roles for every even-total N from 4 to 28. The one-role classes all fail by N = 7–12 in both roles (e.g. D ≤ 1 pick: L from N = 7; cap m: L from N = 11, D as the other from N = 12).
+- **Refuter.** Not run (search data; same engine and mode as the {2..N} run).
+- **Literature.** Not searched.
+- **Metric.** A8: both starts of L31 (b) hold in the two-pick class to N = 28.
+- **Meaning.** One role does not buy a smaller class: the leader needs the full two-pick freedom, as the defender does in both roles.
