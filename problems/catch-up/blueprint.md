@@ -32,7 +32,7 @@ Status and Approved: `CLAUDE.md`, Workflow.
 | L26 | Token lemma | R finite, t = min R, any score s. If V(R − {t}, t) = draw (`valueAux (R.erase t) s (s + t) false = .draw`), then the level mover draws R: `valueAux R s s b = .draw` for either opening flag b | L6 | A7, A8 | `CatchUp.token_lemma` (`CatchUp/Token.lean`) | formalized | — |
 | L27 | Two block families suffice | L12 at (a = 1, p even) and at (a = 2, p odd) implies L1: for N ≡ 0 mod 4, {1..N} is the block a = 1, p = N/2 at debt 0; for N ≡ 3 mod 4, {2..N} is the block a = 2, p = (N − 1)/2 (odd) at debt 1, and L26 with t = 1 gives value({1..N}) = draw | L26, L12 | all | `CatchUp.conjecture_of_two_families` (`CatchUp/Token.lean`) | formalized | — |
 | L28 | Level law | At equal scores, if some pick t ∈ R leaves the opponent drawing (`valueAux (R.erase t) s (s + t) false = .draw`), the level mover draws: no pick wins. So a level position is a draw iff some pick draws. L26 is the case t = min R | L6 | A7, A8 | `CatchUp.level_law` (`CatchUp/Token.lean`) | formalized | — |
-| L29 | One family at height 2 | If V({2..N}, 1) = draw (read at score 0) for every N ≥ 2 with 1 + … + N even, then L1. Both residues N ≡ 0, 3 mod 4 at once; for N ≥ 12 also necessary | L26 | A7, A8 | `CatchUp.conjecture_of_height_two` (`CatchUp/Token.lean`) | conjecture | — |
+| L29 | One family at height 2 | If V({2..N}, 1) = draw (read at score 0) for every N ≥ 2 with 1 + … + N even, then L1. Both residues N ≡ 0, 3 mod 4 at once; necessary for N ≤ 35 (data: opening 1 draws there), open in general | L26 | A7, A8 | `CatchUp.conjecture_of_height_two` (`CatchUp/Token.lean`) | formalized | — |
 
 ## L1 Main conjecture
 **Proof.** Open.
@@ -492,7 +492,7 @@ Refuter, proof mode (2026-10-26): SURVIVES. Every step checked by hand; cases co
 - x = t: A_t is the hypothesis node, a draw, so this option is a draw.
 - x > t: the opponent may take t first. Since t < x it stays strictly behind, so that option of A_x is Q_x = `valueAux ((R.erase x).erase t) (s + t) (s + x) false`. In the hypothesis game the mover (score s, opponent s + t) may pick x > t (x ∈ R − {t}), which ends its turn; that option is neg(Q_x) on the same set ((R − x) − t = (R − t) − x) with the same scores. The hypothesis node is not empty (it holds x) and not an early loss (that would be a loss, not a draw), so its value is the best of its options. The hypothesis game is a draw, so by L6 none of its options is a win: neg(Q_x) ≠ win, so Q_x ≠ loss. If the early-loss rule fired at A_x (s + sum(R − x) < s + x), then (s + t) + sum(R − x − t) < s + x too, so Q_x = loss (or, if R − x − t is empty, the scores s + t < s + x give loss); hence the rule does not fire and A_x = best of its options ⊇ {Q_x}, so A_x ≠ loss by L6, and neg(A_x) ≠ win.
 - So some option is a draw and none is a win: the value is a draw (L6). No "depends only on the deficit" lemma is needed, since Q_x has the same scores in both games.
-**Evidence.** Ideator (2026-10-26, unchecked, `scratch/ideator/fresh/` and `scratch/ideator/descent/token.rs`): every S ⊆ {2..18} with V(S, 1) = draw (58,811 sets) gives value({1} ∪ S) = draw, and the tie-position form holds in all 107,840 cases within {1..18}. For N ≥ 12 the converse holds on {1..N} (every opening draws).
+**Evidence.** Ideator (2026-10-26, unchecked, `scratch/ideator/fresh/` and `scratch/ideator/descent/token.rs`): every S ⊆ {2..18} with V(S, 1) = draw (58,811 sets) gives value({1} ∪ S) = draw, and the tie-position form holds in all 107,840 cases within {1..18}. On {1..N} opening 1 draws for every even-total N ≤ 35 (data), so the converse holds there.
 
 ## L27 Two block families suffice
 **Statement.** If V({1..2p}, 0) = draw for every even p ≥ 2 and V({2..2p+1}, 1) = draw for every odd p ≥ 1, read at score s = 0 (`valueAux … 0 0 false`, `valueAux … 0 1 false`), then L1.
@@ -515,7 +515,8 @@ Refuter, proof mode (2026-10-26): SURVIVES. Every step checked by hand; cases co
 ## L29 One family at height 2
 **Statement.** If `valueAux (Icc 2 N) 0 1 false = .draw` for every N ≥ 2 with 1 + … + N even, then L1.
 **Proof.** N = 0: no numbers, a draw. N = 1: odd total, nothing to prove. N ≥ 2: value({1..N}) = `valueAux (Icc 1 N) 0 0 false` (`valueAux_true_eq_false`), and L26 with R = {1..N}, t = 1, s = 0 needs exactly `valueAux (Icc 2 N) 0 1 false = .draw`, since {1..N} − {1} = {2..N}.
-**Necessity.** For N ≥ 12 every opening of {1..N} draws (results), in particular opening 1, so V({2..N}, 1) = draw there: the family is equivalent to L1 from N = 12 on.
+**Necessity (data, not proved).** Opening 1 draws for every even-total N ≤ 35 (results; N = 33–35 from one engine), so no member of the family fails there. In general the family is equivalent to L1 iff opening 1 draws whenever {1..N} draws, which is open: L1(N) gives only some drawing opening (L28).
 **Evidence.** Two-pick class (`turn_cap ranges 2 18 1 2 2`): the defender draws {2..N} at deficit 1 for every even-total N ≤ 16 with both players' turns ≤ 2 picks.
-**Lean (2026-10-26).** `CatchUp.conjecture_of_height_two` in the strict build, standard axioms; the node stays `conjecture` until its proof-mode verdict (running).
+**Lean (2026-10-26).** `CatchUp.conjecture_of_height_two` in the strict build, standard axioms; no deviation.
+**Refuter.** Proof mode (2026-10-26): the implication SURVIVES (N = 0, 1, 2 and both residues checked; the Lean hypothesis matches). The first wording of "Necessity" was wrong (for N ≥ 12 every opening draws only for even totals; L1 does not give opening 1), corrected above.
 

@@ -760,3 +760,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: nothing like the level law found.
 - **Metric.** The goal is one family at height 2, V({2..N}, 1) = draw, in Lean.
 - **Meaning.** Every exact tie in play is governed by the level law; a defender that can always reach a drawing option at a tie gets the draw for free there.
+
+### 2026-10-26: L29 survives proof mode; its necessity claim corrected (A7, A8)
+
+- **Claim / question.** L29: V({2..N}, 1) = draw for all even-total N implies L1; and the stated converse from N = 12.
+- **Approach.** Refuter, proof mode (resumed L28 refuter).
+- **Outcome.** The implication SURVIVES → L29 formalized (Lean was already in the strict build). Corrects "2026-10-26: the level law survives proof mode and is formalized": the converse is not proved (L1 gives some drawing opening, not opening 1); it holds for even-total N ≤ 35 by data, where opening 1 always draws.
+- **Refuter.** Proof mode (2026-10-26): SURVIVES for the implication; necessity wording wrong, fixed.
+- **Literature.** Not searched (covered by the L26 and L28 runs).
+- **Metric.** Unchanged (the goal in Lean is the family V({2..N}, 1) = draw).
+- **Meaning.** A proof of the family proves L1; a failure of the family would not refute L1.
