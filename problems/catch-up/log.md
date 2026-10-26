@@ -530,3 +530,13 @@ Newest last. Entry format:
 - **Literature.** Ideator: searches on Catch-Up proofs, catch-up-order picking and sequential allocation; plus.maths.org (2022) has nothing beyond the 2015 computations; nothing on end-restricted variants.
 - **Metric.** None moved (A3 shelved: 4; A7 unchanged).
 - **Meaning.** At low heights the defender's play is at the bottom of the set, which top-down potentials (L18's Γ, L23) cannot see; a two-regime strategy (bottom at low heights, top at high ones) is the candidate. If B35's side rule exists, A3 revives with two potentials.
+
+### 2026-10-26: Lean: every draw entry of high-block rows at linear height (A7, B26)
+
+- **Claim / question.** Does the Lean proof of `block_draw_linear` give every draw entry of the row, V({a..a+2p−1}, d) = draw for d ≤ p, d ≡ p (mod 2), not only d = p mod 2?
+- **Approach.** `lean/CatchUp/Linear.lean`: `block_row_draw_linear` with the start debt d as a parameter. Z moving: `kzc_range` needs d ≤ p. Z as the other player: d ≤ c(R) puts the start in `HY`'s first branch (L23's `kyc_range`), else the second (d + c(R) ≤ p + 2p − 1 ≤ 3(2p − 1)). Parity: d + p(2p − 1) even. `block_draw_linear` is now its case d = p mod 2 (statement unchanged).
+- **Outcome.** `CatchUp.block_row_draw_linear` Lean-checked (`lake build --wfail` clean; axioms propext, Classical.choice, Quot.sound): the draw entries of L17's rows hold for blocks at a ≥ 6p − 2. L17 stays a conjecture (parity-forced entries, B33).
+- **Refuter.** Not run (kernel-checked; the refuter's statement check of `block_draw_linear` found debt p mod 2 + 2 also drawing in its rows, consistent).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged (TI's range); L17's draw entries now Lean-checked at a ≥ 6p − 2.
+- **Meaning.** The whole draw band [0, p] of the high-block row is checked, the band A7's kill criterion watches; what is left of the rows is the parity-forced entries.

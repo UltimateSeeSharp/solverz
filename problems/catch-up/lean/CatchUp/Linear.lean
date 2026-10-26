@@ -12,7 +12,8 @@ round start, trails by more than the matching cost of the numbers left (L20); fr
 answers with matching partners. Before the switch L23's classes hold; after it the opponent stays
 behind by more than the matching cost, with debt plus cost never growing. So every round start has
 debt at most `3(2p - 1)` (`HZ`, `HY`), and L22 (`valueAux_transfer`) carries the guarantee to the
-real game once `a > 3(2p - 1)` (`block_draw_linear`).
+real game once `a > 3(2p - 1)`: a draw at every debt `d ≤ p` with `d ≡ p (mod 2)`
+(`block_row_draw_linear`), in particular at `p mod 2` (`block_draw_linear`).
 -/
 
 @[expose] public section
@@ -127,11 +128,11 @@ theorem hy_step {p : ℕ} {T : Finset ℕ} {e : ℕ} (hK : HY p T e) :
     · push_cast [hc]; linarith
     · push_cast [hc]; linarith
 
-/-- **L21 for blocks, Lean form** (pending the user's approval). The block `{a, …, a + 2p - 1}`
-with `a > 3(2p - 1)` is a draw for the player to move trailing by `p mod 2`, at any scores; for
-`p` even this is Catch-Up on the block (`value_block_draw` in `Tests/BlockDrawLinear.lean`). -/
-theorem block_draw_linear {p a : ℕ} (hp : 1 ≤ p) (ha : 3 * (2 * p - 1) < a) (s : ℕ) :
-    valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false = .draw := by
+/-- **L17's draw entries for blocks, Lean form.** The block `{a, …, a + 2p - 1}` with
+`a > 3(2p - 1)` is a draw for the player to move trailing by any `d ≤ p` with `d ≡ p (mod 2)`. -/
+theorem block_row_draw_linear {p a d : ℕ} (hp : 1 ≤ p) (ha : 3 * (2 * p - 1) < a) (hd : d ≤ p)
+    (hdp : d % 2 = p % 2) (s : ℕ) :
+    valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + d) false = .draw := by
   have hT := valueAux_transfer a (HZ p) (HY p)
     (fun T d hK o ho => by
       have := Finset.mem_range.mp (hK.1 ho); have := hK.2.2.2.2; omega)
@@ -149,22 +150,28 @@ theorem block_draw_linear {p a : ℕ} (hp : 1 ≤ p) (ha : 3 * (2 * p - 1) < a) 
     (fun T e hK => hy_step hK)
     (2 * p) (Finset.range (2 * p)) (Finset.card_range _)
   have hev : Even (Finset.range (2 * p)).card := by rw [Finset.card_range]; exact even_two_mul p
-  have hpar : (p % 2 + ∑ o ∈ Finset.range (2 * p), o) % 2 = 0 := by
+  have hpar : (d + ∑ o ∈ Finset.range (2 * p), o) % 2 = 0 := by
     rw [sum_range_two_mul, Nat.add_mod, Nat.mul_mod]
     have : (2 * p - 1) % 2 = 1 := by omega
     rw [this, mul_one, Nat.mod_mod]
     omega
-  have hcost : 1 ≤ matchCost (Finset.range (2 * p)) := by
-    have h0 : 0 ∈ Finset.range (2 * p) := Finset.mem_range.mpr (by omega)
-    have h1 : 1 ∈ Finset.range (2 * p) := Finset.mem_range.mpr (by omega)
-    rw [matchCost_of_min h0 h1 (by norm_num) (fun x _ => by omega)]
-    have := matchCost_nonneg _ (((Finset.range (2 * p)).erase 0).erase 1) rfl
-    push_cast
-    linarith
-  have hZ := hT.1 (p % 2) ⟨subset_refl _, hev, hpar, kzc_range hp (by omega), by omega⟩ s
-  have hY := hT.2 (p % 2) ⟨subset_refl _, hev, hpar, Or.inl ⟨by push_cast; omega,
-    kyc_range p (p % 2), by omega⟩⟩ s
+  have hcost := matchCost_le_range hp (subset_refl (Finset.range (2 * p)))
+  have hcost0 := matchCost_nonneg _ (Finset.range (2 * p)) rfl
+  have hY : HY p (Finset.range (2 * p)) d := by
+    refine ⟨subset_refl _, hev, hpar, ?_⟩
+    by_cases hle : (d : ℤ) ≤ matchCost (Finset.range (2 * p))
+    · exact Or.inl ⟨hle, kyc_range p d, by omega⟩
+    · exact Or.inr ⟨by omega, by omega⟩
+  have hZ := hT.1 d ⟨subset_refl _, hev, hpar, kzc_range hp hd, by omega⟩ s
+  have hY := hT.2 d hY s
   revert hZ hY
-  cases valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false <;> simp
+  cases valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + d) false <;> simp
+
+/-- **L21 for blocks, Lean form** (pending the user's approval). The block `{a, …, a + 2p - 1}`
+with `a > 3(2p - 1)` is a draw for the player to move trailing by `p mod 2`, at any scores; for
+`p` even this is Catch-Up on the block (`value_block_draw` in `Tests/BlockDrawLinear.lean`). -/
+theorem block_draw_linear {p a : ℕ} (hp : 1 ≤ p) (ha : 3 * (2 * p - 1) < a) (s : ℕ) :
+    valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false = .draw :=
+  block_row_draw_linear hp ha (by omega) (Nat.mod_mod p 2) s
 
 end CatchUp
