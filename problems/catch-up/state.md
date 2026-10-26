@@ -5,9 +5,9 @@
 ## Where things stand
 
 - **Computed** ([results/](results/)): every even-total N ≤ 35 is a draw, and for even totals with N ≥ 12 every opening move draws. N = 33 and 34 (odd totals) are player-1 wins, only by opening 1 and 2 respectively. N = 31–35 go beyond the published N = 28; N = 33–35 come from one engine (`tiled-cuda`) and are not independently checked.
-- **Blueprint** ([blueprint.md](blueprint.md)): goal statement approved. Formalized: L3 (parity law), L6 (`best` by membership). Paper proofs, refuter-checked: L7 (≤ 2 numbers left), L9 (far-apart pairs), L10 (reductions by partner replies), L11 (two pairs). Conjectures: L4, L5 (near-intervals draw), L12 (even blocks {a..a+2p−1} draw at every height; holds for p ≤ 10, a ≤ 80). Refuted: L8 (all pair sets draw).
-- **Ruled out** ([obstructions.md](obstructions.md)): O1–O3 set inductions and completeness; O4 peeling the top pair by a local rule; O5 fixed hole bounds; O6 unconditional partner replies; O7 pair structure alone, aligned pairs included; O8 "opening the top four numbers early never helps" as a local lemma; O9 a monotone descent in block height.
-- **Leads:** the defender can leave the top four numbers for last and still draw, to N = 28 (A6), and along its best play the attacker opens them early only to rescue a lost game. Density matters: sparse high parts act as a fixed final payoff, and low change of about twice their smallest number cures them, without a clean law (log 2026-10-22: low change cures sparse cores). Blocks at any height draw (L12), and high blocks have the exact row t_p. High blocks are exactly a "rounds game" on offsets (log 2026-10-26: high blocks reduce to a rounds game), where every pair set fits t_p at debts 0 and 1 (unlike O7 at low heights) and the player first at a tie never loses.
+- **Blueprint** ([blueprint.md](blueprint.md)): goal statement approved. Formalized: L3 (parity law), L6 (`best` by membership). Paper proofs, refuter-checked: L7 (≤ 2 numbers left), L9 (far-apart pairs), L10 (reductions by partner replies), L11 (two pairs). Conjectures: L4, L5 (near-intervals draw), L12 (even blocks {a..a+2p−1} draw at every height; holds for p ≤ 10, a ≤ 80), L13–L17 (high sets: rounds game, greedy bound, always-max, high pair sets draw, rows of high blocks; L13 and L14 have proof drafts with the refuter). Refuted: L8 (all pair sets draw).
+- **Ruled out** ([obstructions.md](obstructions.md)): O1–O3 set inductions and completeness; O4 peeling the top pair by a local rule; O5 fixed hole bounds; O6 unconditional partner replies; O7 pair structure alone, aligned pairs included; O8 "opening the top four numbers early never helps" as a local lemma; O9 a monotone descent in block height; O10 a tie law for all offset sets (and even-total sets can be player-2 wins).
+- **Leads:** the defender can leave the top four numbers for last and still draw, to N = 28 (A6), and along its best play the attacker opens them early only to rescue a lost game. Density matters: sparse high parts act as a fixed final payoff, and low change of about twice their smallest number cures them, without a clean law (log 2026-10-22: low change cures sparse cores). Blocks at any height draw (L12), and high blocks have the exact row t_p. High sets are exactly a "rounds game" on offsets (L13). There every pair set draws at debt p mod 2 (unlike O7 at low heights), and always taking the largest number is a drawing strategy for both players (L15, checked p ≤ 11); proving L15 gives TI for high blocks for every p (L16). L15's proof is done except the phase after a player's unmatched double (log 2026-10-26: the always-max proof splits at Z's first double).
 
 ## Claims
 
@@ -29,10 +29,10 @@ B20: finish the paper proof of AM (log 2026-10-26: toward a proof of AM), the ph
 
 ## Last review
 
-2026-10-22, after 21 log entries (5 since the previous review).
-- A6 (new, from the ideator): metric moved, Γ_N drawn 24 → 28 (two engines); shelved because Lemma A fails at reachable positions (O8).
-- A7 (new): TI holds for p ≤ 10, a ≤ 80, but the band shrinks at {2,3,4,5} (O9); shelved.
-- A4 stays shelved: low change cures O7's cores, but with no clean law (B22).
-- A5 dead (O7, aligned pairs too); A1 dead; A2, A3 shelved.
-- No main line remains: stopped for your decision. The ideator was called for this cycle; its ideas are all tested except the margin tool (B21).
-- Literature (Known) checked today; no literature unit due.
+2026-10-26, after 26 log entries (5 since the previous review; overnight).
+- A7 main: metric unchanged (paper proofs of TI for p ≤ 2), but B20 is reduced to one lemma: L15, always-max keeps a draw on pair sets (checked p ≤ 11). Its proof is done except the phase after an unmatched double; L13, L14 are with the refuter.
+- Cost: 5 units, all on A7; the ideator was called for fresh ideas on B20 (still running).
+- No line meets its kill criteria; A1, A5 dead; A2, A3, A4, A6 shelved, nothing new revives them.
+- O10 recorded: no tie law for general offset sets; even-total sets can be player-2 wins.
+- Literature: Known checked 2026-10-22; the refuter's searches today found nothing new.
+- First review in a row without a metric move.

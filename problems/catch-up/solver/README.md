@@ -37,6 +37,7 @@ Verification chain (`cargo test --release`, CUDA tests with `--features cuda`): 
 | `low_change` | How large must k be for {1..k} ∪ C to draw, C a failing 5-pair core (B22)? | `cargo run --release -p catch-up --bin low_change -- 6 20 1` (40 s) |
 | `rounds_game` | The rounds game (Catch-Up on high offsets, B20): rows of {0..2p−1} against t_p (T1), pair sets at debts 0, 1 (T2), and the tie law over every even O ⊆ {0..U−1} | `cargo run --release -p catch-up --bin rounds_game -- 24` (12 s, ~400 MB) |
 | `max_strategy` | Does always taking the largest number keep a draw on pair sets in the rounds game (AM)? Least final margin by start (mover at debt 0, 1; non-mover leading by l) and p | `cargo run --release -p catch-up --bin max_strategy -- 22 8` (8 s) |
+| `set_value` | Value of one set and player 1's outcome after each opening (`Solver`, and `reference_value` up to 10 numbers) | `cargo run --release -p catch-up --bin set_value -- 75 80 81 84 86 88 89 91` |
 
 ## Recipes
 

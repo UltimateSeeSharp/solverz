@@ -16,6 +16,11 @@ Status and Approved: `CLAUDE.md`, Workflow.
 | L11 | Two pairs | V({a, a+1, b, b+1}, 0) = draw for all 1 ≤ a, b ≥ a + 2: L8 (E) at p = 2 | L6, L7, L10 | A5 | — | paper proof | — |
 | L9 | Far-apart pairs | S = p pairs {a_i, a_i + 1} with a_1 ≥ p and each a_{i+1} > (sum of the pairs below) + a_i + 1: for 0 ≤ g ≤ a_1, V(S, g) = draw if g ≤ p and g ≡ p (mod 2), win if g < p and g ≢ p, loss if g > p. L8 (E) for these sets | L6 | A5 | — | paper proof | — |
 | L12 | Even blocks draw | V({a..a+2p−1}, p mod 2) = draw for all a, p ≥ 1 (TI); a = 1 with p even is L1 for N ≡ 0 mod 4 | — | A7 | — | conjecture | — |
+| L13 | High sets are the rounds game | For O a finite set of non-negative integers with \|O\| even, g ≥ 0 and a > g + sum(O): V({a + o : o ∈ O}, g) = R(O, g), the rounds game value (section) | — | A7 | — | conjecture | — |
+| L14 | Greedy bound | In any play of the rounds game (in fact for any order of the two picks in each round) where Z always takes the largest number left, Z's total − Y's total over T is ≥ −c_td(T), c_td(T) = (t1 − t2) + (t3 − t4) + … for T sorted decreasingly | — | A7 | — | conjecture | — |
+| L15 | Always-max on pair sets | In the rounds game on a pair set E (disjoint pairs {x, x+1}), a player Z who always takes the largest number left ends with final margin ≥ −1 if Z starts as the mover trailing by 0 or 1, or as the non-mover leading by l ≥ 0 | L14? | A7 | — | conjecture | — |
+| L16 | High pair sets draw | For E a pair set with p pairs and a > 1 + sum(E): V({a + o : o ∈ E}, p mod 2) = draw. Gives L12 for blocks with a > 1 + p(2p−1), and L8 (E) for pair sets placed high | L13, L15 | A7 | — | conjecture | — |
+| L17 | Rows of high blocks | R({0..2p−1}, d) = t_p(d) for all d ≥ 0 (t_p: draw at d ≤ p with d ≡ p mod 2, win at d = 0 for p odd, loss otherwise); with L13, the row of {a..a+2p−1} for a > d + p(2p−1) | L13 | A7 | — | conjecture | — |
 
 ## L1 Main conjecture
 **Proof.** Open.
@@ -95,3 +100,23 @@ So the opponent's best is a draw, and the pick a + 1 is worth a draw.
 ## L12 Even blocks draw
 **Proof.** Open. p ≤ 2 for every a: L7 (p = 1), L11 (p = 2).
 **Evidence.** `block_rows 8 80` (log 2026-10-22: even blocks draw at every height, but the band can shrink): every block with p ≤ 8, a ≤ 80; refuter's own engine: also a ≤ 200, and p = 9, 10 at a ≤ 80. From a ≥ a0(p) ≈ 2p the row at gaps below a is t_p (draw at draw-parity g ≤ p, win at 0 for p odd, loss otherwise). Unlike pair sets (O7), blocks show no exception at any height. The band is not monotone in a (O9).
+
+## L13 High sets are the rounds game
+**Rounds game.** R(O, d): the mover trails by d ≥ 0. A round: the mover picks i ∈ O, then the other picks j ∈ O − {i}; the mover's signed debt becomes δ = d + j − i; if δ ≥ 0 the mover moves first in the next round at debt δ (a tie keeps the mover), else the other does, at debt −δ. O empty: draw at debt 0, else loss. Equivalently: one pick each per round, the player behind picks first, higher total wins.
+**Proof (draft, not yet refuter-checked in proof mode).** Write each number as a + o. At every turn start in the real game, let c be the number of numbers the opponent has taken minus the mover's, and e the offset analogue plus g, so the mover trails by a·c + e. By induction c ∈ {0, 1} and |e| ≤ g + sum(O) < a, since e is g plus a signed sum of distinct offsets. If c = 0 the mover trails by e ∈ [0, a), so its first pick ends the turn and the opponent starts with c = 1. If c = 1 the mover trails by a + e: a pick a + o with o ≥ e ends the turn (the other starts with c = 0, trailing by o − e); with o < e the mover still trails by e − o < a, and its next pick ends the turn (the other starts with c = 1). A round of R is a c = 0 turn's pick plus the reply's first pick; the reply's second pick, when it happens, is the first pick of the next round, by the same player, now behind. The early-loss rule fires only for a c = 1 mover with one number left that cannot catch up, which R scores as a loss at positive debt. Refuter (claim mode, 2026-10-26): the argument is right once the deficit bound is argued cumulatively, as here; 30,721 + 835,717 comparisons with a literal `valueAux` port, 0 mismatches; a = g + sum(O) also matched (first mismatches at g + sum(O) − 2).
+
+## L14 Greedy bound
+**Proof (draft).** Induction on |T|; it suffices that each round satisfies (Z's pick − Y's pick) ≥ c_td(T') − c_td(T), T' = T minus the two picks. Sort T decreasingly, t1 > t2 > …; c_td is the alternating sum t1 − t2 + t3 − …. If Y takes t1 (picking first), Z takes t2: both sides equal t2 − t1. Otherwise Z takes t1 and Y takes some t_j, j ≥ 2 (whichever picks first). Removing t1 and t_j flips the sign of t2..t_{j−1} and keeps the signs after t_j, so with A = −t2 + t3 − … ± t_{j−1}: c_td(T) = t1 + A ± t_j + tail and c_td(T') = −A + tail. The required inequality t1 − t_j ≥ −2A − t1 ∓ t_j becomes, for j odd, 2[(t1 − t2) + … + (t_{j−2} − t_{j−1})] ≥ 0, and for j even, 2[(t1 − t2) + … + (t_{j−3} − t_{j−2})] + 2(t_{j−1} − t_j) ≥ 0. Both hold.
+**Evidence.** `scratch/b20/greedy.py 10`: the least value over Y's strategies, Y also choosing the order in each round, equals −c_td(T) exactly for every even T ⊆ {0..9}.
+
+## L15 Always-max on pair sets
+**Proof.** Open. Partial (log 2026-10-26: toward a proof of AM; log 2026-10-26: the always-max proof splits at Z's first double): every number Z holds exceeds every number left; while the doubles are balanced, a walk invariant on Φ (margin with each remainder credited to the player it is owed to) holds and is closed under play (checked over all states satisfying it, p ≤ 6); the gap is the phase after Z's unmatched double, where L14 alone is too weak (a reachable state with 7 pairs: L14 gives −2, the truth is 0).
+**Evidence.** `max_strategy 22 8`: every pair set within {0..21} (p ≤ 11), leads ≤ 8; the least margin is 0 or −1 by parity, and l − p for a lead l > p. Always-max fails only where parity forces a winner.
+
+## L16 High pair sets draw
+**Proof.** From L13 and L15: at debt g0 = p mod 2 the final margin is ≡ g0 + p ≡ 0 (mod 2), since sum(E) ≡ p; so a margin ≥ −1 is ≥ 0, and always-max secures it for the mover (start at debt g0 ≤ 1) and for the other player (leading by g0 ≥ 0). Both secure at least a draw, so R(E, g0) = draw; L13 transfers it to V for a > g0 + sum(E).
+**Evidence.** Refuter (claim mode, 2026-10-26, C3): every pair set with p = 2..9 and spacing up to max offset 200 (p ≤ 4), 80 (p = 5), …, 30 (p = 9), and every pair set within {0..25}, matches t_p at debts 0 and 1. Our `rounds_game 24`: all pair sets within {0..23}.
+
+## L17 Rows of high blocks
+**Proof.** Open; L16 gives the draw at d = p mod 2, U0 (`scratch/b20/NOTES.md`, refuter-checked) the losses for d > p.
+**Evidence.** `rounds_game 24` (p ≤ 12); refuter (C2): p ≤ 13 at every debt, p = 14 at d ≤ 14.
