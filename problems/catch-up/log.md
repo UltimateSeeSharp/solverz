@@ -930,3 +930,13 @@ Newest last. Entry format:
 - **Literature.** No Catch-Up results on arithmetic progressions or real numbers (six searches in all).
 - **Metric.** A7: TI at real heights checked exactly for p ≤ 8 (was: sampled, p ≤ 7).
 - **Meaning.** The block draws do not depend on integrality, so a proof can use h as a continuous parameter: the value can change only at breakpoints, and only through near-tie positions (L32's section). B53 tests whether those are always draws on the defender's lines.
+
+### 2026-10-26: no drawing strategy works across all heights (L32, A7, B53)
+
+- **Claim / question.** Does either player have one drawing strategy on B(h, p) that works at every real h, using only what play reveals about h (who moves when)? Such a strategy could not depend on the sizes of the numbers, so it might be describable.
+- **Approach.** `scratch/b45/robust.py`: the game with h unknown in an interval (adversarial); X's lead is dk·h + dc, play narrows h to an interval, and X's value is max over its picks, min over the opponent's and over the h-ranges play cannot distinguish (generic h). Checked against the exact values (p = 1 win below 1, p = 3 win below 1/2). `cover.py`: the fewest h-intervals on which each player has one strategy (greedy over breakpoints r/s, s ≤ 2p).
+- **Outcome.** One strategy for all h > 0 exists only for p = 2 (both players). Otherwise the fewest ranges (generic h; for P2 at odd p from 1/2): p = 3: P1 (0, 6), (6, ∞), P2 one; p = 4: P1 (0, 4), (4, ∞), P2 (0, 6), (6, ∞); p = 5: P1 (0, 4), (4, 8), (8, ∞), P2 (1/2, 3), (3, 8), (8, ∞); p = 6: P1 (0, 3), (3, 6), (6, 10), (10, ∞), P2 (0, 3), (3, 7), (7, ∞); p = 7: P1 (0, 3), (3, 5), (5, 8), (8, 14), (14, ∞), P2 (1/2, 2), (2, 5), (5, 10), (10, ∞). Every boundary is an integer. P1's robust strategy for p = 4 on (0, 4) opens with the smallest number; its replies show no evident rule.
+- **Refuter.** Not run (scratch search; the solver reproduces the exact values above).
+- **Literature.** Not searched.
+- **Metric.** None (O17).
+- **Meaning.** Drawing play must know roughly which integer band h lies in, and the number of bands grows with p, so L32 does not come with one strategy uniform in the height; a descent in h (B53) has to switch strategies at integer heights. Within a band one strategy covers all real h, so integrality itself is never used.
