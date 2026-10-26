@@ -840,3 +840,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A8: H described explicitly and forceable: to N = 16 by formal pieces alone, to N = 24 with Hyb2T's exact guarantee on sets of ≤ 6 offsets.
 - **Meaning.** A Hyb2T high phase is enough for every N tested, and its debt side is already proved (L25); the open part is a short, provable description of where Hyb2T is safe on general high sets, since the exact table needed grows with N. This is the same kind of gap as A7's rows, now on arbitrary high sets.
+
+### 2026-10-26: high-set safety has no threshold structure in the debt (A8, A7, B35)
+
+- **Claim / question.** Could H's outcome side be described per offset set by a debt threshold (the mover safe iff d ≤ φ(T), the other iff e ≥ θ(T), at the parity of ΣT), for Hyb2T or for optimal play?
+- **Approach.** Scratch probes `scratch/a8/hyb_thresholds.py` (Hyb2T's guarantee) and `exact_thresholds.py` (exact rounds-game values) over every T ∋ 0 with |T| even within {0..10}.
+- **Outcome.** No. Hyb2T: the mover's safe debts have gaps in 175 of 512 sets ({0,2,3,4}: safe only at d = 3), the other player's in 59 ({0,3,4,6}: 1, 5, 7, …). Exact values: the mover's safe set has gaps in 84 of 512 ({0,2,3,5}: safe at d = 0 and 4, not 2), the other's in 28.
+- **Refuter.** Not run (scratch probes; the exact recursion is the one in `hyb2_universal`).
+- **Literature.** Not searched.
+- **Metric.** None (an obstruction, O14).
+- **Meaning.** H cannot be cut out by debt thresholds per set, whatever the high strategy; a description has to restrict the sets themselves (like L23's depth or blocks), and the low phase has to steer into such sets.
