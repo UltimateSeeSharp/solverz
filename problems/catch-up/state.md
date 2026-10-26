@@ -16,7 +16,7 @@
 
 ## Next step
 
-Process the two ideator reports (fresh ideas beyond high blocks; Hyb2's debt bound for L24) when they arrive; meanwhile prepare `block_draw_linear` for approval with the `audit-statement` skill.
+When the refuter's statement-mode verdict on `block_draw_linear` arrives, put the audit (statement, plain reading, traps, tests in `lean/CatchUp/Tests/BlockDrawLinear.lean`, verdict) under Awaiting review. Meanwhile B35's cheap check: the two-ended menus tb3, tb4 on p = 10 blocks at a ∈ [p, 2p].
 
 ## Awaiting review
 

@@ -520,3 +520,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: the Lean-checked range of TI drops from quadratic height (a > p mod 2 + p(2p−1)) to linear, a ≥ 6p − 2, matching the paper range.
 - **Meaning.** Every block draw proved on paper so far is now checked in Lean. Lower heights need a smaller debt bound (L24, B29's 2m − 3) or a new class; {1..N} itself is at height 1.
+
+### 2026-10-26: ideas beyond high blocks: a two-ended defender (A3, A7)
+
+- **Claim / question.** Ideator at the review after unit 22, beyond high blocks: is there a real-game analogue of the high-block guarantee, a defender whose guarantee a per-turn potential tracks, and what do results/ and the solver say?
+- **Approach.** `ideator` (effort max), own scratch code in `scratch/ideator/review2/` (menu games with restricted defenders up to N = 28, block menus, deque model, rollouts), Python cross-checks `check_sm.py`, `check_block.py`.
+- **Outcome.** No always-max-type defender works at a = 1: always-max, AM+T, top-k menus, rollouts and "max first, then perfect" lose on {1..N} by margins growing with N (−8 at N = 16); a Γ-type bound fails on general sets (O7's core). Kept: B35 two-ended defender (3 smallest or 3 largest, optimal among them) draws {1..N} for N ≤ 28 in both roles and blocks p ≤ 8, a ≤ 80; B36 deque toy model (TI for p ≤ 12, a ≤ 60); B37 margin domination on blocks (p ≤ 7, a ≤ 50, one-sided, survives O9). All unchecked.
+- **Refuter.** Not run (ideas with unchecked data; each test is in its backlog item).
+- **Literature.** Ideator: searches on Catch-Up proofs, catch-up-order picking and sequential allocation; plus.maths.org (2022) has nothing beyond the 2015 computations; nothing on end-restricted variants.
+- **Metric.** None moved (A3 shelved: 4; A7 unchanged).
+- **Meaning.** At low heights the defender's play is at the bottom of the set, which top-down potentials (L18's Γ, L23) cannot see; a two-regime strategy (bottom at low heights, top at high ones) is the candidate. If B35's side rule exists, A3 revives with two potentials.

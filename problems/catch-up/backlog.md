@@ -11,6 +11,7 @@ Grouped by line, most promising first.
 
 ## A3
 
+- **B35 Two-ended defender (tb3).** A defender choosing optimally among the 3 smallest and 3 largest numbers left draws every even-total {1..N}, N ≤ 28, in both roles, and every block {a..a+2p−1} at g0 for p ≤ 8, a ≤ 80 (ideator, unchecked, `scratch/ideator/review2/menus_packed.rs`). Bottom-only windows must grow with N, top-only fail at a = 1. Along tb3 play (N ≤ 20) a bottom pick is optimal at ~99% of nodes; ~0.7% need a top pick (7–8 numbers, high-ish sets). Next: fit a side rule (top iff the set is high, e.g. a relaxed L13 condition) on those nodes and rerun with "side by rule, any of its 3" for N ≤ 24 and blocks p ≤ 8; draws → two regimes, each with a potential (bottom: change; top: L18's Γ), revive A3; fails → search-space fact only. Cheaper first: tb3, tb4 on p = 10 blocks at a ∈ [p, 2p]. No local exchange lemma (12,627 positions ⊆ {1..20} need a middle pick); fails on {1..k} ∪ O7 core.
 - **B4 Patch drawing strategies.** `strategy_eval` exists; leaderboard: fixed pick rules (Largest, Smallest, SmallestCatch, Exact, LeadOne, StayBehind) fail at N = 4 as player 1; rules that repair broken adjacent pairs hold N = 3, 4 as player 2 only. Patching fixed rules is aimless; a rule needs a region to steer into (A2) or the opponent's last pick (B9).
 
 ## A4
@@ -31,6 +32,9 @@ Grouped by line, most promising first.
 - **B18 Lemma B's payoff on paper.** The row of {a..a+3} at debts below a: draw at 0 and 2, loss elsewhere (a ≥ 5); like L9 (P1).
 
 ## A7
+
+- **B37 Margin domination on blocks.** For p ≤ 7, a ≤ 50, g ≤ 3p: M(B(a,p), g) ≥ μ(I_p, g), the high block's margin row, except at g = 0 with p odd (p = 5: a = 1, 2, 7; p = 7: a = 1, 5, 7–11) (ideator, unchecked, `scratch/ideator/review2/real_vs_rounds.rs`). One-sided, so O9 (a win) does not contradict it. Next: the same comparison one pick after the start; if it holds, domination + L17 gives "player 1 doesn't lose {1..N}" for N ≡ 0 mod 4. Passed to the descent ideator.
+- **B36 Deque Catch-Up (toy).** Every pick is the smallest or largest left, so positions are intervals with a deficit (O(N³) states). TI holds there for p ≤ 12, a ≤ 60; even-total {1..N} draws for N ≤ 100; rows have ≤ 5 sign changes (ideator, unchecked, `deque*.py`). Next: tabulate the thresholds for lo ≤ 200, m ≤ 60, guess formulas, check them closed under both moves for lo ≤ 300; consistent → a paper proof of deque TI, the first low-height TI-type statement; else drop.
 
 - **B19 Rows of translated blocks.** For p ≤ 8, a ≤ 80 (`Solver` per block): TI at g0, the height a0(p) from which the row is t_p, whether the band contains [0, p] at every a.
 - **B28 Formalize TI for high blocks.** Done for a ≥ 6p − 2: `CatchUp.block_draw_linear` (via L23, L20, L22). Left: lower heights (needs L24 or a smaller debt bound, B29/B30) and the general pair sets of L16/L21 (needs L15 or L19).
