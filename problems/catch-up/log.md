@@ -550,3 +550,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: OEIS A278587 opened; searches on Catch-Up with consecutive or translated sets found nothing beyond the README's sources.
 - **Metric.** A7: unchanged.
 - **Meaning.** If you approve it, the block result can be reported as a Lean-checked partial result (with a write-up first, `writeups/`).
+
+### 2026-10-26: a potential for Hyb2's debt bound (A7, B30)
+
+- **Claim / question.** L24 (a): along Hyb2 plays on {0..2p−1}, is every Y round-start debt ≤ 2p − 1 + min R, and why?
+- **Approach.** `ideator` (effort max), scratch `scratch/ideator/l24/`: potentials checked over all states (reachable or not), mutations, reachable plays (`reach.py` reproduces `hyb2_states`' counts).
+- **Outcome.** Candidate W (L24's section): never increases over a Hyb2 round on all 196,590 states with R ⊆ {0..13} and 80,000 random states of span 50, equals 2p − 1 at the start, bounds Y's debt minus min R; each mutation breaks it; a five-transition paper sketch. Z's half of (a) is not needed. Found an error in L24 (b): the formalized L22 needs offsets < a, which fails at a = 2p − 1 (top offset = a); o ≤ a suffices in its proof. Follow-ups: B38 (rows at a ≥ 2p − 1), B39 (pair sets at a ≥ 2m − 2p + 1), B41 (the one-pick floor); B28 now targets Hyb2T in Lean. Removed: B19 (answered by `block_rows 8 80`), B29 (done: L20–L22; its tighter bound is W), B32 (superseded by `block_row_draw_linear`).
+- **Refuter.** Claim mode on W running.
+- **Literature.** Ideator: Catch-Up proof searches (only the README's sources); matching-potential searches found game matching and greedy matching papers, nothing on this game.
+- **Metric.** A7: unchanged until W survives.
+- **Meaning.** If W holds, L24 needs a paper proof of W, the relaxed L22, and (c), giving TI at a ≥ 2p − 1: the doubling-free height, below which every round-based method needs double picks.
