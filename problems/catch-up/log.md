@@ -810,3 +810,13 @@ Newest last. Entry format:
 - **Literature.** Ideator: no announced proof; von Stengel's abstract (computation to 28, induction proof wanted) is the newest relevant source.
 - **Metric.** None yet.
 - **Meaning.** A strategy proof now needs only one role (the leader's defense) from two starts. Searching for a potential of the two-pick game by features is exhausted; a strategy-specific invariant is the remaining route there.
+
+### 2026-10-26: the two-token lemma survives proof mode and is formalized (A8, A7)
+
+- **Claim / question.** L30 (at a tie, if the opponent cannot win after t it does not lose after any other pick) and L31 (L1 from one-sided statements at two starts).
+- **Approach.** Refuter in proof mode with its own literal and deficit ports (`scratch/refuter/l30/`); the ideator's Lean draft ported into `CatchUp/Token.lean` (module header, two long lines wrapped, `Finset.single_le_sum` replaced), with `level_law` rederived from the shared copying step.
+- **Outcome.** SURVIVES (three wording gaps fixed). Formalized, strict build clean, standard axioms: `level_option_ne_loss`, `two_token`, `conjecture_le_three` (L1 for N ≤ 3), `conjecture_of_leader_pair`, `conjecture_of_suffix_pair`. Kernel-checked now: L1 follows if, for every even-total N ≥ 4, the mover does not win {2..N} trailing by 1 nor {3..N} trailing by 1 (scores 1, 2). Also probed (scratch `scratch/a8/deficit_law.py`): the copying law fails already at deficit 1 ({2,3,4,6} has a drawing and a winning pick), so these reductions stop at ties (O12).
+- **Refuter.** Proof mode (2026-10-26): SURVIVES; (a), (b) hold for every even-total N ≤ 24 (own port).
+- **Literature.** Refuter: nothing on two-token-type lemmas for Catch-Up; von Stengel's abstract (computation to 28, induction proof wanted) is the newest relevant source.
+- **Metric.** A8: the target in Lean is one role (the leader's defense) from two starts.
+- **Meaning.** A strategy proof needs only one player's defense: the leader by 1, opponent to move, on {2..N} and on {3..N}.
