@@ -900,3 +900,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None (A9 shelved; a variant ruled out).
 - **Meaning.** R_N's success depends on fixed nested levels N, N/2, N/4, …, not on scaling D's horizon to E's picks; an escalation rule cannot simply re-centre the prefix on E's pick.
+
+### 2026-10-26: correction to "A9's prefixes must be the fixed halving chain" (A9)
+
+- **Claim / question.** The friendly-tie failures listed in that entry.
+- **Approach.** Re-read of the same run's output (`scratch/a9/prefix.rs`, N ≤ 20).
+- **Outcome.** With friendly ties: f = 2 fails at N = 7, 11, 15, 19; f = 2.5 at N = 8, 12, 16, 19; f = 3 at N = 7, 19 (the entry grouped f = 3 with f = 2.5). The conclusion stands: every factor fails.
+- **Refuter.** Not run.
+- **Literature.** Not searched.
+- **Metric.** None.
+- **Meaning.** Unchanged.
