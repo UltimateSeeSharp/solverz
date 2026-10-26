@@ -4,6 +4,7 @@ public import CatchUp.Statement
 public import CatchUp.Parity
 public import CatchUp.Best
 public import CatchUp.Rounds
+public import CatchUp.AltSum
 
 /-!
 # Catch-Up conjecture

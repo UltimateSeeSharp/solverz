@@ -360,3 +360,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged (TI's paper proofs); first formalized node of the high-block route.
 - **Meaning.** Results about the rounds game now transfer to the real game in Lean. Formalizing L15 (or L18 with L19) and L16 would make "high blocks draw" a checked result.
+
+### 2026-10-26: L14 formalized: the greedy bound and both per-round inequalities (A7)
+
+- **Claim / question.** B28: formalize L14 (paper proof, refuter-checked), whose per-round inequality L18 also uses.
+- **Approach.** New module `lean/CatchUp/AltSum.lean`: `altSum` (recursion removing the maximum), the joint lemma `altSum_add_erase` (x ≤ altSum U + altSum (U − x) ≤ 2·max U − x), `altSum_round`, `altSum_top_two`, the game value `greedyWorst` and `neg_altSum_le_greedyWorst` (L14). Imported in `CatchUp.lean`; imports Mathlib's `Finset.max'`, abs, linarith and ring.
+- **Outcome.** Compiled on the first full attempt apart from imports and deprecated rewrites. `lake build --wfail` clean; `#print axioms` of the three main theorems: propext, Classical.choice, Quot.sound. Deviation: the per-round inequality goes through the joint lemma instead of the paper's sign bookkeeping, and comes out two-sided (`|altSum T − altSum T'| ≤ t1 − j`), which is also L18's part (a).
+- **Refuter.** Not run on the Lean proof (kernel-checked). L18's paper proof is with the refuter in proof mode.
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged.
+- **Meaning.** The alternating-sum machinery for the per-round route to L16 (L18 with L19) is in Lean.
