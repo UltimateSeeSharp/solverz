@@ -790,3 +790,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None (a tool).
 - **Meaning.** A future strategy for the two-pick game or for A8 can be proved by exhibiting its classes and checking closure, without new game-tree induction.
+
+### 2026-10-26: L29's family holds in the two-pick class to N = 28 (A8, B43)
+
+- **Claim / question.** Does the two-pick class (exact cap) hold on L29's family {2..N} at deficit 1, both residues, beyond N = 16?
+- **Approach.** New `lead_regime ranges` mode (32d2810); [results/two-pick-height2-family-n28.md](results/two-pick-height2-family-n28.md). Two quick probes (scratch `scratch/a8/mono.py`, `onepick_law.py`), both negative: values are not monotone in the deficit even by steps of 2 ({2, 3}: draw trailing by 1, win trailing by 3, since a big deficit lets the mover take more); and the level law fails off ties ({3, 4, 5} trailing by 2 has a drawing and a winning pick).
+- **Outcome.** Every even-total N ≤ 28: D draws {2..N} at deficit 1 in both roles with both players' turns ≤ 2 picks.
+- **Refuter.** Not run (search data; the mode matches `turn_cap` to N = 16).
+- **Literature.** Not searched.
+- **Metric.** A8: the two-pick class holds on the whole Lean target family to N = 28.
+- **Meaning.** The game a proof must handle can be taken to be the two-pick game on {2..N} at deficit 1. Copying lemmas like L26/L28 are special to exact ties.

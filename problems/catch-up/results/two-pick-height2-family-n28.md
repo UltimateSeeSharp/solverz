@@ -1,0 +1,15 @@
+# L29's family in the two-pick class, N ≤ 28
+
+Does a defender D draw {2..N} at deficit 1 (L29's family: by L26 it gives Catch-Up on {1..N}), as mover and as the other player, against a perfect opponent, while keeping every turn of both players to at most 2 picks? D takes at most 2 picks per turn and ends each turn with the opponent behind by at most the sum of its 2 smallest numbers left, or by more than everything left; D with no allowed turn loses.
+
+- Date: 2026-10-26
+- Command: `lead_regime ranges 2 28 1 s2 2` (`./target/release/lead_regime`)
+- Commit: 32d2810
+- Machine: AMD Ryzen 7 3700X, 32 GB RAM; rustc 1.99.1 (MSVC)
+- Runtime: 36 min 43 s (about 2 GB at N = 28)
+- Checked: unrestricted, the same mode gives draws for N ≤ 16 as known; cap s2 matches `turn_cap ranges 2 18 1 2 2` (an independent implementation) for N ≤ 16; the earlier run `lead_regime ranges 2 25 1 s2 2` gives the same rows to N = 24.
+- Data: `scratch/b41fix/lead_regime-ranges-2-28-1-s2-2.txt`, SHA-256 `c4262d72c772f41a530394308a3d852decfed420730e7c8700f60e934e53cad4`
+
+## Outcome
+
+Scope: every N ≤ 28 with 1 + … + N even (N = 3, 4, 7, 8, …, 27, 28). D draws {2..N} at deficit 1 in both roles for every one of them. So, through N = 28, Catch-Up on {1..N} is drawn by play in which, after player 1 opens 1, both players' turns have at most 2 picks.
