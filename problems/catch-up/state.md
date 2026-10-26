@@ -16,7 +16,7 @@
 
 ## Next step
 
-L24 (TI at a ≥ 2p − 1): when the refuter's claim-mode verdict on the potential W arrives and it holds, move the ideator's full proof (`scratch/ideator/l24/proof.md`, being written) into L24's section, check it by hand, and send it to the refuter in proof mode. Meanwhile B41 (`lead_regime -- blocks 9 40 1 1 0 2`, the one-pick floor).
+Act on the refuter's verdicts on L25 (proof mode) and on W (claim mode): if L25 survives, move it to `paper proof`, then send L24's whole proof (L25 + L22 relaxed + L15 + L20 + parity) to the refuter in proof mode. Meanwhile B36 (deque toy: thresholds of the rows, `scratch/b36/deque_rows.rs`).
 
 ## Awaiting review
 

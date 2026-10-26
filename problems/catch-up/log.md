@@ -610,3 +610,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged.
 - **Meaning.** Consistent with W: if L24 holds, the rows' draw entries come with it at a ≥ 2p − 1.
+
+### 2026-10-26: Hyb2's debt bound on paper: node L25 (A7, B30)
+
+- **Claim / question.** L24 (a): does the potential W never increase over a Hyb2 round, so that every Y round start has e ≤ 2p − 1 + min R and every Z round start d ≤ 2p − 1?
+- **Approach.** The L24 ideator wrote out its sketch as a full paper proof (tools (A)–(F), Hyb2's answer structure P1–P3 and Q1–Q4, transitions T1–T4b, consequences), citing the two Lean facts of `CostParity.lean`; I checked every step by hand against the definitions and moved it into the blueprint as node L25.
+- **Outcome.** L25 stated with its proof (status `conjecture` until the refuter's proof-mode verdict). I found no gap. Z's debt after a fallback where Y took max R is ≤ span ≤ 2p − 1; the stronger "Z's debt ≤ 1 + min R" of L24's first statement is not needed and not proved. L24 now uses L25.
+- **Refuter.** Proof mode on L25 running; claim mode on W (own engine) running.
+- **Literature.** Not searched (refuter will).
+- **Metric.** A7: unchanged until L25 survives.
+- **Meaning.** With L25, L24 (TI at a ≥ 2p − 1) has a complete paper route: L25 → L22 (offsets ≤ a, Lean) → L15 and L20 → parity.
