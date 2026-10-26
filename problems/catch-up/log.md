@@ -750,3 +750,13 @@ Newest last. Entry format:
 - **Literature.** Not searched (refuter will).
 - **Metric.** None yet.
 - **Meaning.** L1(N) ⟺ some opening t of {1..N} leaves player 2 drawing at deficit t; "player 1 cannot win" comes for free once one opening draws. The same holds at every exact tie during play.
+
+### 2026-10-26: the level law survives proof mode and is formalized (A7, A8)
+
+- **Claim / question.** L28 (at equal scores, one drawing pick excludes winning picks) in proof mode, then Lean; L29 (one family at height 2).
+- **Approach.** Refuter in proof mode with its own literal port (`scratch/refuter/l28/`); Lean `level_law` in `CatchUp/Token.lean`, `token_lemma` derived from it; `conjecture_of_height_two` (L29).
+- **Outcome.** SURVIVES; formalized (`lake build --wfail` clean, standard axioms). Kernel-checked now: the conjecture follows from V({2..N}, 1) = draw for every even-total N (`conjecture_of_height_two`), and value({1..N}) = draw iff some opening draws. The refuter's stronger form (same argument): at a level position at most one pick wins, and then every other pick loses. L29's proof-mode verdict pending.
+- **Refuter.** Proof mode (2026-10-26): SURVIVES (all R ⊆ {0..17} at every rank; A278587 to N = 20; Feng 2024 is a different statement).
+- **Literature.** Refuter: nothing like the level law found.
+- **Metric.** The goal is one family at height 2, V({2..N}, 1) = draw, in Lean.
+- **Meaning.** Every exact tie in play is governed by the level law; a defender that can always reach a drawing option at a tie gets the draw for free there.
