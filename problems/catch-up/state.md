@@ -16,7 +16,7 @@
 
 ## Next step
 
-Act on the refuter's verdicts on L25 (proof mode) and on W (claim mode): if L25 survives, move it to `paper proof`, then send L24's whole proof (L25 + L22 relaxed + L15 + L20 + parity) to the refuter in proof mode. Meanwhile B36 (deque toy: thresholds of the rows, `scratch/b36/deque_rows.rs`).
+Rerun the refuter in proof mode on L25 (stopped at the usage limit before its verdict; claim mode already HOLDS). If it survives, move L25 to `paper proof` and send L24's whole proof to proof mode. The descent ideator (scratch/ideator/descent/) was also stopped unfinished; relaunch it, and the review's deferred ideator on B33.
 
 ## Awaiting review
 
