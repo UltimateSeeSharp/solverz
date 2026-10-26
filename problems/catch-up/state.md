@@ -29,9 +29,10 @@ B26: prove L19 (blueprint): an invariant along AM+T play, using where Y's holes 
 
 ## Last review
 
-2026-10-26, after 31 log entries (5 since the previous review; overnight).
-- A7 main: metric moved. TI has a paper proof for every p once a > 1 + p(2p−1) (L16, from L13 and L15, each refuter-checked in proof mode). Cost: 5 units, one of them the ideator's.
-- Also on A7: one rule, AM+T, is optimal on every row of high blocks and on pair sets at debts 0 and 1 (checked p ≤ 12); toward its proof, a potential step lemma (L18) is drafted.
-- No line meets its kill criteria; A1, A5 dead; A2, A3, A4, A6 shelved, nothing new revives them. A7 stays main: it is the only line whose metric moves.
-- Backlog within 10 items per line. Known checked 2026-10-22 and again by the refuter today (nothing new): no literature unit due.
-- Ideator called for this review on the descent from high blocks to a = 1 (B27, O9); its ideas go to the backlog when it reports.
+2026-10-26, after 36 log entries (5 since the previous review; overnight).
+- A7 main: metric unchanged since the last review (TI on paper: p ≤ 2 at every a, every p at a > 1 + p(2p−1)). Cost: 5 units, 2 on mathematics, 3 on Lean.
+- Lean: L13 (high sets are the rounds game) and L14 (greedy bound) formalized, plus value = sign of the minimax margin with its parity; what remains for a checked L16 is the strategy induction.
+- Mathematics: L18 (potential step) is a refuter-checked paper proof; L19 (top-run lemma) is stated and checked within {0..16}, its proof is with the ideator. L18 with L19 would give every row's floor and a per-round proof of L16 that suits Lean.
+- No line meets its kill criteria; A1, A5 dead; A2, A3, A4, A6 shelved, nothing new revives them yet. A7 stays main: it is the only line with work and recent metric movement.
+- Backlog within 10 items per line; Known checked today: no literature unit due.
+- Ideators: one on A7's descent (previous review), one on L19, and one called for this review on ideas beyond high blocks.
