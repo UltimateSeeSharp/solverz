@@ -25,6 +25,7 @@ One folder per problem; one Lean project (one Mathlib) and one Rust workspace at
 | `problems/<problem>/lines.md` | Lines of attack: routes to the goal with metric and kill criteria | No |
 | `problems/<problem>/log.md`, `backlog.md`, `obstructions.md`, `blueprint.md` | Every attempt (failures included), idea queue per line, ruled-out approaches, lemmas with status and approval | No |
 | `problems/<problem>/writeups/` | Write-ups of results shared outside the repo | No |
+| `problems/<problem>/overnight/` | One report per overnight session: summary, units linking the log | No |
 | `problems/<problem>/lean/` | Lean library `<Problem>` (Mathlib) | Yes, under the trust rules |
 | `problems/<problem>/solver/` | Rust crate: search/compute code; kept experiments in `src/bin/`; catalog in its `README.md` | No |
 | `problems/<problem>/results/` | Curated solver outputs with run metadata | No |
