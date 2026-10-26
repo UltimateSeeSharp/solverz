@@ -16,7 +16,7 @@
 
 ## Next step
 
-B20: a proof of T2 or T1 in the rounds game (`scratch/b20/NOTES.md`), using the ideator's ideas and the refuter's verdict on the reduction.
+B20: finish the paper proof of AM (log 2026-10-26: toward a proof of AM), the phase after Z doubles; then refuter in proof mode, and blueprint nodes for the rounds-game reduction, AM and "high pair sets draw at p mod 2".
 
 ## Awaiting review
 
