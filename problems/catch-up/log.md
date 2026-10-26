@@ -330,3 +330,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: nothing on greedy strategies in Catch-Up or catch-up-order picking games (two unrelated papers opened: LIPIcs FUN 2026 paper 8, arXiv 2512.16722).
 - **Metric.** A7 moved: paper proofs of TI for p ≤ 2 at every a (L7, L11), and now for every p at a > 1 + p(2p−1) (L16). Not formalized.
 - **Meaning.** Even blocks high above their own size draw, for every block size, with an explicit drawing strategy for both players (take the largest number). What remains of A7 is the descent from these heights to a = 1, blocked by O9.
+
+### 2026-10-26: a catch-up potential for AM+T (A7)
+
+- **Claim / question.** B26: what quantity does AM+T's guarantee track, so that T1's floor (the trailer on {0..2p−1} at debts 2..p) can be proved?
+- **Approach.** Scratch scripts in `scratch/b20/`: `amtreach.py`, `amtreach2.py` (reachable states from interval starts), `amtgap.py`, `amtpsi.py`, `amtfit.py` (Φ plus credits for intact pairs: no clean fit), `amtctd.py` (guarantee against the top-down alternating sum c_td), `gammastep.py 10`, `gammaall.py`, `gammacond.py`, `k2class.py`, `k3fix.py`, `gammastep_check.py 13 16` (one-round behaviour of the potential on all small sets), `amtdev.py`.
+- **Outcome.** (1) The only orphan-free states with Z behind by ≥ 2 reachable from interval starts are intervals. (2) After any first-round reply Z's guarantee is exactly 0 at draw-parity debts: no slack. (3) With c = c_td(T), the potential Γ = min(s + c, 0) when Z moves, max(s − c, 0) when Y moves, never drops along AM+T play from intervals except once by 1 in a last round (p ≤ 10). (4) One round, all sets (L18, paper proof drafted, exact on all 139,230 states within {0..12}): Z's moves never lower Γ; Y's moves lower it exactly when Y moves with s < (t1 − t2) − c_td(T minus its top two). A general class closed under play is messy (Z-moving thresholds are not intervals in s), so the remaining step is to show that condition along play from intervals, where Y's holes are paid for.
+- **Refuter.** Not run (L18 to go with the rest of B26's proof).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged (B26 intermediate: one lemma of two drafted).
+- **Meaning.** The trailing player under AM+T recovers up to the alternating sum c_td of what is left, never more; this replaces Φ (which cannot see a trailing start's credit) for T1. L14's per-round inequality is the core of both directions.

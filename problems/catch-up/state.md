@@ -16,7 +16,7 @@
 
 ## Next step
 
-B26: prove AM+T on intervals at debts ≥ 2 (only intervals occur as orphan-free trailing states; scratch/b20/amtreach2.py lists the states with Φ < −1).
+B26: show that along AM+T play from {0..2p−1} (Z trailing by d ≤ p) every state where Y moves satisfies L18's condition s ≥ (t1 − t2) − c_td(T minus its top two).
 
 ## Awaiting review
 
