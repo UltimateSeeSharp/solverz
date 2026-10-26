@@ -38,9 +38,10 @@ When the refuter's verdict on L28 arrives: if SURVIVES, formalize `level_law` fr
 
 ## Last review
 
-2026-10-26, after 67 log entries (10 since the previous review; overnight; held late).
-- A7: metric moved: TI on paper at a ≥ 2p − 1 (L25 and L24 survived proof mode), the lowest height where every turn is one pick. Cost: 5 units. Its monotone descent stays blocked (O9).
-- Height 1, new: turns of ≤ 2 picks for both players draw {1..N} to N = 24 (A2; an older "fails at a = 1" was an engine flaw, fixed); while the set is low the defender needs only its 2–4 smallest numbers (A3, B35). Cost: 4 units.
-- Main line moved to new A8 (low phase of change, high phase by Hyb2): it uses A7's results and attacks the descent directly. A7 active (Lean for L24 when it pays). Revert if you disagree (Awaiting review).
-- No line meets its kill criteria; A1, A5 dead. Backlog ≤ 10 per line. Known checked today.
-- Ideator: fresh-ideas ideator running (counts for this review).
+2026-10-26, after 73 log entries (6 since the previous review; overnight).
+- Goal narrowed, kernel-checked: L1 ⟸ draws on {1..N} (N ≡ 0 mod 4) and on {2..N} at deficit 1 (N ≡ 3 mod 4) (L26, L27 in Lean, from the ideator's token lemma). L28 (level law, refuter running) would add: one drawing opening suffices. Cost: 3 units.
+- A8 main: high phase settled empirically (free low play + Hyb2 from the first high position draws to N = 24); the hand-over class H is not described, Hyb2 fails on ~6% of high sets. Metric moved (feasibility shown).
+- A2: the two-pick class holds to N = 24 (exact cap); with cap 2m − 1 every height-2 block draws for p ≤ 12, height 1 fails from p = 8. Two engine fixes in `lead_regime` (older capped failures too pessimistic).
+- A7: metric unchanged since L24; the next rung (B44) and real heights (B45) queued.
+- No line meets its kill criteria. Main stays A8; its next unit is the height-2 game (B43), which serves the N ≡ 3 mod 4 half directly.
+- Ideator called for this review (running).
