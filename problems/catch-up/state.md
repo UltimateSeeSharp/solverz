@@ -29,10 +29,10 @@ Act on the refuter's verdict on L20, L21 (`scratch/refuter/l21/`): on SURVIVES m
 
 ## Last review
 
-2026-10-26, after 36 log entries (5 since the previous review; overnight).
-- A7 main: metric unchanged since the last review (TI on paper: p ≤ 2 at every a, every p at a > 1 + p(2p−1)). Cost: 5 units, 2 on mathematics, 3 on Lean.
-- Lean: L13 (high sets are the rounds game) and L14 (greedy bound) formalized, plus value = sign of the minimax margin with its parity; what remains for a checked L16 is the strategy induction.
-- Mathematics: L18 (potential step) is a refuter-checked paper proof; L19 (top-run lemma) is stated and checked within {0..16}, its proof is with the ideator. L18 with L19 would give every row's floor and a per-round proof of L16 that suits Lean.
-- No line meets its kill criteria; A1, A5 dead; A2, A3, A4, A6 shelved, nothing new revives them yet. A7 stays main: it is the only line with work and recent metric movement.
-- Backlog within 10 items per line; Known checked today: no literature unit due.
-- Ideators: one on A7's descent (previous review), one on L19, and one called for this review on ideas beyond high blocks.
+2026-10-26, after 43 log entries (7 since the previous review; overnight).
+- A7 main: metric moved. TI on paper for every p at a ≥ 6p − 2 (L21 via Hyb, L20, L22), besides a > 1 + p(2p−1) (L16). Cost: 7 units, 3 of them Lean.
+- Lean: L18's guarantee and L20 formalized; a checked L16 or L21 still needs L22 in Lean and L15 or L23.
+- Rows: L23 (depth invariant) would give every draw entry of t_p; refuter running. Parity-forced entries (B33) and spaced pair sets (L19) stay open.
+- A2/A3 (shelved): the bounded-turn regime R2 holds for N ≤ 24 but no simple rule inside it (B31); B34 (depth-weighted defects on {1..N}) is the next test that could revive A2. No line meets its kill criteria; A1, A5 dead.
+- A7 stays main (only line with metric movement). Backlog: B27 removed (superseded by B29, B30); ≤ 10 items per line. Known checked today.
+- Ideators: one on ideas beyond high blocks (from the previous review) still running.
