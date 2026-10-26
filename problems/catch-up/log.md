@@ -600,3 +600,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged.
 - **Meaning.** Short turns are not what stops round-based methods below a = 2p − 1: two-pick turns suffice down to a = 2. A rounds-style descent would need a bookkeeping in which a round's first mover may take two picks; at a = 1, D needs three-pick turns. Passed to the descent ideator. B41 removed (answered; the floor of strict rounds bookkeeping is not measured).
+
+### 2026-10-26: Hyb2T keeps every draw entry of the rows to p = 9 (A7, B38)
+
+- **Claim / question.** B38: does Hyb2T (AM+T before the switch, the smallest valid answer after it) secure at least a draw in the real game on {a..a+2p−1} at every draw entry d ≤ p, d ≡ p, both roles, from a = 2p − 1, for p = 8, 9 as for p ≤ 7?
+- **Approach.** The ideator's `scratch/ideator/l24/rows.py 9` (Z on Hyb2T, Y perfect; heights 2p − 2, 2p − 1, 2p); output `scratch/b38-rows-9.txt`, 94 s.
+- **Outcome.** For every p = 2..9: Z's least guarantee over the draw entries in both roles is 0 at a = 2p − 1 and 2p, and −(2p − 2) at a = 2p − 2.
+- **Refuter.** Not run yet (the ideator's own code; B38's next step is claim mode with an independent engine).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged.
+- **Meaning.** Consistent with W: if L24 holds, the rows' draw entries come with it at a ≥ 2p − 1.
