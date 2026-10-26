@@ -36,7 +36,7 @@ Grouped by line, most promising first.
 
 ## A7
 - **B44 Next rung below Hyb2.** One history-aware strategy covers heights down to about p + 2 (`scratch/ideator/fresh/universal.rs`, p = 4..7). Extract it on [p + 2.2, 4p] for p = 5, 6 and list where it differs from Hyb2T; few, describable differences → a rule "Hyb3" and a W-type potential (A7's metric would drop to about p + 2); unstructured → drop.
-- **B45 TI at real heights.** TI holds at every real h > 1/2 for p ≤ 7 (ideator, unchecked, `gen*.rs`). Check p = 8 (q = 241 plus all breakpoints); holding → a conjecture node TI_ℝ, and descent lemmas at generic heights with integrality in one step.
+- **B53 Breakpoint crossing (L32).** For p = 4, 6 list, at each breakpoint h* where some node's value changes, the near-tie positions (R, ε) on optimal lines and their values; test the lemma "on the defender's optimal lines every near-tie position is a draw". Holding → a descent in h from L24's regime that only has to control near ties, a candidate route for L32 and so for L1. Exact tool: `scratch/refuter/tir/param.rs`.
 
 - **B39 Pair sets at a ≥ 2m − 2p + 1.** W does not use the interval structure: for a pair set E with min 0, W(start) = 2m − 2p + 1; with L15, L20, L22, E draws at g0 from that height (ideator: all 986 pair sets with p ≥ 2 within [0, 16) in the real game, 463 fail one lower, `pairsets.py`). Would supersede L21's a > 3m. Next: after W's verdict, the refuter in claim mode with its own engine on pair sets within {0..17}.
 

@@ -920,3 +920,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: nothing on blocks or consecutive sets beyond the README's sources; no proof announced in 2026.
 - **Metric.** A7: unchanged (the statement is ready for approval).
 - **Meaning.** If blocks are reported, `block_draw_hyb2` is the one statement to approve; it covers the two earlier block theorems.
+
+### 2026-10-26: blocks draw at every real height (L32, conjecture) (A7, B45)
+
+- **Claim / question.** B45: is TI robust to non-integer heights, i.e. is B(h, p) = {h..h+2p−1} at debt p mod 2 a draw for real h?
+- **Approach.** p = 8 at every breakpoint r/s (s ≤ 16) on (0, 17] (`scratch/b45/genbreak.rs`, the ideator's code with a range option; 10 min); opening outcomes over h for p = 2, 4, 6 (`scratch/b45/openings.py`); refuter in claim mode with an exact parametric solver (h symbolic) and integer engines.
+- **Outcome.** For p even: a draw at every real h > 0, exactly for p = 2, 4, 6, 8 (whole of (0, ∞)). For p odd: draw from h = 1/2 for p = 3, 5, 7 (exact), from 2/5 for p = 9 and 1/3 for p = 11 (sampled), from 1 for p = 1; below, the mover wins. My claimed converse (a mover win at every h ≤ 1/2) was false: h = 1/2 is a draw. The second smallest opening draws on (0, ∞), (0, 8), (0, 11) for p = 2, 4, 6. New conjecture node L32; by scaling, every arithmetic progression of 4m terms is a draw.
+- **Refuter.** Claim mode: the draw part survives (exact for p ≤ 8); the converse BROKEN (corrected in L32: no converse claimed). It also found that the scripts' range (0, 2p + 1] left non-integer h up to p(2p − 1) + 1 unchecked; its exact runs cover them for p ≤ 8.
+- **Literature.** No Catch-Up results on arithmetic progressions or real numbers (six searches in all).
+- **Metric.** A7: TI at real heights checked exactly for p ≤ 8 (was: sampled, p ≤ 7).
+- **Meaning.** The block draws do not depend on integrality, so a proof can use h as a continuous parameter: the value can change only at breakpoints, and only through near-tie positions (L32's section). B53 tests whether those are always draws on the defender's lines.
