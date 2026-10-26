@@ -1,31 +1,27 @@
 # Lead regimes with short turns
 
-Can a defender D draw while every turn of both players stays short, against a perfect opponent (B41)? D must end each of its turns with the opponent trailing by at most a cap (m = the smallest number left) and may use at most a given number of picks per turn; D with no allowed turn loses.
+Can a defender D draw while every turn of both players stays short, against a perfect opponent (B41)? D must end each of its turns with the opponent trailing by at most a cap (in terms of m, the smallest number left), or by more than everything left (an outright win), and may use at most a given number of picks per turn; D with no allowed turn loses.
+
+This run replaces the earlier one of the same name (commit ac9fd30's engine), which refused outright wins and so reported losses where D wins (fixed in 49a7676 and 42b7716; log 2026-10-26: two-pick turns for both players suffice on {1..N} to N = 24; correction).
 
 - Date: 2026-10-26
-- Command: `lead_regime blocks 9 40 1 1 0 2`; `… blocks 9 40 1 1 0 3`; `… blocks 9 40 2 1 -1 2`; `… intervals 24 2 1 -1 2` (`./target/release/lead_regime`)
-- Commit: ac9fd30 (`lead_regime`, unchanged since)
+- Command: `lead_regime blocks 9 40 1 1 0 2`; `… blocks 9 40 1 1 0 3`; `… blocks 9 40 2 1 -1 2`; `… intervals 24 2 1 -1 2`; `… rules 24 2 1 -1 2` (`./target/release/lead_regime`)
+- Commit: 42b7716
 - Machine: AMD Ryzen 7 3700X, 32 GB RAM; rustc 1.99.1 (MSVC)
-- Runtime: 15 s, 15 s, 52 s, 45 s
-- Checked: the engine matches `Solver` unrestricted (`lead_regime check`, see [lead-regime-r2.md](lead-regime-r2.md)); these runs unchecked otherwise.
-- Data: `scratch/b41/lead_regime-blocks-9-40-1-1-0-2.txt` (SHA-256 `86ffeb8e0ad5cd62c46e7202cfb9ed3a23c55a2a7eeb44d1410a1d31491000e5`), `…-1-1-0-3.txt` (`9fa71b7b93da9803f41607eeda139c1b1ce15033560f3938fce269c9e7032aa1`), `…-2-1-m1-2.txt` (`d133476c6ad0f5d9939d32e5d9094574a00e640ffdf65f5db121dcd03766505a`), `lead_regime-intervals-24-2-1-m1-2.txt` (`38997d0f8acd8dca7c213eaa2a9b0489de6455c56b491718968b68262327b62a`)
+- Runtime: 10 s, 10 s, 24 s, 44 s, under 1 s
+- Checked: unrestricted, the engine matches `Solver` (`lead_regime check`: 312 sets, 0 mismatches). Intervals with cap 2m − 1 agree with an independent script written from the rules (`scratch/turn_cap/check.py 2 2 16 2m-1`) for N ≤ 16.
+- Data: `scratch/b41fix/lead_regime-blocks-9-40-1-1-0-2.txt` (SHA-256 `c2d6c032a6657d3b23cc456789004e9e92953f47d0e69b56d07191e3a3f9e189`), `…-1-1-0-3.txt` (`bb2796b29b2c4d351e546a4e2add0e72df6f68b248324e84a01b2883ab6bf293`), `…-2-1-m1-2.txt` (`b6a8d8cb96bccf2e040cce20762f430e2f73974ee2b5f0a6b64248d37f470ca0`), `lead_regime-intervals-24-2-1-m1-2.txt` (`2db1582854111d43a2fcacb227acd8cbb24b8b58d1de8a97ddec007a42def698`), `lead_regime-rules-24-2-1-m1-2.txt` (`ef0203b43695423085d833b9a13bbe566e228588b65cdaea96843d5ba250d11c`)
 
 ## One-pick opponent turns (cap m), blocks, p ≤ 9, a ≤ 40
 
-With D allowed 2 or 3 picks per turn, D fails at every height for every p ≥ 2 (p = 2, 3 as mover from a = 2, 3; p ≥ 4 in both roles at every a); p = 1 never fails. Keeping every opponent turn to one pick is impossible at any height.
+With D allowed 2 or 3 picks per turn, D fails at most heights for every p ≥ 2: p = 2, 3 as mover at every even a (and p = 3 at a = 1, 2), p ≥ 4 in both roles at almost every a; p = 1 never fails. Keeping every opponent turn to one pick is impossible at any height.
 
 ## Two-pick turns for both (cap 2m − 1, D at most 2 picks)
 
-Blocks {a..a+2p−1} at gap p mod 2, scope p = 1..9, a = 1..40. D fails only at: p = 2, a = 2 (as mover); p = 3–7 and 9, a = 1 (as the other player); p = 8, a = 1 (both roles). Every other block is a draw for D in both roles.
+Blocks {a..a+2p−1} at gap p mod 2, p = 1..9, a = 1..40: D draws in both roles everywhere except a = 1 for p = 8, 9 (as the other player).
 
-Intervals {1..N}, even totals N ≤ 24:
+Intervals {1..N}, even totals N ≤ 24: D draws as player 1 for every N; as player 2 it draws for N ≤ 12 and fails for N = 15–24. With the exact cap (the sum of the 2 smallest numbers left, which is at least 2m + 1) D draws every N ≤ 24 in both roles ([turn-cap-intervals-n24.md](turn-cap-intervals-n24.md)).
 
-| N | D as player 1 | D as player 2 |
-|---|---|---|
-| 3, 4, 7 | D | D |
-| 8, 11, 12, 15 | D | L |
-| 16 | L | L |
-| 19 | D | L |
-| 20, 23, 24 | L | L |
+## Fixed rules inside the cap 2m − 1 class (intervals)
 
-With 3 picks for D (R2) every interval N ≤ 24 draws ([lead-regime-r2.md](lead-regime-r2.md)).
+All five fixed turn choices (MinLead, MaxLead, LargestPick, LeastTaken, FewestLargest) fail at N = 3 or 4.

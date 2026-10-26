@@ -700,3 +700,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A8: unchanged; H must be narrower than "high and drawable", e.g. L25's class plus a start condition, or a different high strategy.
 - **Meaning.** The split works only with a described class H that the low phase can force; since the switch comes late (few numbers left), most of the difficulty sits in the low phase, not the high one.
+
+### 2026-10-26: short turns with the cap 2m − 1, rerun with the fixed engine (A2, B41)
+
+- **Claim / question.** Rerun of "2026-10-26: short turns suffice for blocks down to height 2" after both outright-win fixes (49a7676 missed a second cap check; 42b7716).
+- **Approach.** `lead_regime` battery as before; [results/lead-regime-short-turns.md](results/lead-regime-short-turns.md) replaced.
+- **Outcome.** Cap 2m − 1, D ≤ 2 picks: blocks draw for p ≤ 7 at every a ≤ 40 and for p = 8, 9 except a = 1; {1..N} draws as player 1 to 24, as player 2 only to 12. The exact cap (sum of the 2 smallest) draws everything to 24, so the difference is the cap's slack, not the turn length. One-pick opponent turns still fail almost everywhere; fixed rules still fail at N = 3–4.
+- **Refuter.** Not run; intervals agree with `scratch/turn_cap/check.py` for N ≤ 16 (cap 2m − 1 fails at 15, 16 as player 2; the exact cap draws).
+- **Literature.** Not searched.
+- **Metric.** A2 (shelved): unchanged (the exact two-pick class holds to 24).
+- **Meaning.** The earlier "fails at a = 1 for every p ≥ 3" was mostly the flaw. Draws reported by `lead_regime` before the fix stand (the flaw only weakened D); its other failures (results/lead-regime-r2.md, other caps) may be too pessimistic.

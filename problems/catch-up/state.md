@@ -16,7 +16,7 @@
 
 ## Next step
 
-B35: compute the positions where the set first becomes high (min ≥ span) under the defender's drawing low play (bottom 4), and test whether L25's class contains them or the defender can steer into it; meanwhile rerun the fixed `lead_regime` (blocks 9 40 2 1 -1 2, rules) to replace results/lead-regime-short-turns.md.
+A8's low phase: the switch to high comes late, so describe what the defender keeps invariant during the low phase (bottom-k play): e.g. compute along drawing low play which simple quantities (debt vs smallest numbers, holes among the low numbers, pairing of the high part) stay bounded; use the fresh-ideas ideator's report when it lands.
 
 ## Awaiting review
 
