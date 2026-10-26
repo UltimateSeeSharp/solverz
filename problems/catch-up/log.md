@@ -670,3 +670,23 @@ Newest last. Entry format:
 - **Literature.** Refuter: A278587, MPRA 108784 (search hit only); no result on shifted blocks.
 - **Metric.** A7: paper range a ≥ 3(2p − 1) + 1 (Lean, L21) → a ≥ 2p − 1 (paper), the doubling-free height.
 - **Meaning.** High blocks are settled on paper down to a ≈ 2p, half the length of the block. {1..N} is a = 1, p = N/2: the gap from 2p − 1 to 1 is the descent (O9), which the blocks method cannot cross on its own; the side rule of the two-ended defender (B35) is the next unit.
+
+### 2026-10-26: two-pick turns for both players suffice on {1..N} to N = 24; correction (A2, B41)
+
+- **Claim / question.** Can D draw {1..N} while every turn of both players is at most 2 picks? Corrects "2026-10-26: short turns suffice for blocks down to height 2", whose engine (`lead_regime`) refused turns that win outright, so its failures at a = 1 and on {1..N} are not established.
+- **Approach.** New experiment `turn_cap` with the exact condition (opponent behind by at most the sum of its 2 smallest numbers left); independent script `scratch/turn_cap/check.py` from the rules; `lead_regime` fixed (49a7676). [results/turn-cap-intervals-n24.md](results/turn-cap-intervals-n24.md).
+- **Outcome.** D draws every even-total N ≤ 24 in both roles with turns ≤ 2 picks for both players. One-pick opponent turns fail from N = 7. For N ≤ 12 the class still draws with cap 2m − 1 and with D also limited to its 3 smallest or 3 largest numbers.
+- **Refuter.** Not run; outcomes reproduced by an independent script to N = 12.
+- **Literature.** Not searched.
+- **Metric.** A2 (shelved): a candidate class (turns ≤ 2 picks for both) holds to N = 24; its closure is not a class of positions yet.
+- **Meaning.** Multi-pick turns at height 1 never need more than 2 picks, for either player, as far as computed: the low game is a "two-round" game, the next step up from the rounds game of high sets. The blocks entries of the corrected results still need the fixed `lead_regime` rerun.
+
+### 2026-10-26: while the set is low, the defender needs only its smallest numbers (A3, B35)
+
+- **Claim / question.** Where must the two-ended defender use the top (`two_ended_sides`)? And can it play from the bottom only until the set is high?
+- **Approach.** `two_ended_sides 16 3`: along tb3's drawing play D's positions are 20% bottom-only, 1% top-only, 79% either; top-only positions are high sets (e.g. {8..15} at gaps 2, 4) and endgames. New experiment `low_high`: D picks among its k smallest while min < c·span, freely once high. [results/low-high-n24.md](results/low-high-n24.md).
+- **Outcome.** For N ≤ 24: the 2 smallest suffice while max > 3·min (c = 1/2); the 4 smallest suffice until min ≥ span (c = 1, L24's high regime); the needed k grows with c (c = 1: k = 1, 2, 3 fail first at N = 7, 11, 19).
+- **Refuter.** Not run; reproduced by an independent script to N = 12.
+- **Literature.** Not searched.
+- **Metric.** A3 (shelved): no fixed rule yet; the low phase needs only the k smallest numbers (k = 2 at c = 1/2) to N = 24.
+- **Meaning.** A possible split of {1..N}: a low phase where D only makes change with its smallest numbers, and a high phase in the regime L24/L25 handle. Open: whether the needed k stays bounded as N grows, and what the positions at the switch look like (whether L25's class contains them).
