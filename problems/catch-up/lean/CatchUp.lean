@@ -3,6 +3,7 @@ module
 public import CatchUp.Statement
 public import CatchUp.Parity
 public import CatchUp.Best
+public import CatchUp.Rounds
 
 /-!
 # Catch-Up conjecture

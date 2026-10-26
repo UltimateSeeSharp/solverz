@@ -350,3 +350,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged (B26: the step lemma L18 drafted; L19 stated and checked).
 - **Meaning.** One per-round potential lemma plus a structural lemma about Y's holes would give all rows' floors and a Lean-friendlier proof of L15's draw cases than the stretch argument. The parity-forced wins (margin ≥ 0) still need the last-round drop excluded.
+
+### 2026-10-26: L13 formalized: high sets are the rounds game (A7)
+
+- **Claim / question.** B28, first node: formalize L13 (paper proof, refuter-checked) in Lean.
+- **Approach.** New module `lean/CatchUp/Rounds.lean`: the rounds game `roundsValue` (recursion on the offsets, two picks per call, termination by card); `Outcome.best_congr` (best depends only on membership, from L6); `valueAux_answer` (the other player's node, including the early-loss rule); `valueAux_map_add` (L13) by strong induction on card with s universally quantified. Skeleton with `sorry` first, then four compile rounds. Imported in `CatchUp.lean`.
+- **Outcome.** `CatchUp.valueAux_map_add`: for `Even O.card` and `d + ∑ O < a`, `valueAux (O.map (addLeftEmbedding a)) s (s + d) false = roundsValue O d` for every s. `lake build --wfail` clean; `#print axioms`: propext, Classical.choice, Quot.sound. Deviations from the paper proof (listed in L13's section and under Awaiting review): odd O gets a convention in `roundsValue` (mover wins without an answer; never used); s stays quantified instead of "V depends only on the deficit"; the early-loss rule is handled at the other player's node.
+- **Refuter.** Not run on the Lean proof (the kernel checked it; L13's paper proof survived proof mode earlier today).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged (TI's paper proofs); first formalized node of the high-block route.
+- **Meaning.** Results about the rounds game now transfer to the real game in Lean. Formalizing L15 (or L18 with L19) and L16 would make "high blocks draw" a checked result.
