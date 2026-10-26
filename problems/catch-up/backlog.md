@@ -33,7 +33,6 @@ Grouped by line, most promising first.
 ## A7
 
 - **B19 Rows of translated blocks.** For p ≤ 8, a ≤ 80 (`Solver` per block): TI at g0, the height a0(p) from which the row is t_p, whether the band contains [0, p] at every a.
-- **B20 High blocks on paper.** TI part done: L16 (paper proof, refuter-checked). Left: B26 (all rows t_p), B29, B30 (lower heights), B28 (Lean).
 - **B28 Formalize TI for high blocks.** Done for a ≥ 6p − 2: `CatchUp.block_draw_linear` (via L23, L20, L22). Left: lower heights (needs L24 or a smaller debt bound, B29/B30) and the general pair sets of L16/L21 (needs L15 or L19).
 - **B26 AM+T on paper.** AM+T meets t_p on {0..2p−1} at every debt in both roles (p ≤ 12) and every T2 target within {0..23}. Draw entries of t_p: L23 (paper proof, refuter-checked); losses for d > p: L20; left: the parity-forced entries (B33). L18 + L19 remain the route for spaced pair sets (L19 open; ideator's idea: K's depth sum above the first gap plus L15's credits below it).
 - **B32 Rows at quadratic height.** Along AM+T plays from L23's interval starts Z's debt stays ≤ p (from K) and Z's lead ≤ p² + p (ideator, p ≤ 9, `scratch/ideator/l19/maxs.py`); with L22, L17's draw entries transfer to blocks at a > p² + p. Next: prove the lead bound, then a literal real-game AM+T check at a = p² + p + 1 (log 2026-10-26: a depth-weighted invariant gives the draw entries of high-block rows).

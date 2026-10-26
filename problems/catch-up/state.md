@@ -29,10 +29,8 @@ Process the two ideator reports (fresh ideas beyond high blocks; Hyb2's debt bou
 
 ## Last review
 
-2026-10-26, after 43 log entries (7 since the previous review; overnight).
-- A7 main: metric moved. TI on paper for every p at a ≥ 6p − 2 (L21 via Hyb, L20, L22), besides a > 1 + p(2p−1) (L16). Cost: 7 units, 3 of them Lean.
-- Lean: L18's guarantee and L20 formalized; a checked L16 or L21 still needs L22 in Lean and L15 or L23.
-- Rows: L23 (depth invariant) would give every draw entry of t_p; refuter running. Parity-forced entries (B33) and spaced pair sets (L19) stay open.
-- A2/A3 (shelved): the bounded-turn regime R2 holds for N ≤ 24 but no simple rule inside it (B31); B34 (depth-weighted defects on {1..N}) failed at the first turn (O11). No line meets its kill criteria; A1, A5 dead.
-- A7 stays main (only line with metric movement). Backlog: B27 removed (superseded by B29, B30); ≤ 10 items per line. Known checked today.
-- Ideators: one on ideas beyond high blocks (from the previous review) still running.
+2026-10-26, after 49 log entries (6 since the previous review; overnight).
+- A7 main: metric moved. TI is Lean-checked for every p at a ≥ 6p − 2 (`CatchUp.block_draw_linear`, via L22, L23, L20), the whole paper range; L23 went conjecture → paper proof → formalized. Cost: 6 units, 4 of them Lean.
+- Paper range unchanged (a ≥ 6p − 2). L24 (a ≥ 2p − 1, conjecture): its debt bound is with an ideator. Rows: draw entries proved (L23); parity-forced entries open (B33).
+- A2/A3 (shelved): O11 (L23's class literally on {1..N} fails at the first turn). No line meets its kill criteria; A1, A5 dead.
+- A7 stays main; its open part is the descent below a = 2p − 1 (O9). New ideator on that descent (scratch/ideator/descent/). Backlog: B20 removed (its parts are B26, B28–B30); ≤ 10 items per line. Known checked today.
