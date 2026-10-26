@@ -660,3 +660,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: OEIS A278587, the von Stengel talk abstract (computation to 28, no proof); no Catch-Up proof or matching-cost potential found.
 - **Metric.** A7: unchanged until L24 passes proof mode (would move the paper range to a ≥ 2p − 1).
 - **Meaning.** The high-block line's last open step is closed on paper. Whether it helps {1..N} depends on whether the two-ended defender's top-pick positions are high sets (B35's side rule, next).
+
+### 2026-10-26: blocks at a ≥ 2p − 1 draw on paper (A7, B30)
+
+- **Claim / question.** Does L24's proof (blocks {a..a+2p−1} draw at debt p mod 2 for a ≥ 2p − 1, via Hyb2 = L25 + relaxed L22 + L15 + L20's partner step + parity) survive proof mode?
+- **Approach.** Refuter, proof mode, with its own real-game port (`scratch/refuter/l24/`).
+- **Outcome.** SURVIVES → L24 `paper proof`. Wording fixed: KZ, KY, `hendZ` named, offsets ≤ a, L20's partner step cited. Bound tight: Hyb2 loses at a = 2p − 2 (p ≥ 3). A Lean route that avoids L15 (AM+T before the switch, then L23's classes) is logged on L24.
+- **Refuter.** Proof mode (2026-10-26): SURVIVES; real-game Hyb2 draws for p ≤ 7, a ∈ [2p − 1, 6p], both roles.
+- **Literature.** Refuter: A278587, MPRA 108784 (search hit only); no result on shifted blocks.
+- **Metric.** A7: paper range a ≥ 3(2p − 1) + 1 (Lean, L21) → a ≥ 2p − 1 (paper), the doubling-free height.
+- **Meaning.** High blocks are settled on paper down to a ≈ 2p, half the length of the block. {1..N} is a = 1, p = N/2: the gap from 2p − 1 to 1 is the descent (O9), which the blocks method cannot cross on its own; the side rule of the two-ended defender (B35) is the next unit.
