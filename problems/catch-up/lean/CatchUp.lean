@@ -5,6 +5,7 @@ public import CatchUp.Parity
 public import CatchUp.Best
 public import CatchUp.Rounds
 public import CatchUp.AltSum
+public import CatchUp.Margin
 
 /-!
 # Catch-Up conjecture

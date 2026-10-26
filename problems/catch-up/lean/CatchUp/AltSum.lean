@@ -16,7 +16,7 @@ drops by exactly `t₁ - t₂` (`altSum_top_two`). Hence a player who always tak
 loses by at most `altSum T`, whoever picks first in each round (`neg_altSum_le_greedyWorst`).
 -/
 
-public section
+@[expose] public section
 
 namespace CatchUp
 

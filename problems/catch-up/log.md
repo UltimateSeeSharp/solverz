@@ -370,3 +370,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged.
 - **Meaning.** The alternating-sum machinery for the per-round route to L16 (L18 with L19) is in Lean.
+
+### 2026-10-26: Lean: the rounds game's value is the sign of its minimax margin (A7)
+
+- **Claim / question.** B28 infrastructure: strategy arguments (L15, L18) bound final margins, while `roundsValue` scores only win, draw or loss. Can a margin bound be turned into a value bound in Lean?
+- **Approach.** New module `lean/CatchUp/Margin.lean`: `Outcome.ofMargin`, the minimax margin `roundsMargin` (same recursion as `roundsValue`, `sup'` for best and minus for `neg`), `Outcome.best_eq_ofMargin_sup'`, `roundsValue_eq_ofMargin` (strong induction, through the other player's answers), and `even_roundsMargin_add` (parity). `Rounds.lean` and `AltSum.lean` now `@[expose]` their definitions so later modules can unfold them (no statement changed).
+- **Outcome.** For even O: `roundsValue O d = Outcome.ofMargin (roundsMargin O d)` and `roundsMargin O d + d + ∑ O` is even. `lake build --wfail` clean; axioms propext, Classical.choice, Quot.sound. So "a strategy keeps the margin ≥ −1" plus parity gives "≥ draw" in Lean, by an induction on `roundsMargin` that picks the strategy's move at each step.
+- **Refuter.** Not run (kernel-checked; standard fact: the minimax of a monotone payoff is the payoff of the minimax).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged.
+- **Meaning.** The Lean route to L16 needs only the strategy induction (L18 with L19) on top of these two theorems and L13.

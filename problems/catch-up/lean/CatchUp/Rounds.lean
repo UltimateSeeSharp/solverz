@@ -11,7 +11,7 @@ picks. So play goes in rounds of one pick each, the player behind picking first:
 `roundsValue`.
 -/
 
-public section
+@[expose] public section
 
 namespace CatchUp
 
