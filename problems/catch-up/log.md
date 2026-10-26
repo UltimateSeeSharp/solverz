@@ -410,3 +410,13 @@ Newest last. Entry format:
 - **Literature.** Ideator, web: only the README's known sources; fair-division picking sequences are not this game.
 - **Metric.** A7: unchanged (ideas only).
 - **Meaning.** Hyb would make A7's height linear in p with a short argument on top of L13, L15 and U0; R2 is a strategy class that looks the same from a = 1 up, the kind of handle the descent lacks.
+
+### 2026-10-26: high pair sets at linear height, on paper (A7)
+
+- **Claim / question.** Does Hyb (B29) give TI for pair sets at a > 3m (blocks at a ≥ 6p − 2)?
+- **Approach.** Wrote U0 as node L20 (matching bound) and Hyb's argument as L21: (a) round-start debts ≤ max(g, 2m) + m along every play against Hyb; (b) L13's correspondence read one round at a time needs only the round's start debt < a and max E < a; (c) a play that never switches is an always-max play (L15), one that switches is lost by Y (L20); (d) parity as in L16.
+- **Outcome.** L20, L21 stated with paper proofs, status `conjecture` until the refuter's verdict.
+- **Refuter.** Proof mode on L20 and L21 running (`scratch/refuter/l21/`).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged until the verdict (would become: every p at a > min(1 + p(2p−1), 3(2p−1))).
+- **Meaning.** If it survives, A7's height bound becomes linear in p, and the transfer argument (debts bounded along one strategy's plays) is reusable for lower heights (B30).
