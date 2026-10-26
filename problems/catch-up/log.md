@@ -500,3 +500,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: OEIS A278587 opened (values only); nothing on rounds games or hole-depth invariants.
 - **Metric.** A7: unchanged (TI's range stays a ≥ 6p − 2; L23 adds the rows' draw entries at heights where L13 applies).
 - **Meaning.** The draw entries of every high block's row now have a refuter-checked per-round proof, the form that suits Lean: with L13 or L22 and parity it gives TI in Lean once K is formalized.
+
+### 2026-10-26: Lean: the depth invariant, and high blocks draw (A7)
+
+- **Claim / question.** Formalize L23 (paper proof since today) and with it TI for high blocks.
+- **Approach.** `lean/CatchUp/Depth.lean`: holes and depths as Finset sums, the one-step decomposition when the top is removed, the three removal lemmas behind (B), a lower bound on gap sums; the classes in debt form; `closeZ` and `closeY` follow the paper's cases, each ending in one `omega` over the decomposition facts (products such as m·b1 enter as atoms with their bounds); `depth_class_roundsMargin` by strong induction with `neg_le_roundsMargin` / `roundsMargin_le_neg` and `amtReply`. `lean/CatchUp/Blocks.lean`: intervals have no holes, parity gives margin 0, `roundsValue_eq_ofMargin` and L13 give the real game.
+- **Outcome.** L23 → `formalized`. `CatchUp.block_draw_high`: for every p ≥ 1 and a > p mod 2 + p(2p−1), V({a..a+2p−1}, p mod 2) = draw, Lean-checked (`lake build --wfail` clean; axioms propext, Classical.choice, Quot.sound). This is the block case of L16; L16 stays `paper proof` for general pair sets. Deviations in L16's and L23's sections.
+- **Refuter.** Not run (kernel-checked; L23 survived proof mode today).
+- **Literature.** Not searched.
+- **Metric.** A7: paper range unchanged (a ≥ 6p − 2 via L21); new: TI is Lean-checked for every p at a > p mod 2 + p(2p−1).
+- **Meaning.** The first infinite family of Catch-Up draws checked in Lean here. Not a solution of the problem (it says nothing about {1..N}); reporting it needs your approval of its statement.
