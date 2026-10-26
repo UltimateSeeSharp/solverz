@@ -29,6 +29,12 @@ Verification chain (`cargo test --release`, CUDA tests with `--features cuda`): 
 | `hole_game` | With both players restricted to drawing picks, how few holes (four measures, incl. broken adjacent pairs) can a defender keep at its turn starts? `line <measure> <1\|2> <h>` prints an optimal line | `cargo run --release -p catch-up --bin hole_game -- 24` (4 min, ~7 GB) |
 | `partner_reply` | Is answering the attacker's last pick with its adjacent partner a drawing reply? By broken pairs and game phase | `cargo run --release -p catch-up --bin partner_reply -- 24` (30 s, ~1 GB) |
 | `partner_game` | When must a pairing defender refuse the partner? Explores every position reachable when D answers with the partner whenever it draws | `cargo run --release -p catch-up --bin partner_game -- 20` (36 s) |
+| `pair_sets` | Do sets made of adjacent pairs draw at gap p mod 2 (and {1,2,3} ∪ pairs)? Also each pair set's first non-draw draw-parity gap | `cargo run --release -p catch-up --bin pair_sets -- 30` (71 s, ~3 GB) |
+| `far_pairs` | Do far-apart pair sets have the exact row f_p (L9)? Which spacing hypotheses matter (p = 2–4, all sets)? `Solver` per set | `cargo run --release -p catch-up --bin far_pairs` (1 s) |
+| `pair_moves` | Which first picks draw in a pair set at g0, by role (pair from below/above, half; 1, 2, 3 in T)? Also V(E, g0 + 2j) | `cargo run --release -p catch-up --bin pair_moves -- 28` (25 s) |
+| `top_reserve` | Can the defender leave the top 2q numbers for last (A6, Γ_N)? `compare`: does barring the attacker too change values where the top block is intact (Lemma A)? Own full tables, one u64 row per set | `cargo run --release -p catch-up --bin top_reserve -- 23 28 0 1 2 3` (4 min, 4.3 GB at N = 28); `... -- compare 7 24 2` (6 s) |
+| `block_rows` | Do even blocks {a..a+2p−1} draw at g0 (A7, TI)? Their rows against t_p, by height | `cargo run --release -p catch-up --bin block_rows -- 8 80` (5 s) |
+| `low_change` | How large must k be for {1..k} ∪ C to draw, C a failing 5-pair core (B22)? | `cargo run --release -p catch-up --bin low_change -- 6 20 1` (40 s) |
 
 ## Recipes
 
