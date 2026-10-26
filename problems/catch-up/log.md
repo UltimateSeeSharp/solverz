@@ -860,3 +860,33 @@ Newest last. Entry format:
 - **Literature.** Ideator: nothing new, no announced proof.
 - **Metric.** A9: R_N draws to N = 24 (unchecked).
 - **Meaning.** A route by induction on N in which the top half is already in a proved regime and the bottom half is the same game one size down; the open part is one escalation lemma. Main line moved to A9 (under Awaiting review).
+
+### 2026-10-26: L24 and L25 formalized: even blocks draw from height 2p − 1 (A7, A8)
+
+- **Claim / question.** L25 (Hyb2's potential W never rises over a round) and L24 (the block {a..a+2p−1} draws at a ≥ 2p − 1) in Lean.
+- **Approach.** Index-free zones (`OddBelow`, `oddPts`, `evenPts`, η as even holes); T1–T4 as separate theorems; L24 through `valueAux_transfer` with explicit classes `HZw`, `HYw`: L23's class before the switch or e ≥ c after, parity, W ≤ 2p − 1. Fallback answer AM+T's (the refuter's route). Draft `scratch/lean/Hyb2L25.lean` (zone tools partly by a helper agent), then `lean/CatchUp/Hyb2.lean`; tests `Tests/BlockDrawHyb2.lean`.
+- **Outcome.** `potW_z_round`, `potW_y_round`, `block_row_draw_hyb2`, `block_draw_hyb2`: `lake build --wfail` clean, axioms propext, Classical.choice, Quot.sound. Deviations (blueprint L24, L25): AM+T fallback; L23 instead of L15; explicit classes instead of reachable starts; Z's debts bounded directly; T4 split by the answer's side.
+- **Refuter.** Proof mode earlier on both (SURVIVES); Lean checks the rest.
+- **Literature.** Not searched.
+- **Metric.** A7: Lean-checked TI for every p at a ≥ 2p − 1 (was a ≥ 6p − 2). A8: the high phase's debt side (W) Lean-checked.
+- **Meaning.** High blocks are machine-checked down to Hyb2's tight height; `block_draw_hyb2` has `block_draw_linear`'s statement with a weaker hypothesis, so it is the one to approve if blocks are reported.
+
+### 2026-10-26: A9's search claims survive the refuter to N = 28 (A9, B49)
+
+- **Claim / question.** Refuter, claim mode, on A9's claims: R_N draws for even-total N in both roles and on ({2..N}, 1); the one-level version and its cut; every escalation position is a D-draw.
+- **Approach.** Two independent re-implementations (`a9.rs` on compressed states, `brute.rs` literal; equal on N = 3..16, 19, 20); values reproduce [results/values-n1-31.md](results/values-n1-31.md) to N = 28 and A278587; `scratch/refuter/a9/`.
+- **Outcome.** SURVIVES. R_N draws for every N ≡ 0, 3 (mod 4) from 3 to 28 (27 and 28 were B49), with adversarial and friendly tie-breaks; one level also; ⌊N/2⌋ ± 1 fail at N = 15, 16, but ⌊N/2⌋ − 1 draws at N = 4, 7, 11. Escalation positions are never D-losses (24 / 228 / 2,456 / 7,070 at N = 8 / 12 / 16 / 20, 195,468 at N = 28). Corrections: "D has a drawing answer inside the top half" is false from N = 24 (7 positions; {2,9,12} ∪ {14..24} after E took 13, D trailing by 4: only 2, 9, 12 draw, re-checked by `scratch/a9/pos_check.py`, an independent solver); "h − 1 draws at 99.4%" was a rule with fallbacks at N = 20 (plain h − 1: 89.7% at 20, 91.7% at 24); "9,778 for N ≤ 20" sums N = 8, 12, 16, 20 only. "Take the largest of the active prefix" draws to N = 19, so small N does not single out margin-optimal play.
+- **Refuter.** This entry: SURVIVES.
+- **Literature.** Refuter: A278587 has no strategy comments; two searches found no halving or prefix strategy and no announced proof.
+- **Metric.** A9: R_N draws to N = 28 (refuter-checked).
+- **Meaning.** The stretch before the first escalation is solid to N = 28; the escalation lemma cannot be an answer inside the top half.
+
+### 2026-10-26: escalation needs free play: no answer rule, no return to R (A9, B48)
+
+- **Claim / question.** B48: a describable first answer at escalation positions, and whether one exchange returns play to R's domain.
+- **Approach.** Ideator (resumed), `scratch/ideator/review4/esc5.rs`–`esc11.rs`, `recur*.rs`; unchecked.
+- **Outcome.** No. h − 1 else h + 1: 99.4% at N = 20; Hyb2 on the top half: 96.7%; the best choice between them, even by oracle: 99.5% (32 positions at N = 20 where neither draws). Rules over 8 candidate answers reach 7,061 / 7,070 only with thresholds fitted per N. Failures sit at the end of the low phase (1–4 low numbers left). After one exchange, R's isolated-optimal low play fails from N = 7 (single best answer) or N = 15 (a whole free answering turn); only "D never starts the top half, answers each entry with a free turn, plays its best low moves" holds (to N = 20, `suit3` to 24).
+- **Refuter.** Not run (negative search results; the one positive form is a value statement, not a claim to check).
+- **Literature.** Not searched.
+- **Metric.** A9 (c) in describable form: no rule settles every escalation position (best 99.4% at N = 20).
+- **Meaning.** After an escalation D needs free play and low play that sees the top half; A9's kill criterion "the escalation lemma needs free play with no describable answer" is met (O16), and what is left of (c) is a value statement on mixed positions, as hard as A8's (ii).
