@@ -1,6 +1,6 @@
 # State
 
-- **Stage:** Attack. Main line A8 (low phase, high phase; from the review of 2026-10-26; A7, your choice of 2026-10-22, stays active as its high phase). Overnight session 2026-10-26: [overnight/2026-10-26.md](overnight/2026-10-26.md).
+- **Stage:** Attack. Main line A9 (halving induction, from 2026-10-26: the top half lands in L24's proved regime; A8 and A7 stay active). Overnight session 2026-10-26: [overnight/2026-10-26.md](overnight/2026-10-26.md).
 
 ## Where things stand
 
@@ -16,10 +16,11 @@
 
 ## Next step
 
-Record `formal_entry … wh` (running): can D force entry, from L31's starts, into high round starts with W ≤ height where Hyb2T is safe in the rounds game? The formal class (L23's depth class or e ≥ c, with W ≤ height) is forceable only to N = 16. Then, by the outcome: describe Hyb2T's safe set provably, or change the high strategy.
+A9: B48 (an answer rule for the escalation lemma) with the refuter's verdict on A9's search claims; meanwhile L25 in Lean (`scratch/lean/Hyb2W.lean`, zone tools delegated, T1 drafted), which A9's part (b) needs via L24.
 
 ## Awaiting review
 
+- **Main line moved to A9** (2026-10-26, halving induction: the defender plays the bottom half's optimal moves, the top half is an even block at L24's threshold; draws to N = 24 by the ideator's search, refuter running). Revert to A8 if you disagree.
 - **Lean deviations, L26–L31** (2026-10-26, `CatchUp/Token.lean`): L27's hypotheses indexed by N (N % 4 = 0 or 3, N = 0 included) and read at score 0, instead of by p; L26, L28, L30 stated for the non-opening flag (the opening flag via `valueAux_true_eq_false`, moved out of the tests); `token_lemma` and `level_law` now follow from `level_option_ne_loss`. `conjecture_of_two_families`, `conjecture_of_height_two`, `conjecture_of_leader_pair`, `conjecture_of_suffix_pair` reduce the approved goal; to report a reduction itself, its statement needs your approval (audit not yet run).
 - **Main line moved to A8** (review 2026-10-26): low phase of change with the defender's smallest numbers, high phase by Hyb2 (L24, L25). A7, your choice of 2026-10-22, stays active as its high phase. Revert if you disagree.
 - **Branch `overnight/2026-10-26`** (not pushed): first two commits are the 2026-10-22 session's uncommitted work, as it proposed (`feat` for the six experiments, `explore` for the records); then one commit per overnight unit. Merge if you agree.

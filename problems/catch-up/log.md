@@ -850,3 +850,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None (an obstruction, O14).
 - **Meaning.** H cannot be cut out by debt thresholds per set, whatever the high strategy; a description has to restrict the sets themselves (like L23's depth or blocks), and the low phase has to steer into such sets.
+
+### 2026-10-26: review ideator: a halving induction (A9, A8, A4)
+
+- **Claim / question.** Ideas after the review of 79 log entries (open brief: best chance of proving the conjecture).
+- **Approach.** Ideator (effort max), `scratch/ideator/review4/`; unchecked unless stated.
+- **Outcome.** (1) Halving induction, new line A9: the defender plays margin-optimal moves of the bottom-half game (recursively along N, ⌊N/2⌋, …) until the opponent first picks in the top half; the top half {⌊N/2⌋+1..N} is an even block exactly at L24's threshold a ≥ 2p − 1, in every residue. R_N draws for every even-total N from 7 to 24 in both roles and on ({2..N}, 1), with any optimal choices; the cut at ⌊N/2⌋ is sharp; keeping only the low game's value fails at N = 20. Escalation positions (after the opponent's first top-half pick) are D-draws at all 9,778 positions for N ≤ 20; answering h − 1 draws at 99.4%. Needs: the margin bound one size down (odd totals: ≥ −3 measured), L24 with B38's band, an escalation lemma. (2) Change-pool law (A4): {1..k} ∪ H with 2·max H ≤ 1 + … + k draws at its parity gap (no failure to U = 22–24). (3) A sharper two-pick class (B43). Dropped, with data: pool-matching defender, a complete-multiset law (fails at U = 22), greedy low play (margin too low near N = 36), fixed escalation answers, multi-level follow-suit, symmetric sets (O15: {1,6,8,9,14,15,17,22} is a mover win; checked here with an independent solver).
+- **Refuter.** Claim mode on A9's search results requested.
+- **Literature.** Ideator: nothing new, no announced proof.
+- **Metric.** A9: R_N draws to N = 24 (unchecked).
+- **Meaning.** A route by induction on N in which the top half is already in a proved regime and the bottom half is the same game one size down; the open part is one escalation lemma. Main line moved to A9 (under Awaiting review).
