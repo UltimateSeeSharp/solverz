@@ -640,3 +640,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged.
 - **Meaning.** In the toy, TI holds at every height and the high regime starts at a linear height, as in the real game; the mixed band p ≤ lo ≤ 3p − 5 is where a descent must work. A full proof would need the values of odd lengths and off-parity debts too (next step of B36).
+
+### 2026-10-26: a two-ended defender draws {1..N} to N = 24, checked (A3, B35)
+
+- **Claim / question.** B35's main lead, so far only the ideator's: does a defender restricted to the 3 smallest or 3 largest numbers left draw {1..N} in both roles?
+- **Approach.** New experiment `two_ended_intervals` (same menu logic as `two_ended_blocks`, dense memo); tb1, tb2, tb3 for even totals N ≤ 24. [results/two-ended-intervals-n24.md](results/two-ended-intervals-n24.md).
+- **Outcome.** tb3 draws every even-total N ≤ 24 in both roles. tb2 fails from N = 19 (reproducing the ideator), tb1 from N = 7.
+- **Refuter.** Not run (an independent engine reproducing the ideator's tb2 threshold; the claim to N = 28 stays the ideator's).
+- **Literature.** Not searched.
+- **Metric.** A3 (shelved): unchanged; the lead is confirmed to N = 24.
+- **Meaning.** At height 1 a defender never needs a middle number up to N = 24, while on blocks the window must grow with p (tb3 fails at p = 9, 10): {1..N} is easier for the two-ended defender than translated blocks. Next: where it must pick from the top (B35's side rule).
