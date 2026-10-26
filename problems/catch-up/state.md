@@ -36,8 +36,9 @@ L24 (TI at a ≥ 2p − 1): when the refuter's claim-mode verdict on the potenti
 
 ## Last review
 
-2026-10-26, after 49 log entries (6 since the previous review; overnight).
-- A7 main: metric moved. TI is Lean-checked for every p at a ≥ 6p − 2 (`CatchUp.block_draw_linear`, via L22, L23, L20), the whole paper range; L23 went conjecture → paper proof → formalized. Cost: 6 units, 4 of them Lean.
-- Paper range unchanged (a ≥ 6p − 2). L24 (a ≥ 2p − 1, conjecture): its debt bound is with an ideator. Rows: draw entries proved (L23); parity-forced entries open (B33).
-- A2/A3 (shelved): O11 (L23's class literally on {1..N} fails at the first turn). No line meets its kill criteria; A1, A5 dead.
-- A7 stays main; its open part is the descent below a = 2p − 1 (O9). New ideator on that descent (scratch/ideator/descent/). Backlog: B20 removed (its parts are B26, B28–B30); ≤ 10 items per line. Known checked today.
+2026-10-26, after 57 log entries (8 since the previous review; overnight; due at 5, held late).
+- A7 main: metric unchanged (TI on paper and in Lean at a ≥ 6p − 2). Moved toward it: rows' draw entries in Lean (`block_row_draw_linear`); `block_draw_linear` audited (refuter: says what we mean); for L24 (a ≥ 2p − 1) a candidate potential W (refuter in claim mode running), L22 relaxed to offsets ≤ a and the cost's parity form in Lean. Cost: 6 units.
+- Descent data: two-pick turns for both draw blocks p = 3..9 at every a ≥ 2 (fail at a = 1); one-pick opponent turns are impossible (B41 answered). Passed to the descent ideator.
+- A3 (shelved): the two-ended defender draws {1..N} to N = 28 (ideator) but its window grows with p on blocks (tb3 fails at p = 9, 10; B35). Revival condition (a class with tested closure) not met.
+- No line meets its kill criteria; A1, A5 dead. A7 stays main. Backlog ≤ 10 per line (A7: 9). Known checked today.
+- Ideator due at this review: all 3 agent slots busy (descent ideator, L24 ideator writing W's proof, W refuter); launch on B33 (parity-forced row entries) when a slot frees.
