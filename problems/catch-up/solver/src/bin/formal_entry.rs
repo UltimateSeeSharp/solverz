@@ -11,9 +11,12 @@
 // Usage: formal_entry <lo> <n_max> <deficit> [parts]: parts `wo` (default) checks both, `w` only the
 // debt part, `o` only the outcome part; `h` replaces the outcome part by Hyb2T's exact guarantee in
 // the rounds game (≥ draw), the largest outcome class any proof of Hyb2T can use; `c` asserts that the
-// outcome class lies inside Hyb2T's guarantee (L23 + L20) at every scored position.
+// outcome class lies inside Hyb2T's guarantee (L23 + L20) at every scored position; `l` (with `wh`)
+// counts the scored positions Hyb2T makes safe outside that class, by size and mover, after a run;
+// `s<k>` (with `wo`) adds Hyb2T's exact guarantee on sets of at most k offsets to the outcome class;
+// `b<k>` restricts D's picks to its k smallest numbers left while the set is low (min < span).
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 const UNKNOWN: i8 = 2;
 
@@ -81,7 +84,7 @@ fn hyb(cache: &mut HashMap<(u32, i64, bool), i8>, mask: u32, d: i64, z_moves: bo
 }
 
 // D's score at a high round start: Some(in C) if it is one.
-fn score(cache: &mut HashMap<(u32, i64, bool), i8>, mask: u32, g: i64, d_moves: bool, part: Part) -> Option<bool> {
+fn score(cache: &mut HashMap<(u32, i64, bool), i8>, extra: &mut HashSet<(u32, i64, bool)>, mask: u32, g: i64, d_moves: bool, part: Part) -> Option<bool> {
     let xs = elems(mask);
     if xs.len() % 2 == 1 { return None; }
     if xs.is_empty() { return Some(if d_moves { g == 0 } else { true }); }
@@ -98,26 +101,35 @@ fn score(cache: &mut HashMap<(u32, i64, bool), i8>, mask: u32, g: i64, d_moves: 
     }
     let outcome = if !part.outcome { true } else if part.exact {
         let tm = t.iter().fold(0u32, |m, &o| m | 1 << o);
+        let safe = hyb(cache, tm, g, d_moves) >= 0;
+        let inside = if d_moves { kzc(&t, g) } else { kyc(&t, g) || g >= c };
+        if part.list && safe && !inside && w <= a { extra.insert((tm, g, d_moves)); }
+        safe
+    } else if if d_moves { kzc(&t, g) } else { kyc(&t, g) || g >= c } { true } else if t.len() <= part.small {
+        let tm = t.iter().fold(0u32, |m, &o| m | 1 << o);
         hyb(cache, tm, g, d_moves) >= 0
-    } else if d_moves { kzc(&t, g) } else { kyc(&t, g) || g >= c };
+    } else { false };
     Some((!part.debt || w <= a) && outcome)
 }
 
 #[derive(Clone, Copy)]
-struct Part { debt: bool, outcome: bool, exact: bool, check: bool }
+struct Part { debt: bool, outcome: bool, exact: bool, check: bool, list: bool, small: usize, bottom: usize }
 
-struct G { n: usize, part: Part, cache: HashMap<(u32, i64, bool), i8>, md: Vec<i8>, ma: Vec<i8> }
+struct G { n: usize, part: Part, cache: HashMap<(u32, i64, bool), i8>, extra: HashSet<(u32, i64, bool)>, md: Vec<i8>, ma: Vec<i8> }
 
 impl G {
     fn key(&self, mask: u32, g: i64) -> usize { mask as usize * (self.n + 1) + g as usize }
     // D to move, trailing by g: 1 win, 0 draw, -1 loss for D.
     fn vd(&mut self, mask: u32, g: i64) -> i8 {
-        if let Some(inside) = score(&mut self.cache, mask, g, true, self.part) { return if inside { 0 } else { -1 }; }
+        if let Some(inside) = score(&mut self.cache, &mut self.extra, mask, g, true, self.part) { return if inside { 0 } else { -1 }; }
         if sum(mask) < g { return -1; }
         let k = self.key(mask, g);
         if self.md[k] != UNKNOWN { return self.md[k]; }
         let mut best = -1;
-        for x in elems(mask) {
+        let xs = elems(mask);
+        let low = xs[0] < xs[xs.len() - 1] - xs[0];
+        let menu = if low && self.part.bottom > 0 { &xs[..self.part.bottom.min(xs.len())] } else { &xs[..] };
+        for &x in menu {
             let r = mask & !(1 << (x - 1));
             let v = if x >= g { self.va(r, x - g) } else { self.vd(r, g - x) };
             if v > best { best = v; if best == 1 { break; } }
@@ -127,7 +139,7 @@ impl G {
     }
     // The opponent to move, trailing by g.
     fn va(&mut self, mask: u32, g: i64) -> i8 {
-        if let Some(inside) = score(&mut self.cache, mask, g, false, self.part) { return if inside { 0 } else { -1 }; }
+        if let Some(inside) = score(&mut self.cache, &mut self.extra, mask, g, false, self.part) { return if inside { 0 } else { -1 }; }
         if sum(mask) < g { return 1; }
         let k = self.key(mask, g);
         if self.ma[k] != UNKNOWN { return self.ma[k]; }
@@ -142,6 +154,11 @@ impl G {
     }
 }
 
+// The number written right after `key` in the parts string, 0 if absent.
+fn number_after(parts: &str, key: char) -> usize {
+    parts.find(key).map(|i| parts[i + 1..].chars().take_while(|c| c.is_ascii_digit()).collect::<String>().parse().unwrap()).unwrap_or(0)
+}
+
 fn letter(v: i8) -> char { ['L', 'D', 'W'][(v + 1) as usize] }
 
 fn main() {
@@ -149,15 +166,26 @@ fn main() {
     let a: Vec<i64> = raw[..3].iter().map(|s| s.parse().unwrap()).collect();
     let (lo, n_max, deficit) = (a[0], a[1] as usize, a[2]);
     let parts = raw.get(3).map(String::as_str).unwrap_or("wo");
-    let part = Part { debt: parts.contains('w'), outcome: parts.contains('o') || parts.contains('h'), exact: parts.contains('h'), check: parts.contains('c') };
+    let part = Part { debt: parts.contains('w'), outcome: parts.contains('o') || parts.contains('h'), exact: parts.contains('h'), check: parts.contains('c'), list: parts.contains('l'),
+        small: number_after(parts, 's'), bottom: number_after(parts, 'b') };
     println!("| N | D as mover | D as other |\n|---|---|---|");
     for n in lo as usize..=n_max {
         let total: i64 = (lo..=n as i64).sum();
         if (total + deficit) % 2 != 0 { continue; }
         // Debts stay ≤ N (a turn ends within the last pick), plus the start's.
         let size = (1usize << n) * (n + 1);
-        let mut gm = G { n, part, cache: HashMap::new(), md: vec![UNKNOWN; size], ma: vec![UNKNOWN; size] };
+        let mut gm = G { n, part, cache: HashMap::new(), extra: HashSet::new(), md: vec![UNKNOWN; size], ma: vec![UNKNOWN; size] };
         let mask = (((1u64 << n) - 1) as u32) & !(((1u64 << (lo - 1)) - 1) as u32);
         println!("| {} | {} | {} |", n, letter(gm.vd(mask, deficit)), letter(gm.va(mask, deficit)));
+        if part.list {
+            let mut by: std::collections::BTreeMap<(u32, bool), (usize, String)> = Default::default();
+            for &(tm, g, dm) in &gm.extra {
+                let e = by.entry((tm.count_ones(), dm)).or_insert((0, format!("{:?} d = {}", bits(tm), g)));
+                e.0 += 1;
+            }
+            for ((size, dm), (count, ex)) in by {
+                println!("  outside L23's class, safe for Hyb2T: |T| = {}, {} moves: {} (e.g. {})", size, if dm { "D" } else { "the opponent" }, count, ex);
+            }
+        }
     }
 }
