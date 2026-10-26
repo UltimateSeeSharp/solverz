@@ -830,3 +830,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A8: both starts of L31 (b) hold in the two-pick class to N = 28.
 - **Meaning.** One role does not buy a smaller class: the leader needs the full two-pick freedom, as the defender does in both roles.
+
+### 2026-10-26: the high phase is never the obstacle, but its class has no short description yet (A8, B35)
+
+- **Claim / question.** A8's hand-over class H in provable terms: from L31's starts and {1..N}, can D force the first high round start into W ≤ height (L25) plus an outcome class built from formal pieces (L23's depth class, e ≥ c by L20)?
+- **Approach.** New experiment `formal_entry` (86fda13); [results/formal-entry-n24.md](results/formal-entry-n24.md). Outcome parts: L23 or e ≥ c; that plus Hyb2T's exact guarantee on ≤ k offsets; Hyb2T's exact guarantee. Cross-check: L23's class lies inside Hyb2T's guarantee at every scored position to N = 20. Scratch `scratch/a8/four_table.py`: Hyb2T's safe debts on 4 offsets, piecewise and irregular ({0,2,3,5}: Z safe at d = 0, 4, not 2).
+- **Outcome.** The debt part W ≤ height is always forceable. Outcome: L23 or e ≥ c only to N = 16; with exact 4-offset tables to 20; with 6-offset tables, and with Hyb2T's full guarantee, to N = 24 (scope). Bottom-4 low play with the 4-table: only to 12. All three starts, both roles, the same.
+- **Refuter.** Not run (search data; the class code checked against the engine).
+- **Literature.** Not searched.
+- **Metric.** A8: H described explicitly and forceable: to N = 16 by formal pieces alone, to N = 24 with Hyb2T's exact guarantee on sets of ≤ 6 offsets.
+- **Meaning.** A Hyb2T high phase is enough for every N tested, and its debt side is already proved (L25); the open part is a short, provable description of where Hyb2T is safe on general high sets, since the exact table needed grows with N. This is the same kind of gap as A7's rows, now on arbitrary high sets.

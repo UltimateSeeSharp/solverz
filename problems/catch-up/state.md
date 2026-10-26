@@ -16,7 +16,7 @@
 
 ## Next step
 
-When the refuter's verdict on L30/L31 arrives: if SURVIVES, port `scratch/ideator/review3/lean/TwoTokenSmall.lean` into `CatchUp/Token.lean` (module header; strict build; axioms). Then the leader's defense from ({2..N}, 1) and ({3..N}, 1): look for a leader strategy in the two-pick class with a strategy-specific invariant (B43), checked with `valueAux_of_invariant`.
+Record `formal_entry … wh` (running): can D force entry, from L31's starts, into high round starts with W ≤ height where Hyb2T is safe in the rounds game? The formal class (L23's depth class or e ≥ c, with W ≤ height) is forceable only to N = 16. Then, by the outcome: describe Hyb2T's safe set provably, or change the high strategy.
 
 ## Awaiting review
 
