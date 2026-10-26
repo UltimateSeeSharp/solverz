@@ -175,7 +175,8 @@ impl Game {
         if mask == 0 {
             return Some(of_lead(lead as i64));
         }
-        self.regime.allows(lead, self.min_left(mask)).then(|| self.a_node(mask, sum, lead))
+        // A lead beyond everything left wins outright, whatever the cap.
+        (lead > sum || self.regime.allows(lead, self.min_left(mask))).then(|| self.a_node(mask, sum, lead))
     }
 
     /// D at a turn start trailing by `gap`.
