@@ -16,7 +16,7 @@
 
 ## Next step
 
-B26: show that along AM+T play from {0..2p−1} (Z trailing by d ≤ p) every state where Y moves satisfies L18's condition s ≥ (t1 − t2) − c_td(T minus its top two).
+B26: prove L19 (blueprint): an invariant along AM+T play, using where Y's holes are, that gives L18's condition wherever Y moves.
 
 ## Awaiting review
 

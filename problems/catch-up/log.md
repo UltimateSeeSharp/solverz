@@ -340,3 +340,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged (B26 intermediate: one lemma of two drafted).
 - **Meaning.** The trailing player under AM+T recovers up to the alternating sum c_td of what is left, never more; this replaces Φ (which cannot see a trailing start's credit) for T1. L14's per-round inequality is the core of both directions.
+
+### 2026-10-26: where Y moves, the potential's condition holds below the top run (A7)
+
+- **Claim / question.** B26: does L18's condition (s ≥ (t1 − t2) − c_td(T minus its top two) wherever Y moves) hold along AM+T play from the starts we need, and what invariant explains it?
+- **Approach.** Scratch scripts in `scratch/b20/`: `ycond.py 7`, `zcond.py 7`, `holes.py 8`, `holes2.py 8`, `zshapes.py 7` (structure of reachable states from intervals), `invsearch.py 9 10` (closed linear invariants over all sets), `pairgamma.py 14` (pair-set starts), `toprun.py 14`, `toprun2.py 17` (pair sets with Z trailing by d ≤ the top run).
+- **Outcome.** The condition holds at every reachable Y-moving state from: intervals with Z trailing by d ≤ p (p ≤ 8); pair sets at debts 0 and 1 and with Z leading (within {0..13}); and in general pair sets with Z trailing by d ≤ r, r = the number of adjacent pairs at the top, and Z leading by any l ≤ p + 1 (all 987 pair sets within {0..16}). It fails for d = r + 1. Stated as L19 (conjecture); with L18 it gives Z ≥ −1, so T1's floor (intervals: r = p) and L15's cases for AM+T come from one per-round lemma. Along play from intervals, Y-moving starts satisfy s + |T|/2 ≥ H + 2 (H = numbers missing inside the span of T), which implies the condition; but no linear hole invariant is closed over all sets, so the proof must use where the holes are.
+- **Refuter.** Not run (L19 has no proof yet).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged (B26: the step lemma L18 drafted; L19 stated and checked).
+- **Meaning.** One per-round potential lemma plus a structural lemma about Y's holes would give all rows' floors and a Lean-friendlier proof of L15's draw cases than the stretch argument. The parity-forced wins (margin ≥ 0) still need the last-round drop excluded.
