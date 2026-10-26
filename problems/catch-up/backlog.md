@@ -32,5 +32,6 @@ Grouped by line, most promising first.
 ## A7
 
 - **B19 Rows of translated blocks.** For p ≤ 8, a ≤ 80 (`Solver` per block): TI at g0, the height a0(p) from which the row is t_p, whether the band contains [0, p] at every a.
-- **B20 High blocks on paper.** For a ≥ a0(p), turns take one or two numbers and debts stay below a or near a: reduce to a game on offsets {0..2p−1} with a level bit and prove the row t_p by induction on p.
+- **B20 High blocks on paper.** Reduced to the rounds game (log 2026-10-26: high blocks reduce to a rounds game; `scratch/b20/NOTES.md`): prove T1 (rows of {0..2p−1} are t_p; holds p ≤ 12) or T2 (pair sets at debts 0, 1; holds within {0..23}). Done: U0 (debt > c(O) loses), parity. Open: a class closed under play (O10 rules out all sets).
+- **B24 Pair sets with owed orphans.** After a non-partner answer two orphans remain, one owed to each player (its partner went to the other). Tabulate R on pair sets plus k ≤ 2 orphan pairs by owner and debt with `rounds_game`, looking for a formula in the split count that would close T2's induction.
 - **B21 Margin Lipschitz bound (tool).** M(R, g + 1) ≥ M(R, g) − 1 (ideator: every R ⊆ {1..16}); the naive induction fails at the tie pick x = g ({5,9,11,13,15,19}). Rerun at U = 20, then try a proof.

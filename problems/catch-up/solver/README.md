@@ -35,6 +35,7 @@ Verification chain (`cargo test --release`, CUDA tests with `--features cuda`): 
 | `top_reserve` | Can the defender leave the top 2q numbers for last (A6, Γ_N)? `compare`: does barring the attacker too change values where the top block is intact (Lemma A)? Own full tables, one u64 row per set | `cargo run --release -p catch-up --bin top_reserve -- 23 28 0 1 2 3` (4 min, 4.3 GB at N = 28); `... -- compare 7 24 2` (6 s) |
 | `block_rows` | Do even blocks {a..a+2p−1} draw at g0 (A7, TI)? Their rows against t_p, by height | `cargo run --release -p catch-up --bin block_rows -- 8 80` (5 s) |
 | `low_change` | How large must k be for {1..k} ∪ C to draw, C a failing 5-pair core (B22)? | `cargo run --release -p catch-up --bin low_change -- 6 20 1` (40 s) |
+| `rounds_game` | The rounds game (Catch-Up on high offsets, B20): rows of {0..2p−1} against t_p (T1), pair sets at debts 0, 1 (T2), and the tie law over every even O ⊆ {0..U−1} | `cargo run --release -p catch-up --bin rounds_game -- 24` (12 s, ~400 MB) |
 
 ## Recipes
 

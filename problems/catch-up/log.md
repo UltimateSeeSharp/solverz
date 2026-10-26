@@ -250,3 +250,13 @@ Newest last. Entry format:
 - **Literature.** Not searched (asked of the refuter).
 - **Metric.** A7: unchanged (paper proofs for p ≤ 2).
 - **Meaning.** High blocks are a clean finite game, so B20 is now a statement about one game on offsets. T2 is stronger than TI at large heights and contrasts with O7: pair sets fail L8 only at low heights. A proof needs a class closed under play; pair sets are closed under partner answers but not under the first picker's opponent breaking pairs, which is where the work is.
+
+### 2026-10-26: rounds game tables to 24 offsets; the tie law fails (A7)
+
+- **Claim / question.** Push T1 (rows of {0..2p−1} are t_p) and T2 (pair sets fit t_p at debts 0 and 1) beyond Python's range, and test the footholds from the previous entry: Law 1 (the mover at a tie never loses, any even O), the margin bounds μ(O, d) ≥ −d and μ(O, d) ≤ max(c(O) − d, parity bit) (both held within {0..9}), and whether sets with one non-unit matched gap have rows given by a few parameters.
+- **Approach.** New experiment `solver/src/bin/rounds_game.rs`: full table of R over every even O ⊆ {0..U−1}, debts d < U (debts ≥ U are losses by U0, since c(O) ≤ U − 1), checked against an uncut recursion for U ≤ 10 (0 mismatches). `rounds_game 24`: 12 s, ~400 MB (output `scratch/rounds_game-24.md`). Counterexample re-checked with the Python code (`rounds.py`, `margin.py`). Python `bounds.py 10`, `onegap.py 11`.
+- **Outcome.** T1 holds for p ≤ 12 at every debt. T2 holds for all 28,657 pair sets within {0..23}, and no pair set wins at any debt ≥ 1. Law 1 fails: {0,4,5,6,7,8,10,11} at a tie is a loss with margin −1, the first counterexample, 22,992 within {0..23} (O10); with it μ ≥ −d fails. Within {0..9} the upper bound μ ≤ max(c − d, parity bit) held (not rerun at 24). Rows of one-gap sets depend on where the other pairs sit, not just on (p, g, position of the gap).
+- **Refuter.** Not run on this entry separately; the claim-mode run on the previous entry was told Law 1 broke (C4) and asked to confirm it independently.
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged (paper proofs for p ≤ 2).
+- **Meaning.** T1 and T2 are robust (p ≤ 12), but general offset sets carry no law to induct on (O10), and the natural enlargements of pair sets (one broken gap) have unstructured rows. A proof must stay inside a class tied to pairs: e.g. pair sets plus orphans whose partners are gone, tracked by who is owed each orphan.
