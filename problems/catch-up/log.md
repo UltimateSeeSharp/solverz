@@ -540,3 +540,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged (TI's range); L17's draw entries now Lean-checked at a ≥ 6p − 2.
 - **Meaning.** The whole draw band [0, p] of the high-block row is checked, the band A7's kill criterion watches; what is left of the rows is the parity-forced entries.
+
+### 2026-10-26: statement audit of block_draw_linear (A7)
+
+- **Claim / question.** Does `CatchUp.block_draw_linear` say what we mean ("the block {a..a+2p−1} with a ≥ 6p − 2 is a draw for the player to move trailing by p mod 2")?
+- **Approach.** `audit-statement`: read-back, trap checklist, tests in `lean/CatchUp/Tests/BlockDrawLinear.lean` (set equality, `value` form for p even, the debt's parity cannot be dropped, p = 0, implies `block_draw_high` for p ≥ 3), solver `block_rows 8 80` (every block p ≤ 8, a ≤ 80 draws at debt p mod 2), refuter in statement mode.
+- **Outcome.** No gap between the Lean and the informal version. Applied the refuter's fixes: state.md said `block_draw_high` is implied (only for p ≥ 3); the doc's "at any scores" now says "from any common base score". Audit under Awaiting review; not approved (the user approves).
+- **Refuter.** Statement mode (2026-10-26): SAYS WHAT WE MEAN. Independent Python port of `valueAux` (reproduces OEIS A278587 for N = 3..13): all cases p ≤ 4, a = 6p−2..6p+3, s ∈ {0, 1, 7}, both opening flags, draw; non-degenerate (losing first picks exist); the solver hazard is not reached here.
+- **Literature.** Refuter: OEIS A278587 opened; searches on Catch-Up with consecutive or translated sets found nothing beyond the README's sources.
+- **Metric.** A7: unchanged.
+- **Meaning.** If you approve it, the block result can be reported as a Lean-checked partial result (with a write-up first, `writeups/`).

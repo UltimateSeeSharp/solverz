@@ -168,7 +168,8 @@ theorem block_row_draw_linear {p a d : ℕ} (hp : 1 ≤ p) (ha : 3 * (2 * p - 1)
   cases valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + d) false <;> simp
 
 /-- **L21 for blocks, Lean form** (pending the user's approval). The block `{a, …, a + 2p - 1}`
-with `a > 3(2p - 1)` is a draw for the player to move trailing by `p mod 2`, at any scores; for
+with `a > 3(2p - 1)` is a draw for the player to move trailing by `p mod 2`, from any common base
+score `s`; for
 `p` even this is Catch-Up on the block (`value_block_draw` in `Tests/BlockDrawLinear.lean`). -/
 theorem block_draw_linear {p a : ℕ} (hp : 1 ≤ p) (ha : 3 * (2 * p - 1) < a) (s : ℕ) :
     valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false = .draw :=
