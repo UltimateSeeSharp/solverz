@@ -570,3 +570,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged.
 - **Meaning.** L24 now rests only on (a) (W, refuter running) and (c).
+
+### 2026-10-26: Lean: the matching cost as a parity count (A7, B28)
+
+- **Claim / question.** Is L20's cost c(O) the number of points x at which an odd number of elements of O are ≤ x, and does removing i < j change it by (j − i) − 2·(odd points in [i, j))? (The first tool of W's sketch for L24 (a), and the one new fact B28's Hyb2T route needs.)
+- **Approach.** `lean/CatchUp/CostParity.lean`: `OddBelow`; `matchCost_eq_card_odd` by strong induction (the odd points of O are [o₁, o₂) plus those of the rest, all at or above o₂); `matchCost_erase_two` by comparing the two parity counts point by point (`oddBelow_erase_two`: removing i < j flips the parity exactly on [i, j)).
+- **Outcome.** Both kernel-checked (`lake build --wfail` clean; axioms propext, Classical.choice, Quot.sound).
+- **Refuter.** Not run (kernel-checked).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged.
+- **Meaning.** If W survives, its transitions become arithmetic on these two facts plus the pair structure, which suits Lean.
