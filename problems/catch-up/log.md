@@ -420,3 +420,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged until the verdict (would become: every p at a > min(1 + p(2p−1), 3(2p−1))).
 - **Meaning.** If it survives, A7's height bound becomes linear in p, and the transfer argument (debts bounded along one strategy's plays) is reusable for lower heights (B30).
+
+### 2026-10-26: the lead regime R2 holds, but no simple rule inside it (A2, B31)
+
+- **Claim / question.** B31: does a defender restricted to R2 (opponent left < 2·min(left) behind, ≤ 3 picks per own turn) still draw beyond the ideator's range, and does a simple turn rule inside R2 draw?
+- **Approach.** New experiment `solver/src/bin/lead_regime.rs` (restricted D, perfect opponent; unrestricted it matches `Solver` on 312 sets). Intervals N ≤ 24, blocks p ≤ 9 at a ≤ 40, the ideator's cap variants, and five fixed turn rules inside R2.
+- **Outcome.** [results/lead-regime-r2.md](results/lead-regime-r2.md). R2 draws {1..N} as player 1 and 2 for every even-total N ≤ 24, and every block p ≤ 9, a ≤ 40 at g0 in both roles except {2,3,4,5} and {1..6} (new: p = 8, 9). The cap variants reproduce the ideator's boundaries. All five fixed rules (least lead, greatest lead, largest pick, least taken, fewest picks) lose at N = 3 or 4.
+- **Refuter.** Not run (data, matches the ideator's independent engine on the overlap).
+- **Literature.** Not searched.
+- **Metric.** A2 (shelved): unchanged; R2 is a class that holds the whole game for N ≤ 24 but is defined through values, not by an explicit rule.
+- **Meaning.** Bounded turns are compatible with drawing at every height tested, but which allowed turn draws is no simple key, as for unrestricted play (A3's rules lose at N = 4). R2 does not revive A2 or A3 by itself; it narrows the strategy space a proof would need to describe.

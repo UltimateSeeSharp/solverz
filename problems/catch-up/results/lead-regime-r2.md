@@ -1,0 +1,37 @@
+# Lead regime R2
+
+Can a defender D draw while ending each of its turns with the opponent trailing by at most 2m − 1 (m the smallest number left), in at most 3 picks per turn, against a perfect opponent (B31)? D with no allowed turn loses.
+
+- Date: 2026-10-26
+- Command: `cargo run --release -p catch-up --bin lead_regime -- intervals 24 2 1 -1 3`; `… blocks 9 40 2 1 -1 3`; `… rules 24 2 1 -1 3`; variants `… intervals 16 <num> <den> <off> <picks>` as listed
+- Commit: 7c1a0e7 plus `solver/src/bin/lead_regime.rs` (added in the commit that adds this file)
+- Machine: AMD Ryzen 7 3700X, 32 GB RAM; rustc 1.99.1 (MSVC)
+- Runtime: intervals to N = 24: 123 s; blocks: 27 s; rules and variants: under 1 s each
+- Checked: unrestricted, the engine matches `Solver` on {1..N}, N ≤ 12, and 300 random sets (≤ 11 numbers ≤ 30), as player 1, as player 2 and at gaps ≤ 3 (`lead_regime check`). The R2 rows agree with the ideator's independent engine (`scratch/ideator/a7/turn_cap.rs`) on intervals N ≤ 24 and blocks p ≤ 7, a ≤ 40.
+
+## R2 on intervals (even totals)
+
+D draws as player 1 and as player 2 for every N ∈ {3, 4, 7, 8, 11, 12, 15, 16, 19, 20, 23, 24}.
+
+## R2 on blocks {a..a+2p−1}, gap p mod 2, D as mover and as the other player
+
+Scope: p = 1..9, a = 1..40. D fails only at {2,3,4,5} (as mover: L) and {1..6} (as the other player: L); every other block is a draw for D in both roles.
+
+## Other caps on intervals, N ≤ 16 (lead ≤ ⌊num·m/den⌋ + off, picks per turn)
+
+| Cap | Picks | D fails at (player 1 / player 2) |
+|---|---|---|
+| 2m − 2 | 3 | N = 7 (L/L) only |
+| ⌊1.5m⌋ + 1 | 3 | none |
+| m + 3 | 3 | N = 15 (L/L), 16 (L/L) |
+| 2m − 1 | 2 | N = 8, 11, 12, 15 (D/L); 16 (L/L) |
+
+## Fixed turn rules inside R2 (D always takes one allowed turn chosen by a key; intervals N ≤ 24)
+
+| Rule | First failure |
+|---|---|
+| least lead, then fewest picks, then largest pick | N = 3 (D/L) |
+| greatest allowed lead | N = 4 (L/L) |
+| largest single pick, then least lead | N = 4 (L/L) |
+| least amount taken, then least lead | N = 3 (D/L) |
+| fewest picks, then largest pick, then least lead | N = 4 (L/L) |
