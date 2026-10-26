@@ -16,7 +16,7 @@
 
 ## Next step
 
-Read the review ideator's report (running) and pick the most promising route for L29's family in the two-pick game; the tools are ready: `level_law` and `valueAux_of_invariant` in Lean, `lead_regime ranges … s2 2` for data (holds to N = 28).
+When the refuter's verdict on L30/L31 arrives: if SURVIVES, port `scratch/ideator/review3/lean/TwoTokenSmall.lean` into `CatchUp/Token.lean` (module header; strict build; axioms). Then the leader's defense from ({2..N}, 1) and ({3..N}, 1): look for a leader strategy in the two-pick class with a strategy-specific invariant (B43), checked with `valueAux_of_invariant`.
 
 ## Awaiting review
 

@@ -800,3 +800,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A8: the two-pick class holds on the whole Lean target family to N = 28.
 - **Meaning.** The game a proof must handle can be taken to be the two-pick game on {2..N} at deficit 1. Copying lemmas like L26/L28 are special to exact ties.
+
+### 2026-10-26: review ideator: two-token lemma makes the root one-sided (A8, A2)
+
+- **Claim / question.** Ideas after L26–L29 (review ideator, open brief).
+- **Approach.** Ideator (effort max), `scratch/ideator/review3/`; unchecked unless Lean says so.
+- **Outcome.** (1) Two-token lemma: at a tie, if the opponent cannot win after t, it does not lose after any other pick; two such picks give a draw. Roots: L1 ⟸ "player 2 cannot win after openings 1 and 2", or ⟸ "the mover does not win {2..N} nor {3..N} at deficit 1"; Lean draft compiles. Nodes L30, L31 (refuter in proof mode running). (2) Partner exit for A8's high phase: opponent to move behind by e on a high set with c(O) ≤ e ≤ a − c(O): partner replies keep it; never a mover win at draw parity (0 of 163,835), but not forceable as all of H. Dropped, with data: feature-based potentials for the two-pick game (17–21% irreducible error, not closed, no generalization across N), all 5,040 preference orders over 7 reply types (fail by N = 7), canonical safe-reply shape classes (holes up to N − 3), one-pick opponent turns, an inert bottom quadruple, "draw iff g ≤ c(O)" as H (74%), leader matching bound on low sets, simple defender variants (tie-first, tie-avoiding, constant caps).
+- **Refuter.** Proof mode on L30, L31 running.
+- **Literature.** Ideator: no announced proof; von Stengel's abstract (computation to 28, induction proof wanted) is the newest relevant source.
+- **Metric.** None yet.
+- **Meaning.** A strategy proof now needs only one role (the leader's defense) from two starts. Searching for a potential of the two-pick game by features is exhausted; a strategy-specific invariant is the remaining route there.
