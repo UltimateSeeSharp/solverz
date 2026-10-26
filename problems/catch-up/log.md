@@ -710,3 +710,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A2 (shelved): unchanged (the exact two-pick class holds to 24).
 - **Meaning.** The earlier "fails at a = 1 for every p ≥ 3" was mostly the flaw. Draws reported by `lead_regime` before the fix stand (the flaw only weakened D); its other failures (results/lead-regime-r2.md, other caps) may be too pessimistic.
+
+### 2026-10-26: ideator on the whole problem: a token lemma halves the target (A7, A8)
+
+- **Claim / question.** Fresh ideas for proving L1 itself, after L24 (fresh-idea unit, open brief).
+- **Approach.** Ideator (effort max), scratch `scratch/ideator/fresh/`; all its numbers unchecked.
+- **Outcome.** (1) Token lemma: at a level position with t = min R, V(R − {t}, t) = draw implies a draw; with t = 1, L1 for N ≡ 3 mod 4 needs only TI at height 2 (block {2..N}, p odd); hand-checked by me, now nodes L26, L27, refuter in proof mode running. (2) A two-pick world at height 2 for the N ≡ 3 mod 4 half (its data came from the flawed `lead_regime`; with the fix, cap 2m − 1 draws every block p ≤ 9 at a = 2). (3) One height-free strategy covers heights down to about p + 2 (p = 4..7), below Hyb2's 2p − 1, but covering (1/2, 2p + 1] needs about p − 2 strategies. (4) TI holds at every real height h > 1/2 for p ≤ 7 (rational h = arithmetic progressions); rows are not robust there, so a descent must carry g0 by a strategy. Dropped: canonical turns, min-first, fixed rules at h → 0+, t_p at every height, induction by four from below (19 sparse failures within {1..22}, e.g. {1..4} ∪ {12,13,15,19,21} a player-1 win).
+- **Refuter.** Proof mode on L26, L27 running.
+- **Literature.** Ideator: no proof announced; Cooper–Dutle "Greedy Galois Games" (arXiv 1110.1137) has the Thue–Morse order of always-max play on {1..N} but no item choice, so it does not apply.
+- **Metric.** None yet (L26 pending its verdict).
+- **Meaning.** If L26 survives, the goal is exactly TI(1, p even) ∧ TI(2, p odd), and half of it lives at height 2, where two-pick turns still draw.

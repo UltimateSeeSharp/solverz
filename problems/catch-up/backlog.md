@@ -3,6 +3,8 @@
 Grouped by line, most promising first.
 
 ## A8
+- **B42 Token lemma to Lean.** L26 (and L27) once the refuter's proof-mode verdict is SURVIVES: unfold `valueAux` at (R, s, s) and at the reply node; corollary `valueAux (Icc 2 N) s (s+1) false = .draw → value (Icc 1 N) = .draw`. Then L1 ⟸ TI(1, p even) ∧ TI(2, p odd) in Lean, reusing `block_draw_linear`'s shape.
+- **B43 Height 2 in a two-pick world.** For the N ≡ 3 mod 4 half (L27): run `lead_regime blocks` (cap 2m − 1, D ≤ 2 picks) at a ≤ 2 for p = 11, 13; holds → define a two-pick rounds game with an L22-style transfer and look for a Hyb2-like rule at a = 2; fails → A8 needs a class, not a rounds abstraction (ideator 2026-10-26, idea 2).
 - **B35 Low phase, high phase.** While the set is low D needs only its smallest numbers: 2 while max > 3·min, 4 until min ≥ span, for N ≤ 24 ([results/low-high-n24.md](results/low-high-n24.md)); top picks are needed on high sets and in endgames (log 2026-10-26: while the set is low, the defender needs only its smallest numbers). tb3 draws {1..N} to N = 24 ([results/two-ended-intervals-n24.md](results/two-ended-intervals-n24.md)); on blocks the window must grow with p ([results/two-ended-blocks-p9-10.md](results/two-ended-blocks-p9-10.md)). Next: the positions at the switch to high (sets, debts, mover) under drawing low play: does L25's class (offsets ≤ min, parity, W ≤ min) contain them, or can D steer into it? Then whether the needed k stays bounded beyond N = 24 (hash memo).
 
 ## A2
@@ -34,6 +36,8 @@ Grouped by line, most promising first.
 - **B18 Lemma B's payoff on paper.** The row of {a..a+3} at debts below a: draw at 0 and 2, loss elsewhere (a ≥ 5); like L9 (P1).
 
 ## A7
+- **B44 Next rung below Hyb2.** One history-aware strategy covers heights down to about p + 2 (`scratch/ideator/fresh/universal.rs`, p = 4..7). Extract it on [p + 2.2, 4p] for p = 5, 6 and list where it differs from Hyb2T; few, describable differences → a rule "Hyb3" and a W-type potential (A7's metric would drop to about p + 2); unstructured → drop.
+- **B45 TI at real heights.** TI holds at every real h > 1/2 for p ≤ 7 (ideator, unchecked, `gen*.rs`). Check p = 8 (q = 241 plus all breakpoints); holding → a conjecture node TI_ℝ, and descent lemmas at generic heights with integrality in one step.
 
 - **B38 Rows at the doubling-free height.** From every row start with d ≤ p, W = 2p − 1 and the start is in L23's class, so Hyb2T secures ≥ −1: every draw entry of t_p at a ≥ 2p − 1 (ideator: both roles, every d ≤ p with d ≡ p, from a = 2p − 1, failing at 2p − 2, p ≤ 7, `scratch/ideator/l24/rows.py`; p = 8, 9 the same, log 2026-10-26: Hyb2T rows hold to p = 9). Next: the refuter in claim mode with its own engine.
 - **B39 Pair sets at a ≥ 2m − 2p + 1.** W does not use the interval structure: for a pair set E with min 0, W(start) = 2m − 2p + 1; with L15, L20, L22, E draws at g0 from that height (ideator: all 986 pair sets with p ≥ 2 within [0, 16) in the real game, 463 fail one lower, `pairsets.py`). Would supersede L21's a > 3m. Next: after W's verdict, the refuter in claim mode with its own engine on pair sets within {0..17}.

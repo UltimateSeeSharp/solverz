@@ -1,6 +1,6 @@
 # Obstructions
 
-- **O1 Induction by four on drawn sets** (log 2026-10-22): {2,7,9,14} is a draw, {2,7,9,14} ∪ {15,16,17,18} a player-1 win. Rules out: proving {1..N} → {1..N+4} from "S is an even-sum draw" alone.
+- **O1 Induction by four on drawn sets** (log 2026-10-22): {2,7,9,14} is a draw, {2,7,9,14} ∪ {15,16,17,18} a player-1 win. Rules out: proving {1..N} → {1..N+4} from "S is an even-sum draw" alone. Adding the four below fails too (ideator 2026-10-26, 19 sets within {1..22}, none within {1..18}): {12,13,15,19,21} is a draw, {1..4} ∪ {12,13,15,19,21} a player-1 win by opening 12 (`set_value`, both engines).
 - **O2 Induction by four on complete sets** (same entry): {1,2,4,8,15,17,18,20,25} ∪ {26,27,28,29} is a player-1 win though the smaller set draws. Rules out: completeness as the induction invariant.
 - **O3 Complete even-sum sets are draws** (same entry): first exception {1,2,3,7,9,11,14,15,22} (player 1 wins by opening 2); none with max ≤ 21. Rules out: completeness alone as the characterization of draws.
 - **O4 A top pair acts locally on gaps** (log 2026-10-22: a top pair does not act locally): R = {} and {1..7} agree on V(R, 0..1) but V({1,2}, 0) = W, V({1..9}, 0) = L; windows up to w = 4, even with x and parity in the key, leave most keys undetermined. Rules out: peeling {x, x+1} off the top by a local rule on rows (A1).
