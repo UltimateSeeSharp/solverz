@@ -5,9 +5,9 @@
 ## Where things stand
 
 - **Computed** ([results/](results/)): every even-total N ≤ 35 is a draw, and for even totals with N ≥ 12 every opening move draws. N = 33 and 34 (odd totals) are player-1 wins, only by opening 1 and 2 respectively. N = 31–35 go beyond the published N = 28; N = 33–35 come from one engine (`tiled-cuda`) and are not independently checked.
-- **Blueprint** ([blueprint.md](blueprint.md)): goal statement approved. Formalized: L3 (parity law), L6 (`best` by membership). Paper proofs, refuter-checked: L7 (≤ 2 numbers left), L9 (far-apart pairs), L10 (reductions by partner replies), L11 (two pairs). Conjectures: L4, L5 (near-intervals draw), L12 (even blocks {a..a+2p−1} draw at every height; holds for p ≤ 10, a ≤ 80), L13–L17 (high sets: rounds game, greedy bound, always-max, high pair sets draw, rows of high blocks; L13 and L14 have proof drafts with the refuter). Refuted: L8 (all pair sets draw).
+- **Blueprint** ([blueprint.md](blueprint.md)): goal statement approved. Formalized: L3 (parity law), L6 (`best` by membership). Paper proofs, refuter-checked: L7 (≤ 2 numbers left), L9 (far-apart pairs), L10 (reductions by partner replies), L11 (two pairs). Conjectures: L4, L5 (near-intervals draw), L12 (even blocks {a..a+2p−1} draw at every height; holds for p ≤ 10, a ≤ 80), L15–L17 (always-max on pair sets, high pair sets draw, rows of high blocks; L15 and L16 have proof drafts). Paper proofs, refuter-checked: also L13 (high sets are the rounds game), L14 (greedy bound). Refuted: L8 (all pair sets draw).
 - **Ruled out** ([obstructions.md](obstructions.md)): O1–O3 set inductions and completeness; O4 peeling the top pair by a local rule; O5 fixed hole bounds; O6 unconditional partner replies; O7 pair structure alone, aligned pairs included; O8 "opening the top four numbers early never helps" as a local lemma; O9 a monotone descent in block height; O10 a tie law for all offset sets (and even-total sets can be player-2 wins).
-- **Leads:** the defender can leave the top four numbers for last and still draw, to N = 28 (A6), and along its best play the attacker opens them early only to rescue a lost game. Density matters: sparse high parts act as a fixed final payoff, and low change of about twice their smallest number cures them, without a clean law (log 2026-10-22: low change cures sparse cores). Blocks at any height draw (L12), and high blocks have the exact row t_p. High sets are exactly a "rounds game" on offsets (L13). There every pair set draws at debt p mod 2 (unlike O7 at low heights), and always taking the largest number is a drawing strategy for both players (L15, checked p ≤ 11); proving L15 gives TI for high blocks for every p (L16). L15's proof is done except the phase after a player's unmatched double (log 2026-10-26: the always-max proof splits at Z's first double).
+- **Leads:** the defender can leave the top four numbers for last and still draw, to N = 28 (A6), and along its best play the attacker opens them early only to rescue a lost game. Density matters: sparse high parts act as a fixed final payoff, and low change of about twice their smallest number cures them, without a clean law (log 2026-10-22: low change cures sparse cores). Blocks at any height draw (L12), and high blocks have the exact row t_p. High sets are exactly a "rounds game" on offsets (L13). There every pair set draws at debt p mod 2 (unlike O7 at low heights), and always taking the largest number is a drawing strategy for both players (L15, checked p ≤ 11); proving L15 gives TI for high blocks for every p (L16). L15 has a complete paper proof draft, with the refuter in proof mode (log 2026-10-26: a paper proof of the always-max lemma).
 
 ## Claims
 
@@ -16,7 +16,7 @@
 
 ## Next step
 
-B20: finish the paper proof of AM (log 2026-10-26: toward a proof of AM), the phase after Z doubles; then refuter in proof mode, and blueprint nodes for the rounds-game reduction, AM and "high pair sets draw at p mod 2".
+B20/L15: act on the refuter's proof-mode verdict for L15 and L16 (fix or move to `paper proof`); then B25 (AM+X: the forced wins and the rest of T2).
 
 ## Awaiting review
 
