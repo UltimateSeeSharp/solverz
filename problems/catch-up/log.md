@@ -590,3 +590,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A3 (shelved): unchanged.
 - **Meaning.** The needed window grows with p (tb2 fails from p = 5, tb3 from p = 9), so "two-ended" is a search-space restriction, not yet a bounded strategy; the side-rule test should be posed with windows growing with p.
+
+### 2026-10-26: short turns suffice for blocks down to height 2 (A7, B41)
+
+- **Claim / question.** B41: from which height can a defender draw blocks while keeping turns short? The ideator proposed "the opponent trails by at most the smallest number left" as the floor of rounds-game methods.
+- **Approach.** `lead_regime` (existing engine) with caps m and 2m − 1 on the opponent's deficit after D's turn, D at most 2 or 3 picks; blocks p ≤ 9, a ≤ 40, and intervals N ≤ 24. [results/lead-regime-short-turns.md](results/lead-regime-short-turns.md).
+- **Outcome.** Cap m (one-pick opponent turns) fails at every height for p ≥ 2, so the proposed test does not measure the rounds structure: under Hyb2 the opponent's turn after Z's top pick often has 2 picks, and only round starts are single-pick. Both players at most 2 picks per turn (cap 2m − 1, D ≤ 2 picks): D draws every block in both roles at every a ≥ 2 for p = 3..9 (p = 2 fails at a = 2), failing only at a = 1; on {1..N} D fails as player 2 from N = 8. With 3 picks for D (R2) all of it draws.
+- **Refuter.** Not run (a measurement with a checked engine).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged.
+- **Meaning.** Short turns are not what stops round-based methods below a = 2p − 1: two-pick turns suffice down to a = 2. A rounds-style descent would need a bookkeeping in which a round's first mover may take two picks; at a = 1, D needs three-pick turns. Passed to the descent ideator. B41 removed (answered; the floor of strict rounds bookkeeping is not measured).
