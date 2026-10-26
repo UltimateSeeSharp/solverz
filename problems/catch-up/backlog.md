@@ -3,7 +3,6 @@
 Grouped by line, most promising first.
 
 ## A2
-- **B34 Depth-weighted defects on {1..N}.** O5 rules out fixed hole counts; L23's depth weights close in the rounds game where counts fail. Test "deficit ≤ q − D_Z(numbers left)" as the defender's class on {1..N}, N ≤ 20, with a `hole_game`-style run (earliest point the opponent forces it out).
 - **B31 A regime the same at every height (R1/R2).** The defender restricted to ≤ 2 picks per own turn (R1), or to leaving the opponent < 2·min(left) behind (R2), still draws {1..N} for every even-total N ≤ 24 and blocks p ≤ 7, a ≤ 40 (ideator, unchecked; log 2026-10-26: ideator on A7's descent). A class closed under play is what A2's revival asks for. Blocks p = 8, 9 done (no new exception); five fixed turn rules inside R2 lose at N = 3–4 (log 2026-10-26: the lead regime R2 holds, but no simple rule inside it). Next only with a new idea for describing the drawing turns (e.g. by a potential).
 
 - **B2 A class whose defects may grow.** Fixed hole bounds don't close (O5). Candidates: broken adjacent pairs ≤ ⌈N/6⌉ (holds the whole game for N ≤ 24); defects weighted by height or by the gap they cost; "paired above k, anything below". Test each with `hole_game` (cost = numbers left).

@@ -480,3 +480,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged.
 - **Meaning.** A checked TI for high blocks now needs, in Lean, only a strategy class with a debt bound and a margin guarantee: L23 (once verified) plus a debt bound (B32), or L15, or L24 (a).
+
+### 2026-10-26: the depth class does not transplant to low sets (A2, B34)
+
+- **Claim / question.** B34: can L23's class, deficit ≤ q − D_Z(numbers left), serve as the defender's class on {1..N} (A2's revival)?
+- **Approach.** `scratch/b20/b34_first_turn.py`: player 2's first turn start after each opening x on {1..N}, every even-total N ≤ 20, q = half the numbers left (floor and ceiling).
+- **Outcome.** Every opening x ≥ 2 puts player 2 outside the class already at its first turn (deficit x against q − D_Z ≤ q ≈ N/2; e.g. N = 20, x = 19, D_Z = 0, q = 9). Recorded as O11; B34 removed.
+- **Refuter.** Not run (a direct count).
+- **Literature.** Not searched.
+- **Metric.** A2 (shelved): unchanged.
+- **Meaning.** In the rounds game deficits are offsets below the round's pick size; at height 1 they are raw numbers. A depth class for the real game would need a deficit measured against the numbers left (e.g. relative to min or 2·min, as R2 does), not this literal one.
