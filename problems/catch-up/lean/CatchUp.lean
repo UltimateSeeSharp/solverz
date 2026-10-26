@@ -13,6 +13,7 @@ public import CatchUp.Depth
 public import CatchUp.Blocks
 public import CatchUp.Linear
 public import CatchUp.CostParity
+public import CatchUp.Token
 public import CatchUp.Tests.BlockDrawLinear
 
 /-!

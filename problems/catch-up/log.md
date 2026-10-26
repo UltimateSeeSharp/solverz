@@ -730,3 +730,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A8: the high phase is settled as Hyb2 for N ≤ 24; left: describe the class H of switch positions the low phase can force (Hyb2 fails on about 6% of high positions, log 2026-10-26: Hyb2 is not a universal high-phase strategy).
 - **Meaning.** A proof along A8 needs only the low phase plus a description of the hand-over positions; L25 already bounds the debts after it. The bottom-k window must grow with N, so the low phase is not just "make change from the bottom".
+
+### 2026-10-26: token lemma survives proof mode and is formalized (A7, A8)
+
+- **Claim / question.** L26 (token lemma) and L27 (L1 ⟸ TI(1, p even) ∧ TI(2, p odd)): proof mode, then Lean.
+- **Approach.** Refuter in proof mode with its own literal `valueAux` port; Lean from the scratch draft (`CatchUp/Token.lean`).
+- **Outcome.** SURVIVES (fixes: x > t, non-emptiness, erase commutation, hypotheses at score 0). Formalized: `CatchUp.token_lemma`, `CatchUp.even_triangle_iff`, `CatchUp.conjecture_of_two_families`; `lake build --wfail` clean, standard axioms. So, kernel-checked: the conjecture follows from draws on {1..N} for N ≡ 0 mod 4 and on {2..N} at deficit 1 for N ≡ 3 mod 4. Also: `turn_cap ranges 2 18 1 2 2`: the two-pick class draws {2..N} at deficit 1 for every N ≤ 16 with even parity (both N mod 4 classes), so via L26 both halves can be posed at height 2.
+- **Refuter.** Proof mode (2026-10-26): SURVIVES; all nonempty R ⊆ {0..17} (109,998 satisfying the hypothesis) level draws; A278587 reproduced for N = 3..19. Side pattern (unchecked beyond {0..15}): whenever a level option draws, no level option wins.
+- **Literature.** Refuter: no reduction relating {1..N} to {2..N} found (MPRA paper and Feng thesis not readable here).
+- **Metric.** A7/A8: the target shrinks from TI at height 1 for all p to TI(1, p even) ∧ TI(2, p odd), now a Lean-checked reduction.
+- **Meaning.** The N ≡ 3 mod 4 half lives at height 2, where the two-pick regime with cap 2m − 1 holds for every p ≤ 11 (`lead_regime blocks 11 2 2 1 -1 2`). The refuter's side pattern, if true in general, would be a strong level-position law (B46).

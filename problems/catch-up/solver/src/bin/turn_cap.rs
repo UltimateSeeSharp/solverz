@@ -4,7 +4,8 @@
 // left, so the opponent catches up within `ka` picks whatever it picks; the opponent is otherwise free.
 // D with no allowed pick loses. Optional menu k > 0: D picks only among the k smallest and k largest
 // numbers left (B35). Prints D's outcome in both roles (unrestricted: `kd`, `ka` large, k = 0).
-// Usage: turn_cap intervals <n_max> <kd> <ka> [k] | blocks <p> <a_lo> <a_hi> <kd> <ka> [k].
+// Usage: turn_cap intervals <n_max> <kd> <ka> [k] | blocks <p> <a_lo> <a_hi> <kd> <ka> [k]
+//        | ranges <lo> <hi_max> <gap> <kd> <ka> [k] ({lo..hi} at the gap for hi ≤ hi_max with total + gap even).
 // Dense memo [mask][gap][picks so far]; a gap never exceeds the largest number.
 
 const UNKNOWN: i16 = i16::MIN;
@@ -112,6 +113,19 @@ fn main() {
                 if mov < 0 || oth < 0 { fails.push((a, outcome(mov), outcome(oth))); }
             }
             println!("p={} blocks a in {}..={}, D <= {} picks, opponent <= {} picks, menu {}: D fails at (a, mover, other) {:?}", p, a_lo, a_hi, kd, ka, k, fails);
+        }
+        "ranges" => {
+            let (lo, hi_max, gap, kd, ka, k) = (n(1), n(2), n(3) as i64, n(4), n(5), opt(6));
+            let mut fails = vec![];
+            for hi in lo..=hi_max {
+                if ((lo..=hi).sum::<usize>() as i64 + gap) % 2 != 0 { continue; }
+                let mut gm = G::new((lo as i64..=hi as i64).collect(), kd, ka, k);
+                let full = ((1u64 << (hi - lo + 1)) - 1) as u32;
+                let (mov, oth) = (gm.vd(full, gap, 0), gm.va(full, gap));
+                println!("{{{}..{}}} at gap {}: D as mover {}, as the other {}", lo, hi, gap, outcome(mov), outcome(oth));
+                if mov < 0 || oth < 0 { fails.push(hi); }
+            }
+            println!("{{{}..hi}} at gap {}, D <= {} picks, opponent <= {} picks, menu {}: D fails at hi = {:?}", lo, gap, kd, ka, k, fails);
         }
         _ => panic!("usage: turn_cap intervals <n_max> <kd> <ka> [k] | blocks <p> <a_lo> <a_hi> <kd> <ka> [k]"),
     }

@@ -1,6 +1,7 @@
 module
 
 public import CatchUp.Linear
+public import CatchUp.Token
 public import CatchUp.Parity
 
 /-!
@@ -26,12 +27,6 @@ theorem map_range_eq_Icc {a n : ℕ} (hn : 1 ≤ n) :
     exact ⟨x - a, by omega, by omega⟩
 
 example : (Finset.range 4).map (addLeftEmbedding 10) = {10, 11, 12, 13} := by decide
-
-/-- At equal scores a non-opening turn is one pick, like the opening. -/
-theorem valueAux_true_eq_false (R : Finset ℕ) (s : ℕ) :
-    valueAux R s s true = valueAux R s s false := by
-  rw [valueAux, valueAux]
-  simp only [↓reduceIte, Bool.false_eq_true, ge_iff_le, Nat.le_add_right]
 
 /-- For `p` even it is Catch-Up itself on the block, player 1 opening. -/
 theorem value_block_draw {p a : ℕ} (hp : 1 ≤ p) (hpe : Even p) (ha : 3 * (2 * p - 1) < a) :
