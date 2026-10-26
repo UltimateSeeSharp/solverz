@@ -1,0 +1,22 @@
+# Two-pick turns on blocks at heights 1 and 2, p ≤ 13
+
+Can a defender D draw the block {a..a+2p−1} at debt p mod 2, as mover and as the other player, against a perfect opponent, while keeping every turn of both players short (B43)? D takes at most 2 picks per turn and ends each turn with the opponent behind by at most a cap, or by more than everything left; D with no allowed turn loses. Two caps: 2m − 1 (m the smallest number left) and the exact one, the sum of the 2 smallest numbers left (the opponent then catches up within 2 picks whatever it picks).
+
+- Date: 2026-10-26
+- Command: `lead_regime blocks 11 2 2 1 -1 2`; `lead_regime blocks 13 2 2 1 -1 2`; `lead_regime blocks 13 2 s2 2` (`./target/release/lead_regime`)
+- Commit: 42b7716 (cap 2m − 1 runs); 34c2fb3 (cap s2)
+- Machine: AMD Ryzen 7 3700X, 32 GB RAM; rustc 1.99.1 (MSVC)
+- Runtime: 17 s; 8 min 48 s; 22 min 43 s
+- Checked: `lead_regime check` (unrestricted engine matches `Solver`, 312 sets); cap s2 matches `turn_cap` (an independent implementation of the same condition) on {1..N}, N ≤ 16, and `turn_cap` matches the script `scratch/turn_cap/check.py` to N = 16.
+- Data: `scratch/b41fix/lead_regime-blocks-11-2-2-1-m1-2.txt` (SHA-256 `9a7eeef18133342171312dced0fc2c82ddcd2bc38ac55f94a3de5959213755ab`), `…-blocks-13-2-2-1-m1-2.txt` (`1529c75f45c1e020dcdbd11f2bcd7eb3ba2656737bb29c186a63fadc5f58adcf`), `…-blocks-13-2-s2-2.txt` (`038a2aa952a3d0fdf9bd31648783e0dfa3bbfb5b3024f15d7b6805ebceabdb07`)
+
+## Outcome
+
+Scope: p = 1..13, a = 1, 2.
+
+| cap | D fails at (p, a) (as mover / as other) |
+|---|---|
+| 2m − 1 | a = 1: p = 8–13 (D/L); a = 2: p = 13 (D/L) |
+| sum of the 2 smallest | none |
+
+With the exact cap D draws every block p ≤ 13 at heights 1 and 2 in both roles: up to 26 numbers, both players' turns can be kept to at most 2 picks. The cap 2m − 1 is not uniform in p at either height.

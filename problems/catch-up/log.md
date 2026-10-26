@@ -770,3 +770,13 @@ Newest last. Entry format:
 - **Literature.** Not searched (covered by the L26 and L28 runs).
 - **Metric.** Unchanged (the goal in Lean is the family V({2..N}, 1) = draw).
 - **Meaning.** A proof of the family proves L1; a failure of the family would not refute L1.
+
+### 2026-10-26: two-pick turns hold on every low block to p = 13 (A8, B43)
+
+- **Claim / question.** B43: does the two-pick regime hold uniformly at height 2 (the N ≡ 3 mod 4 half), and at height 1?
+- **Approach.** `lead_regime blocks` at a ≤ 2 with cap 2m − 1 (p ≤ 11, 13) and with the new exact cap s2 (sum of the 2 smallest left, p ≤ 13). [results/two-pick-blocks-low.md](results/two-pick-blocks-low.md). Also probed (scratch `scratch/a8/hyb2_low.py`): Hyb2 extended to two-pick turns (cheapest turn leaving the opponent past the matching cost, else the largest) fails at every height below 2p − 1 for p ≥ 3.
+- **Outcome.** Exact cap: every block p ≤ 13 at heights 1 and 2 draws in both roles. Cap 2m − 1: fails at a = 2 for p = 13 and at a = 1 from p = 8. So the two-pick world is uniform to p = 13 with the exact cap, not with 2m − 1.
+- **Refuter.** Not run; s2 matches `turn_cap` and the independent script on {1..N} to 16.
+- **Literature.** Not searched.
+- **Metric.** A8/A2: the two-pick class holds on all blocks at heights 1, 2 to p = 13 (26 numbers).
+- **Meaning.** The ideator's test passes in its exact form: a proof can work in a game where every turn of both players has at most 2 picks, but the cap must be "the opponent's 2 smallest numbers", not a fixed multiple of the smallest. The naive Hyb2 extension is not the strategy there.
