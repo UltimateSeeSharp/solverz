@@ -690,3 +690,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A3 (shelved): no fixed rule yet; the low phase needs only the k smallest numbers (k = 2 at c = 1/2) to N = 24.
 - **Meaning.** A possible split of {1..N}: a low phase where D only makes change with its smallest numbers, and a high phase in the regime L24/L25 handle. Open: whether the needed k stays bounded as N grows, and what the positions at the switch look like (whether L25's class contains them).
+
+### 2026-10-26: Hyb2 is not a universal high-phase strategy (A8, B35)
+
+- **Claim / question.** A8's high phase: does Hyb2 draw from every high position where a draw is possible, or must the low phase reach a narrower class?
+- **Approach.** New experiment `hyb2_universal` (rounds game, every even O ⊆ {0..15}, every debt with even parity, both roles; exact vs Hyb2 against a perfect opponent). [results/hyb2-universal-u16.md](results/hyb2-universal-u16.md). Also `scratch/a8/switch.py` (N = 12): the positions where the set first becomes high under drawing low play (bottom 4) are mostly small sets with holes (942 of them; 199 full blocks), so the low phase lasts most of the game.
+- **Outcome.** Hyb2 fails to secure an available draw at about 6% of positions in each role; the smallest failures have a hole next to the bottom ({0, 2, 3, 4} at d = 1). Full blocks draw, as L24 says.
+- **Refuter.** Not run (a negative search fact, checked against L24 on blocks).
+- **Literature.** Not searched.
+- **Metric.** A8: unchanged; H must be narrower than "high and drawable", e.g. L25's class plus a start condition, or a different high strategy.
+- **Meaning.** The split works only with a described class H that the low phase can force; since the switch comes late (few numbers left), most of the difficulty sits in the low phase, not the high one.
