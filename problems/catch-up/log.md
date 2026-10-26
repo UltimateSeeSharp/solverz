@@ -440,3 +440,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: nothing new on matching or pairing strategies for Catch-Up.
 - **Metric.** A7 moved: TI on paper for every p at a ≥ 6p − 2 (L21), besides a > 1 + p(2p−1) (L16) and p ≤ 2.
 - **Meaning.** The height bound is linear. The method (bound the debts along one strategy's plays, then L22) applies to any strategy with a debt bound; Hyb's measured bound 2m − 3 and Hyb2's (B30) suggest a ≥ 2p − 1 is in reach.
+
+### 2026-10-26: a depth-weighted invariant gives the draw entries of high-block rows (A7)
+
+- **Claim / question.** How to prove L19, or reach T1's floor (Z trailing by d ≤ p on {0..2p−1} secures margin ≥ −1) another way? (ideator, called at unit 11)
+- **Approach.** Ideator: finite closed-class searches over (T, s) for invariants of AM+T play (`scratch/ideator/l19/`). I wrote its sketch out as node L23 and checked each case by hand.
+- **Outcome.** L23 (conjecture, paper proof written): the class K (s + q ≥ D_Z(T) when Z moves, s + q ≥ D_Y(T) and s ≥ 1 with holes when Y moves, holes weighted by their depth below t2 or t1, explicit last round) is closed under every AM+T round. Intervals have no holes, so both players' AM+T guarantees give R({0..2p−1}, d) = draw for every d ≤ p with d ≡ p (L17's draw entries); L20 gives the losses for d > p. It bypasses L18 + L19 for intervals; L19 stays open for spaced pair sets. Data (ideator, unchecked): closure on 272,103 K-states within {0..13} and 113,972 with independent code within {0..11}, 184k random boundary states, each weakening breaks closure; plain always-max fails closure only at Y-moving ties. Other ideas: debts along AM+T plays (Z's ≤ p, Z's lead ≤ p² + p) would transfer the draw entries to blocks at a > p² + p by L22; an odd-parity analogue of K for the forced ±1 entries (four template families failed); a hybrid of K and L15's credits for spaced pair sets; K-like depth weights as an A2 class on {1..N}.
+- **Refuter.** Proof mode on L23 running (`scratch/refuter/l23/`).
+- **Literature.** Ideator: nothing using this rule or a hole-depth potential (picking-sequence work only).
+- **Metric.** A7: unchanged until the verdict.
+- **Meaning.** A per-round invariant with explicit sums is the Lean-friendly route to TI for blocks and to L17's draw entries; only the parity-forced entries of t_p would remain open.
