@@ -36,7 +36,7 @@ Verification chain (`cargo test --release`, CUDA tests with `--features cuda`): 
 | `block_rows` | Do even blocks {a..a+2p−1} draw at g0 (A7, TI)? Their rows against t_p, by height | `cargo run --release -p catch-up --bin block_rows -- 8 80` (5 s) |
 | `low_change` | How large must k be for {1..k} ∪ C to draw, C a failing 5-pair core (B22)? | `cargo run --release -p catch-up --bin low_change -- 6 20 1` (40 s) |
 | `rounds_game` | The rounds game (Catch-Up on high offsets, B20): rows of {0..2p−1} against t_p (T1), pair sets at debts 0, 1 (T2), and the tie law over every even O ⊆ {0..U−1} | `cargo run --release -p catch-up --bin rounds_game -- 24` (12 s, ~400 MB) |
-| `max_strategy` | Does always taking the largest number keep a draw on pair sets in the rounds game (AM)? Least final margin by start (mover at debt 0, 1; non-mover leading by l) and p | `cargo run --release -p catch-up --bin max_strategy -- 22 8` (8 s) |
+| `max_strategy` | Do greedy strategies keep a draw on pair sets in the rounds game? `max` = always take the largest (L15); `amx` = with B25's exception (all of T2). Least final margin by start (mover at debt 0, 1; non-mover leading by l) and p | `cargo run --release -p catch-up --bin max_strategy -- 22 8` (8 s); `... -- 24 10 amx` (8 min) |
 | `set_value` | Value of one set and player 1's outcome after each opening (`Solver`, and `reference_value` up to 10 numbers) | `cargo run --release -p catch-up --bin set_value -- 75 80 81 84 86 88 89 91` |
 | `round_potential` | Is a round-by-round invariant for L15 (always-max) closed under play, over every state satisfying it? (No from p = 6.) | `cargo run --release -p catch-up --bin round_potential -- 8 18 120` (11 min) |
 

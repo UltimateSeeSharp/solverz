@@ -300,3 +300,13 @@ Newest last. Entry format:
 - **Literature.** Ideator and refuter: nothing on catch-up-order picking games; round-robin picking (fixed order, envy-free up to one item) is the closest known setting.
 - **Metric.** A7: unchanged until L15's verdict (paper proofs of TI for p ≤ 2); if L15 survives: every p for a > 1 + p(2p−1).
 - **Meaning.** The key idea is to stop measuring after every round: while Z has an unmatched double, Y can lower Φ temporarily, but each of Y's doubles pays at least the gaps Z's closes used, so a whole stretch never loses. Always taking the largest number is a provable drawing strategy for high pair sets.
+
+### 2026-10-26: one exception to always-max wins the forced cases (A7)
+
+- **Claim / question.** B25: does AM+X (always-max, except as second picker: if taking the largest number m would leave no half-taken pair and a tie with the opponent to move again, take the high of the highest other intact pair) meet every T2 target in both roles, the parity-forced wins included, and keep margin ≥ 0 as leader by any l ≥ 1 (so no pair set wins at debt ≥ 1)?
+- **Approach.** `solver/src/bin/max_strategy.rs` gains the variant `amx` (per-set memo, since the exception depends on the pairing): `max_strategy 24 10 amx` (8 min; output `scratch/max_strategy-24-10-amx.md`). Regression: `max_strategy 22 8 max` reproduces `scratch/max_strategy-22-8.md` exactly.
+- **Outcome.** Every target met on all pair sets within {0..23} (p ≤ 12), leads ≤ 10: margin 1 as mover at debt 0 for p odd (the win), 1 as leader by 1 for p even (the win), and as leader by l ≥ 1 the least margin is 0 or 1 by parity until l > p, then l − p.
+- **Refuter.** Not run (to run with the proof, after L15's verdict).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged (pending L15).
+- **Meaning.** One local exception turns always-max into an optimal strategy for every pair set at debts 0 and 1 and as leader, which would give all of T2 and "no pair set wins at debt ≥ 1"; with U0 that leaves only T1's floor (B26). The exception trades the basic round (−1) for a cross (0), which fits L15's proof with a two-level invariant.
