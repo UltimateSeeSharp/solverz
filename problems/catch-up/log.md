@@ -780,3 +780,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A8/A2: the two-pick class holds on all blocks at heights 1, 2 to p = 13 (26 numbers).
 - **Meaning.** The ideator's test passes in its exact form: a proof can work in a game where every turn of both players has at most 2 picks, but the cap must be "the opponent's 2 smallest numbers", not a fixed multiple of the smallest. The naive Hyb2 extension is not the strategy there.
+
+### 2026-10-26: Lean: the invariant method on arbitrary positions (A2, A8)
+
+- **Claim / question.** Any strategy proof of L29's family (A8's phases, an A2 class) needs: classes of positions closed under the defender's chosen picks and all opponent picks, level-or-better at the end, imply the defender never loses. `valueAux_transfer` gives this only on translated rounds games.
+- **Approach.** Lean helper `CatchUp.valueAux_of_invariant` (`CatchUp/Invariant.lean`): classes `KZ R sZ sY` (Z to move) and `KY R sY sZ` (Y to move) on real positions with scores, strong induction on the numbers left.
+- **Outcome.** Formalized; `lake build --wfail` clean; axioms propext, Classical.choice, Quot.sound. Also probed (scratch `scratch/a8/threshold.py`, dropped): at low heights there is no loss threshold like L20's matching cost, since a large deficit is caught up over many picks.
+- **Refuter.** Not run (a helper checked by Lean, not a blueprint node).
+- **Literature.** Not searched.
+- **Metric.** None (a tool).
+- **Meaning.** A future strategy for the two-pick game or for A8 can be proved by exhibiting its classes and checking closure, without new game-tree induction.
