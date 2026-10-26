@@ -2,6 +2,7 @@
 //!        lead_regime intervals <max_n> <num> <den> <off> <max_picks>
 //!        lead_regime blocks <max_p> <max_a> <num> <den> <off> <max_picks>
 //!        lead_regime rules <max_n> <num> <den> <off> <max_picks>
+//!        lead_regime ranges <lo> <hi_max> <gap> <num> <den> <off> <max_picks>   ({lo..hi} at the gap, total + gap even)
 //!        (in each, `<num> <den> <off>` may be `s2`: the cap is the sum of the two smallest numbers left)
 //! Can the defender keep the game in a bounded-turn regime and still draw (B31)? The defender D must
 //! end each of its turns with the opponent trailing by at most ⌊num·m/den⌋ + off, m the smallest
@@ -373,6 +374,19 @@ fn main() {
             for n in (1..=max_n).filter(|n| (n * (n + 1) / 2) % 2 == 0) {
                 let mut g = Game::new(&interval(n), r);
                 println!("| {n} | {} | {} |", show(g.d_first()), show(g.d_second()));
+            }
+        }
+        Some("ranges") => {
+            let (lo, hi_max, gap): (u64, u64, u64) = (arg(&args, 2), arg(&args, 3), arg(&args, 4));
+            let r = regime(&args, 5);
+            println!("| hi | D as mover | D as other |
+|---|---|---|");
+            for hi in (lo..=hi_max).filter(|hi| ((lo..=*hi).sum::<u64>() + gap) % 2 == 0) {
+                let xs: Vec<u64> = (lo..=hi).collect();
+                let mut g = Game::new(&xs, r);
+                let full = g.full();
+                let sum = g.sum(full);
+                println!("| {hi} | {} | {} |", show(g.d_turn(full, sum, gap)), show(g.a_node(full, sum, gap)));
             }
         }
         Some("rules") => {
