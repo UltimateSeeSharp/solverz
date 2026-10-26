@@ -11,6 +11,7 @@ public import CatchUp.Matching
 public import CatchUp.Transfer
 public import CatchUp.Depth
 public import CatchUp.Blocks
+public import CatchUp.Linear
 
 /-!
 # Catch-Up conjecture

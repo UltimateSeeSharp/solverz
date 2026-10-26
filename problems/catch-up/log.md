@@ -510,3 +510,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: paper range unchanged (a ≥ 6p − 2 via L21); new: TI is Lean-checked for every p at a > p mod 2 + p(2p−1).
 - **Meaning.** The first infinite family of Catch-Up draws checked in Lean here. Not a solution of the problem (it says nothing about {1..N}); reporting it needs your approval of its statement.
+
+### 2026-10-26: Lean: high blocks draw at linear height (A7)
+
+- **Claim / question.** Formalize L21 for blocks: V({a..a+2p−1}, p mod 2) = draw for a ≥ 6p − 2.
+- **Approach.** `lean/CatchUp/Linear.lean`: Hyb with AM+T before the switch. Classes `HZ`, `HY`: subsets of {0..2p−1}, even size, parity of debt plus the numbers left; before the switch L23's `KZc`/`KYc` with debts ≤ 2p − 1 (Z) and ≤ 2(2p − 1) (Y); after it Y's debt above the matching cost with debt + cost ≤ 3(2p − 1). `hz_step` from `closeZ`, `hy_step` from `closeY` before the switch and `exists_partner` (L20) after; `matchCost_le_span` bounds the cost by the span; `valueAux_transfer` (L22) carries both guarantees to the real game.
+- **Outcome.** `CatchUp.block_draw_linear`: for every p ≥ 1 and a > 3(2p − 1), the block {a..a+2p−1} is a draw for the player to move trailing by p mod 2. Lean-checked (`lake build --wfail` clean; axioms propext, Classical.choice, Quot.sound). Deviations in L21's section. L21 stays `paper proof` (general pair sets).
+- **Refuter.** Not run (kernel-checked; L21 and L23 survived proof mode).
+- **Literature.** Not searched.
+- **Metric.** A7: the Lean-checked range of TI drops from quadratic height (a > p mod 2 + p(2p−1)) to linear, a ≥ 6p − 2, matching the paper range.
+- **Meaning.** Every block draw proved on paper so far is now checked in Lean. Lower heights need a smaller debt bound (L24, B29's 2m − 3) or a new class; {1..N} itself is at height 1.
