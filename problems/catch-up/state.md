@@ -38,10 +38,10 @@ When the refuter's verdict on L30/L31 arrives: if SURVIVES, port `scratch/ideato
 
 ## Last review
 
-2026-10-26, after 73 log entries (6 since the previous review; overnight).
-- Goal narrowed, kernel-checked: L1 ⟸ draws on {1..N} (N ≡ 0 mod 4) and on {2..N} at deficit 1 (N ≡ 3 mod 4) (L26, L27 in Lean, from the ideator's token lemma). L28 (level law, refuter running) would add: one drawing opening suffices. Cost: 3 units.
-- A8 main: high phase settled empirically (free low play + Hyb2 from the first high position draws to N = 24); the hand-over class H is not described, Hyb2 fails on ~6% of high sets. Metric moved (feasibility shown).
-- A2: the two-pick class holds to N = 24 (exact cap); with cap 2m − 1 every height-2 block draws for p ≤ 12, height 1 fails from p = 8. Two engine fixes in `lead_regime` (older capped failures too pessimistic).
-- A7: metric unchanged since L24; the next rung (B44) and real heights (B45) queued.
-- No line meets its kill criteria. Main stays A8; its next unit is the height-2 game (B43), which serves the N ≡ 3 mod 4 half directly.
-- Ideator called for this review (running).
+2026-10-26, after 79 log entries (6 since the previous review; overnight).
+- A8 main, metric moved: the start is one family, {2..N} at deficit 1 (L28, L29 in Lean); the two-pick class holds on it to N = 28 in both roles; L30/L31 (refuter running) would leave one role, the leader's defense from two starts. Cost: 6 units.
+- Tools added: `level_law`, `valueAux_of_invariant` (Lean); `lead_regime ranges`.
+- Ruled out: copying lemmas off ties (O12); monotone values in the deficit (O13); feature potentials for the two-pick game (review ideator); D ≤ 1 pick or cap m (fail at N = 7).
+- A7: metric unchanged; B44, B45 queued. B21 pruned (A7 had 11 items). Known checked today: nothing new.
+- No line meets its kill criteria. Main stays A8; next: the leader's defense in the two-pick game, with a strategy-specific invariant (B43), and B47.
+- Ideator called for this review.
