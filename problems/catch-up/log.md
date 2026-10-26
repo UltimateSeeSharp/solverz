@@ -310,3 +310,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: unchanged (pending L15).
 - **Meaning.** One local exception turns always-max into an optimal strategy for every pair set at debts 0 and 1 and as leader, which would give all of T2 and "no pair set wins at debt ≥ 1"; with U0 that leaves only T1's floor (B26). The exception trades the basic round (−1) for a cross (0), which fits L15's proof with a two-level invariant.
+
+### 2026-10-26: avoiding exact ties gives every row of high blocks (A7)
+
+- **Claim / question.** B26: which simple strategy keeps the trailer's draw on {0..2p−1} at debts 2..p, where always-max fails at d = p? And does one rule give all of T1 (every debt, both roles) and T2?
+- **Approach.** `scratch/b20/floor.py 7`: on intervals at debts d ≤ p (d ≡ p), play the maximum whenever it keeps the value ≥ D and list where it does not. `scratch/b20/floorrule.py 7` and `amt.py 14`: least margin of candidate one-exception rules against a perfect opponent. Then `solver/src/bin/max_strategy.rs` gains the rule `amt` and a report of the intervals at every debt d ≤ p + 1 in both roles against t_p: `max_strategy 24 12 amt` (59 s; output `scratch/max_strategy-24-12-amt.md`).
+- **Outcome.** Up to p = 7 only one reachable node needs a non-maximal pick: {0,2,3,4} at debt 1 after the opponent takes 4, where the maximum 3 gives an exact tie (the opponent keeps the move) and 2 is right. Rule AM+T: always take the largest number, except as second picker when it would give an exact tie: then take the second largest. AM+T meets t_p on every interval {0..2p−1}, p ≤ 12, at every debt d ≤ p + 1 in both roles, and every T2 target (both roles at debts 0, 1, the wins included, margin ≥ 0 as leader by 1..12) on all 28,657 pair sets containing 0 within {0..23}. Failing rules: always-max (misses d = p as trailer and, for intervals, the leader's L rows), AM+X (misses d = p), "low of the top intact pair", "high of the highest other intact pair".
+- **Refuter.** Not run (to run with a proof).
+- **Literature.** Not searched.
+- **Metric.** A7: unchanged (pending L15). If AM+T is proved: T1 for every p and d (L17), hence TI for a > 1 + p(2p−1) from both roles and the full rows.
+- **Meaning.** One rule a person can play, "take the largest, but never let an exact tie hand the opponent the move", is optimal on every row of high blocks and on pair sets at debts 0 and 1. It supersedes AM+X (B25) and turns B26 into one proof target.

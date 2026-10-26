@@ -1,4 +1,4 @@
-//! Usage: max_strategy [universe] [max_lead] [max|amx]   (defaults 18, 6, max)
+//! Usage: max_strategy [universe] [max_lead] [max|amx|amt]   (defaults 18, 6, max)
 //! Rounds game (B20, rounds_game.rs). Player Z follows a greedy strategy, a perfect opponent minimizes Z's final
 //! margin. Reports the least final margin per start type and pair count, over pair sets (unions of disjoint
 //! {x, x+1}) containing 0 within {0..U−1}. Starts: Z the mover trailing by 0 or 1; Z the non-mover leading by l.
@@ -7,6 +7,9 @@
 //! - amx (B25, ideator): as max, except as second picker: if taking the largest number m would leave no
 //!   half-taken pair and a tie with the opponent to move again, take the high of the highest other intact pair.
 //!   Targets: t_p at debts 0 and 1 in both roles (the forced wins included) and margin ≥ 0 as leader by l ≥ 1.
+//! - amt (B26): as max, except as second picker: if the largest number would give an exact tie (the opponent
+//!   keeps the move), take the second largest. Targets as amx.
+//! Also reports the intervals {0..2p−1} at every debt d ≤ p + 1 in both roles against t_p (T1).
 
 use std::collections::HashMap;
 use std::time::Instant;
@@ -14,8 +17,15 @@ use std::time::Instant;
 const DEFAULT_UNIVERSE: u32 = 18;
 const DEFAULT_LEAD: i64 = 6;
 
+#[derive(Clone, Copy, PartialEq)]
+enum Rule {
+    Max,
+    Amx,
+    Amt,
+}
+
 struct Greedy {
-    amx: bool,
+    rule: Rule,
     lows: u32, // the lower number of each pair of the current set
     memo: HashMap<(u32, i64, bool), i64>,
 }
@@ -28,7 +38,11 @@ impl Greedy {
     /// Z's reply as second picker to the opponent's pick, `m1` = numbers left after it.
     fn reply(&self, m1: u32, s: i64, opp_pick: u32) -> u32 {
         let top = 31 - m1.leading_zeros();
-        if self.amx && s + top as i64 - opp_pick as i64 == 0 && self.orphan_free(m1 & !(1 << top)) {
+        let tie = s + top as i64 - opp_pick as i64 == 0;
+        if self.rule == Rule::Amt && tie && m1.count_ones() > 1 {
+            return 31 - (m1 & !(1 << top)).leading_zeros();
+        }
+        if self.rule == Rule::Amx && tie && self.orphan_free(m1 & !(1 << top)) {
             let partner = |v: u32| if self.lows >> v & 1 == 1 { v + 1 } else { v - 1 };
             let mut v = top;
             while v > 0 {
@@ -98,7 +112,7 @@ fn lows_of(set: u32) -> u32 {
     lows
 }
 
-/// Least margin Z needs: t_p at debts 0, 1 in both roles; ≥ 0 as leader by l ≥ 1 (amx only).
+/// Least margin Z needs: t_p at debts 0, 1 in both roles; ≥ 0 as leader by l ≥ 1 (amx, amt).
 fn target(p: usize, kind: usize) -> i64 {
     let odd = p % 2 == 1;
     match kind {
@@ -114,17 +128,19 @@ fn main() {
     let mut args = std::env::args().skip(1);
     let u: u32 = args.next().map(|a| a.parse().expect("universe")).unwrap_or(DEFAULT_UNIVERSE);
     let max_lead: i64 = args.next().map(|a| a.parse().expect("lead")).unwrap_or(DEFAULT_LEAD);
-    let amx = match args.next().as_deref() {
-        None | Some("max") => false,
-        Some("amx") => true,
-        Some(other) => panic!("strategy max or amx, not {other}"),
+    let rule = match args.next().as_deref() {
+        None | Some("max") => Rule::Max,
+        Some("amx") => Rule::Amx,
+        Some("amt") => Rule::Amt,
+        Some(other) => panic!("strategy max, amx or amt, not {other}"),
     };
+    let targeted = rule != Rule::Max;
     assert!(u <= 31);
     let start = Instant::now();
     let mut sets = Vec::new();
     pair_sets(u, 0, 0, &mut sets);
     sets.retain(|m| m & 1 == 1);
-    let mut g = Greedy { amx, lows: 0, memo: HashMap::new() };
+    let mut g = Greedy { rule, lows: 0, memo: HashMap::new() };
     // least[p][k]: k = 0, 1 mover trailing by k; k = 2 + l non-mover leading by l
     let kinds = 2 + (max_lead as usize + 1);
     let mut least = vec![vec![i64::MAX; kinds]; (u / 2 + 1) as usize];
@@ -132,13 +148,13 @@ fn main() {
     let mut states = 0usize;
     for &m in &sets {
         let p = (m.count_ones() / 2) as usize;
-        if amx {
+        if rule == Rule::Amx {
             // the reply depends on the pairing, so states are not shared across sets
             states += g.memo.len();
             g.memo.clear();
             g.lows = lows_of(m);
         } else {
-            g.lows = lows_of(m) | !m; // unused by max
+            g.lows = lows_of(m) | !m; // unused by max and amt
         }
         for k in 0..kinds {
             let v = if k < 2 { g.margin(m, -(k as i64), true) } else { g.margin(m, (k - 2) as i64, false) };
@@ -149,7 +165,12 @@ fn main() {
         }
     }
     states += g.memo.len();
-    println!("# max_strategy {u} {max_lead} {}\n", if amx { "amx" } else { "max" });
+    let name = match rule {
+        Rule::Max => "max",
+        Rule::Amx => "amx",
+        Rule::Amt => "amt",
+    };
+    println!("# max_strategy {u} {max_lead} {name}\n");
     println!("{} pair sets containing 0 within {{0..{}}}; {states} memo states; {:.1} s\n", sets.len(), u - 1, start.elapsed().as_secs_f64());
     print!("| p | mover, debt 0 | mover, debt 1 |");
     for l in 0..=max_lead {
@@ -160,7 +181,7 @@ fn main() {
     for p in 1..least.len() {
         print!("| {p} |");
         for k in 0..kinds {
-            let need = if amx { target(p, k) } else { -1 };
+            let need = if targeted { target(p, k) } else { -1 };
             if least[p][k] < need {
                 fails.push((p, k));
             }
@@ -168,10 +189,45 @@ fn main() {
         }
         println!();
     }
-    let what = if amx { "below its target (t_p at debts 0, 1; ≥ 0 as leader by l ≥ 1)" } else { "with least margin < −1" };
+    let what = if targeted { "below its target (t_p at debts 0, 1; ≥ 0 as leader by l ≥ 1)" } else { "with least margin < −1" };
     println!("\nStarts {what}: {}", fails.len());
     for (p, k) in fails {
         let xs: Vec<u32> = (0..u).filter(|&b| example[p][k] >> b & 1 == 1).collect();
         println!("- p = {p}, start {k}: {xs:?}");
     }
+    interval_rows(&mut g, u / 2);
+}
+
+/// T1: least margin on {0..2p−1} as mover at debt d and as leader by d, d ≤ p + 1; misses against t_p.
+fn interval_rows(g: &mut Greedy, max_p: u32) {
+    const NONE: i64 = i64::MIN;
+    println!("
+Intervals {{0..2p−1}}: least margin as mover at debt d / as leader by d (t_p(d) in brackets)
+");
+    let mut misses = Vec::new();
+    for p in 1..=max_p {
+        let m = (1u32 << (2 * p)) - 1;
+        if g.rule == Rule::Amx {
+            g.memo.clear();
+        }
+        g.lows = 0x5555_5555 & m;
+        let mut row = format!("- p = {p}:");
+        for d in 0..=(p as i64 + 1) {
+            let t = if d <= p as i64 && d % 2 == p as i64 % 2 { 'D' } else if d == 0 { 'W' } else { 'L' };
+            let mover = g.margin(m, -d, true);
+            let leader = g.margin(m, d, false);
+            let (need_mover, need_leader) = match t {
+                'W' => (1, NONE),
+                'D' => (0, 0),
+                _ => (NONE, 1),
+            };
+            if mover < need_mover || leader < need_leader {
+                misses.push((p, d));
+            }
+            row += &format!(" {d}[{t}] {mover}/{leader};");
+        }
+        println!("{row}");
+    }
+    println!("
+Interval starts missing t_p: {} {:?}", misses.len(), misses);
 }
