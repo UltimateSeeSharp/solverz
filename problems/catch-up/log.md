@@ -1170,3 +1170,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A12: two of B64's templates fail.
 - **Meaning.** Intervals are LG's tight case and both templates break exactly there: a potential must value the small remainders exactly (as L7 does for two numbers), not by gaps. One template left in B64 (depth-weighted holes as in L23, or greedy-partition invariants); A12 meets its kill criterion if it fails too.
+
+### 2026-10-28: exact endgames do not make the gap potential inductive (A12, B64)
+
+- **Claim / question.** B64's third template: Φ_k = the exact loss when at most k numbers are left (provable endgames: L7 for k ≤ 2, Feng's thesis for 3–4), the gap γ(S ⊎ {d}) above. Does some small k make condition (L) hold everywhere?
+- **Approach.** `scratch/a12/potcheck.rs` with Φ = hybK, k = 2..6, all S ⊆ {1..12}, d ≤ 25.
+- **Outcome.** Valid everywhere, never self-supporting: (L) fails at 10,459 / 6,805 / 3,634 / 1,377 / 342 positions for k = 2..6, and every k first fails at the interval with k + 3 numbers ({1..9} at d = 3, 5, 7 for k = 6). After the trailer's move from an interval, the opponent's positions are intervals with one hole, where γ = 2 overstates the loss.
+- **Refuter.** Not run (negative).
+- **Literature.** Not searched.
+- **Metric.** A12: B64's three templates fail; A12's kill criterion is met (L37 itself stands, refuter running).
+- **Meaning.** Any potential built on gaps must value near-intervals exactly at the step from {1..n}, and their children have more holes (O5): the induction for LG at intervals carries the whole low phase. LG remains a clean conjecture (the loser never loses by more than the largest gap), with intervals as its tight case, but gives no proof route without a new idea for that step.
