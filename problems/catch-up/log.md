@@ -1220,3 +1220,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None.
 - **Meaning.** The obstacle is the lower potential at intervals, not the upper side.
+
+### 2026-10-28: drawn play in L36 balances upper elements, not pairs (A11, L36)
+
+- **Claim / question.** Is L36's drawing play "every pair split, plus a game for the upper elements"? Then L36 would reduce to a mirror on the integer level and a token game.
+- **Approach.** `scratch/a11/cellsplit.rs`: every drawing line of TD's first cell (both players keep the draw at every pick), end positions by unsplit pairs and by upper elements held; fam a and b, p = 2..8.
+- **Outcome.** Upper elements always end (⌈p/2⌉, ⌊p/2⌋) for (P1, P2), as a draw at generic ε requires. Pairs need not be split: all drawn lines split every pair only for fam a p ≤ 4 and fam b p = 2; from fam a p = 5 and fam b p = 3, drawn lines also end with 3–8 pairs taken whole by one player, balanced on the integer level (fam a p = 8: 120 all-split ends, 286 with 4 unsplit, 22 with 6; fam b p = 8: 140 all-split of 1,732).
+- **Refuter.** Not run (descriptive).
+- **Literature.** Not searched.
+- **Metric.** A11: unchanged.
+- **Meaning.** Drawing lines with every pair split always exist, but the opponent can steer into lines with whole pairs; L36 is not "mirror plus tokens" (consistent with the refuter's breaking of the mirror base).
