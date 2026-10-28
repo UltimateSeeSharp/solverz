@@ -1,6 +1,6 @@
 # State
 
-- **Stage:** Attack. Main line A10 (moving quadruples, from the review after 101 entries, 2026-10-28); A11 (twins to interval) opened then; A7 active; A8, A9 shelved. Overnight session 2026-10-28: [overnight/2026-10-28.md](overnight/2026-10-28.md) (previous: [2026-10-26](overnight/2026-10-26.md), merged).
+- **Stage:** Attack, **stalled** (two reviews in a row without the core difficulty moving; proposal under Awaiting review). Main line A11 (twins to interval, from the review after 107 entries, 2026-10-28); A7 active; A8, A9, A10 shelved. Overnight session 2026-10-28: [overnight/2026-10-28.md](overnight/2026-10-28.md) (previous: [2026-10-26](overnight/2026-10-26.md), merged).
 
 ## Where things stand
 
@@ -16,12 +16,12 @@
 
 ## Next step
 
-B63: list the near-tie positions where L35's value could change across a breakpoint, on the defender's c-uniform lines for N = 8, 11, 12; meanwhile the refuter on RPG (B60) and TD's piece counts (B61).
+A11: describe the t → 0+ strategy of TD (mirror plus the tie rule on unit tokens) and check it for p ≤ 12 (B61's second half); then its first interior crossing (fam a p = 6, t = 1/2) by hand.
 
 ## Awaiting review
 
-- **Main line moved to A10; A8 shelved** (review after 101 entries, 2026-10-28). A10 reduces L1 to L35 (sliding the top quadruple of {1..N} up never changes the value; exact to N = 20, refuter) plus L34 (far blocks only read the margin; refuter-checked), but no restricted strategy makes the quadruple's game independent of the shift (O18), so its units go to the value level (B63). A8's window of smallest numbers grows with N at every hand-over point. Revert if you disagree.
-- **Core difficulty did not move** at this review (the first under the new rule): tonight's gains are infrastructure (margins, L34) and negatives (O18, O19, window growth). The next units attack it directly (B63, B61, B60); if the next review also sees no movement, the problem is marked stalled here with a proposal.
+- **Main line moved to A11; A10 and A8 shelved** (reviews after 101 and 107 entries, 2026-10-28). A10 reduced L1 to L35 (sliding the top quadruple of {1..N} up never changes the value; exact to N = 20) plus L34 (far blocks only read the margin; refuter-checked), but no restricted strategy makes the shift harmless (O18) and near ties flip at its breakpoints (O20). A8's low window grows with N. A11 (pairs {x, x + t} from twins to the interval) has an explicit base and one strategy for all t to p = 6. Revert if you disagree.
+- **Stalled: proposal** (review after 107 entries, 2026-10-28; second review in a row without the core difficulty moving). Every route now meets the same object: the defender's play while the set is low, which works in every computed case (one strategy across a whole deformation, L35 to N = 16, TD to p = 6) but has no describable form, and every simple form tried fails (O16–O20, partner play loses by about N/3). Proposal: (a) bank what is solid, a write-up of the Lean-checked block theorems (`block_draw_hyb2`, awaiting your approval) and of L34 if its proof (B58) goes through; (b) give the conjecture one more angle, A11's base strategy and its first crossings by hand (B61 needs a better engine), then shelve it if that review again sees no movement; or (c) switch to another problem. The overnight run continues on (b).
 - **Statement to approve, if blocks are reported: `CatchUp.block_draw_hyb2`** (`lean/CatchUp/Hyb2.lean`; audited 2026-10-26). It supersedes `block_draw_linear` (below) and `block_draw_high`: the same statement with the height condition `2 * p - 1 ≤ a`.
   - Lean: `theorem block_draw_hyb2 {p a : ℕ} (hp : 1 ≤ p) (ha : 2 * p - 1 ≤ a) (s : ℕ) : valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false = .draw`
   - Plain reading: the 2p consecutive numbers a..a+2p−1 with a ≥ 2p − 1; the player to move has score s, the opponent s + (p mod 2); with perfect play the game ends level. For p even this is Catch-Up itself on the block (`value_block_draw_hyb2`; smallest case `value (Icc 3 6) = draw`).
@@ -45,10 +45,10 @@ B63: list the near-tie positions where L35's value could change across a breakpo
 
 ## Last review
 
-2026-10-28, after 101 log entries (8 since the previous review; overnight).
-- Core difficulty: did not move. Margins are the right currency for far blocks (L33, L34, refuter-checked), but nothing new controls play while the set is low.
-- A10: metric moved: L35 exact over all shifts to N = 20, real shifts to 16, one c-uniform strategy to 16; reduction simplified to L35 + L34. But the quadruple has no c-independent strategy (O18, ideator), and L35 needs the interval base (O19). Cost: 8 units. Made main; units go to its breakpoints (B63).
-- A8 (main until now): window grows with N at every hand-over (about N/4 at min ≥ 4·span); kill criterion met on the data; shelved. Cost: 1 unit.
-- A11 opened from the ideator: twins to interval, one strategy for all t up to p = 6.
-- A7, A9: no units. Backlog within 10 per line. Known checked 2026-10-26 (refuters and ideator tonight: no proof announced).
-- Ideator called for this review (fresh-idea unit, low phase).
+2026-10-28, after 107 log entries (6 since the previous review; overnight).
+- Core difficulty: did not move, second review in a row: problem marked stalled (Awaiting review). Value-level crossings flip (O20, also in TD); the c-uniform and t-uniform strategies have no short rule; bounded margins are not closed under play; pairing loses by about N/3.
+- A10 (main): kill criterion met (O18, O20), shelved; its reduction and L34 stand. Cost: 3 units.
+- A11: opened at the last review; flips rare, strategy not short, p = 9 out of reach for the cell engine; made main. Cost: 3 units; refuter on its data running.
+- A8 shelved last review; A7, A9: no units. Refuter on RPG (B60) running.
+- Backlog within 10 per line. Known checked 2026-10-26; refuters and ideators tonight found no announced proof.
+- Ideator called for this review.

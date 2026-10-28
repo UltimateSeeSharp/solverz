@@ -51,7 +51,7 @@ One folder per problem; one Lean project (one Mathlib) and one Rust workspace at
 
 | Problem | Stage | State |
 |---|---|---|
-| [Catch-Up conjecture](problems/catch-up/README.md): optimal play on {1..N} is a draw when 1 + … + N is even | Attack | [state.md](problems/catch-up/state.md) |
+| [Catch-Up conjecture](problems/catch-up/README.md): optimal play on {1..N} is a draw when 1 + … + N is even | Attack, stalled | [state.md](problems/catch-up/state.md) |
 | [Collatz](problems/collatz/README.md) | Shelved | — |
 
 - **Choosing a target**: surveys of [Erdős problems](research/selection/erdos.md) and [other formal-conjectures collections](research/selection/collections.md).
