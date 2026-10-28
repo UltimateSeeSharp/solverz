@@ -1020,3 +1020,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A10: unchanged (L34's proof plan, not a node change).
 - **Meaning.** L34 splits into "S-picks commute with ψ" (done on paper in L34's section) and "an early opening never beats playing last", where the opener's best case is bounded by the adjacent-pair game: a finite inequality between the low game with terminal row 1 − e and with ψ.
+
+### 2026-10-28: Const survives the refuter, exact to N = 20 (A10, B54)
+
+- **Claim / question.** B54: the refuter on the ideator's Const data, the far-spacing claim, A10's reduction and the one-strategy claim.
+- **Approach.** Refuter, claim mode, own engines (`scratch/refuter/a10/`: literal `valueAux` port reproducing A278587 for N = 3..20, a compact-memo engine for 23–24 numbers, a Python cross-check; `robust.rs` for one strategy over c, controlled by reproducing O17's split heights for p = 4).
+- **Outcome.** No non-draw anywhere. With k = 0 every comparison is j·c + b, |j| ≤ 4, |b| ≤ T(N), so the value is constant for c > T(N): L35 holds at every integer c for N ≤ 20, at c ∈ [61, 278] for N = 23, at 22 samples in [61, 301] for N = 24, and at every real c for N ≤ 16; the ideator's own runs had stopped below T(N) at N = 16, 23, 24. One defender strategy in both roles covers every integer c for N ≤ 16 (every real c at N = 8, 11, 12), and with far blocks for small cases. A large enough c gives exactly the canonical far set, so the far-spacing claim is not needed. Proves too much otherwise: with another base B the value moves with c (O19). Const with far blocks along A10's first chain holds at every c checked for N ≤ 20.
+- **Refuter.** SURVIVES (claim mode).
+- **Literature.** Refuter: A278587 and von Stengel's abstract opened (computation "may help in eventually finding an induction proof"); three searches, no proof, nothing on deformations or far blocks; arXiv 2508.00246 is another game.
+- **Metric.** A10: L35 exact to N = 20 over all integer c (was sampled to 24, unchecked).
+- **Meaning.** L35 is as solid as the data can make it at these sizes, it needs the interval base, and one c-uniform strategy exists; what is missing is a reason.
