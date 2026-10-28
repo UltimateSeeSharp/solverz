@@ -16,7 +16,7 @@
 
 ## Next step
 
-Your decision on the stall proposal (Awaiting review). Without it: the O21 verdict, then the review ideator's ideas.
+Your decision on the stall proposal (Awaiting review): bank (write-up outline in the log entry "review ideator: no untried angle reaches 3%"), shelve or switch, or ask an outside expert. No backlog item has an outcome that would change this; the overnight run paused here on 2026-10-28 after 130 log entries.
 
 ## Awaiting review
 
