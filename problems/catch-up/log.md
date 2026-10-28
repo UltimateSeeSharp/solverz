@@ -1070,3 +1070,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A11: unchanged (pieces 1 for p ≤ 6).
 - **Meaning.** TD's single strategy exists but, like L35's, is not "mirror plus a short exception": the exceptions depend on the exact integer lead, which is the low phase's change-making again.
+
+### 2026-10-28: bounded margin rows are not kept by optimal play (A2, A4)
+
+- **Claim / question.** Interval margin rows take only the values 0, ±1 at every deficit d ≤ N (N ≥ 6). Is F = {S : |m(S, d)| ≤ 1 for every d ≤ max S}, where the value is fixed by parity alone, a family closed under optimal play (a margin form of A2's invariant region)?
+- **Approach.** `scratch/a10/bounded.rs`: margin table on {1..16}; F by holes below max S; for every S ∈ F and d ≤ max S, whether some or every value-keeping pick leads into F.
+- **Outcome.** Every interval {1..N} with N ≠ 5 is in F (to 16). F by holes: 15/16, 87/120, 369/560, 977/1,820, 1,549/4,368, …, 11/11,440 at 8 holes, none beyond. Of 81,680 positions (S ∈ F, d ≤ max S), some optimal pick stays in F at 64,149 (79%), every optimal pick at 8,933.
+- **Refuter.** Not run (negative).
+- **Literature.** Not searched.
+- **Metric.** None (A2, A4 shelved).
+- **Meaning.** The margin form of "dense sets draw by parity" fails closure as O5 does for holes: at a fifth of the family's positions optimal play must leave it. Margins sharpen the far-block picture (L34) but give no invariant for the low phase.
