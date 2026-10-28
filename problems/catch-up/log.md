@@ -1140,3 +1140,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A11: unchanged.
 - **Meaning.** The first cell's play has a visible start (smallest pair, then an upper in the middle) but no uniform rule for the ε-behind player; fam b leaves wide choice. Not yet a proof idea for L36.
+
+### 2026-10-28: RPG survives only with grabs bounded as at c = 0; the quadruple negatives were overstated (A10, B60)
+
+- **Claim / question.** B60: the refuter on the ideator's RPG (the moving top pair: D reserves {n − 1, n}; when O takes one, D's next turn ends with the other after grabs that keep D behind), its claim that the game tree does not depend on c, its margins, and the negatives for the quadruple, nested pairs and close-at-once (log entry "ideator on the low phase").
+- **Approach.** Refuter, claim mode, own turn-level engine reproducing A278587 for n = 3..20 (`scratch/refuter/rpg/`), c swept over integers to 1000, sixths, and halves; the ideator's codes re-implemented.
+- **Outcome.** With "stay behind" read at the actual c the tree does depend on c: n = 6, D as P1: −1 at c = 0, +1 for every c > 0 tested; n = 9, 10, 13 change too (odd totals only; even totals never changed to n = 16). With grabs bounded as at c = 0 (grab total < a − d_O, as coded) the value is constant in c, D always has a legal move, and RPG meets the margin target in both roles for n ≤ 23 (0 at even totals, −1 at odd, except n = 5 as P1). Then L1(n) ⇐ RPG_∞(n) is valid but says nothing new: RPG_∞ and RPG_0 are the same tree. Quadruple: the −2 at N = 11 needs an unstated clause (D's lead after closing below the smallest quadruple number); as stated N = 11 draws, N = 12 fails only for c ≤ 1, N = 15, 16 fail at every c. With the literal grab rule D draws N = 15 (c ≥ 1) and 16 (c ≥ 2). `gtc.rs` checks grab-then-close, not close-at-once; true close-at-once on the top 2 pairs fails at n = 8, 12. Nested pairs and compat confirmed exactly.
+- **Refuter.** Claim 1 BROKEN as worded, SURVIVES as coded; claim 2 SURVIVES (n ≤ 23); claim 3 mostly confirmed, two details wrong (above).
+- **Literature.** Refuter: A278587 opened and reproduced; three searches, no proof, nothing on reserved-pair or deformation strategies.
+- **Metric.** A10: unchanged (shelved).
+- **Meaning.** Corrects the entry "ideator on the low phase": only about four restricted rules were tested, so "no restriction makes the quadruple's tree c-independent" is too strong; the tested ones fail, L35's c-uniform strategy remains undescribed. The top pair can be reserved exactly, which reduces nothing.
