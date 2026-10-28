@@ -950,3 +950,33 @@ Newest last. Entry format:
 - **Literature.** Ideator: three searches, seven sources opened; no proof or new result announced, nothing on deformations or far blocks.
 - **Metric.** A10: Const checked to N = 20 (c ≤ 400), unchecked.
 - **Meaning.** A10 is the first reduction of L1 to a deformation in which only four numbers move, with evidence that one strategy covers the whole deformation, which is exactly what O17 showed blocks lack. A8 gets a sharper question at its hand-over and a kill-criterion check.
+
+### 2026-10-28: Const holds at N = 19 with one far block (A10, B54)
+
+- **Claim / question.** B54, second part: does Const(19, 1) hold, i.e. is V({1..15} ∪ ({16..19} + c) ∪ E_1) at its parity gap a draw for every c? A non-draw kills A10.
+- **Approach.** `scratch/a10/deform_list.rs` (the ideator's `deform2.rs` with an explicit list of shifts; same memoized solver), c ∈ {0..10, 14, 20, 30, 45, 60, 90, 120, 180, 250, 400}; 7 min, 34M states; output `scratch/a10/deform_list-19-1.txt`. Sanity: N = 8, 12 small cases draw as before.
+- **Outcome.** Draw at every sampled c.
+- **Refuter.** Running, claim mode, on the ideator's Const data, the far-spacing claim, A10's reduction and the one-strategy claim (B54, first part).
+- **Literature.** Not searched.
+- **Metric.** A10: Const at k = 1 sampled to N = 19 (was 16), unchecked.
+- **Meaning.** No counterexample yet; the line stands until the refuter's verdict.
+
+### 2026-10-28: far blocks act as a margin tolerance; A10 needs only k = 0 (A10)
+
+- **Claim / question.** What do A10's far blocks do? Candidate MT: with m(S) the margin game's value at a tie (Catch-Up turns, payoff the final score difference, no early-loss rule), V(S ∪ E_k, 0) = draw iff |m(S)| ≤ 2k for every even-sum S. With the sign lemma V = sign(m), this would collapse A10's chain over k.
+- **Approach.** `scratch/a10/farblock.rs`: margin table over all subsets of {1..U}, Catch-Up value of S ∪ E_k by a memoized solver; every even-sum S ⊆ {1..13}, k = 0, 1, 2 (output `farblock-13-2.txt`). Margins at a tie on {1..N}, N ≤ 16, reproduce the signs of [results/values-n1-31.md](results/values-n1-31.md) (N = 9, 10, 14 losses, 13 a win; magnitudes 0 or 1).
+- **Outcome.** No mismatch in 4,095 sets × 3 values of k, including the three sets with m(S) = −2. FB (a drawn set stays drawn with one far 4-block) holds throughout. Consequence on paper: L1(N) ⇐ L1(N − 4) ∧ FB({1..N − 4}) ∧ Const(N, 0): for c large the moved quadruple is a far block over {1..N − 4}, which draws by L1(N − 4) and FB. So only Const at k = 0 is needed, and A6's Lemma B (the low game with the quadruple as final payoff) follows from L1(N − 4) once MT holds.
+- **Refuter.** Running, claim mode (MT, the sign lemma, the reduction).
+- **Literature.** Not searched (refuter searching).
+- **Metric.** A10: unchanged (a simplification, not a check of Const).
+- **Meaning.** Far blocks are a final payoff that only reads the margin; everything A10 needs beyond MT is Const(N, 0): sliding the top quadruple of {1..N} up never changes the value. A6's open half and A10 are the same question.
+
+### 2026-10-28: answering the quadruple at once loses; margin rows are not local (A10, A6, A1)
+
+- **Claim / question.** (1) Proof route for Const: if the defender D reserves the moved quadruple Q and answers every attacker pick in Q with its partner as the first pick of its next turn, the game tree is the same for every c (deficits change by ±1 per exchange), so a far-game strategy would transfer down to c = 0. Does that restricted D still draw? (2) A1 with margins: is v(S ∪ B, d), B a top block, a function of S's margin row near d?
+- **Approach.** (1) `scratch/a10/gamma.rs`: free game, A6's reservation (D takes from Q only to close an opened pair or when only Q is left), and strict reservation (that close comes first, while low numbers remain); N = 7, 8, 11, 12, 15, 16; c = 0, 1, 2, 3, 5, 8, 13, 40, 1000; both roles. Independent Python check at N = 7 (`strict_check.py`). A first version applied the strict rule also in the endgame and in the free game (all values −1); fixed. (2) `scratch/a10/mrows.rs`: S ⊆ {1..12}, B of length 2 or 4 at x = 13.., keys (x, d, v(S, d − w..d + w)), w ≤ 4, and the whole row.
+- **Outcome.** (1) Free and reservation games draw at every N and c in both roles; strict reservation loses everywhere, from N = 7. Line at c = 0, D second: A 1, D 2, A 4, D must close with 5 (leading 2), A 7, D 6, A 3: A wins by 2; unrestricted, D answers 4 with 3 (a tie) instead. In the far game the same D takes 3 then closes (a "grab"), which leads to a different position, so far-game play cannot be copied down by closing at once. (2) Undetermined keys: pairs 744 / 2,792 / 6,026 / 8,656 / 9,441 for w = 0..4 and 3,176 with the whole row; quadruples 876 to 9,161, and 1,323 with the whole row.
+- **Refuter.** Running, claim mode (both negatives).
+- **Literature.** Not searched.
+- **Metric.** None (negative).
+- **Meaning.** Const has no proof by a defender who treats the quadruple as untouchable and closes at once: low change answers to a quadruple pick are essential, at every c. And margins, which settle far blocks exactly (MT), do not make a near block local: O4 holds for margin rows too.
