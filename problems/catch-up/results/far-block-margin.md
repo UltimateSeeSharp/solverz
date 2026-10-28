@@ -1,0 +1,20 @@
+# Far 4-blocks act on margins by ψ^k (L34, position form)
+
+Do k far 4-blocks change every margin by a fixed map? E_k: blocks {x..x+3}, each above twice the total below it plus 10. Margin game m (L33); ψ(X) = X − 2·sign(X) for |X| ≥ 2, X for |X| ≤ 1. Claim checked: m(S ∪ E_k, d) = ψ^k(m(S, d)) for every S ⊆ {1..u}, 0 ≤ d ≤ u.
+
+- Date: 2026-10-28
+- Command: `far_block_margin 14 1`, `far_block_margin 10 2` (`./target/release/far_block_margin.exe`)
+- Commit: b490fec
+- Machine: AMD Ryzen 7 3700X, 32 GB RAM; rustc 1.99.1 (MSVC)
+- Runtime: 1 s and 4 s (up to 2.3 GB)
+- Checked: each run first reproduces `Solver` as sign(m) on {1..u} ∪ E_k for every S ⊆ {1..8}, d ≤ 8, blocks intact (0 mismatches); independently, the refuter's engine checked MT (the tie form, via L33) on all even-sum S ⊆ {1..16} for k ≤ 2 and the margin form on all S ⊆ {1..12} for k ≤ 1, {1..10} for k ≤ 2 (log 2026-10-28: margin tolerance and the two negatives survive the refuter)
+- Data: `scratch/far_block_margin-14-1.txt` SHA-256 `3d14dcd3f57d38ab11d90dbac5c34217bbcecf63911be4503367de6a74c28c9b`; `scratch/far_block_margin-10-2.txt` SHA-256 `9194529859ea6a42587f52b16b4d6aef2f0d2ada3f5802d64ac227cfbe5f6230`
+
+## Outcome
+
+| k | u | blocks at | (S, d) checked | failures |
+|---|---|---|---|---|
+| 1 | 14 | 220 | 245,760 | 0 |
+| 2 | 10 | 120, 1092 | 11,264 | 0 |
+
+With L33 this gives MT at ties: S ∪ E_k draws at its parity gap iff |m(S, 0)| ≤ 2k (even sums).

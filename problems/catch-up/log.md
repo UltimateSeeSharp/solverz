@@ -1300,3 +1300,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None (evidence made reproducible).
 - **Meaning.** The banking proposal's L37 note can cite a committed experiment and a results file.
+
+### 2026-10-28: L34's evidence recorded from committed code (A10)
+
+- **Claim / question.** As for L37: make L34's evidence (far 4-blocks act on margins by ψ^k) reproducible from committed code.
+- **Approach.** New experiment `far_block_margin` (commit b490fec): margin table over {1..u} ∪ E_k; checks sign(m) against `Solver` with the blocks intact on every S ⊆ {1..8}, then the position form m(S ∪ E_k, d) = ψ^k(m(S, d)) for every S ⊆ {1..u}, d ≤ u. Runs `far_block_margin 14 1` (1 s), `far_block_margin 10 2` (4 s, 2.3 GB).
+- **Outcome.** 0 mismatches with `Solver`; 0 failures of the position form in 245,760 (k = 1) and 11,264 (k = 2) cases ([results/far-block-margin.md](results/far-block-margin.md)).
+- **Refuter.** Not run again (the refuter's independent checks of 2026-10-28 are cited).
+- **Literature.** Not searched.
+- **Metric.** None (evidence made reproducible).
+- **Meaning.** Both refuter-checked conjectures of tonight that a write-up would cite, L34 and L37, now rest on committed experiments with results files.

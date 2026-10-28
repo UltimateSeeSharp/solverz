@@ -43,7 +43,7 @@ Verification chain (`cargo test --release`, CUDA tests with `--features cuda`): 
 | `hyb2_states` | Does the frugal switch (Hyb2, B30) keep the real game on blocks free of two-pick turns? Real game with Z on a rule (`am`, `hyb`, `hyb2`), Y perfect; `reach`: debts at round starts in the rounds game; `thresholds`: least height from which the rule draws | `cargo run --release -p catch-up --bin hyb2_states -- 9 hyb2 reach` (1 s) |
 | `two_ended_blocks` | Do two-ended menus draw even blocks (B35)? Defender restricted to the k smallest and k largest numbers left, opponent perfect; D's minimax margin in both roles per height (dense memo, a + 2p ≤ 64) | `cargo run --release -p catch-up --bin two_ended_blocks -- 10 10 20 4` (~2.5 min) |
 | `gap_bound` | Does the player to move never lose by more than the largest gap of the numbers left, its deficit counted as one (L37)? Margin game on every S ⊆ {1..u}, d ≤ dmax; first checks sign(m) against `Solver` (L33); also G at ties and the interval margins | `cargo run --release -p catch-up --bin gap_bound -- 22 22` (16 s, 0.4 GB) |
-| `far_block_margin` | Do k far 4-blocks act on margins by ψ^k (L34)? Position form m(S ∪ E_k, d) = ψ^k(m(S, d)) on every S ⊆ {1..u}, d ≤ u, after checking sign(m) against `Solver` with the blocks intact | `cargo run --release -p catch-up --bin far_block_margin -- 12 1` |
+| `far_block_margin` | Do k far 4-blocks act on margins by ψ^k (L34)? Position form m(S ∪ E_k, d) = ψ^k(m(S, d)) on every S ⊆ {1..u}, d ≤ u, after checking sign(m) against `Solver` with the blocks intact | `cargo run --release -p catch-up --bin far_block_margin -- 14 1` (1 s); `... -- 10 2` (4 s, 2.3 GB) |
 
 ## Recipes
 
