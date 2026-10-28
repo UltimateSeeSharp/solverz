@@ -1,6 +1,6 @@
 # State
 
-- **Stage:** Attack, **stalled** (two reviews in a row without the core difficulty moving; proposal under Awaiting review). Main line A11 (twins to interval, from the review after 107 entries, 2026-10-28); A7 active; A8, A9, A10 shelved. Overnight session 2026-10-28: [overnight/2026-10-28.md](overnight/2026-10-28.md) (previous: [2026-10-26](overnight/2026-10-26.md), merged).
+- **Stage:** Attack, **stalled** (since the review after 107 entries; proposal under Awaiting review). Main line A12 (gap bound, from the review after 113 entries, 2026-10-28); A11, A7 active; A8, A9, A10 shelved. Overnight session 2026-10-28: [overnight/2026-10-28.md](overnight/2026-10-28.md) (previous: [2026-10-26](overnight/2026-10-26.md), merged).
 
 ## Where things stand
 
@@ -16,12 +16,12 @@
 
 ## Next step
 
-Read the stall ideator's ideas (review after 107 entries) and the RPG verdict (B60); meanwhile study L36's optimal play for p ≤ 6 (which openings and replies draw, and how the upper-element count is managed).
+A12: refuter in claim mode on L37 and in proof mode on L38, L33 and the reductions; meanwhile B64's first template (greedy-partition invariants measured at ties) on all multisets within {1..12}.
 
 ## Awaiting review
 
-- **Main line moved to A11; A10 and A8 shelved** (reviews after 101 and 107 entries, 2026-10-28). A10 reduced L1 to L35 (sliding the top quadruple of {1..N} up never changes the value; exact to N = 20) plus L34 (far blocks only read the margin; refuter-checked), but the restricted shift-independent strategies tested fail (O18) and near ties flip at its breakpoints (O20). A8's low window grows with N. A11 (pairs {x, x + t} from twins to the interval) has an explicit base and one strategy for all t to p = 6. Revert if you disagree.
-- **Stalled: proposal** (review after 107 entries, 2026-10-28; second review in a row without the core difficulty moving). Every route now meets the same object: the defender's play while the set is low, which works in every computed case (one strategy across a whole deformation, L35 to N = 16, TD to p = 6) but has no describable form, and every simple form tried fails (O16–O20, partner play loses by about N/3). Proposal: (a) bank what is solid, a write-up of the Lean-checked block theorems (`block_draw_hyb2`, awaiting your approval) and of L34 if its proof (B58) goes through; (b) give the conjecture one more angle, A11's base strategy and its first crossings by hand (B61 needs a better engine), then shelve it if that review again sees no movement; or (c) switch to another problem. The overnight run continues on (b).
+- **Main line moved to A12; A10 and A8 shelved** (reviews after 101, 107 and 113 entries, 2026-10-28). A12: L1 follows from a gap bound at every position (L37: the player to move never loses by more than the largest gap of the numbers left, deficit included), which holds on about 140M positions and needs no family closed under play; open: a proof. A10 reduced L1 to L35 + L34, but its routes need an undescribed strategy (O18, O20). A11 (twins to interval) is solid as data to p = 10 but its base needs its own lemma (L36). Revert if you disagree.
+- **Stalled: proposal** (reviews after 107 and 113 entries, 2026-10-28). The defender's low play works in every computed case but has no describable form, and every simple form fails (O16–O20, pairing loses by about N/3, TD's single strategy has no short rule). Proposal: (a) bank what is solid: a write-up of the Lean-checked block theorems (`block_draw_hyb2`, awaiting your approval) and of L28, L30 with the margin form L38; (b) spend at most 3–4 more units on A12 (refuter on L37; a potential search, B64), and shelve the conjecture if L37 breaks or no potential closes; or (c) switch to another problem. The overnight run continues on (b).
 - **Statement to approve, if blocks are reported: `CatchUp.block_draw_hyb2`** (`lean/CatchUp/Hyb2.lean`; audited 2026-10-26). It supersedes `block_draw_linear` (below) and `block_draw_high`: the same statement with the height condition `2 * p - 1 ≤ a`.
   - Lean: `theorem block_draw_hyb2 {p a : ℕ} (hp : 1 ≤ p) (ha : 2 * p - 1 ≤ a) (s : ℕ) : valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false = .draw`
   - Plain reading: the 2p consecutive numbers a..a+2p−1 with a ≥ 2p − 1; the player to move has score s, the opponent s + (p mod 2); with perfect play the game ends level. For p even this is Catch-Up itself on the block (`value_block_draw_hyb2`; smallest case `value (Icc 3 6) = draw`).
@@ -45,10 +45,9 @@ Read the stall ideator's ideas (review after 107 entries) and the RPG verdict (B
 
 ## Last review
 
-2026-10-28, after 107 log entries (6 since the previous review; overnight).
-- Core difficulty: did not move, second review in a row: problem marked stalled (Awaiting review). Value-level crossings flip (O20, also in TD); the c-uniform and t-uniform strategies have no short rule; bounded margins are not closed under play; pairing loses by about N/3.
-- A10 (main): kill criterion met (O18, O20), shelved; its reduction and L34 stand. Cost: 3 units.
-- A11: opened at the last review; flips rare, strategy not short, p = 9 out of reach for the cell engine; made main. Cost: 3 units; refuter on its data running.
-- A8 shelved last review; A7, A9: no units. Refuter on RPG (B60) running.
-- Backlog within 10 per line. Known checked 2026-10-26; refuters and ideators tonight found no announced proof.
-- Ideator called for this review.
+2026-10-28, after 113 log entries (6 since the previous review; overnight).
+- Core difficulty: not moved yet; a new handle: L37 (A12), a bound at every position that implies L1 and avoids closure, open only in its proof. Problem stays marked stalled; the proposal now budgets 3–4 units for A12.
+- A11 (main): data solid to p = 10 (refuter), but its mirror base and token reduction broke; first cell is its own lemma (L36). Cost: 4 units. Stays active.
+- A12 opened from the ideator, made main. A10 (shelved): RPG survives only as coded; overstated negatives corrected.
+- O17's split points were search artefacts (corrected). Backlog within 10 per line. Known checked 2026-10-26; no proof announced (refuters, ideators tonight).
+- Ideator called for the previous review; its ideas are this review's input.
