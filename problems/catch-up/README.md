@@ -15,7 +15,7 @@ Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taki
 
 ## Core difficulty
 
-The low phase. On high sets (smallest number ≥ the spread) every turn is one pick, and even blocks there draw by a potential argument (L24, in Lean). {1..N} starts low: a turn can take several small numbers to make change, and the value depends on the whole set, not on local features. Every local rule, bounded invariant and single strategy tried for this phase fails as N grows (O4–O8, O11, O16, O17). A proof must control play while the set is low: an invariant the defender keeps while making change, or a reason the value cannot change as the set deforms into a high one.
+The low phase. On high sets (smallest number ≥ the spread) every turn is one pick, and even blocks there draw by a potential argument (L24, in Lean). {1..N} starts low: a turn can take several small numbers to make change, and the value depends on the whole set, not on local features. Every local rule, bounded invariant and single strategy tried for this phase fails as N grows (O4–O8, O11, O16, O17). A proof must control play while the set is low: an invariant the defender keeps while making change, or a reason the value cannot change as the set deforms into a high one. Sharpened (2026-10-28): after any opening of {1..N}, the opponent can make change with the bottom run {1..k} plus one number and leave a block with holes at height up to about √(2N); every route tried (closed families, potentials, deformations crossed breakpoint by breakpoint) fails there (O5, O20, O21). The strongest reformulation is L37: the player to move never loses by more than the largest gap of the numbers left (deficit included), which implies L1 and is tight exactly at intervals.
 
 ## Known
 
