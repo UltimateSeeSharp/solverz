@@ -1120,3 +1120,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None.
 - **Meaning.** One-sidedness does not rescue pairing: a leader must make change in the low phase just as a drawing player must.
+
+### 2026-10-28: TD's data survives the refuter to p = 10; its mirror base does not (A11)
+
+- **Claim / question.** The refuter on A11's evidence: TD draws for every t ∈ [0, 1]; one strategy for all t up to p = 6 and the piece counts at p = 7, 8; the sketch that mirror play reduces t → 0+ to Catch-Up on unit tokens.
+- **Approach.** Refuter, claim mode (`scratch/refuter/td/`): `tdref.rs` over intervals of t (asserting that no comparison changes sign inside a gap between fractions with denominator ≤ p + 1), a second engine on breakpoints, thirds of gaps and t = 10⁻⁶ … 1 − 10⁻⁶, and `tdlex.rs` for the exact t → 0+ limit; controls: A278587 to N = 16, O7, O9, O13, O17's counts for p = 3, 4, 5.
+- **Outcome.** Claim 1 SURVIVES and extends: draw at every t for both families, p ≤ 10; the bound s ≤ p + 1 is exact (largest t-coefficient p + 1 for odd p, p for even p). Claim 2 SURVIVES for the counts, but split points are artefacts of the greedy search's direction: fam a p = 8 searched upward gives one strategy on (0, 1) and t = 1 apart; the same holds for O17 (corrected there). In the cases that feed L1 (fam a with p even, fam b with p odd) the fewest pieces are 1 for p ≤ 7, 1 for fam b to p = 10, 2 for fam a at p = 8 and 10 (split near 2/3 at p = 10); the 3-piece cases are side cases. Claim 3 is BROKEN as a mechanism: completing the opponent's broken pair loses (8 rules, from p = 3 as P1, p = 4 as P2; e.g. fam a p = 2, P1 opening 3 + t loses by 2), and the limit game differs from unit-token Catch-Up at other deficits (fam a p = 2 at deficit ε; fam b p = 5 at a tie; 363 of 1,540 small cases), agreeing only at TD's own deficit.
+- **Refuter.** Split: claims 1, 2 SURVIVE (with the reading of split points corrected); claim 3 BROKEN.
+- **Literature.** Refuter: A278587 opened; two searches, nothing on twins, deformations or mirror strategies for Catch-Up; no proof announced.
+- **Metric.** A11: pieces in the relevant cases 1 for p ≤ 7 (both families) and fam b p ≤ 10; 2 for fam a p = 8, 10; data to p = 10.
+- **Meaning.** TD is solid as data and its strategies are nearly uniform in t, but its easy end is not easy: the first cell needs its own proof (no mirror, no token reduction). O17's claim that blocks need a strategy per integer band was an artefact of the search; only its counts stand.
