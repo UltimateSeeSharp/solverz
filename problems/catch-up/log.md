@@ -1310,3 +1310,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None (evidence made reproducible).
 - **Meaning.** Both refuter-checked conjectures of tonight that a write-up would cite, L34 and L37, now rest on committed experiments with results files.
+
+### 2026-10-28: L35's evidence recorded with the library's solver (A10)
+
+- **Claim / question.** As for L34 and L37: L35's evidence (sliding the top quadruple of {1..N} never changes the value) from committed code, here with the library's own verified `Solver`.
+- **Approach.** New experiment `slide_quad` (commit fd6e756): `Solver` on {1..N−4} ∪ ({N−3..N} + c) for every integer c ≤ T(N) + 1 (exact, the value is constant beyond T(N)), every even-total N; control: O19's base {5, 6, 7}, which must change value at c = 2. `slide_quad 20` in 65 s; `slide_quad 23 23` cut at 15 minutes without output (over budget).
+- **Outcome.** The control reproduces O19 (Draw, Draw, Win, Win); no non-draw for any N ≤ 20 and any shift ([results/slide-quad-n20.md](results/slide-quad-n20.md)).
+- **Refuter.** Not run again (an independent second engine for the refuter's exact range).
+- **Literature.** Not searched.
+- **Metric.** A10 (shelved): L35 exact to N = 20 now on two engines.
+- **Meaning.** The three refuter-checked conjectures of tonight a write-up would cite (L34, L35, L37) rest on committed experiments with results files.

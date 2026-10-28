@@ -44,7 +44,7 @@ Verification chain (`cargo test --release`, CUDA tests with `--features cuda`): 
 | `two_ended_blocks` | Do two-ended menus draw even blocks (B35)? Defender restricted to the k smallest and k largest numbers left, opponent perfect; D's minimax margin in both roles per height (dense memo, a + 2p ≤ 64) | `cargo run --release -p catch-up --bin two_ended_blocks -- 10 10 20 4` (~2.5 min) |
 | `gap_bound` | Does the player to move never lose by more than the largest gap of the numbers left, its deficit counted as one (L37)? Margin game on every S ⊆ {1..u}, d ≤ dmax; first checks sign(m) against `Solver` (L33); also G at ties and the interval margins | `cargo run --release -p catch-up --bin gap_bound -- 22 22` (16 s, 0.4 GB) |
 | `far_block_margin` | Do k far 4-blocks act on margins by ψ^k (L34)? Position form m(S ∪ E_k, d) = ψ^k(m(S, d)) on every S ⊆ {1..u}, d ≤ u, after checking sign(m) against `Solver` with the blocks intact | `cargo run --release -p catch-up --bin far_block_margin -- 14 1` (1 s); `... -- 10 2` (4 s, 2.3 GB) |
-| `slide_quad` | Does sliding the top quadruple of {1..N} up by c change the value (L35)? `Solver` at every integer c ≤ T(N) + 1 (exact: constant beyond T(N)); control: O19's base {5, 6, 7} changes value at c = 2 | `cargo run --release -p catch-up --bin slide_quad -- 16` |
+| `slide_quad` | Does sliding the top quadruple of {1..N} up by c change the value (L35)? `Solver` at every integer c ≤ T(N) + 1 (exact: constant beyond T(N)); control: O19's base {5, 6, 7} changes value at c = 2 | `cargo run --release -p catch-up --bin slide_quad -- 20` (65 s; N = 23 alone takes over 15 min) |
 
 ## Recipes
 
