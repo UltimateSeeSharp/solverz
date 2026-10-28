@@ -1190,3 +1190,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A12: unchanged (kill criterion already met).
 - **Meaning.** LG has no one-rule mechanism even in general position; its safe moves depend on the whole position, as the low phase's do. B65's full cell analysis is not worth running.
+
+### 2026-10-28: the sign lemma, the margin two-token lemma and LG's reductions survive proof mode (A12)
+
+- **Claim / question.** Proof mode on L33 (V = sign(m)), L38 (A(S, t) + A(S, y) ≥ 0 for openings of distinct values, with consequences (i), (ii)) and L37's reductions ((1) LG ⇒ G, (2) G ⇒ LG on multisets, (3) G({1..N}) ⇒ L1).
+- **Approach.** Refuter, proof mode (`scratch/refuter/l38/`): case lists; a line-by-line Python port of `valueAux` (flag, early loss, scores) against sign(m) on every subset of {0..11}, g from −2 to sum + 3; multisets over {1..6} and {1..8}; all S ⊆ {1..18} for L38 and G; 20,000 random sets and multisets.
+- **Outcome.** All SURVIVE, with wording fixes applied in the blueprint: L33 now mentions the opening flag and multisets; L37 states γ(∅) = 0 and treats d = 0 in (2) separately. A limit: L38 (ii)'s hypothesis (two distinct safe openings) fails on some multisets with repeats where G still holds ({2, 2, 5, 5}: γ = 3, A(2) = 0, A(5) = 4; 12 multisets over {1..8}), so G on multisets cannot come from (ii) alone; no set without repeats lacks two safe openings (all within {1..18}, 20,000 random). The margin parity m ≡ sum + g (mod 2) holds over all plays.
+- **Refuter.** Proof mode: L33 SURVIVES, L38 SURVIVES, L37's reductions SURVIVE.
+- **Literature.** Refuter: two searches, only the README's sources; nothing on margins, gap bounds or a two-token argument; the MPRA PDF had no readable text.
+- **Metric.** A12: L33, L38 to `paper proof`.
+- **Meaning.** The frame of A12 is sound: L1 follows from L37 by checked arguments, and L38 halves the work at sets. The open part is L37 itself, whose potential route failed at intervals (log: exact endgames do not make the gap potential inductive).
