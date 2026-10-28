@@ -1250,3 +1250,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A7: the descent below 2p − 1 has no short rule; B44's test fails.
 - **Meaning.** The block strategy below Hyb2's height needs a refined cost condition that grows with p, the change-making of the low phase again; as planned, A7's descent is shelved at the next review.
+
+### 2026-10-28: no literature on differencing games with a catch-up turn rule (A12, literature)
+
+- **Claim / question.** Catch-Up as differencing (a pick x replaces the deficit d and x by |d − x|) is the Karmarkar–Karp step restricted to the current deficit. Is there theory on two-player or adversarial differencing / partitioning games, ideally with a bound on the final discrepancy in terms of gaps, that could prove L37?
+- **Approach.** Web searches: adversarial or two-player Karmarkar–Karp differencing with a gap bound; two-player number partitioning where numbers go to the lighter side; picking games where the player behind moves until ahead. Opened arXiv 1803.02621.
+- **Outcome.** Nothing on such a game. Results cover one-player partitioning (Karmarkar–Karp differencing, LDM/PDM, random-instance analyses: arXiv 2103.01369, 2505.20607, 2309.15115), the Balancer–Unbalancer discrepancy game (Wikipedia, a different game), arXiv 2504.16752 (a leader–follower knapsack game, different), and arXiv 1803.02621 (CUT partition games: heap splitting under normal play, unrelated). The greedy "largest to the lighter side" heuristic is known as a one-player method only.
+- **Refuter.** Not run (literature).
+- **Literature.** As above; nothing usable.
+- **Metric.** None.
+- **Meaning.** L37's game version appears to be unstudied; its proof would need new arguments.
