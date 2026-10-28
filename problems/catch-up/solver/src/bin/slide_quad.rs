@@ -1,4 +1,4 @@
-//! Usage: slide_quad <n_max>
+//! Usage: slide_quad <n_max> [n_min]
 //! Does sliding the top quadruple of {1..N} up change the value (L35)? For every N ≤ n_max with an even total, the
 //! value of {1..N−4} ∪ ({N−3..N} + c) from `Solver` at every integer c from 0 to T(N) + 1, T(N) = 1 + … + N. Every
 //! comparison in the game is j·c + b with |j| ≤ 4 and |b| ≤ T(N), so the value is constant for c > T(N): the range is
@@ -14,12 +14,13 @@ const CONTROL_SHIFTS: [u64; 4] = [0, 1, 2, 3];
 
 fn main() {
     let n_max: u64 = std::env::args().nth(1).expect("n_max").parse().expect("integer");
+    let n_min: u64 = std::env::args().nth(2).map_or(QUADRUPLE, |a| a.parse().expect("integer"));
     let control: Vec<Outcome> = CONTROL_SHIFTS.iter().map(|&c| {
         let top = *CONTROL_BASE.last().unwrap();
         let numbers: Vec<u64> = CONTROL_BASE.iter().copied().chain((1..=QUADRUPLE).map(|t| top + t + c)).collect();
         Solver::new(&numbers).value() }).collect();
     println!("control (O19): {{5,6,7}} ∪ ({{8..11}} + c) for c = {CONTROL_SHIFTS:?}: {control:?} (expected Draw, Draw, Win, Win)");
-    for n in QUADRUPLE..=n_max {
+    for n in n_min.max(QUADRUPLE)..=n_max {
         let total = n * (n + 1) / 2;
         if total % 2 != 0 {
             continue;
