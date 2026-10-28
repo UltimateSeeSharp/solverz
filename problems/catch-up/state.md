@@ -1,6 +1,6 @@
 # State
 
-- **Stage:** Attack, **stalled** (since the review after 107 entries; proposal under Awaiting review). Main line A12 (gap bound, from the review after 113 entries, 2026-10-28); A11, A7 active; A8, A9, A10 shelved. Overnight session 2026-10-28: [overnight/2026-10-28.md](overnight/2026-10-28.md) (previous: [2026-10-26](overnight/2026-10-26.md), merged).
+- **Stage:** Attack, **stalled** (since the review after 107 entries; proposal under Awaiting review). Main line A11 (twins to interval, again from the review after 120 entries, 2026-10-28); A7 active; A8, A9, A10, A12 shelved. Overnight session 2026-10-28: [overnight/2026-10-28.md](overnight/2026-10-28.md) (previous: [2026-10-26](overnight/2026-10-26.md), merged).
 
 ## Where things stand
 
@@ -16,12 +16,12 @@
 
 ## Next step
 
-A12: refuter in claim mode on L37 and in proof mode on L38, L33 and the reductions; meanwhile B64's first template (greedy-partition invariants measured at ties) on all multisets within {1..12}.
+Read the review ideator's ideas (review after 120 entries) and pick by them; otherwise A11: L36's first cell, the exact role of the upper-element count in fam a's drawing play for p ≤ 8.
 
 ## Awaiting review
 
-- **Main line moved to A12; A10 and A8 shelved** (reviews after 101, 107 and 113 entries, 2026-10-28). A12: L1 follows from a gap bound at every position (L37: the player to move never loses by more than the largest gap of the numbers left, deficit included), which holds on about 140M positions and needs no family closed under play; open: a proof. A10 reduced L1 to L35 + L34, but its routes need an undescribed strategy (O18, O20). A11 (twins to interval) is solid as data to p = 10 but its base needs its own lemma (L36). Revert if you disagree.
-- **Stalled: proposal** (reviews after 107 and 113 entries, 2026-10-28). The defender's low play works in every computed case but has no describable form, and every simple form fails (O16–O20, pairing loses by about N/3, TD's single strategy has no short rule). Proposal: (a) bank what is solid: a write-up of the Lean-checked block theorems (`block_draw_hyb2`, awaiting your approval) and of L28, L30 with the margin form L38; (b) spend at most 3–4 more units on A12 (refuter on L37; a potential search, B64), and shelve the conjecture if L37 breaks or no potential closes; or (c) switch to another problem. The overnight run continues on (b).
+- **Main line A11; A8, A10, A12 shelved** (reviews after 101, 107, 113 and 120 entries, 2026-10-28). A12 gave the cleanest reduction found so far: L1 follows, by refuter-checked steps (L33, L38 at `paper proof`), from L37, a gap bound at every position (the player to move never loses by more than the largest gap of the numbers left, deficit included), which survives ~80 billion positions; but every potential tried for it fails exactly at the intervals, where it is tight. A10 (L35 + L34) needs an undescribed strategy (O18, O20). A11 is main by elimination. Revert if you disagree.
+- **Stalled: proposal** (reviews after 107, 113 and 120 entries, 2026-10-28; three reviews without the core difficulty moving). Every route ends at the defender's play while the set is low: it exists in every computed case, even uniformly across deformations, but has no describable form, and no potential captures it at the intervals. Proposal: (a) bank what is solid: a write-up of the Lean-checked block theorems (`block_draw_hyb2`, awaiting your approval), and, if you want it shared, a note on L37 (a new, heavily tested conjecture that implies L1, with L33, L38 proved on paper); (b) is spent (A12's budget used: L37 holds, its potentials fail); (c) shelve the conjecture or switch to another problem. The overnight run continues on the core meanwhile.
 - **Statement to approve, if blocks are reported: `CatchUp.block_draw_hyb2`** (`lean/CatchUp/Hyb2.lean`; audited 2026-10-26). It supersedes `block_draw_linear` (below) and `block_draw_high`: the same statement with the height condition `2 * p - 1 ≤ a`.
   - Lean: `theorem block_draw_hyb2 {p a : ℕ} (hp : 1 ≤ p) (ha : 2 * p - 1 ≤ a) (s : ℕ) : valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false = .draw`
   - Plain reading: the 2p consecutive numbers a..a+2p−1 with a ≥ 2p − 1; the player to move has score s, the opponent s + (p mod 2); with perfect play the game ends level. For p even this is Catch-Up itself on the block (`value_block_draw_hyb2`; smallest case `value (Icc 3 6) = draw`).
@@ -45,9 +45,9 @@ A12: refuter in claim mode on L37 and in proof mode on L38, L33 and the reductio
 
 ## Last review
 
-2026-10-28, after 113 log entries (6 since the previous review; overnight).
-- Core difficulty: not moved yet; a new handle: L37 (A12), a bound at every position that implies L1 and avoids closure, open only in its proof. Problem stays marked stalled; the proposal now budgets 3–4 units for A12.
-- A11 (main): data solid to p = 10 (refuter), but its mirror base and token reduction broke; first cell is its own lemma (L36). Cost: 4 units. Stays active.
-- A12 opened from the ideator, made main. A10 (shelved): RPG survives only as coded; overstated negatives corrected.
-- O17's split points were search artefacts (corrected). Backlog within 10 per line. Known checked 2026-10-26; no proof announced (refuters, ideators tonight).
-- Ideator called for the previous review; its ideas are this review's input.
+2026-10-28, after 120 log entries (7 since the previous review; overnight).
+- Core difficulty: did not move (third review in a row); problem stays stalled, proposal updated: (b) is spent.
+- A12 (main): metric moved as evidence (L37 survives ~80G positions; L33, L38 to `paper proof`; reductions survive proof mode), but three potential templates fail at intervals: kill criterion met, shelved; L37 stays a conjecture node. Cost: 7 units.
+- A11: made main again by elimination; its data is solid to p = 10, its base L36 open.
+- A7: no units. Backlog within 10 per line. Known checked 2026-10-26; refuters and ideators tonight found no announced proof.
+- Ideator called for this review.
