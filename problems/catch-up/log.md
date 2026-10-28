@@ -1110,3 +1110,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A11: the base cell holds to p = 11 (full range to p = 8, unchecked).
 - **Meaning.** The base of A11 is a lemma about twins with an infinitesimal tie-break; it is not true for all bases, so like L35 (O19) it must use the structure of the odd or even numbers.
+
+### 2026-10-28: a pairing leader loses L31's one-sided starts too (A3, L31)
+
+- **Claim / question.** L31(b) needs only one role, the leader one point ahead on {2..N} and on {3..N}, not to lose. Does a pairing leader (forced partner replies, otherwise perfect) manage that, where pairing failed for the full draw (log 2026-10-28: pairing defenders lose by a margin growing with N)?
+- **Approach.** `scratch/a10/pairmargin.rs` with an `l31` mode (set {lo..N}, the mover trailing by 1, D the leader); pairs aligned or from the top ({N, N−1}, …, the natural pairing of these sets). A first run added the starting lead twice (the free game showed +1); fixed, the free game now gives 0 at both starts for every N, as known.
+- **Outcome.** Pairs from the top: the leader's final margin on {2..N} / {3..N} is −2/0 (N = 4), −2/−2 (7), −2/0 (8), −4/−4 (11, 12), −6/−6 (15), −4/−6 (16), −8/−6 (19), −6/−8 (20). Aligned pairs are worse (to −18 at N = 19).
+- **Refuter.** Not run (negative; the free game reproduces L29's draws).
+- **Literature.** Not searched.
+- **Metric.** None.
+- **Meaning.** One-sidedness does not rescue pairing: a leader must make change in the low phase just as a drawing player must.
