@@ -1080,3 +1080,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None (A2, A4 shelved).
 - **Meaning.** The margin form of "dense sets draw by parity" fails closure as O5 does for holes: at a fifth of the family's positions optimal play must leave it. Margins sharpen the far-block picture (L34) but give no invariant for the low phase.
+
+### 2026-10-28: pairing defenders lose by a margin growing with N (A3, new angle)
+
+- **Claim / question.** A quantitative relaxation of L1: does an explicit pairing defender keep the final margin above a constant −C for every N? Then "the loser loses by at most C" would be a provable-looking partial theorem with the gap to the draw isolated. O6 says forced partner replies lose; by how much?
+- **Approach.** `scratch/a10/pairmargin.rs`: margin game on {1..N}, even totals N ≤ 20; when the attacker's turn ends on y and y's partner is left, the defender's next turn starts with it; its other picks are optimal (best margin); pairs aligned {2j−1, 2j} or from the top {N, N−1}, {N−2, N−3}, ….
+- **Outcome.** Aligned pairs: D as P2 loses by 2, 0, 6, 2, 10, 4, 14, 6 at N = 3, 4, 7, 8, 11, 12, 15, 16 (as P1 0, 0, 2, 2, 4, 4, 8, 4). Pairs from the top: 0, 0, 2, 2, 2, 4, 4, 4–6, 6, 6–8 at N = 3..20 (both roles). Free game: 0 throughout.
+- **Refuter.** Not run (negative; the free game reproduces the known draws).
+- **Literature.** Not searched.
+- **Metric.** None.
+- **Meaning.** Forced partner replies cost about N/3 even with otherwise perfect play, so a bounded-loss theorem cannot come from pairing; any explicit strategy with bounded loss must already make change in the low phase, the core difficulty itself.
