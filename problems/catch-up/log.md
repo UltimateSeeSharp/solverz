@@ -1050,3 +1050,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A10: B63's strong form fails; L35 unchanged.
 - **Meaning.** The value-level route needs the defender to steer around flipping near ties, which is the c-uniform strategy again, the object with no c-independent form (O18). Both of A10's routes now rest on the same undescribed strategy; the same test applies to L32's and A11's breakpoints (B53), where it would decide whether those homotopies can be crossed locally.
+
+### 2026-10-28: TD's interior crossings flip too, rarely (A11, B53)
+
+- **Claim / question.** O20's test on A11: do near-tie picks on optimal lines of TD(p, t) keep their value across interior breakpoints t* ∈ (0, 1)? If they always do, TD crosses locally where L35 does not, a reason to prefer A11.
+- **Approach.** `scratch/a11/tdcrit.rs` (numbers scaled by 100·lcm(1..p+1), t = t* ± one unit; every optimal line; swapped node on the other side), fam a and b, p = 2..6 (seconds).
+- **Outcome.** Interior breakpoints with near-tie picks on optimal lines are rare (fam a p = 6: t* = 1/2 only; none for p ≤ 5 or fam b p = 6), and at t* = 1/2 for fam a p = 6, 2 of 15 swapped nodes change value (just below t*). The other flips are at t* = 0 and 1, where the test compares with t outside [0, 1] and says nothing about TD.
+- **Refuter.** Not run (scratch; another refuter is checking TD's data).
+- **Literature.** Not searched.
+- **Metric.** A11: unchanged.
+- **Meaning.** B53's strong lemma fails on TD as on L35 (O20), so A11 cannot cross its breakpoints locally either; its single strategy for p ≤ 6 steers around the flips. TD's remaining advantages are its explicit base (mirror at t → 0+) and few interior near ties.
