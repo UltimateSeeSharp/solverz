@@ -1040,3 +1040,13 @@ Newest last. Entry format:
 - **Literature.** Ideator: two searches; only the known sources (A278587, von Stengel, MPRA, Feng, Eastaway's blog); no proof announced.
 - **Metric.** A10: none (a structural negative for its strategy route); new line A11.
 - **Meaning.** A10's strategy route closes at the quadruple: no restriction makes the quadruple's tree c-independent (with O18). What remains of A10 is value-level (breakpoints of L35, as B53) or one level only (RPG for the top pair). TD is the first deformation whose easy end has an explicit strategy (mirror) rather than high blocks.
+
+### 2026-10-28: near ties on optimal lines flip across L35's breakpoints (A10, B63)
+
+- **Claim / question.** B63: can L35 be proved breakpoint by breakpoint? Crossing c* swaps the two continuations of a near-tie pick (picker a hair behind and moving on, or a hair ahead and handing over), which leave the same numbers R with the roles swapped; if every near-tie pick on optimal lines leads to a draw on both sides of c*, no crossing changes the value (B53's lemma on this family).
+- **Approach.** `scratch/a10/crit.rs`: numbers scaled by 1200, c = c* ± 1/1200 for every c* ∈ (1/12)ℤ up to T(N); every node on optimal lines (both players keep the value) from the root; near-tie picks are those with |lead| ≤ 4 scaled units, lead ≠ 0; for each, the swapped node's value on the other side of c*. N = 8, 11, 12 (seconds). A first version only checked the node on its own side, which is a draw on any optimal line from a drawn root: vacuous, replaced.
+- **Outcome.** Near-tie picks on optimal lines occur only at integer c* (one quadruple number of imbalance): 1, 7, 10 such breakpoints for N = 8, 11, 12, hundreds of picks each. Their swapped nodes are draws except at 1 breakpoint for N = 11 (c* = 1, 12 picks) and 4 for N = 12 (c* = 1, 2, 3, …), all just below c*; there the swapped node is a win or a loss for the picker (O20).
+- **Refuter.** Not run (negative; the flipping nodes are listed with `SHOW=1` and the root stays a draw on both sides, as the refuter's exact values require).
+- **Literature.** Not searched.
+- **Metric.** A10: B63's strong form fails; L35 unchanged.
+- **Meaning.** The value-level route needs the defender to steer around flipping near ties, which is the c-uniform strategy again, the object with no c-independent form (O18). Both of A10's routes now rest on the same undescribed strategy; the same test applies to L32's and A11's breakpoints (B53), where it would decide whether those homotopies can be crossed locally.
