@@ -1210,3 +1210,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: A278587 and Eastaway's blog opened (signs and cases only); searches on margins of victory in Catch-Up, adversarial differencing or partitioning games with a gap bound, and 2026 proofs found nothing.
 - **Metric.** A12: L37 checked on every S ⊆ {1..27} and ~80G positions.
 - **Meaning.** L37 is as solid a conjecture as computation can make it, it implies L1 by checked arguments (L33, L37's reductions), and it is tight exactly at the intervals; what it lacks is a proof, and the gap-based potentials fail there.
+
+### 2026-10-28: an upper companion to LG holds, but cannot close the induction (A12)
+
+- **Claim / question.** LG's induction failed because the opponent's side was valued too pessimistically. Is there a natural two-sided bound to pair with it? Candidate: m(S, d) ≤ max(γ(S ⊎ {d}), sum(S) − d) (a trailer gains beyond a gap only by collecting small numbers).
+- **Approach.** `scratch/a12/lgcheck.rs`, every S ⊆ {1..14}, d ≤ 20.
+- **Outcome.** No violation (the plain two-sided form m ≤ γ fails, e.g. {1, 3} at d = 2 wins by 2). It cannot rescue Φ = γ: `potcheck.rs` already used the least upper potential Ψ* that Φ allows, and any valid upper bound is at least Ψ*, so condition (L) fails at least where it did.
+- **Refuter.** Not run (a side fact; no use for it yet).
+- **Literature.** Not searched.
+- **Metric.** None.
+- **Meaning.** The obstacle is the lower potential at intervals, not the upper side.
