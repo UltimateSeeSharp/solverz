@@ -1100,3 +1100,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A11: no explicit base strategy beyond t = 0.
 - **Meaning.** Exact twins draw by a recursive mirror on the top pair (the twins fact of 2026-10-22), not by answering every pick with its partner; at t > 0 an infinitesimal tie-break on upper elements adds a token game. A11's base is therefore itself a lemma to prove, "twins with an infinitesimal tie-break draw" (the first cell), before any crossing.
+
+### 2026-10-28: TD's first cell draws to p = 11; twins with a tie-break fail on sparse bases (A11)
+
+- **Claim / question.** A11's base as a lemma: do pairs {x, x + t}, t infinitesimal (first cell), draw with the mover trailing by t·(|B| mod 2), for TD's bases (odd or even numbers) and for every base set B?
+- **Approach.** `scratch/a11/twineps.rs`: t = 1/(2|B| + 2) (t-parts never outweigh an integer), memoized solver; every B ⊆ {1..14} with |B| ≤ 6; TD's bases to the largest p that runs in a minute.
+- **Outcome.** TD: draw for fam a p ≤ 11 (31M states, 35 s) and fam b p ≤ 10. General B: draw for all |B| ≤ 4; 3 of 2,002 fail at |B| = 5 and 9 of 3,003 at |B| = 6, all with a sparse high core ({7,8,10,11,12} and {7,8,10,11,13}: mover loses; adding 1, 2 or 3 below gives a mover win).
+- **Refuter.** Not run (the TD data is with a refuter; this extends it in one cell only).
+- **Literature.** Not searched.
+- **Metric.** A11: the base cell holds to p = 11 (full range to p = 8, unchecked).
+- **Meaning.** The base of A11 is a lemma about twins with an infinitesimal tie-break; it is not true for all bases, so like L35 (O19) it must use the structure of the odd or even numbers.
