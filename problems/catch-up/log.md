@@ -1260,3 +1260,13 @@ Newest last. Entry format:
 - **Literature.** As above; nothing usable.
 - **Metric.** None.
 - **Meaning.** L37's game version appears to be unstudied; its proof would need new arguments.
+
+### 2026-10-28: L36 is not a token game on a fixed tree (A11, L36)
+
+- **Claim / question.** The review ideator's idea 3: in L36's first cell the integer level dominates, so both players keep the exact-twins game drawn, and the upper-element tokens only decide who moves after an integer tie. If the integer-drawing moves at every position are the same under every rule for an exact catch-up, L36 is a token game on one fixed tree.
+- **Approach.** `scratch/a11/tietree.rs`: exact twins of TD's bases under four tie rules (the turn passes; the catcher moves on; player 1 or player 2 chooses); every position on drawing lines of any rule; drawing-move sets compared; fam a p ≤ 7, fam b p ≤ 6.
+- **Outcome.** Twins draw under all four rules (as the ideator found), but the drawing-move sets differ at 10 of 54 positions (fam a p = 4), 72 / 286 (5), 526 / 1,264 (6), 2,722 / 5,140 (7), and in fam b from p = 2 (2,721 of 3,695 at p = 6). Example: fam a, left {3, 3, 5, 5, 7, 7, 9, 9, 11, 11} at a tie with P2 to move: drawing moves {3, 5, 9} (turn passes), {3, 5} (catcher moves on), {3, 5, 9, 11} (P2 chooses).
+- **Refuter.** Not run (negative).
+- **Literature.** Not searched.
+- **Metric.** A11: unchanged.
+- **Meaning.** In L36 the tokens and the integer play are entangled from p = 4; no reduction to a token game. The ideator's three ideas are now all tested.
