@@ -1000,3 +1000,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A10: Const in band form (every draw-parity deficit d ≤ M) to M = 16, c ≤ 30, unchecked.
 - **Meaning.** Margins carry the far quadruple exactly, at every position: a candidate lemma (MT+) with a proof by induction on S, where only early openings need an argument. Const strengthens to a band: {1..M} with any quadruple above draws at every draw-parity deficit up to M, a richer hypothesis for an induction. Position-wise the band fails on sparse sets, so any proof must use density along play (as L4, O5).
+
+### 2026-10-28: margin tolerance and the two negatives survive the refuter (A10)
+
+- **Claim / question.** The refuter's verdict on the entries "far blocks act as a margin tolerance" and "answering the quadruple at once loses; margin rows are not local": the sign lemma, MT, the reduction to Const(N, 0), strict reservation, margin rows.
+- **Approach.** Refuter, claim mode, own engines (`scratch/refuter/mt/`: `mt.rs`, `res.rs`, `mrows2.rs`, `pyrow.py`).
+- **Outcome.** All five survive. MT: no mismatch on all even-sum S ⊆ {1..16} (k ≤ 2) and {1..17} (k = 1), k ≤ 4 on {1..13}, random sparse and large-element sets, other gaps and spacings; it needs sum + g even (odd: V = sign(m), unchanged); spacing x ≥ (total below) − 6 suffices on {1..13}; the margin form m(S ∪ E_k, g) = sign(m)·max(|m| − 2k, |m| mod 2) holds (ψ^k). Reduction valid, FB checked for M ≤ 17 (all subsets) and M = 19, 20; caveat: at c = 0 Const(N, 0) is L1(N), so the reduction helps only via a proof uniform in c; the k ≥ 1 form H(M, k) is ill-defined (collisions with far blocks). Strict reservation genuinely loses; closing within the next turn after low grabs loses too at N = 12 (c ≤ 1) and N = 15, 16 (c ≤ 2). Margin rows: my "whole row" counts were partly a cut-off artefact (rows differing past deficit 16); with full rows and the sum as key 49 pair and 29 quadruple keys stay undetermined, e.g. S = {1,2,3,4,5,9} vs {1,2,4,8,9} under {13..16} at d = 7: win vs loss.
+- **Refuter.** SURVIVES (claim mode), with the corrections above.
+- **Literature.** Refuter, three searches (margin version of Catch-Up; far or large numbers, thresholds, tempo; scoring games and Milnor's universe): nothing on Catch-Up margins or far-block thresholds; opened arXiv 1505.01907 and 1303.4275, not relevant.
+- **Metric.** A10: L34 refuter-checked (all even-sum S ⊆ {1..16}); new nodes L33, L34, L35 (conjectures); O18.
+- **Meaning.** The far end of A10 is solid: far blocks only read the margin, so A10 is exactly L35 plus a proof of L34. L35 must be proved uniformly in c, and by a defender that answers quadruple openings with low change (O18).
