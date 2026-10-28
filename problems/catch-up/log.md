@@ -1160,3 +1160,13 @@ Newest last. Entry format:
 - **Literature.** Ideator: two searches on Catch-Up (nothing new), arXiv 2005.06326 (cumulative games, nothing on this), adversarial number partitioning (nothing on this game); the max-gap bound for greedy partitioning is its own derivation.
 - **Metric.** New line A12: L37 checked to every S ⊆ {1..22} (ideator), {1..20} (mine).
 - **Meaning.** The first statement on the table that needs no family closed under play: a bound at every position, tight exactly at the intervals. Its open part is a potential, the kind of object that worked for high sets (W, L23).
+
+### 2026-10-28: two potential templates for LG fail exactly at intervals (A12, B64)
+
+- **Claim / question.** B64: does LG (L37) follow by induction from a simple potential? Two templates: (1) the gap itself, Φ = γ(S ⊎ {d}), as the trailer's lower potential, with the least upper potential Ψ* it allows (the mover's best when every hand-over is valued at the opponent's guarantee −Φ); (2) measuring only at ties: from a tie on S, the player to move (lower half) or the other (upper half) steers so that the next tie S' has γ(S') ≤ γ(S), or the game ends within γ(S).
+- **Approach.** `scratch/a12/lgcheck.rs` (also: two-sided LG, and a one-player step keeping γ), `potcheck.rs` (Φ = γ against condition (L): some move to a child with Φ no higher, or a hand-over with Ψ* no higher), `tietie.rs` (tie-to-tie DP with the threshold as a state); all sets S ⊆ {1..12} or {1..14}, deficits to 20–26; the exact potential −m passes `potcheck` as a control.
+- **Outcome.** Two-sided LG is false (S = {1, 3}, d = 2: the mover wins by 2 > γ = 1, taking 1 then 3), and a pick keeping the gap need not exist (S = {2, 3}, d = 1). (1) Φ = γ is a valid bound (never below the true loss) but not self-supporting: (L) fails at 14,736 of 106,470 positions, among them {1, 2, 3, 4} at a tie; there γ overstates a child's loss (({3, 4}, 1): γ = 2, true loss 0). (2) Tie to tie fails at 127 (lower half) and 186 (upper half) of 4,095 tie roots within {1..12}, among them {1..7}.
+- **Refuter.** Not run (negative; the control passes).
+- **Literature.** Not searched.
+- **Metric.** A12: two of B64's templates fail.
+- **Meaning.** Intervals are LG's tight case and both templates break exactly there: a potential must value the small remainders exactly (as L7 does for two numbers), not by gaps. One template left in B64 (depth-weighted holes as in L23, or greedy-partition invariants); A12 meets its kill criterion if it fails too.
