@@ -1200,3 +1200,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: two searches, only the README's sources; nothing on margins, gap bounds or a two-token argument; the MPRA PDF had no readable text.
 - **Metric.** A12: L33, L38 to `paper proof`.
 - **Meaning.** The frame of A12 is sound: L1 follows from L37 by checked arguments, and L38 halves the work at sets. The open part is L37 itself, whose potential route failed at intervals (log: exact endgames do not make the gap potential inductive).
+
+### 2026-10-28: the gap bound survives the refuter on 80 billion positions (A12)
+
+- **Claim / question.** The refuter in claim mode on L37 (LG: m(S, d) ≥ −γ(S ⊎ {d}) for every multiset S and d) and its tie form G, plus the ideator's evidence.
+- **Approach.** Refuter (`scratch/refuter/lg/`): a parallel dense engine over all sub-multisets of a root and all deficits, matched against a naive solver (688K values), a sparse memo solver and a Python solver; signs reproduce A278587 (N = 3..20) and our table (21..27); targeted families and hill-climbing.
+- **Outcome.** SURVIVES: 0 violations in about 80 billion positions (every S ⊆ {1..27}, d ≤ 27; high-multiplicity multisets; large deficits; one big gap between dense parts; O10 translated and doubled; O7's whole five-pair family and its sub-positions; two-scale compositions; perturbations of tight cases; hill-climbing: distinct-value sets peak at ratio 0.974; generic values to 10⁶). Intervals: |m| = 1 at odd totals N = 21, 22, 25, 26, m = 0 at 23, 24, 27, and m({1..N}, d) ≥ −1 for every d ≤ N ≤ 27. Corrections: ({a, b, a + b}, d = a) is tight only when a < b ≤ 2a; the ideator's O7-core check never ran as described, and its generic-tie check tested only G's lower half; the refuter covered both.
+- **Refuter.** Claim mode: SURVIVES.
+- **Literature.** Refuter: A278587 and Eastaway's blog opened (signs and cases only); searches on margins of victory in Catch-Up, adversarial differencing or partitioning games with a gap bound, and 2026 proofs found nothing.
+- **Metric.** A12: L37 checked on every S ⊆ {1..27} and ~80G positions.
+- **Meaning.** L37 is as solid a conjecture as computation can make it, it implies L1 by checked arguments (L33, L37's reductions), and it is tight exactly at the intervals; what it lacks is a proof, and the gap-based potentials fail there.
