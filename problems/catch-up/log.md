@@ -1240,3 +1240,13 @@ Newest last. Entry format:
 - **Literature.** Ideator: Catch-Up proofs, arXiv 2025–2026, von Stengel's talk, trailer-picks games with gap bounds: only known sources; the AtCoder AGC056 D editorial opened (an alternating |X| game with a joint-induction closed form, same shape as L14, L20; does not transfer); arXiv 1808.06922 is a different "catch-up" rule.
 - **Metric.** A12: none (route closed). A7: B44 promoted.
 - **Meaning.** Every route meets the same object, blocks with holes at low height after a change-making reply; no potential that only reads gaps can see it. The honest options are banking and shelving, with B44 the one concrete theorem-level item left.
+
+### 2026-10-28: below Hyb2's height the block strategy has no short amendment (A7, B44)
+
+- **Claim / question.** B44, the first rung every route needs (review ideator): on blocks {h..h+2p−1} at debt p mod 2 with h in [p + 2.2, 4p], where does the one strategy for all heights leave Hyb2, and is the difference a short rule ("Hyb3")? Test as planned: at most three describable differences that keep every block drawn → a W-type potential next; otherwise shelve A7's descent.
+- **Approach.** `scratch/a7/b44.rs` (the ideator's universal-strategy search over 24–32 generic heights, plus a walk preferring Hyb2's pick); `scratch/a7/hyb3.rs` (rules as full strategies against a perfect opponent at every integer height p + 2..2p + 2, p ≤ 7): Hyb2, and Hyb2 amended to take the smallest number when continuing its own turn, when no pick meets the matching cost, or after a two-pick reply.
+- **Outcome.** One strategy covers every sampled height in both roles for p = 4, 5, 6. It leaves Hyb2 at 5 / 3 decisions (p = 4, P1 / P2), 9 / 13 (p = 5), 78 / 100 (p = 6) of a few thousand (1–2%); Hyb2's pick never depends on h; most deviations take the smallest number with a small lead where Hyb2 demands a lead of at least the matching cost (p = 5, a = 8, after 17 | 9, 13: the strategy takes 8 with lead 2, Hyb2 takes 11 with lead 5), and at p = 6 P1 opens offset 7 instead of 11. Hyb2 as a full rule loses exactly at a < 2p − 1 (p = 7: a = 9..12), reproducing L24's tightness. All three amendments lose at every height tested, high ones included.
+- **Refuter.** Not run (negative; Hyb2's baseline reproduces L24).
+- **Literature.** Not searched.
+- **Metric.** A7: the descent below 2p − 1 has no short rule; B44's test fails.
+- **Meaning.** The block strategy below Hyb2's height needs a refined cost condition that grows with p, the change-making of the low phase again; as planned, A7's descent is shelved at the next review.
