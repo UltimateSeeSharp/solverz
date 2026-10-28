@@ -1,0 +1,22 @@
+# Least window of smallest numbers before Hyb2, N ≤ 24
+
+How many of its smallest numbers does a defender D need while the set is low, if Hyb2 takes over once min ≥ t·span (span = max − min)? Real Catch-Up on {1..N}, even totals, both roles, perfect opponent; D picks among its k smallest numbers left while min < t·span, then plays Hyb2 (as in [low-high-hyb2-n24.md](low-high-hyb2-n24.md)). Least k with a draw in both roles, per N (A8, B57).
+
+- Date: 2026-10-28
+- Command: `low_high 24 <k> <t> 1 h` for t = 1: k = 4, 5, 6, 7, 9, 10, 11; t = 2: k = 3, 4, 5, 6, 7, 10; t = 3, 4: k = 3, 4, 5, 6 (`./target/release/low_high.exe`); k = 8, 12 at t = 1 from [low-high-hyb2-n24.md](low-high-hyb2-n24.md)
+- Commit: a8a9b7b (`low_high.rs` unchanged since)
+- Machine: AMD Ryzen 7 3700X, 32 GB RAM; rustc 1.99.1 (MSVC)
+- Runtime: under 1 s to 201 s per run
+- Checked: unchecked beyond `low_high`'s own checks ([low-high-n24.md](low-high-n24.md))
+- Data: `scratch/a8/low_high-window*-24.txt` (21 files), SHA-256 of their concatenation (t = 1 by k; `window2-7`, `window2-10` (t = 2); then `th2`, `th3`, `th4` by k) `95f031c7375295ec5267adba73ed5d1e0e7ea681f19ee451a29705f4b0d7dd63`
+
+## Outcome
+
+| Hyb2 from | N ≤ 8 | 11 | 12 | 15 | 16 | 19 | 20 | 23 | 24 |
+|---|---|---|---|---|---|---|---|---|---|
+| min ≥ span | ≤ 4 | ≤ 4 | ≤ 4 | 5 | 5 | 6 | 7 | 10 | 12 |
+| min ≥ 2·span | 3 | 4 | 4 | 4 | 5 | 6 | 6 | 6 | 7 |
+| min ≥ 3·span | ≤ 4 | ≤ 4 | ≤ 4 | ≤ 4 | ≤ 4 | 6 | 6 | 6 | ≥ 7 |
+| min ≥ 4·span | 3 | 4 | 4 | 4 | 4 | 5 | 6 | 6 | 6 |
+
+With the hand-over at min ≥ span the window grows to about N/2; handed over later it stays near N/4 (6 at N = 24 for t = 4). No fixed window works for every N ≤ 24 at any t tested.

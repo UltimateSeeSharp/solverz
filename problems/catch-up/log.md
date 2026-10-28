@@ -980,3 +980,23 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None (negative).
 - **Meaning.** Const has no proof by a defender who treats the quadruple as untouchable and closes at once: low change answers to a quadruple pick are essential, at every c. And margins, which settle far blocks exactly (MT), do not make a near block local: O4 holds for margin rows too.
+
+### 2026-10-28: the defender's low window grows like N/4 to N/2 (A8, B57)
+
+- **Claim / question.** B57, A8's kill-criterion check: is there a fixed k such that D, playing among its k smallest numbers while the set is low and Hyb2 once high, draws every even-total N? A k growing with N at every hand-over threshold meets A8's first kill criterion.
+- **Approach.** `low_high` at hand-over thresholds min ≥ t·span, t = 1, 2, 3, 4, various k, N ≤ 24 ([results/low-high-window-n24.md](results/low-high-window-n24.md)).
+- **Outcome.** Least k by N: at t = 1 it grows to 12 at N = 24 (about N/2); at t = 2 to 7; at t = 4 it is 3, 4, 5, 6 for N ≤ 8, 11–16, 19, 20–24 (about N/4). No fixed k holds at any t.
+- **Refuter.** Not run (a search over an existing, checked engine; negative for fixed windows).
+- **Literature.** Not searched.
+- **Metric.** A8: "largest N for which (ii) holds with a fixed k": k = 6 to N = 24 at t = 4, but every fixed k fails beyond some N ≤ 24 at t ≤ 2.
+- **Meaning.** A8's kill criterion holds in its letter for fixed windows, but a late hand-over (t = 4) keeps the window near a quarter of the numbers, which is still a real restriction. A8's low phase, if it exists in describable form, is "the bottom quarter until the set is four times its spread above zero", not a bounded menu.
+
+### 2026-10-28: a far quadruple acts on every margin by one map; near ones do on interval rows (A10)
+
+- **Claim / question.** Is MT exact at the level of positions? MT+: for every S below a far quadruple Q and every deficit d, m(S ∪ Q, d) = ψ(m(S, d)), ψ(X) = X − 2·sign(X) for |X| ≥ 2, X for |X| ≤ 1 (the quadruple played last from the low game's final margin). And for a near quadruple: does {1..M} ∪ Q_c satisfy the same identity at every deficit, every c?
+- **Approach.** `scratch/a10/mtplus.rs` (every S ⊆ {1..10}, d ≤ 10; Q at 120; also a far pair); `rowconst.rs` (M ≤ 16, c ≤ 30, d ≤ M); `nearq.rs` (every S ⊆ {1..12}, Q at x ∈ (max S, 19], d ≤ max S), all entries and draw-parity entries (m(S, d) even) only.
+- **Outcome.** MT+ holds at all 11,264 (S, d) for the quadruple. For a far pair it fails at 598, all where the low game ends level and ψ would need to know who moves next; the quadruple's own row is 0 at a tie, so it does not care. ψ is monotone on each parity class, so playing the quadruple last commutes with optimal play; the content of MT+ is that opening it early never helps. Near quadruple on intervals: the identity fails only at odd-margin entries (a ±1 win or loss changes sign with c), never at draw-parity entries, for every M ≤ 16, c ≤ 30, d ≤ M; there the entries are 0 for M ≥ 6 (M = 5: row value 2 at d = 3, 5 becomes 0). On all subsets of {1..12} at draw-parity entries: every interval and every set with ≥ 10 numbers is shift-invariant; by holes below max S: 12/12, 62/66, 169/220, 273/495, … sets for 0, 1, 2, 3 holes, the few-hole failures at large deficits ({1,4,5} at x = 8, d = 4).
+- **Refuter.** Not yet (MT is with the refuter; MT+ and the band form go next).
+- **Literature.** Not searched.
+- **Metric.** A10: Const in band form (every draw-parity deficit d ≤ M) to M = 16, c ≤ 30, unchecked.
+- **Meaning.** Margins carry the far quadruple exactly, at every position: a candidate lemma (MT+) with a proof by induction on S, where only early openings need an argument. Const strengthens to a band: {1..M} with any quadruple above draws at every draw-parity deficit up to M, a richer hypothesis for an induction. Position-wise the band fails on sparse sets, so any proof must use density along play (as L4, O5).
