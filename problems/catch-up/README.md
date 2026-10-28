@@ -13,6 +13,10 @@ Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taki
 - Explicit: prove `CatchUp.Conjecture` in Lean, or find a counterexample.
 - Implicit: understand why perfect play draws (a describable drawing strategy or invariant); reusable Lean lemmas about the game (parity law, endgames); an exact solver that pushes the computational frontier (published: N = 28).
 
+## Core difficulty
+
+The low phase. On high sets (smallest number ≥ the spread) every turn is one pick, and even blocks there draw by a potential argument (L24, in Lean). {1..N} starts low: a turn can take several small numbers to make change, and the value depends on the whole set, not on local features. Every local rule, bounded invariant and single strategy tried for this phase fails as N grows (O4–O8, O11, O16, O17). A proof must control play while the set is low: an invariant the defender keeps while making change, or a reason the value cannot change as the set deforms into a high one.
+
 ## Known
 
 - Exhaustive search to N = 28: von Stengel, talk abstract, CGT Colloquium III, Lisbon 2019 ([ludicum.org/?p=4151](https://ludicum.org/?p=4151)). No paper, code or data found.
