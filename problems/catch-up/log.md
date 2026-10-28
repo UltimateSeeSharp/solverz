@@ -1290,3 +1290,13 @@ Newest last. Entry format:
 - **Literature.** Ideator: three searches (trailer-picks games with a gap bound, Catch-Up proofs, balancing games where the lighter side picks): only Feng's thesis and unrelated games (Shasha's seesaw game, arXiv 2409.01796); the CACM page returned 403.
 - **Metric.** None.
 - **Meaning.** The ideators of three rounds agree: bank, then shelve or switch, unless outside expertise is brought in.
+
+### 2026-10-28: L37's evidence recorded from committed code (A12)
+
+- **Claim / question.** L37's evidence lived only in git-ignored scratch code. Make it reproducible: an experiment in the solver crate that reproduces known values first, and a results file.
+- **Approach.** New experiment `gap_bound` (solver/src/bin, commit bb97bca): margin table over every subset of {1..u} and deficit ≤ dmax; checks sign(m) against `Solver` on every S ⊆ {1..12} (L33), then LG, G and the interval margins. Run `gap_bound 22 22`, 16 s.
+- **Outcome.** 0 mismatches with `Solver`; 0 violations of LG in 96,468,992 positions and of G at every tie; tight at 356 positions; interval margins 0 at even totals and ±1 at odd totals for N ≤ 22 ([results/gap-bound-u22.md](results/gap-bound-u22.md)).
+- **Refuter.** Not run again (the refuter's independent engine covers {1..27}; cited as the check).
+- **Literature.** Not searched.
+- **Metric.** None (evidence made reproducible).
+- **Meaning.** The banking proposal's L37 note can cite a committed experiment and a results file.

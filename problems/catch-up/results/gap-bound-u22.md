@@ -1,0 +1,18 @@
+# Gap bound (L37) on every subset of {1..22}
+
+Does the player to move never lose by more than the largest gap of the numbers left, its deficit counted as one more number? Margin game m(S, d) (L33), γ(W) = the largest gap of sorted W ∪ {0}; LG: m(S, d) ≥ −γ(S ⊎ {d}); G: |m(S, 0)| ≤ γ(S).
+
+- Date: 2026-10-28
+- Command: `gap_bound 22 22` (`./target/release/gap_bound.exe`)
+- Commit: bb97bca
+- Machine: AMD Ryzen 7 3700X, 32 GB RAM; rustc 1.99.1 (MSVC)
+- Runtime: 16 s, 0.4 GB
+- Checked: the experiment first reproduces `Solver` as sign(m) on every S ⊆ {1..12}, d ≤ 12 (0 mismatches); independently, the refuter's engine (`scratch/refuter/lg/mse.rs`, matched against three other solvers) found no violation in about 80 billion positions, every S ⊆ {1..27}, d ≤ 27 included (log 2026-10-28: the gap bound survives the refuter)
+- Data: `scratch/gap_bound-22-22.txt`, SHA-256 `8a663dc536616e6c6c281367e172f91335bf2d5d340a624137128dba9495506b`
+
+## Outcome
+
+- LG: 0 violations in 96,468,992 positions (every S ⊆ {1..22}, 0 ≤ d ≤ 22).
+- G at every tie: 0 violations.
+- Tight (m = −γ) at 356 nonempty positions; at ties exactly {1..9}, {1..10}, {1..14}, {1..18}, {2, 4, …, 18} and their kin listed by the refuter.
+- m({1..N}, 0) for N = 1..22: +1 +1 0 0 +1 +1 0 0 −1 −1 0 0 +1 −1 0 0 +1 −1 0 0 +1 +1, matching the signs in [values-n1-31.md](values-n1-31.md); 0 at every even total, ±1 at every odd one.
