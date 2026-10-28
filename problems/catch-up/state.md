@@ -45,10 +45,9 @@ Your decision on the stall proposal (Awaiting review). Without it: the O21 verdi
 
 ## Last review
 
-2026-10-28, after 125 log entries (5 since the previous review; overnight).
-- Core difficulty: did not move (fourth review in a row); stalled, proposal unchanged (bank, then shelve or switch).
-- A7: B44 failed its test (block strategy below Hyb2's height leaves it at 1–2% of decisions, no short amendment); shelved. Cost: 1 unit.
-- A11 (main, the only active line): L36 balances upper elements, not pairs, and is not a token game on a fixed tree. Cost: 2 units.
-- A12 (shelved): candidate O21 with the refuter. Literature: nothing on differencing games with a catch-up rule.
-- Backlog within 10 per line. Known checked 2026-10-28 (literature unit).
-- Ideator called for this review.
+2026-10-28, after 130 log entries (5 since the previous review; overnight).
+- Core difficulty: did not move (fifth review in a row); stalled, proposal unchanged.
+- O21 survived proof mode (no gap potential certifies LG at intervals); the review ideator found no untried angle worth 3% and outlined a write-up (log).
+- L34, L35, L37 now rest on committed experiments with results files (`far_block_margin`, `slide_quad`, `gap_bound`).
+- Lines unchanged: A11 the only active line. Backlog within 10 per line. Known checked 2026-10-28.
+- Ideator not called again: its answer of the review after 125 entries is current and nothing new came in since.
