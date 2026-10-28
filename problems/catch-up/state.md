@@ -1,6 +1,6 @@
 # State
 
-- **Stage:** Attack, **stalled** (since the review after 107 entries; proposal under Awaiting review). Main line A11 (twins to interval, again from the review after 120 entries, 2026-10-28); A7 active; A8, A9, A10, A12 shelved. Overnight session 2026-10-28: [overnight/2026-10-28.md](overnight/2026-10-28.md) (previous: [2026-10-26](overnight/2026-10-26.md), merged).
+- **Stage:** Attack, **stalled** (since the review after 107 entries; proposal under Awaiting review). Main line A11 (twins to interval, the only active line); A7, A8, A9, A10, A12 shelved. Overnight session 2026-10-28: [overnight/2026-10-28.md](overnight/2026-10-28.md) (previous: [2026-10-26](overnight/2026-10-26.md), merged).
 
 ## Where things stand
 
@@ -16,7 +16,7 @@
 
 ## Next step
 
-B44: extract the height-free block strategy on [p + 2.2, 4p] for p = 5, 6 and compare it with Hyb2T; at most three describable differences that keep every block with p ≤ 8 drawn → one more unit for a W-type potential; otherwise shelve A7's descent.
+Your decision on the stall proposal (Awaiting review). Without it: the O21 verdict, then the review ideator's ideas.
 
 ## Awaiting review
 
@@ -45,9 +45,10 @@ B44: extract the height-free block strategy on [p + 2.2, 4p] for p = 5, 6 and co
 
 ## Last review
 
-2026-10-28, after 120 log entries (7 since the previous review; overnight).
-- Core difficulty: did not move (third review in a row); problem stays stalled, proposal updated: (b) is spent.
-- A12 (main): metric moved as evidence (L37 survives ~80G positions; L33, L38 to `paper proof`; reductions survive proof mode), but three potential templates fail at intervals: kill criterion met, shelved; L37 stays a conjecture node. Cost: 7 units.
-- A11: made main again by elimination; its data is solid to p = 10, its base L36 open.
-- A7: no units. Backlog within 10 per line. Known checked 2026-10-26; refuters and ideators tonight found no announced proof.
+2026-10-28, after 125 log entries (5 since the previous review; overnight).
+- Core difficulty: did not move (fourth review in a row); stalled, proposal unchanged (bank, then shelve or switch).
+- A7: B44 failed its test (block strategy below Hyb2's height leaves it at 1–2% of decisions, no short amendment); shelved. Cost: 1 unit.
+- A11 (main, the only active line): L36 balances upper elements, not pairs, and is not a token game on a fixed tree. Cost: 2 units.
+- A12 (shelved): candidate O21 with the refuter. Literature: nothing on differencing games with a catch-up rule.
+- Backlog within 10 per line. Known checked 2026-10-28 (literature unit).
 - Ideator called for this review.
