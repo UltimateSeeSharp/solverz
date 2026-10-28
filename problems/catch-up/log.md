@@ -1130,3 +1130,13 @@ Newest last. Entry format:
 - **Literature.** Refuter: A278587 opened; two searches, nothing on twins, deformations or mirror strategies for Catch-Up; no proof announced.
 - **Metric.** A11: pieces in the relevant cases 1 for p ≤ 7 (both families) and fam b p ≤ 10; 2 for fam a p = 8, 10; data to p = 10.
 - **Meaning.** TD is solid as data and its strategies are nearly uniform in t, but its easy end is not easy: the first cell needs its own proof (no mirror, no token reduction). O17's claim that blocks need a strategy per integer band was an artefact of the search; only its counts stand.
+
+### 2026-10-28: L36's drawing play opens the smallest pair, then uppers (A11, L36)
+
+- **Claim / question.** How do players draw TD's first cell (L36)? Which openings and replies keep the draw, and how is the count of upper elements handled?
+- **Approach.** `scratch/a11/cellplay.rs`: the lexicographic game (values x·K + s, K = 2p + 2), every drawing move along drawing lines to a given depth; fam a p = 4, 6; fam b p = 5.
+- **Outcome.** Fam a (p = 4, 6): P1's only drawing openings are 1 and 1 + ε; P2's only drawing reply completes the pair; the player then behind by ε must open with an upper element of a middle pair (3 + ε or 5 + ε; never the smallest intact pair, never the top). Later decisions of a player behind by exactly ε are mostly the top upper element (11 + ε in 16 of 30 cases at p = 6). Fam b p = 5 (mover trailing by ε): many drawing moves at every node (P1: 2, 2 + ε, 4 + ε; P2's replies to 2: 2 + ε, 4, 6, 8, 10 + ε).
+- **Refuter.** Not run (descriptive, scratch).
+- **Literature.** Not searched.
+- **Metric.** A11: unchanged.
+- **Meaning.** The first cell's play has a visible start (smallest pair, then an upper in the middle) but no uniform rule for the ε-behind player; fam b leaves wide choice. Not yet a proof idea for L36.
