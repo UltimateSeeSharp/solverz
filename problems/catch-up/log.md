@@ -1180,3 +1180,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A12: B64's three templates fail; A12's kill criterion is met (L37 itself stands, refuter running).
 - **Meaning.** Any potential built on gaps must value near-intervals exactly at the step from {1..n}, and their children have more holes (O5): the induction for LG at intervals carries the whole low phase. LG remains a clean conjecture (the loser never loses by more than the largest gap), with intervals as its tight case, but gives no proof route without a new idea for that step.
+
+### 2026-10-28: no simple move rule meets LG even on generic positions (A12, B65)
+
+- **Claim / question.** B65, light: on generic positions (no accidental ties), is some simple move always LG-safe (value ≥ −γ(S ⊎ {d}))? If so, LG's difficulty would sit in degenerate positions such as intervals.
+- **Approach.** `scratch/a12/lggeneric.rs`: 20,000 random positions, |S| = 3..7, values up to 10⁶, d up to 1.2·10⁶ (seed 7); exact margin by memoized search; rules: min, max, smallest x ≥ d, largest x < d (else smallest ≥ d), nearest to d, least overshoot.
+- **Outcome.** LG holds at all 20,000 and every position has a safe move. Every rule fails somewhere: largest below d 1.6%, min 2.4%, nearest 5.6%, smallest ≥ d and least overshoot 10.3%, max 13.8%.
+- **Refuter.** Not run (negative).
+- **Literature.** Not searched.
+- **Metric.** A12: unchanged (kill criterion already met).
+- **Meaning.** LG has no one-rule mechanism even in general position; its safe moves depend on the whole position, as the low phase's do. B65's full cell analysis is not worth running.
