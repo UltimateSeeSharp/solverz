@@ -1010,3 +1010,13 @@ Newest last. Entry format:
 - **Literature.** Refuter, three searches (margin version of Catch-Up; far or large numbers, thresholds, tempo; scoring games and Milnor's universe): nothing on Catch-Up margins or far-block thresholds; opened arXiv 1505.01907 and 1303.4275, not relevant.
 - **Metric.** A10: L34 refuter-checked (all even-sum S ⊆ {1..16}); new nodes L33, L34, L35 (conjectures); O18.
 - **Meaning.** The far end of A10 is solid: far blocks only read the margin, so A10 is exactly L35 plus a proof of L34. L35 must be proved uniformly in c, and by a defender that answers quadruple openings with low change (O18).
+
+### 2026-10-28: far adjacent pairs and far quadruples are played last (A10, B58)
+
+- **Claim / question.** B58, first step toward L34 on paper: is a far block optimally left for last at every position, i.e. m(S ∪ B, d) = t_B(S, d), the low game on S whose terminal payoff (mover trailing by e when S runs out) is B's own row m(B, e)?
+- **Approach.** `scratch/a10/lastplay.rs`: every S ⊆ {1..11}, d ≤ 11, B at a = 142: {a, a + 1}, {a, a + 2}, {a, a + 3}, {a..a + 3}.
+- **Outcome.** Exact for the adjacent pair (row 1 − e) and the quadruple (row 0, −1, 0, −1, −2, …): 0 of 24,576 positions differ. Not for pairs with a gap of 2 or 3 (1,527 and 4,160 differ; early openings matter there). After an early opening of the quadruple, the replier can always take a number that leaves an adjacent pair ({a, a + 1}, {a + 1, a + 2} or {a + 2, a + 3}), so an induction for L34 can use the adjacent-pair case for what follows an opening.
+- **Refuter.** Not run (to go with B58's proof).
+- **Literature.** Not searched.
+- **Metric.** A10: unchanged (L34's proof plan, not a node change).
+- **Meaning.** L34 splits into "S-picks commute with ψ" (done on paper in L34's section) and "an early opening never beats playing last", where the opener's best case is bounded by the adjacent-pair game: a finite inequality between the low game with terminal row 1 − e and with ψ.
