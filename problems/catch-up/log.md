@@ -1060,3 +1060,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A11: unchanged.
 - **Meaning.** B53's strong lemma fails on TD as on L35 (O20), so A11 cannot cross its breakpoints locally either; its single strategy for p ≤ 6 steers around the flips. TD's remaining advantages are its explicit base (mirror at t → 0+) and few interior near ties.
+
+### 2026-10-28: TD's single strategy leaves partner play without a simple rule (A11)
+
+- **Claim / question.** A11's base is mirror play (answer with the partner). Is TD's single strategy over all t "partner, except under a short condition"? A short condition would be a describable drawing strategy for {1..2p}.
+- **Approach.** `scratch/a11/tdstrat.rs` (the cell engine plus a walk of Z's strategy over all cells, preferring the partner of the opponent's last pick, else the smallest drawing number); fam a, p = 2, 4, 6. Features at every decision where the partner is available (`tdfeat-a-*.csv`): uppers held by each player, kind and rank of the opponent's pick, intact pairs, the lead's t-part and integer part, numbers left; search over single thresholds and pairs of them for a condition covering every partner failure.
+- **Outcome.** p = 6: one strategy for all of (0, 1] in both roles (P1 needs the exact twins point t = 0 apart); P2's walk: partner 6,370, deviations from an available partner 472 (5%), own-turn continuations 1,066, no partner 1,001. Deviations look like token management (Z stops taking upper elements once it holds p/2 of them), but failures spread over many feature cells with 10–40% failure each; the best one or two thresholds covering all failures also flag 5,246 of 6,370 good partner answers. At p = 4, 28 of 416.
+- **Refuter.** Not run (negative; the cell engine is with the refuter).
+- **Literature.** Not searched.
+- **Metric.** A11: unchanged (pieces 1 for p ≤ 6).
+- **Meaning.** TD's single strategy exists but, like L35's, is not "mirror plus a short exception": the exceptions depend on the exact integer lead, which is the low phase's change-making again.
