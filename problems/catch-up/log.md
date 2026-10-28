@@ -1270,3 +1270,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** A11: unchanged.
 - **Meaning.** In L36 the tokens and the integer play are entangled from p = 4; no reduction to a token game. The ideator's three ideas are now all tested.
+
+### 2026-10-28: O21 survives proof mode: no gap potential certifies LG at intervals (A12)
+
+- **Claim / question.** Proof mode on the review ideator's candidate O21: no potential f(γ(S ⊎ {d})) (also with the margin's parity and the count of numbers) is inductive and certifies m({1..N}, 0) ≥ −1.
+- **Approach.** Refuter, proof mode (`scratch/refuter/o21/`): step-by-step check of the argument; least-fixpoint search for f over all sets within {1..U} (`o21.rs lfp`), with the position itself as a control (returns exactly −m); independent Python checks (`lfp.py`, `lchk.py`); a multiset library (`mroot.rs`); the data claim (`bottomrun.rs`).
+- **Outcome.** The gap-only part SURVIVES for N ≥ 4 (false at N = 3, where opening 3 ends the game): the base forces f(k) ≥ k, Ψ* is a pure maximum over the attacker's complete turns, and every opening has a reply leaving the opener a gap ≥ 2 (hand proof per opening; the min over openings of the max over replies is exactly 2 for N = 4..22). Stronger: on all sets within {1..U}, an inductive f needs f(k) = U − 1 for every 1 ≤ k ≤ U − 1 (U = 4..16), with a hand-checkable chain at U = 4 (({2, 3, 4}, 2) forces f(2) ≥ 3, then ({1, 2, 4}, 3) forces f(1) ≥ 3). The parity-and-count extension's argument fails (at odd-total intervals after opening 1, and over sets at N = 4, 8), but its conclusion holds by computation: the least such f certifies 2, 7, 14–15 at {1..N}, N = 3–4, 5–6, 7–16. Data claim confirmed except that opening 1 leaves γ = 2 (1 itself is gone); the √(2N) growth is in the best opening's worst reply, not the minimum.
+- **Refuter.** Proof mode: SURVIVES with corrections (above); recorded as O21.
+- **Literature.** Refuter: two searches, only known sources; nothing on gap potentials.
+- **Metric.** A12 (shelved): its potential route is ruled out (O21).
+- **Meaning.** Gap potentials cannot prove L37, even with parity and count; a proof of L37 would need a potential that reads the structure of blocks with holes, i.e. the low phase.
