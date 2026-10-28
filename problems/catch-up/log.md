@@ -1090,3 +1090,13 @@ Newest last. Entry format:
 - **Literature.** Not searched.
 - **Metric.** None.
 - **Meaning.** Forced partner replies cost about N/3 even with otherwise perfect play, so a bounded-loss theorem cannot come from pairing; any explicit strategy with bounded loss must already make change in the low phase, the core difficulty itself.
+
+### 2026-10-28: simple partner rules lose TD already just above t = 0 (A11, B61)
+
+- **Claim / question.** A11's base: is there an explicit rule, partner answers plus a fixed choice when the defender is free, that draws TD in its first cell t ∈ (0, 1/(p + 1)) (where every t gives the same game), and how far up in t does it hold?
+- **Approach.** `scratch/a11/tdrule.rs`: D follows a rule, the attacker is perfect, every cell of [0, 1] (breakpoints r/s, s ≤ p + 1, and midpoints); rules: partner of the attacker's turn-ending pick, else the smallest left (ps), the largest left (pl), or the smallest upper element left (pu); fam a, p = 2, 3, 4, both roles.
+- **Outcome.** ps loses at every t > 0 in both roles from p = 2 (draws only at t = 0); pl draws only for p = 2 as P2 (all t) and fails in the first cell for P1; pu draws all t at p = 2, but at p = 3 it loses in the first cell as P1 and from t = 5/12 as P2, and at p = 4 in the first cell in both roles.
+- **Refuter.** Not run (negative).
+- **Literature.** Not searched.
+- **Metric.** A11: no explicit base strategy beyond t = 0.
+- **Meaning.** Exact twins draw by a recursive mirror on the top pair (the twins fact of 2026-10-22), not by answering every pick with its partner; at t > 0 an infinitesimal tie-break on upper elements adds a token game. A11's base is therefore itself a lemma to prove, "twins with an infinitesimal tie-break draw" (the first cell), before any crossing.
