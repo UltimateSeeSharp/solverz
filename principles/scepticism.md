@@ -1,6 +1,6 @@
 # Scepticism
 
-## Red flags
+## Red flags: check harder, never reject on a flag alone
 - Too easy.
 - Proves too much: would it also prove something false?
 - A sudden simplification.
@@ -22,5 +22,5 @@
 - Fluent is not evidence; errors look flawless.
 - Never the only check of its own work.
 - Cite only sources actually opened.
-- A huge proof of a big result is almost surely wrong.
+- A huge proof of a big result needs the hardest check.
 - Lean certifies the statement, not the informal proof.

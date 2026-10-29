@@ -15,7 +15,6 @@
 - Assume the one bad case away; if the rest holds, fight that case.
 - Reformulate, decompose, use symmetry.
 - Look for a conserved or scale-free quantity.
-- Stuck: switch instead of grinding.
 
 ## Structure
 - Counterexamples to nearby problems rule out methods.

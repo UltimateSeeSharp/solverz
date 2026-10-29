@@ -94,6 +94,8 @@ what doesn't depend on it.
 - **Rust:** [API Guidelines](https://rust-lang.github.io/api-guidelines/naming.html)
   naming; an experiment binary is named after the question it answers.
 - **Scratch:** `problems/<name>/scratch/` is git-ignored; nothing there counts.
+  Exploring there to find ideas is always allowed; the rules apply to what
+  gets recorded.
 - **Dates:** ISO 8601 (`2026-10-29`).
 - **Commits:** [Conventional Commits](https://www.conventionalcommits.org)
   `type(scope): summary`, a body with what and why. Scope: the problem
