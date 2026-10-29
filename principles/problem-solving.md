@@ -17,12 +17,12 @@
 - Look for a conserved or scale-free quantity.
 
 ## Structure
-- Counterexamples to nearby problems rule out methods.
+- Counterexamples to nearby problems can rule out methods; check whether the difference matters.
 - Robustness: change the input slightly; if the property dies, a proof needs a delicate feature.
 - Structure versus randomness.
-- Random models predict which way a conjecture goes.
+- Random models suggest which way a conjecture goes.
 - A predictor shows which features matter.
-- Big problems fall via: toy cases → a property the method needs → counterexamples → borrowed methods → a key reduction.
+- Big problems often fall via: toy cases → a property the method needs → counterexamples → borrowed methods → a key reduction.
 
 ## After solving
 - Remove hypotheses, strengthen the conclusion, try without a key input.
