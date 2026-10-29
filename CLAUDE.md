@@ -59,8 +59,6 @@ problems/<name>/
   RAM and 2 threads spare so the system doesn't swap or lag; one GPU job at a
   time. An experiment that can't fit on this machine is not run.
 - Never edit an approved statement; a change is a new claim.
-- Experiments add new code in `solver/src/bin/`; they never change code that
-  earlier results depend on.
 - The attack loop works on the long-lived branch `attack/<problem>`: created
   from main the first time, main merged into it whenever work starts,
   one commit per step. The user merges it into main.
