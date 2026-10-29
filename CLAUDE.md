@@ -53,7 +53,7 @@ The `choose` skill.
 3. The `refuter` attacks the result before any status changes.
 4. Record statuses, a session line and `state.md`.
 5. An idea solved, out of ideas after the `ideator` drew more, or a decision
-   needed: stop and tell the user. Overnight lists it and keeps going.
+   needed: stop and tell the user.
 
 ### Attack: `find`
 
@@ -76,7 +76,37 @@ The `choose` skill.
 
 ## The user decides
 Approving statements, calling anything a solution, sharing outside the repo,
-commits, pushes, installs and downloads.
+bumping Lean or Mathlib, commits, pushes, installs and downloads. In a normal
+session, ask; overnight, list it under "Needs the user" in `state.md` and keep
+working.
+
+## Conventions
+- **Names:** problem folders kebab-case (`catch-up`); its Lean library the
+  same words in UpperCamelCase (`CatchUp`); its solver crate keeps the
+  folder name.
+- **IDs:** ideas `I1`…, claims `C1`…, experiments `E1`…; stable, never reused.
+- **Lean:** one file per topic, UpperCamelCase (`CatchUp/Parity.lean`);
+  `Statement.lean` holds only the goal. Names follow
+  [Mathlib's conventions](https://leanprover-community.github.io/contribute/naming.html):
+  theorems snake_case, value-computing definitions lowerCamelCase, types and
+  `Prop` definitions UpperCamelCase, all in the problem's namespace.
+- **Rust:** [API Guidelines](https://rust-lang.github.io/api-guidelines/naming.html)
+  naming; an experiment binary is named after the question it answers.
+- **Scratch:** `problems/<name>/scratch/` is git-ignored; nothing there counts.
+- **Dates:** ISO 8601 (`2026-10-29`).
+- **Commits:** [Conventional Commits](https://www.conventionalcommits.org)
+  `type(scope): summary`, a body with what and why. Scope: the problem
+  folder or the repo area. One logical change per commit.
+
+## Lean
+- Lean and Mathlib are pinned to v4.35.0 (`lean-toolchain`, `lakefile.toml`).
+- Import every module in its library root once it is `sorry`-free;
+  `lake build` only checks what the roots import. Check an unfinished
+  module with `lake build <Module>`.
+- `lake env lean` skips the lakefile's `leanOptions` (e.g. `autoImplicit = false`).
+- Start each file with a `/-! … -/` module doc-string.
+- After any Mathlib change, run `lake exe cache get` before building, or
+  Mathlib compiles from source (hours).
 
 ## This machine
 - CPU: AMD Ryzen 7 3700X (8 cores, 16 threads). GPU: RTX 3060 Ti, 8 GB,
