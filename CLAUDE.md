@@ -83,8 +83,9 @@ step.
    through `audit` first).
 3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
    result; the change goes through on SURVIVES. REFUTED: the claim is
-   `refuted` once its counterexample is rechecked. FLAWED: it stays `open`,
-   the flaw under Tried. UNCLEAR: settling it is the next step.
+   `refuted` once its counterexample is rechecked (in Lean if the claim is
+   stated there and the check is quick). FLAWED: it stays `open`, the flaw
+   under Tried. UNCLEAR: settling it is the next step.
 4. Record statuses, a journal line and `state.md`.
 5. The goal claim verified: stop and tell the user. Otherwise never stop:
    out of ideas, the `ideator` draws more. The user can stop the loop at any
