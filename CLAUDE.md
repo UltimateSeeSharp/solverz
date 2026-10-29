@@ -45,7 +45,12 @@ problems/<name>/
 ### Choose: a new problem
 The `choose` skill.
 
-### Attack: `prove`
+### Attack
+"attack <problem>" starts the workflow of the problem's kind. Every session
+first reads `state.md` and the files it links, and continues from its next
+step.
+
+#### `prove`
 1. Pick the most promising idea now: new ideas get their cheapest kill test
    first, alive ones go deeper. Work only on claims a live idea needs.
 2. Work on one claim: test it, prove it, find it in the literature, or
@@ -57,11 +62,11 @@ The `choose` skill.
    out of ideas, the `ideator` draws more; anything that needs the user is
    listed and work goes on elsewhere. The user can stop the loop at any time.
 
-### Attack: `find`
+#### `find`
 
-### Attack: `bound`
+#### `bound`
 
-### Attack: `compute`
+#### `compute`
 
 ## Helpers
 - `ideator` (agent): draws ideas with the claims they need.
