@@ -17,7 +17,7 @@ How we think and work: `principles.md`.
   reduction, …), source (ideator, literature, us), the claims it needs,
   including the claim that those claims imply the goal.
   Status: `new` → `alive` | `dead` (which claim failed) | `solved`.
-- **Claim**: one precise statement. The claims it uses; evidence.
+- **Claim**: one precise statement. The claims it uses; evidence; what was tried and failed.
   Status: `open` → `refuted` (counterexample) | `proved` → `verified` (Lean).
   `approved` when the user confirmed its Lean statement says what we mean.
 - **Experiment**: a computation that tests one claim. States beforehand which
@@ -82,7 +82,7 @@ step.
 3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
    result; the change goes through on SURVIVES. REFUTED: the claim is
    `refuted` once its counterexample is rechecked. FLAWED: it stays `open`,
-   the flaw in its Evidence. UNCLEAR: settling it is the next step.
+   the flaw under Tried. UNCLEAR: settling it is the next step.
 4. Record statuses, a journal line and `state.md`.
 5. The goal claim verified: stop and tell the user. Otherwise never stop:
    out of ideas, the `ideator` draws more. The user can stop the loop at any
