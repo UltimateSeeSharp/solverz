@@ -26,7 +26,7 @@ all verified solves the problem.
 problems/<name>/
   README.md     the problem
   ideas.md      ideas I1, I2, …
-  claims.md     claims C1, C2, … (proofs in their sections)
+  claims/       claims.md (index), C1.md, C2.md, …
   results/      experiments, one file each
   sessions.md   sessions, newest last
   state.md      now: focus, next step, what needs the user
