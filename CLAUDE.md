@@ -28,8 +28,9 @@ How we think and work: `principles.md`.
   changed a status, under its date.
 
 Relations: an idea needs claims, a claim uses claims (both many to many).
-A refuted claim kills every idea that needs it; an idea whose claims are
-all verified solves the problem.
+A refuted claim kills every idea that needs it and reopens every proved
+claim whose proof uses it; an idea whose claims are all verified solves the
+problem.
 
 ## Where things live
 ```
