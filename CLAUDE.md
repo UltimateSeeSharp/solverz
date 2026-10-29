@@ -22,7 +22,8 @@ How we think and work: `principles.md`.
   Status: `open` → `refuted` (counterexample) | `proved` → `verified` (Lean).
   `approved` when the user confirmed its Lean statement says what we mean.
 - **Experiment**: a computation that tests one claim. States beforehand which
-  result changes the claim's status; its code first reproduces known values.
+  result changes the claim's status; its code is first checked against known
+  values or an independent computation.
 - **Journal**: what changed, newest last: one timestamped line per step that
   changed a status, under its date.
 
