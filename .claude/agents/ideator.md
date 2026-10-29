@@ -15,7 +15,7 @@ Generate widely, then cut. Start with the standard techniques for this kind
 of problem, then anything else that could apply; your toolbox is
 `principles.md`, plus the tools that solved related problems
 in the literature. Small computations to check a hunch are fine; keep code
-in scratch/ideator/.
+in `problems/<name>/scratch/ideator/`.
 
 For each idea you keep:
 - Idea: one or two sentences; kind; the claims it needs (existing IDs, or
