@@ -1,5 +1,5 @@
 [package]
-name = "<problem-folder>"
+name = "problem"
 version = "0.1.0"
 edition = "2024"
 
