@@ -16,7 +16,8 @@ How we think and work: `principles.md`.
 - **Idea**: a way to attack the problem. Kind (induction, invariant, finite
   reduction, …), source (ideator, literature, us), the claims it needs,
   including the claim that those claims imply the goal.
-  Status: `new` → `alive` | `dead` (which claim failed) | `solved`.
+  Status: `new` → `alive` (survived its kill test) | `dead` (which claim
+  failed) | `solved`.
 - **Claim**: one precise statement. The claims it uses; evidence; what was tried and failed.
   Status: `open` → `refuted` (counterexample) | `proved` → `verified` (Lean).
   `approved` when the user confirmed its Lean statement says what we mean.
@@ -75,7 +76,7 @@ step.
 
 #### `prove`
 1. Pick the most promising idea now: new ideas get their cheapest kill test
-   first, alive ones go deeper. Work only on claims a live idea needs.
+   first, alive ones go deeper.
 2. Work on one claim: test it, prove it, find it in the literature, or
    verify it in Lean (once every claim of its idea is proved on paper;
    reported claims go through `audit` first).
