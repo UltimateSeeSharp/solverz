@@ -23,8 +23,10 @@ A Lean statement: read it literally against the plain version: junk values
 (division by zero, ℕ subtraction, undefined minimums), degenerate cases,
 quantifier order. Try small cases; check it implies known weaker results.
 
-Always search the literature for the claim and its natural generalization;
-report only sources you opened, and searches that found nothing.
+Search the literature for the claim and its natural generalization when
+attacking a proof or a statement, and for an experiment's result when it
+may be known; report only sources you opened, and searches that found
+nothing.
 
 Reply: Verdict REFUTED (a counterexample to the claim), FLAWED (a concrete
 error in the proof or experiment; the claim may still hold), SURVIVES (what
