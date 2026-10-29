@@ -1,7 +1,5 @@
 module
 
-public import Problem.Statement
-
 /-!
 # <Problem>
 

@@ -38,9 +38,9 @@ problems/<name>/
   experiments/  experiments.md (index), E1.md, E2.md, …
   journal.md    what changed, newest last
   state.md      now: focus, next step, running jobs, what needs the user
-  lean/         <Name>.lean (root); <Name>/Statement.lean (the goal),
-                Defs/ (definitions), Claims/ (proofs; each header names its
-                claim IDs), Tests/
+  lean/         <Name>.lean (root); <Name>/Statement.lean (the goal and the
+                definitions it uses), Defs/ (other definitions), Claims/
+                (proofs; each header names its claim IDs), Tests/
   solver/       README.md (engines, how each is checked); src/lib.rs,
                 src/engines/, src/bin/ (experiments, named by ID: e12_quad_step.rs)
   scratch/      git-ignored playground
@@ -118,8 +118,8 @@ what doesn't depend on it.
   same words in UpperCamelCase (`CatchUp`); its solver crate keeps the
   folder name.
 - **IDs:** ideas `I1`…, claims `C1`…, experiments `E1`…; stable, never reused.
-- **Lean:** one file per topic, UpperCamelCase (`CatchUp/Parity.lean`);
-  `Statement.lean` holds only the goal. Names follow
+- **Lean:** one file per topic, UpperCamelCase (`CatchUp/Parity.lean`).
+  Names follow
   [Mathlib's conventions](https://leanprover-community.github.io/contribute/naming.html):
   theorems snake_case, value-computing definitions lowerCamelCase, types and
   `Prop` definitions UpperCamelCase, all in the problem's namespace.
