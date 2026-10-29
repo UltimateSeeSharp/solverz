@@ -143,8 +143,8 @@ what doesn't depend on it.
   module with `lake build <Module>`.
 - `lake env lean` skips the lakefile's `leanOptions` (e.g. `autoImplicit = false`).
 - Start each file with a `/-! … -/` module doc-string.
-- After any Mathlib change, run `lake exe cache get` before building, or
-  Mathlib compiles from source (hours).
+- After any Mathlib change, the user runs `lake exe cache get` before
+  anything builds, or Mathlib compiles from source (hours).
 
 ## This machine
 - CPU: AMD Ryzen 7 3700X (8 cores, 16 threads). GPU: RTX 3060 Ti, 8 GB,
