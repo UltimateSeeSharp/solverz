@@ -15,12 +15,9 @@ description: Finds a new problem and sets it up: shortlists, checks it is open a
    check, whether it hinges on a new idea) against this machine (CLAUDE.md,
    This machine). Keep only framings that fit and have a written workflow.
 4. The user picks a problem and its framing.
-5. Create `problems/<name>/` from `templates/problem/`. Lean: `lean/<Name>.lean`
-   plus a `[[lean_lib]]` with `srcDir` and a `defaultTargets` entry in
-   `lakefile.toml`. Solver: `solver/Cargo.toml` at once (every
-   `problems/*/solver` joins the workspace; one without it breaks every
-   cargo command) and `solver/README.md` for its engines and how each is
-   checked.
+5. Copy `templates/problem/` to `problems/<name>/`; rename `lean/Problem*` and
+   the namespace to the library name, and the crate to the folder name. Add a
+   `[[lean_lib]]` with `srcDir` and a `defaultTargets` entry to `lakefile.toml`.
 6. Write the README: problem, kind and the estimate, core difficulty,
    literature with dated searches.
 7. State the goal as claim C1 and run `audit`; the user approves it.

@@ -22,7 +22,8 @@ How we think and work: `principles.md`.
   `approved` when the user confirmed its Lean statement says what we mean.
 - **Experiment**: a computation that tests one claim. States beforehand which
   result changes the claim's status; its code first reproduces known values.
-- **Session**: one work period: what changed.
+- **Journal**: what changed, newest last: one timestamped line per step that
+  changed a status, under its date.
 
 Relations: an idea needs claims, a claim uses claims (both many to many).
 A refuted claim kills every idea that needs it; an idea whose claims are
@@ -35,9 +36,14 @@ problems/<name>/
   ideas/        ideas.md (index), I1.md, I2.md, …
   claims/       claims.md (index), C1.md, C2.md, …
   experiments/  experiments.md (index), E1.md, E2.md, …
-  sessions.md   sessions, newest last
+  journal.md    what changed, newest last
   state.md      now: focus, next step, what needs the user
-  lean/ solver/ scratch/
+  lean/         <Name>.lean (root); <Name>/Statement.lean (the goal),
+                Defs/ (definitions), Claims/ (proofs; each header names its
+                claim IDs), Tests/
+  solver/       README.md (engines, how each is checked); src/lib.rs,
+                src/engines/, src/bin/ (experiments, named by ID: e12_quad_step.rs)
+  scratch/      git-ignored playground
 ```
 
 ## Rules
@@ -50,7 +56,7 @@ problems/<name>/
 - Experiments add new code in `solver/src/bin/`; they never change code that
   earlier results depend on.
 - The attack loop works on the long-lived branch `attack/<problem>`: created
-  from main the first time, main merged into it at the start of each session,
+  from main the first time, main merged into it whenever work starts,
   one commit per step. The user merges it into main.
 
 ## Workflows
@@ -59,8 +65,8 @@ problems/<name>/
 The `choose` skill.
 
 ### Attack
-"attack <problem>" starts the workflow of the problem's kind. Every session
-first reads `state.md` and the files it links, and continues from its next
+"attack <problem>" starts the workflow of the problem's kind. On every start,
+the loop first reads `state.md` and the files it links, and continues from its next
 step.
 
 #### `prove`
@@ -70,10 +76,10 @@ step.
    verify it in Lean (once every claim of its idea is proved on paper;
    reported claims go through `audit` first).
 3. The `refuter` attacks the result before any status changes.
-4. Record statuses, a session line and `state.md`.
+4. Record statuses, a journal line and `state.md`.
 5. The goal claim verified: stop and tell the user. Otherwise never stop:
-   out of ideas, the `ideator` draws more; anything that needs the user is
-   listed and work goes on elsewhere. The user can stop the loop at any time.
+   out of ideas, the `ideator` draws more. The user can stop the loop at any
+   time.
 
 #### `find`
 

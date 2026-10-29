@@ -18,7 +18,7 @@ How a top mathematician works; rough guides, never rules.
 **Computing**
 - Run the obvious computation before stating a conjecture.
 - Search with programs that generate candidates; expect the scorer to be
-  gamed; re-verify winners.
+  gamed; keep it fixed during a run; re-verify winners.
 - Formalize step by step: statements with `sorry` first, then fill them;
   note where Lean deviates from the paper proof.
 
