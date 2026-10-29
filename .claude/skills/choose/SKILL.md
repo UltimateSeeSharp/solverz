@@ -15,7 +15,8 @@ description: Picks a new problem from problems.md and sets it up: checks the bes
    check, whether it hinges on a new idea) against this machine (CLAUDE.md,
    This machine). Keep only framings that fit and have a written workflow.
 4. The user picks a problem and its framing.
-5. Copy `templates/problem/` to `problems/<name>/`; rename `lean/Problem*` and
+5. Create the branch `attack/<name>` (CLAUDE.md, Rules); everything from
+   here is committed there. Copy `templates/problem/` to `problems/<name>/`; rename `lean/Problem*` and
    the namespace to the library name, and the crate to the folder name. Add a
    `[[lean_lib]]` with `srcDir` and a `defaultTargets` entry to `lakefile.toml`.
 6. Write the README: problem, kind and the estimate, core difficulty,

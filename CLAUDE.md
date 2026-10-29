@@ -37,7 +37,7 @@ problems/<name>/
   claims/       claims.md (index), C1.md, C2.md, …
   experiments/  experiments.md (index), E1.md, E2.md, …
   journal.md    what changed, newest last
-  state.md      now: focus, next step, what needs the user
+  state.md      now: focus, next step, running jobs, what needs the user
   lean/         <Name>.lean (root); <Name>/Statement.lean (the goal),
                 Defs/ (definitions), Claims/ (proofs; each header names its
                 claim IDs), Tests/
@@ -47,7 +47,10 @@ problems/<name>/
 ```
 
 ## Rules
-- Agents and experiments run in the background while work goes on.
+- Agents and experiments run in the background while work goes on; each is
+  listed under Running in `state.md` until its result is recorded.
+- One attack at a time on this machine; switch branches only with nothing
+  under Running.
 - At most 3 agents at a time.
 - Experiments may use whatever RAM, CPU and GPU is free, keeping about 4 GB
   RAM and 2 threads spare so the system doesn't swap or lag; one GPU job at a
@@ -66,7 +69,8 @@ The `choose` skill.
 
 ### Attack
 "attack <problem>" starts the workflow of the problem's kind. On every start,
-the loop first reads `state.md` and the files it links, and continues from its next
+the loop first reads `state.md` and the files it links, checks each job under
+Running (reads its output, or reruns it if lost), and continues from its next
 step.
 
 #### `prove`
