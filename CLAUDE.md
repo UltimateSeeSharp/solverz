@@ -52,8 +52,9 @@ The `choose` skill.
    reported claims go through `audit` first).
 3. The `refuter` attacks the result before any status changes.
 4. Record statuses, a session line and `state.md`.
-5. An idea solved, out of ideas after the `ideator` drew more, or a decision
-   needed: stop and tell the user.
+5. The goal claim verified: stop and tell the user. Otherwise never stop:
+   out of ideas, the `ideator` draws more; anything that needs the user is
+   listed and work goes on elsewhere. The user can stop the loop at any time.
 
 ### Attack: `find`
 
@@ -76,9 +77,9 @@ The `choose` skill.
 
 ## The user decides
 Approving statements, calling anything a solution, sharing outside the repo,
-bumping Lean or Mathlib, commits, pushes, installs and downloads. In a normal
-session, ask; overnight, list it under "Needs the user" in `state.md` and keep
-working.
+bumping Lean or Mathlib, merging into main, pushes, installs and downloads.
+List it under "Needs the user" in `state.md`, mention it, and keep working on
+what doesn't depend on it.
 
 ## Conventions
 - **Names:** problem folders kebab-case (`catch-up`); its Lean library the
@@ -96,7 +97,9 @@ working.
 - **Dates:** ISO 8601 (`2026-10-29`).
 - **Commits:** [Conventional Commits](https://www.conventionalcommits.org)
   `type(scope): summary`, a body with what and why. Scope: the problem
-  folder or the repo area. One logical change per commit.
+  folder or the repo area. One logical change per commit. The attack loop
+  commits each step to a branch `attack/<date>`, branched from main; the user
+  merges.
 
 ## Lean
 - Lean and Mathlib are pinned to v4.35.0 (`lean-toolchain`, `lakefile.toml`).
