@@ -77,9 +77,10 @@ step.
 #### `prove`
 1. Pick the most promising idea now: new ideas get their cheapest kill test
    first, alive ones go deeper.
-2. Work on one claim: test it, prove it, find it in the literature, or
-   verify it in Lean (once every claim of its idea is proved on paper;
-   reported claims go through `audit` first).
+2. Work on one claim it needs: test it, prove it, find it in the
+   literature, or verify it in Lean when Lean settles it faster than paper
+   or once every claim of the idea is proved on paper (reported claims go
+   through `audit` first).
 3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
    result; the change goes through on SURVIVES. REFUTED: the claim is
    `refuted` once its counterexample is rechecked. FLAWED: it stays `open`,
