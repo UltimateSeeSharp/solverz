@@ -17,8 +17,3 @@ The low phase. On high sets (smallest number ≥ the spread) every turn is one p
 - Endgames with 3–4 numbers left, case analysis: K. C. G. Feng, honors thesis, College of Staten Island 2024 ([pdf](https://www.math.csi.cuny.edu/Undergraduate/HonorsTheses/2024-feng.pdf)).
 - No proof or partial proof found (searched 2026-10-22; again 2026-10-26).
 - Nothing found on Catch-Up for sets other than {1..N}, on pairing strategies, or on position values by gap (searched 2026-10-22). Nothing on two-player differencing or partitioning games with a catch-up turn rule, or on gap bounds for the final margin (searched 2026-10-28; only one-player Karmarkar–Karp differencing and unrelated discrepancy and heap games). Misleading: a 2024 Brams article ([Open Access Government](https://www.openaccessgovernment.org/article/a-game-that-poses-a-challenge-to-artificial-intelligence/181077/)) says even-sum sets of 2–20 numbers draw; false for arbitrary sets ({1,3} is a first-player win).
-
-## Rules
-- Never edit `lean/CatchUp/Statement.lean` (approved statement).
-- Experiments don't modify the engines (`solver/src/lib.rs`, `layered.rs`, `tiled.rs`, `cuda.rs`, `layered.cu`, `main.rs`); they add files in `solver/src/bin/` that use the library API ([solver/README.md](solver/README.md)).
-- Compute per experiment: about 10 minutes and at most 16 GB RAM (of 32 GB, shared).

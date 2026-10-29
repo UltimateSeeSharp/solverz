@@ -9,8 +9,7 @@ Most first-draft statements are wrong; this finds out how.
 
 1. Write it where it belongs (the goal: `lean/<Problem>/Statement.lean`),
    its plain version as a doc comment marked pending approval. Reuse Mathlib
-   definitions; a new definition is audited the same way. Never edit an
-   approved statement; a change is a new claim.
+   definitions; a new definition is audited the same way.
 2. Read it back: put the Lean into plain words without looking at the
    plain version, then compare sentence by sentence.
 3. Check the traps: junk values (division, ℕ subtraction, casts, minimums

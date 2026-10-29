@@ -40,6 +40,19 @@ problems/<name>/
   lean/ solver/ scratch/
 ```
 
+## Rules
+- Agents and experiments run in the background while work goes on.
+- At most 3 agents at a time.
+- Experiments may use whatever RAM, CPU and GPU is free, keeping about 4 GB
+  RAM and 2 threads spare so the system doesn't swap or lag; one GPU job at a
+  time. An experiment that can't fit on this machine is not run.
+- Never edit an approved statement; a change is a new claim.
+- Experiments add new code in `solver/src/bin/`; they never change code that
+  earlier results depend on.
+- The attack loop works on the long-lived branch `attack/<problem>`: created
+  from main the first time, main merged into it at the start of each session,
+  one commit per step. The user merges it into main.
+
 ## Workflows
 
 ### Choose: a new problem
@@ -105,9 +118,7 @@ what doesn't depend on it.
 - **Dates:** ISO 8601 (`2026-10-29`).
 - **Commits:** [Conventional Commits](https://www.conventionalcommits.org)
   `type(scope): summary`, a body with what and why. Scope: the problem
-  folder or the repo area. One logical change per commit. The attack loop
-  commits each step to a branch `attack/<date>`, branched from main; the user
-  merges.
+  folder or the repo area. One logical change per commit.
 
 ## Lean
 - Lean and Mathlib are pinned to v4.35.0 (`lean-toolchain`, `lakefile.toml`).
@@ -124,7 +135,7 @@ what doesn't depend on it.
   driver 610.88 (CUDA ≤ 13.3); CUDA Toolkit 13.3 in `C:\Program Files\NVIDIA
   GPU Computing Toolkit\CUDA\v13.3` (`CUDA_PATH`; `bin\x64` must be on `PATH`
   for NVRTC).
-- RAM: 32 GB, about 16 GB free with the usual apps open. Disks: F: SanDisk
+- RAM: 32 GB. Disks: F: SanDisk
   SSD PLUS 2 TB (QLC, reads ~500 MB/s, writes ~100 MB/s sustained once its
   cache fills); C: Samsung 870 EVO 1 TB. Jobs that spill gigabytes to disk
   are bound by F:'s writes.
