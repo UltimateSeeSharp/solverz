@@ -24,4 +24,4 @@ description: Picks a new problem from problems.md and sets it up: checks the bes
 7. State the goal as claim C1 and run `audit`; the user approves it.
 8. Draw the first ideas with the `ideator`, standard techniques first;
    fill `ideas/` and `claims/`, set `state.md`, set its Status in
-   `problems.md` to `attacked`, add the problem to the root README.
+   `problems.md` to `attacked`.

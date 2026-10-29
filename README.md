@@ -18,8 +18,3 @@ in Lean 4. How it works: [CLAUDE.md](CLAUDE.md). How we think:
 ## Verify
 `lake build --wfail` and `#print axioms` (trust rules in CLAUDE.md);
 `cargo test --release`.
-
-## Problems
-| Problem | Kind | State |
-|---|---|---|
-| [Catch-Up](problems/catch-up/README.md) | prove | [state.md](problems/catch-up/state.md) |

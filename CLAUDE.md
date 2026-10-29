@@ -95,12 +95,6 @@ step.
 
 #### `compute`
 
-## Helpers
-- `ideator` (agent): draws ideas with the claims they need.
-- `refuter` (agent): attacks claims: counterexamples, proof checks.
-- `choose` (skill): finds a problem and sets it up.
-- `audit` (skill): prepares a claim's Lean statement for the user's approval.
-
 ## Trust
 - A result counts only once Lean checks it: `lake build --wfail`, no `sorry`,
   no custom `axiom`, no `native_decide`; `#print axioms` shows only
@@ -125,7 +119,7 @@ what doesn't depend on it.
   theorems snake_case, value-computing definitions lowerCamelCase, types and
   `Prop` definitions UpperCamelCase, all in the problem's namespace.
 - **Rust:** [API Guidelines](https://rust-lang.github.io/api-guidelines/naming.html)
-  naming; an experiment binary is named after the question it answers.
+  naming.
 - **Scratch:** `problems/<name>/scratch/` is git-ignored; nothing there counts.
   Exploring there to find ideas is always allowed; the rules apply to what
   gets recorded.
