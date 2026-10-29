@@ -1,28 +1,24 @@
 # Problem solving
 
-## Start
-- Switch off all difficulties but one; solve; swap; combine.
-- Toy model: instructive over realistic.
-- Finitize: "eventually" → "by when?".
-- Try anything; how a method fails is a clue.
-- Ask dumb questions: drop a hypothesis, strengthen the conclusion, the converse.
-- Play with the object: examples, special cases, the smallest unsolved case.
-- Motivated moves: an intermediate property, "pretend we've chosen it", simplest example first.
+How strong mathematicians tend to think; a repertoire to draw on, in any
+order, none of it required.
 
-## Progress
-- Before proving a lemma: how will it be used; would a weaker one do?
-- Keep partial progress; split by regime, one tool per piece.
-- Assume the one bad case away; if the rest holds, fight that case.
-- Reformulate, decompose, use symmetry.
-- Look for a conserved or scale-free quantity.
-
-## Structure
-- Counterexamples to nearby problems can rule out methods; check whether the difference matters.
-- Robustness: change the input slightly; if the property dies, a proof needs a delicate feature.
+- Turning off all difficulties but one, solving that, then letting the others back in.
+- A toy model that keeps only the essence, even if it models nothing real.
+- Asking "by when?" where the problem says "eventually".
+- Trying something likely to fail, because how it fails is a clue.
+- Dumb questions: drop a hypothesis, strengthen the conclusion, the converse.
+- Playing with the object: examples, special cases, the smallest one that resists.
+- Pretending the unknown object is already chosen, and collecting what it must satisfy.
+- Asking how a lemma will be used before proving it; often a weaker one does.
+- Keeping partial progress; splitting by regime, a different tool per piece.
+- Assuming the one bad case away to see whether the rest stands.
+- Reformulating, decomposing, using symmetry.
+- Looking for a quantity that is conserved or the same at every scale.
+- Counterexamples to nearby problems, which can rule out methods.
+- Perturbing the input: if the property dies, a proof needs a delicate feature.
 - Structure versus randomness.
-- Random models suggest which way a conjecture goes.
-- A predictor shows which features matter.
-- Big problems often fall via: toy cases → a property the method needs → counterexamples → borrowed methods → a key reduction.
-
-## After solving
-- Remove hypotheses, strengthen the conclusion, try without a key input.
+- Random models and predictors as hints for which way things go.
+- How big problems often fell: toy cases, a property the method needs,
+  counterexamples, borrowed methods, a key reduction.
+- After solving: removing hypotheses, strengthening the conclusion.
