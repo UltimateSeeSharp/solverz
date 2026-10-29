@@ -14,7 +14,7 @@ AI-assisted attacks on open math problems; every result is checked in Lean 4.
   Status: `open` → `refuted` (counterexample) | `proved` → `verified` (Lean).
   `approved` when the user confirmed its Lean statement says what we mean.
 - **Experiment**: a computation that tests one claim. States beforehand which
-  result changes the claim's status.
+  result changes the claim's status; its code first reproduces known values.
 - **Session**: one work period: what changed.
 
 Relations: an idea needs claims, a claim uses claims (both many to many).
