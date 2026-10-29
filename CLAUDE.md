@@ -88,8 +88,8 @@ step.
    under Tried. UNCLEAR: settling it is the next step.
 4. Record statuses, a journal line and `state.md`.
 5. The goal claim verified: stop and tell the user. Otherwise never stop:
-   out of ideas, the `ideator` draws more. The user can stop the loop at any
-   time.
+   out of ideas or stuck, the `ideator` draws more. The user can stop the
+   loop at any time.
 
 #### `find`
 
