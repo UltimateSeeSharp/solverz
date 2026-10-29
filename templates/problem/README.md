@@ -11,3 +11,6 @@ Kind: proof.
 
 ## Literature
 <Prior results with links; searches with dates, including ones that found nothing.>
+
+## Rules
+<Optional: problem-specific constraints, e.g. files not to edit, compute limits.>
