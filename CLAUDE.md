@@ -8,8 +8,8 @@ How we think and work: `principles.md`.
   core difficulty (what any solution must get past), literature. Kinds:
   - `prove`: a statement holds in all cases; a Lean proof.
   - `find`: an object with a property exists; Lean checks the object.
-  - `bound`: improve a best-known value; an object from below, a proof
-    from above.
+  - `bound`: improve a best-known value: a better object, or a proof of a
+    tighter limit; Lean checks either.
   - `compute`: an exact value or complete list; Lean checks a certificate.
   A problem that fits no kind, or has no finite check, is not taken on;
   the user decides.
