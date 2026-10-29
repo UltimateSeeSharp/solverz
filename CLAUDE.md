@@ -48,10 +48,7 @@ problems/<name>/
 4. Draw the first ideas: standard techniques first, then anything else
    that could apply, each with the claims it needs.
 
-### Attack: the loop (`prove`)
-Workflows for `find`, `bound` and `compute` are not written yet; problems of
-those kinds wait until they are.
-
+### Attack: `prove`
 1. Pick the most promising idea now: new ideas get their cheapest kill test
    first, alive ones go deeper. Work only on claims a live idea needs.
 2. Work on one claim: test it, prove it, find it in the literature, or
@@ -61,6 +58,12 @@ those kinds wait until they are.
 4. Record statuses, a session line and `state.md`.
 5. An idea solved, out of ideas after the `ideator` drew more, or a decision
    needed: stop and tell the user. Overnight lists it and keeps going.
+
+### Attack: `find`
+
+### Attack: `bound`
+
+### Attack: `compute`
 
 ## Helpers
 - `ideator` (agent): draws ideas with the claims they need.
