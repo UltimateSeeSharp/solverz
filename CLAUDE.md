@@ -3,9 +3,15 @@
 AI-assisted attacks on open math problems; every result is checked in Lean 4.
 
 ## Domain model
-- **Problem**: what we want to solve. Statement (as a Lean claim), kind
-  (`proof` for now), core difficulty (what any solution must get past),
-  literature.
+- **Problem**: what we want to solve. Statement (as a Lean claim), kind,
+  core difficulty (what any solution must get past), literature. Kinds:
+  - `prove`: a statement holds in all cases; a Lean proof.
+  - `find`: an object with a property exists; Lean checks the object.
+  - `bound`: improve a best-known value; an object from below, a proof
+    from above.
+  - `compute`: an exact value or complete list; Lean checks a certificate.
+  A problem that fits no kind, or has no finite check, is not taken on;
+  the user decides.
 - **Idea**: a way to attack the problem. Kind (induction, invariant, finite
   reduction, …), source (ideator, literature, us), the claims it needs,
   including the claim that those claims imply the goal.
