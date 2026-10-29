@@ -41,12 +41,8 @@ problems/<name>/
 
 ## Workflows
 
-### Choose: a new problem (`choose` skill)
-1. Check it isn't already solved: literature, recent arXiv, open problem lists.
-2. Write the problem: kind, core difficulty, literature.
-3. State the goal as a claim in Lean; `audit`, then the user approves it.
-4. Draw the first ideas: standard techniques first, then anything else
-   that could apply, each with the claims it needs.
+### Choose: a new problem
+The `choose` skill.
 
 ### Attack: `prove`
 1. Pick the most promising idea now: new ideas get their cheapest kill test
