@@ -79,7 +79,7 @@ step.
    first, alive ones go deeper.
 2. Work on one claim it needs: test it, prove it, find it in the
    literature, or verify it in Lean when Lean settles it faster than paper
-   or once every claim of the idea is proved on paper (reported claims go
+   or once every claim of the idea is proved on paper (the goal goes
    through `audit` first).
 3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
    result; the change goes through on SURVIVES. REFUTED: the claim is
