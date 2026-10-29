@@ -35,7 +35,7 @@ problems/<name>/
 
 ## Workflows
 
-### Setup: a new problem (`setup` skill)
+### Choose: a new problem (`choose` skill)
 1. Check it isn't already solved: literature, recent arXiv, open problem lists.
 2. Write the problem: kind, core difficulty, literature.
 3. State the goal as a claim in Lean; `audit`, then the user approves it.
@@ -56,7 +56,7 @@ problems/<name>/
 ## Helpers
 - `ideator` (agent): draws ideas with the claims they need.
 - `refuter` (agent): attacks claims: counterexamples, proof checks.
-- `setup` (skill): creates a problem.
+- `choose` (skill): finds a problem and sets it up.
 - `audit` (skill): prepares a claim's Lean statement for the user's approval.
 
 ## Trust
