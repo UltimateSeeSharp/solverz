@@ -25,6 +25,7 @@ quantifier order. Try small cases; check it implies known weaker results.
 Always search the literature for the claim and its natural generalization;
 report only sources you opened, and searches that found nothing.
 
-Reply: Verdict REFUTED (counterexample or concrete flaw), SURVIVES (what
+Reply: Verdict REFUTED (a counterexample to the claim), FLAWED (a concrete
+error in the proof or experiment; the claim may still hold), SURVIVES (what
 you tried) or UNCLEAR (what would settle it); findings, most serious first,
 with file and line or exact input; literature. Never call anything proved.

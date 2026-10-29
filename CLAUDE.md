@@ -75,7 +75,10 @@ step.
 2. Work on one claim: test it, prove it, find it in the literature, or
    verify it in Lean (once every claim of its idea is proved on paper;
    reported claims go through `audit` first).
-3. The `refuter` attacks the result before any status changes.
+3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
+   result; the change goes through on SURVIVES. REFUTED: the claim is
+   `refuted` once its counterexample is rechecked. FLAWED: it stays `open`,
+   the flaw in its Evidence. UNCLEAR: settling it is the next step.
 4. Record statuses, a journal line and `state.md`.
 5. The goal claim verified: stop and tell the user. Otherwise never stop:
    out of ideas, the `ideator` draws more. The user can stop the loop at any
