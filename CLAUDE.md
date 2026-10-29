@@ -48,7 +48,10 @@ problems/<name>/
 4. Draw the first ideas: standard techniques first, then anything else
    that could apply, each with the claims it needs.
 
-### Attack: the loop
+### Attack: the loop (`prove`)
+Workflows for `find`, `bound` and `compute` are not written yet; problems of
+those kinds wait until they are.
+
 1. Pick the most promising idea now: new ideas get their cheapest kill test
    first, alive ones go deeper. Work only on claims a live idea needs.
 2. Work on one claim: test it, prove it, find it in the literature, or
