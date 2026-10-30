@@ -2,8 +2,8 @@
 
 **Holds.**
 - Data: every even-total N ≤ 32 draws, and from N = 12 every opening draws (E1, E2), as other solvers and von Stengel (to N = 34) found (README); N = 33–35 come from one engine (E3).
-- In our Lean: the parity law (C3), the level law and the two-token lemma (C28, C30); C1 needs only the leader's defense from two starts (C27, C29, C31).
-- Lean in catch-up-research, not yet in our build: C31 (b) is a ray, V({2..N}, 1) ≠ win iff every Q_N(b) = (I_N ∖ {1, b}, b − 1) is no loss; its top five points b = N, …, N − 4 are no loss for large N (C73) and the rest reduces to interior and boundary cases (C74). Tools: exact-sum blocks (C77), increasing turns suffice for a defender (C78), every opening draws iff every pair is neutral (C75), score shift (C80).
+- In our Lean: the parity law (C3), the level law and the two-token lemma (C28, C30), the score shift (C80), and catch-up-research's verified evaluator (Reference, Classifier, Executable); C1 needs only the leader's defense from two starts (C27, C29, C31).
+- Lean in catch-up-research, not yet in our build: C31 (b) is a ray, V({2..N}, 1) ≠ win iff every Q_N(b) = (I_N ∖ {1, b}, b − 1) is no loss; its top five points b = N, …, N − 4 are no loss for large N (C73) and the rest reduces to interior and boundary cases (C74). Tools: exact-sum blocks (C77), increasing turns suffice for a defender (C78), every opening draws iff every pair is neutral (C75).
 - High and small sets are solved: one pick per turn, the rounds game (C13); even blocks from height 2p − 1 (C24, Lean), pair sets above 3·max offset (C21); two pairs (C11), three pairs at deficit 1 (C76).
 - Catch-Up's outcome is the sign of the margin game (C33); the gap bound C37 would imply C1 (data E17).
 - Data: density protects, no loss with at most 3 holes (E21, N ≤ 25), near-intervals draw from m = 14 (C4); one-parameter families draw at every height (C32, C62).
