@@ -21,3 +21,4 @@
 | [E17](E17.md) | Gap bound (C37) on every subset of {1..22} | C37 | No violation of C37's gap bound in 96,468,992 positions (every S ⊆ {1..22}, d ≤ 22); tight at ties exactly at {1..9}, {1..10}, {1..14}, {1..18}, {2, 4, …, 18} and kin |
 | [E18](E18.md) | Least window of smallest numbers before Hyb2, N ≤ 24 | — | The least window of smallest numbers before Hyb2 grows with N: up to 12 at N = 24 when Hyb2 takes over at min ≥ span, about 6 (N/4) when it takes over at min ≥ 4·span; no fixed window works for every N ≤ 24 |
 | [E19](E19.md) | Sliding the top quadruple of {1..N} (C35), N ≤ 20 | C35 | Sliding the top quadruple by any integer c leaves every even-total N ≤ 20 a draw (exact sweep, no non-draw) |
+| [E20](E20.md) | Pairing bound (C60) on every subset of {1..22} and on multisets | C60 | No violation in 96,468,992 set positions (S ⊆ {1..22}, d ≤ 22) and 1,830,519 multiset positions; sharper than C37 at 38% of positions |
