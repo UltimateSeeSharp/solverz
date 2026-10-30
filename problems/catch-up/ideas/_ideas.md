@@ -15,3 +15,4 @@
 | [I11](I11.md) | Twins to interval | deformation | ideator | C36 | alive |
 | [I12](I12.md) | Gap bound | generalization | ideator | C33, C37, C38 | alive |
 | [I13](I13.md) | Smallest-first to mid height | phase split | ideator | C61 | dead |
+| [I14](I14.md) | Exact-change certificates | invariant class | ideator | C30 | dead |
