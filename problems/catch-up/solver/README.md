@@ -19,5 +19,6 @@ Verification chain (`cargo test --release`, CUDA tests with `--features cuda`): 
 ## Recipes
 
 - **value(S) for every S ⊆ {1..U} at once:** one `Layered` run on {1..U}; the row of S at gap 0 is value(S), because a gap-0 turn is a single pick like the opening (`quad_step::all_values`). Not `tiled-cuda`: it stores gap 0 only for S whose complement sums to an even number.
+- **One position's margin:** `set_margin <d> <numbers>` = m(S, d) of the margin game (C33), any multiset; checks its sign against `Solver`.
 - **One position:** `Solver::position(mask, gap)` = mover's value with `mask` left, trailing by `gap`, any gap; gaps above the largest number are not memoized.
 - **Every gap up to sum(R):** `interval_rows`'s own table (stride sum + 1; 1 GB at U = 22).
