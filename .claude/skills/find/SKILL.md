@@ -9,8 +9,6 @@ description: Domain model and attack loop for a `find` problem: patterns, runs, 
 - **Problem** (find): does an object with `Valid` exist? Two goals, each a
   Lean statement: `∃ x, Valid x` and its negation, the second stated only
   once the user opens that side.
-  Status: `open` → `found` (an object verified) | `none` (non-existence
-  verified).
 - **Pattern** (`P1`…): where to look: a restriction on the answer (a
   symmetry, a construction, an extension of a known object). Patterns
   nest; a looser one contains a tighter one.
@@ -27,10 +25,10 @@ description: Domain model and attack loop for a `find` problem: patterns, runs, 
   Status: `open` → `refuted` | `proved` → `verified` (Lean).
 
 Relations: a run searches one pattern, uses facts, reads and writes
-objects. A verified answer object makes the problem `found`. An exhausted
+objects. A verified answer object settles the first goal. An exhausted
 run kills its pattern once rechecked and every fact it used is proved; a
 refuted fact reopens every pattern it killed. Facts that confine every
-answer to exhausted patterns, all checked in Lean, make it `none`.
+answer to exhausted patterns, all checked in Lean, settle the second.
 
 ## Files
 `templates/find/` adds to `problems/<name>/`:
@@ -68,6 +66,6 @@ the researcher has no next pattern of its own; nothing waits on it.
    (CLAUDE.md, Refuter).
 4. Record changed statuses with a journal line, and `state.md`;
    `understanding.md` says which answer the evidence favours, and why.
-5. The problem `found` or `none`: stop and tell the user. Otherwise never
-   stop (CLAUDE.md, Attack). When the evidence favours `none`, propose
-   opening that side under "Needs the user"; the search goes on.
+5. A goal verified: stop and tell the user. Otherwise never stop
+   (CLAUDE.md, Attack). When the evidence favours no object, propose
+   opening the second goal under "Needs the user"; the search goes on.
