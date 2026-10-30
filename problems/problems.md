@@ -26,7 +26,7 @@ Sorted by score, highest first. Who is working on what:
 - **Crowding** 1–5: 5 = famous, or currently attacked by labs or AI crowds.
 - **Score:** Fit + Lean + (6 − Idea) + (6 − Crowding); none for kind `none`.
 - **Status:** `open`, `shelved`, `solved elsewhere`; problems being
-  attacked: [active-problems.md](active-problems.md).
+  attacked: [active.md](active.md).
   **Checked:** date of the last freshness check.
 
 | ID | Problem | Kind | Framings | Fit | Lean | Idea | Crowding | Score | Status | Checked |
