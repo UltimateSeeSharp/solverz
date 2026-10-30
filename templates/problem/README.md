@@ -6,9 +6,6 @@
 <Rules in plain terms.> **Goal:** <statement>, claim C1, Lean `<Namespace.Name>`.
 Kind: <prove, find, bound or compute>.
 
-## Core difficulty
-<What any solution must get past, in plain words.>
-
 ## Literature
 <Prior results with links; searches with dates, including ones that found nothing.>
 

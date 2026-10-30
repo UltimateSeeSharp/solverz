@@ -21,8 +21,8 @@ description: Picks a new problem from problems/problems.md and sets it up: check
    rename `lean/Problem*` and the namespace to the library name, and the
    crate to the folder name. Add a `[[lean_lib]]` with `srcDir` and a
    `defaultTargets` entry to `lakefile.toml`.
-6. Write the README: problem, kind and the estimate, core difficulty,
-   literature with dated searches.
+6. Write the README: problem, kind and the estimate, literature with dated
+   searches.
 7. State the goal as claim C1 and run `audit`; the user approves it.
 8. Draw the first ideas with the `ideator`, standard techniques first;
-   fill `ideas/` and `claims/`, set `state.md`.
+   fill `ideas/` and `claims/`, set `understanding.md` and `state.md`.
