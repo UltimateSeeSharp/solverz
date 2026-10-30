@@ -4,7 +4,7 @@
 //! Then C5's three-hole question: S = {1..m} ∖ H, H ⊆ {1..m−1}, |H| = 3, m ≤ C5_MAX_M, gaps g ≡ sum(S) (mod 2)
 //! with C5_LOW_GAP ≤ g ≤ sum(S)/C5_GAP_DEN; lists each non-draw as W or L.
 //! One `Solver` on {1..N} answers every subset. First checks it: game values against `reference_value` and fresh
-//! per-set solvers, and {1..N} drawn exactly at even totals (E1).
+//! per-set solvers, and the value of {1..N} against E1.
 
 use catch_up::{Outcome, Solver, interval, reference_value};
 use std::time::Instant;
@@ -18,6 +18,8 @@ const C5_GAP_DEN: u64 = 12;
 const REFERENCE_U: usize = 9;
 /// Positions of every S ⊆ {1..FRESH_U}, d ≤ FRESH_U, are checked against a fresh `Solver` on S.
 const FRESH_U: usize = 9;
+/// E1's value of {1..N} for player 1, N = 1..=E1_VALUES.len().
+const E1_VALUES: &str = "WWDDWWDDLLDDWLDDWLDDWWDDWWDDWWD";
 /// Losses printed per N.
 const SHOWN: usize = 50;
 
@@ -80,9 +82,8 @@ fn dense_losses(n: usize) {
     let start = Instant::now();
     let mut solver = Solver::new(&interval(n as u64));
     let full = (1usize << n) - 1;
-    let total = (n * (n + 1) / 2) as u64;
     let interval_value = game_value(&mut solver, full, n);
-    let expected = if total % 2 == 0 { Outcome::Draw } else { Outcome::Win };
+    let expected = E1_VALUES.chars().nth(n - 1).unwrap_or('?');
     let (mut sets, mut positions, mut wins, mut draws) = (0u64, 0u64, 0u64, 0u64);
     let mut losses: Vec<(Vec<u64>, u64)> = vec![];
     for h in hole_masks(n, MAX_HOLES) {
@@ -104,7 +105,7 @@ fn dense_losses(n: usize) {
     println!(
         "N = {n}: {{1..N}} value {} (E1: {}); {sets} sets, {positions} positions: {wins} W, {draws} D, {} L ({:.1} s)",
         letter(interval_value),
-        letter(expected),
+        expected,
         losses.len(),
         start.elapsed().as_secs_f64()
     );
