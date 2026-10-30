@@ -32,6 +32,10 @@ claims/       _claims.md (index), C1.md, C2.md, …
 experiments/  _experiments.md (index), E1.md, E2.md, …
 ```
 
+## Start
+The goal is claim C1. Draw the first ideas with the `ideator`, standard
+techniques first; fill `ideas/` and `claims/`.
+
 ## Loop
 1. Pick the most promising idea now, in light of `understanding.md`: new
    ideas get their cheapest kill test first, alive ones go deeper.

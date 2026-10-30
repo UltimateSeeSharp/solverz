@@ -23,7 +23,7 @@ Each kind adds its own model and attack loop: the skill of its name.
   problem's files hold, decides what is most promising and works it
   itself; it never hands its line off or waits. It keeps `understanding.md`
   current: rewritten when its understanding changes; single failures stay
-  under Tried.
+  in the files of what they tested.
 - **Ideator** (agent `ideator`): brings fresh angles, formed from the
   problem's files alone and not from the researcher's view; its ideas are
   proposals.
@@ -44,9 +44,9 @@ problems/<name>/
   state.md      now: focus, next step, running jobs, what needs the user
   lean/         <Name>.lean (root); <Name>/Statement.lean (the goal and the
                 definitions it uses), one file per other topic (its header
-                names its claim IDs), Tests/
+                names the IDs it serves), Tests/
   solver/       README.md (engines, how each is checked); src/ (engines),
-                src/bin/ (experiments, named by ID: e12_quad_step.rs)
+                src/bin/ (one binary per run, named by its ID: e12_quad_step.rs)
   scratch/      git-ignored playground
 ```
 
@@ -57,7 +57,7 @@ problems/<name>/
 - Experiments may use whatever RAM, CPU and GPU is free, keeping about 4 GB
   RAM and 2 threads spare so the system doesn't swap or lag; one GPU job at a
   time. An experiment that can't fit on this machine is not run.
-- Never edit an approved statement; a change is a new claim.
+- Never edit an approved statement; a change is a new statement.
 - Each attack runs in its own worktree `.worktrees/<problem>/` on the
   long-lived branch `attack/<problem>`, made once and reused by every
   session of that problem: created from main the first time

@@ -3,7 +3,7 @@
 <One-line summary.> Now: [state.md](state.md).
 
 ## Problem
-<Rules in plain terms.> **Goal:** <statement>, claim C1, Lean `<Namespace.Name>`.
+<Rules in plain terms.> **Goal:** <statement>, Lean `<Namespace.Name>`.
 Kind: <prove, find, bound or compute>.
 
 ## Literature

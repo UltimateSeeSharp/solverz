@@ -15,7 +15,7 @@ most natural reading.
 An experiment's result: does the code test what the claim says?
 Off-by-one, wrong player to move, flipped equalities, skipped cases,
 floating point, a scorer that can be gamed. Was it checked first
-(CLAUDE.md, Experiment)? Attack with your own small and extreme cases or
+(prove skill, Experiment)? Attack with your own small and extreme cases or
 an independent check.
 
 A proof: list every case it must cover and check each; check every step,
