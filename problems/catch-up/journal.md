@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-10-30
+- 05:48 focus moves to the middle of C31 (b)'s ray after the catch-up-research import (C73, C74; I8)
 - 05:43 imported from catch-up-research: C64 refuted (adjacent-hole copying)
 - 05:43 imported from catch-up-research: C65 refuted (pair deletions forbid neighbor jumps)
 - 05:43 imported from catch-up-research: C66 refuted (geometry-free first-pair transfer)
