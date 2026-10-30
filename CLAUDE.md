@@ -58,7 +58,7 @@ problems/<name>/
   listed under Running in `state.md` until its result is recorded.
 - One attack at a time on this machine; switch branches only with nothing
   under Running.
-- At most 3 agents at a time.
+- At most 3 agents at a time, each with `model: opus` (always the newest Opus).
 - Experiments may use whatever RAM, CPU and GPU is free, keeping about 4 GB
   RAM and 2 threads spare so the system doesn't swap or lag; one GPU job at a
   time. An experiment that can't fit on this machine is not run.

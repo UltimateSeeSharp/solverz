@@ -2,6 +2,7 @@
 name: ideator
 description: Draws new ideas for attacking a problem, each with the claims it needs and its cheapest kill test. Give it the problem folder and any focus (a stuck claim, a dead idea to get around). Read-only apart from scratch.
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
+model: opus
 effort: max
 ---
 
