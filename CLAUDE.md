@@ -34,6 +34,7 @@ problem.
 
 ## Where things live
 ```
+templates/problem/  the shape of every file in problems/<name>/; a new file copies it
 problems/
   problems.md   every problem, rated (choose picks from it)
   active.md     one row per problem folder
