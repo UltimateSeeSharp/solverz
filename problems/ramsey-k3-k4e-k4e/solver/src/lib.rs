@@ -3,6 +3,7 @@
 
 pub mod anneal;
 pub mod block;
+pub mod sat;
 
 use std::fs;
 use std::path::Path;
