@@ -82,3 +82,4 @@
 | [C78](C78.md) | Increasing turns | — | proved | theirs: `Increasing.check_iff`, `Increasing.first_pair_draw_iff` (`CatchUp/Increasing.lean`) | — |
 | [C79](C79.md) | Explicit certificates grow exponentially | — | proved | theirs: `initial_certificate_exponential` (`CatchUp/Earlier/CertificateComplexityHighCounters.lean`) | — |
 | [C80](C80.md) | Score shift | — | proved | theirs: `value_aux_add_scores` (`CatchUp/Executable.lean`) | — |
+| [C81](C81.md) | Dense pair deletions never lose | — | open | — | — |
