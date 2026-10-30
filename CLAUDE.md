@@ -41,6 +41,7 @@ templates/_shared/  files every problem has; templates/<kind>/ the files its
 problems/
   problems.md   every problem, rated (choose picks from it)
   active.md     one row per problem folder
+  candidates.md the user's recent picks, weighed by choose with the rest
 problems/<name>/
   README.md     the problem
   journal.md    what changed, newest first
