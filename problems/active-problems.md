@@ -1,6 +1,6 @@
 # Active problems
 
-One row per problem folder; the ID is its row in [problems.md](../problems.md).
+One row per problem folder; the ID is its row in [problems.md](problems.md).
 
 | ID | Problem | Kind | State |
 |---|---|---|---|

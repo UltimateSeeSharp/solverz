@@ -2,11 +2,12 @@
 
 AI-assisted attacks on open math problems; every result is machine-checked
 in Lean 4. How it works: [CLAUDE.md](CLAUDE.md). How we think:
-[principles.md](principles.md). All problems: [problems.md](problems.md);
-being attacked: [problems/active-problems.md](problems/active-problems.md).
+[principles.md](principles.md). All problems:
+[problems/problems.md](problems/problems.md); being attacked:
+[problems/active-problems.md](problems/active-problems.md).
 
 ## Use
-- "choose a problem": picks from problems.md and sets the problem up.
+- "choose a problem": picks from problems/problems.md and sets the problem up.
 - "attack <problem>": runs the attack loop until the goal is verified or you
   stop it. What needs you is listed in the problem's `state.md`.
 
