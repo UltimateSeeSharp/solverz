@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-10-30
+- 06:05 C80 verified: `value_aux_add_scores` ported with the verified evaluator
 - 05:43 imported from catch-up-research: C64 refuted (adjacent-hole copying)
 - 05:43 imported from catch-up-research: C65 refuted (pair deletions forbid neighbor jumps)
 - 05:43 imported from catch-up-research: C66 refuted (geometry-free first-pair transfer)

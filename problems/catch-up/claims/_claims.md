@@ -81,4 +81,4 @@
 | [C77](C77.md) | Exact-sum lemmas | — | proved | theirs: `Position.value_ne_loss_of_deficit_is_max` (`CatchUp/Earlier/DeficitWinningBound.lean`), `Position.value_ne_loss_of_exact_sum_residuals` (`CatchUp/ExactSumResiduals.lean`), `Position.exists_winning_opening_gt_max_of_loss_of_exact_sum` (`CatchUp/ExactSumLossObstruction.lean`) | — |
 | [C78](C78.md) | Increasing turns | — | proved | theirs: `Increasing.check_iff`, `Increasing.first_pair_draw_iff` (`CatchUp/Increasing.lean`) | — |
 | [C79](C79.md) | Explicit certificates grow exponentially | — | proved | theirs: `initial_certificate_exponential` (`CatchUp/Earlier/CertificateComplexityHighCounters.lean`) | — |
-| [C80](C80.md) | Score shift | — | proved | theirs: `value_aux_add_scores` (`CatchUp/Executable.lean`) | — |
+| [C80](C80.md) | Score shift | — | verified | `CatchUp.value_aux_add_scores` (`CatchUp/Executable.lean`) | — |
