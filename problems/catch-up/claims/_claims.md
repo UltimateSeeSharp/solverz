@@ -64,3 +64,4 @@
 | [C60](C60.md) | Pairing bound (sharper C37) | — | refuted | — | — |
 | [C61](C61.md) | Exits of smallest-first play are non-losing (EX) | — | open | — | — |
 | [C62](C62.md) | Twins with a tie-break at every height | C21 | open | — | — |
+| [C63](C63.md) | Peel below height 1 | C28, C62 | open | — | — |
