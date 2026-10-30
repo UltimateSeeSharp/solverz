@@ -13,24 +13,10 @@ How we think and work: `principles.md`.
   - `compute`: an exact value or complete list; Lean checks a certificate.
   A problem that fits no kind, or has no finite check, is not taken on;
   the user decides.
-- **Idea**: a way to attack the problem. Kind (induction, invariant, finite
-  reduction, …), source (ideator, literature, us), the claims it needs,
-  including the claim that those claims imply the goal.
-  Status: `new` → `alive` (survived its kill test) | `dead` (which claim
-  failed) | `solved`.
-- **Claim**: one precise statement. The claims it uses; evidence; what was tried and failed.
-  Status: `open` → `refuted` (counterexample) | `proved` → `verified` (Lean).
-  `approved` when the user confirmed its Lean statement says what we mean.
-- **Experiment**: a computation that tests one claim. States beforehand which
-  result changes the claim's status; its code is first checked against known
-  values or an independent computation.
 - **Journal**: what changed, newest first: one timestamped line per step that
   changed a status, under its date.
 
-Relations: an idea needs claims, a claim uses claims (both many to many).
-A refuted claim kills every idea that needs it and reopens every proved
-claim whose proof uses it; an idea whose claims are all verified solves the
-problem.
+Each kind adds its own model and attack loop: the skill of its name.
 
 ## Roles
 - **Researcher**: the session that runs the attack loop. It knows what the
@@ -46,15 +32,13 @@ problem.
 ## Where things live
 ```
 .worktrees/<problem>/  the attack's checkout of attack/<problem>
-templates/problem/  the shape of every file in problems/<name>/; a new file copies it
+templates/problem/  files every problem has; templates/<kind>/ the files its
+                    kind adds; a new file copies them
 problems/
   problems.md   every problem, rated (choose picks from it)
   active.md     one row per problem folder
 problems/<name>/
   README.md     the problem
-  ideas/        _ideas.md (index), I1.md, I2.md, …
-  claims/       _claims.md (index), C1.md, C2.md, …
-  experiments/  _experiments.md (index), E1.md, E2.md, …
   journal.md    what changed, newest first
   understanding.md  what holds, what blocks, what a solution must do
   state.md      now: focus, next step, running jobs, what needs the user
@@ -91,36 +75,11 @@ The `choose` skill.
 The `maintain` skill (`/maintain`); never inside an attack.
 
 ### Attack
-"attack <problem>" starts the workflow of the problem's kind. On every start,
+"attack <problem>" runs the skill of the problem's kind. On every start,
 the loop first enters the problem's worktree (Rules), reads
 `understanding.md`, `state.md` and the files it links, checks `git status`
 and each job under Running (reads its output, or reruns it if lost), and
 continues from its next step.
-
-#### `prove`
-1. Pick the most promising idea now, in light of `understanding.md`: new
-   ideas get their cheapest kill test first, alive ones go deeper.
-2. Work on one claim it needs: test it, prove it, find it in the
-   literature, or verify it in Lean: while it is open, when Lean settles it
-   faster than paper; otherwise once every claim of the idea is proved on
-   paper (the goal goes through `audit` first).
-3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
-   result. SURVIVES: the change goes through. REFUTED: the claim is
-   `refuted`. FLAWED: it stays `open`, the flaw under Tried. UNCLEAR:
-   settling it is the next step. A counterexample counts once rechecked
-   with committed code (in Lean if the claim is stated there and the check
-   is quick).
-4. Record changed statuses with a journal line, and `state.md`.
-5. The goal claim verified: stop and tell the user. Otherwise **NEVER STOP**:
-   not to wait for anything under Running, not for context (compaction is
-   automatic; `state.md` carries the loop), and after answering the user,
-   go on with the loop. The user stops the loop.
-
-#### `find`
-
-#### `bound`
-
-#### `compute`
 
 ## Trust
 - A result counts only once Lean checks it: `lake build --wfail`, no `sorry`,
@@ -139,7 +98,8 @@ what doesn't depend on it.
 - **Names:** problem folders kebab-case (`catch-up`); its Lean library the
   same words in UpperCamelCase (`CatchUp`); its solver crate keeps the
   folder name.
-- **IDs:** ideas `I1`…, claims `C1`…, experiments `E1`…; stable, never reused.
+- **IDs:** an entity's letter and a number (`I1`, `C1`, `E1`); stable,
+  never reused.
 - **Lean:** one file per topic, UpperCamelCase (`CatchUp/Parity.lean`).
   Names follow
   [Mathlib's conventions](https://leanprover-community.github.io/contribute/naming.html):
