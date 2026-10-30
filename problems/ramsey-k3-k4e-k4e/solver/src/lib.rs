@@ -1,6 +1,8 @@
 //! R(K₃, K₄−e, K₄−e) solver: scores 3-colourings of Kₙ by their forbidden
 //! subgraphs, mirroring Lean's `Checks` (and so `Valid`), and extends them.
 
+pub mod block;
+
 use std::fs;
 use std::path::Path;
 
@@ -11,7 +13,7 @@ pub const K4E_FREE: [u8; 2] = [1, 2];
 /// Number of colours.
 pub const COLOURS: u8 = 3;
 /// A 4-point set holds a K₄−e in a colour when this many of its 6 pairs have it.
-const K4E_EDGES: usize = 5;
+pub(crate) const K4E_EDGES: usize = 5;
 /// Objects files write colour `c` as digit `c + FILE_OFFSET`, the diagonal as 0.
 const FILE_OFFSET: u8 = 1;
 
@@ -152,14 +154,22 @@ pub fn violations(c: &Colouring) -> usize {
 
 /// Every colour row for a new point that keeps a valid `c` valid.
 pub fn extensions(c: &Colouring) -> Vec<Vec<u8>> {
+    extensions_with_depth(c).0
+}
+
+/// `extensions`, plus how many of the new point's pairs the deepest partial
+/// row coloured without a violation (`c.n()` when an extension exists).
+pub fn extensions_with_depth(c: &Colouring) -> (Vec<Vec<u8>>, usize) {
     let mut found = Vec::new();
     let mut row = Vec::with_capacity(c.n());
-    extend(c, &mut row, &mut found);
-    found
+    let mut depth = 0;
+    extend(c, &mut row, &mut found, &mut depth);
+    (found, depth)
 }
 
 /// Backtracking: `row` colours the new point's pairs with points `0..row.len()`.
-fn extend(c: &Colouring, row: &mut Vec<u8>, found: &mut Vec<Vec<u8>>) {
+fn extend(c: &Colouring, row: &mut Vec<u8>, found: &mut Vec<Vec<u8>>, depth: &mut usize) {
+    *depth = (*depth).max(row.len());
     if row.len() == c.n() {
         found.push(row.clone());
         return;
@@ -167,7 +177,7 @@ fn extend(c: &Colouring, row: &mut Vec<u8>, found: &mut Vec<Vec<u8>>) {
     for colour in 0..COLOURS {
         row.push(colour);
         if new_point_ok(c, row) {
-            extend(c, row, found);
+            extend(c, row, found, depth);
         }
         row.pop();
     }
