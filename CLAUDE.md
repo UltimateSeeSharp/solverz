@@ -78,9 +78,9 @@ step.
 1. Pick the most promising idea now: new ideas get their cheapest kill test
    first, alive ones go deeper.
 2. Work on one claim it needs: test it, prove it, find it in the
-   literature, or verify it in Lean when Lean settles it faster than paper
-   or once every claim of the idea is proved on paper (the goal goes
-   through `audit` first).
+   literature, or verify it in Lean: while it is open, when Lean settles it
+   faster than paper; otherwise once every claim of the idea is proved on
+   paper (the goal goes through `audit` first).
 3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
    result; the change goes through on SURVIVES. REFUTED: the claim is
    `refuted` once its counterexample is rechecked (in Lean if the claim is
