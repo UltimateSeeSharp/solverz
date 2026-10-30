@@ -13,7 +13,8 @@ Kind: find. Estimate: as SAT, 630 variables (210 edges × 3 colours) and
 about 74,000 clauses, memory trivial; hardness unknown, minutes to weeks
 depending on symmetry breaking. Lean: 1,330 triangles and 5,985 four-point
 sets through a list-based checker proved correct. If no colouring exists
-the value is 21, but that needs an exhaustive proof Lean cannot check.
+the value is 21, but that needs an exhaustive proof whose certificate is
+impractical for Lean's kernel.
 
 ## Literature
 - Radziszowski, Small Ramsey Numbers, DS1 revision 18 (EJC, 2026-04-24):
@@ -22,8 +23,10 @@ the value is 21, but that needs an exhaustive proof Lean cannot check.
   lower bound 21 from a 20-point colouring printed in Figure 3, obtained by
   splitting the unique (J₇, K₃; 20)-good graph; upper bound 27; also
   R(K₃, K₃, K₄−e) = 17 by SAT and exhaustive splitting. Opened 2026-10-30.
-- Lidický, Pfender 2017 ([arXiv:1704.03592](https://arxiv.org/abs/1704.03592)):
-  flag-algebra upper bounds; DS1 credits them with ≤ 22.
+- Lidický, Pfender 2017 ([arXiv:1704.03592](https://arxiv.org/abs/1704.03592)),
+  Theorem 8: flag-algebra upper bound 22 (computed ⌊22.70⌋), down from 27.
+- Boza, Dybizbański, Dzido 2012 (EJC 19(4) P47): R(K₃+e, K₄−e, K₄−e) =
+  R(K₃, K₄−e, K₄−e). Abstract opened 2026-10-30.
 - Wesley 2025 ([arXiv:2509.03784](https://arxiv.org/abs/2509.03784)): SAT on
   structured colourings for neighbouring cases (R(K₄, K₄−e, K₄−e) ≥ 35); not this one.
 - AI attention: none found (2026-10-30; AlphaEvolve, FunSearch,
