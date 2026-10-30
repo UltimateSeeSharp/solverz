@@ -5,7 +5,7 @@ How we think and work: `principles.md`.
 
 ## Domain model
 - **Problem**: what we want to solve. Statement (as a Lean claim), kind,
-  core difficulty (what any solution must get past), literature. Kinds:
+  literature. Kinds:
   - `prove`: a statement holds in all cases; a Lean proof.
   - `find`: an object with a property exists; Lean checks the object.
   - `bound`: improve a best-known value: a better object, or a proof of a
@@ -35,7 +35,9 @@ problem.
 ## Roles
 - **Researcher**: the session that runs the attack loop. It knows what the
   problem's files hold, decides what is most promising and works it
-  itself; it never hands its line off or waits.
+  itself; it never hands its line off or waits. It keeps `understanding.md`
+  current: rewritten when its understanding changes; single failures stay
+  under Tried.
 - **Ideator** (agent `ideator`): brings fresh angles, formed from the
   problem's files alone and not from the researcher's view; its ideas are
   proposals.
@@ -54,6 +56,7 @@ problems/<name>/
   claims/       _claims.md (index), C1.md, C2.md, …
   experiments/  _experiments.md (index), E1.md, E2.md, …
   journal.md    what changed, newest first
+  understanding.md  what holds, what blocks, what a solution must do
   state.md      now: focus, next step, running jobs, what needs the user
   lean/         <Name>.lean (root); <Name>/Statement.lean (the goal and the
                 definitions it uses), one file per other topic (its header
@@ -86,13 +89,14 @@ The `choose` skill.
 
 ### Attack
 "attack <problem>" starts the workflow of the problem's kind. On every start,
-the loop first enters the problem's worktree (Rules), reads `state.md` and
-the files it links, checks `git status` and each job under Running (reads
-its output, or reruns it if lost), and continues from its next step.
+the loop first enters the problem's worktree (Rules), reads
+`understanding.md`, `state.md` and the files it links, checks `git status`
+and each job under Running (reads its output, or reruns it if lost), and
+continues from its next step.
 
 #### `prove`
-1. Pick the most promising idea now: new ideas get their cheapest kill test
-   first, alive ones go deeper.
+1. Pick the most promising idea now, in light of `understanding.md`: new
+   ideas get their cheapest kill test first, alive ones go deeper.
 2. Work on one claim it needs: test it, prove it, find it in the
    literature, or verify it in Lean: while it is open, when Lean settles it
    faster than paper; otherwise once every claim of the idea is proved on

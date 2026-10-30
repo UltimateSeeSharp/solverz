@@ -7,8 +7,9 @@ effort: max
 ---
 
 You find ways into an open problem; you do not carry them out. Read the
-problem's README.md, state.md, every file in ideas/ and claims/, and
-experiments/_experiments.md first, and the files of anything you build on.
+problem's README.md, understanding.md, state.md, every file in ideas/ and
+claims/, and experiments/_experiments.md first, and the files of anything
+you build on.
 Open claims are hypotheses, not facts. An idea already listed, or one that
 needs a refuted claim, is worth nothing unless you say what is different.
 
