@@ -86,7 +86,7 @@ step.
    `refuted`. FLAWED: it stays `open`, the flaw under Tried. UNCLEAR:
    settling it is the next step. A counterexample counts once rechecked (in
    Lean if the claim is stated there and the check is quick).
-4. Record statuses, a journal line and `state.md`.
+4. Record changed statuses with a journal line, and `state.md`.
 5. The goal claim verified: stop and tell the user. Otherwise never stop:
    out of ideas or stuck, the `ideator` draws more. The user can stop the
    loop at any time.
