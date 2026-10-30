@@ -1,4 +1,4 @@
-// Is Hyb2 a universal high-phase strategy (A8)? In the rounds game (L13) on every even offset set
+// Is Hyb2 a universal high-phase strategy (I8)? In the rounds game (C13) on every even offset set
 // O ⊆ {0..U−1} and every debt d with d + sum(O) even, compares Z's guaranteed outcome when Z plays
 // Hyb2 against a perfect Y with the exact outcome, with Z as mover (trailing by d) and as the other.
 // Hyb2: as first picker Z takes the largest; as answerer the smallest j leaving Y's debt ≥ c of what
@@ -15,7 +15,7 @@ fn neg(v: u8) -> u8 { WIN - v }
 fn letter(v: u8) -> char { ['L', 'D', 'W'][v as usize] }
 fn offsets(mask: u32) -> Vec<i64> { (0..32).filter(|&b| mask >> b & 1 == 1).map(|b| b as i64).collect() }
 fn sum(mask: u32) -> i64 { offsets(mask).iter().sum() }
-// L20's matching cost: sorted offsets paired bottom-up.
+// C20's matching cost: sorted offsets paired bottom-up.
 fn cost(mask: u32) -> i64 { offsets(mask).chunks(2).map(|c| c[1] - c[0]).sum() }
 
 struct T { stride: usize, exact: Vec<u8>, hz: Vec<u8>, hy: Vec<u8> }
@@ -118,7 +118,7 @@ fn main() {
             }
         }
     }
-    // Check: full blocks {0..2p−1} at debt p mod 2 draw with Hyb2 in both roles (L24).
+    // Check: full blocks {0..2p−1} at debt p mod 2 draw with Hyb2 in both roles (C24).
     for p in 1..=u / 2 {
         let (mask, d) = ((1u32 << (2 * p)) - 1, (p % 2) as i64);
         println!("block p = {}: exact {}, Hyb2 as mover {}, as the other {}", p, letter(t.exact(mask, d)), letter(t.hz(mask, d)), letter(t.hy(mask, d)));

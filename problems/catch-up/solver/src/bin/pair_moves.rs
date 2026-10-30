@@ -1,5 +1,5 @@
 //! Usage: pair_moves [universe]   (default 24)
-//! Which first picks draw in a pair set at g0 (L8)? E: S = p pairs P_1 < … < P_p, P_i = {a_i, a_i + 1};
+//! Which first picks draw in a pair set at g0 (C8)? E: S = p pairs P_1 < … < P_p, P_i = {a_i, a_i + 1};
 //! T: {1,2,3} ∪ an E set above 3; g0 = p mod 2. A pick x ≥ g0 ends the turn, so its value is
 //! neg V(S − x, x − g0). Tallies, by the role of x (which pair, bottom or top half; for T also 1, 2, 3),
 //! how often it draws, and lists the sets where the top of the lowest pair (a_1 + 1) does not draw.
@@ -93,7 +93,7 @@ struct Tally {
     sets: u64,
     /// role → (sets with a pick in that role, sets where it draws)
     by_role: BTreeMap<Role, (u64, u64)>,
-    /// Sets with a winning pick (L8 false) or no drawing pick.
+    /// Sets with a winning pick (C8 false) or no drawing pick.
     not_draw: Vec<u64>,
     /// E: sets where a_1 + 1 does not draw.
     lowest_top_fails: Vec<u64>,
@@ -208,7 +208,7 @@ fn main() {
     println!("Every E and T set ⊆ {{1..{u}}}, |S| ≥ 1. Members with max ≤ {CHECK_UNIVERSE} ({checked} sets) re-solved with `Solver` pick by pick: all match.\n");
     for (class, t) in &tallies {
         println!("## {class:?}: {} sets\n", t.sets);
-        println!("Sets with no drawing pick or a winning pick (L8 false): {}\n", t.not_draw.len());
+        println!("Sets with no drawing pick or a winning pick (C8 false): {}\n", t.not_draw.len());
         for &m in t.not_draw.iter().take(SHOWN) {
             println!("- {}", show(m));
         }

@@ -1,8 +1,8 @@
 //! Usage: hyb2_states <max_p> [rule]   (rule: hyb2 (default) | hyb | am)
 //! Where does the frugal switch (B30) let the opponent take two numbers in one turn? Real Catch-Up on
 //! blocks {a..a+2p−1}, a ∈ [2p−1, 4p], at gap p mod 2. Z follows the rule, Y plays perfectly.
-//! Rules: `am` takes the largest number; `hyb` (L21) answers a round mover trailing by more than c of
-//! the numbers left with its L20 partner, else the largest; `hyb2` answers with the smallest number
+//! Rules: `am` takes the largest number; `hyb` (C21) answers a round mover trailing by more than c of
+//! the numbers left with its C20 partner, else the largest; `hyb2` answers with the smallest number
 //! leaving Y's debt ≥ c of what is left, else the largest. A round: the mover picks until caught up,
 //! then the other answers until caught up (if it falls short, it becomes the next round's mover).
 //! Reports Z's guaranteed margin in both roles, and over every state reachable against Z: Y round
@@ -26,7 +26,7 @@ fn offsets(mask: u32) -> Vec<i64> {
     (0..32).filter(|&b| mask >> b & 1 == 1).map(|b| b as i64).collect()
 }
 
-/// L20's matching cost of the offsets in `mask`.
+/// C20's matching cost of the offsets in `mask`.
 fn cost(mask: u32) -> i64 {
     offsets(mask).chunks(2).map(|c| if c.len() == 2 { c[1] - c[0] } else { 0 }).sum()
 }
@@ -35,7 +35,7 @@ fn top(mask: u32) -> u32 {
     31 - mask.leading_zeros()
 }
 
-/// L20 partner of `i` in `mask` (which contains `i`).
+/// C20 partner of `i` in `mask` (which contains `i`).
 fn partner(mask: u32, i: u32) -> Option<u32> {
     let v = offsets(mask);
     let k = v.iter().position(|&x| x == i as i64)?;

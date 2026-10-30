@@ -1,5 +1,5 @@
 //! Usage: top_reserve <from> <to> <q>...   |   top_reserve compare <from> <to> <q>
-//! Can the defender leave the top block for last (A6, B16)? Γ_N(q): the top 2q numbers T = {N−2q+1..N}
+//! Can the defender leave the top block for last (I6, B16)? Γ_N(q): the top 2q numbers T = {N−2q+1..N}
 //! split into pairs {N−2q+1, N−2q+2}, …; the defender may take x ∈ T only to close a pair the attacker
 //! opened (x's partner gone) or when only T is left. The attacker is free. Prints player 1's value with
 //! the defender as player 2 and as player 1 (the defender holds iff both are draws), per even-total N

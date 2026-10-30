@@ -1,6 +1,6 @@
 //! Usage: low_change [sample_every] [random_cores] [seed]   (defaults 6, 20, 1)
 //! How much low change cures a sparse high core (B22)? Cores C: pair sets with 5 pairs whose value
-//! at gap 1 (their draw-parity gap) is not a draw (O7). For S_k = {1..k} ∪ C, k ≤ MAX_LOW, g0(S_k) =
+//! at gap 1 (their draw-parity gap) is not a draw (C45). For S_k = {1..k} ∪ C, k ≤ MAX_LOW, g0(S_k) =
 //! sum(S_k) mod 2; prints V(S_k, g0) for every k and k(C) = the least k from which every S_k draws
 //! (up to MAX_LOW), against min C and 2·min C. Cores: every core with max 31–44 (count checked
 //! against the refuter's 232), every `sample_every`-th of them profiled, plus random failing cores

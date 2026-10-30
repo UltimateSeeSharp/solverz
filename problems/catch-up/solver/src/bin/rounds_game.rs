@@ -1,5 +1,5 @@
 //! Usage: rounds_game [universe]   (default 18)
-//! The rounds game (A7, B20), Catch-Up on {a + o : o ∈ O} for large a. O ⊆ {0..U−1}, |O| even; the mover
+//! The rounds game (I7, B20), Catch-Up on {a + o : o ∈ O} for large a. O ⊆ {0..U−1}, |O| even; the mover
 //! trails by d. A round: the mover picks i, the other picks j; the mover's signed debt becomes d + j − i;
 //! if ≥ 0 the mover keeps moving, else the other moves at the negated debt. O empty: draw at d = 0, else loss.
 //! Debts d ≥ U are losses by U0 (d > c(O), the bottom-up matching cost, which is ≤ U − 1); the table keeps

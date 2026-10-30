@@ -1,12 +1,12 @@
 //! Usage: far_block_margin <u> <k>
-//! Do k far 4-blocks act on margins by a fixed map (L34)? E_k: blocks {x..x+3}, each above twice the total below it
-//! plus 10. Margin game m (L33); ψ(X) = X − 2·sign(X) for |X| ≥ 2, X for |X| ≤ 1. Checks, for every S ⊆ {1..u} and
+//! Do k far 4-blocks act on margins by a fixed map (C34)? E_k: blocks {x..x+3}, each above twice the total below it
+//! plus 10. Margin game m (C33); ψ(X) = X − 2·sign(X) for |X| ≥ 2, X for |X| ≤ 1. Checks, for every S ⊆ {1..u} and
 //! 0 ≤ d ≤ u, that m(S ∪ E_k, d) = ψ^k(m(S, d)) (position form), after checking sign(m) against `Solver` on
 //! {1..u} ∪ E_k for every S ⊆ {1..min(u, SOLVER_CHECK_U)} with E_k left intact.
 
 use catch_up::{Outcome, Solver};
 
-/// Low sets up to this size are cross-checked against `Solver` (L33) with the blocks intact.
+/// Low sets up to this size are cross-checked against `Solver` (C33) with the blocks intact.
 const SOLVER_CHECK_U: usize = 8;
 /// Margin a block must clear above twice the total below it.
 const FAR_MARGIN: usize = 10;
@@ -71,7 +71,7 @@ fn main() {
             }
         }
     }
-    println!("L33 check with {k} far blocks on every S ⊆ {{1..{cu}}}, d ≤ {cu}: sign(m) ≠ Solver at {mismatches} positions");
+    println!("C33 check with {k} far blocks on every S ⊆ {{1..{cu}}}, d ≤ {cu}: sign(m) ≠ Solver at {mismatches} positions");
 
     let (mut checked, mut wrong) = (0u64, 0u64);
     let mut shown = vec![];

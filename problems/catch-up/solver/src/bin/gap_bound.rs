@@ -1,13 +1,13 @@
 //! Usage: gap_bound <u> <dmax>
-//! Does the player to move never lose by more than the largest gap (L37)? Margin game m(S, d) (L33): Catch-Up turns,
+//! Does the player to move never lose by more than the largest gap (C37)? Margin game m(S, d) (C33): Catch-Up turns,
 //! payoff the mover's final score minus the opponent's, no early-loss rule. γ(W) = the largest gap of sorted W ∪ {0}.
-//! Checks, over every S ⊆ {1..u} and 0 ≤ d ≤ dmax: first that sign(m) equals `Solver::position` (L33) on all
+//! Checks, over every S ⊆ {1..u} and 0 ≤ d ≤ dmax: first that sign(m) equals `Solver::position` (C33) on all
 //! S ⊆ {1..min(u, SOLVER_CHECK_U)}, d ≤ that bound; then LG, m(S, d) ≥ −γ(S ⊎ {d}), with the positions where it is
 //! tight; G at ties, |m(S, 0)| ≤ γ(S); and prints m({1..N}, 0) for N ≤ u.
 
 use catch_up::{Outcome, Solver};
 
-/// Sets up to this size are cross-checked against `Solver` (L33).
+/// Sets up to this size are cross-checked against `Solver` (C33).
 const SOLVER_CHECK_U: usize = 12;
 /// Examples printed per kind.
 const SHOWN: usize = 5;
@@ -68,7 +68,7 @@ fn main() {
             }
         }
     }
-    println!("L33 check on every S ⊆ {{1..{cu}}}, d ≤ {}: sign(m) ≠ Solver at {mismatches} positions", cu.min(dmax));
+    println!("C33 check on every S ⊆ {{1..{cu}}}, d ≤ {}: sign(m) ≠ Solver at {mismatches} positions", cu.min(dmax));
 
     let (mut positions, mut violations, mut tight, mut g_violations) = (0u64, 0u64, 0u64, 0u64);
     let (mut shown_violations, mut shown_tight) = (vec![], vec![]);

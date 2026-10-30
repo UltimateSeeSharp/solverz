@@ -2,7 +2,7 @@
 //! Rounds game (B20, rounds_game.rs). Player Z follows a greedy strategy, a perfect opponent minimizes Z's final
 //! margin. Reports the least final margin per start type and pair count, over pair sets (unions of disjoint
 //! {x, x+1}) containing 0 within {0..U−1}. Starts: Z the mover trailing by 0 or 1; Z the non-mover leading by l.
-//! - max: always take the largest number left. Claim L15: margin ≥ −1 from every start listed; with parity
+//! - max: always take the largest number left. Claim C15: margin ≥ −1 from every start listed; with parity
 //!   (margin ≡ debt + pairs) always-max draws at debt p mod 2 in both roles.
 //! - amx (B25, ideator): as max, except as second picker: if taking the largest number m would leave no
 //!   half-taken pair and a tie with the opponent to move again, take the high of the highest other intact pair.

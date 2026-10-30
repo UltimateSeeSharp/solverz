@@ -2,7 +2,7 @@
 // even totals. D picks only among the k smallest numbers left while the set is low, min < (num/den)·span
 // (span = max − min); once high, among the t largest (t = 0: any), or by Hyb2 (t = h): with an odd
 // number left D answers with the smallest pick j leaving the opponent behind by ≥ c of what is left
-// (L20's matching cost), else the largest; with an even number left it takes the largest. The opponent
+// (C20's matching cost), else the largest; with an even number left it takes the largest. The opponent
 // is free. Prints D's outcome as player 1 and as player 2 per N.
 // Usage: low_high <n_max> <k> <num> <den> <t|h>. Dense memo [mask][gap], outcomes only.
 
@@ -13,7 +13,7 @@ struct G { n: usize, k: usize, num: i64, den: i64, t: usize, hyb2: bool, md: Vec
 impl G {
     // Number b + 1 sits at bit b.
     fn sum(mask: u32) -> i64 { (0..32).filter(|&b| mask >> b & 1 == 1).map(|b| b as i64 + 1).sum() }
-    // L20's matching cost: sorted numbers paired bottom-up.
+    // C20's matching cost: sorted numbers paired bottom-up.
     fn cost(mask: u32) -> i64 {
         let xs: Vec<i64> = (0..32).filter(|&b| mask >> b & 1 == 1).map(|b| b as i64 + 1).collect();
         xs.chunks(2).map(|c| if c.len() == 2 { c[1] - c[0] } else { 0 }).sum()

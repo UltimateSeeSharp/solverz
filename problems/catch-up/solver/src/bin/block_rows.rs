@@ -1,5 +1,5 @@
 //! Usage: block_rows [max_pairs] [max_height]   (defaults 8, 80)
-//! Even blocks at any height (A7, B19). B(a, p) = {a..a+2p−1}, g0 = p mod 2. TI: V(B, g0) = draw.
+//! Even blocks at any height (I7, B19). B(a, p) = {a..a+2p−1}, g0 = p mod 2. TI: V(B, g0) = draw.
 //! t_p(g) = draw if g ≤ p and g ≡ p (mod 2); win if g = 0 and p odd; loss otherwise.
 //! Per p: blocks where TI fails; the least a0 such that every a0 ≤ a ≤ max_height has row = t_p at
 //! all g < a; blocks whose draws miss a draw-parity g ≤ p; the rows themselves at small a.

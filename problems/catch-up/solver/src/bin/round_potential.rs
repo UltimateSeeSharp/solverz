@@ -1,6 +1,6 @@
 //! Usage: round_potential [max_pairs] [universe] [max_margin]   (defaults 7, 15, 60)
-//! Is a round-by-round invariant K for L15 (always-max on pair sets, rounds game; B20) closed under play?
-//! Answer (log 2026-10-26): closed for p ≤ 5, not from p = 6; L15's proof measures Φ at balanced starts instead.
+//! Is a round-by-round invariant K for C15 (always-max on pair sets, rounds game; B20) closed under play?
+//! Answer (journal 2026-10-26): closed for p ≤ 5, not from p = 6; C15's proof measures Φ at balanced starts instead.
 //! A round-start state: each number of a pair set E is left, held by Z (always-max) or held by Y, equal counts;
 //! Z's margin s; the mover. A remainder is a left number whose partner is held; it is owed to the other player.
 //! yh = remainders whose partner Y holds, zh = those whose partner Z holds; δ = (|yh| − |zh|) / 2;

@@ -1,17 +1,17 @@
-// Can D force entry into a class where the Lean route covers the high phase (A8)? Real Catch-Up,
+// Can D force entry into a class where the Lean route covers the high phase (I8)? Real Catch-Up,
 // both players free, from a start set at a deficit. The first position that is a high round start
 // (|R| even, min R ≥ span R, mover's debt ≤ min R) is scored for D: draw if it lies in C, loss
 // otherwise. With a = min R and offsets T = R − a, C is:
-//   debts:   W ≤ a and the mover's debt ≤ a (L25: W never rises, so every later debt fits L22);
-//   outcome: D to move at debt d: KZc(T, d) (L23); opponent to move at debt e: KYc(T, e) (L23) or
-//            e ≥ c(T) (after Hyb2T's switch, L20).
-// W (L25): Ψ(T) = 2·span − |T| + 2 − o₂(T) where D moves or e < c(T); max(e, min(e + c − o₂, Ψ))
+//   debts:   W ≤ a and the mover's debt ≤ a (C25: W never rises, so every later debt fits C22);
+//   outcome: D to move at debt d: KZc(T, d) (C23); opponent to move at debt e: KYc(T, e) (C23) or
+//            e ≥ c(T) (after Hyb2T's switch, C20).
+// W (C25): Ψ(T) = 2·span − |T| + 2 − o₂(T) where D moves or e < c(T); max(e, min(e + c − o₂, Ψ))
 // where the opponent moves at e ≥ c(T). Parity (C2) holds on every draw-parity start.
 // Prints D's outcome per N for the start {lo..N} at the deficit (D as mover / as the other).
 // Usage: formal_entry <lo> <n_max> <deficit> [parts]: parts `wo` (default) checks both, `w` only the
 // debt part, `o` only the outcome part; `h` replaces the outcome part by Hyb2T's exact guarantee in
 // the rounds game (≥ draw), the largest outcome class any proof of Hyb2T can use; `c` asserts that the
-// outcome class lies inside Hyb2T's guarantee (L23 + L20) at every scored position; `l` (with `wh`)
+// outcome class lies inside Hyb2T's guarantee (C23 + C20) at every scored position; `l` (with `wh`)
 // counts the scored positions Hyb2T makes safe outside that class, by size and mover, after a run;
 // `s<k>` (with `wo`) adds Hyb2T's exact guarantee on sets of at most k offsets to the outcome class;
 // `b<k>` restricts D's picks to its k smallest numbers left while the set is low (min < span).
@@ -22,9 +22,9 @@ const UNKNOWN: i8 = 2;
 
 fn elems(mask: u32) -> Vec<i64> { (0..32).filter(|&b| mask >> b & 1 == 1).map(|b| b as i64 + 1).collect() }
 fn sum(mask: u32) -> i64 { elems(mask).iter().sum() }
-// L20's matching cost: sorted numbers paired bottom-up.
+// C20's matching cost: sorted numbers paired bottom-up.
 fn cost(xs: &[i64]) -> i64 { xs.chunks(2).map(|c| if c.len() == 2 { c[1] - c[0] } else { 0 }).sum() }
-// L23's depth: Σ (max − h) over holes h strictly between min and max.
+// C23's depth: Σ (max − h) over holes h strictly between min and max.
 fn depth(xs: &[i64]) -> i64 {
     if xs.len() < 2 { return 0; }
     let (lo, hi) = (xs[0], xs[xs.len() - 1]);
@@ -184,7 +184,7 @@ fn main() {
                 e.0 += 1;
             }
             for ((size, dm), (count, ex)) in by {
-                println!("  outside L23's class, safe for Hyb2T: |T| = {}, {} moves: {} (e.g. {})", size, if dm { "D" } else { "the opponent" }, count, ex);
+                println!("  outside C23's class, safe for Hyb2T: |T| = {}, {} moves: {} (e.g. {})", size, if dm { "D" } else { "the opponent" }, count, ex);
             }
         }
     }
