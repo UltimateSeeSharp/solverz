@@ -33,8 +33,11 @@ experiments/  _experiments.md (index), E1.md, E2.md, …
 ```
 
 ## Start
-The goal is claim C1. Draw the first ideas with the `ideator`, standard
-techniques first; fill `ideas/` and `claims/`.
+The goal is claim C1. The researcher builds the base itself: the
+problem's small cases computed by an engine checked against published
+values; the first ideas, standard techniques first, each with its claims
+and kill test, in `ideas/` and `claims/`. The `ideator` comes in when the
+researcher has no next idea of its own; nothing waits on it.
 
 ## Loop
 1. Pick the most promising idea now, in light of `understanding.md`: new
@@ -44,13 +47,9 @@ techniques first; fill `ideas/` and `claims/`.
    faster than paper; otherwise once every claim of the idea is proved on
    paper (the goal goes through `audit` first).
 3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
-   result. SURVIVES: the change goes through. REFUTED: the claim is
-   `refuted`. FLAWED: it stays `open`, the flaw under Tried. UNCLEAR:
-   settling it is the next step. A counterexample counts once rechecked
-   with committed code (in Lean if the claim is stated there and the check
-   is quick).
+   result (CLAUDE.md, Refuter); a flaw goes under Tried. A counterexample
+   counts once rechecked with committed code (in Lean if the claim is
+   stated there and the check is quick).
 4. Record changed statuses with a journal line, and `state.md`.
-5. The goal claim verified: stop and tell the user. Otherwise **NEVER STOP**:
-   not to wait for anything under Running, not for context (compaction is
-   automatic; `state.md` carries the loop), and after answering the user,
-   go on with the loop. The user stops the loop.
+5. The goal claim verified: stop and tell the user. Otherwise never stop
+   (CLAUDE.md, Attack).

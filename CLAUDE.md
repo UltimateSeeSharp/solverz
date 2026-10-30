@@ -26,13 +26,17 @@ Each kind adds its own model and attack loop: the skill of its name.
   in the files of what they tested.
 - **Ideator** (agent `ideator`): brings fresh angles, formed from the
   problem's files alone and not from the researcher's view; its ideas are
-  proposals.
+  proposals. Optional, never a step anything waits on; a round takes
+  30–90 min.
 - **Refuter** (agent `refuter`): tries to break a result before it counts.
+  SURVIVES: the change goes through. REFUTED: the result is wrong; its
+  opposite is recorded. FLAWED: the status stays, the flaw recorded.
+  UNCLEAR: settling it is the next step.
 
 ## Where things live
 ```
 .worktrees/<problem>/  the attack's checkout of attack/<problem>
-templates/problem/  files every problem has; templates/<kind>/ the files its
+templates/_shared/  files every problem has; templates/<kind>/ the files its
                     kind adds; a new file copies them
 problems/
   problems.md   every problem, rated (choose picks from it)
@@ -80,6 +84,11 @@ the loop first enters the problem's worktree (Rules), reads
 `understanding.md`, `state.md` and the files it links, checks `git status`
 and each job under Running (reads its output, or reruns it if lost), and
 continues from its next step.
+
+The loop stops only when its skill says the problem is settled. Otherwise
+**NEVER STOP**: not to wait for anything under Running, not for context
+(compaction is automatic; `state.md` carries the loop), and after
+answering the user, go on with the loop. The user stops the loop.
 
 ## Trust
 - A result counts only once Lean checks it: `lake build --wfail`, no `sorry`,
