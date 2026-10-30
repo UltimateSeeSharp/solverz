@@ -4,7 +4,6 @@
 **Next step.** C83 for y = N and y = 2: try C77's exact-sum steps, as catch-up-research did for C73's endpoints, on the tied R_b's openings N and 2 for every b; first list, per N ≤ 28, the defender's safe first turns there and whether one exact-sum block from the bottom is always among them. Rule hunting on C81's sets is exhausted (C81 Tried); new ideas from the ideator's round, once it reports, go first if they beat this.
 - Before offering N = 33–35 to anyone, rerun them from a committed engine with a second engine as a cross-check.
 **Running.**
-- Refuter, proof mode on C63 (C63 open until it reports); started 2026-10-30.
 - Ideator, fresh round; started 2026-10-30.
 - Stopped, rerun when needed: `scratch/a13/lexap.exe 9 9 5 20 > scratch/a13/lexap-9.txt` (C62 progressions, k = 9).
 

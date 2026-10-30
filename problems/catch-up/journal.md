@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-10-30
+- 07:05 C63 proved: the refuter's proof mode SURVIVES; fam a for even p rests on C62 at (p − 1, 3/2) (I11)
 - 06:47 C83 open: the lower-ray boundary, C74's second hypothesis, holds for N = 11..24 (I8)
 - 06:47 C82 open: ({3..N}, 1) draws, C74's first hypothesis, data to N = 28 (I8)
 - 06:05 C80 verified: `value_aux_add_scores` ported with the verified evaluator
