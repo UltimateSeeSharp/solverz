@@ -44,6 +44,9 @@ fn main() {
             }
         }
     }
+    // the Frobenius group is non-abelian; ℤ₂₁ is abelian
+    let abelian = (0..N).all(|x| (0..N).all(|y| t[x][y] == t[y][x]));
+    assert_eq!(abelian, cyclic, "wrong group");
     // classes: {g, g⁻¹} for g ≠ identity
     let mut class_of = vec![usize::MAX; N];
     let mut classes = 0;

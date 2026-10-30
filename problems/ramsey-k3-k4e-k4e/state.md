@@ -1,10 +1,8 @@
 # State
 
-**Focus.** P3 (R4 running), then P4: local search on all 210 pairs.
-**Next step.** A local-search engine for P4: simulated annealing on `violations` with incremental scoring, validated by reaching 0 at 20 points.
-**Running.**
-- refuter on R2 and R3 (started 2026-10-30 21:13; verdicts decide P2, P5 exhausted).
-- R4 on the three 20-point families (started 2026-10-30 21:07; output in the session's task log, answers to `scratch/r4/`).
+**Focus.** P4 by SAT, with the CaDiCaL that ships with the Lean toolchain.
+**Next step.** A CNF encoder for `Valid` on Kₙ (literal triangles and 4-point sets, one colour per pair, a simple symmetry break), validated SAT at 20 points with its model rescored by `violations`, then R6 at 21 points.
+**Running.** R4 on ℤ₅ with 4 rings and ℤ₄ with 5 rings (started 2026-10-30 21:31; ℤ₁₀ with 2 rings done: none of 40 extends; output in the session's task log).
 
 ## Needs the user
-- A SAT solver (Kissat) install, for P4 later; not needed for P1–P3.
+- none (CaDiCaL ships with Lean; Kissat stays optional).
