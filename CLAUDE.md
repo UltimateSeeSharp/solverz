@@ -36,8 +36,9 @@ problem.
 - **Researcher**: the session that runs the attack loop. It knows what the
   problem's files hold, decides what is most promising and works it
   itself; it never hands its line off or waits.
-- **Ideator** (agent `ideator`): brings fresh angles when the researcher
-  wants them; its ideas are proposals.
+- **Ideator** (agent `ideator`): brings fresh angles, formed from the
+  problem's files alone and not from the researcher's view; its ideas are
+  proposals.
 - **Refuter** (agent `refuter`): tries to break a result before it counts.
 
 ## Where things live

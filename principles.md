@@ -17,6 +17,8 @@ How a top mathematician works; rough guides, never rules.
 
 **Computing**
 - Run the obvious computation before stating a conjecture.
+- Test a new claim at least as hard as earlier claims of its kind needed
+  to break.
 - Search with programs that generate candidates; expect the scorer to be
   gamed; keep it fixed during a run; re-verify winners.
 - Formalize step by step: statements with `sorry` first, then fill them;
