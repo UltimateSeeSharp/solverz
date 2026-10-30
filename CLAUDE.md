@@ -97,8 +97,9 @@ continues from its next step.
 3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
    result. SURVIVES: the change goes through. REFUTED: the claim is
    `refuted`. FLAWED: it stays `open`, the flaw under Tried. UNCLEAR:
-   settling it is the next step. A counterexample counts once rechecked (in
-   Lean if the claim is stated there and the check is quick).
+   settling it is the next step. A counterexample counts once rechecked
+   with committed code (in Lean if the claim is stated there and the check
+   is quick).
 4. Record changed statuses with a journal line, and `state.md`.
 5. The goal claim verified: stop and tell the user. Otherwise never stop,
    and never end a turn to wait for anything under Running. The user can
