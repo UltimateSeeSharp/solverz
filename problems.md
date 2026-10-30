@@ -30,3 +30,4 @@ Sorted by score, highest first. Who is working on what:
 
 | ID | Problem | Kind | Framings | Fit | Lean | Idea | Crowding | Score | Status | Checked |
 |---|---|---|---|---|---|---|---|---|---|---|
+| fc/Paper/CatchUpConjecture | [Catch-Up](https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Paper/CatchUpConjecture.lean) on {1..N}: with perfect play, is the game a draw whenever 1 + … + N is even? | prove | — | 4 | 4 | 4 | 3 | 13 | [attacked](problems/catch-up/README.md) | 2026-10-28 |
