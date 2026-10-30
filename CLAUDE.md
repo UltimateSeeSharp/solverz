@@ -72,9 +72,12 @@ problems/<name>/
   RAM and 2 threads spare so the system doesn't swap or lag; one GPU job at a
   time. An experiment that can't fit on this machine is not run.
 - Never edit an approved statement; a change is a new claim.
-- The attack loop works on the long-lived branch `attack/<problem>`: created
-  from main the first time, main merged into it whenever work starts,
-  one commit per step. The user merges it into main.
+- The attack loop works on the long-lived branch `attack/<problem>`:
+  created from main the first time, main merged into it whenever the loop
+  starts, one commit per step. The user merges it into main.
+- Any other session works on main in its own worktree
+  (`git worktree add ../solverz-main main`) and never touches the attack's
+  checkout.
 
 ## Workflows
 
