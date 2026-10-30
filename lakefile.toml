@@ -1,7 +1,7 @@
 name = "solverz"
 version = "0.1.0"
 keywords = ["math"]
-defaultTargets = ["CatchUp"]
+defaultTargets = ["CatchUp", "RamseyK3K4eK4e"]
 
 [leanOptions]
 pp.unicode.fun = true # pretty-prints `fun a ↦ b`
@@ -19,3 +19,7 @@ rev = "v4.35.0"
 [[lean_lib]]
 name = "CatchUp"
 srcDir = "problems/catch-up/lean"
+
+[[lean_lib]]
+name = "RamseyK3K4eK4e"
+srcDir = "problems/ramsey-k3-k4e-k4e/lean"
