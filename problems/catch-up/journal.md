@@ -3,6 +3,23 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-10-30
+- 05:43 imported from catch-up-research: C64 refuted (adjacent-hole copying)
+- 05:43 imported from catch-up-research: C65 refuted (pair deletions forbid neighbor jumps)
+- 05:43 imported from catch-up-research: C66 refuted (geometry-free first-pair transfer)
+- 05:43 imported from catch-up-research: C67 refuted (no short cycles in the shifted reply graph)
+- 05:43 imported from catch-up-research: C68 refuted (a prepaid pair reserve from the first pick)
+- 05:43 imported from catch-up-research: C69 refuted (integer peel above height 1)
+- 05:43 imported from catch-up-research: C70 refuted (small numbers guard non-loss)
+- 05:43 imported from catch-up-research: C71 refuted (upper-only exact-sum descent)
+- 05:43 imported from catch-up-research: C72 refuted (balancing in one turn)
+- 05:43 imported from catch-up-research: C73 proved (lower-ray endpoints)
+- 05:43 imported from catch-up-research: C74 proved (interior and boundary of the lower ray)
+- 05:43 imported from catch-up-research: C75 proved (every opening draws iff every pair is neutral)
+- 05:43 imported from catch-up-research: C76 proved (three pairs draw at deficit 1)
+- 05:43 imported from catch-up-research: C77 proved (exact-sum lemmas)
+- 05:43 imported from catch-up-research: C78 proved (increasing turns)
+- 05:43 imported from catch-up-research: C79 proved (explicit certificates grow exponentially)
+- 05:43 imported from catch-up-research: C80 proved (score shift)
 - 04:45 C63 open with a paper proof: below height 1 the bottom pair peels, so C36's fam a (p even) follows from C62 at (p − 1, 3/2) (I11)
 - 04:35 C62 open: C36 at every height c, a draw for every c up to k = 6 (I11)
 - 04:28 I14 dead: exact-change certificates certify no {1..N}, N ≥ 4 (ideator)

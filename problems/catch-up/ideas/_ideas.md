@@ -9,7 +9,7 @@
 | [I5](I5.md) | Sets made of adjacent pairs | generalization | — | C8, C10, C11, C9, C45 | dead |
 | [I6](I6.md) | Inert top quadruple | restricted game | — | — | alive |
 | [I7](I7.md) | Even blocks at any height | generalization | — | C12, C13, C14, C15, C16, C17, C18, C19, C20, C21, C22, C23, C24, C25, C26, C28, C29, C30, C31, C32 | alive |
-| [I8](I8.md) | Low phase, high phase | phase split | — | C26, C28, C29, C30, C31 | alive |
+| [I8](I8.md) | Low phase, high phase | phase split | — | C26, C28, C29, C30, C31, C73, C74 | alive |
 | [I9](I9.md) | Halving induction | induction | ideator | — | alive |
 | [I10](I10.md) | Moving quadruples | induction | ideator | C33, C34, C35 | alive |
 | [I11](I11.md) | Twins to interval | deformation | ideator | C36 | alive |
