@@ -14,10 +14,11 @@
   plentiful at 15 and 18 points (R2's engine). Untrusted: the refuter's
   SAT runs find order-7 symmetries with fixed points UNSAT too.
 - Engines: annealing reaches valid colourings at 16–19 points but stalls at
-  3 violations at 20 (R5 tuning); CaDiCaL 2.1.2 ships with the Lean toolchain.
+  3 violations at 20; plain cube-and-conquer SAT (R6) settles the lopsided
+  cubes at 20 points in a minute but not the balanced ones in 36 minutes.
 
 **Blocks.** Every structured family tried at 21 points is empty, and
-annealing cannot even reach the known 20-point colourings.
+neither annealing nor plain SAT reaches the known 20-point colourings yet.
 
 **So a solution must.** Be a 21-point colouring with no colour-keeping
 symmetry of order 7, not containing O1, whose colours 1 ∪ 2 contain J₇.

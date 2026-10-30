@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-10-30
+- 21:44 Baseline: R4 (ℤ₁₀ seeds: none extend), R6 SAT calibration at K₂₀ inconclusive (44 of 110 cubes UNSAT, balanced cubes unsolved in 36 min); runs stopped by the user.
 - 21:25 R2, R3 refuter SURVIVES → P2, P5 exhausted: no valid colouring of K₂₁ has a fixed-point-free colour-keeping symmetry of order 7. CaDiCaL 2.1.2 ships with the Lean toolchain.
 - 21:00 R2: no block-circulant colouring of K₂₁ over ℤ₇ is valid (valid ones exist for K₁₅, K₁₈); P2 exhausted once the refuter passes R2 and R3.
 - 20:59 R3: no Cayley colouring over ℤ₇ ⋊ ℤ₃ is valid (best 56), agreeing with the refuter's script; P5 exhausted once the refuter passes our code.
