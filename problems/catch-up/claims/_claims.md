@@ -61,4 +61,4 @@
 | [C57](C57.md) | Sliding a quadruple above any drawn base | — | refuted | — | — |
 | [C58](C58.md) | Near ties stay drawn across a breakpoint | — | refuted | — | — |
 | [C59](C59.md) | Gap potentials for LG | — | refuted | — | — |
-| [C60](C60.md) | Pairing bound (sharper C37) | — | open | — | — |
+| [C60](C60.md) | Pairing bound (sharper C37) | — | refuted | — | — |
