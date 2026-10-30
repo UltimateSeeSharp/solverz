@@ -85,3 +85,5 @@
 | [C81](C81.md) | Dense pair deletions never lose | — | open | — | — |
 | [C82](C82.md) | Second start draws | — | open | — | — |
 | [C83](C83.md) | Lower-ray boundary | — | open | — | — |
+| [C84](C84.md) | Rank-perturbed intervals draw (DI) | — | open | — | — |
+| [C85](C85.md) | Partially collapsed blocks draw (PBT) | — | open | — | — |
