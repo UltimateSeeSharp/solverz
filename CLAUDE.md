@@ -32,6 +32,14 @@ A refuted claim kills every idea that needs it and reopens every proved
 claim whose proof uses it; an idea whose claims are all verified solves the
 problem.
 
+## Roles
+- **Researcher**: the session that runs the attack loop. It knows what the
+  problem's files hold, decides what is most promising and works it
+  itself; it never hands its line off or waits.
+- **Ideator** (agent `ideator`): brings fresh angles when the researcher
+  wants them; its ideas are proposals.
+- **Refuter** (agent `refuter`): tries to break a result before it counts.
+
 ## Where things live
 ```
 templates/problem/  the shape of every file in problems/<name>/; a new file copies it
@@ -91,9 +99,9 @@ continues from its next step.
    settling it is the next step. A counterexample counts once rechecked (in
    Lean if the claim is stated there and the check is quick).
 4. Record changed statuses with a journal line, and `state.md`.
-5. The goal claim verified: stop and tell the user. Otherwise never stop:
-   out of ideas or stuck, the `ideator` draws more. The user can stop the
-   loop at any time.
+5. The goal claim verified: stop and tell the user. Otherwise never stop,
+   and never end a turn to wait for anything under Running. The user can
+   stop the loop at any time.
 
 #### `find`
 
