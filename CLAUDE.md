@@ -82,10 +82,10 @@ step.
    faster than paper; otherwise once every claim of the idea is proved on
    paper (the goal goes through `audit` first).
 3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
-   result; the change goes through on SURVIVES. REFUTED: the claim is
-   `refuted` once its counterexample is rechecked (in Lean if the claim is
-   stated there and the check is quick). FLAWED: it stays `open`, the flaw
-   under Tried. UNCLEAR: settling it is the next step.
+   result. SURVIVES: the change goes through. REFUTED: the claim is
+   `refuted`. FLAWED: it stays `open`, the flaw under Tried. UNCLEAR:
+   settling it is the next step. A counterexample counts once rechecked (in
+   Lean if the claim is stated there and the check is quick).
 4. Record statuses, a journal line and `state.md`.
 5. The goal claim verified: stop and tell the user. Otherwise never stop:
    out of ideas or stuck, the `ideator` draws more. The user can stop the
