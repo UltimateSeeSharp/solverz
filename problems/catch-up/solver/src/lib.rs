@@ -128,7 +128,9 @@ impl Solver {
             return Outcome::Loss; // cannot catch up even by taking everything
         }
         let gap = (-diff) as usize;
-        if let Some(o) = self.table.get(mask, gap) {
+        // Play keeps gap ≤ max; only `position` asks for more, and those gaps have no slot.
+        let memo = gap < self.table.stride;
+        if memo && let Some(o) = self.table.get(mask, gap) {
             return o;
         }
         self.positions += 1;
@@ -147,7 +149,9 @@ impl Solver {
             };
             best = best.max(o);
         }
-        self.table.set(mask, gap, best);
+        if memo {
+            self.table.set(mask, gap, best);
+        }
         best
     }
 }
@@ -222,6 +226,23 @@ mod tests {
         for (k, &expected) in A278587.iter().enumerate() {
             let n = A278587_OFFSET + k as u64;
             assert_eq!(oeis_code(Solver::new(&interval(n)).value()), expected, "n = {n}");
+        }
+    }
+
+    #[test]
+    fn position_beyond_largest_number() {
+        // A solver that also holds BIG has a memo slot for every gap below it; it is the reference.
+        const UNIVERSE: u64 = 6;
+        const BIG: u64 = 100;
+        for bits in 1u32..(1 << UNIVERSE) {
+            let set: Vec<u64> = (1..=UNIVERSE).filter(|&x| bits >> (x - 1) & 1 == 1).collect();
+            let full = (1usize << set.len()) - 1;
+            let sum: u64 = set.iter().sum();
+            let mut wide = Solver::new(&[set.as_slice(), &[BIG]].concat());
+            let mut s = Solver::new(&set);
+            for gap in (0..=sum + 1).rev() {
+                assert_eq!(s.position(full, gap), wide.position(full, gap), "set {set:?} gap {gap}");
+            }
         }
     }
 
