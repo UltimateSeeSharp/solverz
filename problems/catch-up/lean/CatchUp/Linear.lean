@@ -7,11 +7,11 @@ public import CatchUp.Transfer
 /-!
 # High blocks at linear height
 
-Blueprint L21 for blocks, with AM+T in place of always-max. Z plays AM+T until the opponent, at a
-round start, trails by more than the matching cost of the numbers left (L20); from then on Z
-answers with matching partners. Before the switch L23's classes hold; after it the opponent stays
+Claim C21 for blocks, with AM+T in place of always-max. Z plays AM+T until the opponent, at a
+round start, trails by more than the matching cost of the numbers left (C20); from then on Z
+answers with matching partners. Before the switch C23's classes hold; after it the opponent stays
 behind by more than the matching cost, with debt plus cost never growing. So every round start has
-debt at most `3(2p - 1)` (`HZ`, `HY`), and L22 (`valueAux_transfer`) carries the guarantee to the
+debt at most `3(2p - 1)` (`HZ`, `HY`), and C22 (`valueAux_transfer`) carries the guarantee to the
 real game once `a > 3(2p - 1)`: a draw at every debt `d ≤ p` with `d ≡ p (mod 2)`
 (`block_row_draw_linear`), in particular at `p mod 2` (`block_draw_linear`).
 -/
@@ -51,7 +51,7 @@ theorem matchCost_le_range {p : ℕ} (hp : 1 ≤ p) {T : Finset ℕ} (hT : T ⊆
 def HZ (p : ℕ) (T : Finset ℕ) (d : ℕ) : Prop :=
   T ⊆ Finset.range (2 * p) ∧ Even T.card ∧ (d + ∑ o ∈ T, o) % 2 = 0 ∧ KZc T d ∧ d ≤ 2 * p - 1
 
-/-- The opponent's round starts: before the switch (L23's class), or after it. -/
+/-- The opponent's round starts: before the switch (C23's class), or after it. -/
 def HY (p : ℕ) (T : Finset ℕ) (e : ℕ) : Prop :=
   T ⊆ Finset.range (2 * p) ∧ Even T.card ∧ (e + ∑ o ∈ T, o) % 2 = 0 ∧
     (((e : ℤ) ≤ matchCost T ∧ KYc T e ∧ e ≤ 2 * (2 * p - 1)) ∨
@@ -128,7 +128,7 @@ theorem hy_step {p : ℕ} {T : Finset ℕ} {e : ℕ} (hK : HY p T e) :
     · push_cast [hc]; linarith
     · push_cast [hc]; linarith
 
-/-- **L17's draw entries for blocks, Lean form.** The block `{a, …, a + 2p - 1}` with
+/-- **C17's draw entries for blocks, Lean form.** The block `{a, …, a + 2p - 1}` with
 `a > 3(2p - 1)` is a draw for the player to move trailing by any `d ≤ p` with `d ≡ p (mod 2)`. -/
 theorem block_row_draw_linear {p a d : ℕ} (hp : 1 ≤ p) (ha : 3 * (2 * p - 1) < a) (hd : d ≤ p)
     (hdp : d % 2 = p % 2) (s : ℕ) :
@@ -167,7 +167,7 @@ theorem block_row_draw_linear {p a d : ℕ} (hp : 1 ≤ p) (ha : 3 * (2 * p - 1)
   revert hZ hY
   cases valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + d) false <;> simp
 
-/-- **L21 for blocks, Lean form** (pending the user's approval). The block `{a, …, a + 2p - 1}`
+/-- **C21 for blocks, Lean form** (pending the user's approval). The block `{a, …, a + 2p - 1}`
 with `a > 3(2p - 1)` is a draw for the player to move trailing by `p mod 2`, from any common base
 score `s`; for
 `p` even this is Catch-Up on the block (`value_block_draw` in `Tests/BlockDrawLinear.lean`). -/

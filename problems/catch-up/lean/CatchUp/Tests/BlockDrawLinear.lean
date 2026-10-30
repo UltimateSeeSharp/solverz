@@ -7,7 +7,7 @@ public import CatchUp.Parity
 /-!
 # Tests for `block_draw_linear`
 
-Statement audit (`audit-statement`): the set is the block `{a..a+2p-1}`; for `p` even the
+Statement audit (`audit`): the set is the block `{a..a+2p-1}`; for `p` even the
 statement is Catch-Up itself on the block (`value`); the debt `p mod 2` cannot be dropped (parity);
 `p = 0` holds trivially; it implies `block_draw_high` for `p ≥ 3`.
 -/

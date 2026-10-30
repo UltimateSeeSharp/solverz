@@ -5,7 +5,7 @@ public import CatchUp.Best
 /-!
 # High sets are the rounds game
 
-Blueprint L13. On offsets `O` placed high enough, `{a + o : o ∈ O}` with `a > d + ∑ O`, every pick
+Claim C13. On offsets `O` placed high enough, `{a + o : o ∈ O}` with `a > d + ∑ O`, every pick
 of a player at most `d + ∑ O` behind catches up, and the other player catches up with at most two
 picks. So play goes in rounds of one pick each, the player behind picking first: the rounds game
 `roundsValue`.
@@ -15,10 +15,10 @@ picks. So play goes in rounds of one pick each, the player behind picking first:
 
 namespace CatchUp
 
-/-- The rounds game (blueprint L13): the value for the mover, trailing by `d`, on offsets `O`.
+/-- The rounds game (claim C13): the value for the mover, trailing by `d`, on offsets `O`.
 The mover picks `i`, the other player answers `j`; the mover then trails by `d + j - i` and moves
 again if that is `≥ 0`, else the other player moves, trailing by `i - d - j`. An empty set is a
-draw at debt 0 and a loss otherwise. With no answer left (odd `O`) the mover wins; L13 assumes
+draw at debt 0 and a loss otherwise. With no answer left (odd `O`) the mover wins; C13 assumes
 `O` even. -/
 noncomputable def roundsValue (O : Finset ℕ) (d : ℕ) : Outcome :=
   if O = ∅ then (if d = 0 then .draw else .loss)
@@ -35,7 +35,7 @@ decreasing_by
 theorem roundsValue_empty (d : ℕ) : roundsValue ∅ d = if d = 0 then .draw else .loss := by
   rw [roundsValue]; simp
 
-/-- `best` depends only on which outcomes occur (L6). -/
+/-- `best` depends only on which outcomes occur (C6). -/
 theorem Outcome.best_congr {l₁ l₂ : List Outcome} (h : ∀ o, o ∈ l₁ ↔ o ∈ l₂) :
     Outcome.best l₁ = Outcome.best l₂ := by
   by_cases hw : Outcome.win ∈ l₁
@@ -154,7 +154,7 @@ theorem valueAux_answer (O : Finset ℕ) (hO : Even O.card) (a d : ℕ)
         rw [show s + (a + i) = s + d + (a + j) + (i - d - j) by omega]
         rw [ih _ hlt2 hev2 _ (by omega)]
 
-/-- **L13.** On `{a + o : o ∈ O}` with `O` even and `d + ∑ O < a`, the mover trailing by `d`
+/-- **C13.** On `{a + o : o ∈ O}` with `O` even and `d + ∑ O < a`, the mover trailing by `d`
 (outside the opening) has the rounds-game value. -/
 theorem valueAux_map_add (O : Finset ℕ) (hO : Even O.card) (a d : ℕ)
     (ha : d + ∑ o ∈ O, o < a) (s : ℕ) :

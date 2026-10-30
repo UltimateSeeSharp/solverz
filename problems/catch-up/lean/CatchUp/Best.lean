@@ -5,7 +5,7 @@ public import CatchUp.Statement
 /-!
 # The best outcome by membership
 
-Blueprint L6. `Outcome.best` folds a list from `loss`: it is `win` exactly when some outcome is a
+Claim C6. `Outcome.best` folds a list from `loss`: it is `win` exactly when some outcome is a
 win, else `draw` exactly when some outcome is a draw, else `loss`. So it doesn't depend on the
 order of the list, which for the moves of `valueAux` (`Finset.attach.toList`) is unspecified.
 -/

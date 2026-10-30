@@ -6,10 +6,10 @@ public import CatchUp.CostParity
 /-!
 # Hyb2T: blocks down to height 2p − 1
 
-Z's strategy Hyb2T on an even set `T` of offsets, playing the rounds game (blueprint L25): Z takes
+Z's strategy Hyb2T on an even set `T` of offsets, playing the rounds game (claim C25): Z takes
 the largest element; Y's pick `i` is answered by the smallest *valid* `j` (one after which Y's
 debt is at least the remaining cost), else by AM+T's answer. The potential `potW` never rises
-(`potW_z_round`, `potW_y_round`), which gives the block draws at `a ≥ 2p − 1` (L24,
+(`potW_z_round`, `potW_y_round`), which gives the block draws at `a ≥ 2p − 1` (C24,
 `block_row_draw_hyb2`, `block_draw_hyb2`).
 
 Zone language, index-free: a *bottom* is an element with `OddBelow T` (odd rank), a *top* one
@@ -54,7 +54,7 @@ noncomputable def potW (T : Finset ℕ) (d : ℕ) (zMoves : Bool) : ℤ :=
   if zMoves ∨ (d : ℤ) < matchCost T then psi T
   else max ((d : ℤ) - lo T) (min ((d : ℤ) + matchCost T - second T) (psi T))
 
-/-- Hyb2T's valid answers (L24): the opponent stays mover and lost by L20. -/
+/-- Hyb2T's valid answers (C24): the opponent stays mover and lost by C20. -/
 def ValidAnswer (T : Finset ℕ) (e i j : ℕ) : Prop :=
   i ≤ e + j ∧ matchCost ((T.erase i).erase j) ≤ ((e + j - i : ℕ) : ℤ)
 
@@ -176,7 +176,7 @@ theorem not_oddBelow_of_lt_lo {T : Finset ℕ} {x : ℕ} (hx : x < lo T) : ¬ Od
   rw [this]
   simp
 
-/-! ## Zone tools (L25 part 3, A–C) -/
+/-! ## Zone tools (C25 part 3, A–C) -/
 
 /-- Alternation: below `z`, bottoms minus tops is 1 or 0 as the number of elements below `z` is
 odd or even. -/
@@ -320,7 +320,7 @@ theorem card_le_hi_sub_second {T : Finset ℕ} (h2 : 2 ≤ T.card) :
   rw [Nat.card_Ioc] at this
   omega
 
-/-! ## Zone facts used by Y's rounds (index-free forms of L25's (A), (C), (F)) -/
+/-! ## Zone facts used by Y's rounds (index-free forms of C25's (A), (C), (F)) -/
 
 /-- Consecutive elements: between `p < j` in `T` with nothing of `T` strictly between, the parity
 is that of `p`, and it flips at `j`. -/
@@ -536,7 +536,7 @@ theorem hyb2Reply_fallback {T : Finset ℕ} (hev : Even T.card) {e i : ℕ} (hiT
     unfold amtReply
     simp only [hU, ↓reduceDIte, hmax, hnt]
 
-/-- Once Y is lost by L20 (`c ≤ e`), some answer is valid (the partner). -/
+/-- Once Y is lost by C20 (`c ≤ e`), some answer is valid (the partner). -/
 theorem exists_valid_of_lost {T : Finset ℕ} (hev : Even T.card) {e i : ℕ} (hiT : i ∈ T)
     (he : matchCost T ≤ e) : ∃ j ∈ T.erase i, ValidAnswer T e i j := by
   obtain ⟨j, hj, hc⟩ := exists_partner T.card T rfl hev i hiT
@@ -641,7 +641,7 @@ theorem oddPts_lo_second {T : Finset ℕ} (h2 : 2 ≤ T.card) :
   exact oddPts_of_all fun z h1 h2 =>
     ((oddBelow_consec hsT hlt hgap).1 z h1 h2).mpr hodd
 
-/-! ## The claim (L25 part 4) and its five transitions -/
+/-! ## The claim (C25 part 4) and its five transitions -/
 
 /-- **T1.** Z picks the greatest; whatever Y answers, W does not rise. -/
 theorem potW_z_round {T : Finset ℕ} (h4 : 4 ≤ T.card) {d y : ℕ}
@@ -1095,7 +1095,7 @@ theorem potW_y_round_post {T : Finset ℕ} (hev : Even T.card) (h4 : 4 ≤ T.car
       push_cast [hle]
       omega
 
-/-- **T2–T4, L25's claim for Y's rounds.** Y picks `i`, Z answers Hyb2T; W does not rise (parity
+/-- **T2–T4, C25's claim for Y's rounds.** Y picks `i`, Z answers Hyb2T; W does not rise (parity
 (C2) assumed). -/
 theorem potW_y_round {T : Finset ℕ} (hev : Even T.card) (h4 : 4 ≤ T.card) {e i : ℕ}
     (hpar : (e + ∑ o ∈ T, o) % 2 = 0) (hiT : i ∈ T) :
@@ -1113,7 +1113,7 @@ theorem potW_y_round {T : Finset ℕ} (hev : Even T.card) (h4 : 4 ≤ T.card) {e
     · push Not at hval
       exact potW_y_round_fallback hev h4 hiT hval
 
-/-! ## L24: blocks at the doubling-free height -/
+/-! ## C24: blocks at the doubling-free height -/
 
 open Classical in
 /-- Hyb2T's answer when no answer is valid is AM+T's. -/
@@ -1126,12 +1126,12 @@ theorem hyb2Reply_eq_amtReply {T : Finset ℕ} {e i : ℕ}
   unfold hyb2Reply
   simp only [hne, ↓reduceDIte]
 
-/-- Z's round starts on a block: L23's class, debt at most `2p − 1`, and W at most `2p − 1`. -/
+/-- Z's round starts on a block: C23's class, debt at most `2p − 1`, and W at most `2p − 1`. -/
 def HZw (p : ℕ) (T : Finset ℕ) (d : ℕ) : Prop :=
   T ⊆ Finset.range (2 * p) ∧ Even T.card ∧ (d + ∑ o ∈ T, o) % 2 = 0 ∧ KZc T d ∧ d ≤ 2 * p - 1 ∧
     (2 ≤ T.card → potW T d true ≤ 2 * p - 1)
 
-/-- Y's round starts on a block: before the switch in L23's class, or after it; W at most
+/-- Y's round starts on a block: before the switch in C23's class, or after it; W at most
 `2p − 1`. -/
 def HYw (p : ℕ) (T : Finset ℕ) (e : ℕ) : Prop :=
   T ⊆ Finset.range (2 * p) ∧ Even T.card ∧ (e + ∑ o ∈ T, o) % 2 = 0 ∧
@@ -1245,7 +1245,7 @@ theorem psi_range {p : ℕ} (hp : 1 ≤ p) : psi (Finset.range (2 * p)) = 2 * p 
   push_cast [show 1 ≤ 2 * p by omega]
   ring
 
-/-- **L24 rows, Lean form.** The block `{a, …, a + 2p − 1}` with `a ≥ 2p − 1` is a draw for the
+/-- **C24 rows, Lean form.** The block `{a, …, a + 2p − 1}` with `a ≥ 2p − 1` is a draw for the
 player to move trailing by any `d ≤ p` with `d ≡ p (mod 2)`. -/
 theorem block_row_draw_hyb2 {p a d : ℕ} (hp : 1 ≤ p) (ha : 2 * p - 1 ≤ a) (hd : d ≤ p)
     (hdp : d % 2 = p % 2) (s : ℕ) :
@@ -1304,7 +1304,7 @@ theorem block_row_draw_hyb2 {p a d : ℕ} (hp : 1 ≤ p) (ha : 2 * p - 1 ≤ a) 
   revert hZ' hY'
   cases valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + d) false <;> simp
 
-/-- **L24, Lean form** (pending the user's approval). The block `{a, …, a + 2p − 1}` with
+/-- **C24, Lean form** (pending the user's approval). The block `{a, …, a + 2p − 1}` with
 `a ≥ 2p − 1` is a draw for the player to move trailing by `p mod 2`, from any common base score
 `s`. -/
 theorem block_draw_hyb2 {p a : ℕ} (hp : 1 ≤ p) (ha : 2 * p - 1 ≤ a) (s : ℕ) :

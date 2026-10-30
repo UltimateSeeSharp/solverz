@@ -9,7 +9,7 @@ public import Mathlib.Tactic.Ring
 /-!
 # Top-down alternating sums and the greedy bound
 
-Blueprint L14. `altSum T = t₁ - t₂ + t₃ - ⋯` for `T` sorted decreasingly. One round in which
+Claim C14. `altSum T = t₁ - t₂ + t₃ - ⋯` for `T` sorted decreasingly. One round in which
 Z takes the largest number `t₁` and the opponent any other `j` changes `altSum` by at most
 `t₁ - j` either way (`altSum_round`); if the opponent takes `t₁` and Z the next largest `t₂`, it
 drops by exactly `t₁ - t₂` (`altSum_top_two`). Hence a player who always takes the largest number
@@ -66,7 +66,7 @@ theorem altSum_add_erase (n : ℕ) : ∀ (U : Finset ℕ), U.card = n → ∀ (h
     constructor <;> linarith
 
 /-- One round where Z takes the largest number `t₁` and the opponent another number `j`: the
-alternating sum changes by at most `t₁ - j` either way (L14's per-round inequality and L18 (a)). -/
+alternating sum changes by at most `t₁ - j` either way (C14's per-round inequality and C18 (a)). -/
 theorem altSum_round {T : Finset ℕ} (h : T.Nonempty) {j : ℕ} (hj : j ∈ T.erase (T.max' h)) :
     |altSum T - altSum ((T.erase (T.max' h)).erase j)| ≤ (T.max' h : ℤ) - j := by
   have hU : (T.erase (T.max' h)).Nonempty := ⟨j, hj⟩
@@ -107,7 +107,7 @@ decreasing_by
   · exact lt_trans (Finset.card_erase_lt_of_mem (Finset.max'_mem _ h'))
       (Finset.card_erase_lt_of_mem (Finset.max'_mem T h))
 
-/-- **L14 (greedy bound).** If Z always takes the largest number left, Z's total minus the
+/-- **C14 (greedy bound).** If Z always takes the largest number left, Z's total minus the
 opponent's over an even set `T` is at least `-altSum T`, whatever the opponent picks and whoever
 picks first in each round. -/
 theorem neg_altSum_le_greedyWorst (n : ℕ) : ∀ (T : Finset ℕ), T.card = n → Even n →

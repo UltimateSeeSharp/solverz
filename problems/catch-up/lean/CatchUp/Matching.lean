@@ -5,7 +5,7 @@ public import CatchUp.Potential
 /-!
 # The matching bound
 
-Blueprint L20.
+Claim C20.
 
 `matchCost O` pairs the two smallest numbers, then recurses: `(o₂ - o₁) + (o₄ - o₃) + ⋯`. A mover
 trailing by more than it loses the rounds game: the other player answers each pick with its partner
@@ -136,7 +136,7 @@ theorem exists_partner (n : ℕ) : ∀ O : Finset ℕ, O.card = n → Even n →
   rw [hc', hset, hc]
   linarith
 
-/-- **L20.** A mover trailing by more than the matching cost loses by at least the difference. -/
+/-- **C20.** A mover trailing by more than the matching cost loses by at least the difference. -/
 theorem roundsMargin_le_matchCost (n : ℕ) : ∀ O : Finset ℕ, O.card = n → Even n → ∀ d : ℕ,
     matchCost O < d → roundsMargin O d ≤ matchCost O - d := by
   induction n using Nat.strong_induction_on with

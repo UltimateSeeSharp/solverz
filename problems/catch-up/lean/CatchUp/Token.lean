@@ -6,7 +6,7 @@ public import Mathlib.Tactic.Ring
 /-!
 # Token lemma
 
-Blueprint L26–L31. At equal scores, if the opponent cannot win after a pick `t`, it does not lose
+Claims C26–C31. At equal scores, if the opponent cannot win after a pick `t`, it does not lose
 after any other pick `y`: it takes `t` and reaches the node the game after `t` reaches when `y` is
 taken, with the same scores (`level_option_ne_loss`). Hence a pick leaving the opponent drawing
 makes the level mover draw (`level_law`; `token_lemma` for the smallest number), and so do two
@@ -45,7 +45,7 @@ theorem valueAux_true_eq_false (R : Finset ℕ) (s : ℕ) :
   rw [valueAux, valueAux]
   simp only [↓reduceIte, Bool.false_eq_true, ge_iff_le, Nat.le_add_right]
 
-/-- **L30, copying step.** At equal scores, for picks `y ≠ t`: if the opponent cannot win after
+/-- **C30, copying step.** At equal scores, for picks `y ≠ t`: if the opponent cannot win after
 `t`, it does not lose after `y` (it takes `t` and reaches the node of the game after `t` in which
 `y` was taken, with the same scores). -/
 theorem level_option_ne_loss {R : Finset ℕ} {t y s : ℕ} (ht : t ∈ R) (hy : y ∈ R) (hyt : y ≠ t)
@@ -96,7 +96,7 @@ theorem level_option_ne_loss {R : Finset ℕ} {t y s : ℕ} (ht : t ∈ R) (hy :
       rw [ite_eq_right (show ¬ s + t ≥ s + y by omega)]
       exact hQ
 
-/-- **L28, level law.** At equal scores, if some pick `t` leaves the opponent drawing, the level
+/-- **C28, level law.** At equal scores, if some pick `t` leaves the opponent drawing, the level
 mover draws: no pick wins. -/
 theorem level_law {R : Finset ℕ} {t s : ℕ} (ht : t ∈ R)
     (hd : valueAux (R.erase t) s (s + t) false = .draw) :
@@ -116,7 +116,7 @@ theorem level_law {R : Finset ℕ} {t s : ℕ} (ht : t ∈ R)
       exact absurd hyo (by decide)
     exact Outcome.neg_ne_win.mpr (level_option_ne_loss ht hy hyt (by rw [hd]; decide)) hyo
 
-/-- **L26, token lemma.** The level law with `t` the smallest number left. -/
+/-- **C26, token lemma.** The level law with `t` the smallest number left. -/
 theorem token_lemma {R : Finset ℕ} {t s : ℕ} (ht : t ∈ R) (_hmin : ∀ x ∈ R, t ≤ x)
     (hd : valueAux (R.erase t) s (s + t) false = .draw) :
     valueAux R s s false = .draw :=
@@ -133,7 +133,7 @@ theorem even_triangle_iff (N : ℕ) : Even (N * (N + 1) / 2) ↔ N % 4 = 0 ∨ N
   generalize 4 * q * q + 2 * q * r + q = X
   rcases (by omega : r = 0 ∨ r = 1 ∨ r = 2 ∨ r = 3) with rfl | rfl | rfl | rfl <;> omega
 
-/-- **L27.** The conjecture follows from draws on `{1..N}` for `N ≡ 0 (mod 4)` and on `{2..N}`
+/-- **C27.** The conjecture follows from draws on `{1..N}` for `N ≡ 0 (mod 4)` and on `{2..N}`
 at deficit 1 for `N ≡ 3 (mod 4)` (scores read at 0). -/
 theorem conjecture_of_two_families
     (h0 : ∀ N, N % 4 = 0 → valueAux (Finset.Icc 1 N) 0 0 false = .draw)
@@ -151,7 +151,7 @@ theorem conjecture_of_two_families
     rw [he]
     simpa using h3 N h
 
-/-- **L29.** The conjecture follows from draws on `{2..N}` at deficit 1 for every `N ≥ 2`
+/-- **C29.** The conjecture follows from draws on `{2..N}` at deficit 1 for every `N ≥ 2`
 with `1 + ⋯ + N` even. -/
 theorem conjecture_of_height_two
     (h : ∀ N, 2 ≤ N → Even (N * (N + 1) / 2) → valueAux (Finset.Icc 2 N) 0 1 false = .draw) :
@@ -173,7 +173,7 @@ theorem conjecture_of_height_two
     rw [he]
     simpa using h N hge hN
 
-/-- **L30, two-token lemma.** At equal scores, two distinct picks after each of which the opponent
+/-- **C30, two-token lemma.** At equal scores, two distinct picks after each of which the opponent
 cannot win make the position a draw. -/
 theorem two_token {R : Finset ℕ} {t t' s : ℕ} (ht : t ∈ R) (ht' : t' ∈ R) (htt : t ≠ t')
     (h1 : valueAux (R.erase t) s (s + t) false ≠ .win)

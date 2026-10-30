@@ -6,7 +6,7 @@ public import CatchUp.AltSum
 /-!
 # The catch-up potential bounds always-max with the tie rule
 
-Blueprint L18 and its use. Z plays AM+T: as first picker the largest number left; as second
+Claim C18 and its use. Z plays AM+T: as first picker the largest number left; as second
 picker the largest unless that gives an exact tie, then the second largest. With `c = altSum T`,
 the potential is `min (c - d) 0` when Z moves trailing by `d`, and `max (e - c) 0` when the
 opponent moves trailing by `e`. If a class of states is closed under AM+T's rounds and, wherever
@@ -115,7 +115,7 @@ private theorem card_two {T : Finset ℕ} (hev : Even T.card) {a b : ℕ} (ha : 
   obtain ⟨k, hk⟩ := hev
   exact ⟨by omega, ⟨k - 1, by omega⟩, by omega⟩
 
-/-- **L18, used.** Z plays AM+T. `KZ T d`: Z moves trailing by `d`; `KY T e`: the opponent moves
+/-- **C18, used.** Z plays AM+T. `KZ T d`: Z moves trailing by `d`; `KY T e`: the opponent moves
 trailing by `e`. If the class is closed under rounds and satisfies the condition wherever the
 opponent moves, Z's minimax margin is at least the potential minus one. -/
 theorem potential_le_roundsMargin (KZ KY : Finset ℕ → ℕ → Prop)

@@ -6,7 +6,7 @@ public import CatchUp.Tests.BlockDrawLinear
 /-!
 # Tests for `block_draw_hyb2`
 
-Statement audit (`audit-statement`): the same statement as `block_draw_linear` with the height
+Statement audit (`audit`): the same statement as `block_draw_linear` with the height
 lowered to `a ≥ 2p − 1`; for `p` even it is Catch-Up itself on the block; it implies
 `block_draw_linear` and `block_draw_high`; the smallest block it covers at `p = 2` is
 `{3, 4, 5, 6}`.

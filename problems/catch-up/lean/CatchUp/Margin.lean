@@ -9,7 +9,7 @@ public import Mathlib.Tactic.Ring
 /-!
 # Margins in the rounds game
 
-The rounds game (`roundsValue`, blueprint L13) scores only win, draw or loss. `roundsMargin` is
+The rounds game (`roundsValue`, claim C13) scores only win, draw or loss. `roundsMargin` is
 the minimax final margin instead: the mover's total minus the other player's, minus its debt.
 Since the outcome is the sign of the margin and the sign is monotone, the value is the sign of the
 minimax margin (`roundsValue_eq_ofMargin`), so a strategy that guarantees a margin bounds the value.

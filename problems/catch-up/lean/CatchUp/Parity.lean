@@ -5,7 +5,7 @@ public import CatchUp.Statement
 /-!
 # Parity law
 
-Blueprint L3. Every pick moves a number from the remaining set to one of the two scores, so
+Claim C3. Every pick moves a number from the remaining set to one of the two scores, so
 `s_me + s_opp + ∑ remaining` never changes, and a draw can only come from an empty set with equal
 scores. Hence a drawn position has `s_me + s_opp + ∑ remaining` even, and a drawn game has an even
 total.
@@ -84,7 +84,7 @@ private theorem parity_law_card (n : ℕ) : ∀ (R : Finset ℕ), R.card = n →
           have := ih _ hlt (R.erase x) rfl (a + x) b false hxg
           rw [← hsum]; convert this using 1; omega
 
-/-- **Parity law** (L3): in a drawn position the two scores and the numbers left sum to an even
+/-- **Parity law** (C3): in a drawn position the two scores and the numbers left sum to an even
 number. -/
 theorem parity_law (R : Finset ℕ) (s_me s_opp : ℕ) (isFirstMove : Bool)
     (h : valueAux R s_me s_opp isFirstMove = .draw) : Even (s_me + s_opp + R.sum (fun x => x)) :=

@@ -6,8 +6,8 @@ public import Mathlib.Algebra.BigOperators.Intervals
 /-!
 # High blocks draw
 
-Blueprint L16 for blocks, through L23: the rounds game on `{0..2p-1}` at debt `p mod 2` is a draw
-(`roundsValue_range_draw`), so by L13 the block `{a, …, a + 2p - 1}` with `a > p mod 2 + p(2p-1)` is
+Claim C16 for blocks, through C23: the rounds game on `{0..2p-1}` at debt `p mod 2` is a draw
+(`roundsValue_range_draw`), so by C13 the block `{a, …, a + 2p - 1}` with `a > p mod 2 + p(2p-1)` is
 a draw for the player to move trailing by `p mod 2` (`block_draw_high`).
 -/
 
@@ -22,7 +22,7 @@ theorem sum_range_two_mul (p : ℕ) : ∑ o ∈ Finset.range (2 * p), o = p * (2
   ring
 
 /-- The rounds game on `{0..2p-1}` at debt `p mod 2` is a draw: both players' AM+T guarantees
-(L23) and parity. -/
+(C23) and parity. -/
 theorem roundsValue_range_draw {p : ℕ} (hp : 1 ≤ p) :
     roundsValue (Finset.range (2 * p)) (p % 2) = .draw := by
   have hc : (Finset.range (2 * p)).card = 2 * p := Finset.card_range _
@@ -43,7 +43,7 @@ theorem roundsValue_range_draw {p : ℕ} (hp : 1 ≤ p) :
   rw [h0]
   simp [Outcome.ofMargin]
 
-/-- **L16 for blocks, via L23.** The block `{a, …, a + 2p - 1}` placed above
+/-- **C16 for blocks, via C23.** The block `{a, …, a + 2p - 1}` placed above
 `p mod 2 + p(2p-1)` is a draw for the player to move trailing by `p mod 2`. -/
 theorem block_draw_high {p a : ℕ} (hp : 1 ≤ p) (ha : p % 2 + p * (2 * p - 1) < a) (s : ℕ) :
     valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) s (s + p % 2) false = .draw := by

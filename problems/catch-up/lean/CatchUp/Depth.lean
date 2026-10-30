@@ -7,7 +7,7 @@ public import Mathlib.Algebra.BigOperators.Ring.Finset
 /-!
 # The depth invariant
 
-Blueprint L23. Holes of a set are the numbers strictly between its least and greatest element that
+Claim C23. Holes of a set are the numbers strictly between its least and greatest element that
 it lacks; `depth T` sums their distances below the top (`D_Y`), `depthZ T` the same without the top
 (`D_Z`). The classes `KZc` (Z moves, trailing by `d`: `d + D_Z ≤ q`) and `KYc` (the opponent moves,
 trailing by `e`: `D_Y ≤ e + q`, and `e ≥ 1` if there are holes), with explicit last rounds, are
@@ -23,7 +23,7 @@ namespace CatchUp
 noncomputable def holes (T : Finset ℕ) : Finset ℕ :=
   if h : T.Nonempty then (Finset.Ioo (T.min' h) (T.max' h)).filter (· ∉ T) else ∅
 
-/-- Total depth of the holes below the greatest element (`D_Y` of L23). -/
+/-- Total depth of the holes below the greatest element (`D_Y` of C23). -/
 noncomputable def depth (T : Finset ℕ) : ℕ :=
   if h : T.Nonempty then ∑ x ∈ holes T, (T.max' h - x) else 0
 
@@ -148,7 +148,7 @@ theorem depth_erase_min' {U : Finset ℕ} (h : U.Nonempty) (h2 : 2 ≤ U.card) :
   refine ⟨by omega, h2, fun hy' => h3 (Finset.mem_erase.mpr ⟨?_, hy'⟩)⟩
   omega
 
-/-- L23 (B): removing any number costs at most its distance below the top. -/
+/-- C23 (B): removing any number costs at most its distance below the top. -/
 theorem depth_erase_le {U : Finset ℕ} (h : U.Nonempty) {x : ℕ} (hx : x ∈ U) :
     depth (U.erase x) ≤ depth U + (U.max' h - x) := by
   by_cases hmax : x = U.max' h
@@ -221,7 +221,7 @@ theorem disjoint_holes_gap {U : Finset ℕ} (h : U.Nonempty) (h' : (U.erase (U.m
   rw [Finset.mem_Ioo] at hx'
   omega
 
-/-- L23 (C), one step: removing the top `t` with next number `t'`. -/
+/-- C23 (C), one step: removing the top `t` with next number `t'`. -/
 theorem depth_eq_erase_max' {U : Finset ℕ} (h : U.Nonempty) (h' : (U.erase (U.max' h)).Nonempty) :
     depth U = depth (U.erase (U.max' h)) +
       (holes (U.erase (U.max' h))).card * (U.max' h - (U.erase (U.max' h)).max' h') +
@@ -268,7 +268,7 @@ theorem depth_two {U : Finset ℕ} (h : U.Nonempty) (h' : (U.erase (U.max' h)).N
     holes_of_card_le_one (U := U.erase (U.max' h)) (by omega)]
   simp
 
-/-- `D_Z` of L23: the depth of `T` without its top. -/
+/-- `D_Z` of C23: the depth of `T` without its top. -/
 noncomputable def depthZ (T : Finset ℕ) : ℕ :=
   if h : T.Nonempty then depth (T.erase (T.max' h)) else 0
 
@@ -282,21 +282,21 @@ theorem depthZ_le (T : Finset ℕ) : depthZ T ≤ depth T := by
     omega
   · simp [depthZ, h]
 
-/-- L23's class where Z moves, trailing by `d`. -/
+/-- C23's class where Z moves, trailing by `d`. -/
 def KZc (T : Finset ℕ) (d : ℕ) : Prop :=
   (T.card = 0 → d ≤ 1) ∧
   (∀ (h : T.Nonempty) (h' : (T.erase (T.max' h)).Nonempty), T.card = 2 →
       d ≤ T.max' h - (T.erase (T.max' h)).max' h' + 1) ∧
   (4 ≤ T.card → d + depthZ T ≤ T.card / 2)
 
-/-- L23's class where the opponent moves, trailing by `e` (Z leads by `e`). -/
+/-- C23's class where the opponent moves, trailing by `e` (Z leads by `e`). -/
 def KYc (T : Finset ℕ) (e : ℕ) : Prop :=
   (∀ (h : T.Nonempty) (h' : (T.erase (T.max' h)).Nonempty), T.card = 2 →
       T.max' h - (T.erase (T.max' h)).max' h' ≤ e + 1) ∧
   (4 ≤ T.card → depth T ≤ e + T.card / 2 ∧ ((holes T).Nonempty → 1 ≤ e))
 
 /-- A two-element set whose depth is at most `e + 1`, with `e ≥ 1`, meets `KYc`'s last-round
-bound (L23 (D)). -/
+bound (C23 (D)). -/
 theorem kyc_two_of_depth {T : Finset ℕ} {e : ℕ} (h2 : T.card = 2) (he : 1 ≤ e)
     (hd : depth T ≤ e + 1) : KYc T e := by
   refine ⟨fun h h' _ => ?_, fun h4 => by omega⟩
@@ -304,7 +304,7 @@ theorem kyc_two_of_depth {T : Finset ℕ} {e : ℕ} (h2 : T.card = 2) (he : 1 �
   have := gapSum_ge ((T.erase (T.max' h)).max' h') (T.max' h)
   omega
 
-/-- L23 case (Z): Z takes the top `t₁`, the opponent any `j`. -/
+/-- C23 case (Z): Z takes the top `t₁`, the opponent any `j`. -/
 theorem closeZ {T : Finset ℕ} (hev : Even T.card) (h : T.Nonempty) {d : ℕ} (hK : KZc T d)
     {j : ℕ} (hj : j ∈ T.erase (T.max' h)) :
     (T.max' h ≤ d + j → KZc ((T.erase (T.max' h)).erase j) (d + j - T.max' h)) ∧
@@ -377,7 +377,7 @@ theorem amtReply_top_no_tie {U : Finset ℕ} (hU : U.Nonempty) {e t : ℕ}
     amtReply U e t = U.max' hU := by
   unfold amtReply; simp only [hU, ↓reduceDIte, hex]
 
-/-- L23 cases (Y1)–(Y3): the opponent picks `i`, Z answers by AM+T. -/
+/-- C23 cases (Y1)–(Y3): the opponent picks `i`, Z answers by AM+T. -/
 theorem closeY {T : Finset ℕ} (hev : Even T.card) {e : ℕ} (hK : KYc T e) {i : ℕ} (hi : i ∈ T) :
     (i ≤ e + amtReply (T.erase i) e i →
       KYc ((T.erase i).erase (amtReply (T.erase i) e i)) (e + amtReply (T.erase i) e i - i)) ∧
@@ -523,7 +523,7 @@ private theorem card_two' {T : Finset ℕ} (hev : Even T.card) {a b : ℕ} (ha :
   obtain ⟨k, hk⟩ := hev
   exact ⟨by omega, ⟨k - 1, by omega⟩⟩
 
-/-- **L23.** From L23's classes, Z playing AM+T secures a final margin of at least `-1`: Z's
+/-- **C23.** From C23's classes, Z playing AM+T secures a final margin of at least `-1`: Z's
 minimax margin is `≥ -1` where Z moves, and the opponent's is `≤ 1` where it moves. -/
 theorem depth_class_roundsMargin (n : ℕ) : ∀ T : Finset ℕ, T.card = n → Even n →
     (∀ d, KZc T d → -1 ≤ roundsMargin T d) ∧ (∀ e, KYc T e → roundsMargin T e ≤ 1) := by
@@ -590,7 +590,7 @@ theorem depthZ_range (n : ℕ) : depthZ (Finset.range n) = 0 := by
     omega
   · simp [depthZ, h]
 
-/-- The interval `{0..2p-1}`: Z trailing by `d ≤ p` is in L23's class. -/
+/-- The interval `{0..2p-1}`: Z trailing by `d ≤ p` is in C23's class. -/
 theorem kzc_range {p : ℕ} (hp : 1 ≤ p) {d : ℕ} (hd : d ≤ p) : KZc (Finset.range (2 * p)) d := by
   refine ⟨fun h0 => by simp at h0; omega, fun h h' h2 => ?_, fun _ => ?_⟩
   · have hlt := max'_erase_lt h h'
@@ -599,7 +599,7 @@ theorem kzc_range {p : ℕ} (hp : 1 ≤ p) {d : ℕ} (hd : d ≤ p) : KZc (Finse
   · rw [depthZ_range, Finset.card_range]
     omega
 
-/-- The interval `{0..2p-1}`: the opponent moving, trailing by any `e`, is in L23's class. -/
+/-- The interval `{0..2p-1}`: the opponent moving, trailing by any `e`, is in C23's class. -/
 theorem kyc_range (p e : ℕ) : KYc (Finset.range (2 * p)) e := by
   refine ⟨fun h h' h2 => ?_, fun _ => ⟨?_, fun hh => ?_⟩⟩
   · have h1 := Finset.mem_range.mp (Finset.max'_mem _ h)

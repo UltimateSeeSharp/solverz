@@ -8,11 +8,11 @@ public import Mathlib.Algebra.BigOperators.Ring.Finset
 /-!
 # The matching cost as a parity count
 
-For an even set `O` of naturals at most `M`, L20's bottom-up matching cost is the number of points
+For an even set `O` of naturals at most `M`, C20's bottom-up matching cost is the number of points
 `x < M` at which an odd number of elements of `O` are `≤ x` (`matchCost_eq_card_odd`): the matched
 gaps `[o₁, o₂), [o₃, o₄), …` are exactly those points. Removing two elements `i < j` flips that
 parity on `[i, j)` and nowhere else, so the cost changes by `(j - i) - 2 O(i, j)`, with `O(i, j)`
-the odd points in `[i, j)` (`matchCost_erase_two`). Used by the potential W of L24.
+the odd points in `[i, j)` (`matchCost_erase_two`). Used by the potential W of C24.
 -/
 
 @[expose] public section
@@ -41,7 +41,7 @@ theorem oddBelow_erase_two {O : Finset ℕ} {i j : ℕ} (hi : i ∈ O) (hj : j �
   rw [Nat.odd_iff, Nat.odd_iff]
   split_ifs at h1 h2 <;> omega
 
-/-- **The parity form of L20's cost.** -/
+/-- **The parity form of C20's cost.** -/
 theorem matchCost_eq_card_odd (n : ℕ) : ∀ O : Finset ℕ, O.card = n → Even n → ∀ M : ℕ,
     (∀ o ∈ O, o ≤ M) → matchCost O = ((Finset.range M).filter (OddBelow O)).card := by
   induction n using Nat.strong_induction_on with

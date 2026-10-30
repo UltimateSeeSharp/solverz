@@ -5,7 +5,7 @@ public import CatchUp.Rounds
 /-!
 # Strategy transfer
 
-Blueprint L22. On offsets placed high, `{a + o : o ∈ T}`, a strategy for Z in the rounds game
+Claim C22. On offsets placed high, `{a + o : o ∈ T}`, a strategy for Z in the rounds game
 carries over to the real game along its own plays, as long as every round start it allows has
 offsets at most `a` and a debt that any single pick of the mover covers (`d ≤ a + o` for every
 offset `o` left). The strategy is given as two classes of round starts closed under its rounds:
@@ -78,7 +78,7 @@ theorem step_mem_list {T : Finset ℕ} {a sm so i : ℕ} (hi : i ∈ T) :
     (Finset.mem_attach _ _), ?_⟩
   simp only [map_erase_add_left]
 
-/-- **L22.** A Z-strategy in the rounds game, given by classes closed under its rounds, transfers
+/-- **C22.** A Z-strategy in the rounds game, given by classes closed under its rounds, transfers
 to the real game on translated offsets: Z never loses from `KZ`, the opponent never wins from
 `KY`. -/
 theorem valueAux_transfer (a : ℕ) (KZ KY : Finset ℕ → ℕ → Prop)
