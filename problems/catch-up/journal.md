@@ -3,6 +3,8 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-10-30
+- 13:40 C83 open: the lower-ray boundary, C74's second hypothesis, holds for N = 11..24 (I8)
+- 13:40 C82 open: ({3..N}, 1) draws, C74's first hypothesis, data to N = 28 (I8)
 - 06:05 C80 verified: `value_aux_add_scores` ported with the verified evaluator
 - 05:54 C81 open: intervals minus at most N/4 adjacent pairs never lose at deficit 1, data N ≤ 24 (C74, I8)
 - 05:48 focus moves to the middle of C31 (b)'s ray after the catch-up-research import (C73, C74; I8)

@@ -83,3 +83,5 @@
 | [C79](C79.md) | Explicit certificates grow exponentially | — | proved | theirs: `initial_certificate_exponential` (`CatchUp/Earlier/CertificateComplexityHighCounters.lean`) | — |
 | [C80](C80.md) | Score shift | — | verified | `CatchUp.value_aux_add_scores` (`CatchUp/Executable.lean`) | — |
 | [C81](C81.md) | Dense pair deletions never lose | — | open | — | — |
+| [C82](C82.md) | Second start draws | — | open | — | — |
+| [C83](C83.md) | Lower-ray boundary | — | open | — | — |
