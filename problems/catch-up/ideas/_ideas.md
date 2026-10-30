@@ -14,4 +14,4 @@
 | [I10](I10.md) | Moving quadruples | induction | ideator | C33, C34, C35 | alive |
 | [I11](I11.md) | Twins to interval | deformation | ideator | C36 | alive |
 | [I12](I12.md) | Gap bound | generalization | ideator | C33, C37, C38 | alive |
-| [I13](I13.md) | Smallest-first to mid height | phase split | ideator | C61 | new |
+| [I13](I13.md) | Smallest-first to mid height | phase split | ideator | C61 | dead |
