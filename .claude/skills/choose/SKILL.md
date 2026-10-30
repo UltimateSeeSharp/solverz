@@ -15,8 +15,9 @@ description: Picks a new problem from problems/problems.md and sets it up: check
    check, whether it hinges on a new idea) against this machine (CLAUDE.md,
    This machine). Keep only framings that fit and have a written workflow.
 4. The user picks a problem and its framing.
-5. Create the branch `attack/<name>` (CLAUDE.md, Rules); everything from
-   here is committed there. Copy `templates/problem/` to `problems/<name>/`;
+5. Add the problem to `problems/active.md` and commit that on main; then
+   create its worktree (CLAUDE.md, Rules), where everything from here is
+   done and committed. Copy `templates/problem/` to `problems/<name>/`;
    rename `lean/Problem*` and the namespace to the library name, and the
    crate to the folder name. Add a `[[lean_lib]]` with `srcDir` and a
    `defaultTargets` entry to `lakefile.toml`.
@@ -24,5 +25,4 @@ description: Picks a new problem from problems/problems.md and sets it up: check
    literature with dated searches.
 7. State the goal as claim C1 and run `audit`; the user approves it.
 8. Draw the first ideas with the `ideator`, standard techniques first;
-   fill `ideas/` and `claims/`, set `state.md`, add it to
-   `problems/active.md`.
+   fill `ideas/` and `claims/`, set `state.md`.

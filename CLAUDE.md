@@ -43,6 +43,7 @@ problem.
 
 ## Where things live
 ```
+.worktrees/<problem>/  the attack's checkout of attack/<problem>
 templates/problem/  the shape of every file in problems/<name>/; a new file copies it
 problems/
   problems.md   every problem, rated (choose picks from it)
@@ -65,19 +66,18 @@ problems/<name>/
 ## Rules
 - Agents and experiments run in the background while work goes on; each is
   listed under Running in `state.md` until its result is recorded.
-- One attack at a time on this machine; switch branches only with nothing
-  under Running.
 - At most 3 agents at a time, each with `model: opus` (always the newest Opus).
 - Experiments may use whatever RAM, CPU and GPU is free, keeping about 4 GB
   RAM and 2 threads spare so the system doesn't swap or lag; one GPU job at a
   time. An experiment that can't fit on this machine is not run.
 - Never edit an approved statement; a change is a new claim.
-- The attack loop works on the long-lived branch `attack/<problem>`:
-  created from main the first time, main merged into it whenever the loop
-  starts, one commit per step. The user merges it into main.
-- Any other session works on main in its own worktree
-  (`git worktree add ../solverz-main main`) and never touches the attack's
-  checkout.
+- Each attack runs in its own worktree `.worktrees/<problem>/` on the
+  long-lived branch `attack/<problem>`, made once and reused by every
+  session of that problem: created from main the first time
+  (`git worktree add .worktrees/<problem> -b attack/<problem> main`, then
+  `.lake/packages` as a junction to the main folder's), main merged into it
+  whenever the loop starts, one commit per step. The user merges it into
+  main. The main folder stays on main for all other work.
 
 ## Workflows
 
@@ -86,9 +86,9 @@ The `choose` skill.
 
 ### Attack
 "attack <problem>" starts the workflow of the problem's kind. On every start,
-the loop first reads `state.md` and the files it links, checks `git status`
-and each job under Running (reads its output, or reruns it if lost), and
-continues from its next step.
+the loop first enters the problem's worktree (Rules), reads `state.md` and
+the files it links, checks `git status` and each job under Running (reads
+its output, or reruns it if lost), and continues from its next step.
 
 #### `prove`
 1. Pick the most promising idea now: new ideas get their cheapest kill test
