@@ -1,6 +1,7 @@
 //! R(K₃, K₄−e, K₄−e) solver: scores 3-colourings of Kₙ by their forbidden
 //! subgraphs, mirroring Lean's `Checks` (and so `Valid`), and extends them.
 
+pub mod anneal;
 pub mod block;
 
 use std::fs;
