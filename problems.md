@@ -25,9 +25,10 @@ Sorted by score, highest first. Who is working on what:
 - **Idea** 1–5: 5 = hinges on a new idea experts have missed for years.
 - **Crowding** 1–5: 5 = famous, or currently attacked by labs or AI crowds.
 - **Score:** Fit + Lean + (6 − Idea) + (6 − Crowding); none for kind `none`.
-- **Status:** `candidate`, `attacked` (link to its folder), `shelved`,
-  `solved elsewhere`. **Checked:** date of the last freshness check.
+- **Status:** `candidate`, `shelved`, `solved elsewhere`; problems being
+  attacked: [problems/active-problems.md](problems/active-problems.md).
+  **Checked:** date of the last freshness check.
 
 | ID | Problem | Kind | Framings | Fit | Lean | Idea | Crowding | Score | Status | Checked |
 |---|---|---|---|---|---|---|---|---|---|---|
-| fc/Paper/CatchUpConjecture | [Catch-Up](https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Paper/CatchUpConjecture.lean) on {1..N}: with perfect play, is the game a draw whenever 1 + … + N is even? | prove | — | 4 | 4 | 4 | 3 | 13 | [attacked](problems/catch-up/README.md) | 2026-10-28 |
+| fc/Paper/CatchUpConjecture | [Catch-Up](https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Paper/CatchUpConjecture.lean) on {1..N}: with perfect play, is the game a draw whenever 1 + … + N is even? | prove | — | 4 | 4 | 4 | 3 | 13 | candidate | 2026-10-28 |
