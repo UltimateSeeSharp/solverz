@@ -63,3 +63,4 @@
 | [C59](C59.md) | Gap potentials for LG | — | refuted | — | — |
 | [C60](C60.md) | Pairing bound (sharper C37) | — | refuted | — | — |
 | [C61](C61.md) | Exits of smallest-first play are non-losing (EX) | — | open | — | — |
+| [C62](C62.md) | Twins with a tie-break at every height | C21 | open | — | — |
