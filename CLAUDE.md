@@ -24,7 +24,7 @@ How we think and work: `principles.md`.
 - **Experiment**: a computation that tests one claim. States beforehand which
   result changes the claim's status; its code is first checked against known
   values or an independent computation.
-- **Journal**: what changed, newest last: one timestamped line per step that
+- **Journal**: what changed, newest first: one timestamped line per step that
   changed a status, under its date.
 
 Relations: an idea needs claims, a claim uses claims (both many to many).
@@ -39,7 +39,7 @@ problems/<name>/
   ideas/        _ideas.md (index), I1.md, I2.md, …
   claims/       _claims.md (index), C1.md, C2.md, …
   experiments/  _experiments.md (index), E1.md, E2.md, …
-  journal.md    what changed, newest last
+  journal.md    what changed, newest first
   state.md      now: focus, next step, running jobs, what needs the user
   lean/         <Name>.lean (root); <Name>/Statement.lean (the goal and the
                 definitions it uses), Defs/ (other definitions), Claims/
