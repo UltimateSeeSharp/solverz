@@ -1,7 +1,7 @@
 # State
 
-**Focus.** I12: C37 stands, its pairing sharpening C60 is refuted; the step from an interval is still the obstruction.
-**Next step.** From the refuter's best lines for C60's counterexamples (`scratch/refuter/pg/pv.py`), find how the mover loses more than P, and whether any bound between P and γ can pass O21's step (`scratch/a13/step.rs`).
-**Running.** Ideator on the step from an interval (briefed with C60, now refuted; its ideas are proposals), started 2026-10-30; output in its reply, code in `scratch/ideator/`.
+**Focus.** I13 (new): smallest-first below 0.3·span, its claim C61; first its cheapest kill test.
+**Next step.** Describe C61's exits for N ≤ 27 (holes, relative height, deficit, who moves) and test whether one short class covers them on which D is non-losing at every position, not only the reachable ones (kill test (b)).
+**Running.** `scratch/a13/exits.exe 27`: C61 for c = 0.2–0.35 and the twin answer after openings 1, 2, every even-total N ≤ 27, started 2026-10-30; output `scratch/a13/exits-27.txt`.
 
 ## Needs the user

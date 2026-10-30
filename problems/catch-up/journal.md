@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-10-30
+- 04:00 I13 new, with C61: smallest-first below 0.3·span, then optimal play (ideator)
 - 03:24 C60 refuted: near-twin blocks lose by more than the pairing bound; C37 untouched (I12)
 - 02:56 C60 open: the pairing bound, sharper than C37, no violation in E20 (I12)
 

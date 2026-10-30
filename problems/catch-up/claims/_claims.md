@@ -62,3 +62,4 @@
 | [C58](C58.md) | Near ties stay drawn across a breakpoint | — | refuted | — | — |
 | [C59](C59.md) | Gap potentials for LG | — | refuted | — | — |
 | [C60](C60.md) | Pairing bound (sharper C37) | — | refuted | — | — |
+| [C61](C61.md) | Exits of smallest-first play are non-losing (EX) | — | open | — | — |
