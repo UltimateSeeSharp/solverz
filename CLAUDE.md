@@ -70,9 +70,9 @@ The `choose` skill.
 
 ### Attack
 "attack <problem>" starts the workflow of the problem's kind. On every start,
-the loop first reads `state.md` and the files it links, checks each job under
-Running (reads its output, or reruns it if lost), and continues from its next
-step.
+the loop first reads `state.md` and the files it links, checks `git status`
+and each job under Running (reads its output, or reruns it if lost), and
+continues from its next step.
 
 #### `prove`
 1. Pick the most promising idea now: new ideas get their cheapest kill test
