@@ -7,9 +7,6 @@ Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taki
 **Goal:** if 1 + … + N is even (N ≡ 0, 3 mod 4), optimal play is a draw; claim C1, Lean `CatchUp.Conjecture` in `lean/CatchUp/Statement.lean` (from formal-conjectures' `value_of_even_mul_succ_self_div_two`).
 Kind: prove.
 
-## Core difficulty
-The low phase. On high sets (smallest number ≥ the spread) every turn is one pick, and even blocks there draw by a potential argument (C24, in Lean). {1..N} starts low: a turn can take several small numbers to make change, and the value depends on the whole set, not on local features. Every local rule, bounded invariant and single strategy tried for this phase fails as N grows (C42–C46, C49, C54, C55). A proof must control play while the set is low: an invariant the defender keeps while making change, or a reason the value cannot change as the set deforms into a high one. Sharpened (2026-10-28): after any opening of {1..N}, the opponent can make change with the bottom run {1..k} plus one number and leave a block with holes at height up to about √(2N); every route tried (closed families, potentials, deformations crossed breakpoint by breakpoint) fails there (C43, C58, C59). The strongest reformulation is C37: the player to move never loses by more than the largest gap of the numbers left (deficit included), which implies C1 and is tight exactly at intervals.
-
 ## Literature
 - Exhaustive search to N = 28: von Stengel, talk abstract, CGT Colloquium III, Lisbon 2019 ([ludicum.org/?p=4151](https://ludicum.org/?p=4151)). No paper, code or data found.
 - OEIS [A278587](https://oeis.org/A278587): values for N = 3..20.
