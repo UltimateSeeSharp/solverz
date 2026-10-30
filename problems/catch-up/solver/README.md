@@ -22,3 +22,4 @@ Verification chain (`cargo test --release`, CUDA tests with `--features cuda`): 
 - **One position's margin:** `set_margin <d> <numbers>` = m(S, d) of the margin game (C33), any multiset; checks its sign against `Solver`.
 - **One position:** `Solver::position(mask, gap)` = mover's value with `mask` left, trailing by `gap`, any gap; gaps above the largest number are not memoized.
 - **Every gap up to sum(R):** `interval_rows`'s own table (stride sum + 1; 1 GB at U = 22).
+- **A value Lean proves:** `Position.eval ⟨R, d⟩` = V(R, d) (`Position.eval_eq_value`) and `evalInitial S` = value(S) (`eval_initial_eq_value`), in `lean/CatchUp/Executable.lean`; `example : Position.eval ⟨{2, 5, 7}, 3⟩ = .win := by decide +kernel`. About 10 s to load; {1..12} takes 66 s and each extra number doubles it.

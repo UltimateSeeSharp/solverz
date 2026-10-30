@@ -16,6 +16,9 @@ public import CatchUp.CostParity
 public import CatchUp.Token
 public import CatchUp.Invariant
 public import CatchUp.Hyb2
+public import CatchUp.Reference
+public import CatchUp.Classifier
+public import CatchUp.Executable
 public import CatchUp.Tests.BlockDrawLinear
 public import CatchUp.Tests.BlockDrawHyb2
 
