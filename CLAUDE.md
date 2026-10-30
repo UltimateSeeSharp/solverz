@@ -42,8 +42,8 @@ problems/<name>/
   journal.md    what changed, newest first
   state.md      now: focus, next step, running jobs, what needs the user
   lean/         <Name>.lean (root); <Name>/Statement.lean (the goal and the
-                definitions it uses), Defs/ (other definitions), Claims/
-                (proofs; each header names its claim IDs), Tests/
+                definitions it uses), one file per other topic (its header
+                names its claim IDs), Tests/
   solver/       README.md (engines, how each is checked); src/lib.rs,
                 src/engines/, src/bin/ (experiments, named by ID: e12_quad_step.rs)
   scratch/      git-ignored playground
