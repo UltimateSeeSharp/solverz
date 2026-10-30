@@ -87,6 +87,9 @@ problems/<name>/
 ### Choose: a new problem
 The `choose` skill.
 
+### Maintain: the repo itself
+The `maintain` skill (`/maintain`); never inside an attack.
+
 ### Attack
 "attack <problem>" starts the workflow of the problem's kind. On every start,
 the loop first enters the problem's worktree (Rules), reads
