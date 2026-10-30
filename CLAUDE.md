@@ -111,9 +111,10 @@ continues from its next step.
    with committed code (in Lean if the claim is stated there and the check
    is quick).
 4. Record changed statuses with a journal line, and `state.md`.
-5. The goal claim verified: stop and tell the user. Otherwise never stop,
-   and never end a turn to wait for anything under Running. The user can
-   stop the loop at any time.
+5. The goal claim verified: stop and tell the user. Otherwise **NEVER STOP**:
+   not to wait for anything under Running, not for context (compaction is
+   automatic; `state.md` carries the loop), and after answering the user,
+   go on with the loop. The user stops the loop.
 
 #### `find`
 
