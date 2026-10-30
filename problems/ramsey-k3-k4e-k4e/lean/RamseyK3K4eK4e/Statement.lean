@@ -8,7 +8,7 @@ public import Mathlib
 Colour every edge of K₂₁ with colour 0, 1 or 2 (the README's 1, 2, 3) so
 that colour 0 has no triangle and colours 1 and 2 contain no K₄−e (four
 points with at least five of their six edges in that colour). Such a
-colouring exists iff R(K₃, K₄−e, K₄−e) = 22. Pending the user's approval.
+colouring exists iff R(K₃, K₄−e, K₄−e) = 22. Approved by the user 2026-10-30.
 -/
 
 @[expose] public section

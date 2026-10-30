@@ -7,7 +7,8 @@ Colour each edge of K₂₁ (21 points, every pair joined) 1, 2 or 3 so that
 colour 1 has no triangle and neither colour 2 nor colour 3 has a K₄−e
 (4 points with at least 5 of their 6 edges in that colour). Such a
 colouring exists iff R(K₃, K₄−e, K₄−e) = 22; otherwise it is 21.
-**Goal:** such a colouring of K₂₁ exists, Lean `RamseyK3K4eK4e.Conjecture`.
+**Goal:** such a colouring of K₂₁ exists, Lean `RamseyK3K4eK4e.Conjecture`,
+approved 2026-10-30.
 Kind: find. Estimate: as SAT, 630 variables (210 edges × 3 colours) and
 about 74,000 clauses, memory trivial; hardness unknown, minutes to weeks
 depending on symmetry breaking. Lean: 1,330 triangles and 5,985 four-point
