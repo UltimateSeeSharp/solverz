@@ -34,6 +34,9 @@ problem.
 
 ## Where things live
 ```
+problems/
+  problems.md   every problem, rated (choose picks from it)
+  active.md     one row per problem folder
 problems/<name>/
   README.md     the problem
   ideas/        _ideas.md (index), I1.md, I2.md, …
@@ -44,8 +47,8 @@ problems/<name>/
   lean/         <Name>.lean (root); <Name>/Statement.lean (the goal and the
                 definitions it uses), one file per other topic (its header
                 names its claim IDs), Tests/
-  solver/       README.md (engines, how each is checked); src/lib.rs,
-                src/engines/, src/bin/ (experiments, named by ID: e12_quad_step.rs)
+  solver/       README.md (engines, how each is checked); src/ (engines),
+                src/bin/ (experiments, named by ID: e12_quad_step.rs)
   scratch/      git-ignored playground
 ```
 
