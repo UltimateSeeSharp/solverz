@@ -23,3 +23,4 @@ All at once: `pwsh -File F:\WIN_DATA\Documents\Coding\solverz\.worktrees\catch-u
 ## Needs the user
 - Download catch-up-research@b0853b4 (Apache 2.0, GitHub) into `scratch/` to port C77 (exact-sum lemmas), C73 (ray endpoints) and C74 (the lower-ray reduction) into our build; they are Lean-checked there and cited, not yet ours.
 - Merge attack/catch-up into main when you want this session's records there (nothing depends on it).
+- After Q6 compiles: C11 in Lean by the plan in C11 (margins; covers a = 1).
