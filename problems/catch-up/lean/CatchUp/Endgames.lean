@@ -90,4 +90,123 @@ theorem valueAux_pair_gap {u v : ℕ} (huv : u < v) (s g : ℕ) :
   unfold Outcome.ofMargin
   split_ifs <;> first | rfl | (exfalso; omega)
 
+/-- An adjacent pair `{u, u + 1}` with the mover trailing by 1 has margin 0 (C7: `g + u = v`). -/
+theorem margin_adjacent_one {u : ℕ} (hu : 1 ≤ u) (s : ℕ) : margin {u, u + 1} s (s + 1) = 0 := by
+  rw [margin_pair (by omega : u < u + 1), if_pos hu]
+  push_cast
+  ring
+
+/-- **C11** in margins: two adjacent pairs `{a, a + 1}`, `{b, b + 1}` with `1 ≤ a` and `a + 2 ≤ b`
+have margin 0 at a tie. Every opening meets its partner, leaving the other pair at deficit 1, worth 0;
+the opening `a + 1` leaves the opponent at most 0 whatever it answers. -/
+theorem margin_two_pairs {a b : ℕ} (ha : 1 ≤ a) (hab : a + 2 ≤ b) (s : ℕ) :
+    margin {a, a + 1, b, b + 1} s s = 0 := by
+  obtain ⟨g, rfl⟩ : ∃ g, b = a + 2 + g := ⟨b - (a + 2), by omega⟩
+  have hne : ({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).Nonempty := Finset.insert_nonempty _ _
+  -- The sets after one or two picks.
+  have e1 : (({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase a).erase (a + 1) =
+      {a + 2 + g, a + 2 + g + 1} := by
+    ext z; simp only [Finset.mem_erase, Finset.mem_insert, Finset.mem_singleton]
+    constructor <;> intro h <;> omega
+  have e2 : (({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 1)).erase a =
+      {a + 2 + g, a + 2 + g + 1} := by
+    ext z; simp only [Finset.mem_erase, Finset.mem_insert, Finset.mem_singleton]
+    constructor <;> intro h <;> omega
+  have e3 : (({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 2 + g)).erase
+      (a + 2 + g + 1) = {a, a + 1} := by
+    ext z; simp only [Finset.mem_erase, Finset.mem_insert, Finset.mem_singleton]
+    constructor <;> intro h <;> omega
+  have e4 : (({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 2 + g + 1)).erase
+      (a + 2 + g) = {a, a + 1} := by
+    ext z; simp only [Finset.mem_erase, Finset.mem_insert, Finset.mem_singleton]
+    constructor <;> intro h <;> omega
+  have eT : ({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 1) =
+      {a, a + 2 + g, a + 2 + g + 1} := by
+    ext z; simp only [Finset.mem_erase, Finset.mem_insert, Finset.mem_singleton]
+    constructor <;> intro h <;> omega
+  have t1 : ({a, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase a = {a + 2 + g, a + 2 + g + 1} := by
+    ext z; simp only [Finset.mem_erase, Finset.mem_insert, Finset.mem_singleton]
+    constructor <;> intro h <;> omega
+  have t2 : ({a, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 2 + g) = {a, a + 2 + g + 1} := by
+    ext z; simp only [Finset.mem_erase, Finset.mem_insert, Finset.mem_singleton]
+    constructor <;> intro h <;> omega
+  have t3 : ({a, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 2 + g + 1) = {a, a + 2 + g} := by
+    ext z; simp only [Finset.mem_erase, Finset.mem_insert, Finset.mem_singleton]
+    constructor <;> intro h <;> omega
+  have hb1 : 1 ≤ a + 2 + g := by omega
+  -- Upper bound: after each opening the partner answer leaves the other pair at deficit 1.
+  have hA1 : 0 ≤ margin (({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase a) s (s + a) := by
+    have h := le_margin_of_mem
+      (R := ({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase a) (x := a + 1) (by simp) s (s + a)
+    rw [if_pos (show s + a ≤ s + (a + 1) by omega), e1, show s + (a + 1) = s + a + 1 by ring,
+      margin_adjacent_one hb1] at h
+    linarith
+  have hA2 : 0 ≤ margin (({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 1)) s
+      (s + (a + 1)) := by
+    have h := le_margin_of_mem
+      (R := ({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 1)) (x := a) (by simp) s
+      (s + (a + 1))
+    rw [if_neg (show ¬(s + (a + 1) ≤ s + a) by omega), e2, show s + (a + 1) = s + a + 1 by ring,
+      margin_adjacent_one hb1] at h
+    exact h
+  have hA3 : 0 ≤ margin (({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 2 + g)) s
+      (s + (a + 2 + g)) := by
+    have h := le_margin_of_mem
+      (R := ({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 2 + g)) (x := a + 2 + g + 1)
+      (by simp) s (s + (a + 2 + g))
+    rw [if_pos (show s + (a + 2 + g) ≤ s + (a + 2 + g + 1) by omega), e3,
+      show s + (a + 2 + g + 1) = s + (a + 2 + g) + 1 by ring, margin_adjacent_one ha] at h
+    linarith
+  have hA4 : 0 ≤ margin (({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 2 + g + 1)) s
+      (s + (a + 2 + g + 1)) := by
+    have h := le_margin_of_mem
+      (R := ({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 2 + g + 1)) (x := a + 2 + g)
+      (by simp) s (s + (a + 2 + g + 1))
+    rw [if_neg (show ¬(s + (a + 2 + g + 1) ≤ s + (a + 2 + g)) by omega), e4,
+      show s + (a + 2 + g + 1) = s + (a + 2 + g) + 1 by ring, margin_adjacent_one ha] at h
+    exact h
+  -- Lower bound: after the opening a + 1 every answer leaves the opener at least 0.
+  have hLow : margin (({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ).erase (a + 1)) s
+      (s + (a + 1)) ≤ 0 := by
+    rw [eT, margin, dif_pos (Finset.insert_nonempty _ _)]
+    refine Finset.sup'_le _ _ fun y _ => ?_
+    obtain ⟨y, hy⟩ := y
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hy
+    try dsimp only
+    rcases hy with h | h | h <;> rw [h]
+    · rw [if_neg (show ¬(s + (a + 1) ≤ s + a) by omega), t1,
+        show s + (a + 1) = s + a + 1 by ring, margin_adjacent_one hb1]
+      try exact le_rfl
+    · rw [if_pos (show s + (a + 1) ≤ s + (a + 2 + g) by omega), t2,
+        show s + (a + 2 + g) = s + (a + 1) + (g + 1) by ring,
+        margin_pair (show a < a + 2 + g + 1 by omega)]
+      split_ifs <;> push_cast <;> omega
+    · rw [if_pos (show s + (a + 1) ≤ s + (a + 2 + g + 1) by omega), t3,
+        show s + (a + 2 + g + 1) = s + (a + 1) + (g + 2) by ring,
+        margin_pair (show a < a + 2 + g by omega)]
+      split_ifs <;> push_cast <;> omega
+  apply le_antisymm
+  · rw [margin, dif_pos hne]
+    refine Finset.sup'_le _ _ fun y _ => ?_
+    obtain ⟨y, hy⟩ := y
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hy
+    try dsimp only
+    rw [if_pos (Nat.le_add_right s y)]
+    rcases hy with rfl | rfl | rfl | rfl <;> linarith [hA1, hA2, hA3, hA4]
+  · have h := le_margin_of_mem (R := ({a, a + 1, a + 2 + g, a + 2 + g + 1} : Finset ℕ))
+      (x := a + 1) (by simp) s s
+    rw [if_pos (Nat.le_add_right s (a + 1))] at h
+    linarith
+
+/-- **C11**: two adjacent pairs `{a, a + 1}`, `{b, b + 1}`, `1 ≤ a`, `a + 2 ≤ b`, draw at a tie. -/
+theorem valueAux_two_pairs {a b : ℕ} (ha : 1 ≤ a) (hab : a + 2 ≤ b) (s : ℕ) :
+    valueAux {a, a + 1, b, b + 1} s s false = .draw := by
+  rw [valueAux_eq_ofMargin', margin_two_pairs ha hab]
+  simp [Outcome.ofMargin]
+
+/-- C11 for the game itself (opening flag). -/
+theorem value_two_pairs {a b : ℕ} (ha : 1 ≤ a) (hab : a + 2 ≤ b) :
+    value {a, a + 1, b, b + 1} = .draw := by
+  rw [value, valueAux_true_eq_false, valueAux_two_pairs ha hab]
+
 end CatchUp
