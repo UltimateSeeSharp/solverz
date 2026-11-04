@@ -3,6 +3,7 @@ module
 public import CatchUp.Margin
 public import CatchUp.Token
 public import Mathlib.Algebra.BigOperators.Intervals
+public import Mathlib.Algebra.BigOperators.Ring.Finset
 
 /-!
 # Margins of Catch-Up
@@ -46,7 +47,7 @@ theorem margin_bounds (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → ∀ a b :
   intro R hn a b
   subst hn
   by_cases h : R.Nonempty
-  · rw [margin, dif_pos h]
+  · rw [margin, dite_eq_left h]
     have key : ∀ x ∈ R,
         (a : ℤ) - b - ∑ y ∈ R, (y : ℤ) ≤
             (if b ≤ a + x then -margin (R.erase x) b (a + x)
@@ -59,11 +60,11 @@ theorem margin_bounds (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → ∀ a b :
       have hx0 : (0 : ℤ) ≤ x := by positivity
       by_cases hc : b ≤ a + x
       · obtain ⟨h1, h2⟩ := ih _ hlt (R.erase x) rfl b (a + x)
-        rw [if_pos hc]
+        rw [ite_eq_left hc]
         push_cast at h1 h2
         constructor <;> linarith
       · obtain ⟨h1, h2⟩ := ih _ hlt (R.erase x) rfl (a + x) b
-        rw [if_neg hc]
+        rw [ite_eq_right hc]
         push_cast at h1 h2
         constructor <;> linarith
     constructor
@@ -73,7 +74,7 @@ theorem margin_bounds (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → ∀ a b :
     · exact Finset.sup'_le _ _ fun x _ => (key x.1 x.2).2
   · have h0 : R = ∅ := Finset.not_nonempty_iff_eq_empty.mp h
     subst h0
-    rw [margin, dif_neg Finset.not_nonempty_empty]
+    rw [margin, dite_eq_right Finset.not_nonempty_empty]
     simp
 
 /-- **Sign lemma** (C33): after the opening, Catch-Up's value is the sign of the minimax margin. -/
@@ -85,7 +86,7 @@ theorem valueAux_eq_ofMargin (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → �
   subst hn
   by_cases h0 : R = ∅
   · subst h0
-    rw [valueAux_empty, margin, dif_neg Finset.not_nonempty_empty]
+    rw [valueAux_empty, margin, dite_eq_right Finset.not_nonempty_empty]
     unfold Outcome.ofMargin
     split_ifs <;> first | rfl | (exfalso; omega)
   · have hne : R.Nonempty := Finset.nonempty_iff_ne_empty.mpr h0
@@ -96,7 +97,7 @@ theorem valueAux_eq_ofMargin (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → �
       push_cast at hl'
       have hm : margin R a b < 0 := by linarith
       simp [Outcome.ofMargin, hm, not_lt.mpr hm.le]
-    · rw [valueAux_step h0 hl, margin, dif_pos hne]
+    · rw [valueAux_step h0 hl, margin, dite_eq_left hne]
       apply Outcome.best_eq_ofMargin_sup'
       intro o
       simp only [List.mem_map, Finset.mem_toList, Finset.mem_attach, true_and]
@@ -108,9 +109,9 @@ theorem valueAux_eq_ofMargin (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → �
         intro x hx
         have hlt : (R.erase x).card < R.card := Finset.card_erase_lt_of_mem hx
         by_cases hc : b ≤ a + x
-        · simp only [ge_iff_le, if_pos hc]
+        · simp only [ge_iff_le, ite_eq_left hc]
           rw [ih _ hlt (R.erase x) rfl, Outcome.ofMargin_neg]
-        · simp only [ge_iff_le, if_neg hc]
+        · simp only [ge_iff_le, ite_eq_right hc]
           rw [ih _ hlt (R.erase x) rfl]
       constructor
       · rintro ⟨⟨x, hx⟩, rfl⟩
@@ -128,7 +129,7 @@ theorem le_margin_of_mem {R : Finset ℕ} {x : ℕ} (hx : x ∈ R) (a b : ℕ) :
     (if b ≤ a + x then -margin (R.erase x) b (a + x) else margin (R.erase x) (a + x) b) ≤
       margin R a b := by
   have h : R.Nonempty := ⟨x, hx⟩
-  conv_rhs => rw [margin, dif_pos h]
+  conv_rhs => rw [margin, dite_eq_left h]
   exact Finset.le_sup'_of_le _ (Finset.mem_attach R ⟨x, hx⟩) le_rfl
 
 /-- **Partner bound** (C10 (b) in margins): at a tie, if after every opening `x` some answer `y`
@@ -139,15 +140,15 @@ theorem margin_tie_le_zero_of_partner {S : Finset ℕ} (s : ℕ)
         else margin ((S.erase x).erase y) (s + y) (s + x))) :
     margin S s s ≤ 0 := by
   by_cases h : S.Nonempty
-  · rw [margin, dif_pos h]
+  · rw [margin, dite_eq_left h]
     refine Finset.sup'_le _ _ fun x _ => ?_
     obtain ⟨x, hx⟩ := x
     dsimp only
-    rw [if_pos (Nat.le_add_right s x)]
+    rw [ite_eq_left (Nat.le_add_right s x)]
     obtain ⟨y, hy, hy0⟩ := hp x hx
     have := le_margin_of_mem hy s (s + x)
     linarith
-  · rw [Finset.not_nonempty_iff_eq_empty.mp h, margin, dif_neg Finset.not_nonempty_empty]
+  · rw [Finset.not_nonempty_iff_eq_empty.mp h, margin, dite_eq_right Finset.not_nonempty_empty]
     simp
 
 /-- **Two-token lemma** (C38): at a tie with scores `s`, for openings `y < t` of `S`, the
@@ -160,8 +161,8 @@ theorem margin_two_token {S : Finset ℕ} {y t : ℕ} (hy : y ∈ S) (ht : t ∈
   have ht' : t ∈ S.erase y := Finset.mem_erase.mpr ⟨hyt.ne', ht⟩
   have h1 := le_margin_of_mem hy' s (s + t)
   have h2 := le_margin_of_mem ht' s (s + y)
-  rw [if_neg (show ¬(s + t ≤ s + y) by omega)] at h1
-  rw [if_pos (show s + y ≤ s + t by omega), Finset.erase_right_comm] at h2
+  rw [ite_eq_right (show ¬(s + t ≤ s + y) by omega)] at h1
+  rw [ite_eq_left (show s + y ≤ s + t by omega), Finset.erase_right_comm] at h2
   linarith
 
 /-- A maximum of numbers of one parity has that parity. -/
@@ -178,32 +179,32 @@ theorem even_margin_add (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → ∀ a b
   intro R hn a b
   subst hn
   by_cases h : R.Nonempty
-  · rw [margin, dif_pos h, add_assoc, add_assoc]
+  · rw [margin, dite_eq_left h, add_assoc, add_assoc]
     apply even_sup'_add_of
     rintro ⟨x, hx⟩ -
     dsimp only
     have hlt : (R.erase x).card < R.card := Finset.card_erase_lt_of_mem hx
     have hs : ∑ y ∈ R.erase x, (y : ℤ) + x = ∑ y ∈ R, (y : ℤ) := Finset.sum_erase_add R _ hx
     by_cases hc : b ≤ a + x
-    · rw [if_pos hc]
+    · rw [ite_eq_left hc]
       have := ih _ hlt (R.erase x) rfl b (a + x)
       rw [Int.even_iff] at this ⊢
       push_cast at this
       omega
-    · rw [if_neg hc]
+    · rw [ite_eq_right hc]
       have := ih _ hlt (R.erase x) rfl (a + x) b
       rw [Int.even_iff] at this ⊢
       push_cast at this
       omega
   · have h0 : R = ∅ := Finset.not_nonempty_iff_eq_empty.mp h
     subst h0
-    rw [margin, dif_neg Finset.not_nonempty_empty]
+    rw [margin, dite_eq_right Finset.not_nonempty_empty]
     simp only [Finset.sum_empty, add_zero]
     exact ⟨a, by ring⟩
 
 private theorem sum_Icc_mul_two (N : ℕ) : (∑ x ∈ Finset.Icc 1 N, x) * 2 = N * (N + 1) := by
   induction N with
-  | zero => first | rfl | decide | simp
+  | zero => rfl
   | succ N ih =>
     rw [Finset.sum_Icc_succ_top (by omega : 1 ≤ N + 1), add_mul, ih]
     ring

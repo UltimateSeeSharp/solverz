@@ -19,6 +19,10 @@ public import CatchUp.Hyb2
 public import CatchUp.Reference
 public import CatchUp.Classifier
 public import CatchUp.Executable
+public import CatchUp.GameMargin
+public import CatchUp.Endgames
+public import CatchUp.Band
+public import CatchUp.Small
 public import CatchUp.Tests.BlockDrawLinear
 public import CatchUp.Tests.BlockDrawHyb2
 

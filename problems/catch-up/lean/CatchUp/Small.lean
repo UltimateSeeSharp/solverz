@@ -14,6 +14,7 @@ C1 for every `N ≤ 12` with an even total (`N = 0, 3, 4, 7, 8, 11, 12`), by the
 
 namespace CatchUp
 
+set_option maxHeartbeats 20000000 in -- six intervals evaluated by the kernel, {1..12} the largest
 /-- **C1 for `N ≤ 12`**. -/
 theorem conjecture_le_twelve (N : ℕ) (hN12 : N ≤ 12) (hN : Even (N * (N + 1) / 2)) :
     value (Finset.Icc 1 N) = .draw := by

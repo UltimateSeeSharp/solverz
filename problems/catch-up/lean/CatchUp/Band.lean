@@ -2,6 +2,7 @@ module
 
 public import CatchUp.Hyb2
 public import CatchUp.Executable
+public import CatchUp.Token
 
 /-!
 # The draw band of blocks at every height, small blocks
@@ -29,6 +30,7 @@ theorem band_exception (s : ℕ) :
   rw [valueAux_eq_eval]
   decide +kernel
 
+set_option maxHeartbeats 10000000 in -- 29 positions evaluated by the kernel
 /-- **C86 for `p ≤ 4`**: blocks draw on the whole band at every height, but for `(2, 2, 2)`. -/
 theorem band_draw_le_four {p a d : ℕ} (hp1 : 1 ≤ p) (hp4 : p ≤ 4) (ha : 1 ≤ a) (hd : d ≤ p)
     (hdp : d % 2 = p % 2) (hex : ¬(p = 2 ∧ a = 2 ∧ d = 2)) (s : ℕ) :
