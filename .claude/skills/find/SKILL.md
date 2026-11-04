@@ -1,6 +1,11 @@
 ---
 name: find
 description: Domain model and attack loop for a `find` problem: patterns, runs, objects, facts. Run by "attack <problem>" when the problem's kind is find.
+hooks:
+  Stop:
+    - hooks:
+        - type: command
+          command: sh "$CLAUDE_PROJECT_DIR/.claude/hooks/never-stop.sh"
 ---
 
 # Find

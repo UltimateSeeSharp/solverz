@@ -80,16 +80,20 @@ The `choose` skill.
 The `maintain` skill (`/maintain`); never inside an attack.
 
 ### Attack
-"attack <problem>" runs the skill of the problem's kind. On every start,
-the loop first enters the problem's worktree (Rules), reads
-`understanding.md`, `state.md` and the files it links, checks `git status`
-and each job under Running (reads its output, or reruns it if lost), and
-continues from its next step.
+"attack <problem>" invokes the skill of the problem's kind (the Skill tool,
+so its Stop hook loads). On every start, the loop first enters the
+problem's worktree (Rules), reads `understanding.md`, `state.md` and the
+files it links, checks `git status` and each job under Running (reads its
+output, or reruns it if lost), and continues from its next step.
 
 The loop stops only when its skill says the problem is settled. Otherwise
-**NEVER STOP**: not to wait for anything under Running, not for context
-(compaction is automatic; `state.md` carries the loop), and after
-answering the user, go on with the loop. The user stops the loop.
+**NEVER STOP**: not to wait for anything under Running, the user or the
+machine (take a step that needs none of them: paper work, Lean statements,
+checking code before it runs), not for context (compaction is automatic;
+`state.md` carries the loop), and after answering the user, go on with the
+loop. The user stops the loop by interrupting it (Esc); the skill's Stop
+hook (`.claude/hooks/never-stop.sh`) sends every other finished reply back
+into the loop.
 
 ## Trust
 - A result counts only once Lean checks it: `lake build --wfail`, no `sorry`,

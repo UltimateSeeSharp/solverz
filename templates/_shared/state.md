@@ -1,7 +1,7 @@
 # State
 
 **Focus.** <what is being worked on, by ID>
-**Next step.** <one concrete action, doable now; never waiting on Running>
+**Next step.** <one concrete action, doable now; never waiting on Running, the user or the machine>
 **Running.** <agents and experiments: what, started, where its output goes>
 
 ## Needs the user
