@@ -45,7 +45,8 @@ theorem band_draw_le_four {p a d : ℕ} (hp1 : 1 ≤ p) (hp4 : p ≤ 4) (ha : 1 
 
 /-- C86's corollary for `p ≤ 4`: a block with one small number `d < a` of the band added draws at
 a tie (opening `d` reaches the band entry; the level law, C28). -/
-theorem block_add_small_draw_le_four {p a d : ℕ} (hp1 : 1 ≤ p) (hp4 : p ≤ 4) (hda : d < a) (hd : d ≤ p) (hdp : d % 2 = p % 2) (s : ℕ) :
+theorem block_add_small_draw_le_four {p a d : ℕ} (hp1 : 1 ≤ p) (hp4 : p ≤ 4) (hda : d < a)
+    (hd : d ≤ p) (hdp : d % 2 = p % 2) (s : ℕ) :
     valueAux (insert d ((Finset.range (2 * p)).map (addLeftEmbedding a))) s s false = .draw := by
   have hnot : d ∉ (Finset.range (2 * p)).map (addLeftEmbedding a) := by
     simp only [Finset.mem_map, Finset.mem_range, addLeftEmbedding_apply, not_exists, not_and]
