@@ -11,6 +11,7 @@ parity of `p` is a draw at every height `a ≥ 1`, except `{2, 3, 4, 5}` at defi
 (`band_exception`). From `a ≥ 2p - 1` it is `block_row_draw_hyb2` (C24); below, the 29 remaining
 positions are evaluated by the verified evaluator (`band_draw_le_four`). Corollary: a block with
 one small number `d < a` of the band added draws at a tie (`block_add_small_draw_le_four`).
+The whole claim, `BandConjecture`, implies the conjecture (`conjecture_of_band`, via C27).
 -/
 
 @[expose] public section
@@ -55,5 +56,38 @@ theorem block_add_small_draw_le_four {p a d : ℕ} (hp1 : 1 ≤ p) (hp4 : p ≤ 
   apply level_law (t := d) (Finset.mem_insert_self d _)
   rw [Finset.erase_insert hnot]
   exact band_draw_le_four hp1 hp4 (by omega) hd hdp (by omega) s
+
+/-- C86, the draw band of blocks at every height (I17's root claim), at base score 0. -/
+def BandConjecture : Prop :=
+  ∀ p a d : ℕ, 1 ≤ p → 1 ≤ a → d ≤ p → d % 2 = p % 2 → ¬(p = 2 ∧ a = 2 ∧ d = 2) →
+    valueAux ((Finset.range (2 * p)).map (addLeftEmbedding a)) 0 d false = .draw
+
+/-- An interval `{a..a + 2p - 1}` is the block of `2p` offsets at height `a`. -/
+private theorem Icc_eq_block {a p : ℕ} (hp : 1 ≤ p) :
+    Finset.Icc a (a + 2 * p - 1) = (Finset.range (2 * p)).map (addLeftEmbedding a) := by
+  ext y
+  simp only [Finset.mem_Icc, Finset.mem_map, Finset.mem_range, addLeftEmbedding_apply]
+  constructor
+  · intro hy
+    exact ⟨y - a, by omega, by omega⟩
+  · rintro ⟨x, hx, rfl⟩
+    omega
+
+/-- **I17's reduction**: the band at heights 1 and 2 (C27's two families) gives the conjecture. -/
+theorem conjecture_of_band (h : BandConjecture) : Conjecture := by
+  apply conjecture_of_two_families
+  · intro N hN
+    rcases Nat.eq_zero_or_pos N with rfl | hpos
+    · rw [valueAux]
+      simp
+    · have hb := Icc_eq_block (a := 1) (p := N / 2) (by omega)
+      rw [show 1 + 2 * (N / 2) - 1 = N by omega] at hb
+      rw [hb]
+      exact h (N / 2) 1 0 (by omega) le_rfl (Nat.zero_le _) (by omega) (by omega)
+  · intro N hN
+    have hb := Icc_eq_block (a := 2) (p := (N - 1) / 2) (by omega)
+    rw [show 2 + 2 * ((N - 1) / 2) - 1 = N by omega] at hb
+    rw [hb]
+    exact h ((N - 1) / 2) 2 1 (by omega) (by omega) (by omega) (by omega) (by omega)
 
 end CatchUp
