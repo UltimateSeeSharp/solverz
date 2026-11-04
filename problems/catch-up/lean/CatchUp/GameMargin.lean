@@ -1,6 +1,8 @@
 module
 
 public import CatchUp.Margin
+public import CatchUp.Token
+public import Mathlib.Algebra.BigOperators.Intervals
 
 /-!
 # Margins of Catch-Up
@@ -12,6 +14,9 @@ rule (a mover who cannot catch up keeps picking).
   agrees because the margin never exceeds `a + ∑ R - b` (`margin_bounds`).
 * C38, two-token lemma: at a tie, the opponent's margins after two openings `y < t` sum to at
   least 0 (`margin_two_token`).
+* C37 (3): the margin has the parity of `a + b + ∑ R` (`even_margin_add`), so a margin of at most
+  1 in absolute value at `{1..N}` for every even total gives the conjecture
+  (`conjecture_of_margin_le_one`).
 -/
 
 @[expose] public section
@@ -138,5 +143,71 @@ theorem margin_two_token {S : Finset ℕ} {y t : ℕ} (hy : y ∈ S) (ht : t ∈
   rw [if_neg (show ¬(s + t ≤ s + y) by omega)] at h1
   rw [if_pos (show s + y ≤ s + t by omega), Finset.erase_right_comm] at h2
   linarith
+
+/-- A maximum of numbers of one parity has that parity. -/
+private theorem even_sup'_add_of {ι : Type*} (s : Finset ι) (hs : s.Nonempty) (F : ι → ℤ)
+    (c : ℤ) (h : ∀ i ∈ s, Even (F i + c)) : Even (s.sup' hs F + c) := by
+  obtain ⟨i, hi, he⟩ := Finset.exists_mem_eq_sup' hs F
+  rw [he]; exact h i hi
+
+/-- The margin has the parity of `a + b + ∑ R`: the two final scores sum to `a + b + ∑ R`. -/
+theorem even_margin_add (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → ∀ a b : ℕ,
+    Even (margin R a b + a + b + ∑ x ∈ R, (x : ℤ)) := by
+  induction n using Nat.strong_induction_on with
+  | _ n ih =>
+  intro R hn a b
+  subst hn
+  by_cases h : R.Nonempty
+  · rw [margin, dif_pos h, add_assoc, add_assoc]
+    apply even_sup'_add_of
+    rintro ⟨x, hx⟩ -
+    try dsimp only
+    have hlt : (R.erase x).card < R.card := Finset.card_erase_lt_of_mem hx
+    have hs : ∑ y ∈ R.erase x, (y : ℤ) + x = ∑ y ∈ R, (y : ℤ) := Finset.sum_erase_add R _ hx
+    by_cases hc : b ≤ a + x
+    · rw [if_pos hc]
+      have := ih _ hlt (R.erase x) rfl b (a + x)
+      rw [Int.even_iff] at this ⊢
+      push_cast at this
+      omega
+    · rw [if_neg hc]
+      have := ih _ hlt (R.erase x) rfl (a + x) b
+      rw [Int.even_iff] at this ⊢
+      push_cast at this
+      omega
+  · have h0 : R = ∅ := Finset.not_nonempty_iff_eq_empty.mp h
+    subst h0
+    rw [margin, dif_neg Finset.not_nonempty_empty]
+    simp only [Finset.sum_empty, add_zero]
+    exact ⟨a, by ring⟩
+
+private theorem sum_Icc_mul_two (N : ℕ) : (∑ x ∈ Finset.Icc 1 N, x) * 2 = N * (N + 1) := by
+  induction N with
+  | zero => first | rfl | decide | simp
+  | succ N ih =>
+    rw [Finset.sum_Icc_succ_top (by omega : 1 ≤ N + 1), add_mul, ih]
+    ring
+
+/-- **C37 (3)**: if the starting margin of `{1..N}` is at most 1 in absolute value for every
+even total, the conjecture holds: an even total makes the margin even, hence 0, a draw. -/
+theorem conjecture_of_margin_le_one
+    (h : ∀ N : ℕ, Even (N * (N + 1) / 2) → |margin (Finset.Icc 1 N) 0 0| ≤ 1) : Conjecture := by
+  intro N hN
+  have hS : ∑ x ∈ Finset.Icc 1 N, x = N * (N + 1) / 2 :=
+    (Nat.div_eq_of_eq_mul_left (by norm_num) (sum_Icc_mul_two N).symm).symm
+  have hpar := even_margin_add _ (Finset.Icc 1 N) rfl 0 0
+  have hcast : ∑ x ∈ Finset.Icc 1 N, (x : ℤ) = ((N * (N + 1) / 2 : ℕ) : ℤ) := by
+    rw [← hS, Nat.cast_sum]
+  rw [hcast] at hpar
+  have hE : Even ((N * (N + 1) / 2 : ℕ) : ℤ) := (Int.even_coe_nat _).mpr hN
+  have hm := h N hN
+  have h0 : margin (Finset.Icc 1 N) 0 0 = 0 := by
+    generalize ((N * (N + 1) / 2 : ℕ) : ℤ) = X at hpar hE
+    rw [Int.even_iff] at hpar hE
+    rw [abs_le] at hm
+    simp only [Nat.cast_zero, add_zero] at hpar
+    omega
+  rw [value, valueAux_true_eq_false, valueAux_eq_ofMargin', h0]
+  simp [Outcome.ofMargin]
 
 end CatchUp
