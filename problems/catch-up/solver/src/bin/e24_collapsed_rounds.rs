@@ -5,14 +5,15 @@
 //! the top of the highest or lowest bumped pair, or Free. A failure under a Free first pick means no first-pick rule
 //! works with that answer. Prints per p and strategy the failing (t, role) count, over all t and over (c)'s family
 //! t = 0^k 1^(p−k), 2k ≥ p. Free/Free only for p ≤ FREE_FREE_MAX_P. A mover trailing by more than spread(R) loses
-//! outright (exact cut-off).
+//! outright (exact cut-off). For p ≤ EXTRACT_MAX_P it also lists, under Hyb2's answers with free first picks, the
+//! reached Z starts where max R does not draw and the first picks that do (the data for a first-pick rule).
 //! First checks: Free/Free = `Solver` on {a + o} with a = d + sum + 1 (C13) on every even sub-multiset for p ≤ CHECK_P,
 //! d ≤ CHECK_D; Hyb2/Max never fails on t = 1…1 (C24, Lean); Hyb2/Max loses ({0, 1, 2, 2, 4, 4}, Z first at debt 1),
 //! the ideator's `hyb2near` example.
 
 use catch_up::{Outcome, Solver};
 use rayon::prelude::*;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 enum Answer {
@@ -53,6 +54,9 @@ const STRATEGIES: [(Answer, First); 13] = [
 ];
 /// Free/Free (the exact rounds value) only up to this p: the baseline, with the most states.
 const FREE_FREE_MAX_P: usize = 8;
+/// Hyb2/Free's reached Z starts where max R fails are listed up to this p.
+const EXTRACT_MAX_P: usize = 7;
+const SHOWN_BREAKS: usize = 20;
 const CHECK_P: usize = 3;
 const CHECK_D: i32 = 3;
 const IDEATOR_EXAMPLE: [u8; 6] = [0, 1, 2, 2, 4, 4];
@@ -165,10 +169,20 @@ impl Game {
         }
     }
 
-    /// The round's result for Z: `m` trails by `d` at the start of (r2, …) after the round's δ.
+    /// The round's result for Z: the round's mover `m` ends it with debt δ on r2.
     fn next(&mut self, r2: &[u8], delta: i32, m: Mover) -> i8 {
-        let other = if m == Mover::Z { Mover::Y } else { Mover::Z };
-        if delta >= 0 { self.value(r2, delta, m) } else { self.value(r2, -delta, other) }
+        if delta >= 0 { self.value(r2, delta, m) } else { self.value(r2, -delta, other(m)) }
+    }
+
+    /// Z's outcome after first pick R[a] at a Z start with debt d, Y answering optimally.
+    fn pick_value(&mut self, r: &[u8], d: i32, a: usize) -> i8 {
+        let i = r[a] as i32;
+        let r1 = without(r, a);
+        let mut worst = WIN;
+        for q in distinct(&r1) {
+            worst = worst.min(self.next(&without(&r1, q), d + r1[q] as i32 - i, Mover::Z));
+        }
+        worst
     }
 
     /// Z's outcome at a round start: R, the mover m trailing by d ≥ 0.
@@ -187,14 +201,7 @@ impl Game {
         match m {
             Mover::Z => {
                 for a in self.first_picks(r) {
-                    let i = r[a] as i32;
-                    let r1 = without(r, a);
-                    let mut worst = WIN;
-                    for q in distinct(&r1) {
-                        let delta = d + r1[q] as i32 - i;
-                        worst = worst.min(self.next(&without(&r1, q), delta, Mover::Z));
-                    }
-                    best = best.max(worst);
+                    best = best.max(self.pick_value(r, d, a));
                 }
             }
             Mover::Y => {
@@ -219,6 +226,60 @@ impl Game {
         self.memo.insert(key, best);
         best
     }
+}
+
+fn other(m: Mover) -> Mover {
+    if m == Mover::Z { Mover::Y } else { Mover::Z }
+}
+
+/// The next round start after a round of mover `m` that ends with debt δ on r2.
+fn after(r2: Set, delta: i32, m: Mover) -> (Set, i32, Mover) {
+    if delta >= 0 { (r2, delta, m) } else { (r2, -delta, other(m)) }
+}
+
+/// Hyb2's answers with free first picks: every Z start reached while Z keeps ≥ draw (Z follows each drawing
+/// pick, Y plays anything) where max R is not a drawing pick, with the drawing picks.
+fn max_breaks(p: usize, t: usize) -> Vec<(Set, i32, Vec<u8>)> {
+    let o = offsets(p, t);
+    let g0 = t.count_ones() as i32 % 2;
+    let mut game = Game::new((Answer::Hyb2, First::Free));
+    let mut seen = HashSet::new();
+    let mut stack: Vec<(Set, i32, Mover)> = vec![];
+    for m in [Mover::Z, Mover::Y] {
+        if game.value(&o, g0, m) >= DRAW {
+            stack.push((o.clone(), g0, m));
+        }
+    }
+    let mut out = vec![];
+    while let Some((r, d, m)) = stack.pop() {
+        if r.is_empty() || d > spread(&r) || !seen.insert(Game::key(&r, d, m)) {
+            continue;
+        }
+        if m == Mover::Z {
+            let picks: Vec<(usize, i8)> = distinct(&r).into_iter().map(|a| (a, game.pick_value(&r, d, a))).collect();
+            let drawing: Vec<u8> = picks.iter().filter(|x| x.1 >= DRAW).map(|x| r[x.0]).collect();
+            if !drawing.contains(r.last().unwrap()) {
+                out.push((r.clone(), d, drawing));
+            }
+            for &(a, v) in &picks {
+                if v >= DRAW {
+                    let i = r[a] as i32;
+                    let r1 = without(&r, a);
+                    for q in distinct(&r1) {
+                        stack.push(after(without(&r1, q), d + r1[q] as i32 - i, Mover::Z));
+                    }
+                }
+            }
+        } else {
+            for a in distinct(&r) {
+                let i = r[a] as i32;
+                let r1 = without(&r, a);
+                let j = game.answer_of(&r, a, d);
+                stack.push(after(without_value(&r1, j), d + j - i, Mover::Y));
+            }
+        }
+    }
+    out
 }
 
 fn offsets(p: usize, t: usize) -> Set {
@@ -287,6 +348,15 @@ fn main() {
             let in_c = fails.iter().filter(|&&(t, _)| in_family_c(p, t)).count();
             let shown: Vec<String> = fails.iter().take(3).map(|&(t, m)| format!("{:?} {m:?} first", offsets(p, t))).collect();
             println!("p={p} {:?}/{:?}: {} failing (t, role) of {}, {in_c} in (c)'s family; {shown:?}", s.0, s.1, fails.len(), 2usize << p);
+        }
+        if p <= EXTRACT_MAX_P {
+            let mut breaks: Vec<(Set, i32, Vec<u8>)> = (0..1usize << p).into_par_iter().flat_map_iter(|t| max_breaks(p, t)).collect();
+            breaks.sort_by(|x, y| (x.0.len(), &x.0, x.1).cmp(&(y.0.len(), &y.0, y.1)));
+            breaks.dedup();
+            println!("p={p} Hyb2/Free: {} reached Z starts where max R does not draw; smallest:", breaks.len());
+            for (r, d, drawing) in breaks.iter().take(SHOWN_BREAKS) {
+                println!("  {r:?} Z trailing by {d}: drawing first picks {drawing:?}");
+            }
         }
     }
 }
