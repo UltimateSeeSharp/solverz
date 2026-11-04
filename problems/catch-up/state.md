@@ -1,7 +1,7 @@
 # State
 
 **Focus.** Band-type generalizations of C1 that give an induction slack: I17 (C86 BAND: blocks draw on the whole band d ≤ p at every height; data p ≤ 7), I16 (C85, collapsed blocks; E22 to p = 10), I15 (C84). The route through C31 (b)'s ray (C74's hypotheses C81 at j = 2, C82, C83) stays open; C83 cannot close by C77's recursion alone (C83 Tried).
-**Next step (no compute).** Paper: a Hyb2 repair at a = 2p − 2 for p = 3 and 4 by hand (C86 Tried has the p = 4 tight line and the first repair candidate, answering a larger valid j before the debt reaches 2p − 1 + min R); write it as a rule, then check it against every Y line of p = 3 by hand. E28 (queued) gives the exact least height to compare with. Runs wait in the queue.
+**Next step (no compute).** Paper: a Hyb2 repair at a = 2p − 2 for p = 3 and 4 by hand (C86 Tried has the p = 4 tight line; a larger answer at Y's 3 fails, so the candidates are Z's first picks); write it as a rule, then check it against every Y line of p = 3 by hand. E28 (queued) gives the exact least height to compare with. Runs wait in the queue.
 **After the queue runs.** Read in order: Q10 and Q7 (C86, C87, two engines: a non-draw off the diagonal kills them as stated), Q9 (C88: interior flips split the descent), Q11 (E28: how low rounds structure reaches), Q5 (E26: the band on collapsed blocks), Q1 (E23, C84), Q2 (E24, I16 (b)/(c)), Q8 (C89), Q3 (E25, C83), Q6 (Lean). A surviving I17 then goes deeper first.
 - Before offering N = 33–35 to anyone, rerun them from a committed engine with a second engine as a cross-check.
 **Limits this session (user, 2026-11-04).** No compute (runs or builds) while the user works; queue each run below, and the user runs the queue on a break.
