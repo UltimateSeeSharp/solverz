@@ -12,6 +12,8 @@ holding `a` and the opponent `b`, both players maximizing their own margin, and 
 rule (a mover who cannot catch up keeps picking).
 * C33, sign lemma on sets: the value is its sign (`valueAux_eq_ofMargin`); the early-loss rule
   agrees because the margin never exceeds `a + ∑ R - b` (`margin_bounds`).
+* C10 (b), partner bound: at a tie, partners that leave the opener at most 0 bound the margin by 0
+  (`margin_tie_le_zero_of_partner`).
 * C38, two-token lemma: at a tie, the opponent's margins after two openings `y < t` sum to at
   least 0 (`margin_two_token`).
 * C37 (3): the margin has the parity of `a + b + ∑ R` (`even_margin_add`), so a margin of at most
@@ -128,6 +130,25 @@ theorem le_margin_of_mem {R : Finset ℕ} {x : ℕ} (hx : x ∈ R) (a b : ℕ) :
   have h : R.Nonempty := ⟨x, hx⟩
   conv_rhs => rw [margin, dif_pos h]
   exact Finset.le_sup'_of_le _ (Finset.mem_attach R ⟨x, hx⟩) le_rfl
+
+/-- **Partner bound** (C10 (b) in margins): at a tie, if after every opening `x` some answer `y`
+(the partner) leaves the opener at most 0, the tied mover's margin is at most 0. -/
+theorem margin_tie_le_zero_of_partner {S : Finset ℕ} (s : ℕ)
+    (hp : ∀ x ∈ S, ∃ y ∈ S.erase x,
+      0 ≤ (if s + x ≤ s + y then -margin ((S.erase x).erase y) (s + x) (s + y)
+        else margin ((S.erase x).erase y) (s + y) (s + x))) :
+    margin S s s ≤ 0 := by
+  by_cases h : S.Nonempty
+  · rw [margin, dif_pos h]
+    refine Finset.sup'_le _ _ fun x _ => ?_
+    obtain ⟨x, hx⟩ := x
+    dsimp only
+    rw [if_pos (Nat.le_add_right s x)]
+    obtain ⟨y, hy, hy0⟩ := hp x hx
+    have := le_margin_of_mem hy s (s + x)
+    linarith
+  · rw [Finset.not_nonempty_iff_eq_empty.mp h, margin, dif_neg Finset.not_nonempty_empty]
+    simp
 
 /-- **Two-token lemma** (C38): at a tie with scores `s`, for openings `y < t` of `S`, the
 opponent's margins after them sum to at least 0: after `t` it may take `y` and stay behind by
