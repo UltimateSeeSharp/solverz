@@ -25,3 +25,6 @@
 | [E21](E21.md) | Dense sets {1..N} minus at most 3 holes, N = 9..25 | C5, CU-L003 | No mover loss in 189,922 positions (every d ≤ N of draw parity): CU-L003 holds for N = 9..25; C5's 10 three-hole exceptions are all mover wins |
 | [E22](E22.md) | Partially collapsed blocks, p ≤ 10, c ≤ 2p (C85) | C85 | Every t, every c = 1..2p, p ≤ 10: a draw at deficit \|t\| mod 2; I16 survives kill test (a) |
 | [E23](E23.md) | Rank-perturbed intervals, random members at L = 23–26 (C84) | C84 | Partial: L = 23, 100 members, no non-draw; L = 24–26 stopped by the user |
+| [E24](E24.md) | Z strategies in the rounds game on collapsed blocks | C85 | Queued (Q2) |
+| [E25](E25.md) | Safe first turns in C83's boundary cases, N = 11..24 | C83 | Queued (Q3) |
+| [E26](E26.md) | C85's row form, p ≤ 10, c ≤ 2p | C85 | Queued (Q5) |
