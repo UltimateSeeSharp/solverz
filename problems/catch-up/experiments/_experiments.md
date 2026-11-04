@@ -28,3 +28,4 @@
 | [E24](E24.md) | Z strategies in the rounds game on collapsed blocks | C85 | Queued (Q2) |
 | [E25](E25.md) | Safe first turns in C83's boundary cases, N = 11..24 | C83 | Queued (Q3) |
 | [E26](E26.md) | C85's row form, p ≤ 10, c ≤ 2p | C85 | Queued (Q5) |
+| [E27](E27.md) | The draw band of blocks at every height, and on aligned dense pair sets | C86, C87 | Queued (Q10) |

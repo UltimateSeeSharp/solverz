@@ -17,6 +17,7 @@ All at once: `pwsh -File F:\WIN_DATA\Documents\Coding\solverz\.worktrees\catch-u
 - Q7 I17 (C86, C87): `scratch/ideator/fresh04/rows.exe 10 24 > scratch/ideator/fresh04/run3-rows-10-24.txt`: 1 thread, ≤ 0.5 GB, 2–5 min (ideator scratch build; a positive result is to be redone with a committed engine).
 - Q8 I18 (C89): `scratch/ideator/fresh04/nlb.exe 19 22 5 > scratch/ideator/fresh04/run2-nlb-22.txt`: 1 thread, ≤ 0.2 GB, ~1 min.
 - Q9 I17 (C88, BANDSTEP): `scratch/refuter/tir/param.exe p d` for p = 4..6 and every d ≤ p with d ≡ p (mod 2), into `scratch/bandstep-4-6.txt`: 1 thread, minutes per p. Which band entries change value across the height breakpoints.
+- Q10 E27 (C86, C87, committed engine; Q7 is its second engine): `target/release/e27_block_band.exe 10 24 > problems/catch-up/scratch/e27-10-24.txt`: 1 thread, ≤ 0.2 GB, a few minutes; not compiled yet.
 - Q4 (after the download below) port C77, C73, C74 from catch-up-research@b0853b4 into `lean/CatchUp/` (read each file first): `lake build --wfail CatchUp`, a few threads, ~4 GB, minutes per file.
 - After Q6 compiles: C11 in Lean by the plan in C11 (margins; covers a = 1).
 - Stopped, rerun when needed: `scratch/a13/lexap.exe 9 9 5 20 > scratch/a13/lexap-9.txt` (C62 progressions, k = 9).
