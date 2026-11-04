@@ -3,13 +3,15 @@ module
 public import CatchUp.Margin
 
 /-!
-# The sign lemma
+# Margins of Catch-Up
 
-Claim C33 on sets. `margin R a b` is the minimax final margin of Catch-Up after the opening: `R`
-left, the mover holding `a` and the opponent `b`, both players maximizing their own margin, and
-no early-loss rule (a mover who cannot catch up keeps picking). The value is its sign
-(`valueAux_eq_ofMargin`); the early-loss rule agrees because the margin never exceeds
-`a + ∑ R - b` (`margin_bounds`).
+`margin R a b` is the minimax final margin of Catch-Up after the opening: `R` left, the mover
+holding `a` and the opponent `b`, both players maximizing their own margin, and no early-loss
+rule (a mover who cannot catch up keeps picking).
+* C33, sign lemma on sets: the value is its sign (`valueAux_eq_ofMargin`); the early-loss rule
+  agrees because the margin never exceeds `a + ∑ R - b` (`margin_bounds`).
+* C38, two-token lemma: at a tie, the opponent's margins after two openings `y < t` sum to at
+  least 0 (`margin_two_token`).
 -/
 
 @[expose] public section
@@ -114,5 +116,27 @@ theorem valueAux_eq_ofMargin (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → �
 theorem valueAux_eq_ofMargin' (R : Finset ℕ) (a b : ℕ) :
     valueAux R a b false = Outcome.ofMargin (margin R a b) :=
   valueAux_eq_ofMargin _ R rfl a b
+
+/-- Each pick is one of the mover's options: its value is at most the margin. -/
+theorem le_margin_of_mem {R : Finset ℕ} {x : ℕ} (hx : x ∈ R) (a b : ℕ) :
+    (if b ≤ a + x then -margin (R.erase x) b (a + x) else margin (R.erase x) (a + x) b) ≤
+      margin R a b := by
+  have h : R.Nonempty := ⟨x, hx⟩
+  conv_rhs => rw [margin, dif_pos h]
+  exact Finset.le_sup'_of_le _ (Finset.mem_attach R ⟨x, hx⟩) le_rfl
+
+/-- **Two-token lemma** (C38): at a tie with scores `s`, for openings `y < t` of `S`, the
+opponent's margins after them sum to at least 0: after `t` it may take `y` and stay behind by
+`t - y`, after `y` it may take `t` and lead by `t - y`, which reaches the same position with the
+roles swapped. -/
+theorem margin_two_token {S : Finset ℕ} {y t : ℕ} (hy : y ∈ S) (ht : t ∈ S) (hyt : y < t)
+    (s : ℕ) : 0 ≤ margin (S.erase t) s (s + t) + margin (S.erase y) s (s + y) := by
+  have hy' : y ∈ S.erase t := Finset.mem_erase.mpr ⟨hyt.ne, hy⟩
+  have ht' : t ∈ S.erase y := Finset.mem_erase.mpr ⟨hyt.ne', ht⟩
+  have h1 := le_margin_of_mem hy' s (s + t)
+  have h2 := le_margin_of_mem ht' s (s + y)
+  rw [if_neg (show ¬(s + t ≤ s + y) by omega)] at h1
+  rw [if_pos (show s + y ≤ s + t by omega), Finset.erase_right_comm] at h2
+  linarith
 
 end CatchUp
