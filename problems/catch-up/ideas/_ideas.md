@@ -16,7 +16,7 @@
 | [I12](I12.md) | Gap bound | generalization | ideator | C33, C37, C38 | alive |
 | [I13](I13.md) | Smallest-first to mid height | phase split | ideator | C61 | dead |
 | [I14](I14.md) | Exact-change certificates | invariant class | ideator | C30 | dead |
-| [I15](I15.md) | Rank-perturbed intervals | generalization, deformation | ideator | C84 | new |
+| [I15](I15.md) | Rank-perturbed intervals | generalization, deformation | ideator | C84 | alive |
 | [I16](I16.md) | Partially collapsed blocks | generalization, deformation | ideator | C85 | alive |
 | [I17](I17.md) | The draw band at every height | generalization | ideator | C86, C87, C88 | alive |
 | [I18](I18.md) | Non-loss below half the size | invariant class | ideator | C89 | dead |
