@@ -16,6 +16,7 @@ All at once: `pwsh -File F:\WIN_DATA\Documents\Coding\solverz\.worktrees\catch-u
 - Stopped, rerun when needed: `scratch/a13/lexap.exe 9 9 5 20 > scratch/a13/lexap-9.txt` (C62 progressions, k = 9).
 
 - Q5 E26 (C85's row form, as C24 has for blocks): `target/release/e26_collapsed_rows.exe 1 10 6 > problems/catch-up/scratch/e26-1-10.txt`: 6 threads (one 0.8 GB table each at p = 10), ≤ 5 GB, ~1 min. Shows at which heights c every F_t draws for all d ≤ |t| of the parity and loses above; not compiled yet.
+- Q6 Lean C33 (sign lemma on sets, `lean/CatchUp/SignLemma.lean`, written 2026-11-04, never compiled): from `problems/catch-up/lean`, `lake build --wfail CatchUp.SignLemma` (a few threads, ~4 GB, minutes); fix errors, `#print axioms CatchUp.valueAux_eq_ofMargin'`, then import it in `CatchUp.lean` and mark C33 verified.
 - Q4 (after the download below) port C77, C73, C74 from catch-up-research@b0853b4 into `lean/CatchUp/` (read each file first): `lake build --wfail CatchUp`, a few threads, ~4 GB, minutes per file.
 
 ## Needs the user
