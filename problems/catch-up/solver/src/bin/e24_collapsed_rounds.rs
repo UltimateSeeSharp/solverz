@@ -4,7 +4,8 @@
 //! of Y's pick when present, else Hyb2 on the part without full twin pairs ((c)); Free = Z's best. First picks: max,
 //! the top of the highest or lowest bumped pair, or Free. A failure under a Free first pick means no first-pick rule
 //! works with that answer. Prints per p and strategy the failing (t, role) count, over all t and over (c)'s family
-//! t = 0^k 1^(p−k), 2k ≥ p.
+//! t = 0^k 1^(p−k), 2k ≥ p. Free/Free only for p ≤ FREE_FREE_MAX_P. A mover trailing by more than spread(R) loses
+//! outright (exact cut-off).
 //! First checks: Free/Free = `Solver` on {a + o} with a = d + sum + 1 (C13) on every even sub-multiset for p ≤ CHECK_P,
 //! d ≤ CHECK_D; Hyb2/Max never fails on t = 1…1 (C24, Lean); Hyb2/Max loses ({0, 1, 2, 2, 4, 4}, Z first at debt 1),
 //! the ideator's `hyb2near` example.
@@ -50,6 +51,8 @@ const STRATEGIES: [(Answer, First); 13] = [
     (Answer::TwinHyb2, First::HighBumpTop),
     (Answer::TwinHyb2, First::LowBumpTop),
 ];
+/// Free/Free (the exact rounds value) only up to this p: the baseline, with the most states.
+const FREE_FREE_MAX_P: usize = 8;
 const CHECK_P: usize = 3;
 const CHECK_D: i32 = 3;
 const IDEATOR_EXAMPLE: [u8; 6] = [0, 1, 2, 2, 4, 4];
@@ -66,6 +69,12 @@ type Set = Vec<u8>;
 /// Bottom-up matching cost c(R).
 fn cost(r: &[u8]) -> i32 {
     r.chunks(2).map(|c| if c.len() == 2 { (c[1] - c[0]) as i32 } else { 0 }).sum()
+}
+
+/// Top half minus bottom half: each player takes |R|/2 numbers, so the mover's margin is ≤ spread(R) − d.
+fn spread(r: &[u8]) -> i32 {
+    let h = r.len() / 2;
+    r[h..].iter().map(|&x| x as i32).sum::<i32>() - r[..h].iter().map(|&x| x as i32).sum::<i32>()
 }
 
 fn without(r: &[u8], k: usize) -> Set {
@@ -167,6 +176,9 @@ impl Game {
         if r.is_empty() {
             return if d == 0 { DRAW } else if m == Mover::Z { LOSS } else { WIN };
         }
+        if d > spread(r) {
+            return if m == Mover::Z { LOSS } else { WIN };
+        }
         let key = Self::key(r, d, m);
         if let Some(&v) = self.memo.get(&key) {
             return v;
@@ -257,6 +269,9 @@ fn main() {
     check();
     for p in a[0]..=a[1] {
         for s in STRATEGIES {
+            if s == (Answer::Free, First::Free) && p > FREE_FREE_MAX_P {
+                continue;
+            }
             let fails: Vec<(usize, Mover)> = (0..1usize << p)
                 .into_par_iter()
                 .flat_map_iter(|t| {
