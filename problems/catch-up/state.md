@@ -14,5 +14,8 @@ Run from the worktree root (`.worktrees/catch-up`), in order; each line says thr
 - Q3 E25 (C83): `target/release/e25_boundary_turns.exe 11 24 > problems/catch-up/scratch/e25-11-24.txt`: 1 thread, ≤ 0.2 GB, a few minutes; then `27 28` (1 thread, ~1 GB, maybe 30 min). Shows, per boundary kind of y, whether a safe exact-sum or change turn always exists (C77's route for C83).
 - Stopped, rerun when needed: `scratch/a13/lexap.exe 9 9 5 20 > scratch/a13/lexap-9.txt` (C62 progressions, k = 9).
 
+- Q4 (after the download below) port C77, C73, C74 from catch-up-research@b0853b4 into `lean/CatchUp/` (read each file first): `lake build --wfail CatchUp`, a few threads, ~4 GB, minutes per file.
+
 ## Needs the user
+- Download catch-up-research@b0853b4 (Apache 2.0, GitHub) into `scratch/` to port C77 (exact-sum lemmas), C73 (ray endpoints) and C74 (the lower-ray reduction) into our build; they are Lean-checked there and cited, not yet ours.
 - Merge attack/catch-up into main when you want this session's records there (nothing depends on it).
