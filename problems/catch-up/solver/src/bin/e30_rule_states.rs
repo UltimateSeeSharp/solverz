@@ -55,12 +55,32 @@ fn broken(r: &[u8], t: usize, p: usize) -> usize {
         .count()
 }
 
+/// The values of R whose original pair lost its other element.
+fn orphans(r: &[u8], t: usize, p: usize) -> Vec<u8> {
+    let mut out = vec![];
+    for i in 0..p {
+        let (a, b) = (2 * i as u8, 2 * i as u8 + (t >> i & 1) as u8);
+        let left: Vec<u8> = r.iter().copied().filter(|&x| x == a || x == b).collect();
+        if left.len() == 1 {
+            out.push(left[0]);
+        }
+    }
+    out
+}
+
+/// Whether the bottom-up matching of R pairs u with v.
+fn matched(r: &[u8], u: u8, v: u8) -> bool {
+    r.chunks(2).any(|c| (c[0] == u && c[1] == v) || (c[0] == v && c[1] == u))
+}
+
 fn main() {
     let p_max: usize = std::env::args().nth(1).expect("p_max").parse().expect("p_max");
     for p in 1..=p_max {
         // (mover is Z, slack, broken) -> count
         let mut tally: BTreeMap<(bool, i32, usize), usize> = BTreeMap::new();
         let mut extreme: BTreeMap<(bool, i32), String> = BTreeMap::new();
+        // Z starts with one orphan pair: (orphans matched together, gap, slack) -> count, example
+        let mut orph: BTreeMap<(bool, u8, i32), (usize, String)> = BTreeMap::new();
         for t in 0..1usize << p {
             let mut o: Set = (0..p).flat_map(|i| [2 * i as u8, 2 * i as u8 + (t >> i & 1) as u8]).collect();
             o.sort_unstable();
@@ -74,6 +94,17 @@ fn main() {
                 let slack = d - cost(&r);
                 *tally.entry((z, slack, broken(&r, t, p))).or_insert(0) += 1;
                 extreme.entry((z, slack)).or_insert_with(|| format!("t={t:0w$b} {r:?} d={d}", w = p));
+                if z {
+                    let os = orphans(&r, t, p);
+                    if os.len() == 2 {
+                        let (u, v) = (os[0].min(os[1]), os[0].max(os[1]));
+                        let e = orph.entry((matched(&r, u, v), v - u, slack)).or_insert((0, String::new()));
+                        e.0 += 1;
+                        if e.1.is_empty() {
+                            e.1 = format!("t={t:0w$b} {r:?} d={d}", w = p);
+                        }
+                    }
+                }
                 let push = |r2: Set, delta: i32, mover_z: bool, st: &mut Vec<(Set, i32, bool)>| {
                     if delta >= 0 { st.push((r2, delta, mover_z)) } else { st.push((r2, -delta, !mover_z)) }
                 };
@@ -96,6 +127,9 @@ fn main() {
         println!("p={p}: reached round starts by (mover, debt − c(R), broken pairs): count");
         for ((z, s, b), n) in &tally {
             println!("  {} slack {s:+} broken {b}: {n}", if *z { "Z" } else { "Y" });
+        }
+        for ((m, gap, s), (n, ex)) in &orph {
+            println!("  Z with an orphan pair: matched together {m}, gap {gap}, slack {s:+}: {n} (e.g. {ex})");
         }
         for ((z, s), ex) in &extreme {
             println!("  first {} slack {s:+}: {ex}", if *z { "Z" } else { "Y" });
