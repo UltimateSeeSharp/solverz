@@ -87,3 +87,7 @@
 | [C83](C83.md) | Lower-ray boundary | — | open | — | — |
 | [C84](C84.md) | Rank-perturbed intervals draw (DI) | — | open | — | — |
 | [C85](C85.md) | Partially collapsed blocks draw (PBT) | — | open | — | — |
+| [C86](C86.md) | The draw band at every height (BAND) | — | open | — | — |
+| [C87](C87.md) | The band on aligned dense pair sets (BAND-PD) | — | open | — | — |
+| [C88](C88.md) | Only the diagonal flips across heights (BANDSTEP) | — | open | — | — |
+| [C89](C89.md) | Pair-deleted sets never lose below half their size (NLB*) | — | open | — | — |

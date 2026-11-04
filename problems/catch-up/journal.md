@@ -3,6 +3,9 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-04
+- 14:27 I19 dead: the partner-switch class cannot be forced from C31 (b)'s starts, N ≤ 16 (ideator)
+- 14:27 I18 new, with C89: pair-deleted sets never lose below half their size, N ≤ 18 (ideator)
+- 14:27 I17 new, with C86–C88: blocks draw on the whole band at every height, p ≤ 7 (ideator)
 - 11:37 I16 alive: kill test (a) survives, every partially collapsed block draws at p ≤ 10, c ≤ 2p (E22, C85)
 
 ## 2026-10-30
