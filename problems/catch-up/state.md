@@ -15,6 +15,7 @@ All at once: `pwsh -File F:\WIN_DATA\Documents\Coding\solverz\.worktrees\catch-u
 - Q3 E25 (C83): `target/release/e25_boundary_turns.exe 11 24 > problems/catch-up/scratch/e25-11-24.txt`: 1 thread, ≤ 0.2 GB, a few minutes; then `27 28` (1 thread, ~1 GB, maybe 30 min). Shows, per boundary kind of y, whether a safe exact-sum or change turn always exists (C77's route for C83).
 - Stopped, rerun when needed: `scratch/a13/lexap.exe 9 9 5 20 > scratch/a13/lexap-9.txt` (C62 progressions, k = 9).
 
+- Q5 E26 (C85's row form, as C24 has for blocks): `target/release/e26_collapsed_rows.exe 1 10 6 > problems/catch-up/scratch/e26-1-10.txt`: 6 threads (one 0.8 GB table each at p = 10), ≤ 5 GB, ~1 min. Shows at which heights c every F_t draws for all d ≤ |t| of the parity and loses above; not compiled yet.
 - Q4 (after the download below) port C77, C73, C74 from catch-up-research@b0853b4 into `lean/CatchUp/` (read each file first): `lake build --wfail CatchUp`, a few threads, ~4 GB, minutes per file.
 
 ## Needs the user
