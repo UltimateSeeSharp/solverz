@@ -115,11 +115,11 @@ fn check() {
     println!("check: signs = Solver on {n} positions (p ≤ {CHECK_P}, c ≤ {CHECK_C})");
 }
 
-/// Per (p, c): (positions, non-draws at d ≤ |t|, non-losses at d > |t|, examples).
-fn rows(p: usize, c: usize) -> (usize, usize, usize, Vec<String>) {
+/// Per (p, c): (positions, non-draws at d ≤ |t|, non-losses at d > |t|, examples, off-diagonal non-draws d < |t|).
+fn rows(p: usize, c: usize) -> (usize, usize, usize, Vec<String>, usize) {
     let t = Table::new(p, c);
     let largest = c + 2 * p - 1;
-    let (mut n, mut low_bad, mut high_bad, mut ex) = (0, 0, 0, vec![]);
+    let (mut n, mut low_bad, mut high_bad, mut ex, mut off_diag) = (0, 0, 0, vec![], 0);
     for tv in 0..1usize << p {
         let k = tv.count_ones() as usize;
         let s = t.state_of(tv);
@@ -128,6 +128,7 @@ fn rows(p: usize, c: usize) -> (usize, usize, usize, Vec<String>) {
             let v = t.at(s, d);
             let bad = if d <= k { v != 0 } else { v >= 0 };
             if bad {
+                if d < k { off_diag += 1 }
                 if d <= k { low_bad += 1 } else { high_bad += 1 }
                 if ex.len() < SHOWN {
                     ex.push(format!("c={c} t={tv:0w$b} d={d}: m={v}", w = p));
@@ -135,7 +136,7 @@ fn rows(p: usize, c: usize) -> (usize, usize, usize, Vec<String>) {
             }
         }
     }
-    (n, low_bad, high_bad, ex)
+    (n, low_bad, high_bad, ex, off_diag)
 }
 
 fn main() {
@@ -144,12 +145,13 @@ fn main() {
     rayon::ThreadPoolBuilder::new().num_threads(a[2]).build_global().unwrap();
     check();
     for p in a[0]..=a[1] {
-        let mut out: Vec<(usize, (usize, usize, usize, Vec<String>))> =
+        let mut out: Vec<(usize, (usize, usize, usize, Vec<String>, usize))> =
             (1..=C_PER_P * p).into_par_iter().map(|c| (c, rows(p, c))).collect();
         out.sort_by_key(|x| x.0);
-        let (n, lo, hi): (usize, usize, usize) = out.iter().fold((0, 0, 0), |s, x| (s.0 + x.1.0, s.1 + x.1.1, s.2 + x.1.2));
-        println!("p={p}: {n} row positions, {lo} non-draws at d ≤ |t|, {hi} non-losses at d > |t|");
-        for (c, (_, l, h, ex)) in &out {
+        let (n, lo, hi, off): (usize, usize, usize, usize) =
+            out.iter().fold((0, 0, 0, 0), |s, x| (s.0 + x.1.0, s.1 + x.1.1, s.2 + x.1.2, s.3 + x.1.4));
+        println!("p={p}: {n} row positions, {lo} non-draws at d ≤ |t| ({off} of them off the diagonal d < |t|), {hi} non-losses at d > |t|");
+        for (c, (_, l, h, ex, _)) in &out {
             if l + h > 0 {
                 println!("  c={c}: {l} + {h}; {ex:?}");
             }
