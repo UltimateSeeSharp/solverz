@@ -83,19 +83,18 @@ theorem valueAux_eq_ofMargin (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → �
   subst hn
   by_cases h0 : R = ∅
   · subst h0
-    rw [valueAux, if_pos rfl, margin, dif_neg Finset.not_nonempty_empty]
+    rw [valueAux_empty, margin, dif_neg Finset.not_nonempty_empty]
     unfold Outcome.ofMargin
     split_ifs <;> first | rfl | (exfalso; omega)
   · have hne : R.Nonempty := Finset.nonempty_iff_ne_empty.mpr h0
-    rw [valueAux, if_neg h0]
-    by_cases hl : a + R.sum (fun x => x) < b
-    · rw [if_pos hl]
+    by_cases hl : a + ∑ x ∈ R, x < b
+    · rw [valueAux_early_loss hl]
       have hub := (margin_bounds _ R rfl a b).2
-      have hl' : ((a + R.sum (fun x => x) : ℕ) : ℤ) < (b : ℤ) := by exact_mod_cast hl
+      have hl' : ((a + ∑ x ∈ R, x : ℕ) : ℤ) < (b : ℤ) := by exact_mod_cast hl
       push_cast at hl'
       have hm : margin R a b < 0 := by linarith
       simp [Outcome.ofMargin, hm, not_lt.mpr hm.le]
-    · rw [if_neg hl, margin, dif_pos hne]
+    · rw [valueAux_step h0 hl, margin, dif_pos hne]
       apply Outcome.best_eq_ofMargin_sup'
       intro o
       simp only [List.mem_map, Finset.mem_toList, Finset.mem_attach, true_and]
