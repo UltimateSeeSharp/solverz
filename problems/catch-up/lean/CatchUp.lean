@@ -23,6 +23,7 @@ public import CatchUp.GameMargin
 public import CatchUp.Endgames
 public import CatchUp.Band
 public import CatchUp.Small
+public import CatchUp.PairDeletions
 public import CatchUp.Tests.BlockDrawLinear
 public import CatchUp.Tests.BlockDrawHyb2
 

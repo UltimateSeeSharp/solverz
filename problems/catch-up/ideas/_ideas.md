@@ -19,5 +19,5 @@
 | [I15](I15.md) | Rank-perturbed intervals | generalization, deformation | ideator | C84 | new |
 | [I16](I16.md) | Partially collapsed blocks | generalization, deformation | ideator | C85 | alive |
 | [I17](I17.md) | The draw band at every height | generalization | ideator | C86, C87, C88 | alive |
-| [I18](I18.md) | Non-loss below half the size | invariant class | ideator | C89 | new |
+| [I18](I18.md) | Non-loss below half the size | invariant class | ideator | C89 | dead |
 | [I19](I19.md) | Forced entry into the partner-switch class | phase split | ideator | — | dead |

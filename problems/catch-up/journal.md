@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-04
+- 15:22 C89 refuted, I18 dead: ({8..19} minus {11, 12}, {17, 18}, 2) is a mover loss (E29, Lean; refuter SURVIVES)
 - 15:11 I16 (b), (c) pass: a first-pick rule with Hyb2's answers draws every collapsed block in the rounds game, p ≤ 8 (E24)
 - 15:11 I17 alive: the band holds at integer heights for p ≤ 10 (E27, two engines); C86 ⇒ C1 in Lean
 - 15:11 C88 refuted: interior band entries flip between integer heights (Q9, set_margin; refuter SURVIVES)
