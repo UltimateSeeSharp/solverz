@@ -25,8 +25,9 @@
 | [E21](E21.md) | Dense sets {1..N} minus at most 3 holes, N = 9..25 | C5, CU-L003 | No mover loss in 189,922 positions (every d ≤ N of draw parity): CU-L003 holds for N = 9..25; C5's 10 three-hole exceptions are all mover wins |
 | [E22](E22.md) | Partially collapsed blocks, p ≤ 10, c ≤ 2p (C85) | C85 | Every t, every c = 1..2p, p ≤ 10: a draw at deficit \|t\| mod 2; I16 survives kill test (a) |
 | [E23](E23.md) | Rank-perturbed intervals, random members at L = 23–26 (C84) | C84 | Partial: L = 23, 100 members, no non-draw; L = 24–26 stopped by the user |
-| [E24](E24.md) | Z strategies in the rounds game on collapsed blocks | C85 | Queued (Q2) |
-| [E25](E25.md) | Safe first turns in C83's boundary cases, N = 11..24 | C83 | Queued (Q3) |
-| [E26](E26.md) | C85's row form, p ≤ 10, c ≤ 2p | C85 | Queued (Q5) |
-| [E27](E27.md) | The draw band of blocks at every height, and on aligned dense pair sets | C86, C87 | Queued (Q10) |
-| [E28](E28.md) | How low can a block keep the rounds structure | C88 | Queued (Q11) |
+| [E24](E24.md) | Z strategies in the rounds game on collapsed blocks | C85 | First pick the highest bumped top, answers Hyb2: draws every t in both roles, p ≤ 8 (p = 9, 10 running); (c) draws |
+| [E25](E25.md) | Safe first turns in C83's boundary cases, N = 11..24 | C83 | No loss to N = 24; safe exact-sum turns at y = N always, every turn safe at y = 2 from N = 19 |
+| [E26](E26.md) | C85's row form, p ≤ 10, c ≤ 2p | C85 | The band fails on collapsed blocks: diagonal non-draws, and off-diagonal from p = 7 |
+| [E27](E27.md) | The draw band of blocks at every height, and on aligned dense pair sets | C86, C87 | Band holds at every integer height, p ≤ 10 (only (2, 2, 2)); aligned pair sets draw to N = 24 |
+| [E28](E28.md) | How low can a block keep the rounds structure | C88 | Down to a ≈ (3p − 1)/2 only, never to 1 |
+| [E29](E29.md) | Pair-deleted sets below half their size | C89 | Three losses inside C89's range, first at N = 19 |
