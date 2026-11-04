@@ -5,8 +5,7 @@
 **After that.** C86 below 2p − 1: E31 found no simple Hyb2 variant there (tie, undercut, hybrids all fail; the optimum ≈ 3p/2 is not local), so the next try is a potential per height (C25's W with the cap a in it) rather than a rule.
 - Before offering N = 33–35 to anyone, rerun them from a committed engine with a second engine as a cross-check.
 **Limits (user, 2026-11-04).** Ask before heavy runs while the user works on the machine; light runs (one thread, seconds) are fine.
-**Running.**
-- Ideator round fresh04b (model fable, light runs only), started 2026-11-04.
+**Running.** — (ideator round fresh04b stopped by the user before writing notes)
 
 ## Optional long runs
 - E24 at p = 10 (about 5 h on 6 threads): `target/release/e24_collapsed_rounds.exe 10 10 6`.
