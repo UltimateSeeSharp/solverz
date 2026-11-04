@@ -68,6 +68,37 @@ fn orphans(r: &[u8], t: usize, p: usize) -> Vec<u8> {
     out
 }
 
+/// Z's guaranteed final margin under the rule, Y minimizing: round start (R, mover trails by d, mover is Z if z).
+fn rule_margin(r: &[u8], d: i32, z: bool, memo: &mut std::collections::HashMap<(Set, i32, bool), i32>) -> i32 {
+    if r.is_empty() {
+        return if z { -d } else { d };
+    }
+    if let Some(&v) = memo.get(&(r.to_vec(), d, z)) {
+        return v;
+    }
+    let next = |r2: Set, delta: i32, mover_z: bool, memo: &mut std::collections::HashMap<(Set, i32, bool), i32>| {
+        if delta >= 0 { rule_margin(&r2, delta, mover_z, memo) } else { rule_margin(&r2, -delta, !mover_z, memo) }
+    };
+    let v = if z {
+        let i = first_pick(r);
+        let r1 = without_value(r, i);
+        distinct(&r1).into_iter().map(|q| next(without(&r1, q), d + r1[q] as i32 - i, true, memo)).min().unwrap()
+    } else {
+        distinct(r)
+            .into_iter()
+            .map(|a| {
+                let i = r[a] as i32;
+                let r1 = without(r, a);
+                let j = hyb2_answer(&r1, d, i);
+                next(without_value(&r1, j), d + j - i, false, memo)
+            })
+            .min()
+            .unwrap()
+    };
+    memo.insert((r.to_vec(), d, z), v);
+    v
+}
+
 /// Whether the bottom-up matching of R pairs u with v.
 fn matched(r: &[u8], u: u8, v: u8) -> bool {
     r.chunks(2).any(|c| (c[0] == u && c[1] == v) || (c[0] == v && c[1] == u))
@@ -81,6 +112,9 @@ fn main() {
         let mut extreme: BTreeMap<(bool, i32), String> = BTreeMap::new();
         // Z starts with one orphan pair: (orphans matched together, gap, slack) -> count, example
         let mut orph: BTreeMap<(bool, u8, i32), (usize, String)> = BTreeMap::new();
+        // (mover is Z, pre-switch) -> least rule margin over reached starts, example
+        let mut least: BTreeMap<(bool, bool), (i32, String)> = BTreeMap::new();
+        let mut memo = std::collections::HashMap::new();
         for t in 0..1usize << p {
             let mut o: Set = (0..p).flat_map(|i| [2 * i as u8, 2 * i as u8 + (t >> i & 1) as u8]).collect();
             o.sort_unstable();
@@ -92,6 +126,11 @@ fn main() {
                     continue;
                 }
                 let slack = d - cost(&r);
+                let m = rule_margin(&r, d, z, &mut memo);
+                let key = (z, slack < 0);
+                if least.get(&key).map_or(true, |x| m < x.0) {
+                    least.insert(key, (m, format!("t={t:0w$b} {r:?} d={d}", w = p)));
+                }
                 *tally.entry((z, slack, broken(&r, t, p))).or_insert(0) += 1;
                 extreme.entry((z, slack)).or_insert_with(|| format!("t={t:0w$b} {r:?} d={d}", w = p));
                 if z {
@@ -127,6 +166,9 @@ fn main() {
         println!("p={p}: reached round starts by (mover, debt − c(R), broken pairs): count");
         for ((z, s, b), n) in &tally {
             println!("  {} slack {s:+} broken {b}: {n}", if *z { "Z" } else { "Y" });
+        }
+        for ((z, pre), (m, ex)) in &least {
+            println!("  least rule margin, {} to move, {}: {m} ({ex})", if *z { "Z" } else { "Y" }, if *pre { "debt < c(R)" } else { "debt ≥ c(R)" });
         }
         for ((m, gap, s), (n, ex)) in &orph {
             println!("  Z with an orphan pair: matched together {m}, gap {gap}, slack {s:+}: {n} (e.g. {ex})");
