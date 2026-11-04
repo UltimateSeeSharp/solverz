@@ -18,5 +18,6 @@
 
 **So a solution must.**
 - Close the middle of C31 (b)'s ray: Q_N(b) no loss between the endpoints (C73), through C74's open hypotheses, C81 at j = 2 (interior), C82 (({3..N}, 1) draws) and C83 (boundary), by an argument that uses the whole interval (C64–C67) and carries the quota across turns (C72).
+- Or prove the band (C86) at every height: from C24's a ≥ 2p − 1 down to a = 1, with only the diagonal d = p allowed to move (C88). Below the height where play keeps one pick per turn (E28 measures it) the argument must handle multi-pick turns.
 - Be symbolic, a strategy or invariant for every N, not a certificate per N (C79).
 - Other routes meet the same low phase: a value bound tight at intervals like C37 (C59), or a descent in height from the solved high regime past the integer heights (C55, C62, C69).

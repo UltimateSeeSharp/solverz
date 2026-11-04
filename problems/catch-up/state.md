@@ -1,7 +1,7 @@
 # State
 
 **Focus.** Band-type generalizations of C1 that give an induction slack: I17 (C86 BAND: blocks draw on the whole band d ≤ p at every height; data p ≤ 7), I16 (C85, collapsed blocks; E22 to p = 10), I15 (C84). The route through C31 (b)'s ray (C74's hypotheses C81 at j = 2, C82, C83) stays open; C83 cannot close by C77's recursion alone (C83 Tried).
-**Next step (no compute).** Paper: I17's mechanism. Compare the band at heights a and a + 1 on small p by hand from the known rows (C12, C47), and look for why off-diagonal entries are height-invariant (C88): which turn structure changes at a breakpoint, and why it reaches only d = p. Runs wait in the queue below.
+**Next step (no compute).** Paper: what a band proof at low heights must do. From E28's design, a rounds-structure strategy needs every round-start debt ≤ a + min R, impossible at the root for d > a; so at a = 1 the trailer's multi-pick turns are part of the band. Look by hand at p = 3, a = 1, d = 3 ({1..6} at 3, a draw) for how the defender answers a two-pick turn, and whether the answer is a partner-type rule. Runs wait in the queue.
 **After the queue runs.** Read in order: Q7 (C86, C87: a non-draw off the diagonal kills them as stated), Q9 (C88: interior flips split the descent), Q5 (E26: the same band on collapsed blocks), Q1 (E23, C84), Q2 (E24, I16 (b)/(c)), Q8 (C89), Q3 (E25, C83), Q6 (Lean). A surviving I17 then goes deeper first.
 - Before offering N = 33–35 to anyone, rerun them from a committed engine with a second engine as a cross-check.
 **Limits this session (user, 2026-11-04).** No compute (runs or builds) while the user works; queue each run below, and the user runs the queue on a break.
