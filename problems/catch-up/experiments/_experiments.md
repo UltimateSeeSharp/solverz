@@ -33,3 +33,4 @@
 | [E29](E29.md) | Pair-deleted sets below half their size | C89 | Three losses inside C89's range, first at N = 19 |
 | [E30](E30.md) | Round starts reached by E24's rule | C85 | Z starts: d ≤ c(R), at most one orphan pair; pre-switch Y: at most two |
 | [E31](E31.md) | Simple Z rules under the one-pick cap | C86 | No Hyb2 variant goes below 2p − 1; the optimum ≈ 3p/2 is not a local rule |
+| [E32](E32.md) | Collapsed blocks under the one-pick cap | C85 | One-pick play needs height ≈ 4p − 8 (blocks: ≈ 3p/2); the real game draws far lower |
