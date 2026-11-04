@@ -3,6 +3,10 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-04
+- 15:11 I16 (b), (c) pass: a first-pick rule with Hyb2's answers draws every collapsed block in the rounds game, p ≤ 8 (E24)
+- 15:11 I17 alive: the band holds at integer heights for p ≤ 10 (E27, two engines); C86 ⇒ C1 in Lean
+- 15:11 C88 refuted: interior band entries flip between integer heights (Q9, set_margin; refuter SURVIVES)
+- 15:11 C7, C11, C33, C38 verified in Lean; C1 for N ≤ 12, C86 for p ≤ 4 and C37 (3) in Lean
 - 14:27 I19 dead: the partner-switch class cannot be forced from C31 (b)'s starts, N ≤ 16 (ideator)
 - 14:27 I18 new, with C89: pair-deleted sets never lose below half their size, N ≤ 18 (ideator)
 - 14:27 I17 new, with C86–C88: blocks draw on the whole band at every height, p ≤ 7 (ideator)
