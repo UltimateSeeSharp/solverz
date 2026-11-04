@@ -89,5 +89,5 @@
 | [C85](C85.md) | Partially collapsed blocks draw (PBT) | — | open | — | — |
 | [C86](C86.md) | The draw band at every height (BAND) | — | open | — | — |
 | [C87](C87.md) | The band on aligned dense pair sets (BAND-PD) | — | open | — | — |
-| [C88](C88.md) | Only the diagonal flips across heights (BANDSTEP) | — | open | — | — |
+| [C88](C88.md) | Only the diagonal flips across heights (BANDSTEP) | — | refuted | — | — |
 | [C89](C89.md) | Pair-deleted sets never lose below half their size (NLB*) | — | open | — | — |
