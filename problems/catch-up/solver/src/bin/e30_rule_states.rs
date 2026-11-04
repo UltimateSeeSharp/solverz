@@ -115,6 +115,8 @@ fn main() {
         // (mover is Z, pre-switch) -> least rule margin over reached starts, example
         let mut least: BTreeMap<(bool, bool), (i32, String)> = BTreeMap::new();
         let mut memo = std::collections::HashMap::new();
+        // (mover is Z) -> largest d − min R over reached starts, example
+        let mut reach: BTreeMap<bool, (i32, String)> = BTreeMap::new();
         for t in 0..1usize << p {
             let mut o: Set = (0..p).flat_map(|i| [2 * i as u8, 2 * i as u8 + (t >> i & 1) as u8]).collect();
             o.sort_unstable();
@@ -126,6 +128,10 @@ fn main() {
                     continue;
                 }
                 let slack = d - cost(&r);
+                let over = d - r[0] as i32;
+                if reach.get(&z).map_or(true, |x| over > x.0) {
+                    reach.insert(z, (over, format!("t={t:0w$b} {r:?} d={d}", w = p)));
+                }
                 let m = rule_margin(&r, d, z, &mut memo);
                 let key = (z, slack < 0);
                 if least.get(&key).map_or(true, |x| m < x.0) {
@@ -166,6 +172,9 @@ fn main() {
         println!("p={p}: reached round starts by (mover, debt − c(R), broken pairs): count");
         for ((z, s, b), n) in &tally {
             println!("  {} slack {s:+} broken {b}: {n}", if *z { "Z" } else { "Y" });
+        }
+        for (z, (o, ex)) in &reach {
+            println!("  largest debt − min R, {} to move: {o} (2p − 1 = {}) ({ex})", if *z { "Z" } else { "Y" }, 2 * p - 1);
         }
         for ((z, pre), (m, ex)) in &least {
             println!("  least rule margin, {} to move, {}: {m} ({ex})", if *z { "Z" } else { "Y" }, if *pre { "debt < c(R)" } else { "debt ≥ c(R)" });
