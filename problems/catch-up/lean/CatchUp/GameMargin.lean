@@ -160,7 +160,7 @@ theorem even_margin_add (n : ℕ) : ∀ (R : Finset ℕ), R.card = n → ∀ a b
   · rw [margin, dif_pos h, add_assoc, add_assoc]
     apply even_sup'_add_of
     rintro ⟨x, hx⟩ -
-    try dsimp only
+    dsimp only
     have hlt : (R.erase x).card < R.card := Finset.card_erase_lt_of_mem hx
     have hs : ∑ y ∈ R.erase x, (y : ℤ) + x = ∑ y ∈ R, (y : ℤ) := Finset.sum_erase_add R _ hx
     by_cases hc : b ≤ a + x
