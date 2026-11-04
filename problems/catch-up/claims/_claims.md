@@ -65,22 +65,22 @@
 | [C61](C61.md) | Exits of smallest-first play are non-losing (EX) | — | open | — | — |
 | [C62](C62.md) | Twins with a tie-break at every height | C21 | open | — | — |
 | [C63](C63.md) | Peel below height 1 | C28, C62 | proved | — | — |
-| [C64](C64.md) | Adjacent-hole copying | — | refuted | — | — |
-| [C65](C65.md) | Pair deletions forbid neighbor jumps | — | refuted | — | — |
-| [C66](C66.md) | Geometry-free first-pair transfer | — | refuted | — | — |
-| [C67](C67.md) | No short cycles in the shifted reply graph | — | refuted | — | — |
-| [C68](C68.md) | A prepaid pair reserve from the first pick | — | refuted | — | — |
-| [C69](C69.md) | Integer peel above height 1 | — | refuted | — | — |
-| [C70](C70.md) | Small numbers guard non-loss | — | refuted | — | — |
-| [C71](C71.md) | Upper-only exact-sum descent | — | refuted | — | — |
-| [C72](C72.md) | Balancing in one turn | — | refuted | — | — |
-| [C73](C73.md) | Lower-ray endpoints | C77 | proved | theirs: `pair_deletion_position_top_value_ne_loss` (`CatchUp/Earlier/DeficitWinningBound.lean`), `…_penultimate_value_ne_loss` (`CatchUp/LowerRayEndpoints.lean`), `…_antepenultimate_value_ne_loss_of_opening_one_draw` (`CatchUp/LowerRayAntepenultimateDescent.lean`), `…_fourth_from_top_value_ne_loss` (`CatchUp/LowerRayFourthEndpoint.lean`), `…_fifth_from_top_value_ne_loss` (`CatchUp/LowerRayFifthEndpoint.lean`) | — |
-| [C74](C74.md) | Interior and boundary of the lower ray | — | proved | theirs: `value_Icc_eq_draw_of_lower_ray_interior_and_boundary` (`CatchUp/LowerRayInteriorReduction.lean`) | — |
-| [C75](C75.md) | Every opening draws iff every pair is neutral | — | proved | theirs: `every_opening_draw_Icc_iff_every_pair_neutral` (`CatchUp/Earlier/ReplyDigraphReduction.lean`) | — |
-| [C76](C76.md) | Three pairs draw at deficit 1 | — | proved | theirs: `TiedFour.three_pairs_one_draw` (`CatchUp/TiedFour.lean`) | — |
-| [C77](C77.md) | Exact-sum lemmas | — | proved | theirs: `Position.value_ne_loss_of_deficit_is_max` (`CatchUp/Earlier/DeficitWinningBound.lean`), `Position.value_ne_loss_of_exact_sum_residuals` (`CatchUp/ExactSumResiduals.lean`), `Position.exists_winning_opening_gt_max_of_loss_of_exact_sum` (`CatchUp/ExactSumLossObstruction.lean`) | — |
-| [C78](C78.md) | Increasing turns | — | proved | theirs: `Increasing.check_iff`, `Increasing.first_pair_draw_iff` (`CatchUp/Increasing.lean`) | — |
-| [C79](C79.md) | Explicit certificates grow exponentially | — | proved | theirs: `initial_certificate_exponential` (`CatchUp/Earlier/CertificateComplexityHighCounters.lean`) | — |
+| [C64](C64.md) | Adjacent-hole copying | — | refuted | counterexample: `CatchUp/AdjacentHoleExchangeObstruction.lean` | — |
+| [C65](C65.md) | Pair deletions forbid neighbor jumps | — | refuted | counterexample: `CatchUp/AdjacentHoleExchangeObstruction.lean` | — |
+| [C66](C66.md) | Geometry-free first-pair transfer | — | refuted | counterexample: `CatchUp/FirstPairDescentObstruction.lean` | — |
+| [C67](C67.md) | No short cycles in the shifted reply graph | — | refuted | counterexample: `CatchUp/ShiftedReplyCycle.lean` | — |
+| [C68](C68.md) | A prepaid pair reserve from the first pick | — | refuted | counterexample: `CatchUp/TurnReserveInitialization.lean` | — |
+| [C69](C69.md) | Integer peel above height 1 | — | refuted | counterexample: `CatchUp/AdjacentPairGeometryObstruction.lean` | — |
+| [C70](C70.md) | Small numbers guard non-loss | — | refuted | counterexample: `CatchUp/UnitGuardObstruction.lean`, `CatchUp/NearDeficitGuardObstruction.lean` | — |
+| [C71](C71.md) | Upper-only exact-sum descent | — | refuted | counterexample: `CatchUp/Earlier/UniformExactSumDescentObstruction.lean` | — |
+| [C72](C72.md) | Balancing in one turn | — | refuted | counterexample: `CatchUp/WholeTurn.lean` | — |
+| [C73](C73.md) | Lower-ray endpoints | C77 | verified | `pair_deletion_position_top_value_ne_loss` (`CatchUp/Earlier/DeficitWinningBound.lean`), `…_penultimate_value_ne_loss` (`CatchUp/LowerRayEndpoints.lean`), `…_antepenultimate_value_ne_loss_of_opening_one_draw` (`CatchUp/LowerRayAntepenultimateDescent.lean`), `…_fourth_from_top_value_ne_loss` (`CatchUp/LowerRayFourthEndpoint.lean`), `…_fifth_from_top_value_ne_loss` (`CatchUp/LowerRayFifthEndpoint.lean`) | — |
+| [C74](C74.md) | Interior and boundary of the lower ray | — | verified | `value_Icc_eq_draw_of_lower_ray_interior_and_boundary` (`CatchUp/LowerRayInteriorReduction.lean`) | — |
+| [C75](C75.md) | Every opening draws iff every pair is neutral | — | verified | `every_opening_draw_Icc_iff_every_pair_neutral` (`CatchUp/Earlier/ReplyDigraphReduction.lean`) | — |
+| [C76](C76.md) | Three pairs draw at deficit 1 | — | verified | `TiedFour.three_pairs_one_draw` (`CatchUp/TiedFour.lean`) | — |
+| [C77](C77.md) | Exact-sum lemmas | — | verified | `Position.value_ne_loss_of_deficit_is_max` (`CatchUp/Earlier/DeficitWinningBound.lean`), `Position.value_ne_loss_of_exact_sum_residuals` (`CatchUp/ExactSumResiduals.lean`), `Position.exists_winning_opening_gt_max_of_loss_of_exact_sum` (`CatchUp/ExactSumLossObstruction.lean`) | — |
+| [C78](C78.md) | Increasing turns | — | verified | `Increasing.check_iff`, `Increasing.first_pair_draw_iff` (`CatchUp/Increasing.lean`) | — |
+| [C79](C79.md) | Explicit certificates grow exponentially | — | verified | `initial_certificate_exponential` (`CatchUp/Earlier/CertificateComplexityHighCounters.lean`) | — |
 | [C80](C80.md) | Score shift | — | verified | `CatchUp.value_aux_add_scores` (`CatchUp/Executable.lean`) | — |
 | [C81](C81.md) | Dense pair deletions never lose | — | open | — | — |
 | [C82](C82.md) | Second start draws | — | open | — | — |
