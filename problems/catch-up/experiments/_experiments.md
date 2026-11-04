@@ -23,3 +23,4 @@
 | [E19](E19.md) | Sliding the top quadruple of {1..N} (C35), N ≤ 20 | C35 | Sliding the top quadruple by any integer c leaves every even-total N ≤ 20 a draw (exact sweep, no non-draw) |
 | [E20](E20.md) | Pairing bound (C60) on every subset of {1..22} and on multisets | C60 | No violation in 96,468,992 set positions (S ⊆ {1..22}, d ≤ 22) and 1,830,519 multiset positions; sharper than C37 at 38% of positions |
 | [E21](E21.md) | Dense sets {1..N} minus at most 3 holes, N = 9..25 | C5, CU-L003 | No mover loss in 189,922 positions (every d ≤ N of draw parity): CU-L003 holds for N = 9..25; C5's 10 three-hole exceptions are all mover wins |
+| [E22](E22.md) | Partially collapsed blocks, p ≤ 10, c ≤ 2p (C85) | C85 | Every t, every c = 1..2p, p ≤ 10: a draw at deficit \|t\| mod 2; I16 survives kill test (a) |

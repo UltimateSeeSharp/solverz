@@ -2,6 +2,9 @@
 
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
+## 2026-11-04
+- 11:37 I16 alive: kill test (a) survives, every partially collapsed block draws at p ≤ 10, c ≤ 2p (E22, C85)
+
 ## 2026-10-30
 - 07:38 I16 new, with C85: partially collapsed blocks draw at every height, TI and twins in one family (ideator)
 - 07:38 I15 new, with C84: rank-perturbed intervals draw, no exception for L ≤ 17 (ideator)
