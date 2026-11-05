@@ -4,7 +4,7 @@ public import SignedDifferenceSets.Check
 public import SignedDifferenceSets.Contraction
 
 /-!
-# S2: no (20, 17, 8) SDS in C₂ × C₁₀
+# N32: no (20, 17, 8) SDS in C₂ × C₁₀
 
 Open in Gordon's table (`SDS(20,17,8,[2,10])`, 2026-11-05). Contract along
 C₂ × C₁₀ → C₅ (F3): every fibre has 4 elements, so the coset sums `a` lie in [−4, 4],
@@ -14,7 +14,7 @@ have square sum 17 + 8 · 3 = 41 and autocorrelation 8 · 4 = 32 at every shift 
 
 @[expose] public section
 
-namespace SignedDifferenceSets.CaseS2
+namespace SignedDifferenceSets.Answer.N32
 
 /-- The projection C₂ × C₁₀ → C₅. -/
 def proj : ZMod 2 × ZMod 10 →+ ZMod 5 :=
@@ -45,7 +45,7 @@ theorem eq_vec (a : ZMod 5 → ℤ) :
   funext h
   fin_cases h <;> rfl
 
-/-- S2: C₂ × C₁₀ has no signed difference set with parameters (20, 17, 8). -/
+/-- N32: C₂ × C₁₀ has no signed difference set with parameters (20, 17, 8). -/
 theorem not_hasSDS : ¬ HasSDS (ZMod 2 × ZMod 10) 17 8 := by
   rintro ⟨D, hD⟩
   have hb (h : ZMod 5) : contract proj D h ∈ Finset.Icc (-4 : ℤ) 4 := by
@@ -59,4 +59,4 @@ theorem not_hasSDS : ¬ HasSDS (ZMod 2 × ZMod 10) 17 8 := by
   rw [eq_vec (contract proj D)] at hc
   exact no_vector _ (hb 0) _ (hb 1) _ (hb 2) _ (hb 3) _ (hb 4) hc
 
-end SignedDifferenceSets.CaseS2
+end SignedDifferenceSets.Answer.N32

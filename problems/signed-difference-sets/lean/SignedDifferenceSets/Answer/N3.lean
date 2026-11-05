@@ -4,7 +4,7 @@ public import SignedDifferenceSets.Check
 public import SignedDifferenceSets.Symmetry
 
 /-!
-# S1: no (9, 8, 1) SDS in C₃ × C₃
+# N3: no (9, 8, 1) SDS in C₃ × C₃
 
 Open in Gordon's table (`SDS(9,8,1,[3,3])`, 2026-11-05). One of the nine elements is
 unmarked; translating it to `0` (F2) leaves 3⁸ sign patterns, which `decide` rules out.
@@ -12,7 +12,7 @@ unmarked; translating it to `0` (F2) leaves 3⁸ sign patterns, which `decide` r
 
 @[expose] public section
 
-namespace SignedDifferenceSets.CaseS1
+namespace SignedDifferenceSets.Answer.N3
 
 /-- The sign function with `0` unmarked and the given signs elsewhere. -/
 def mk (a b c d e f g h : SignType) : ZMod 3 × ZMod 3 → SignType := fun p =>
@@ -31,7 +31,7 @@ theorem eq_mk (D : ZMod 3 × ZMod 3 → SignType) (h0 : D 0 = 0) :
   obtain ⟨x, y⟩ := p
   fin_cases x <;> fin_cases y <;> first | exact h0 | rfl
 
-/-- S1: C₃ × C₃ has no signed difference set with parameters (9, 8, 1). -/
+/-- N3: C₃ × C₃ has no signed difference set with parameters (9, 8, 1). -/
 theorem not_hasSDS : ¬ HasSDS (ZMod 3 × ZMod 3) 8 1 := by
   rintro ⟨D, hD⟩
   obtain ⟨z, hz⟩ : ∃ z, D z = 0 := by
@@ -44,4 +44,4 @@ theorem not_hasSDS : ¬ HasSDS (ZMod 3 × ZMod 3) 8 1 := by
   rw [eq_mk (fun x => D (x + z)) (by simpa using hz)] at hT
   exact mk_not_sds _ _ _ _ _ _ _ _ hT
 
-end SignedDifferenceSets.CaseS1
+end SignedDifferenceSets.Answer.N3

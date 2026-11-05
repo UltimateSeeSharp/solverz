@@ -1,5 +1,5 @@
 //! R1: validate the P1 engine on known objects O1–O5 and known non-existence, then search
-//! cases S1, S2 exhaustively.
+//! N3, N32 exhaustively.
 //! Usage: `r1_small_cases` (all), or `r1_small_cases <v> <k> <λ> <m1,m2,…>` for one case.
 
 use signed_difference_sets::{search, Group};

@@ -1,20 +1,18 @@
 # Understanding
 
 **Holds.**
-- Gordon's table leaves small non-cyclic cases Open because his searches
-  covered cyclic groups only (README); their cyclic twins are "No, Orbit
-  Exhaust". He–Wu's four criteria remove two thirds of the open cases by
-  theory, about 22,460 stay open (README); reimplemented on the 91 Open keys
-  with v ≤ 40, they leave 55 (`scratch/hewu.py`, agrees with the paper's
-  examples).
-- Two cheap tools settle small cases: exhaustive search with one element
-  fixed (P1, F1, F2), seconds at v ≤ 20 (R1); and contraction to a quotient
-  (F3), which kills 13 of the 55 by a small integer-vector check
-  (`scratch/contract2.py`). S1 fell to the first, S2 to both, each proved in
-  Lean (cases.md).
+- Gordon's table has 70,543 cases (`instances.csv`): 146 exist, 2,574 are
+  ruled out by his searches, which covered cyclic groups; tiny non-cyclic
+  cases stay Open, their cyclic twins "No, Orbit Exhaust" (README).
+- He–Wu's four obstructions rule out 45,361 of the 67,823 Open cases on
+  paper, and their constructions settle 3; 22,459 stay open (README,
+  reproduced by the importer).
+- Exhaustive search with one element fixed (P1, F1, F2) takes seconds at
+  small v (R1); contraction to a quotient (F3) gives small certificates. N3
+  fell to the first, N32 to both, each proved in Lean.
 **Blocks.** Non-existence counts only with a Lean proof. Exhaustion by
-`decide` reaches 3⁸ patterns in about 5 minutes; the contraction kills need a
-pruned vector check in Lean, since their plain vector spaces (up to 7⁸) are too
-large for `decide`. Cases near k ≈ v/2 at v ≥ 27 are beyond plain P1.
-**So a solution must.** Per case: a set Lean checks, or a Lean proof that none
-exists (exhaustion after F2, or F3 with a checked vector search).
+`decide` reaches about 3⁸ patterns in 5 minutes; contraction needs a checked
+search over integer vectors once the vector space is large. Cases near
+k ≈ v/2 at v ≥ 27 are beyond plain P1.
+**So a solution must.** Per Instance: a set Lean checks, or a Lean proof that
+none exists (exhaustion after F2, or F3 with a checked vector search).
