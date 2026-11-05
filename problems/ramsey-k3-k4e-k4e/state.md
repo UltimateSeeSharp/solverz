@@ -1,8 +1,8 @@
 # State
 
-**Focus.** P1, the circulant colourings of K₂₁.
-**Next step.** R1: score all 59,049 circulant colourings with `violations`.
+**Focus.** P4 by SAT: make the engine strong enough to find the known 20-point colourings.
+**Next step.** Stronger cubes for R6: point 0 with the most colour-0 pairs, proved degree bounds as facts, and cubes over two points' rows; rerun the K₂₀ calibration.
 **Running.** nothing.
 
 ## Needs the user
-- A SAT solver (Kissat or CaDiCaL) install, for P2 and P4 later; not needed for P1.
+- none (CaDiCaL ships with Lean; Kissat stays optional).
