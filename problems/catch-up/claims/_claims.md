@@ -91,3 +91,17 @@
 | [C87](C87.md) | The band on aligned dense pair sets (BAND-PD) | — | open | — | — |
 | [C88](C88.md) | Only the diagonal flips across heights (BANDSTEP) | — | refuted | — | — |
 | [C89](C89.md) | Pair-deleted sets never lose below half their size (NLB*) | — | refuted | counterexample: `CatchUp.pair_deleted_loss_19` (`CatchUp/PairDeletions.lean`) | — |
+| [C90](C90.md) | Maximum companion | — | verified | `CatchUp.reply_edge_from_max_has_companion`, `…_not_unique` (`CatchUp/ReplyMaximumCompanion.lean`) | — |
+| [C91](C91.md) | The lower ray, successor form | — | verified | `value_Icc_eq_draw_of_interior_successor_nonwin`, `pair_deletion_position_value_ne_loss_of_successor_value_ne_win` (`CatchUp/Earlier/LowerRaySuccessor.lean`) | — |
+| [C92](C92.md) | The lower ray, canonical exact-deficit form | C28 | verified | `value_Icc_eq_draw_of_exact_deficit_canonical_openings` (`CatchUp/Earlier/LowerRayExactDeficit.lean`) | — |
+| [C93](C93.md) | Four consecutive numbers | — | verified | `CatchUpSearch.TopFourClassification.value_top_four`, `value_top_four_deficit_four` (`CatchUp/Earlier/TopFourClassification.lean`) | — |
+| [C94](C94.md) | Pair sets at small deficits | — | verified | `DeficitTwo.three_pairs_three_win_iff`, `CanonicalFour.four_four_win_iff`, `AnchorFour.win_requires_four_and_eight`, `FivePair.first_pair_fifteen_nonloss` and more (`CatchUp/DeficitTwo.lean`, `CanonicalSmall`, `CanonicalFour`, `CanonicalFive`, `AnchorFour`, `AnchorFive`, `FivePair`) | — |
+| [C95](C95.md) | Three-number endgames | — | verified | `TiedFour.three_close_nonwin_iff`, `…_nonloss_iff` (`CatchUp/ThreePairClose.lean`), `AdjacentPairRepair.orphan_minus_draw_iff` (`CatchUp/AdjacentPairGeometryRepair.lean`), `CatchUpSearch.ThreeCounterSafety.can_avoid_loss_three_counters` (`CatchUp/Earlier/ThreeCounterSafety.lean`) | — |
+| [C96](C96.md) | Turns as sets | — | verified | `exists_completed_turn_iff_sum_lt_deficit_add_max`, `Position.value_eq_draw_iff_turn_sets` (`CatchUp/CompletedTurn.lean`) | — |
+| [C97](C97.md) | Crossing deficits | C96 | verified | `PairEntranceShadow.reserve_reply_outcome` (`CatchUp/PairEntranceShadow.lean`), `DeficitCrossing.nonloss_of_loss_and_midpoint_turn` (`CatchUp/DeficitCrossing.lean`), `DeficitCrossingEntry.nonloss_iff_entry` (`CatchUp/DeficitCrossingEntry.lean`) | — |
+| [C98](C98.md) | Five pairs never win at deficit 3 | — | refuted | counterexample: `FiveThree.not_uniform_five_three` (`CatchUp/FiveThree.lean`) | — |
+| [C99](C99.md) | Dense intervals never lose (CU-L003) | — | open | partial: `CatchUp.DenseLossFrontier.loss_frontier`, `CatchUp.even_dense_loss_forces_upper_or_odd_prefix_endpoint` (`CatchUp/PrefixBlockedDenseEndpoints.lean`) | — |
+| [C100](C100.md) | Dense intervals give C1 | C31, C99 | open | — | — |
+| [C101](C101.md) | The ray point b = 6 | C77 | open | frontier: `CatchUp.RootUpperEightFrontier.interval_parent_loss_frontier`, `CatchUp.RootUpperEightCriterion.interval_reserve_nonwin_iff_core_nonloss` | — |
+| [C102](C102.md) | Copying repaired with a score debt ≤ 2 | C33 | open | one instance: `CatchUp.TwoBuffer.mandatory_protocol` (`CatchUp/TwoBufferMandatory.lean`) | — |
+| [C103](C103.md) | C74's boundary shrinks | C74, C77 | open | — | — |

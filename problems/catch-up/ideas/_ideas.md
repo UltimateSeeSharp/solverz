@@ -21,3 +21,6 @@
 | [I17](I17.md) | The draw band at every height | generalization | ideator | C86, C87, C88 | alive |
 | [I18](I18.md) | Non-loss below half the size | invariant class | ideator | C89 | dead |
 | [I19](I19.md) | Forced entry into the partner-switch class | phase split | ideator | — | dead |
+| [I20](I20.md) | Dense intervals | induction | catch-up-research (CU-L003, CU-L014) | C99, C100 | alive |
+| [I21](I21.md) | The ray point b = 6 | finite reduction | catch-up-research (RootUpper route) | C101 | alive |
+| [I22](I22.md) | A debt-repair translator | strategy transfer | catch-up-research (CU-L022, CU-L024–L027) | C102 | alive |
