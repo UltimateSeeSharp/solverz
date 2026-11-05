@@ -45,13 +45,13 @@ nothing waits on it.
 2. **Work** on one claim it needs: test it, prove it, find it in the
    literature, or verify it in Lean.
    - Verify it in Lean while it is open, when Lean settles it faster than
-     paper; otherwise once every claim of the idea is proved on paper (the
-     goal goes through `audit` first).
+     paper; otherwise once every claim of the idea is proved on paper.
 3. **Check** before a claim becomes `proved` or `refuted`: the `refuter`
    attacks it (CLAUDE.md, Roles); a flaw goes under Tried.
    - A counterexample refutes a claim once it is an Experiment's outcome
      (CLAUDE.md, Files); in Lean if the claim is stated there and the check
      is quick.
 4. **Record** changed statuses with a journal line, and `state.md`.
-5. **The goal claim verified:** it goes under "Needs the user" as a proposed
-   Solution (CLAUDE.md, Files); tell the user (CLAUDE.md, Attack).
+5. **Lean proves `<Problem>.Goal` or its negation:** that theorem goes under
+   "Needs the user" as a proposed Solution (CLAUDE.md, Files); tell the user
+   (CLAUDE.md, Attack).
