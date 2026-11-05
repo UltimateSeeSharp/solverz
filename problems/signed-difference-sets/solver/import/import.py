@@ -2,10 +2,12 @@
 
 Source: dmgordo/signed-difference-sets `sds.json` at e3bf810 (2026-04-24), one key
 SDS(v,k,lambda,[invariant factors]) per group-specific case. Yes/All -> exists, No -> none.
-Open -> exists for He-Wu's three constructions (arXiv 2608.22936, Section 5); none when one
+Open -> exists for He-Wu's three constructions (arXiv 2608.22936, Section 5) and for cases
+of Gordon's paper (arXiv 2212.10630) that his database leaves Open; none when one
 of their four obstructions (Theorems 3.2, 4.2, 4.4, 4.7, applied cumulatively as in their
 count_open_cases.py) rules it out; else open.
-IDs stay with their keys across reruns; rows we settled (settle.py) are kept as they are.
+IDs stay with their keys across reruns; rows we settled (settle.py) are kept as they are,
+except that a literature construction takes the credit.
 Run from the problem folder: python -I solver/import/import.py [path to sds.json]
 """
 
@@ -23,10 +25,15 @@ HEADER = ["id", "key", "source", "status", "evidence", "lean", "result"]
 SOURCE_STATUS = {"Yes": "exists", "All": "exists", "No": "none"}
 REFERENCE_PREFIXES = ("Gordon:", "He-Wu ")
 HE_WU_V_RANGE = range(9, 500)
-HE_WU_CONSTRUCTIONS = {  # He-Wu Section 5: open cases they construct
+CONSTRUCTIONS = {  # Open in the database, constructed in the literature
+    # He-Wu Section 5
     "SDS(64,22,6,[2,2,2,2,2,2])": "He-Wu construction: PCP-type partial difference set",
     "SDS(256,106,42,[2,2,2,2,2,2,2,2])": "He-Wu construction: PCP-type partial difference set",
     "SDS(125,28,3,[5,5,5])": "He-Wu construction: quartic characters",
+    # Gordon's paper; the database applies Prop 2.3 to prime v only and files Thm 4.1 at
+    # q = 3 under [3,9]
+    "SDS(27,14,5,[3,3,3])": "Gordon: paper Prop 2.3 (Paley and zero in GF(27))",
+    "SDS(27,17,8,[3,3,3])": "Gordon: paper Thm 4.1 (prime power pair q = 3, GF(3) + GF(9))",
 }
 
 
@@ -120,10 +127,11 @@ def main():
             next_id += 1
         row["source"] = f"{status}@{SNAPSHOT}"
         ours = row["evidence"] and not row["evidence"].startswith(REFERENCE_PREFIXES)
-        if not ours:
-            if key in HE_WU_CONSTRUCTIONS:
-                row["status"], row["evidence"] = "exists", HE_WU_CONSTRUCTIONS[key]
-            elif status in SOURCE_STATUS:
+        if key in CONSTRUCTIONS:
+            # The literature had it first, even where we found a set too (our Lean check stays).
+            row["status"], row["evidence"] = "exists", CONSTRUCTIONS[key]
+        elif not ours:
+            if status in SOURCE_STATUS:
                 comment = table[key].get("comment", "") or "table"
                 row["status"], row["evidence"] = SOURCE_STATUS[status], f"Gordon: {comment}"
             else:

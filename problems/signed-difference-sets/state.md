@@ -5,4 +5,4 @@
 **Running.** nothing.
 
 ## Needs the user
-- Findings to bring to the user: N67, N73 are in Gordon 2022 (Prop 2.3, Thm 4.1), marked Open in his database by mistake; N63319, N14604, N31832, N14471 are settled in Gordon or He–Chen–Ge, so `instances.csv` lists them as open wrongly.
+- Findings to bring to the user: N63319, N14604, N31832, N14471 are settled in Gordon or He–Chen–Ge, so `instances.csv` lists them as open wrongly.

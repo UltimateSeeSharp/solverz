@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-05
+- N67, N73: credited to Gordon 2022 (Prop 2.3, Thm 4.1) by the importer, which now lets a literature construction take the credit over our own set
 - T3 (N49), T4 (N61), T5 (N62), T6 (N68) approved by the user: Results in `results.md` and the repo README
 - Research stopped by the user; R4 stopped at 31 of 53 Instances (`runs/R4.md`), R5 stopped in its validation with no output
 - Refuter on R4's sets: N49, N61, N62, N68 SURVIVE (N61's origin: He–Chen–Ge at m = 1); N67, N73 FLAWED as status: already in Gordon 2022 (Prop 2.3, Thm 4.1), Open in the database by mistake; N63319, N14604, N31832, N14471 lag the same way
