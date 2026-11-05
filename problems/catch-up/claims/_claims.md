@@ -110,3 +110,4 @@
 | [C106](C106.md) | Tied blocks minus one number never lose (B2) | — | open | — | — |
 | [C107](C107.md) | Neighbour bound (NB) | — | verified | `CatchUp.neg_margin_erase_le_of_succ`, `…_of_pred` (`CatchUp/Neighbour.lean`) | — |
 | [C108](C108.md) | Tied one-hole blocks in the rounds regime, upper holes | C13, C23 | open | — | — |
+| [C109](C109.md) | Tied odd blocks minus one number draw at every real height | — | open | — | — |

@@ -25,4 +25,4 @@
 | [I21](I21.md) | The ray point b = 6 | `T324` reduce to a finite check | catch-up-research (RootUpper route) | C101 | alive |
 | [I22](I22.md) | A debt-repair translator | — strategy transfer | catch-up-research (CU-L022, CU-L024–L027) | C102 | alive |
 | [I23](I23.md) | The low column of blocks | `T301` generalize | ideator | C104, C27 | alive |
-| [I24](I24.md) | Tied one-hole blocks | `T301` generalize | ideator | C105, C106 | alive |
+| [I24](I24.md) | Tied one-hole blocks | `T301` generalize | ideator | C105, C106, C108, C109 | alive |
