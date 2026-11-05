@@ -1,8 +1,6 @@
 # solverz
 
 AI-assisted attacks on open math problems; every result is checked in Lean 4.
-How we think and work: `principles.md`; techniques to draw on: `toolbox/`
-(`toolbox/check.ps1` validates it).
 
 ## Problem
 
@@ -45,43 +43,40 @@ In a template, `<…>` in the text and `{…}` in file and folder names are plac
 ## Where things live
 
 ```
-.claude/       skills/  agents/  hooks/
-templates/     _shared/  <kind>/
-problems/      problems.md  active.md  candidates.md
-  <problem>/   templates/_shared/ + templates/<kind>/
-toolbox/
-principles.md
-.worktrees/<problem>/
+.claude/               the workflows' skills, agents and hooks
+templates/             what a new problem is set up from (Files)
+problems/              the problem lists and one folder per problem (Files)
+toolbox/               techniques to draw on; toolbox/check.ps1 validates it
+principles.md          how we think and work
+.worktrees/<problem>/  the git worktree each problem's attack runs in (Rules)
 ```
 
 ## Rules
 
-- Agents and experiments run in the background while work goes on; each is
-  listed under Running in `state.md` until its result is recorded.
+### Agents and experiments
+
+- They run in the background while work goes on; each is listed under
+  Running in `state.md` until its result is recorded.
 - At most 3 agents at a time, each with `model: opus` (always the newest Opus).
 - Experiments may use whatever RAM, CPU and GPU is free, keeping about 4 GB
   RAM and 2 threads spare so the system doesn't swap or lag; one GPU job at a
   time. An experiment that can't fit on this machine is not run.
+
+### Statements
+
 - Never edit an approved statement; a change is a new statement.
+
+### Worktrees
+
 - Each attack runs in its own worktree `.worktrees/<problem>/` on the
-  long-lived branch `attack/<problem>`, made once and reused by every
-  session of that problem: created from main the first time
-  (`git worktree add .worktrees/<problem> -b attack/<problem> main`, then
-  `.lake/packages` as a junction to the main folder's), main merged into it
-  whenever the loop starts, one commit per step. The user merges it into
-  main. The main folder stays on main for all other work.
+  long-lived branch `attack/<problem>`.
+- It is made once and reused by every session of that problem.
+- Main is merged into it whenever the loop starts.
+- One commit per step.
+- Only the researcher works in a worktree; everything else (choose,
+  maintain, …) works in the main folder, on main.
 
-## Workflows
-
-### Choose: a new problem
-
-The `choose` skill.
-
-### Maintain: the repo itself
-
-The `maintain` skill (`/maintain`); never inside an attack.
-
-### Attack
+## Attack
 
 "attack <problem>" invokes the skill of the problem's kind (the Skill tool,
 so its Stop hook loads). On every start, the loop first enters the

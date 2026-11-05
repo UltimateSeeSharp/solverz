@@ -41,3 +41,10 @@ try to refute results. Details: [CLAUDE.md](CLAUDE.md),
 1. Install [elan](https://github.com/leanprover/elan) and [Rust](https://rustup.rs).
 2. `lake exe cache get` (prebuilt Mathlib).
 3. `lake build` and `cargo build --release`.
+
+## User skills
+
+In Claude Code, from the repo folder:
+- `/choose`: pick a new problem and set it up.
+- `/maintain`: work on the repo itself (workflow, skills, templates); never
+  inside an attack.

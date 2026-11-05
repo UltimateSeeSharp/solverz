@@ -1,6 +1,7 @@
 ---
 name: choose
 description: Picks a new problem from problems/problems.md and sets it up: checks the best candidates are still open and not crowded, frames them by kind against this machine, the user picks; then creates its folder, writes the problem, states the goal and draws the first ideas.
+disable-model-invocation: true
 ---
 
 # Choose a problem
