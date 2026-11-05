@@ -10,4 +10,3 @@
 ## Needs the user
 - Proposed Results (refuter SURVIVES, `scratch/refuter/report-N3-N32-F2-F3.md`): N3, no (9, 8, 1) SDS in C₃ × C₃; N32, no (20, 17, 8) SDS in C₂ × C₁₀. Both Open in Gordon's table, Lean-checked. Approve?
 - Proposed Results, refuter pending: N49, N61, N62, N67, N68, N73 exist (O6–O11, Lean-checked).
-- Approve the goal: `IsSDS k λ D` (D marks exactly k elements; for every g ≠ 0, Σₓ D(x)·D(x + g) = λ) and `HasSDS G k λ` (some such D on G), settled per Instance as `HasSDS G k λ` or its negation, with G the product of `ZMod` over the key's invariant factors. Tests pass (`Tests/Statement.lean`); refuter SURVIVES (`scratch/refuter-goal.md`: matches Gordon's definition and `sds.json` keys; a known (18, 13, 4) set in C₃ × C₆ passes). Does this say what we mean?

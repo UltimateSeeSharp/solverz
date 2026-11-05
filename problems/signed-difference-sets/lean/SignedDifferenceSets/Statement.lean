@@ -12,7 +12,7 @@ In group-ring terms `D D⁻¹ = (k − λ) + λ G` (Gordon, arXiv:2212.10630). A
 an ordinary difference set; λ = 0 in a cyclic group: a circulant weighing matrix CW(v, k).
 
 Goal, per open case of the table: `HasSDS G k λ` (Lean checks the set) or its negation.
-Pending the user's approval.
+Approved by the user 2026-11-05.
 -/
 
 @[expose] public section
