@@ -30,14 +30,7 @@ You find ways into an open problem; you do not carry them out.
 - Small computations to check a hunch are fine; keep code in
   `problems/<problem>/scratch/ideator/`.
 
-## Returns
-
-One turn's output, thinking included, must stay well under the 64k-token
-limit; past it you crash and lose everything not yet written. So write the
-report to `problems/<problem>/scratch/ideator/<YYYY-MM-DD-HHMM>.md` in
-pieces: append each angle as soon as it is final (`cat >> <file> <<'EOF'`),
-one angle per append, never the whole report at once. Your reply is only its
-path and one line per angle kept, most promising first. The report holds:
+## Report
 
 For each angle you keep:
 - The angle in the kind's units (its skill's Domain model: an Idea in
@@ -48,6 +41,16 @@ For each angle you keep:
 
 Then, as the last piece, one line per angle you cut and why, and what you
 searched and opened.
+
+## Output
+
+- One turn's output, thinking included, must stay well under the 64k-token
+  limit; past it you crash and lose everything not yet written.
+- Write the report to `problems/<problem>/scratch/ideator/<YYYY-MM-DD-HHMM>.md`
+  in pieces: append each angle as soon as it is final
+  (`cat >> <file> <<'EOF'`), one per append, never the whole report at once.
+- Your reply is only the report's path and one line per angle kept, most
+  promising first.
 
 ## Rules
 
