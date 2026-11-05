@@ -66,6 +66,54 @@ pub struct Outcome {
 /// Every SDS (v, k, λ) on `group` with 0 marked and sign sum +s, up to `limit` solutions.
 /// `None` when k + λ(v − 1) is not a perfect square (F1: no SDS at all).
 pub fn search(group: &Group, k: usize, lam: i64, limit: usize) -> Option<Outcome> {
+    search_capped(group, k, lam, limit, u64::MAX)
+}
+
+/// The abelian groups of order `v` by invariant factors m₁ | m₂ | … (each > 1).
+pub fn abelian_groups(v: usize) -> Vec<Vec<usize>> {
+    fn rec(rest: usize, min: usize, acc: &mut Vec<usize>, out: &mut Vec<Vec<usize>>) {
+        if rest == 1 {
+            out.push(acc.clone());
+            return;
+        }
+        // the next factor is a multiple of the previous one (`min`) dividing `rest`;
+        // every later factor is a multiple of it, so it must divide what remains after it.
+        for m in (min.max(2)..=rest).filter(|m| rest % m == 0 && m % min == 0) {
+            let after = rest / m;
+            if after == 1 || after % m == 0 {
+                acc.push(m);
+                rec(after, m, acc, out);
+                acc.pop();
+            }
+        }
+    }
+    let mut out = Vec::new();
+    rec(v, 1, &mut Vec::new(), &mut out);
+    out
+}
+
+/// Parameters (k, λ) with 1 ≤ k ≤ v passing F1 (k + λ(v − 1) = s², 0 ≤ s ≤ k, k ≡ s mod 2).
+pub fn admissible_params(v: usize) -> Vec<(usize, i64)> {
+    let mut out = Vec::new();
+    for k in 1..=v {
+        for s in (0..=k).filter(|s| (k + s) % 2 == 0) {
+            let num = (s * s) as i64 - k as i64;
+            if num % (v as i64 - 1) == 0 {
+                out.push((k, num / (v as i64 - 1)));
+            }
+        }
+    }
+    out
+}
+
+/// `search` stopped after `max_nodes` nodes; `Outcome::nodes > max_nodes` marks a cut-off run.
+pub fn search_capped(
+    group: &Group,
+    k: usize,
+    lam: i64,
+    limit: usize,
+    max_nodes: u64,
+) -> Option<Outcome> {
     let v = group.order;
     let square = k as i64 + lam * (v as i64 - 1);
     if square < 0 {
@@ -87,6 +135,7 @@ pub fn search(group: &Group, k: usize, lam: i64, limit: usize) -> Option<Outcome
         open_terms: vec![v as i64; v],
         out: Outcome { solutions: Vec::new(), nodes: 0 },
         limit,
+        max_nodes,
     };
     st.go(0, 0, 0);
     Some(st.out)
@@ -105,12 +154,13 @@ struct State<'a> {
     open_terms: Vec<i64>,
     out: Outcome,
     limit: usize,
+    max_nodes: u64,
 }
 
 impl State<'_> {
     fn go(&mut self, i: usize, used_plus: usize, used_minus: usize) {
         self.out.nodes += 1;
-        if self.out.solutions.len() >= self.limit {
+        if self.out.solutions.len() >= self.limit || self.out.nodes > self.max_nodes {
             return;
         }
         let v = self.group.order;
