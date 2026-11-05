@@ -3,7 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
-- 18:55 C108 proved: tied one-hole odd blocks draw above the rounds threshold for every hole o ≥ k of the parity (refuter SURVIVES)
+- 18:40 C108 proved: tied one-hole odd blocks draw above the rounds threshold for every hole o ≥ k of the parity (refuter SURVIVES)
 - 18:36 C109 open: tied odd blocks minus one number draw at every real height h > 0, k ≤ 7 (E37, exact)
 - 18:20 C108 open (paper): C105 in the rounds regime for the upper holes, from C23; refuter running
 - 18:21 C107 verified: the neighbour bound in margins (`CatchUp/Neighbour.lean`)
