@@ -5,7 +5,7 @@
 2. A Lean non-existence checker: first contraction (F3: no integer vector on a quotient meets the conditions; a verified search the kernel evaluates), tested on N32 and the E4 Instances contraction kills; then exhaustion for cases like N3. The design goes to the user before any code: what it proves, how Lean evaluates it, expected speed.
 3. Background meanwhile: E4's 9 unchecked sets (N127–N130, N132, N137, N139, N169, N170) as objects, Lean-checked, each checked against Gordon, He–Chen–Ge and He–Wu before it is proposed; E4's 22 unreached Instances with v ≤ 40 finished.
 4. Once the checker settles its first cases, the user and the researcher pick the range: open entries with v < 50, v < 100, or more.
-**Next step.** Step 1 (P2).
+**Next step.** Step 1 done (E6: O12 for N35840, Lean pending; P2 sporadic): reported, waiting for the user's go.
 **Running.** nothing.
 
 ## Needs the user
