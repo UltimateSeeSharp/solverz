@@ -112,3 +112,6 @@
 | [C108](C108.md) | Tied one-hole blocks in the rounds regime, upper holes | C13, C23 | verified | `CatchUp.roundsValue_oneHole_draw`, `CatchUp.one_hole_block_draw_high`, `CatchUp.one_hole_block_draw_two` (`CatchUp/OneHoleRounds.lean`) | — |
 | [C109](C109.md) | Tied odd blocks minus one number draw at every real height | — | open | — | — |
 | [C110](C110.md) | The one-hole band | — | open | C110 ⇒ C1: `CatchUp.conjecture_of_one_hole_band` (`CatchUp/OneHoleBand.lean`) | — |
+| [C111](C111.md) | Tie-rule sandwich | — | open | — | — |
+| [C112](C112.md) | The controller cannot win | — | open | — | — |
+| [C113](C113.md) | Small change under a block (POOL) | — | open | — | — |
