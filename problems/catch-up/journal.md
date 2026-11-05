@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
+- 21:31 I34 dead as an easier target: low and dense families are rule-robust, the medium-height bands are not, and play from {1..N} is forced into medium heights from N = 15
 - 21:22 I31: θ = 6, 7 draw again at N = 23 (θ = 8 still +2): the large-threshold failures are a small-N effect, no separation
 - 21:03 I31 dead: θ ≥ 6–7 separates the high phase from the draw (fine change is what the low phase needs); the level law fails from θ = 2 with the draw intact
 - 21:01 C104 ⇒ C1 in Lean (`conjecture_of_low_column`)
