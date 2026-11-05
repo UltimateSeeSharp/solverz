@@ -7,6 +7,7 @@ use std::cmp::Ordering;
 #[cfg(feature = "cuda")]
 pub mod cuda;
 pub mod layered;
+pub mod margin;
 pub mod tiled;
 #[cfg(feature = "cuda")]
 pub mod tiled_cuda;
