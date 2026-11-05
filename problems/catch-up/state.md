@@ -10,7 +10,7 @@ Already covered (not to redo): `T807` strategy stealing, `T818` far blocks, `T11
 **Limits (user, 2026-11-04).** Ask before heavy runs while the user works on the machine; light runs (one thread, seconds) are fine.
 **Agents paused (user, 2026-11-05 20:55).** No ideator, refuter or other agent in this session until the user allows it again (or a new session). Wanted once allowed: a refuter on C116/C114's engine (`ShortTurns`, one implementation) and on I31's universality data; an ideator round after the toolbox angles. Ideator fresh08 handed back (I33, C119; its cuts in `scratch/ideator/2026-11-05-fresh08.md`).
 **Running.**
-- E46 (`e46_threshold_variants 0 10 3 23`, committed 79fdac9, started 2026-11-05 21:30, 1 thread, < 1 GB), output `scratch/e46-0-10-23.txt`.
+(none)
 
 ## Optional long runs
 - Queued for the overnight session (user, 2026-11-05 21:20: "not yet, later in the overnight session"); start when the user says it has begun, one at a time, as experiments stated first:

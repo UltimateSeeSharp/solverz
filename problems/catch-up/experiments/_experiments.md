@@ -47,3 +47,4 @@
 | [E43](E43.md) | Two inequalities break (C117, C118) | C117, C118 | both refuted: deficit Lipschitz at sets with max 18, the extra-number bound both ways |
 | [E44](E44.md) | The largest change number at k = 8, 9 (C116) | C116 | no draw lost at k = 8, 9; C116 holds for k ≤ 9 |
 | [E45](E45.md) | The one-hole band at every height (C110) | C110 | k ≤ 9, every height up to k(2k + 1) + k + 1: all draws; with C13, every integer height |
+| [E46](E46.md) | Threshold variants on {1..N} (C120) | C120 | θ ≤ 5 draw from N₀ ≤ 15 to 23; θ = 6..10 still have non-draws at N ≤ 23, shrinking toward ±2 |
