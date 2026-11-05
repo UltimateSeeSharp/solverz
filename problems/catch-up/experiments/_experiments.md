@@ -41,3 +41,4 @@
 | [E37](E37.md) | Tied odd blocks minus one number at every real height (C109) | C109 | k ≤ 7: every draw-parity hole draws on all of (0, ∞), exactly |
 | [E38](E38.md) | The one-hole band (C110) | C110 | k = 3..9, every height tested, every hole: every draw-parity d ≤ k − 1 draws; the band ends exactly at d = k |
 | [E39](E39.md) | The controller games on {1..N} (C112) | C112 | N ≤ 24: no controller wins at an even total; the controller wins every odd total by exactly 1 |
+| [E40](E40.md) | C99's deficit-1 endpoint families | C99 | even-total N ≤ 24: no loss in either family, all draws from N = 11; a C99 loss at d ≥ 7 needs the upper witness |
