@@ -117,3 +117,4 @@
 | [C113](C113.md) | Small change under a block (POOL) | — | open | — | — |
 | [C114](C114.md) | Two-number turns suffice for the defender | — | open | — | — |
 | [C115](C115.md) | Inert opening depth | — | open | — | — |
+| [C116](C116.md) | The change number is the largest one below the deficit | C114 | open | — | — |
