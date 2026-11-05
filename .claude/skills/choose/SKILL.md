@@ -16,14 +16,16 @@ description: Picks a new problem from problems/problems.md and sets it up: check
    check, whether it hinges on a new idea) against this machine (CLAUDE.md,
    This machine). Keep only framings that fit and whose kind has a skill.
 4. The user picks a problem and its framing.
-5. Add the problem to `problems/active.md`, remove it from
-   `candidates.md`, and commit that on main; then create its worktree
-   (CLAUDE.md, Rules), where everything from here is done and committed. Copy `templates/_shared/` and `templates/<kind>/`
-   to `problems/<name>/`; rename `lean/Problem*` and the namespace to the
-   library name, and the crate to the folder name. Add a `[[lean_lib]]`
+5. Everything here is done in the main folder on main. Add the problem to
+   `problems/active.md`, remove it from `candidates.md`. Copy
+   `templates/_shared/` and `templates/<kind>/` to `problems/<name>/`;
+   rename `lean/Problem*` and the namespace to the library name, and the
+   crate to the folder name. Add a `[[lean_lib]]`
    with `srcDir` and a `defaultTargets` entry to `lakefile.toml`.
 6. Write the README: problem, kind and the estimate, literature with dated
    searches.
 7. State the goal in Lean and run `audit`; the user approves it.
 8. Start the attack as the kind's skill says under Start; set
    `understanding.md` and `state.md`.
+9. Commit everything on main; once the tree is clean, create the problem's
+   worktree (CLAUDE.md, Rules) for the researcher.
