@@ -3,7 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
-- 19:10 C111 verified: Catch-Up lies between the two controller games, so C112 gives C1 (`conjecture_of_controller_games`)
+- 19:03 C111 verified: Catch-Up lies between the two controller games, so C112 gives C1 (`conjecture_of_controller_games`)
 - 19:00 I25 alive: no controller wins at an even total for N ≤ 24, and every odd total goes to the controller by exactly 1 (E39)
 - 18:55 I25 new (tie-rule sandwich, C111, C112) and I26 dead (POOL, C113, cannot be forced) (ideator fresh05)
 - 18:52 C110 open (the one-hole band, k = 3..9 at every height tested, E38) and C110 ⇒ C1 in Lean (`conjecture_of_one_hole_band`)
