@@ -13,6 +13,8 @@ Already covered (not to redo): `T807` strategy stealing, `T818` far blocks, `T11
 (none)
 
 ## Optional long runs
+- C114/C116 at C1 roots N = 23, 24 (`ShortTurns`, about 5 GB, 1 thread): ask the user first.
+- θ-variants (I31) at N = 23, 24 to see whether θ = 6, 7 draw again at large N (HashMap engine, several GB): ask the user first.
 - C86 for p = 5 in Lean (draft `scratch/a17/BandFive.lean`, to append to `lean/CatchUp/Band.lean`; kernel evaluation, 1 thread, 2–4 GB; 28 600 distinct positions against 4 265 for p = 4, so about 7× its build time or more if the evaluator does not share subtrees): ask the user first.
 - E24 at p = 10 (about 5 h on 6 threads): `target/release/e24_collapsed_rounds.exe 10 10 6`.
 - Stopped, rerun when needed: `scratch/a13/lexap.exe 9 9 5 20 > scratch/a13/lexap-9.txt` (C62 progressions, k = 9).
