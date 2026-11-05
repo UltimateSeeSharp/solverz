@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
+- 21:00 I31 alive again at its edge: the threshold variant θ = 6 loses at N = 16 and 20 (θ ≤ 5 draws to N = 20)
 - 20:58 I33 kill test (2): canonical play from the maximal opening fails at the first defender turn for every N; C119 stays as the cheapest Lean target only
 - 20:55 I33 alive: C1 needs only the no-win half at the maximal opening (C119 ⇒ C1 in Lean, `conjecture_of_max_opening`); I31 dead as a separation (the draw is universal across catch-up-like rules); ideator fresh08 kept I33, cut 14 angles
 - 20:47 I32 dead (temperature: cooling Catch-Up is the height deformation C32; flat at N ≡ 0 mod 4, isolated draws at N ≡ 3 mod 4)

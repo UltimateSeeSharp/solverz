@@ -32,6 +32,6 @@
 | [I28](I28.md) | Inert opening depth | `T300` specialize | ideator | C115 | dead |
 | [I29](I29.md) | Complement mirror | `T809` mirror strategy | user (toolbox) | — | dead |
 | [I30](I30.md) | Automatic rows | `T21` Walnut | user (toolbox) | — | dead |
-| [I31](I31.md) | Rule variants that separate the lemmas from C1 | `T1011` prove the approach cannot work | user (toolbox) | — | dead |
+| [I31](I31.md) | Rule variants that separate the lemmas from C1 | `T1011` prove the approach cannot work | user (toolbox) | — | alive |
 | [I32](I32.md) | Temperature of the low phase | `T816` temperature theory | user (toolbox) | — | dead |
 | [I33](I33.md) | One start: the maximal opening | `—` one-start reduction | ideator | C119 | alive |
