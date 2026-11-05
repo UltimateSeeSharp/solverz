@@ -26,11 +26,11 @@ placeholders to replace.
 | `README.md` | The problem: its rules in plain terms, the goal with its Lean name, its kind; the literature, with dated searches, including those that found nothing; optional problem-specific rules (files not to edit, compute limits). |
 | `state.md` | Now: the focus, the next step, what is running (agents and experiments: what, when started, where its output goes) and what needs the user. |
 | `understanding.md` | What holds (heuristics marked as such), what blocks every approach so far, and so what a solution must do; each point cites its evidence by ID. Rewritten when the understanding changes; single failures stay in the files of what they tested. |
-| `lean/` | The problem's Lean library: `<Name>.lean` imports its modules; `<Name>/Statement.lean` holds the goal and the definitions it uses; `<Name>/Tests/` unit-tests the statements; `<Name>/<Author>/` holds Lean imported from that author, with its license and notice; everything else is ours. |
+| `lean/` | The problem's Lean library: `<Problem>.lean` imports its modules; `<Problem>/Statement.lean` holds the goal and the definitions it uses; `<Problem>/Tests/` unit-tests the statements; `<Problem>/<Author>/` holds Lean imported from that author, with its license and notice; everything else is ours. |
 | `solver/` | The problem's Rust crate: `README.md` lists its engines and what each was checked against; `src/` holds the engines; `src/bin/` holds one binary per run. |
 | `scratch/` | Git-ignored playground; nothing there counts. Exploring there is always allowed; the rules apply to what gets recorded. |
 | `journal.md` | Steps that changed a status, newest first; one timestamped line each, under its date. |
-| `results.md` | Its Results (`T1`…): Lean-checked statements that answer or improve a published open question (a table entry, a record, a conjecture). One counts once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `results.md` gets it only on approval. |
+| `results.md` | Its Results (`T1`…), newest first: Lean-checked statements that answer or improve a published open question (a table entry, a record, a conjecture). One counts once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `results.md` gets it only on approval. |
 
 ## Roles
 - **Researcher**: the session that runs the attack loop. It knows what the

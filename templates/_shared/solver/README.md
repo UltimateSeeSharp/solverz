@@ -1,6 +1,6 @@
-# <Problem> solver
+# <problem name> solver
 
 ## Engines
 | Engine | What | Checked against |
 |---|---|---|
-| <name> | <what it computes> | <independent engine or published values> |
+| <name> | <what> | <check> |

@@ -1,9 +1,9 @@
-# <name>
+# <problem name>
 
 <summary> Now: [state.md](state.md).
 
 ## Problem
-<rules> **Goal:** <statement>, Lean `<Namespace.Name>`.
+<rules> **Goal:** <statement>, Lean `<Problem>.Goal`.
 Kind: <kind>.
 
 ## Literature

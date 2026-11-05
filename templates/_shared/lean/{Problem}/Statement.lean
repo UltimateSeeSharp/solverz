@@ -3,16 +3,16 @@ module
 public import Mathlib
 
 /-!
-# <Problem>: the goal
+# <problem name>: the goal
 
 <plain statement> Pending the user's approval.
 -/
 
 @[expose] public section
 
-namespace Problem
+namespace <Problem>
 
 /-- <plain statement> -/
-def Conjecture : Prop := sorry
+def Goal : Prop := sorry
 
-end Problem
+end <Problem>
