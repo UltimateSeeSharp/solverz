@@ -6,16 +6,12 @@ description: Domain model and attack loop for a `prove` problem: ideas, claims, 
 # Prove
 
 ## Domain model
-- **Idea**: a way to attack the problem. Kind (induction, invariant, finite
-  reduction, …), source (ideator, literature, us), the claims it needs,
-  including the claim that those claims imply the goal.
-  Status: `new` → `alive` (survived its kill test) | `dead` (which claim
-  failed) | `solved`.
-- **Claim**: one precise statement. The claims it uses; evidence; what was
-  tried and failed.
-  Status: `open` → `refuted` (counterexample) | `proved` → `verified` (Lean).
-  `approved` when the user confirmed its Lean statement says what we mean.
-- **Experiment** (CLAUDE.md, Files): here it tests one claim.
+
+| File | What it holds, how it is used |
+|---|---|
+| `ideas/` | Idea: a way to attack the problem. Technique (its toolbox entry and name, e.g. `T301` generalize; `—` and a name when the toolbox has none), source (ideator, literature, us), the claims it needs, including the claim that those claims imply the goal. Status: `new` → `alive` (survived its kill test) \| `dead` (which claim failed) \| `solved`. |
+| `claims/` | Claim: one precise statement. The claims it uses; evidence; what was tried and failed. Status: `open` → `refuted` (counterexample) \| `proved` → `verified` (Lean). `approved` when the user confirmed its Lean statement says what we mean. |
+| `experiments/` | Experiment (CLAUDE.md, Files): here it tests one claim. |
 
 Relations: an idea needs claims, a claim uses claims (both many to many).
 A refuted claim kills every idea that needs it and reopens every proved

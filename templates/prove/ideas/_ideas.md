@@ -1,5 +1,5 @@
 # Ideas
 
-| ID | Idea | Kind | Source | Needs | Status |
+| ID | Idea | Technique | Source | Needs | Status |
 |---|---|---|---|---|---|
-| [I1](I1.md) | <one line> | <induction, invariant, …> | <ideator, literature, us> | <claim IDs> | new |
+| [I1](I1.md) | <one line> | <`T…` name, or — name> | <ideator, literature, us> | <claim IDs> | new |
