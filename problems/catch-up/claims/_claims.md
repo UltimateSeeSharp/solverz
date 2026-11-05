@@ -108,4 +108,4 @@
 | [C104](C104.md) | The low column of blocks (EB) | — | open | — | — |
 | [C105](C105.md) | Tied odd blocks minus one number draw (B1) | — | open | — | — |
 | [C106](C106.md) | Tied blocks minus one number never lose (B2) | — | open | — | — |
-| [C107](C107.md) | Neighbour bound (NB) | — | open | — | — |
+| [C107](C107.md) | Neighbour bound (NB) | — | verified | `CatchUp.neg_margin_erase_le_of_succ`, `…_of_pred` (`CatchUp/Neighbour.lean`) | — |
