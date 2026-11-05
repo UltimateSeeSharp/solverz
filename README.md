@@ -1,22 +1,43 @@
 # solverz
 
-AI-assisted attacks on open math problems; every result is machine-checked
-in Lean 4. How it works: [CLAUDE.md](CLAUDE.md). How we think:
-[principles.md](principles.md). All problems:
-[problems/problems.md](problems/problems.md); being attacked:
-[problems/active.md](problems/active.md).
+AI agents attack open problems in mathematics. A result counts only when
+it is a Lean 4 proof the computer has checked, so it can be trusted
+without trusting the AI or the search code behind it.
 
-## Use
-- "choose a problem": picks from problems/problems.md and sets the problem up.
-- "attack <problem>": runs the attack loop until the goal is verified or you
-  stop it. What needs you is listed in the problem's `state.md`.
+## Results
 
-## Setup
-1. Install [elan](https://github.com/leanprover/elan), the VS Code "Lean 4"
-   extension and [Rust](https://rustup.rs).
-2. `lake exe cache get` (prebuilt Mathlib instead of hours of compiling).
+| Date | Problem | Result | Proof |
+|---|---|---|---|
+| — | — | none yet | — |
+
+## Problems
+
+| Problem | The question | Status |
+|---|---|---|
+| [Signed difference sets](problems/signed-difference-sets/README.md) | Which ±1 patterns with perfectly flat autocorrelation exist? Settling open entries of Gordon's table. | 2 entries proved impossible, under review |
+| [Catch-Up](problems/catch-up/README.md) | Is the number game Catch-Up on 1..N always a draw when the total is even? | open; partial results |
+| [R(K₃, K₄−e, K₄−e)](problems/ramsey-k3-k4e-k4e/README.md) | Is this three-colour Ramsey number 21 or 22? | open; search engine being built |
+
+All candidate problems, rated: [problems/problems.md](problems/problems.md).
+
+## Why a result can be trusted
+
+- Lean 4 checks every proof: no `sorry`, no `native_decide`, and
+  `#print axioms` shows only `propext`, `Classical.choice`, `Quot.sound`.
+- A separate agent tries to break each result before it counts.
+- Work by others is credited; their results are not listed as ours.
+
+Check it yourself: `lake build --wfail`.
+
+## How it works
+
+A problem is chosen from the rated list and stated in Lean. An attack
+loop then searches, conjectures and proves; agents bring fresh ideas or
+try to refute results. Details: [CLAUDE.md](CLAUDE.md),
+[principles.md](principles.md).
+
+## Run it
+
+1. Install [elan](https://github.com/leanprover/elan) and [Rust](https://rustup.rs).
+2. `lake exe cache get` (prebuilt Mathlib).
 3. `lake build` and `cargo build --release`.
-
-## Verify
-`lake build --wfail` and `#print axioms` (trust rules in CLAUDE.md);
-`cargo test --release`.
