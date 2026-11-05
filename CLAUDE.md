@@ -1,7 +1,8 @@
 # solverz
 
 AI-assisted attacks on open math problems; every result is checked in Lean 4.
-How we think and work: `principles.md`.
+How we think and work: `principles.md`; techniques to draw on: `toolbox/`
+(`toolbox/check.ps1` validates it).
 
 ## Domain model
 - **Problem**: what we want to solve. Statement (as a Lean claim), kind,
