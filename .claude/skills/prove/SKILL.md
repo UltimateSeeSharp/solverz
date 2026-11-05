@@ -1,11 +1,6 @@
 ---
 name: prove
 description: Domain model and attack loop for a `prove` problem: ideas, claims, experiments. Run by "attack <problem>" when the problem's kind is prove.
-hooks:
-  Stop:
-    - hooks:
-        - type: command
-          command: sh "$CLAUDE_PROJECT_DIR/.claude/hooks/never-stop.sh"
 ---
 
 # Prove
