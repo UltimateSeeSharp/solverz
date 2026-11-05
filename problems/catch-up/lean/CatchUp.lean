@@ -21,6 +21,7 @@ public import CatchUp.Classifier
 public import CatchUp.Executable
 public import CatchUp.GameMargin
 public import CatchUp.Neighbour
+public import CatchUp.Controller
 public import CatchUp.OneHoleRounds
 public import CatchUp.OneHoleBand
 public import CatchUp.Endgames
