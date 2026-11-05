@@ -1,13 +1,13 @@
-# <Problem name>
+# <name>
 
-<One-line summary.> Now: [state.md](state.md).
+<summary> Now: [state.md](state.md).
 
 ## Problem
-<Rules in plain terms.> **Goal:** <statement>, Lean `<Namespace.Name>`.
-Kind: <prove, find, bound or compute>.
+<rules> **Goal:** <statement>, Lean `<Namespace.Name>`.
+Kind: <kind>.
 
 ## Literature
-<Prior results with links; searches with dates, including ones that found nothing.>
+<results and dated searches>
 
 ## Rules
-<Optional: problem-specific constraints, e.g. files not to edit, compute limits.>
+<rules>

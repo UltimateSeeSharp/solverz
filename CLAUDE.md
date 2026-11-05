@@ -4,25 +4,33 @@ AI-assisted attacks on open math problems; every result is checked in Lean 4.
 How we think and work: `principles.md`; techniques to draw on: `toolbox/`
 (`toolbox/check.ps1` validates it).
 
-## Domain model
-- **Problem**: what we want to solve. Statement (as a Lean claim), kind,
-  literature. Kinds:
-  - `prove`: a statement holds in all cases; a Lean proof.
-  - `find`: an object with a property exists; Lean checks the object.
-  - `bound`: improve a best-known value: a better object, or a proof of a
-    tighter limit; Lean checks either.
-  - `compute`: an exact value or complete list; Lean checks a certificate.
-  A problem that fits no kind, or has no finite check, is not taken on;
-  the user decides.
-- **Journal**: what changed, newest first: one timestamped line per step that
-  changed a status, under its date.
-- **Result** (`T1`…, in `results.md`): a Lean-checked statement that answers
-  or improves a published open question (a table entry, a record, a
-  conjecture). It counts once the refuter SURVIVES it, its origin credits
-  whoever had it first, and the user approves it. Until then it waits under
-  "Needs the user" in `state.md`; `results.md` gets it only on approval.
+## Problem
+What we want to solve, of one kind; each kind adds its own model and attack
+loop: the skill of its name.
+- `prove`: a statement holds in all cases; a Lean proof.
+- `find`: an object with a property exists; Lean checks the object.
+- `bound`: improve a best-known value: a better object, or a proof of a
+  tighter limit; Lean checks either.
+- `compute`: an exact value or complete list; Lean checks a certificate.
 
-Each kind adds its own model and attack loop: the skill of its name.
+A problem that fits no kind, or has no finite check, is not taken on; the
+user decides.
+
+## Files
+Every problem has these (`templates/_shared/`); its kind's skill adds its own.
+In a template, `<…>` in the text and `{…}` in file and folder names are
+placeholders to replace.
+
+| File | What it holds, how it is used |
+|---|---|
+| `README.md` | The problem: its rules in plain terms, the goal with its Lean name, its kind; the literature, with dated searches, including those that found nothing; optional problem-specific rules (files not to edit, compute limits). |
+| `state.md` | Now: the focus, the next step, what is running (agents and experiments: what, when started, where its output goes) and what needs the user. |
+| `understanding.md` | What holds (heuristics marked as such), what blocks every approach so far, and so what a solution must do; each point cites its evidence by ID. Rewritten when the understanding changes; single failures stay in the files of what they tested. |
+| `lean/` | The problem's Lean library: `<Name>.lean` imports its modules; `<Name>/Statement.lean` holds the goal and the definitions it uses; `<Name>/Tests/` unit-tests the statements; `<Name>/<Author>/` holds Lean imported from that author, with its license and notice; everything else is ours. |
+| `solver/` | The problem's Rust crate: `README.md` lists its engines and what each was checked against; `src/` holds the engines; `src/bin/` holds one binary per run. |
+| `scratch/` | Git-ignored playground; nothing there counts. Exploring there is always allowed; the rules apply to what gets recorded. |
+| `journal.md` | Steps that changed a status, newest first; one timestamped line each, under its date. |
+| `results.md` | Its Results (`T1`…): Lean-checked statements that answer or improve a published open question (a table entry, a record, a conjecture). One counts once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `results.md` gets it only on approval. |
 
 ## Roles
 - **Researcher**: the session that runs the attack loop. It knows what the
@@ -41,25 +49,13 @@ Each kind adds its own model and attack loop: the skill of its name.
 
 ## Where things live
 ```
-.worktrees/<problem>/  the attack's checkout of attack/<problem>
-templates/_shared/  files every problem has; templates/<kind>/ the files its
-                    kind adds; a new file copies them
-problems/
-  problems.md   every problem, rated (choose picks from it)
-  active.md     one row per problem folder
-  candidates.md the user's recent picks, weighed by choose with the rest
-problems/<name>/
-  README.md     the problem
-  results.md    its Results, newest first
-  journal.md    what changed, newest first
-  understanding.md  what holds, what blocks, what a solution must do
-  state.md      now: focus, next step, running jobs, what needs the user
-  lean/         <Name>.lean (root); <Name>/Statement.lean (the goal and the
-                definitions it uses), one file per other topic (its header
-                names the IDs it serves), Tests/
-  solver/       README.md (engines, how each is checked); src/ (engines),
-                src/bin/ (one binary per run, named by its ID: e12_quad_step.rs)
-  scratch/      git-ignored playground
+.claude/       skills/  agents/  hooks/
+templates/     _shared/  <kind>/
+problems/      problems.md  active.md  candidates.md
+  <name>/      templates/_shared/ + templates/<kind>/
+toolbox/
+principles.md
+.worktrees/<name>/
 ```
 
 ## Rules
@@ -128,9 +124,6 @@ what doesn't depend on it.
   `Prop` definitions UpperCamelCase, all in the problem's namespace.
 - **Rust:** [API Guidelines](https://rust-lang.github.io/api-guidelines/naming.html)
   naming.
-- **Scratch:** `problems/<name>/scratch/` is git-ignored; nothing there counts.
-  Exploring there to find ideas is always allowed; the rules apply to what
-  gets recorded.
 - **Dates:** ISO 8601 (`2026-10-29`).
 - **Commits:** [Conventional Commits](https://www.conventionalcommits.org)
   `type(scope): summary`, a body with what and why. Scope: the problem

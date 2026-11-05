@@ -1,8 +1,8 @@
 # State
 
-**Focus.** <what is being worked on, by ID>
-**Next step.** <one concrete action, doable now; never waiting on Running, the user or the machine>
-**Running.** <agents and experiments: what, started, where its output goes>
+**Focus.** <IDs>
+**Next step.** <step>
+**Running.** <what, started, output>
 
 ## Needs the user
-- <statements to approve, a result to call a solution, decisions>
+- <item>
