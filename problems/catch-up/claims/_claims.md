@@ -120,3 +120,4 @@
 | [C116](C116.md) | The change number is the largest one below the deficit | C114 | open | — | — |
 | [C117](C117.md) | Deficit Lipschitz | — | refuted | — | — |
 | [C118](C118.md) | Extra-number bound | — | refuted | — | — |
+| [C119](C119.md) | The maximal opening is not a win for the answerer | C77 | open | C119 ⇒ C1: `CatchUp.conjecture_of_max_opening` (`CatchUp/MaxOpening.lean`) | — |
