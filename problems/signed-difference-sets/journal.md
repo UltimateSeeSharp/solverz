@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-05
+- R4 (P1 to the first set, open Instances v ≤ 40): sets O6–O11 settle N49, N61, N62, N67, N68, N73 as exists, Lean-checked (`Answer/N<id>.hasSDS`); none for N30, N89, N90 (no Lean proof yet)
 - Migrated to Instances: `instances.csv` from Gordon's table (70,543; He–Wu applied, 22,457 open); S1 → N3, S2 → N32 (`Answer/N3`, `Answer/N32`); `cases.md`, R2 and R3 binaries removed (no runs recorded)
 - S1, S2: no SDS, proved in Lean (`CaseS1`, `CaseS2`; F2, F3 in Lean); refuter pending, statuses unchanged until it reports
 - Goal audit: refuter SURVIVES on `IsSDS`/`HasSDS`; approval pending
