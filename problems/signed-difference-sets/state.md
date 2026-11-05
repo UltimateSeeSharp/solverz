@@ -5,9 +5,9 @@
 2. A Lean non-existence checker: first contraction (F3: no integer vector on a quotient meets the conditions; a verified search the kernel evaluates), tested on N32 and the E4 Instances contraction kills; then exhaustion for cases like N3. The design goes to the user before any code: what it proves, how Lean evaluates it, expected speed.
 3. Background meanwhile: E4's 9 unchecked sets (N127–N130, N132, N137, N139, N169, N170) as objects, Lean-checked, each checked against Gordon, He–Chen–Ge and He–Wu before it is proposed; E4's 22 unreached Instances with v ≤ 40 finished.
 4. Once the checker settles its first cases, the user and the researcher pick the range: open entries with v < 50, v < 100, or more.
-**Next step.** Step 1 done (E6: O12 for N35840, Lean pending; P2 sporadic): reported, waiting for the user's go.
+**Next step.** Step 2: the checker's design is with the user (set check for O12, contraction search, exhaustion later); code only on approval. Step 1 done: E6 found O12 for N35840 (Lean pending); P2 is sporadic.
 **Running.** nothing.
 
 ## Needs the user
 - Findings to bring to the user: N63319, N14604, N31832, N14471 are settled in Gordon or He–Chen–Ge, so `instances.csv` lists them as open wrongly.
-- Uncommitted in the worktree since the last session: the contraction engine for E5 (`solver/src/contraction.rs`, `instances.rs`, `bin/r5_contraction.rs`, two `mod` lines in `lib.rs`); its first run stopped in validation with no output, so it is unchecked; its doc comment still says R5. Taken up in step 2.
+- Uncommitted in the worktree: the contraction engine for E5 (`solver/src/contraction.rs`, `bin/r5_contraction.rs`, a `mod` line in `lib.rs`). Its first run hung because `quotients` looped forever, now fixed. An exploration run (`scratch/r5-40.out`) kills 12 open Instances with v ≤ 40. Not yet an experiment; its doc comment still says R5.
