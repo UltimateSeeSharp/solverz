@@ -33,3 +33,4 @@
 | [I29](I29.md) | Complement mirror | `T809` mirror strategy | user (toolbox) | — | dead |
 | [I30](I30.md) | Automatic rows | `T21` Walnut | user (toolbox) | — | dead |
 | [I31](I31.md) | Rule variants that separate the lemmas from C1 | `T1011` prove the approach cannot work | user (toolbox) | — | new |
+| [I32](I32.md) | Temperature of the low phase | `T816` temperature theory | user (toolbox) | — | dead |
