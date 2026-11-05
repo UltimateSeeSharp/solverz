@@ -19,7 +19,7 @@ user decides.
 ## Where things live
 
 ```
-.claude/               the workflows' skills and agents
+.claude/               skills and agents
 templates/             what a new problem is set up from (Files)
 problems/              the problem lists and one folder per problem (Files)
 toolbox/               techniques to draw on; toolbox/check.ps1 validates it
@@ -42,7 +42,7 @@ In a template, `<…>` in the text and `{…}` in file and folder names are plac
 | `experiments/` | Its Experiments (`E1`…): computations whose outcome is used as evidence. What one tests and decides is stated before it runs, on committed code validated first (it reproduces known values or objects and rejects broken ones, or agrees with an independent computation). Any other computation is exploration in `scratch/`. |
 | `scratch/`         | Git-ignored playground; nothing there counts. Exploring there is always allowed; the rules apply to what gets recorded.                                                                                                                                                                                                                                                  |
 | `journal.md`       | Steps that changed a status, newest first; one timestamped line each, under its date.                                                                                                                                                                                                                                                                                    |
-| `solutions.md`     | Its Solutions (`Z1`…), newest first: Lean-checked statements that answer or improve a published open question (a table entry, a record, a conjecture). One is listed once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `solutions.md` gets it only on approval. |
+| `solutions.md`     | Its Solutions (`Z1`…), newest first: Lean-checked statements that solve a published open question (a table entry, a record, a conjecture). One is listed once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `solutions.md` gets it only on approval. |
 
 ## Roles
 
@@ -54,8 +54,8 @@ In a template, `<…>` in the text and `{…}` in file and folder names are plac
 
 ## Attack
 
-**NEVER STOP** until the user interrupts (Esc). When its skill says the
-problem is solved, tell the user. When a step has to wait (on Running, the
+**NEVER STOP** until the user interrupts (Esc). When the problem's skill says
+it is solved, tell the user. When a step has to wait (on Running, the
 user, the machine, …), take one that doesn't (paper work, Lean statements,
 checking code before it runs, …).
 
@@ -65,7 +65,7 @@ checking code before it runs, …).
 2. Enter the problem's worktree (Rules).
 3. Check `git status`.
 4. Merge main into it.
-5. Read `understanding.md`, `state.md` and the files it links.
+5. Read `understanding.md`, `state.md` and the files they link.
 6. Check each job under Running: read its output, or rerun it if lost.
 7. Continue from its next step.
 
@@ -119,8 +119,8 @@ checking code before it runs, …).
 
 ### The user decides
 
-List it under "Needs the user" in `state.md`, mention it, and keep working on
-what doesn't depend on it.
+Each of these goes under "Needs the user" in `state.md`; mention it, and keep
+working on what doesn't depend on it.
 
 - Approving statements.
 - Calling anything a Solution.
