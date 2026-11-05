@@ -105,7 +105,7 @@
 | [C101](C101.md) | The ray point b = 6 | C77 | open | frontier: `CatchUp.RootUpperEightFrontier.interval_parent_loss_frontier`, `CatchUp.RootUpperEightCriterion.interval_reserve_nonwin_iff_core_nonloss` | — |
 | [C102](C102.md) | Copying repaired with a score debt ≤ 2 | C33 | open | one instance: `CatchUp.TwoBuffer.mandatory_protocol` (`CatchUp/TwoBufferMandatory.lean`) | — |
 | [C103](C103.md) | C74's boundary shrinks | C74, C77 | open | — | — |
-| [C104](C104.md) | The low column of blocks (EB) | — | open | — | — |
+| [C104](C104.md) | The low column of blocks (EB) | — | open | C104 ⇒ C1: `CatchUp.conjecture_of_low_column` (`CatchUp/LowColumn.lean`) | — |
 | [C105](C105.md) | Tied odd blocks minus one number draw (B1) | — | open | — | — |
 | [C106](C106.md) | Tied blocks minus one number never lose (B2) | — | open | — | — |
 | [C107](C107.md) | Neighbour bound (NB) | — | verified | `CatchUp.neg_margin_erase_le_of_succ`, `…_of_pred` (`CatchUp/Neighbour.lean`) | — |
