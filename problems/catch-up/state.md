@@ -13,6 +13,7 @@ Already covered (not to redo): `T807` strategy stealing, `T818` far blocks, `T11
 (none)
 
 ## Optional long runs
+- Queued for the overnight session (user, 2026-11-05 21:20: "not yet, later in the overnight session"): C114/C116 at C1 roots N = 23, 24; θ-variants (I31) at N = 23, 24; C86 for p = 5 in Lean. Start them when the user says the overnight session has begun.
 - C114/C116 at C1 roots N = 23, 24 (`ShortTurns`, about 5 GB, 1 thread): ask the user first.
 - θ-variants (I31) at N = 23, 24 to see whether θ = 6, 7 draw again at large N (HashMap engine, several GB): ask the user first.
 - C86 for p = 5 in Lean (draft `scratch/a17/BandFive.lean`, to append to `lean/CatchUp/Band.lean`; kernel evaluation, 1 thread, 2–4 GB; 28 600 distinct positions against 4 265 for p = 4, so about 7× its build time or more if the evaluator does not share subtrees): ask the user first.
