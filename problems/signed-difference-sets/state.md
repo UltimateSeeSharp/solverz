@@ -1,7 +1,7 @@
 # State
 
 **Focus.** Set up; waiting for the goal's approval and for "attack signed-difference-sets".
-**Next step.** On attack: the refuter on N3 and N32 (`Answer/N3`, `Answer/N32`, Lean-checked) and on F2, F3; then the open Instances smallest first (`instances.csv`, 22,457 open).
+**Next step.** On attack: the refuter on N3 and N32 (`Answer/N3`, `Answer/N32`, Lean-checked) and on F2, F3; then the open Instances smallest first (`instances.csv`, 22,457 open). Lead: contraction (F3) looks strong on open Instances; a triage script found 13 kills with v ≤ 40 (unrecorded, redo as a run).
 **Running.** nothing.
 
 ## Needs the user
