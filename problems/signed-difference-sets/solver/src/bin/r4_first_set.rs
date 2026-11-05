@@ -1,7 +1,8 @@
 //! E4: P1 on every open Instance of `instances.csv` with v ≤ `max_v`, stopping at the first
 //! set or after `max_nodes` nodes, `threads` Instances at a time. Validates the engine first.
-//! Usage: `r4_first_set <instances.csv> <max_v> <max_nodes> <threads>`; one line per
-//! Instance: id, key, yes/no/cut, nodes, time, set (`coords±` per marked element).
+//! Usage: `r4_first_set <instances.csv> <max_v> <max_nodes> <threads> [ids]`, `ids` a
+//! comma-separated list restricting the run (E7); one line per Instance: id, key,
+//! yes/no/cut, nodes, time, set (`coords±` per marked element).
 
 use signed_difference_sets::{search_capped, Group};
 use std::sync::{Arc, Mutex};
@@ -94,6 +95,7 @@ fn main() {
     let max_v: usize = args[1].parse().unwrap();
     let max_nodes: u64 = args[2].parse().unwrap();
     let threads: usize = args[3].parse().unwrap();
+    let only: Option<Vec<&str>> = args.get(4).map(|ids| ids.split(',').collect());
     validate();
     let text = std::fs::read_to_string(&args[0]).unwrap();
     let mut todo: Vec<Instance> = text
@@ -101,6 +103,7 @@ fn main() {
         .skip(1)
         .map(fields)
         .filter(|f| f[3] == "open")
+        .filter(|f| only.as_ref().is_none_or(|ids| ids.contains(&f[0].as_str())))
         .map(|f| parse_key(&f[0], &f[1]))
         .filter(|i| i.shape.iter().product::<usize>() <= max_v)
         .collect();
