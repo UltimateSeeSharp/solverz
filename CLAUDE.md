@@ -57,7 +57,8 @@ problems/<name>/
                 definitions it uses), one file per other topic (its header
                 names the IDs it serves), Tests/
   solver/       README.md (engines, how each is checked); src/ (engines),
-                src/bin/ (one binary per run, named by its ID: e12_quad_step.rs)
+                src/bin/ (one binary per run, named by its ID: e12_quad_step.rs),
+                import/ (the importer that writes instances.csv)
   scratch/      git-ignored playground
 ```
 
