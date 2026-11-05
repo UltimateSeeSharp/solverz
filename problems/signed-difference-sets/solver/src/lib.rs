@@ -2,6 +2,7 @@
 //! group (pattern P1), mirroring `SignedDifferenceSets.IsSDS`: k marked elements and
 //! Σₓ D(x)·D(x + g) = λ for every g ≠ 0.
 
+pub mod contraction;
 pub mod cyclotomic;
 pub mod instances;
 
