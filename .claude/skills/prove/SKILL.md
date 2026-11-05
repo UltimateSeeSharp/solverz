@@ -1,11 +1,14 @@
 ---
 name: prove
-description: Domain model and attack loop for a `prove` problem: ideas, claims, experiments. Run by "attack <problem>" when the problem's kind is prove.
+description: Files and attack loop for a `prove` problem: ideas, claims, experiments. Run by "attack <problem>" when the problem's kind is prove.
 ---
 
 # Prove
 
-## Domain model
+## Files
+
+A `prove` problem adds these (`templates/prove/`) to the shared ones
+(CLAUDE.md, Files).
 
 | File | What it holds, how it is used |
 |---|---|
@@ -13,37 +16,43 @@ description: Domain model and attack loop for a `prove` problem: ideas, claims, 
 | `claims/` | Claim: one precise statement. The claims it uses; evidence; what was tried and failed. Status: `open` → `refuted` (counterexample) \| `proved` → `verified` (Lean). `approved` when the user confirmed its Lean statement says what we mean. |
 | `experiments/` | Experiment (CLAUDE.md, Files): here it tests one claim. |
 
-Relations: an idea needs claims, a claim uses claims (both many to many).
-A refuted claim kills every idea that needs it and reopens every proved
-claim whose proof uses it; an idea whose claims are all verified solves the
-problem.
+### Relations
 
-## Files
-`templates/prove/` adds to `problems/<name>/`:
-```
-ideas/        _ideas.md (index), I1.md, I2.md, …
-claims/       _claims.md (index), C1.md, C2.md, …
-```
+- An idea needs claims, a claim uses claims (both many to many).
+- A refuted claim kills every idea that needs it and reopens every proved
+  claim whose proof uses it.
+- An experiment found wrong reopens every claim it refuted, and every idea
+  those claims killed.
+- An idea whose claims are all verified solves the problem.
 
 ## Start
-The goal is claim C1. The researcher builds the base itself: the
-problem's small cases computed by an engine checked against published
-values; the first ideas, standard techniques first, each with its claims
-and kill test, in `ideas/` and `claims/`. The `ideator` comes in when the
-researcher has no next idea of its own; nothing waits on it.
+
+1. C1 is the goal: its statement is `<Problem>.Goal` (`Statement.lean`),
+   approved through `audit`.
+2. The researcher builds the base itself: the problem's small cases computed
+   by an engine checked against published values.
+3. The first ideas, standard techniques first, each with its claims and
+   kill test, in `ideas/` and `claims/`.
+
+The `ideator` comes in when the researcher has no next idea of its own;
+nothing waits on it.
 
 ## Loop
-1. Pick the most promising idea now, in light of `understanding.md`: new
-   ideas get their cheapest kill test first, alive ones go deeper.
-2. Work on one claim it needs: test it, prove it, find it in the
-   literature, or verify it in Lean: while it is open, when Lean settles it
-   faster than paper; otherwise once every claim of the idea is proved on
-   paper (the goal goes through `audit` first).
-3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
-   result (CLAUDE.md, Roles); a flaw goes under Tried. A counterexample
-   counts once rechecked with committed code (in Lean if the claim is
-   stated there and the check is quick).
-4. Record changed statuses with a journal line, and `state.md`.
-5. The goal claim verified: it goes under "Needs the user" as a proposed
+
+1. **Pick** the most promising idea now, in light of `understanding.md`:
+   - new ideas get their cheapest kill test first;
+   - alive ones go deeper.
+2. **Work** on one claim it needs: test it, prove it, find it in the
+   literature, or verify it in Lean.
+   - Verify it in Lean while it is open, when Lean settles it faster than
+     paper; otherwise once every claim of the idea is proved on paper (the
+     goal goes through `audit` first).
+3. **Check** before a claim becomes `proved` or `refuted`: the `refuter`
+   attacks the result (CLAUDE.md, Roles); a flaw goes under Tried.
+   - A counterexample refutes a claim once it is an Experiment's outcome
+     (CLAUDE.md, Files); in Lean if the claim is stated there and the check
+     is quick.
+4. **Record** changed statuses with a journal line, and `state.md`.
+5. **The goal claim verified:** it goes under "Needs the user" as a proposed
    Solution (CLAUDE.md, Files); stop and tell the user. Otherwise never stop
    (CLAUDE.md, Attack).

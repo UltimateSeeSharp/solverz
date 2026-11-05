@@ -30,7 +30,7 @@ principles.md          how we think and work
 ## Files
 
 Every problem has these (`templates/_shared/`); its kind adds more (`templates/<kind>/`), described in its skill.
-In a template, `<…>` in the text and `{…}` in file and folder names are placeholders to replace.
+In a template, `<…>` in the text and `{…}` in file and folder names are placeholders to replace; an example row with nothing to fill is deleted.
 
 | File               | What it holds, how it is used                                                                                                                                                                                                                                                                                                                                            |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -101,7 +101,7 @@ checking code before it runs, …).
 
 ### Trust
 
-- Nothing counts until Lean checks it: `lake build --wfail`, no `sorry`,
+- Nothing counts as verified or as a Solution until Lean checks it: `lake build --wfail`, no `sorry`,
   no custom `axiom`, no `native_decide`; `#print axioms` shows only
   `propext`, `Classical.choice`, `Quot.sound`.
 - Solvers and agents are untrusted.

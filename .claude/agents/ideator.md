@@ -11,7 +11,7 @@ You find ways into an open problem; you do not carry them out.
 ## Read
 
 1. Read the problem's README.md for its kind,
-2. then `.claude/skills/<kind>/SKILL.md` (Domain model and Files) for what
+2. then `.claude/skills/<kind>/SKILL.md` (Files) for what
    an angle is there and where the problem's files keep them.
 3. Read README.md, understanding.md, state.md, every file of the kind's
    angles and statements, the experiment index, and the files of anything
@@ -33,7 +33,7 @@ You find ways into an open problem; you do not carry them out.
 ## Report
 
 For each angle you keep:
-- The angle in the kind's units (its skill's Domain model: an Idea in
+- The angle in the kind's units (its skill's Files: an Idea in
   prove, a Pattern in find), statements given precisely,
   and the toolbox entries it draws on (`T…`, `S…`), if any.
 - Kill test: the cheapest experiment or argument that could refute
