@@ -45,3 +45,4 @@
 | [E41](E41.md) | Two-number turns for the defender (C114) | C114 | C110 k ≤ 9 at heights ≤ 2(2k + 1) and C1 N ≤ 20: no draw lost with turns of at most two numbers |
 | [E42](E42.md) | The largest change number (C116) | C116 | C110 k ≤ 7, C1 and C92's families N ≤ 20: no draw lost with the largest change number |
 | [E43](E43.md) | Two inequalities break (C117, C118) | C117, C118 | both refuted: deficit Lipschitz at sets with max 18, the extra-number bound both ways |
+| [E44](E44.md) | The largest change number at k = 8, 9 (C116) | C116 | no draw lost at k = 8, 9; C116 holds for k ≤ 9 |
