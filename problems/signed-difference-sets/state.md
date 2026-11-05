@@ -5,7 +5,7 @@
 **Running.** nothing.
 
 Done ahead of the attack (setup day, 2026-11-05; scratch files are not records yet):
-- S1 (9, 8, 1) in C₃ × C₃ and S2 (20, 17, 8) in C₂ × C₁₀: no SDS, proved in Lean (`lake build` of `SignedDifferenceSets.CaseS1`, `CaseS2` passes; axioms not yet printed); refuter pending.
+- S1 (9, 8, 1) in C₃ × C₃ and S2 (20, 17, 8) in C₂ × C₁₀: no SDS, proved in Lean (in the library root; `lake build --wfail` passes; `#print axioms`: propext, Classical.choice, Quot.sound); refuter pending.
 - Gordon's Open keys with v ≤ 40: 91; He–Wu's four criteria, reimplemented (`scratch/hewu.py`), leave 55; contraction to quotients (F3, `scratch/contract2.py`) kills 13 of those, S2 among them.
 
 ## Needs the user
