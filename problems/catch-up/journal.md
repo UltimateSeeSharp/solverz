@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
+- 19:53 C110 partly verified at linear height: holes o ≥ k at 1 ≤ d ≤ o + 1 − k (`one_hole_band_draw_linear`)
 - 19:47 E42: the defender's change number can be the largest below its deficit (C116) on C110 (k ≤ 7), C1 and C92 (N ≤ 20)
 - 19:41 I28 dead (inert opening depth, C115, not a route); ideator fresh06 cut three more angles
 - 19:39 I27 alive: two-number defender turns keep every C110 draw for k ≤ 9 and C1 for N ≤ 20 (E41)

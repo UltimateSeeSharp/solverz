@@ -11,7 +11,8 @@ is a draw at a tie once `a > 3(2k + 1)`, against `a + o > k(2k + 1)` in `one_hol
 The strategy is `Linear.lean`'s (AM+T, then matching partners after the switch) on blocks of
 `2(k + 1)` offsets, which contain the one-hole set; the tied opponent's first round is
 `OneHoleRounds.lean`'s (answer `2k`, or `2k - 1` / `2k - 2` after the opening `2k`). C22
-(`valueAux_transfer`) carries both guarantees to the real game.
+(`valueAux_transfer`) carries both guarantees to the real game. The same classes give part of C110's
+band, `1 ≤ d ≤ o + 1 - k` (`one_hole_band_draw_linear`).
 -/
 
 @[expose] public section
@@ -176,5 +177,73 @@ theorem one_hole_block_draw_linear {k o a : ℕ} (hk : 3 ≤ k) (hlo : k ≤ o) 
   rw [Nat.add_zero] at hZ hY
   revert hZ hY
   cases valueAux ((oneHole k o).map (addLeftEmbedding a)) s s false <;> simp
+
+/-- `D_Z` of a one-hole block: the hole's distance below `2k - 1`. -/
+theorem depthZ_oneHole_le {k o : ℕ} (ho : o < 2 * k) :
+    depthZ (oneHole k o) ≤ 2 * k - 1 - o := by
+  have hne : (oneHole k o).Nonempty := ⟨2 * k, mem_oneHole.mpr ⟨by omega, by omega⟩⟩
+  have hmax : (oneHole k o).max' hne = 2 * k :=
+    le_antisymm (Finset.max'_le _ _ _ fun y hy => by have := (mem_oneHole.mp hy).1; omega)
+      (Finset.le_max' _ _ (mem_oneHole.mpr ⟨by omega, by omega⟩))
+  rw [depthZ_of_nonempty hne, hmax]
+  have hT : (oneHole k o).erase (2 * k) = (Finset.range (2 * k)).erase o := by
+    ext x
+    simp only [Finset.mem_erase, Finset.mem_range]
+    omega
+  rw [hT]
+  exact depth_range_erase_le (by omega)
+
+/-- **Part of C110's band at linear height**, `k ≥ 3`: the odd block `{a, …, a + 2k}` without
+`a + o`, `k ≤ o ≤ 2k`, is a draw for the mover trailing by `d` with `1 ≤ d ≤ o + 1 - k`
+(`d ≤ k` when `o = 2k`) of the draw parity, once `a > 3(2k + 1)`. -/
+theorem one_hole_band_draw_linear {k o a d : ℕ} (hk : 3 ≤ k) (hlo : k ≤ o) (hhi : o ≤ 2 * k)
+    (hd1 : 1 ≤ d) (hd : d + (2 * k - 1 - o) ≤ k) (hdk : d ≤ k)
+    (hpar : (d + ∑ x ∈ oneHole k o, x) % 2 = 0) (ha : 3 * (2 * (k + 1) - 1) < a) (s : ℕ) :
+    valueAux ((oneHole k o).map (addLeftEmbedding a)) s (s + d) false = .draw := by
+  have hT := valueAux_transfer a (HZ (k + 1)) (HY (k + 1))
+    (fun T d hK o' ho' => by
+      have := Finset.mem_range.mp (hK.1 ho'); have := hK.2.2.2.2; omega)
+    (fun T e hK o' ho' => by
+      have := Finset.mem_range.mp (hK.1 ho')
+      rcases hK.2.2.2 with ⟨-, -, he⟩ | ⟨-, he⟩
+      · omega
+      · have := matchCost_nonneg _ T rfl; omega)
+    (fun d hK => by
+      have h1 := hK.2.2.2.1.1 (by simp)
+      have h2 := hK.2.2.1
+      simp at h2
+      omega)
+    (fun T d hK h => ⟨T.max' h, Finset.max'_mem T h, hz_step hK h⟩)
+    (fun T e hK => hy_step hK)
+    (2 * k) (oneHole k o) (card_oneHole hhi)
+  have hc := card_oneHole (k := k) (o := o) hhi
+  have hev : Even (oneHole k o).card := ⟨k, by omega⟩
+  have hZd : KZc (oneHole k o) d := by
+    refine kzc_of_four (by omega) ?_
+    rw [hc]
+    by_cases htop : o = 2 * k
+    · subst htop
+      rw [oneHole_top]
+      have h1 := depthZ_le (Finset.range (2 * k))
+      rw [depth_range] at h1
+      omega
+    · have := depthZ_oneHole_le (k := k) (o := o) (by omega)
+      omega
+  have hYd : KYc (oneHole k o) d := by
+    refine kyc_of_four (by omega) ?_ hd1
+    have h2 : depth (oneHole k o) ≤ 2 * k + 1 - 1 - o := depth_range_erase_le (by omega)
+    rw [hc]
+    omega
+  have hcost :=
+    matchCost_le_range (p := k + 1) (by omega) (oneHole_subset_range (k := k) (o := o))
+  have hY : HY (k + 1) (oneHole k o) d := by
+    refine ⟨oneHole_subset_range, hev, hpar, ?_⟩
+    by_cases hle : (d : ℤ) ≤ matchCost (oneHole k o)
+    · exact Or.inl ⟨hle, hYd, by omega⟩
+    · exact Or.inr ⟨by omega, by omega⟩
+  have hZ := hT.1 d ⟨oneHole_subset_range, hev, hpar, hZd, by omega⟩ s
+  have hY := hT.2 d hY s
+  revert hZ hY
+  cases valueAux ((oneHole k o).map (addLeftEmbedding a)) s (s + d) false <;> simp
 
 end CatchUp
