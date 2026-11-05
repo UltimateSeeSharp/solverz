@@ -6,7 +6,6 @@
 - Before offering N = 33–35 to anyone, rerun them from a committed engine with a second engine as a cross-check.
 **Limits (user, 2026-11-04).** Ask before heavy runs while the user works on the machine; light runs (one thread, seconds) are fine.
 **Running.**
-- E45 (`e45_band_every_height 3 9`, committed 2026-11-05 20:35, 1 thread, < 0.5 GB), output `scratch/e45-3-9.txt`.
 - Ideator round fresh08 (opus, light runs only), started 2026-11-05 20:27; its notes in `scratch/ideator/`.
 
 ## Optional long runs

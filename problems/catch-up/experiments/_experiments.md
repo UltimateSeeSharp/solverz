@@ -46,3 +46,4 @@
 | [E42](E42.md) | The largest change number (C116) | C116 | C110 k ≤ 7, C1 and C92's families N ≤ 20: no draw lost with the largest change number |
 | [E43](E43.md) | Two inequalities break (C117, C118) | C117, C118 | both refuted: deficit Lipschitz at sets with max 18, the extra-number bound both ways |
 | [E44](E44.md) | The largest change number at k = 8, 9 (C116) | C116 | no draw lost at k = 8, 9; C116 holds for k ≤ 9 |
+| [E45](E45.md) | The one-hole band at every height (C110) | C110 | k ≤ 9, every height up to k(2k + 1) + k + 1: all draws; with C13, every integer height |

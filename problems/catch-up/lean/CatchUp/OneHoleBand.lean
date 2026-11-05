@@ -9,7 +9,8 @@ public import CatchUp.Small
 C110: odd blocks `{a..a + 2k}` without one number draw at every deficit `d ≤ k - 1` of the draw
 parity. Its entry `a = 1` with the hole at the top is `{1..N}` at a tie (`N = 2k ≡ 0 mod 4`), and
 with the hole at the bottom `{2..N}` trailing by 1 (`N = 2k + 1 ≡ 3 mod 4`), C27's two families;
-so C110 for `k ≥ 3` gives C1 for `N ≥ 13`, and `conjecture_le_twelve` the rest.
+so C110 for `k ≥ 3` gives C1 for `N ≥ 13`, and `conjecture_le_twelve` the rest. By C13 it is
+enough to know C110 at the heights `a ≤ k(2k + 1) + k` (`oneHoleBand_of_bounded_heights`).
 -/
 
 @[expose] public section
@@ -83,5 +84,23 @@ theorem conjecture_of_one_hole_band (h : OneHoleBandConjecture) : Conjecture := 
       have h2 : (2 * ((N - 1) / 2) + 1) % 2 = 1 := by omega
       rw [this, h2]
     omega
+
+/-- **C110 from bounded heights** (C13): above `a > d + Σ offsets` the value no longer depends on
+`a` (`valueAux_map_add`), so C110 at the heights `a ≤ k(2k + 1) + k` gives it at every height. -/
+theorem oneHoleBand_of_bounded_heights
+    (h : ∀ k a o d : ℕ, 3 ≤ k → 1 ≤ a → a ≤ k * (2 * k + 1) + k → o ≤ 2 * k → d + 1 ≤ k →
+      (d + ∑ x ∈ oneHole k o, x) % 2 = 0 →
+      valueAux ((oneHole k o).map (addLeftEmbedding a)) 0 d false = .draw) :
+    OneHoleBandConjecture := by
+  intro k a o d hk ha ho hd hpar
+  by_cases hlow : a ≤ k * (2 * k + 1) + k
+  · exact h k a o d hk ha hlow ho hd hpar
+  have hS := sum_oneHole (k := k) (o := o) ho
+  have hev : Even (oneHole k o).card := ⟨k, by rw [card_oneHole ho]; omega⟩
+  have h1 := valueAux_map_add (oneHole k o) hev a d (by omega) 0
+  have h2 := valueAux_map_add (oneHole k o) hev (k * (2 * k + 1) + k) d (by omega) 0
+  rw [Nat.zero_add] at h1 h2
+  rw [h1, ← h2]
+  exact h k _ o d hk (by omega) le_rfl ho hd hpar
 
 end CatchUp
