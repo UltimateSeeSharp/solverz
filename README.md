@@ -8,12 +8,7 @@ without trusting the AI or the search code behind it.
 
 | Date | Problem | Result | Proof |
 |---|---|---|---|
-| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | A (27, 14, 5) signed difference set exists in C₃ × C₉ (open in Gordon's table) | `SignedDifferenceSets.Answer.N68.hasSDS` |
-| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | A (27, 10, 1) signed difference set exists in C₃ × C₉ (open in Gordon's table) | `SignedDifferenceSets.Answer.N62.hasSDS` |
-| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | A (27, 10, 1) signed difference set exists in C₃ × C₃ × C₃ (open in Gordon's table; He–Chen–Ge's construction at m = 1, outside the range their theorem states) | `SignedDifferenceSets.Answer.N61.hasSDS` |
-| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | A (25, 12, 1) signed difference set exists in C₅ × C₅ (open in Gordon's table) | `SignedDifferenceSets.Answer.N49.hasSDS` |
-| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | No (20, 17, 8) signed difference set exists in C₂ × C₁₀ (open in Gordon's table) | `SignedDifferenceSets.Answer.N32.not_hasSDS` |
-| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | No (9, 8, 1) signed difference set exists in C₃ × C₃ (open in Gordon's table) | `SignedDifferenceSets.Answer.N3.not_hasSDS` |
+| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/README.md) | 6 open entries of Gordon's table settled: 4 sets found, 2 proved impossible | [results.md](problems/signed-difference-sets/results.md) |
 
 ## Problems
 
