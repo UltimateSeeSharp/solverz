@@ -13,7 +13,10 @@ Already covered (not to redo): `T807` strategy stealing, `T818` far blocks, `T11
 (none)
 
 ## Optional long runs
-- Queued for the overnight session (user, 2026-11-05 21:20: "not yet, later in the overnight session"): C114/C116 at C1 roots N = 23, 24; θ-variants (I31, I34's kill test: θ = 6..10) at N = 24, 27, 28 with `scratch/a19/variant/vararr.exe` (1.3 GB at N = 24); C86 for p = 5 in Lean. Start them when the user says the overnight session has begun.
+- Queued for the overnight session (user, 2026-11-05 21:20: "not yet, later in the overnight session"); start when the user says it has begun, one at a time, as experiments stated first:
+  - C116 at C1 roots N = 23, 24 (and C92's families): `target/release/e42_largest_change.exe 3 3 24` (about 5 GB at N = 24, 1 thread).
+  - I34/C120, θ = 6..10 at N = 24 (1.3 GB each) and θ = 6, 7 at N = 27 (about 11 GB): `scratch/a19/variant/vararr.exe <θ> <N> <N>` (array engine checked against the HashMap one at N ≤ 20; commit it to `solver/` before using it as evidence).
+  - C86 for p = 5 in Lean (draft `scratch/a17/BandFive.lean`, kernel evaluation, 2–4 GB).
 - C114/C116 at C1 roots N = 23, 24 (`ShortTurns`, about 5 GB, 1 thread): ask the user first.
 - θ-variants (I31) at N = 23, 24 to see whether θ = 6, 7 draw again at large N (HashMap engine, several GB): ask the user first.
 - C86 for p = 5 in Lean (draft `scratch/a17/BandFive.lean`, to append to `lean/CatchUp/Band.lean`; kernel evaluation, 1 thread, 2–4 GB; 28 600 distinct positions against 4 265 for p = 4, so about 7× its build time or more if the evaluator does not share subtrees): ask the user first.
