@@ -28,3 +28,4 @@
 | [I24](I24.md) | Tied one-hole blocks | `T301` generalize | ideator | C105, C106, C108, C109, C110 | alive |
 | [I25](I25.md) | Tie-rule sandwich | `T301` generalize | ideator | C111, C112 | alive |
 | [I26](I26.md) | Small change under a block | `T301` generalize | ideator | C113 | dead |
+| [I27](I27.md) | Short defender turns | `—` turn restriction | us | C114 | new |

@@ -115,3 +115,4 @@
 | [C111](C111.md) | Tie-rule sandwich | — | verified | `CatchUp.ctlMargin_sandwich`, C112 ⇒ C1: `CatchUp.conjecture_of_controller_games` (`CatchUp/Controller.lean`) | — |
 | [C112](C112.md) | The controller cannot win | — | open | — | — |
 | [C113](C113.md) | Small change under a block (POOL) | — | open | — | — |
+| [C114](C114.md) | Two-number turns suffice for the defender | — | open | — | — |
