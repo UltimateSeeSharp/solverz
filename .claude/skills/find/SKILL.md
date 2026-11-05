@@ -53,7 +53,7 @@ facts/     _facts.md (index), F1.md, F2.md, …
 ```
 `instances.csv` columns: id (`N1`…); key (the source's); source (its status
 there @ snapshot); status (open, exists, none); evidence (our IDs, or a
-reference with its witness); lean (the theorem); result (its Result's ID,
+reference with its witness); lean (the theorem); solution (its Solution's ID,
 once approved). Its importer is `solver/import/import.py` (Python, standard
 library only); `settle.py` writes our answers, which the importer keeps on
 reruns.
@@ -92,7 +92,7 @@ the researcher has no next pattern of its own; nothing waits on it.
    `settle.py`) and `state.md`;
    `understanding.md` says which answer the evidence favours, and why.
 5. An Instance settled (Lean-checked): it goes under "Needs the user" as a
-   proposed Result (CLAUDE.md, Result). Every Instance settled, or the
+   proposed Solution (CLAUDE.md, Files). Every Instance settled, or the
    user's scope covered: stop and tell the user. Otherwise never stop
    (CLAUDE.md, Attack). With one Instance: when the evidence favours no
    object, propose opening the second goal under "Needs the user"; the

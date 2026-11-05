@@ -32,23 +32,15 @@ In a template, `<…>` in the text and `{…}` in file and folder names are plac
 | `solver/`          | The problem's Rust crate: `README.md` lists its engines and what each was checked against; `src/` holds the engines; `src/bin/` holds its binaries.                                                                                                                                                                                                                  |
 | `scratch/`         | Git-ignored playground; nothing there counts. Exploring there is always allowed; the rules apply to what gets recorded.                                                                                                                                                                                                                                              |
 | `journal.md`       | Steps that changed a status, newest first; one timestamped line each, under its date.                                                                                                                                                                                                                                                                                |
-| `results.md`       | Its Results (`T1`…), newest first: Lean-checked statements that answer or improve a published open question (a table entry, a record, a conjecture). One is listed once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `results.md` gets it only on approval. |
+| `solutions.md`     | Its Solutions (`Z1`…), newest first: Lean-checked statements that answer or improve a published open question (a table entry, a record, a conjecture). One is listed once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `solutions.md` gets it only on approval. |
 
 ## Roles
 
-- **Researcher**: the session that runs the attack loop. It knows what the
-  problem's files hold, decides what is most promising and works it
-  itself; it never hands its line off or waits. It keeps `understanding.md`
-  current: rewritten when its understanding changes; single failures stay
-  in the files of what they tested.
-- **Ideator** (agent `ideator`): brings fresh angles, formed from the
-  problem's files alone and not from the researcher's view; its ideas are
-  proposals. Optional, never a step anything waits on; a round takes
-  30–90 min.
-- **Refuter** (agent `refuter`): tries to break a result before it counts.
-  SURVIVES: the change goes through. REFUTED: the result is wrong; its
-  opposite is recorded. FLAWED: the status stays, the flaw recorded.
-  UNCLEAR: settling it is the next step.
+| Role | Who | Started by | Job |
+| --- | --- | --- | --- |
+| Researcher | main session | "attack <problem>" (Attack) | Runs the attack loop. It knows what the problem's files hold, decides what is most promising and works it itself; it never hands its line off or waits. It keeps `understanding.md` current: rewritten when its understanding changes; single failures stay in the files of what they tested. |
+| Ideator | agent `ideator` | the researcher | Brings fresh angles, formed from the problem's files alone and not from the researcher's view; its ideas are proposals. Optional, never a step anything waits on; a round takes 30–90 min. |
+| Refuter | agent `refuter` | the researcher | Tries to break something before it counts (a proof, a computation's outcome, a Lean statement, …). SURVIVES: the change goes through. REFUTED: it is wrong; its opposite is recorded. FLAWED: the status stays, the flaw recorded. UNCLEAR: settling it is the next step. |
 
 ## Where things live
 

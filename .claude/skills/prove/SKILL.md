@@ -57,5 +57,5 @@ researcher has no next idea of its own; nothing waits on it.
    stated there and the check is quick).
 4. Record changed statuses with a journal line, and `state.md`.
 5. The goal claim verified: it goes under "Needs the user" as a proposed
-   Result (CLAUDE.md, Result); stop and tell the user. Otherwise never stop
+   Solution (CLAUDE.md, Files); stop and tell the user. Otherwise never stop
    (CLAUDE.md, Attack).

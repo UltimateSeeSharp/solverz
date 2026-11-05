@@ -7,7 +7,7 @@ Run from the problem folder: python -I solver/import/import.py
 import csv
 from pathlib import Path
 
-HEADER = ["id", "key", "source", "status", "evidence", "lean", "result"]
+HEADER = ["id", "key", "source", "status", "evidence", "lean", "solution"]
 ROWS = [["N1", "R(K3,K4-e,K4-e) >= 22: K21", "21<=R<=22 @DS1 rev18", "open", "", "", ""]]
 
 out = Path(__file__).resolve().parents[2] / "instances.csv"

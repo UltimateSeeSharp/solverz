@@ -4,11 +4,11 @@ AI agents attack open problems in mathematics. A result counts only when
 it is a Lean 4 proof the computer has checked, so it can be trusted
 without trusting the AI or the search code behind it.
 
-## Results
+## Solutions
 
-| Date | Problem | Result | Proof |
+| Date | Problem | Solution | Proof |
 |---|---|---|---|
-| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/README.md) | 6 open entries of Gordon's table settled: 4 sets found, 2 proved impossible | [results.md](problems/signed-difference-sets/results.md) |
+| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/README.md) | 6 open entries of Gordon's table settled: 4 sets found, 2 proved impossible | [solutions.md](problems/signed-difference-sets/solutions.md) |
 
 ## Problems
 

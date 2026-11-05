@@ -1,7 +1,7 @@
 """Write our answer for one Instance into instances.csv; the importer keeps it on reruns.
 
 Run from the problem folder:
-python -I solver/import/settle.py <id> <exists|none> <evidence: our IDs> <lean theorem> [<Result ID>]
+python -I solver/import/settle.py <id> <exists|none> <evidence: our IDs> <lean theorem> [<Solution ID>]
 """
 
 import csv
@@ -11,7 +11,7 @@ from pathlib import Path
 OUT = Path(__file__).resolve().parents[2] / "instances.csv"
 STATUSES = {"exists", "none"}
 
-instance, status, evidence, lean, *result = sys.argv[1:6]
+instance, status, evidence, lean, *solution = sys.argv[1:6]
 assert status in STATUSES, f"status must be one of {STATUSES}"
 with OUT.open(encoding="utf-8", newline="") as f:
     reader = csv.DictReader(f)
@@ -21,8 +21,8 @@ assert len(matches) == 1, f"no Instance {instance}"
 row = matches[0]
 assert row["status"] in ("open", status), f"{instance} is {row['status']} ({row['evidence']})"
 row.update(status=status, evidence=evidence, lean=lean)
-if result:
-    row["result"] = result[0]
+if solution:
+    row["solution"] = solution[0]
 with OUT.open("w", encoding="utf-8", newline="") as f:
     writer = csv.DictWriter(f, header, lineterminator="\n")
     writer.writeheader()

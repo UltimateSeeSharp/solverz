@@ -2,12 +2,12 @@
 
 ## 2026-11-05
 - N67, N73: credited to Gordon 2022 (Prop 2.3, Thm 4.1) by the importer, which now lets a literature construction take the credit over our own set
-- T3 (N49), T4 (N61), T5 (N62), T6 (N68) approved by the user: Results in `results.md` and the repo README
+- Z3 (N49), Z4 (N61), Z5 (N62), Z6 (N68) approved by the user: Solutions in `solutions.md` and the repo README
 - Research stopped by the user; R4 stopped at 31 of 53 Instances (`runs/R4.md`), R5 stopped in its validation with no output
 - Refuter on R4's sets: N49, N61, N62, N68 SURVIVE (N61's origin: He–Chen–Ge at m = 1); N67, N73 FLAWED as status: already in Gordon 2022 (Prop 2.3, Thm 4.1), Open in the database by mistake; N63319, N14604, N31832, N14471 lag the same way
-- T1 (N3) and T2 (N32) approved by the user: Results in `results.md`
+- Z1 (N3) and Z2 (N32) approved by the user: Solutions in `solutions.md`
 - Goal approved by the user: `IsSDS`, `HasSDS`, and the key → `ZMod` product rule
-- Refuter SURVIVES on N3, N32, F2, F3 (independent brute force, Lean rebuild, axioms); F2, F3 verified; N3, N32 proposed as Results
+- Refuter SURVIVES on N3, N32, F2, F3 (independent brute force, Lean rebuild, axioms); F2, F3 verified; N3, N32 proposed as Solutions
 - R4 (P1 to the first set, open Instances v ≤ 40): sets O6–O11 settle N49, N61, N62, N67, N68, N73 as exists, Lean-checked (`Answer/N<id>.hasSDS`); none for N30, N89, N90 (no Lean proof yet)
 - Migrated to Instances: `instances.csv` from Gordon's table (70,543; He–Wu applied, 22,457 open); S1 → N3, S2 → N32 (`Answer/N3`, `Answer/N32`); `cases.md`, R2 and R3 binaries removed (no runs recorded)
 - S1, S2: no SDS, proved in Lean (`CaseS1`, `CaseS2`; F2, F3 in Lean); refuter pending, statuses unchanged until it reports
