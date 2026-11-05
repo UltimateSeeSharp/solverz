@@ -1,0 +1,2 @@
+id,key,source,status,evidence,lean,result
+N1,"R(K3,K4-e,K4-e) >= 22: K21",21<=R<=22 @DS1 rev18,open,,,

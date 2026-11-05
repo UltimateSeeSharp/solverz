@@ -1,5 +1,8 @@
 # Journal
 
+## 2026-11-05
+- Migrated to Instances: `instances.csv` with N1 (K₂₁); Instance columns in the run, object and fact indexes
+
 ## 2026-10-30
 - 21:44 Baseline: R4 (ℤ₁₀ seeds: none extend), R6 SAT calibration at K₂₀ inconclusive (44 of 110 cubes UNSAT, balanced cubes unsolved in 36 min); runs stopped by the user.
 - 21:25 R2, R3 refuter SURVIVES → P2, P5 exhausted: no valid colouring of K₂₁ has a fixed-point-free colour-keeping symmetry of order 7. CaDiCaL 2.1.2 ships with the Lean toolchain.

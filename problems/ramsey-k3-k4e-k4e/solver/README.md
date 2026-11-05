@@ -1,5 +1,7 @@
 # R(K₃, K₄−e, K₄−e) solver
 
+Import (`import/`, Python): `import.py` writes `instances.csv` (one Instance, N1).
+
 ## Engines
 | Engine | What | Checked against |
 |---|---|---|
