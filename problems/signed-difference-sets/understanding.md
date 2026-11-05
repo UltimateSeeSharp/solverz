@@ -23,7 +23,7 @@
 `decide` reaches about 3⁸ patterns in 5 minutes, so R4's 16 exhausted
 Instances (v = 20 to 32) have no proof; contraction needs a checked search
 over integer vectors once the vector space is large.
-**So a solution must.** Per Instance: a set Lean checks, or a Lean proof that
+**So a Solution must.** Per Instance: a set Lean checks, or a Lean proof that
 none exists (exhaustion after F2, or F3 with a checked vector search); and,
 before it is proposed, a check against the known constructions of Gordon,
 He–Chen–Ge and He–Wu.

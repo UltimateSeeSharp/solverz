@@ -20,7 +20,7 @@
 **Blocks.** Every structured family tried at 21 points is empty, and
 neither annealing nor plain SAT reaches the known 20-point colourings yet.
 
-**So a solution must.** Be a 21-point colouring with no colour-keeping
+**So a Solution must.** Be a 21-point colouring with no colour-keeping
 symmetry of order 7, not containing O1, whose colours 1 ∪ 2 contain J₇.
 The evidence leans mildly towards none existing; the unrestricted SAT
 search (P4) is the decisive test of the first goal.
