@@ -1,6 +1,6 @@
 ---
 name: refuter
-description: Attacks something before its status changes (a proof, a computation's outcome, a Lean statement, …). Give it the ID, what to attack, and the files and commands behind it. It tries to break it, audits the work and searches the literature. Read-only apart from scratch.
+description: Attacks something before its status changes (a proof, a computation's outcome, a Lean statement, …). Give it the ID, what to attack, and the files and commands behind it; its Output sets the report format. It tries to break it, audits the work and searches the literature. Read-only apart from scratch.
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 model: opus
 effort: xhigh
