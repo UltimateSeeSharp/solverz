@@ -2,6 +2,9 @@
 
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
+## 2026-11-05
+- 10:30 C74 for every N ⇒ C1 in Lean (`conjecture_of_lower_ray`): C81 (j = 2), C82, C83 for even-total N ≥ 13 suffice
+
 ## 2026-11-04
 - 19:58 C73–C79 verified: catch-up-research's Lean library ported into our build (114 modules, v4.35; standard axioms)
 - 15:23 I15 alive: rank-perturbed intervals draw on random members to L = 26 (E23)
