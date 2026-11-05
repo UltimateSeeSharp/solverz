@@ -1,5 +1,9 @@
 # Journal
 
+## 2026-11-06
+- Refuter SURVIVES on N35840 (claim and status, `scratch/refuter/n35840-report.md`): proposed as a Solution under "Needs the user"
+- E5 (contraction, open v ≤ 40): 12 Instances have no vector on a quotient; Lean's `noVector` proves 9 so far (N46, N47, N95, N168, N176, N220, N221, N223, N224), statuses after axioms and the refuter
+
 ## 2026-11-05
 - N35840 (361, 316, 141) in C₁₉ × C₁₉: exists, O12 Lean-checked by the new fast set check (`SetCheck.lean`, `decide +kernel`, 77 s); refuter and the literature check next
 - E6 (P2, octic cyclotomic sign vectors, every q ≡ 1 mod 8 up to 10⁵): sporadic sets at 9 fields, no family; one open Instance hit, N35840 (361, 316, 141) in C₁₉ × C₁₉: O12, Lean pending

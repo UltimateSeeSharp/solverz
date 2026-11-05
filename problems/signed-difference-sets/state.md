@@ -5,9 +5,13 @@
 2. A Lean non-existence checker: first contraction (F3: no integer vector on a quotient meets the conditions; a verified search the kernel evaluates), tested on N32 and the E4 Instances contraction kills; then exhaustion for cases like N3. The design goes to the user before any code: what it proves, how Lean evaluates it, expected speed.
 3. Background meanwhile: E4's 9 unchecked sets (N127–N130, N132, N137, N139, N169, N170) as objects, Lean-checked, each checked against Gordon, He–Chen–Ge and He–Wu before it is proposed; E4's 22 unreached Instances with v ≤ 40 finished.
 4. Once the checker settles its first cases, the user and the researcher pick the range: open entries with v < 50, v < 100, or more.
-**Next step.** Step 2, design approved by the user 2026-11-05: `Index.lean`, the set check (then O12), the vector search and contraction theorem, N32 again, then the 12 kills; then the exhaustion design for the user. Step 1 done: E6 found O12 for N35840 (Lean pending); P2 is sporadic.
-**Running.** E7 (step 3: E4's 22 unreached Instances, 10 threads, below-normal), started 2026-11-05 22:24, output `scratch/e7.out`.
+**Next step.** Step 2, design approved 2026-11-05. Done: `Index`, `Loops`, `SetCheck` (O12, N35840), `VectorSearch`, `ContractionCheck`, `Tests/Checks` (N32 again, node counts equal E5's). E5's 12 kills as `Answer/N<id>` (`answer.py contract`): 9 build clean; N79, N80, N93 one at a time; then axioms, settle, refuter; then the exhaustion design for the user. Step 1 done.
+**Running.**
+- E7 (step 3: E4's 22 unreached Instances, 10 threads, below-normal), started 2026-11-05 22:24, output `scratch/e7.out`; 10 done 2026-11-06 (N131 found a set).
+- Lean build of `Answer.N79` under `scratch/lean-build.ps1`, started 2026-11-06.
+
+**Resources.** One Lean module per `lake build`, through `scratch/lean-build.ps1` (below-normal, killed above 10 GB or under 6 GB free RAM); never several Lean jobs beside an experiment. A parallel build of 12 modules beside E7 froze the user's machine for an hour on 2026-11-05.
 
 ## Needs the user
+- Proposed Solution: N35840, a (361, 316, 141) SDS in C₁₉ × C₁₉ (`Answer.N35840.hasSDS`, O12 from E6). Refuter SURVIVES, claim and status (`scratch/refuter/n35840-report.md`); origin ours, citing He–Chen–Ge §5 (cyclotomic SDS framework, classified for order 4 only) and Gordon §3 (order 8 with N = {0}, prime v) as the nearest work.
 - Findings to bring to the user: N63319, N14604, N31832, N14471 are settled in Gordon or He–Chen–Ge, so `instances.csv` lists them as open wrongly.
-- Uncommitted in the worktree: the contraction engine for E5 (`solver/src/contraction.rs`, `bin/r5_contraction.rs`, a `mod` line in `lib.rs`). Its first run hung because `quotients` looped forever, now fixed. An exploration run (`scratch/r5-40.out`) kills 12 open Instances with v ≤ 40. Not yet an experiment; its doc comment still says R5.
