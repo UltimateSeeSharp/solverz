@@ -30,4 +30,5 @@
 | [I26](I26.md) | Small change under a block | `T301` generalize | ideator | C113 | dead |
 | [I27](I27.md) | Short defender turns | `—` turn restriction | us | C114, C116 | alive |
 | [I28](I28.md) | Inert opening depth | `T300` specialize | ideator | C115 | dead |
-| [I29](I29.md) | Complement mirror | `T809` mirror strategy | user (toolbox) | — | new |
+| [I29](I29.md) | Complement mirror | `T809` mirror strategy | user (toolbox) | — | dead |
+| [I30](I30.md) | Automatic rows | `T21` Walnut | user (toolbox) | — | dead |

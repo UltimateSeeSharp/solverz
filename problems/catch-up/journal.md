@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
+- 20:43 I29 dead (complement mirror loses from N = 4 and on high blocks); I30 dead (rows are period 4, but Walnut cannot link the game to the automaton)
 - 20:41 C110 at every integer height for k ≤ 9 (E45 with `oneHoleBand_of_bounded_heights`, C13)
 - 20:29 refuter SURVIVES today's Lean statements (C110, C111/C112, OneHoleLinear); C110 data now covers every height for k ≤ 9
 - 20:17 C117 and C118 refuted (deficit Lipschitz, extra-number bound; E43); ideator fresh07 kept no angle
