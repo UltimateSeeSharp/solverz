@@ -43,3 +43,4 @@
 | [E39](E39.md) | The controller games on {1..N} (C112) | C112 | N ≤ 24: no controller wins at an even total; the controller wins every odd total by exactly 1 |
 | [E40](E40.md) | C99's deficit-1 endpoint families | C99 | even-total N ≤ 24: no loss in either family, all draws from N = 11; a C99 loss at d ≥ 7 needs the upper witness |
 | [E41](E41.md) | Two-number turns for the defender (C114) | C114 | C110 k ≤ 9 at heights ≤ 2(2k + 1) and C1 N ≤ 20: no draw lost with turns of at most two numbers |
+| [E42](E42.md) | The largest change number (C116) | C116 | C110 k ≤ 7, C1 and C92's families N ≤ 20: no draw lost with the largest change number |
