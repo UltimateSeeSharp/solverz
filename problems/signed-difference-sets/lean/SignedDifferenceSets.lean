@@ -27,6 +27,8 @@ public import SignedDifferenceSets.Answer.N220
 public import SignedDifferenceSets.Answer.N221
 public import SignedDifferenceSets.Answer.N223
 public import SignedDifferenceSets.Answer.N224
+public import SignedDifferenceSets.Answer.N79
+public import SignedDifferenceSets.Answer.N80
 public import SignedDifferenceSets.Tests.Statement
 public import SignedDifferenceSets.Tests.Checks
 
