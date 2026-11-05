@@ -15,6 +15,11 @@ How we think and work: `principles.md`.
   the user decides.
 - **Journal**: what changed, newest first: one timestamped line per step that
   changed a status, under its date.
+- **Result** (`T1`…, in `results.md`): a Lean-checked statement that answers
+  or improves a published open question (a table entry, a record, a
+  conjecture). It counts once the refuter SURVIVES it, its origin credits
+  whoever had it first, and the user approves it. Until then it waits under
+  "Needs the user" in `state.md`; `results.md` gets it only on approval.
 
 Each kind adds its own model and attack loop: the skill of its name.
 
@@ -44,6 +49,7 @@ problems/
   candidates.md the user's recent picks, weighed by choose with the rest
 problems/<name>/
   README.md     the problem
+  results.md    its Results, newest first
   journal.md    what changed, newest first
   understanding.md  what holds, what blocks, what a solution must do
   state.md      now: focus, next step, running jobs, what needs the user

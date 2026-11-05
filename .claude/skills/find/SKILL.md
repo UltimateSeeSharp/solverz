@@ -71,6 +71,8 @@ the researcher has no next pattern of its own; nothing waits on it.
    (CLAUDE.md, Refuter).
 4. Record changed statuses with a journal line, and `state.md`;
    `understanding.md` says which answer the evidence favours, and why.
-5. A goal verified: stop and tell the user. Otherwise never stop
+5. A goal verified (one case, for a table problem): it goes under "Needs
+   the user" as a proposed Result (CLAUDE.md, Result); the last goal: stop
+   and tell the user. Otherwise never stop
    (CLAUDE.md, Attack). When the evidence favours no object, propose
    opening the second goal under "Needs the user"; the search goes on.
