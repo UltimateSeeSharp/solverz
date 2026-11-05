@@ -8,5 +8,4 @@
 - R4: `target/release/r4_first_set.exe problems/signed-difference-sets/instances.csv 40 10000000000 10` at fc100bc, below-normal priority; output `scratch/r4.out`.
 
 ## Needs the user
-- Proposed Results (refuter SURVIVES, `scratch/refuter/report-N3-N32-F2-F3.md`): N3, no (9, 8, 1) SDS in C₃ × C₃; N32, no (20, 17, 8) SDS in C₂ × C₁₀. Both Open in Gordon's table, Lean-checked. Approve?
 - Proposed Results, refuter pending: N49, N61, N62, N67, N68, N73 exist (O6–O11, Lean-checked).

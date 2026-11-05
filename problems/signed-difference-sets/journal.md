@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-05
+- T1 (N3) and T2 (N32) approved by the user: Results in `results.md`
 - Goal approved by the user: `IsSDS`, `HasSDS`, and the key → `ZMod` product rule
 - Refuter SURVIVES on N3, N32, F2, F3 (independent brute force, Lean rebuild, axioms); F2, F3 verified; N3, N32 proposed as Results
 - R4 (P1 to the first set, open Instances v ≤ 40): sets O6–O11 settle N49, N61, N62, N67, N68, N73 as exists, Lean-checked (`Answer/N<id>.hasSDS`); none for N30, N89, N90 (no Lean proof yet)
