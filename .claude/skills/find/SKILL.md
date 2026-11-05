@@ -55,15 +55,16 @@ facts/     _facts.md (index), F1.md, F2.md, …
 there @ snapshot); status (open, exists, none); evidence (our IDs, or a
 reference with its witness); lean (the theorem); result (its Result's ID,
 once approved). Its importer is `solver/import/import.py` (Python, standard
-library only).
+library only); `settle.py` writes our answers, which the importer keeps on
+reruns.
 
 ## Start
 The importer (`solver/import/`) writes `instances.csv` from the source,
 with what the source and the literature already settle; a problem with one
 Instance gets one line. `Valid` in `Statement.lean` takes an Instance's
 parameters; the goal's approval covers it and the rule that turns a key
-into its Lean statement, tested on known Instances. The researcher
-builds the base itself: known objects from the literature (smaller sizes,
+into its Lean statement, tested on known Instances. Setup builds the base
+on main: known objects from the literature (smaller sizes,
 sibling cases) entered, one checked in Lean so `Valid` meets real data;
 a first engine that reproduces them; the first patterns, those earlier
 searches used first, with what they found. The `ideator` comes in when
@@ -71,11 +72,11 @@ the researcher has no next pattern of its own; nothing waits on it.
 
 ## Loop
 1. Pick the most promising step now, in light of `understanding.md`, and
-   the Instances it covers: a pattern to run (new ones get their cheapest run first; alive ones a
-   bigger run, or a looser pattern around the best near-miss), or a fact
-   to work (one that cuts a search, one a run needs proved, or an
-   obstruction that failures keep pointing to). Runs go in the
-   background; facts are worked meanwhile.
+   the Instances it covers: a pattern to run (new ones get their cheapest
+   run first; alive ones a bigger run, or a looser pattern around the best
+   near-miss), or a fact to work (one that cuts a search, one a run needs
+   proved, or an obstruction that failures keep pointing to). Runs go in
+   the background; facts are worked meanwhile.
 2. A run: its scope stated and its engine validated before it starts
    (it reproduces known objects and rejects broken ones); its best
    near-miss kept as an object. A fact: tested on known objects and
@@ -87,8 +88,8 @@ the researcher has no next pattern of its own; nothing waits on it.
    scope, a second engine or method rechecks it, and every fact it used
    is proved. A fact proved or refuted: the `refuter` attacks it first
    (CLAUDE.md, Refuter).
-4. Record changed statuses with a journal line, `instances.csv` (by the
-   tool that settles them) and `state.md`;
+4. Record changed statuses with a journal line, `instances.csv` (by
+   `settle.py`) and `state.md`;
    `understanding.md` says which answer the evidence favours, and why.
 5. An Instance settled (Lean-checked): it goes under "Needs the user" as a
    proposed Result (CLAUDE.md, Result). Every Instance settled, or the
