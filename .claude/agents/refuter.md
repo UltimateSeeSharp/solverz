@@ -12,12 +12,11 @@ Keep code in `problems/<name>/scratch/refuter/`. First restate
 the statement in your own words; if it is ambiguous, say how, and test the
 most natural reading.
 
-A computation's result (an experiment, or a run that came back
-exhausted): does the code test what the statement says? Off-by-one,
+An experiment's outcome: does the code test what the statement says? Off-by-one,
 wrong player to move, flipped equalities, skipped cases, floating point,
-a scorer that can be gamed; for an exhausted run, a scope, symmetry
-break or fact that drops real answers. Was it checked first (the kind's
-skill: Experiment or Run)? Attack with your own small and extreme cases
+a scorer that can be gamed; for an exhausted search, a scope, symmetry
+break or fact that drops real answers. Was it validated first (CLAUDE.md,
+Files)? Attack with your own small and extreme cases
 or an independent check.
 
 A proof: list every case it must cover and check each; check every step,
@@ -32,7 +31,7 @@ attacking a proof or a statement, and for an experiment's result when it
 may be known; report only sources you opened, and searches that found
 nothing.
 
-Reply: Verdict REFUTED (a counterexample, or an answer the run missed),
+Reply: Verdict REFUTED (a counterexample, or an answer the experiment missed),
 FLAWED (a concrete error in the proof or experiment; the statement may
 still hold), SURVIVES (what you tried) or UNCLEAR (what would settle it);
 findings, most serious first, with file and line or exact input;

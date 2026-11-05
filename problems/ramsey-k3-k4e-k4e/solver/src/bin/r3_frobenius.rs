@@ -1,8 +1,8 @@
-//! R3: every Cayley 3-colouring of K₂₁ over the Frobenius group ℤ₇ ⋊ ℤ₃,
+//! E3: every Cayley 3-colouring of K₂₁ over the Frobenius group ℤ₇ ⋊ ℤ₃,
 //! scored by `violations`. Elements (a, b), a ∈ ℤ₇, b ∈ ℤ₃, with
 //! (a, b)(c, d) = (a + 2ᵇc, b + d); x and y get the colour of the class
 //! {x⁻¹y, y⁻¹x}. With `--cyclic` the same enumeration runs over ℤ₂₁ instead
-//! (validation: it must reproduce R1's 0 valid of 59,049).
+//! (validation: it must reproduce E1's 0 valid of 59,049).
 //! Usage: `r3_frobenius [--cyclic] [--out <file>]`.
 
 use ramsey_k3_k4e_k4e::{COLOURS, Colouring, violations};

@@ -15,9 +15,7 @@ description: Domain model and attack loop for a `prove` problem: ideas, claims, 
   tried and failed.
   Status: `open` → `refuted` (counterexample) | `proved` → `verified` (Lean).
   `approved` when the user confirmed its Lean statement says what we mean.
-- **Experiment**: a computation that tests one claim. States beforehand which
-  result changes the claim's status; its code is first checked against known
-  values or an independent computation.
+- **Experiment** (CLAUDE.md, Files): here it tests one claim.
 
 Relations: an idea needs claims, a claim uses claims (both many to many).
 A refuted claim kills every idea that needs it and reopens every proved
@@ -29,7 +27,6 @@ problem.
 ```
 ideas/        _ideas.md (index), I1.md, I2.md, …
 claims/       _claims.md (index), C1.md, C2.md, …
-experiments/  _experiments.md (index), E1.md, E2.md, …
 ```
 
 ## Start
@@ -47,7 +44,7 @@ researcher has no next idea of its own; nothing waits on it.
    faster than paper; otherwise once every claim of the idea is proved on
    paper (the goal goes through `audit` first).
 3. Before a claim becomes `proved` or `refuted`, the `refuter` attacks the
-   result (CLAUDE.md, Refuter); a flaw goes under Tried. A counterexample
+   result (CLAUDE.md, Roles); a flaw goes under Tried. A counterexample
    counts once rechecked with committed code (in Lean if the claim is
    stated there and the check is quick).
 4. Record changed statuses with a journal line, and `state.md`.

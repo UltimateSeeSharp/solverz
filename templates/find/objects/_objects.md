@@ -4,4 +4,4 @@
 
 | ID | File | Object | Instance | Source | Score | Lean |
 |---|---|---|---|---|---|---|
-| O1 | [O1.txt](O1.txt) | <one line> | <the ID it answers, or —> | <literature (link), or run ID> | <0 = valid; else rules broken> | <theorem checking it, or —> |
+| O1 | [O1.txt](O1.txt) | <one line> | <the ID it answers, or —> | <literature (link), or experiment ID> | <0 = valid; else rules broken> | <theorem checking it, or —> |

@@ -1,4 +1,4 @@
-//! R5: simulated annealing on all pairs of Kₙ, one independent search per
+//! E5: simulated annealing on all pairs of Kₙ, one independent search per
 //! thread, each from its own seed; stops at the first valid colouring.
 //! Usage: `r5_anneal <n> <threads> <restarts> <moves> <t_start> <t_end> <seed> [--out <file>]`.
 //! Prints each thread's best score, and writes the overall best colouring.

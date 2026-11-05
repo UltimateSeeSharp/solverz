@@ -1,6 +1,6 @@
 ---
 name: find
-description: Domain model and attack loop for a `find` problem: patterns, runs, objects, facts. Run by "attack <problem>" when the problem's kind is find.
+description: Domain model and attack loop for a `find` problem: patterns, experiments, objects, facts. Run by "attack <problem>" when the problem's kind is find.
 ---
 
 # Find
@@ -17,10 +17,9 @@ description: Domain model and attack loop for a `find` problem: patterns, runs, 
   symmetry, a construction, an extension of a known object). Patterns
   nest; a looser one contains a tighter one.
   Status: `new` → `alive` (being searched) → `found` | `exhausted`.
-- **Run** (`R1`…): one search of one pattern by one engine, over the
-  Instances it names. States its scope beforehand; its code first
-  reproduces known objects. Ends `found`, `exhausted`, or `inconclusive`
-  (its best near-miss kept).
+- **Experiment** (CLAUDE.md, Files): here one search of one pattern by one
+  engine, over the Instances it names. Ends `found`, `exhausted`, or
+  `inconclusive` (its best near-miss kept).
 - **Object** (`O1`…): a candidate answer as a data file, naming the
   Instance it answers, if any: known from the literature, a near-miss with
   its score, or the answer. Counts once Lean checks it.
@@ -30,9 +29,9 @@ description: Domain model and attack loop for a `find` problem: patterns, runs, 
   proof.
   Status: `open` → `refuted` | `proved` → `verified` (Lean).
 
-Relations: a run searches one pattern over its Instances, uses facts,
+Relations: an experiment searches one pattern over its Instances, uses facts,
 reads and writes objects. A verified answer object settles its Instance's
-first goal. An exhausted run kills its pattern for its Instances once
+first goal. An exhausted experiment kills its pattern for its Instances once
 rechecked and every fact it used is proved; a refuted fact reopens every
 pattern it killed. Facts that confine every answer of an Instance to
 exhausted patterns, all checked in Lean, settle its second.
@@ -42,7 +41,6 @@ exhausted patterns, all checked in Lean, settle its second.
 ```
 instances.csv  one line per Instance, written by the importer and by tools, never by hand
 patterns/  _patterns.md (index), P1.md, P2.md, …
-runs/      _runs.md (index), R1.md, R2.md, …
 objects/   _objects.md (index: source, score, Lean-checked), O1.txt, O2.txt, …
 facts/     _facts.md (index), F1.md, F2.md, …
 ```
@@ -67,14 +65,12 @@ the researcher has no next pattern of its own; nothing waits on it.
 
 ## Loop
 1. Pick the most promising step now, in light of `understanding.md`, and
-   the Instances it covers: a pattern to run (new ones get their cheapest
-   run first; alive ones a bigger run, or a looser pattern around the best
-   near-miss), or a fact to work (one that cuts a search, one a run needs
-   proved, or an obstruction that failures keep pointing to). Runs go in
-   the background; facts are worked meanwhile.
-2. A run: its scope stated and its engine validated before it starts
-   (it reproduces known objects and rejects broken ones); its best
-   near-miss kept as an object. A fact: tested on known objects and
+   the Instances it covers: a pattern to search (new ones get their cheapest
+   experiment first; alive ones a bigger one, or a looser pattern around the
+   best near-miss), or a fact to work (one that cuts a search, one an
+   experiment needs proved, or an obstruction that failures keep pointing
+   to). Experiments go in the background; facts are worked meanwhile.
+2. An experiment: its best near-miss kept as an object. A fact: tested on known objects and
    near-misses, then proved.
 3. Before a status changes, the result is checked. Found: the object goes
    into `lean/<Name>/Answer/N<id>.lean` (its Instance), generated from its
@@ -82,7 +78,7 @@ the researcher has no next pattern of its own; nothing waits on it.
    proof goes into the same file. Exhausted: the `refuter` attacks engine and
    scope, a second engine or method rechecks it, and every fact it used
    is proved. A fact proved or refuted: the `refuter` attacks it first
-   (CLAUDE.md, Refuter).
+   (CLAUDE.md, Roles).
 4. Record changed statuses with a journal line, `instances.csv` (by
    `settle.py`) and `state.md`;
    `understanding.md` says which answer the evidence favours, and why.

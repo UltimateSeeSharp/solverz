@@ -1,7 +1,7 @@
 id,key,source,status,evidence,lean,solution
 N1,"SDS(5,4,-1,[5])",Yes@e3bf810,exists,Gordon: Paley,,
 N2,"SDS(9,8,-1,[3,3])",Yes@e3bf810,exists,"Gordon: PDS construction of He, Chen and Ge",,
-N3,"SDS(9,8,1,[3,3])",Open@e3bf810,none,R1; F2,SignedDifferenceSets.Answer.N3.not_hasSDS,Z1
+N3,"SDS(9,8,1,[3,3])",Open@e3bf810,none,E1; F2,SignedDifferenceSets.Answer.N3.not_hasSDS,Z1
 N4,"SDS(9,8,1,[9])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N5,"SDS(10,7,2,[10])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N6,"SDS(11,6,1,[11])",All@e3bf810,exists,Gordon: Paley and zero,,
@@ -30,7 +30,7 @@ N28,"SDS(19,18,1,[19])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N29,"SDS(19,18,7,[19])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N30,"SDS(20,11,2,[2,10])",Open@e3bf810,open,,,
 N31,"SDS(20,11,2,[20])",All@e3bf810,exists,Gordon: Orbit Exhaust,,
-N32,"SDS(20,17,8,[2,10])",Open@e3bf810,none,R1; F3,SignedDifferenceSets.Answer.N32.not_hasSDS,Z2
+N32,"SDS(20,17,8,[2,10])",Open@e3bf810,none,E1; F3,SignedDifferenceSets.Answer.N32.not_hasSDS,Z2
 N33,"SDS(20,17,8,[20])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N34,"SDS(21,9,2,[21])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N35,"SDS(21,16,1,[21])",No@e3bf810,none,Gordon: Orbit Exhaust,,
@@ -47,7 +47,7 @@ N45,"SDS(23,20,8,[23])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N46,"SDS(24,18,2,[2,2,6])",Open@e3bf810,open,,,
 N47,"SDS(24,18,2,[2,12])",Open@e3bf810,open,,,
 N48,"SDS(24,18,2,[24])",No@e3bf810,none,Gordon: Orbit Exhaust,,
-N49,"SDS(25,12,1,[5,5])",Open@e3bf810,exists,R4; O6,SignedDifferenceSets.Answer.N49.hasSDS,Z3
+N49,"SDS(25,12,1,[5,5])",Open@e3bf810,exists,E4; O6,SignedDifferenceSets.Answer.N49.hasSDS,Z3
 N50,"SDS(25,12,1,[25])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N51,"SDS(25,16,2,[5,5])",Open@e3bf810,none,He-Wu Thm 3.2: n=14; p=2; m=5; j=2,,
 N52,"SDS(25,16,2,[25])",No@e3bf810,none,Gordon: Orbit Exhaust,,
@@ -59,14 +59,14 @@ N57,"SDS(26,19,6,[26])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N58,"SDS(26,21,4,[26])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N59,"SDS(26,24,12,[26])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N60,"SDS(26,25,8,[26])",No@e3bf810,none,Gordon: Orbit Exhaust,,
-N61,"SDS(27,10,1,[3,3,3])",Open@e3bf810,exists,R4; O7,SignedDifferenceSets.Answer.N61.hasSDS,Z4
-N62,"SDS(27,10,1,[3,9])",Open@e3bf810,exists,R4; O8,SignedDifferenceSets.Answer.N62.hasSDS,Z5
+N61,"SDS(27,10,1,[3,3,3])",Open@e3bf810,exists,E4; O7,SignedDifferenceSets.Answer.N61.hasSDS,Z4
+N62,"SDS(27,10,1,[3,9])",Open@e3bf810,exists,E4; O8,SignedDifferenceSets.Answer.N62.hasSDS,Z5
 N63,"SDS(27,10,1,[27])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N64,"SDS(27,12,2,[3,3,3])",Open@e3bf810,none,He-Wu Thm 3.2: n=10; p=2; m=3; j=1,,
 N65,"SDS(27,12,2,[3,9])",Open@e3bf810,none,He-Wu Thm 3.2: n=10; p=2; m=3; j=1,,
 N66,"SDS(27,12,2,[27])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N67,"SDS(27,14,5,[3,3,3])",Open@e3bf810,exists,Gordon: paper Prop 2.3 (Paley and zero in GF(27)),SignedDifferenceSets.Answer.N67.hasSDS,
-N68,"SDS(27,14,5,[3,9])",Open@e3bf810,exists,R4; O10,SignedDifferenceSets.Answer.N68.hasSDS,Z6
+N68,"SDS(27,14,5,[3,9])",Open@e3bf810,exists,E4; O10,SignedDifferenceSets.Answer.N68.hasSDS,Z6
 N69,"SDS(27,14,5,[27])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N70,"SDS(27,17,4,[3,3,3])",Open@e3bf810,open,,,
 N71,"SDS(27,17,4,[3,9])",Open@e3bf810,open,,,

@@ -10,7 +10,7 @@ You find ways into an open problem; you do not carry them out. Read the
 problem's README.md for its kind, then `.claude/skills/<kind>/SKILL.md`
 (Domain model and Files) for what an angle is there and where the
 problem's files keep them. Read README.md, understanding.md, state.md,
-every file of the kind's angles and statements, the run or experiment
+every file of the kind's angles and statements, the experiment
 index, and the files of anything you build on.
 Open statements are hypotheses, not facts. An angle already listed, or one
 that needs a refuted statement, is worth nothing unless you say what is
@@ -26,7 +26,7 @@ For each angle you keep:
 - The angle in the kind's units (prove: an idea and the claims it needs,
   including why they imply the goal; find: a pattern, the size of the
   space it leaves and the facts it would use), statements given precisely.
-- Kill test: the cheapest run, experiment or argument that could refute
+- Kill test: the cheapest experiment or argument that could refute
   its weakest part, and what each outcome means.
 
 Most promising first. Then one line per angle you cut and why, and what

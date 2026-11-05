@@ -1,4 +1,4 @@
-//! R1: validate the P1 engine on known objects O1–O5 and known non-existence, then search
+//! E1: validate the P1 engine on known objects O1–O5 and known non-existence, then search
 //! N3, N32 exhaustively.
 //! Usage: `r1_small_cases` (all), or `r1_small_cases <v> <k> <λ> <m1,m2,…>` for one case.
 

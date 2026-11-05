@@ -1,4 +1,4 @@
-//! R2: every block-circulant 3-colouring of Kₙ, n = rings·m: point (r, i),
+//! E2: every block-circulant 3-colouring of Kₙ, n = rings·m: point (r, i),
 //! r a ring, i ∈ ℤₘ; the pair (r, i)(s, j) is coloured by its class (r, s,
 //! j − i), with i − j identified for r = s. Backtracking over the classes,
 //! colours 1 and 2 swapped away (the first non-0 class takes colour 1).

@@ -8,7 +8,7 @@
   paper, and their constructions settle 3; 22,459 stay open (README,
   reproduced by the importer).
 - "Open" in the table often means "never searched": P1 found sets for 15
-  of the 31 open Instances with v ≤ 40 it finished, mostly in seconds (R4).
+  of the 31 open Instances with v ≤ 40 it finished, mostly in seconds (E4).
   Non-cyclic groups hold most of them.
 - "Open" is not enough for a Solution: the database lags the papers. N67 and
   N73 are Gordon 2022's Prop 2.3 and Thm 4.1; N61 is He–Chen–Ge's product
@@ -20,7 +20,7 @@
   small v; contraction to a quotient (F3) gives small certificates. N3 fell
   to the first, N32 to both, each proved in Lean (Z1, Z2).
 **Blocks.** Non-existence counts only with a Lean proof. Exhaustion by
-`decide` reaches about 3⁸ patterns in 5 minutes, so R4's 16 exhausted
+`decide` reaches about 3⁸ patterns in 5 minutes, so E4's 16 exhausted
 Instances (v = 20 to 32) have no proof; contraction needs a checked search
 over integer vectors once the vector space is large.
 **So a Solution must.** Per Instance: a set Lean checks, or a Lean proof that

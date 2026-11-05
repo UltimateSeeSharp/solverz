@@ -1,4 +1,4 @@
-//! R1: every circulant 3-colouring of Kₙ (pair ij coloured by its distance
+//! E1: every circulant 3-colouring of Kₙ (pair ij coloured by its distance
 //! around ℤₙ), scored by `violations`. Usage: `r1_circulant <n>... [--out <dir>]`.
 //! Per n: how many score 0, the best score, and one best colouring written
 //! to `<dir>/circulant_<n>.txt` when `--out` is given.

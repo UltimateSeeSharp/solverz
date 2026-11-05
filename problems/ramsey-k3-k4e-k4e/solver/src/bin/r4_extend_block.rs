@@ -1,4 +1,4 @@
-//! R4: one-point extensions of valid block-circulant colourings (see
+//! E4: one-point extensions of valid block-circulant colourings (see
 //! `block`), up to `limit` seeds in backtracking order. Per seed it runs
 //! `extensions_with_depth`; it prints how many seeds were tried, how many
 //! extend, and the deepest partial row, and writes the first extension

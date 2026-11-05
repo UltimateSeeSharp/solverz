@@ -1,4 +1,4 @@
-//! R4: P1 on every open Instance of `instances.csv` with v ≤ `max_v`, stopping at the first
+//! E4: P1 on every open Instance of `instances.csv` with v ≤ `max_v`, stopping at the first
 //! set or after `max_nodes` nodes, `threads` Instances at a time. Validates the engine first.
 //! Usage: `r4_first_set <instances.csv> <max_v> <max_nodes> <threads>`; one line per
 //! Instance: id, key, yes/no/cut, nodes, time, set (`coords±` per marked element).
@@ -63,7 +63,7 @@ fn run(inst: &Instance, max_nodes: u64) -> String {
     format!("{} {} {result} {} {:.1?} {set}", inst.id, inst.key, out.nodes, t.elapsed())
 }
 
-/// The engine finds known sets, finds none where Lean rules them out, and repeats R1.
+/// The engine finds known sets, finds none where Lean rules them out, and repeats E1.
 fn validate() {
     for (k, lam, shape) in [
         (3, 1, vec![7]),
@@ -81,10 +81,10 @@ fn validate() {
     // F1 already rules it out: parity of k + s fails.
     let none = search_capped(&Group::new(&[2, 2]), 3, -1, 1, u64::MAX);
     assert!(none.is_none_or(|o| o.solutions.is_empty()), "engine finds a set Lean rules out");
-    // R1's node counts: the search tree must not change.
+    // E1's node counts: the search tree must not change.
     for (k, lam, shape, nodes) in [(8, 1, vec![3, 3], 525), (17, 8, vec![2, 10], 226_532)] {
         let out = search_capped(&Group::new(&shape), k, lam, usize::MAX, u64::MAX).unwrap();
-        assert!(out.solutions.is_empty() && out.nodes == nodes, "R1 not reproduced");
+        assert!(out.solutions.is_empty() && out.nodes == nodes, "E1 not reproduced");
     }
     eprintln!("validation passed");
 }

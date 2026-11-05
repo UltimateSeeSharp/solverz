@@ -7,4 +7,4 @@ as a matrix with colours shifted to 0–2 (`Tests/Statement.lean`).
 | ID | File | Object | Instance | Source | Score | Lean |
 |---|---|---|---|---|---|---|
 | O1 | [O1.txt](O1.txt) | 20-point colouring, from the unique (J₇, K₃; 20)-good graph; no one-point extension | — | [arXiv:1201.0554](https://arxiv.org/abs/1201.0554), Figure 3 | 0 | `paper20_valid` |
-| O2 | [O2.txt](O2.txt) | best circulant colouring of K₂₁ (first in R1's order) | N1 | R1 | 21 | — |
+| O2 | [O2.txt](O2.txt) | best circulant colouring of K₂₁ (first in E1's order) | N1 | E1 | 21 | — |

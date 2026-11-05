@@ -1,4 +1,4 @@
-//! R6: SAT search for a valid colouring of Kₙ by cube-and-conquer. Every
+//! E6: SAT search for a valid colouring of Kₙ by cube-and-conquer. Every
 //! valid colouring can be relabelled so point 0's pairs are sorted
 //! (colour 0 first, then 1, then 2) and recoloured 1 ↔ 2 so colour 1 is at
 //! least as common as colour 2 there; one cube per such row, each solved by
