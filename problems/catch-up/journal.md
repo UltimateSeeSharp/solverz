@@ -3,6 +3,11 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
+- 11:27 C83's partial case (y = N, b = N − 1) verified: `interval_tail_value_ne_loss_of_deficit_eq_top_add_three`, ported 2026-11-04 (refuter SURVIVES)
+- 11:27 E33: the ray's successor and canonical forms (C91, C92) hold at every even-total N from 11 to 28, fail only at N = 7, 8
+- 11:27 C103 open (ours): C74's boundary shrinks to y ∈ {b+1, N} by C77 (b) (refuter SURVIVES proof mode)
+- 11:27 imported from catch-up-research: C99–C102 open with I20–I22 alive (dense intervals, the ray point b = 6, debt-repair translator); refuter SURVIVES after text fixes
+- 11:27 imported from catch-up-research: C90–C97 verified (maximum companion, the ray's successor and canonical forms, four consecutive numbers, pair sets at small deficits, three-number endgames, turns as sets, crossing deficits), C98 refuted (five pairs at deficit 3); refuter SURVIVES after text fixes
 - 10:30 C74 for every N ⇒ C1 in Lean (`conjecture_of_lower_ray`): C81 (j = 2), C82, C83 for even-total N ≥ 13 suffice
 
 ## 2026-11-04
