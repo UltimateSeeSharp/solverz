@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-05
+- Refuter on R4's sets: N49, N61, N62, N68 SURVIVE (N61's origin: He–Chen–Ge at m = 1); N67, N73 FLAWED as status: already in Gordon 2022 (Prop 2.3, Thm 4.1), Open in the database by mistake; N63319, N14604, N31832, N14471 lag the same way
 - T1 (N3) and T2 (N32) approved by the user: Results in `results.md`
 - Goal approved by the user: `IsSDS`, `HasSDS`, and the key → `ZMod` product rule
 - Refuter SURVIVES on N3, N32, F2, F3 (independent brute force, Lean rebuild, axioms); F2, F3 verified; N3, N32 proposed as Results
