@@ -5,8 +5,10 @@ How we think and work: `principles.md`; techniques to draw on: `toolbox/`
 (`toolbox/check.ps1` validates it).
 
 ## Problem
+
 What we want to solve, of one kind; each kind adds its own model and attack
 loop: the skill of its name.
+
 - `prove`: a statement holds in all cases; a Lean proof.
 - `find`: an object with a property exists; Lean checks the object.
 - `bound`: improve a best-known value: a better object, or a proof of a
@@ -17,22 +19,23 @@ A problem that fits no kind, or has no finite check, is not taken on; the
 user decides.
 
 ## Files
-Every problem has these (`templates/_shared/`); its kind's skill adds its own.
-In a template, `<…>` in the text and `{…}` in file and folder names are
-placeholders to replace.
 
-| File | What it holds, how it is used |
-|---|---|
-| `README.md` | The problem: its rules in plain terms, the goal with its Lean name, its kind; the literature, with dated searches, including those that found nothing; optional problem-specific rules (files not to edit, compute limits). |
-| `state.md` | Now: the focus, the next step, what is running (agents and experiments: what, when started, where its output goes) and what needs the user. |
-| `understanding.md` | What holds (heuristics marked as such), what blocks every approach so far, and so what a solution must do; each point cites its evidence by ID. Rewritten when the understanding changes; single failures stay in the files of what they tested. |
-| `lean/` | The problem's Lean library: `<Problem>.lean` imports its modules; `<Problem>/Statement.lean` holds the goal and the definitions it uses; `<Problem>/Tests/` unit-tests the statements; `<Problem>/<Author>/` holds Lean imported from that author, with its license and notice; everything else is ours. |
-| `solver/` | The problem's Rust crate: `README.md` lists its engines and what each was checked against; `src/` holds the engines; `src/bin/` holds one binary per run. |
-| `scratch/` | Git-ignored playground; nothing there counts. Exploring there is always allowed; the rules apply to what gets recorded. |
-| `journal.md` | Steps that changed a status, newest first; one timestamped line each, under its date. |
-| `results.md` | Its Results (`T1`…), newest first: Lean-checked statements that answer or improve a published open question (a table entry, a record, a conjecture). One counts once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `results.md` gets it only on approval. |
+Every problem has these (`templates/_shared/`); its kind adds more (`templates/<kind>/`), described in its skill.
+In a template, `<…>` in the text and `{…}` in file and folder names are placeholders to replace.
+
+| File               | What it holds, how it is used                                                                                                                                                                                                                                                                                                                                        |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `README.md`        | The problem in plain terms, the goal with its Lean name, its kind; the literature, with dated searches, including those that found nothing; optional constraints for working on it (files not to edit, compute limits).                                                                                                                                              |
+| `state.md`         | Now: the focus, the next step, what is running (agents and experiments: what, when started, where its output goes) and what needs the user.                                                                                                                                                                                                                          |
+| `understanding.md` | What holds (heuristics marked as such), what blocks every approach so far, and so what a solution must do; each point cites its evidence by ID. Rewritten when the understanding changes; single failures stay in the files of what they tested.                                                                                                                     |
+| `lean/`            | The problem's Lean library: `<Problem>.lean` imports its modules; `<Problem>/Statement.lean` holds the goal and the definitions it uses; `<Problem>/Tests/` unit-tests the statements; `<Problem>/<Author>/`, if any, holds Lean imported from that author, with its license and notice; everything else is ours.                                                    |
+| `solver/`          | The problem's Rust crate: `README.md` lists its engines and what each was checked against; `src/` holds the engines; `src/bin/` holds its binaries.                                                                                                                                                                                                                  |
+| `scratch/`         | Git-ignored playground; nothing there counts. Exploring there is always allowed; the rules apply to what gets recorded.                                                                                                                                                                                                                                              |
+| `journal.md`       | Steps that changed a status, newest first; one timestamped line each, under its date.                                                                                                                                                                                                                                                                                |
+| `results.md`       | Its Results (`T1`…), newest first: Lean-checked statements that answer or improve a published open question (a table entry, a record, a conjecture). One is listed once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `results.md` gets it only on approval. |
 
 ## Roles
+
 - **Researcher**: the session that runs the attack loop. It knows what the
   problem's files hold, decides what is most promising and works it
   itself; it never hands its line off or waits. It keeps `understanding.md`
@@ -48,17 +51,19 @@ placeholders to replace.
   UNCLEAR: settling it is the next step.
 
 ## Where things live
+
 ```
 .claude/       skills/  agents/  hooks/
 templates/     _shared/  <kind>/
 problems/      problems.md  active.md  candidates.md
-  <name>/      templates/_shared/ + templates/<kind>/
+  <problem>/   templates/_shared/ + templates/<kind>/
 toolbox/
 principles.md
-.worktrees/<name>/
+.worktrees/<problem>/
 ```
 
 ## Rules
+
 - Agents and experiments run in the background while work goes on; each is
   listed under Running in `state.md` until its result is recorded.
 - At most 3 agents at a time, each with `model: opus` (always the newest Opus).
@@ -77,12 +82,15 @@ principles.md
 ## Workflows
 
 ### Choose: a new problem
+
 The `choose` skill.
 
 ### Maintain: the repo itself
+
 The `maintain` skill (`/maintain`); never inside an attack.
 
 ### Attack
+
 "attack <problem>" invokes the skill of the problem's kind (the Skill tool,
 so its Stop hook loads). On every start, the loop first enters the
 problem's worktree (Rules), reads `understanding.md`, `state.md` and the
@@ -99,19 +107,22 @@ hook (`.claude/hooks/never-stop.sh`) sends every other finished reply back
 into the loop.
 
 ## Trust
-- A result counts only once Lean checks it: `lake build --wfail`, no `sorry`,
+
+- Nothing counts until Lean checks it: `lake build --wfail`, no `sorry`,
   no custom `axiom`, no `native_decide`; `#print axioms` shows only
   `propext`, `Classical.choice`, `Quot.sound`.
 - Solvers and agents are untrusted; their output counts once Lean checks it.
 - Read any downloaded Lean file before compiling it.
 
 ## The user decides
+
 Approving statements, calling anything a solution, sharing outside the repo,
 bumping Lean or Mathlib, merging into main, pushes, installs and downloads.
 List it under "Needs the user" in `state.md`, mention it, and keep working on
 what doesn't depend on it.
 
 ## Conventions
+
 - **Names:** problem folders kebab-case (`catch-up`); its Lean library the
   same words in UpperCamelCase (`CatchUp`); its solver crate keeps the
   folder name.
@@ -130,6 +141,7 @@ what doesn't depend on it.
   folder or the repo area. One logical change per commit.
 
 ## Lean
+
 - Lean and Mathlib are pinned to v4.35.0 (`lean-toolchain`, `lakefile.toml`).
 - Import every module in its library root once it is `sorry`-free;
   `lake build` only checks what the roots import. Check an unfinished
@@ -140,9 +152,10 @@ what doesn't depend on it.
   anything builds, or Mathlib compiles from source (hours).
 
 ## This machine
+
 - CPU: AMD Ryzen 7 3700X (8 cores, 16 threads). GPU: RTX 3060 Ti, 8 GB,
   driver 610.88 (CUDA ≤ 13.3); CUDA Toolkit 13.3 in `C:\Program Files\NVIDIA
-  GPU Computing Toolkit\CUDA\v13.3` (`CUDA_PATH`; `bin\x64` must be on `PATH`
+GPU Computing Toolkit\CUDA\v13.3` (`CUDA_PATH`; `bin\x64` must be on `PATH`
   for NVRTC).
 - RAM: 32 GB. Disks: F: SanDisk
   SSD PLUS 2 TB (QLC, reads ~500 MB/s, writes ~100 MB/s sustained once its

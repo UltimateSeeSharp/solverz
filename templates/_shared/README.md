@@ -3,11 +3,11 @@
 <summary> Now: [state.md](state.md).
 
 ## Problem
-<rules> **Goal:** <statement>, Lean `<Problem>.Goal`.
+<problem in plain terms> **Goal:** <statement>, Lean `<Problem>.Goal`.
 Kind: <kind>.
 
 ## Literature
-<results and dated searches>
+<prior work and dated searches>
 
 ## Rules
-<rules>
+<constraints>
