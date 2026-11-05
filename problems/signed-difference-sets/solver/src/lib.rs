@@ -9,6 +9,8 @@ pub struct Group {
     pub order: usize,
     /// `add[x][g]` is the index of x + g.
     pub add: Vec<Vec<usize>>,
+    /// `sub[x][g]` is the index of x − g.
+    pub sub: Vec<Vec<usize>>,
 }
 
 impl Group {
@@ -16,8 +18,14 @@ impl Group {
         let order = shape.iter().product();
         let add = (0..order)
             .map(|x| (0..order).map(|g| Self::sum(shape, x, g)).collect())
-            .collect();
-        Group { shape: shape.to_vec(), order, add }
+            .collect::<Vec<Vec<usize>>>();
+        let mut sub = vec![vec![0; order]; order];
+        for x in 0..order {
+            for g in 0..order {
+                sub[add[x][g]][g] = x;
+            }
+        }
+        Group { shape: shape.to_vec(), order, add, sub }
     }
 
     fn sum(shape: &[usize], x: usize, g: usize) -> usize {
@@ -159,20 +167,19 @@ impl State<'_> {
     /// Adds (`dir` = 1) or removes (−1) the terms that assigning element `i` completes;
     /// on adding, reports whether every g can still reach λ.
     fn close_terms(&mut self, i: usize, dir: i64) -> bool {
-        let g_add = &self.group.add;
+        let (g_add, g_sub) = (&self.group.add, &self.group.sub);
         let mut ok = true;
         for g in 1..self.group.order {
-            // term x = i completes when i + g < i is assigned; term x = j completes when j + g = i, j < i.
+            // term x = i completes when i + g < i is assigned; term x = i − g when i − g < i.
             let fwd = g_add[i][g];
             if fwd < i {
                 self.partial[g] += dir * (self.d[i] * self.d[fwd]) as i64;
                 self.open_terms[g] -= dir;
             }
-            for j in 0..i {
-                if g_add[j][g] == i {
-                    self.partial[g] += dir * (self.d[j] * self.d[i]) as i64;
-                    self.open_terms[g] -= dir;
-                }
+            let back = g_sub[i][g];
+            if back < i {
+                self.partial[g] += dir * (self.d[back] * self.d[i]) as i64;
+                self.open_terms[g] -= dir;
             }
             if dir == 1 && (self.lam - self.partial[g]).abs() > self.open_terms[g] {
                 ok = false;
