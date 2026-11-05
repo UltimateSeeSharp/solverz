@@ -35,3 +35,4 @@
 | [I31](I31.md) | Rule variants that separate the lemmas from C1 | `T1011` prove the approach cannot work | user (toolbox) | — | dead |
 | [I32](I32.md) | Temperature of the low phase | `T816` temperature theory | user (toolbox) | — | dead |
 | [I33](I33.md) | One start: the maximal opening | `—` one-start reduction | ideator | C119 | alive |
+| [I34](I34.md) | Universal catch-up rules | `T301` generalize | us | C120 | new |

@@ -121,3 +121,4 @@
 | [C117](C117.md) | Deficit Lipschitz | — | refuted | — | — |
 | [C118](C118.md) | Extra-number bound | — | refuted | — | — |
 | [C119](C119.md) | The maximal opening is not a win for the answerer | C77 | open | C119 ⇒ C1: `CatchUp.conjecture_of_max_opening` (`CatchUp/MaxOpening.lean`) | — |
+| [C120](C120.md) | The draw for every stopping threshold | — | open | — | — |
