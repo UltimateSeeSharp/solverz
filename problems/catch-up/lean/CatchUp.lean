@@ -22,6 +22,7 @@ public import CatchUp.Executable
 public import CatchUp.GameMargin
 public import CatchUp.Neighbour
 public import CatchUp.OneHoleRounds
+public import CatchUp.OneHoleBand
 public import CatchUp.Endgames
 public import CatchUp.Band
 public import CatchUp.Small

@@ -39,3 +39,4 @@
 | [E35](E35.md) | Tied blocks minus one number, every height (C106) | C106 | n ≤ 19: no loss at the draw parity; at a = 1 every {1..n} ∖ {h} of even total draws |
 | [E36](E36.md) | The low column of blocks (C104) | C104 | n = 6..20, a ≤ n/2: every draw-parity d ≤ n − 1 draws, \|m\| ≤ 1; the column runs to the block's maximum from n = 12 |
 | [E37](E37.md) | Tied odd blocks minus one number at every real height (C109) | C109 | k ≤ 7: every draw-parity hole draws on all of (0, ∞), exactly |
+| [E38](E38.md) | The one-hole band (C110) | C110 | k = 3..9, every height tested, every hole: every draw-parity d ≤ k − 1 draws; the band ends exactly at d = k |
