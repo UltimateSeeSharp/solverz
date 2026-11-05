@@ -14,7 +14,7 @@ disable-model-invocation: true
 - A change to something CLAUDE.md describes updates CLAUDE.md in the same step.
 - On the user's item, lead and be critical: recommend one option, don't survey them. Answer
   "why" directly.
-- Proposals go in a plain message. A dialog only for a short choice, in a later turn.
+- Decisions go to the user one at a time in AskUserQuestion; my recommendation first.
 - Commit only when told; never push.
 - Installs and downloads: give the exact command, what it changes and how to undo it; the
   user runs it. In PowerShell, no `!` prefix and env vars set inline.
