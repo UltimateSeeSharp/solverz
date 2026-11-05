@@ -32,3 +32,4 @@
 | [I28](I28.md) | Inert opening depth | `T300` specialize | ideator | C115 | dead |
 | [I29](I29.md) | Complement mirror | `T809` mirror strategy | user (toolbox) | — | dead |
 | [I30](I30.md) | Automatic rows | `T21` Walnut | user (toolbox) | — | dead |
+| [I31](I31.md) | Rule variants that separate the lemmas from C1 | `T1011` prove the approach cannot work | user (toolbox) | — | new |
