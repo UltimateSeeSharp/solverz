@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
+- 19:39 I27 alive: two-number defender turns keep every C110 draw for k ≤ 9 and C1 for N ≤ 20 (E41)
 - 19:33 I27 new: the defender of C1 and C110 needs turns of at most two numbers (C114, scratch data)
 - 19:22 C108 verified at linear height: tied one-hole blocks (k ≤ o) draw once a > 3(2k + 1) (`one_hole_block_draw_linear`)
 - 19:10 E40: C99's deficit-1 endpoint families never lose for N ≤ 24 (I20 kill test 1 passed)
