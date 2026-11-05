@@ -35,3 +35,6 @@
 | [E31](E31.md) | Simple Z rules under the one-pick cap | C86 | No Hyb2 variant goes below 2p − 1; the optimum ≈ 3p/2 is not a local rule |
 | [E32](E32.md) | Collapsed blocks under the one-pick cap | C85 | One-pick play needs height ≈ 4p − 8 (blocks: ≈ 3p/2); the real game draws far lower |
 | [E33](E33.md) | The lower ray's other forms | C91, C92 | Both hold at every even-total N from 11 to 28; fail only at N = 7, 8 |
+| [E34](E34.md) | Tied odd blocks minus one number, every height (C105) | C105 | k ≤ 9 at every a ≤ 2(2k + 1) and a = (2k + 1)²: every draw-parity hole draws; \|m\| ≤ 1 at every hole |
+| [E35](E35.md) | Tied blocks minus one number, every height (C106) | C106 | n ≤ 19: no loss at the draw parity; at a = 1 every {1..n} ∖ {h} of even total draws |
+| [E36](E36.md) | The low column of blocks (C104) | C104 | n = 6..20, a ≤ n/2: every draw-parity d ≤ n − 1 draws, \|m\| ≤ 1; the column runs to the block's maximum from n = 12 |
