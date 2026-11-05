@@ -12,7 +12,7 @@ The strategy is `Linear.lean`'s (AM+T, then matching partners after the switch) 
 `2(k + 1)` offsets, which contain the one-hole set; the tied opponent's first round is
 `OneHoleRounds.lean`'s (answer `2k`, or `2k - 1` / `2k - 2` after the opening `2k`). C22
 (`valueAux_transfer`) carries both guarantees to the real game. The same classes give part of C110's
-band, `1 ≤ d ≤ o + 1 - k` (`one_hole_band_draw_linear`).
+band, `1 ≤ d ≤ o + 1 - k`, at most `k` (`one_hole_band_draw_linear`).
 -/
 
 @[expose] public section

@@ -7,7 +7,6 @@
 **Limits (user, 2026-11-04).** Ask before heavy runs while the user works on the machine; light runs (one thread, seconds) are fine.
 **Running.**
 - Ideator round fresh08 (opus, light runs only), started 2026-11-05 20:27; its notes in `scratch/ideator/`.
-- Refuter on today's Lean statements (C110 `OneHoleBandConjecture`, C111 `ctlMargin` vs E39's `Controller`, `OneHoleLinear` wording), started 2026-11-05 20:15; work in `scratch/refuter/`.
 
 ## Optional long runs
 - C86 for p = 5 in Lean (draft `scratch/a17/BandFive.lean`, to append to `lean/CatchUp/Band.lean`; kernel evaluation, 1 thread, 2–4 GB; 28 600 distinct positions against 4 265 for p = 4, so about 7× its build time or more if the evaluator does not share subtrees): ask the user first.
