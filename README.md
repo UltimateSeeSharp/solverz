@@ -8,13 +8,18 @@ without trusting the AI or the search code behind it.
 
 | Date | Problem | Result | Proof |
 |---|---|---|---|
-| — | — | none yet | — |
+| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | A (27, 14, 5) signed difference set exists in C₃ × C₉ (open in Gordon's table) | `SignedDifferenceSets.Answer.N68.hasSDS` |
+| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | A (27, 10, 1) signed difference set exists in C₃ × C₉ (open in Gordon's table) | `SignedDifferenceSets.Answer.N62.hasSDS` |
+| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | A (27, 10, 1) signed difference set exists in C₃ × C₃ × C₃ (open in Gordon's table; He–Chen–Ge's construction at m = 1, outside the range their theorem states) | `SignedDifferenceSets.Answer.N61.hasSDS` |
+| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | A (25, 12, 1) signed difference set exists in C₅ × C₅ (open in Gordon's table) | `SignedDifferenceSets.Answer.N49.hasSDS` |
+| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | No (20, 17, 8) signed difference set exists in C₂ × C₁₀ (open in Gordon's table) | `SignedDifferenceSets.Answer.N32.not_hasSDS` |
+| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/results.md) | No (9, 8, 1) signed difference set exists in C₃ × C₃ (open in Gordon's table) | `SignedDifferenceSets.Answer.N3.not_hasSDS` |
 
 ## Problems
 
 | Problem | The question | Status |
 |---|---|---|
-| [Signed difference sets](problems/signed-difference-sets/README.md) | Which ±1 patterns with perfectly flat autocorrelation exist? Settling open entries of Gordon's table. | 2 entries proved impossible, under review |
+| [Signed difference sets](problems/signed-difference-sets/README.md) | Which ±1 patterns with perfectly flat autocorrelation exist? Settling open entries of Gordon's table. | 6 open entries settled: 4 sets found, 2 proved impossible |
 | [Catch-Up](problems/catch-up/README.md) | Is the number game Catch-Up on 1..N always a draw when the total is even? | open; partial results |
 | [R(K₃, K₄−e, K₄−e)](problems/ramsey-k3-k4e-k4e/README.md) | Is this three-colour Ramsey number 21 or 22? | open; search engine being built |
 
