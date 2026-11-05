@@ -2,7 +2,8 @@
 //! cyclotomic classes of order e and on 0 that is an SDS. Validates the engine first.
 //! Usage: `e6_cyclotomic <instances.csv> <e> <max_q> <threads>`; one line per hit up to
 //! the symmetries of `canonical`: q, p^m, k, λ, signs (C₀ … C_{e−1} | 0), how many sign
-//! choices it stands for, and the Instance of its key with its status, if any.
+//! choices it stands for, and the Instance of its key with its status, if any. A hit on an
+//! open Instance adds a line in E4's format (`id key yes - - coords± …`) for `answer.py`.
 
 use signed_difference_sets::cyclotomic::{canonical, expand, search, Field, Hit};
 use signed_difference_sets::{instances, is_sds, Group, Sign};
@@ -38,6 +39,20 @@ fn show(signs: &[Sign]) -> String {
     let s = |x: &Sign| ['-', '0', '+'][(x + 1) as usize];
     let e = signs.len() - 1;
     format!("{}|{}", signs[..e].iter().map(s).collect::<String>(), s(&signs[e]))
+}
+
+/// The marked elements of `signs` on GF(q) as `c₁.c₂…±`, coordinates in ℤ_p^m with the
+/// most significant digit first (`Group`'s order).
+fn set_tokens(field: &Field, e: usize, signs: &[Sign]) -> String {
+    let d = expand(field, e, signs);
+    let token = |x: usize| {
+        let digits: Vec<String> = (0..field.m)
+            .rev()
+            .map(|i| (x / field.p.pow(i) % field.p).to_string())
+            .collect();
+        format!("{}{}", digits.join("."), if d[x] > 0 { '+' } else { '-' })
+    };
+    (0..field.q).filter(|&x| d[x] != 0).map(token).collect::<Vec<_>>().join(" ")
 }
 
 /// Every sign choice on GF(q), q ≤ RECHECK_MAX_Q, gets the same verdict from `search` and
@@ -124,16 +139,21 @@ fn main() {
     }
     eprintln!("validation passed");
     for (q, (p, m, hits)) in results.lock().unwrap().iter() {
-        // Hits grouped by their canonical form, which every member shares.
-        let mut orbits: BTreeMap<Vec<Sign>, (usize, i64, usize)> = BTreeMap::new();
+        // Hits grouped by their canonical form, which every member shares; the first member
+        // stands for the group.
+        let mut orbits: BTreeMap<Vec<Sign>, (&Hit, usize)> = BTreeMap::new();
         for h in hits {
-            orbits.entry(canonical(&h.signs, e, *p)).or_insert((h.k, h.lam, 0)).2 += 1;
+            orbits.entry(canonical(&h.signs, e, *p)).or_insert((h, 0)).1 += 1;
         }
-        for (signs, (k, lam, count)) in orbits {
+        for (signs, (h, count)) in orbits {
+            let (k, lam) = (h.k, h.lam);
             let shape = vec![p.to_string(); *m as usize].join(",");
             let key = format!("SDS({q},{k},{lam},[{shape}])");
             let inst = table.get(&key).map_or("-".to_string(), |(id, st)| format!("{id} {st}"));
             println!("{q} {p}^{m} {k} {lam} {} {count} {inst}", show(&signs));
+            if let Some((id, _)) = table.get(&key).filter(|(_, st)| st == "open") {
+                println!("{id} {key} yes - - {}", set_tokens(&Field::new(*p, *m), e, &h.signs));
+            }
         }
     }
 }
