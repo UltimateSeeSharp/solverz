@@ -6,7 +6,6 @@
 - Before offering N = 33–35 to anyone, rerun them from a committed engine with a second engine as a cross-check.
 **Limits (user, 2026-11-04).** Ask before heavy runs while the user works on the machine; light runs (one thread, seconds) are fine.
 **Running.**
-- Ideator round fresh07 (opus, new definition, light runs only), started 2026-11-05 19:45; its notes in `scratch/ideator/`.
 - Refuter on today's Lean statements (C110 `OneHoleBandConjecture`, C111 `ctlMargin` vs E39's `Controller`, `OneHoleLinear` wording), started 2026-11-05 20:15; work in `scratch/refuter/`.
 
 ## Optional long runs

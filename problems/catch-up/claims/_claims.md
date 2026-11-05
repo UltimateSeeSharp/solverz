@@ -118,3 +118,5 @@
 | [C114](C114.md) | Two-number turns suffice for the defender | — | open | — | — |
 | [C115](C115.md) | Inert opening depth | — | open | — | — |
 | [C116](C116.md) | The change number is the largest one below the deficit | C114 | open | — | — |
+| [C117](C117.md) | Deficit Lipschitz | — | refuted | — | — |
+| [C118](C118.md) | Extra-number bound | — | refuted | — | — |
