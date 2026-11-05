@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
+- 21:08 I31 dead: θ ≥ 6–7 separates the high phase from the draw (fine change is what the low phase needs); the level law fails from θ = 2 with the draw intact
 - 21:01 C104 ⇒ C1 in Lean (`conjecture_of_low_column`)
 - 21:00 I31 alive again at its edge: the threshold variant θ = 6 loses at N = 16 and 20 (θ ≤ 5 draws to N = 20)
 - 20:58 I33 kill test (2): canonical play from the maximal opening fails at the first defender turn for every N; C119 stays as the cheapest Lean target only
