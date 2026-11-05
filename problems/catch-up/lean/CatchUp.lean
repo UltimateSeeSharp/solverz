@@ -24,6 +24,7 @@ public import CatchUp.Endgames
 public import CatchUp.Band
 public import CatchUp.Small
 public import CatchUp.PairDeletions
+public import CatchUp.LowerRay
 public import CatchUp.Tests.BlockDrawLinear
 public import CatchUp.Tests.BlockDrawHyb2
 -- From catch-up-research (b0853b4); see NOTICE.md.
