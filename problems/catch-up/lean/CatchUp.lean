@@ -24,6 +24,7 @@ public import CatchUp.Neighbour
 public import CatchUp.Controller
 public import CatchUp.OneHoleRounds
 public import CatchUp.OneHoleBand
+public import CatchUp.OneHoleLinear
 public import CatchUp.Endgames
 public import CatchUp.Band
 public import CatchUp.Small
