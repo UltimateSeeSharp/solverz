@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-05
+- N35840 (361, 316, 141) in C₁₉ × C₁₉: exists, O12 Lean-checked by the new fast set check (`SetCheck.lean`, `decide +kernel`, 77 s); refuter and the literature check next
 - E6 (P2, octic cyclotomic sign vectors, every q ≡ 1 mod 8 up to 10⁵): sporadic sets at 9 fields, no family; one open Instance hit, N35840 (361, 316, 141) in C₁₉ × C₁₉: O12, Lean pending
 - N67, N73: credited to Gordon 2022 (Prop 2.3, Thm 4.1) by the importer, which now lets a literature construction take the credit over our own set
 - Z3 (N49), Z4 (N61), Z5 (N62), Z6 (N68) approved by the user: Solutions in `solutions.md` and the repo README

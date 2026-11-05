@@ -4,6 +4,9 @@ public import SignedDifferenceSets.Statement
 public import SignedDifferenceSets.Check
 public import SignedDifferenceSets.Symmetry
 public import SignedDifferenceSets.Contraction
+public import SignedDifferenceSets.Loops
+public import SignedDifferenceSets.Index
+public import SignedDifferenceSets.SetCheck
 public import SignedDifferenceSets.Answer.N3
 public import SignedDifferenceSets.Answer.N32
 public import SignedDifferenceSets.Answer.N49
@@ -12,6 +15,7 @@ public import SignedDifferenceSets.Answer.N62
 public import SignedDifferenceSets.Answer.N67
 public import SignedDifferenceSets.Answer.N68
 public import SignedDifferenceSets.Answer.N73
+public import SignedDifferenceSets.Answer.N35840
 public import SignedDifferenceSets.Tests.Statement
 
 /-!

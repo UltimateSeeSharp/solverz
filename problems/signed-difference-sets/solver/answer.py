@@ -4,6 +4,8 @@
 the run's line for that Instance (`id key yes nodes time coords± …`).
 `answer.py lean <object id> <instance id>`: writes lean/SignedDifferenceSets/Answer/N<id>.lean,
 whose `hasSDS` Lean checks by `decide`.
+`answer.py fast <object id> <instance id>`: the same through `checkSet` and `decide +kernel`,
+for sets too large for `decide`.
 """
 import csv
 import re
@@ -111,6 +113,69 @@ end SignedDifferenceSets.Answer.{instance}
     (ANSWER_DIR / f"{instance}.lean").write_text(text, encoding="utf-8")
 
 
+def masks(shape, signs):
+    """Bit masks (plus, minus) over the element numbers of `Indexed`: mixed radix, first
+    coordinate most significant."""
+    plus = minus = 0
+    for coords, sign in signs.items():
+        i = 0
+        for c, m in zip(coords, shape):
+            i = i * m + c
+        if sign > 0:
+            plus |= 1 << i
+        else:
+            minus |= 1 << i
+    return plus, minus
+
+
+def write_fast(obj: str, instance: str) -> None:
+    shape, v, k, lam, signs = read_object(obj)
+    key = instance_key(instance)
+    assert parse_key(key) == (v, k, lam, shape), f"{obj} does not answer {key}"
+    group = " × ".join(f"ZMod {m}" for m in shape)
+    pretty = " × ".join(f"C{str(m).translate(SUB)}" for m in shape)
+    lam_lean = f"({lam})" if lam < 0 else str(lam)
+    plus, minus = masks(shape, signs)
+    text = f"""module
+
+public import SignedDifferenceSets.SetCheck
+
+/-!
+# {instance}: a ({v}, {k}, {lam}) SDS in {pretty}
+
+Open in Gordon's table (`{key}`, 2026-11-05). The set is object {obj}
+(`objects/{obj}.txt`); this file is generated from it by `solver/answer.py`.
+-/
+
+@[expose] public section
+
+namespace SignedDifferenceSets.Answer.{instance}
+
+-- A literal cannot span lines.
+set_option linter.style.longLine false in
+/-- Object {obj}'s plus elements, as bits over the element numbers of `Indexed`. -/
+def plus : ℕ := {plus:#x}
+
+set_option linter.style.longLine false in
+/-- Object {obj}'s minus elements, as bits over the element numbers of `Indexed`. -/
+def minus : ℕ := {minus:#x}
+
+/-- Object {obj}: the sign of each element. -/
+def sds : {group} → SignType := fun x => ofMasks plus minus (Indexed.equiv x)
+
+set_option maxRecDepth 100000 in
+-- `decide +kernel` evaluates `checkSet`: the count and every shift's signed count.
+theorem isSDS : IsSDS {k} {lam_lean} sds :=
+  isSDS_of_checkSet (G := {group}) (P := plus) (N := minus) (by decide +kernel)
+
+/-- {instance}: {pretty} has a signed difference set with parameters ({v}, {k}, {lam}). -/
+theorem hasSDS : HasSDS ({group}) {k} {lam_lean} := ⟨sds, isSDS⟩
+
+end SignedDifferenceSets.Answer.{instance}
+"""
+    (ANSWER_DIR / f"{instance}.lean").write_text(text, encoding="utf-8")
+
+
 if __name__ == "__main__":
     cmd, *args = sys.argv[1:]
-    {"object": write_object, "lean": write_lean}[cmd](*args)
+    {"object": write_object, "lean": write_lean, "fast": write_fast}[cmd](*args)

@@ -17,4 +17,4 @@ marked element per line: its coordinates, then `+` or `-`. The Lean form is a
 | O9 | [O9.txt](O9.txt) | (27, 14, 5) SDS in C₃ × C₃ × C₃ | N67 | E4 | 0 | `Answer.N67.hasSDS` |
 | O10 | [O10.txt](O10.txt) | (27, 14, 5) SDS in C₃ × C₉ | N68 | E4 | 0 | `Answer.N68.hasSDS` |
 | O11 | [O11.txt](O11.txt) | (27, 17, 8) SDS in C₃ × C₃ × C₃ | N73 | E4 | 0 | `Answer.N73.hasSDS` |
-| O12 | [O12.txt](O12.txt) | (361, 316, 141) SDS in C₁₉ × C₁₉: on GF(361), −(C₀ ∪ … ∪ C₅ ∪ {0}) + C₇ over the octic classes, up to an automorphism and sign | N35840 | E6 | 0 | — |
+| O12 | [O12.txt](O12.txt) | (361, 316, 141) SDS in C₁₉ × C₁₉: on GF(361), −(C₀ ∪ … ∪ C₅ ∪ {0}) + C₇ over the octic classes, up to an automorphism and sign | N35840 | E6 | 0 | `Answer.N35840.hasSDS` |
