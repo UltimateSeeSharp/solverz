@@ -8,8 +8,9 @@ Already covered (not to redo): `T807` strategy stealing, `T818` far blocks, `T11
 **After that.** Return to E24's rule with a new idea (ideator round, or literature on pairing strategies for sum games).
 - Before offering N = 33–35 to anyone, rerun them from a committed engine with a second engine as a cross-check.
 **Limits (user, 2026-11-04).** Ask before heavy runs while the user works on the machine; light runs (one thread, seconds) are fine.
+**Agents paused (user, 2026-11-05 20:55).** No ideator, refuter or other agent in this session until the user allows it again (or a new session). Wanted once allowed: a refuter on C116/C114's engine (`ShortTurns`, one implementation) and on I31's universality data; an ideator round after the toolbox angles. Ideator fresh08 was asked to hand back what it has (its report `scratch/ideator/2026-11-05-fresh08.md`: angle 1, C1 from the maximal opening alone).
 **Running.**
-- Ideator round fresh08 (opus, light runs only), started 2026-11-05 20:27; its notes in `scratch/ideator/`.
+- Ideator round fresh08: asked at 20:55 to hand back its findings (agents paused).
 
 ## Optional long runs
 - C86 for p = 5 in Lean (draft `scratch/a17/BandFive.lean`, to append to `lean/CatchUp/Band.lean`; kernel evaluation, 1 thread, 2–4 GB; 28 600 distinct positions against 4 265 for p = 4, so about 7× its build time or more if the evaluator does not share subtrees): ask the user first.
