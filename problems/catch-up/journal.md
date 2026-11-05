@@ -3,8 +3,8 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
-- 19:10 C109 open: tied odd blocks minus one number draw at every real height h > 0, k ≤ 7 (E37, exact)
-- 18:35 C108 open (paper): C105 in the rounds regime for the upper holes, from C23; refuter running
+- 18:36 C109 open: tied odd blocks minus one number draw at every real height h > 0, k ≤ 7 (E37, exact)
+- 18:20 C108 open (paper): C105 in the rounds regime for the upper holes, from C23; refuter running
 - 18:21 C107 verified: the neighbour bound in margins (`CatchUp/Neighbour.lean`)
 - 17:58 I23 and I24 alive: C104 holds for n ≤ 20 (E36), C105 for k ≤ 9 at every height tested (E34), C106 for n ≤ 19 (E35)
 - 17:45 I23 new (the low column of blocks, C104) and I24 new (tied one-hole blocks, C105, C106), with the neighbour bound C107 open (ideator fresh04c)
