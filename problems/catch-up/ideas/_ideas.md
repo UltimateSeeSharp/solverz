@@ -29,3 +29,4 @@
 | [I25](I25.md) | Tie-rule sandwich | `T301` generalize | ideator | C111, C112 | alive |
 | [I26](I26.md) | Small change under a block | `T301` generalize | ideator | C113 | dead |
 | [I27](I27.md) | Short defender turns | `—` turn restriction | us | C114 | alive |
+| [I28](I28.md) | Inert opening depth | `T300` specialize | ideator | C115 | dead |

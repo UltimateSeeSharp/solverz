@@ -116,3 +116,4 @@
 | [C112](C112.md) | The controller cannot win | — | open | — | — |
 | [C113](C113.md) | Small change under a block (POOL) | — | open | — | — |
 | [C114](C114.md) | Two-number turns suffice for the defender | — | open | — | — |
+| [C115](C115.md) | Inert opening depth | — | open | — | — |

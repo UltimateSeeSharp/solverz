@@ -3,6 +3,7 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
+- 19:41 I28 dead (inert opening depth, C115, not a route); ideator fresh06 cut three more angles
 - 19:39 I27 alive: two-number defender turns keep every C110 draw for k ≤ 9 and C1 for N ≤ 20 (E41)
 - 19:33 I27 new: the defender of C1 and C110 needs turns of at most two numbers (C114, scratch data)
 - 19:22 C108 verified at linear height: tied one-hole blocks (k ≤ o) draw once a > 3(2k + 1) (`one_hole_block_draw_linear`)
