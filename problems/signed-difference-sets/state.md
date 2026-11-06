@@ -6,10 +6,10 @@
 
 **Next step.** Ideator round 2 (`scratch/ideator/2026-11-06-1837.md`), by rows settled as the user ordered:
 1. I11 Ma's lemma on mixed quotients (C21, proved, refuter SURVIVES): 1,483 open rows. Now: C21 in Lean (the researcher), then its row check.
-2. I12 Sylow trace rule (C22): 464 open rows (905 hit; C19/C20 settled 441). Refuter on C22 (weakest: p = 2); then Lean on ℤ[i]/ℤ[ω] first.
+2. I12 Sylow trace rule (C22, proved, refuter SURVIVES): 464 open rows. Lean after C21's core (it reuses A = ℤ[X]/Ψ, π, σ and the step with K = 1); state it with divisibility (s = 0 occurs).
 3. I13 C9 for every n via Witt vectors (alive: helper W's spike proves it in scratch): 1,992 open E10/E11 `none` rows with n not squarefree. Now: helper W integrates (`MultiplierWitt.lean`, `OrbitRow'`, parts Part33…); then a refuter on the new statements; then settle. Also unlocks C10 for A7's non-squarefree kills (item 6).
 4. Done: I14 (C23, 132 rows) and I15 (19 rows) settled 2026-11-06.
-6. A7 row checker (C10/C16 coset sums fixed by the multiplier, VectorSearch's pattern with one value per t-orbit; ~400–600 lines): its first 386 rows of the new run killed 167, 164 of them with n not squarefree, so it pays mostly after I13 (C10 for every n). Decide when A7's counts and I13's spike are in.
+6. A7 row checker (C10 coset sums fixed by the multiplier): helper V building it; the new run killed 491 still-open rows in its first 1,701 (mostly n not squarefree, so with I13's C10). Then a refuter on it and on I13.
 Alongside: the root `lake build --wfail` alone when RAM allows (needs ~9 GB); N58470's object build (8.9 GB). Later: I5 leaf-heavy squarefree rows (~323), the remaining heavy contraction rows, I7/I8, the exhaustion design.
 
 Results only in scratch (git-ignored):
@@ -17,7 +17,7 @@ Results only in scratch (git-ignored):
 - The **main folder's** `problems/signed-difference-sets/scratch/` (the overnight work of 2026-11-06, outside the worktree; copy it into the worktree's scratch before citing it there): `refuter/` with the reports C5–C12 and the objects cite (`rule-sc`, `extensions`, `a5-a3`, `found-sets`, `db-lags`, `nl-family`, each with its scripts); `ideator/` (report `2026-11-06-0110.md`, rule scripts and outputs); `e8/` (exploration: the all-rows contraction passes, the orbit search, `turyn.py`, README); `other-session/` (another session's hand-off, N735 and N17201). Keep.
 
 **Running.**
-- Agents (2 of 3): refuter on C22 (19:45, `scratch/refuter/c22/`); Lean helper W integrating I13 into the library (20:30, `scratch/agentW/progress.md`).
+- Agents (2 of 3): Lean helper W integrating I13 into the library (20:30, `scratch/agentW/progress.md`); Lean helper V building A7's row checker (C10 coset sums fixed by a multiplier, 20:40, `scratch/agentV/progress.md`).
 - Lean, one process at a time through the lock `scratch/lean.lock` (`scratch/lean-locked.ps1` for builds, `scratch/lenv-locked.sh` for scratch checks): the root build waits for 13 GB free (task b9dm55jw2); C21's Lean in `scratch/ma/MaDev.lean` (the researcher).
 - Exploration (scratch, 2 processes below normal, started 19:56): A7's multiplier-fixed coset-sum search (`scratch/ideator/mcontract.py`, rmax 10, cap 3·10⁵) over the 11,099 open rows the old run did not reach → `scratch/a7/mc2_{0,1}.out`; counts what C16 (squarefree n) could settle once a Lean row checker exists.
 - E7, **suspended** 2026-11-06 00:30 at the user's request: process 33500 (`target/release/r4_first_set.exe problems/signed-difference-sets/instances.csv 40 10000000000 10 N70,N71,N76,N77,N131,N133,N168,N172,N173,N174,N176,N177,N178,N194,N204,N205,N207,N212,N220,N221,N223,N224`, from the worktree root, commit 95d6f8c), all threads suspended. Partial output `scratch/e7.out` (11 of 22, E7.md). Resume (PowerShell): `Add-Type -Namespace Win -Name Nt -MemberDefinition '[DllImport("ntdll.dll")] public static extern int NtResumeProcess(IntPtr h);'; [Win.Nt]::NtResumeProcess((Get-Process -Id 33500).Handle)`. If gone, rerun `N133,N204,N205,N207,N212` with the same command, appending to `scratch/e7.out`.
