@@ -27,3 +27,4 @@
 | [C23](C23.md) | C5, C13, C14 with a composite modulus (CRT over self-conjugate primes) | C5, C13, C14 | verified | `not_hasSDS_of_compositeModulus` | — |
 | [C24](C24.md) | Mod-q vanishing: ψ(D)ψ(D^(−1)) = 0 in characteristic q ∣ n | — | proved | — | — |
 | [C25](C25.md) | Self-conjugate primes enlarge the coset-sum multiplier group (N1a) | C5, C10 | open | — | — |
+| [C26](C26.md) | Ma descent at equality: an SDS on C_{2^j} × K halves to one on G/P | C1, C3, C21 | proved | — | — |
