@@ -9,7 +9,7 @@
 2. A7's rows: `CosetSearch`/`CosetSearchWitt` built (helper V); the 39 squarefree parts (345 rows, C16) building (`scratch/agentV/parts.log`); the non-squarefree parts regenerated after I13's rows are settled (`solver/a7rows.py write other <n>`), then built; refuter on both.
 3. C22's rest: the p = 2 equality (`SylowTwo.lean`, 63 rows `SylowTwoRows.lean`) built, refuter next; 5 rows need primes above 19 (base certificates for more pairs in `MaRows/Polys.lean`).
 4. Contraction rows: N79, N80 have built Lean answers (`Answer.N79`, `Answer.N80`, E5's quotients) but no refuter yet; with the next refuter batch, then settle.
-5. The exhaustion design for the 41 open rows with v < 50.
+5. The exhaustion design for the 41 open rows with v < 50: I16 (`ideas/I16.md`): 8 settle with I13, 4 need the orbit search in slices, 27 need contraction-then-lift; cheapest experiment: count quotient vectors and lift nodes per row.
 Later: I5 heavy rows (322, leaves above 1,500), the rows no line reaches.
 
 Results only in scratch (git-ignored):
