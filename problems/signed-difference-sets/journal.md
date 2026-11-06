@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-07
+- 00:35 Third set by doubling: O81 (128, 68, 4) in C₂⁷ for N3539 (open); Lean check queued
 - 00:30 Two new sets by doubling (I21): O79 (54, 38, 2) for N448 and O80 (54, 46, 10) for N463, both open; Lean checks building
 - 00:20 C26 at c = 1 in Lean (`MaDescentFull.lean`): 112 rows through their halved row (`HalfRows.lean`), with `DescentRows.lean` (177) building
 
