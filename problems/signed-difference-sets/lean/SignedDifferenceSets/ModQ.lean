@@ -21,10 +21,11 @@ def charSum (ψ : Multiplicative G →* K) (D : G → SignType) : K :=
   ∑ x, ((D x : ℤ) : K) * ψ (Multiplicative.ofAdd x)
 
 /-- C24: `ψ(D) ψ(D^(−1)) = 0` when `q ∣ k − λ`, `K` has characteristic `q` and `Σ ψ = 0`. -/
-theorem IsSDS.charSum_mul_charSum_neg [DecidableEq G] {k : ℕ} {lam : ℤ} {D : G → SignType}
+theorem IsSDS.charSum_mul_charSum_neg {k : ℕ} {lam : ℤ} {D : G → SignType}
     (hD : IsSDS k lam D) (q : ℕ) [CharP K q] (hq : (q : ℤ) ∣ (k : ℤ) - lam)
     (ψ : Multiplicative G →* K) (hψ : ∑ x : G, ψ (Multiplicative.ofAdd x) = 0) :
     charSum ψ D * charSum ψ (fun x => D (-x)) = 0 := by
+  classical
   have hψadd : ∀ y g : G, ψ (Multiplicative.ofAdd (y + g)) * ψ (Multiplicative.ofAdd (-y)) =
       ψ (Multiplicative.ofAdd g) := by
     intro y g
@@ -57,11 +58,11 @@ theorem IsSDS.charSum_mul_charSum_neg [DecidableEq G] {k : ℕ} {lam : ℤ} {D :
   rw [Finset.sum_congr rfl fun g _ => hac g]
   simp only [Int.cast_add, mul_add, Finset.sum_add_distrib, ← Finset.sum_mul, hψ, zero_mul,
     add_zero]
-  rw [Finset.sum_eq_single (0 : G) (fun g _ hg => by rw [if_neg hg, Int.cast_zero, mul_zero])
-    (fun h => absurd (Finset.mem_univ _) h), if_pos rfl, hn, mul_zero]
+  rw [Finset.sum_eq_single (0 : G) (fun g _ hg => by rw [ite_eq_right hg, Int.cast_zero, mul_zero])
+    (fun h => absurd (Finset.mem_univ _) h), ite_eq_left rfl, hn, mul_zero]
 
 /-- C24 as a split: `ψ(D) = 0` or `ψ(D^(−1)) = 0`. -/
-theorem IsSDS.charSum_eq_zero_or [DecidableEq G] {k : ℕ} {lam : ℤ} {D : G → SignType}
+theorem IsSDS.charSum_eq_zero_or {k : ℕ} {lam : ℤ} {D : G → SignType}
     (hD : IsSDS k lam D) (q : ℕ) [CharP K q] (hq : (q : ℤ) ∣ (k : ℤ) - lam)
     (ψ : Multiplicative G →* K) (hψ : ∑ x : G, ψ (Multiplicative.ofAdd x) = 0) :
     charSum ψ D = 0 ∨ charSum ψ (fun x => D (-x)) = 0 :=
