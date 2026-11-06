@@ -20,3 +20,4 @@
 | [C16](C16.md) | C10 for squarefree n: multiplier-fixed coset sums | C3, C15 | verified | `IsSDS.exists_translate_fixed_contract` | — |
 | [C17](C17.md) | Real characters on a C₂^r quotient: 2^r ∣ s′ + √n·T, T odd | C1, C3 | proved (Lean in progress) | — | — |
 | [C18](C18.md) | RDS minus its subgroup: cyclic SDS (n((n+1)²+1), (n+1)²+n, n), n+1 a prime power | — | open (refuter-found, recheck pending) | — | — |
+| [C19](C19.md) | Gaussian characters on an exponent-4 quotient: N a₀ = s′ ± m… + 2Σx | C1, C3, C17 | open (paper, refuter pending) | — | — |
