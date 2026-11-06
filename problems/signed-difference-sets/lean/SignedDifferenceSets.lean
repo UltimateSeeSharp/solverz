@@ -167,6 +167,9 @@ public import SignedDifferenceSets.MaRows.Part05
 public import SignedDifferenceSets.MaRows.Part06
 public import SignedDifferenceSets.MaRows.All
 public import SignedDifferenceSets.Tests.MaCheck
+public import SignedDifferenceSets.SylowTrace
+public import SignedDifferenceSets.SylowCheck
+public import SignedDifferenceSets.SylowRows
 public import SignedDifferenceSets.Tests.Statement
 public import SignedDifferenceSets.Tests.Checks
 

@@ -6,7 +6,7 @@
 
 **Next step.** Ideator round 2 (`scratch/ideator/2026-11-06-1837.md`), by rows settled as the user ordered:
 1. Done: I11 (C21 verified, 1,457 rows settled 2026-11-06).
-2. I12 Sylow trace rule (C22, proved, refuter SURVIVES): 464 open rows. Now the researcher's line: Lean over B = ℤ[X]/(Φ_{p^J}) (a domain), reusing C21's σ, step and induction; p odd first; divisibility form (s = 0 occurs).
+2. I12 Sylow trace rule (C22): divisibility form in Lean (`SylowTrace`, `SylowCheck`, `SylowRows`: 286 rows, built); refuter round 6 running, then settle `scratch/settle-c22.tsv`. The p = 2 equality part (178 more rows) later.
 3. I13 C9 for every n via Witt vectors (alive: helper W's spike proves it in scratch): 1,992 open E10/E11 `none` rows with n not squarefree. Now: helper W integrates (`MultiplierWitt.lean`, `OrbitRow'`, parts Part33…); then a refuter on the new statements; then settle. Also unlocks C10 for A7's non-squarefree kills (item 6).
 4. Done: I14 (C23, 132 rows) and I15 (19 rows) settled 2026-11-06.
 6. A7 row checker (C10 coset sums fixed by the multiplier): helper V building it; the new run killed 707 still-open rows in its first 3,134 (mostly n not squarefree, so with I13's C10). Then a refuter on it and on I13.
@@ -17,7 +17,7 @@ Results only in scratch (git-ignored):
 - The **main folder's** `problems/signed-difference-sets/scratch/` (the overnight work of 2026-11-06, outside the worktree; copy it into the worktree's scratch before citing it there): `refuter/` with the reports C5–C12 and the objects cite (`rule-sc`, `extensions`, `a5-a3`, `found-sets`, `db-lags`, `nl-family`, each with its scripts); `ideator/` (report `2026-11-06-0110.md`, rule scripts and outputs); `e8/` (exploration: the all-rows contraction passes, the orbit search, `turyn.py`, README); `other-session/` (another session's hand-off, N735 and N17201). Keep.
 
 **Running.**
-- Agents (2 of 3): Lean helper W integrating I13 into the library (20:30, `scratch/agentW/progress.md`); Lean helper V building A7's row checker (C10 coset sums fixed by a multiplier, 20:40, `scratch/agentV/progress.md`).
+- Agents (3 of 3): refuter round 6 on C22's Lean and 286 rows (22:10, `scratch/refuter/round6/`, brief `scratch/refuter/round6-brief.md`); Lean helper W integrating I13 into the library (20:30, `scratch/agentW/progress.md`); Lean helper V building A7's row checker (C10 coset sums fixed by a multiplier, 20:40, `scratch/agentV/progress.md`).
 - Lean, one process at a time through the lock `scratch/lean.lock` (`scratch/lean-locked.ps1` for builds, `scratch/lenv-locked.sh` / `lenv-locked-full.sh` for scratch checks), shared by the researcher and helpers U, V, W. Researcher: C22's Lean in `scratch/sylow/SylowDev.lean` (pairing, Bezout step, characters into `A Unit p r`, orthogonality).
 - Helper status 21:20: W built OrbitRows Part33–44 of 33–59 (I13); V built CosetSearch + tests, 260 squarefree A7 rows in 51 parts (`CosetRows/`); U built PolyCert (tower `CycloFacts.mul`), LinearMaps next, then MaRows.
 - Exploration (scratch, 2 processes below normal, started 19:56): A7's multiplier-fixed coset-sum search (`scratch/ideator/mcontract.py`, rmax 10, cap 3·10⁵) over the 11,099 open rows the old run did not reach → `scratch/a7/mc2_{0,1}.out`; counts what C16 (squarefree n) could settle once a Lean row checker exists.
