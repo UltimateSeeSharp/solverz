@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-06
+- 7,835 open rows → none by the verified rules in Lean (C5 3,858, C13 2,213, C14 1,387, C8 377; root `lake build --wfail` passes): Gordon's table 68.2% → 79.3% settled; proposed as four Solutions under "Needs the user"
 - C15 and C16 new and verified: C9 and C10 for squarefree n in Lean (`Multiplier.lean`), refuter SURVIVES (`scratch/refuter/c9-lean`); C9, C10 stay proved for general n
 - C13 and C14 verified: refuter SURVIVES the Lean statements, the checkers and all 16 row chunks (`scratch/refuter/sc-rows`)
 - C1 and C8 verified: `Square.lean`, `Parity.lean` build, axioms clean, refuter SURVIVES (`scratch/refuter/c1-c8-lean`)
