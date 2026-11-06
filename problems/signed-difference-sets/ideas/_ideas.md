@@ -18,3 +18,4 @@
 | [I14](I14.md) | Self-conjugacy with a composite modulus (none) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 2 (B3) | C5, C13, C14, C23 | alive |
 | [I15](I15.md) | Signed combinations of a relative difference set (exists) | `T437` Difference sets and cyclic constructions | ideator round 2 (B4) | C2 | alive |
 | [I16](I16.md) | Exhaustion of the open rows with v < 50 (contraction, then lift) | `T27` Prescribed automorphism group | us (the user's backlog) | C1, C3 | new |
+| [I17](I17.md) | Mod-q split of the orbit search (none, and finds sets) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 3 (N2) | C9, C24 | new |

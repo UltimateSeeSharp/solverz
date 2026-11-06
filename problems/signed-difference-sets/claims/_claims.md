@@ -25,3 +25,4 @@
 | [C21](C21.md) | Ma's lemma on a mixed quotient C_{p^j} × K: p^⌊e/2⌋ > 2c ⇒ no SDS | C3, C5 | verified | `maRule` | — |
 | [C22](C22.md) | Sylow trace rule: p^min(t, ⌈e/2⌉) ∣ s on a p-group quotient (p = 2: equality) | C1, C3 | verified | `not_hasSDS_of_sylow`, `not_hasSDS_of_sylow_two` | — |
 | [C23](C23.md) | C5, C13, C14 with a composite modulus (CRT over self-conjugate primes) | C5, C13, C14 | verified | `not_hasSDS_of_compositeModulus` | — |
+| [C24](C24.md) | Mod-q vanishing: ψ(D)ψ(D^(−1)) = 0 in characteristic q ∣ n | — | proved | — | — |
