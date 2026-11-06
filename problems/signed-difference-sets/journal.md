@@ -1,6 +1,8 @@
 # Journal
 
 ## 2026-11-06
+- 22:05 1,457 more open rows settled in Lean by C21 (`MaRows`, `maRule`): refuter round 5 SURVIVES (`scratch/refuter/round5`). Gordon's table 86.55% settled
+- 22:00 C22 in Lean (divisibility form): `not_hasSDS_of_sylow` (`SylowTrace.lean`), `SylowCheck.lean` built
 - 21:05 C21 in Lean: `maRule : MaRule` (`MaLemma.lean`) builds with `--wfail`, axioms clean; rows by helper U, refuter next
 - 20:55 Root `lake build --wfail` of the whole library passes (33 s, 2.5 GB)
 - 20:50 C22 proved (Sylow trace rule): refuter SURVIVES (`scratch/refuter/c22`), 464 open rows; I12 alive
