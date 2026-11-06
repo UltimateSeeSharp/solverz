@@ -153,6 +153,20 @@ public import SignedDifferenceSets.Tests.MarkedCounts
 public import SignedDifferenceSets.EisensteinChars
 public import SignedDifferenceSets.EisensteinCharsRows
 public import SignedDifferenceSets.Tests.EisensteinChars
+public import SignedDifferenceSets.MaRule
+public import SignedDifferenceSets.MaLemma
+public import SignedDifferenceSets.PolyCert
+public import SignedDifferenceSets.LinearMaps
+public import SignedDifferenceSets.MaCheck
+public import SignedDifferenceSets.MaRows.Polys
+public import SignedDifferenceSets.MaRows.Part01
+public import SignedDifferenceSets.MaRows.Part02
+public import SignedDifferenceSets.MaRows.Part03
+public import SignedDifferenceSets.MaRows.Part04
+public import SignedDifferenceSets.MaRows.Part05
+public import SignedDifferenceSets.MaRows.Part06
+public import SignedDifferenceSets.MaRows.All
+public import SignedDifferenceSets.Tests.MaCheck
 public import SignedDifferenceSets.Tests.Statement
 public import SignedDifferenceSets.Tests.Checks
 
