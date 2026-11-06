@@ -5,6 +5,7 @@
 pub mod contraction;
 pub mod cyclotomic;
 pub mod instances;
+pub mod orbits;
 
 /// A finite abelian group ℤ_{m₁} × … × ℤ_{m_r}, elements indexed 0..v in mixed radix
 /// (first factor most significant).
