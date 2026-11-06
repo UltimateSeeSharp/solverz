@@ -1,6 +1,8 @@
 # Journal
 
 ## 2026-11-06
+- C5–C11 new, proved on paper, refuter SURVIVES each (rules SC, SC++, A2, A3; the multiplier theorem with a fixed translate; A7; the PDS lemma λ′ − μ = 2): `scratch/refuter/rule-sc`, `extensions`, `a5-a3`, `nl-family`; no Lean yet
+- C12 new, open: NL_{2^m}(2^(m−1)+1) PDS for every m (members m = 3–6)
 - C4 new (coset sums: absolute sum ≤ k with k's parity; fibre sizes): proved in Lean (`Contraction.lean`), refuter pending
 - E7 suspended at 11 of 22 at the user's request: N131 found (O13, Lean pending), N70, N71, N76, N77, N168, N176, N177, N178, N194 exhausted (no Lean proof), N133 cut
 - N79, N80: Lean proofs by contraction build (11 of E5's 12); N93 needs the split search (`noVector_of_top`), not yet built; statuses after axioms and the refuter

@@ -6,3 +6,11 @@
 | [C2](C2.md) | Translation and negation keep an SDS an SDS (every Instance) | — | verified | `IsSDS.translate`, `IsSDS.neg` | — |
 | [C3](C3.md) | Contraction: coset sums along G → H have autocorrelation λ times the fibre size (every Instance) | — | verified | `IsSDS.contract_autocorr`, `abs_contract_le` | — |
 | [C4](C4.md) | Coset sums: Σ \|a\| ≤ k with the same parity; fibres of a surjection have \|G\|/\|H\| elements (every Instance) | C3 | open (Lean proof, refuter pending) | `IsSDS.sum_abs_contract_le`, `IsSDS.sum_abs_contract_parity`, `card_fibre_eq` | — |
+| [C5](C5.md) | Rule SC: self-conjugacy congruence on a quotient | C3 | proved | — | — |
+| [C6](C6.md) | Rule SC++: residue class and moments | C1, C3, C5 | proved | — | — |
+| [C7](C7.md) | Rule A2: marked counts per coset | C4, C6 | proved | — | — |
+| [C8](C8.md) | Rule A3: support parity | — | proved | — | — |
+| [C9](C9.md) | Multiplier theorem with a fixed translate | C2 | proved | — | — |
+| [C10](C10.md) | Multiplier-fixed coset sums on a quotient (A7) | C3, C4, C9 | proved | — | — |
+| [C11](C11.md) | PDS lemma: λ′ − μ = 2 gives an SDS | — | proved | — | — |
+| [C12](C12.md) | NL family: NL_{2^m}(2^(m−1)+1) PDS for every m | C11 | open | — | — |
