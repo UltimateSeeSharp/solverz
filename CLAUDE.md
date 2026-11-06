@@ -4,8 +4,8 @@ AI-assisted attacks on open math problems; every result is checked in Lean 4.
 
 ## Problem
 
-What we want to solve, of one kind; each kind adds its own model and attack
-loop: the skill of its name.
+What we want to solve, of one kind; an attack loads the core (skill
+`workflow`) and the modules its README lists.
 
 - `prove`: a statement holds in all cases; a Lean proof.
 - `find`: an object with a property exists; Lean checks the object.
@@ -29,20 +29,31 @@ principles.md          how we think and work
 
 ## Files
 
-Every problem has these (`templates/_shared/`); its kind adds more (`templates/<kind>/`), described in its skill.
+Every problem has these (`templates/_shared/`); each module it lists adds more (`templates/<module>/`), described in its skill.
 In a template, `<…>` in the text and `{…}` in file and folder names are placeholders to replace; an example row with nothing to fill is deleted.
 
 | File               | What it holds, how it is used                                                                                                                                                                                                                                                                                                                                            |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `README.md`        | The problem in plain terms, the goal with its Lean name, its kind; the literature, with dated searches, including those that found nothing; optional constraints for working on it (files not to edit, compute limits).                                                                                                                                                  |
+| `README.md`        | The problem in plain terms, the goal with its Lean name, its kind and the modules it uses; the literature, with dated searches, including those that found nothing; optional constraints for working on it (files not to edit, compute limits).                                                                                                                                                  |
 | `state.md`         | Now: the focus, the next step, what is running (agents and experiments: what, when started, where its output goes) and what needs the user.                                                                                                                                                                                                                              |
 | `understanding.md` | What holds (heuristics marked as such), what blocks every approach so far, and so what a Solution must do; each point cites its evidence by ID. Rewritten when the understanding changes; single failures stay in the files of what they tested.                                                                                                                         |
+| `ideas/` | A way to attack the problem. Technique (its toolbox entry and name, e.g. `T301` generalize; `—` and a name when the toolbox has none), source (ideator, literature, us), the claims it needs, including the claim that those claims imply the goal. Status: `new` → `alive` (survived its kill test) \| `dead` (which claim failed) \| `solved`. |
+| `claims/` | One precise statement. The claims it uses; evidence; what was tried and failed. Status: `open` → `refuted` (counterexample) \| `proved` → `verified` (Lean). `approved` when the user confirmed its Lean statement says what we mean. |
 | `lean/`            | The problem's Lean library: `<Problem>.lean` imports its modules; `<Problem>/Statement.lean` holds the goal and the definitions it uses; `<Problem>/Tests/` unit-tests the statements; `<Problem>/<Author>/`, if any, holds Lean imported from that author, with its license and notice; everything else is ours.                                                        |
 | `solver/`          | The problem's Rust crate: `README.md` lists its engines and what each was checked against; `src/` holds the engines; `src/bin/` holds its binaries.                                                                                                                                                                                                                      |
 | `experiments/` | Its Experiments (`E1`…): computations whose outcome is used as evidence. What one tests and decides is stated before it runs, on committed code validated first (it reproduces known values or objects and rejects broken ones, or agrees with an independent computation). Any other computation is exploration in `scratch/`. |
 | `scratch/`         | Git-ignored playground; nothing there counts. Exploring there is always allowed; the rules apply to what gets recorded.                                                                                                                                                                                                                                                  |
 | `journal.md`       | Steps that changed a status, newest first; one timestamped line each, under its date.                                                                                                                                                                                                                                                                                    |
 | `solutions.md`     | Its Solutions (`Z1`…), newest first: Lean-checked statements that solve a published open question (a table entry, a record, a conjecture). One is listed once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `solutions.md` gets it only on approval. |
+
+### Relations
+
+- An idea needs claims, a claim uses claims (both many to many).
+- A refuted claim kills every idea that needs it and reopens every proved
+  claim whose proof uses it.
+- An experiment found wrong reopens every claim it refuted, and every idea
+  those claims killed.
+- An idea whose claims are all verified solves the problem.
 
 ## Roles
 
