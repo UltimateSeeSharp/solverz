@@ -5,25 +5,19 @@
 **Done in Lean (built, `--wfail`).** Verified: C1 (`Square.lean`), C5 (`SelfConjugacy.lean`), C8 (`Parity.lean`), C13 (`Moments.lean`), C14 (`Box.lean`); infrastructure `Rows.lean`, `Iso.lean`. Row checks: `SelfConjugacyRows/Part01–13` (C5, C13: 6,071 rows), `BoxRows/Part01–03` (C14: 1,387), `ParityRows.lean` (C8: 553, 377 beyond). 7,835 open rows in all, refuters SURVIVE (sc-rows, c1-c8-lean); batch ready in `scratch/settle-rules.tsv`. C14 makes C6's search unnecessary (same 7,458 rows).
 
 **Next step.**
-1. Done: root build passes, 7,835 rows settled, four Solutions proposed (Needs the user).
-2. Integrate helper B (C11 `Pds.lean`, Answers O13–O32 checked clean by `lake env lean`: `lake build` each, refuter on C11's statement, `settle.py` for the objects' rows).
-3. I5 in Lean: helper D (C9 for squarefree n) + helper E (verified orbit search); E10 supplies the rows and their multipliers. Then the A5 rows with squarefree n per row.
-4. C7 (224 rows): LP dual certificates if the relaxation kills them (`scratch/c7_lp.py`, running).
-5. Later as before: E5's N93 split, the contraction rows E8 killed (91 open), I8's kill test, I7's 49 PDS targets, C9 for non-squarefree n, exhaustion design for the rows no rule reaches.
+1. Done: 7,835 rows by C5/C13/C14/C8 and 20 objects (O13–O32) settled; root build passes.
+2. Building: `OrbitRows/Part01–31` (2,601 I5 rows: C15 + verified orbit search; `scratch/orbit-parts.log`), O34–O38 and O39's answers (`scratch/objects-build2.log`). Built: C17 (`RealChars*`, 213 rows), C7 (`MarkedCounts*`, 237 rows), `OrbitSearch.lean`.
+3. At 18:05 (agents allowed again): refuter on the Lean statements of C7, C17, the orbit search and the orbit rows; refuter on C18. Then settle `scratch/settle-round2.tsv` (3,050 rows), add the modules to the root, root build, propose the Solutions (C7, C17, I5 rows, O34–O39).
+4. Next rules: C₄-type quotients (ℤ[i] characters, 288 rows, `scratch/gauss_chars.py`); I5 rows with ≥ 1,500 leaves (~210) need a faster leaf; I5 rows with non-squarefree n (~5,000) need C9 for general n (cyclotomic ideals); the 91 heavy contraction rows (74 left after C17).
+5. Later as before: I8's kill test, I7's 49 PDS targets, exhaustion design for the rows no rule reaches.
 
 Results only in scratch (git-ignored):
 - The worktree's `scratch/`: `e5.out`, `e6.out`, `e7.out`, `r4.out` (recorded in E5, E6, E7, E4 with SHA-256; `e7.out` still open in the suspended E7); `refuter/n35840-report.md`; `lean-build.ps1` (the RAM watchdog, no committed home: the user's call); `build-*.log`, `bench/*.lean`, `n93_branches.py`, `r5-40.out` (nothing more to record). Keep.
 - The **main folder's** `problems/signed-difference-sets/scratch/` (the overnight work of 2026-11-06, outside the worktree; copy it into the worktree's scratch before citing it there): `refuter/` with the reports C5–C12 and the objects cite (`rule-sc`, `extensions`, `a5-a3`, `found-sets`, `db-lags`, `nl-family`, each with its scripts); `ideator/` (report `2026-11-06-0110.md`, rule scripts and outputs); `e8/` (exploration: the all-rows contraction passes, the orbit search, `turyn.py`, README); `other-session/` (another session's hand-off, N735 and N17201). Keep.
 
 **Running.**
-- Lean build queues, one module at a time: `scratch/stale-rebuild.log` (stale contraction answers, then root; N32 regenerated with `noVector`, N80 killed at 9 GB, retried alone at 13 GB), then `scratch/objects-build.log` (C11 `Pds`, N32, the 20 answers O13–O32), then `scratch/objects-build2.log` (O34–O38's answers, N80).
-- E11 orbit exhaust (pid 13616, 3 threads, below normal), started 2026-11-06 17:26, E10's 3,583 remaining rows at cap 10⁵, output `scratch/e11.out` (E11.md). E10 stopped at 17:26 (outcome in E10.md).
-- `scratch/c7_lp.py` (C7's LP relaxation on its 224 rows, all of the first 40 killed), output `scratch/c7_lp.out`.
-- Helper E (Lean): verified orbit search `OrbitSearch.lean` (`scratch/agentE/`), then the I5 row theorem with C15.
-- Helper F (Lean): C17 `RealChars.lean`, `RealCharsRows.lean`, 183 rows (`scratch/agentF/`).
-- Helper G (Lean): C7 by LP dual certificates, `MarkedCounts*.lean` (`scratch/agentG/`).
-- No new agents until 18:05 (the user, token limits). Then: refuter on C18 (RDS minus subgroup), C₄-quotient extension of C17 (288 rows, ℤ[i] characters).
-- Idea for after C17: the same on C₄-type quotients (Gaussian character values, elementary via C3's identities): 288 more open rows (`scratch/gauss_chars.py`, `.out`).
+- Lean build queues (one module at a time, heavy ones alone): `scratch/orbit-parts.log` (OrbitRows Part01–31), `scratch/objects-build2.log` (O34–O38, N80, then N24177).
+- No agents running; none started before 18:05 (the user, token limits).
 - E7, **suspended** 2026-11-06 00:30 at the user's request: process 33500 (`target/release/r4_first_set.exe problems/signed-difference-sets/instances.csv 40 10000000000 10 N70,N71,N76,N77,N131,N133,N168,N172,N173,N174,N176,N177,N178,N194,N204,N205,N207,N212,N220,N221,N223,N224`, from the worktree root, commit 95d6f8c), all threads suspended. Partial output `scratch/e7.out` (11 of 22, E7.md). Resume (PowerShell): `Add-Type -Namespace Win -Name Nt -MemberDefinition '[DllImport("ntdll.dll")] public static extern int NtResumeProcess(IntPtr h);'; [Win.Nt]::NtResumeProcess((Get-Process -Id 33500).Handle)`. If gone, rerun `N133,N204,N205,N207,N212` with the same command, appending to `scratch/e7.out`.
 
 **Resources.** This session with all its agents: at most 7 threads and 20 GB RAM (from 16:38) (another session shares the PC; the user works on it), below-normal priority, at most 3 light Lean processes at once, heavy kernel checks alone. One Lean module per `lake build`, through `scratch/lean-build.ps1` (below-normal, killed above 10 GB or under 6 GB free RAM); never several Lean jobs beside an experiment. A parallel build of 12 modules beside E7 froze the user's machine for an hour on 2026-11-05. Agents and experiments together keep 2 threads spare: a 10-process agent job beside a 12-thread search froze the machine on 2026-11-06.

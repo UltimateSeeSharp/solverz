@@ -1,7 +1,7 @@
 """Lean row theorems for I5: E10/E11's `none` rows with squarefree n, closed by C15 and the
 verified orbit search (`not_hasSDS_of_orbitRow`, `OrbitSearch.lean`).
 
-`orbitrows.py <max leaves> <rows per part>`: reads instances.csv (open rows), scratch/e10.out and
+`orbitrows.py <min leaves> <max leaves> <rows per part> <first part>`: reads instances.csv (open rows), scratch/e10.out and
 scratch/e11.out (`none` rows); t is a generator of C9's multiplier group (as `orbits.rs`), s the
 sign sum (C1); rows are ordered by the count-pruned search size (leaves: sign choices the Lean
 search evaluates) and written to lean/SignedDifferenceSets/OrbitRows/Part<NN>.lean, one theorem per
@@ -89,7 +89,7 @@ def leaves(sizes, plus, minus):
     return go(0, 0, 0)
 
 
-def rows(max_leaves):
+def rows(min_leaves, max_leaves):
     status = {r["id"]: r["status"] for r in csv.DictReader(open(ROOT / "instances.csv", encoding="utf-8"))}
     out = []
     for run in RUNS:
@@ -107,16 +107,16 @@ def rows(max_leaves):
             t = generator(shape, n)
             sizes = orbit_sizes(shape, t)
             lv = leaves(tuple(sizes), (k + s) // 2, (k - s) // 2)
-            if lv <= max_leaves:
+            if min_leaves <= lv <= max_leaves:
                 out.append((lv, len(sizes), f[0], shape, k, lam, t, s))
     out.sort()
     return out
 
 
-def write(rs, per_part):
+def write(rs, per_part, first=1):
     OUT_DIR.mkdir(exist_ok=True)
     for idx in range(0, len(rs), per_part):
-        part, num = rs[idx: idx + per_part], idx // per_part + 1
+        part, num = rs[idx: idx + per_part], first + idx // per_part
         body = []
         for lv, r, nid, shape, k, lam, t, s in part:
             grp = " × ".join(f"ZMod {m}" for m in shape)
@@ -152,4 +152,4 @@ end SignedDifferenceSets.OrbitRows
 
 
 if __name__ == "__main__":
-    write(rows(int(sys.argv[1])), int(sys.argv[2]))
+    write(rows(int(sys.argv[1]), int(sys.argv[2])), int(sys.argv[3]), int(sys.argv[4]))
