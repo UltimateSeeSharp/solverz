@@ -1,6 +1,8 @@
 # Journal
 
 ## 2026-11-06
+- 20:35 151 more open rows settled in Lean: C23 (CRT over self-conjugate primes, `CompositeModulusRows`) 132 → none; I15's O40–O58 (signed RDS combinations) 19 → exists. Refuter round 4 SURVIVES (`scratch/refuter/round4`). Gordon's table 84.48% settled
+- 20:30 C23 verified; I13 alive: helper W proved C9 for every n ≠ 0 prime to v through Witt vectors in scratch (`scratch/agentW/report.md`, no `sorry`, axioms clean); integration into the library started
 - 20:05 C21 proved (Ma's lemma on mixed quotients): refuter SURVIVES (`scratch/refuter/c21`), 1,483 open rows; I11 alive
 - 19:50 I15 alive: O40–O60 built by `solver/rdscomb.py`, N3243's Lean answer builds (kill test)
 - 19:40 Ideator round 2 recorded: ideas I11–I15 (new), claims C21–C23 (open); refuters on C21, C22; helper W on I13's spike

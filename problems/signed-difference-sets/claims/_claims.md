@@ -24,4 +24,4 @@
 | [C20](C20.md) | Eisenstein characters on an exponent-3 quotient: N a₀ = s′ + Σ(2A − B) | C1, C3, C19 | verified | `not_hasSDS_of_eisensteinChars` | — |
 | [C21](C21.md) | Ma's lemma on a mixed quotient C_{p^j} × K: p^⌊e/2⌋ > 2c ⇒ no SDS | C3, C5 | proved | — | — |
 | [C22](C22.md) | Sylow trace rule: p^min(t, ⌈e/2⌉) ∣ s on a p-group quotient (p = 2: equality) | C1, C3 | open | — | — |
-| [C23](C23.md) | C5, C13, C14 with a composite modulus (CRT over self-conjugate primes) | C5, C13, C14 | open (Lean built, refuter pending) | `not_hasSDS_of_compositeModulus` | — |
+| [C23](C23.md) | C5, C13, C14 with a composite modulus (CRT over self-conjugate primes) | C5, C13, C14 | verified | `not_hasSDS_of_compositeModulus` | — |
