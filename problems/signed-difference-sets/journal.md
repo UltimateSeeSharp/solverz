@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-06
+- I3–I9 new and alive (rules I3, I4, I5, I6 for `none`; constructions I7, I8 and the orbit search I9 for `exists`); I10 (Schmidt's bound) new
 - C5–C11 new, proved on paper, refuter SURVIVES each (rules SC, SC++, A2, A3; the multiplier theorem with a fixed translate; A7; the PDS lemma λ′ − μ = 2): `scratch/refuter/rule-sc`, `extensions`, `a5-a3`, `nl-family`; no Lean yet
 - C12 new, open: NL_{2^m}(2^(m−1)+1) PDS for every m (members m = 3–6)
 - C4 new (coset sums: absolute sum ≤ k with k's parity; fibre sizes): proved in Lean (`Contraction.lean`), refuter pending
