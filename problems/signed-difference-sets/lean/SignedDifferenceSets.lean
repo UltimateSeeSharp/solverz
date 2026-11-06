@@ -9,6 +9,7 @@ public import SignedDifferenceSets.Index
 public import SignedDifferenceSets.SetCheck
 public import SignedDifferenceSets.VectorSearch
 public import SignedDifferenceSets.ContractionCheck
+public import SignedDifferenceSets.SelfConjugacy
 public import SignedDifferenceSets.Answer.N3
 public import SignedDifferenceSets.Answer.N32
 public import SignedDifferenceSets.Answer.N49
