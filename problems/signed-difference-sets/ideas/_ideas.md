@@ -12,3 +12,8 @@
 | [I8](I8.md) | Negative Latin square family (beyond the table) | `T437` Difference sets and cyclic constructions | other session and refuter (nl-family) | C11, C12 | alive |
 | [I9](I9.md) | Sets fixed by a multiplier or a field multiplication (exists) | `T27` Prescribed automorphism group | us (exploration) | C2 | alive |
 | [I10](I10.md) | Schmidt's field-descent bound (none) | `T438` Multiplier theorems and character sums for nonexistence | ideator (A4) | — | new |
+| [I11](I11.md) | Ma's lemma on mixed quotients C_{p^j} × K (none) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 2 (B5) | C3, C5, C21 | new |
+| [I12](I12.md) | Sylow trace rule (none) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 2 (B1) | C1, C3, C22 | new |
+| [I13](I13.md) | C9 for every n through Witt vectors (none) | `T584` Localize and complete | ideator round 2 (B2) | C3, C9 | new |
+| [I14](I14.md) | Self-conjugacy with a composite modulus (none) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 2 (B3) | C5, C13, C14, C23 | new |
+| [I15](I15.md) | Signed combinations of a relative difference set (exists) | `T437` Difference sets and cyclic constructions | ideator round 2 (B4) | C2 | new |

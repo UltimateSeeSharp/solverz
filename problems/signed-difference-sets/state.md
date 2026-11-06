@@ -1,26 +1,27 @@
 # State
 
-**Focus.** Lean for the rules, most rows per effort first (find, Settling rows): each rule is one generic theorem plus one kernel check over the rows it settles. Fast track (the user, relayed 2026-11-06): up to 3 Lean helpers plus 2 refuters, all within 7 threads and 13 GB.
+**Focus.** New rules for the rows no method reaches, most rows per effort first (find, Settling rows): each rule is one generic theorem plus one kernel check over the rows it settles. Table 84.3% settled (none 59,263, exists 181, open 11,099).
 
-**Done in Lean (built, `--wfail`).** Verified: C1 (`Square.lean`), C5 (`SelfConjugacy.lean`), C8 (`Parity.lean`), C13 (`Moments.lean`), C14 (`Box.lean`); infrastructure `Rows.lean`, `Iso.lean`. Row checks: `SelfConjugacyRows/Part01–13` (C5, C13: 6,071 rows), `BoxRows/Part01–03` (C14: 1,387), `ParityRows.lean` (C8: 553, 377 beyond). 7,835 open rows in all, refuters SURVIVE (sc-rows, c1-c8-lean); batch ready in `scratch/settle-rules.tsv`. C14 makes C6's search unnecessary (same 7,458 rows).
+**Done in Lean (built, `--wfail`).** Verified: C1, C5, C7, C8, C13, C14, C15, C16, C17, C19, C20 and the I5 orbit search; row checks for 11,357 rows settled 2026-11-06 (`journal.md`). C18 proved (n ≥ 2).
 
-**Next step.**
-1. Done: 7,835 rows (C5/C13/C14/C8) and 20 objects settled; C7, C17, C15, the I5 orbit search verified (refuter round2).
-2. Finish the builds (`scratch/orbit-parts.log` Part01–31, Part19 retry; `scratch/rebuild-names.log`; N58470, N24177), then add every new module to the root (OrbitSearch, OrbitRows/*, MarkedCounts*, GaussChars*, Multiplier is in), root `lake build --wfail` alone, then settle `scratch/settle-round2.tsv` (3,050 rows: C7, C17, I5) and O34–O39's rows; propose the Solutions.
-3. C19 (297 rows, Lean built/building): refuter running. C20 (Eisenstein, 144 rows): helper H writing the Lean.
-4. Next rules: I5 leaf-heavy squarefree rows (~250, faster leaf); C9 for non-squarefree n (1,992 E10 rows; cyclotomic ideals); characters of order 8/9 quotients; the 74 heavy contraction rows.
-5. Later as before: I8's kill test, I7's 49 PDS targets, exhaustion design for the rows no rule reaches.
+**Next step.** Ideator round 2 (`scratch/ideator/2026-11-06-1837.md`), by rows settled as the user ordered:
+1. I11 Ma's lemma on mixed quotients (C21): 1,241 open rows. Refuter on C21's sketch; then Lean, K = 1 first (269 rows).
+2. I12 Sylow trace rule (C22): 464 open rows (905 hit; C19/C20 settled 441). Refuter on C22 (weakest: p = 2); then Lean on ℤ[i]/ℤ[ω] first.
+3. I13 C9 for every n via Witt vectors: 1,992 open E10/E11 `none` rows with n not squarefree. Kill test: a one-hour Lean spike in scratch.
+4. I14 composite modulus (C23): 94 rows; a CRT lemma on C5/C13/C14, `selfconj.py` with composite moduli.
+5. I15 RDS combinations: 19 sets (exists) plus valid sets for N1134, N9807; `SetCheck` on N3243 first, literature check for credit.
+Alongside: the root `lake build --wfail` alone when RAM allows (needs ~9 GB); N58470's object build (8.9 GB). Later: I5 leaf-heavy squarefree rows (~323), the remaining heavy contraction rows, I7/I8, the exhaustion design.
 
 Results only in scratch (git-ignored):
 - The worktree's `scratch/`: `e5.out`, `e6.out`, `e7.out`, `r4.out` (recorded in E5, E6, E7, E4 with SHA-256; `e7.out` still open in the suspended E7); `refuter/n35840-report.md`; `lean-build.ps1` (the RAM watchdog, no committed home: the user's call); `build-*.log`, `bench/*.lean`, `n93_branches.py`, `r5-40.out` (nothing more to record). Keep.
 - The **main folder's** `problems/signed-difference-sets/scratch/` (the overnight work of 2026-11-06, outside the worktree; copy it into the worktree's scratch before citing it there): `refuter/` with the reports C5–C12 and the objects cite (`rule-sc`, `extensions`, `a5-a3`, `found-sets`, `db-lags`, `nl-family`, each with its scripts); `ideator/` (report `2026-11-06-0110.md`, rule scripts and outputs); `e8/` (exploration: the all-rows contraction passes, the orbit search, `turyn.py`, README); `other-session/` (another session's hand-off, N735 and N17201). Keep.
 
 **Running.**
-- Lean build queues (one module at a time): `scratch/orbit-parts.log`, `scratch/rebuild-names.log`, `scratch/objects-build2.log`.
-- Agents (normal limit 3): refuter on C19 (`scratch/refuter/c19/`); helper H, C20 in Lean (`scratch/agentH/`).
+- Agents (limit 3): none yet; refuters on C21 (I11) and C22 (I12) next, then Lean helpers as slots free.
+- Exploration (scratch only): `scratch/c7_lp.py`, does C7's LP relaxation alone kill its rows (`scratch/c7_lp.out`).
 - E7, **suspended** 2026-11-06 00:30 at the user's request: process 33500 (`target/release/r4_first_set.exe problems/signed-difference-sets/instances.csv 40 10000000000 10 N70,N71,N76,N77,N131,N133,N168,N172,N173,N174,N176,N177,N178,N194,N204,N205,N207,N212,N220,N221,N223,N224`, from the worktree root, commit 95d6f8c), all threads suspended. Partial output `scratch/e7.out` (11 of 22, E7.md). Resume (PowerShell): `Add-Type -Namespace Win -Name Nt -MemberDefinition '[DllImport("ntdll.dll")] public static extern int NtResumeProcess(IntPtr h);'; [Win.Nt]::NtResumeProcess((Get-Process -Id 33500).Handle)`. If gone, rerun `N133,N204,N205,N207,N212` with the same command, appending to `scratch/e7.out`.
 
-**Resources.** This session is the only one working (the user, 2026-11-06 19:25): all free CPU and RAM, keeping about 2 threads and 4 GB spare (up to 14 threads, ~28 GB), one GPU job at a time, at most 3 agents; below-normal priority, check before compute. Lean: one module per `lake build` through `scratch/lean-build.ps1` (kills above 20 GB or under 4 GB free); kernel-heavy builds alone. A parallel build of 12 modules beside E7 froze the machine on 2026-11-05.
+**Resources.** The user, relayed 2026-11-06: keep at least 4 GB RAM and 2 threads free; heavy Lean builds strictly one at a time, no second Lean process while one runs; check free RAM before every job; below-normal priority; at most 3 agents (helpers plus refuters), the limits in every brief. Lean: one module per `lake build` through `scratch/lean-build.ps1` (kills above 20 GB or under 4 GB free). A parallel build of 12 modules beside E7 froze the machine on 2026-11-05.
 
 ## Needs the user
 - Proposed Solutions, settled in `instances.csv` 2026-11-06 (rules, rows of Gordon's table that are Open in sds.json e3bf810 and not ruled out by He–Wu; refuter SURVIVES each Lean statement and its row chunks):
