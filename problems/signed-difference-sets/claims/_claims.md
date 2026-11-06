@@ -21,3 +21,4 @@
 | [C17](C17.md) | Real characters on a C₂^r quotient: 2^r ∣ s′ + √n·T, T odd | C1, C3 | verified | `not_hasSDS_of_realChars` | — |
 | [C18](C18.md) | RDS minus its subgroup: cyclic SDS (n((n+1)²+1), (n+1)²+n, n), n+1 a prime power | — | proved (n ≥ 2) | — | — |
 | [C19](C19.md) | Gaussian characters on an exponent-4 quotient: N a₀ = s′ ± m… + 2Σx | C1, C3, C17 | open (paper, refuter pending) | — | — |
+| [C20](C20.md) | Eisenstein characters on an exponent-3 quotient: N a₀ = s′ + Σ(2A − B) | C1, C3, C19 | open (paper) | — | — |
