@@ -1,6 +1,8 @@
 # Journal
 
 ## 2026-11-06
+- E7 suspended at 11 of 22 at the user's request: N131 found (O13, Lean pending), N70, N71, N76, N77, N168, N176, N177, N178, N194 exhausted (no Lean proof), N133 cut
+- N79, N80: Lean proofs by contraction build (11 of E5's 12); N93 needs the split search (`noVector_of_top`), not yet built; statuses after axioms and the refuter
 - Refuter SURVIVES on N35840 (claim and status, `scratch/refuter/n35840-report.md`): proposed as a Solution under "Needs the user"
 - E5 (contraction, open v ≤ 40): 12 Instances have no vector on a quotient; Lean's `noVector` proves 9 so far (N46, N47, N95, N168, N176, N220, N221, N223, N224), statuses after axioms and the refuter
 
