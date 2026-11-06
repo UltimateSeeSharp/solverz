@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-07
+- 00:40 Two more sets by doubling: O83 (72, 40, 4) in C₆ × C₁₂ for N934, O84 in C₂ × C₆ × C₆ for N931 (both open)
 - 00:35 Fourth set by doubling, twisted: O82 (72, 40, 4) in C₃ × C₂₄ for N933 (open); I16's lift search: no set for N76 in 281,564 nodes
 - 00:35 Third set by doubling: O81 (128, 68, 4) in C₂⁷ for N3539 (open); Lean check queued
 - 00:30 Two new sets by doubling (I21): O79 (54, 38, 2) for N448 and O80 (54, 46, 10) for N463, both open; Lean checks building
