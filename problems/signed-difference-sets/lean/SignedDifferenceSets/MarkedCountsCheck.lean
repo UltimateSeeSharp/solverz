@@ -74,7 +74,7 @@ def McCert.Kills (r : Row) (c : McCert) : Prop :=
               (r.k + r.lam * (((r.ms.prod / c.sc.ds.prod : ℕ) : ℤ) - 1)) t
               ((r.ms.prod / c.sc.ds.prod : ℕ) : ℤ) r.k
 
-instance (r : Row) (c : McCert) : Decidable (c.Kills r) := by
+instance McCert.instDecidableKills (r : Row) (c : McCert) : Decidable (c.Kills r) := by
   unfold McCert.Kills ScCert.Valid; infer_instance
 
 /-- A row C7 kills has no SDS, whatever `Fintype` instance its group carries. -/

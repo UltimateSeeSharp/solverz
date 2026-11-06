@@ -86,7 +86,7 @@ def RcCert.Kills (x : Row) (c : RcCert) : Prop :=
     ∀ s' ∈ [c.s, -c.s], ∀ j ∈ List.range (2 ^ c.r),
       ¬ (2 : ℤ) ^ c.r ∣ s' + c.m * (2 * j + 1 - 2 ^ c.r)
 
-instance (x : Row) (c : RcCert) : Decidable (c.Kills x) := by
+instance RcCert.instDecidableKills (x : Row) (c : RcCert) : Decidable (c.Kills x) := by
   unfold RcCert.Kills; infer_instance
 
 /-- A killed row has no SDS, whatever `Fintype` instance its group carries. -/

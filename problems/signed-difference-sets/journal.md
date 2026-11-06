@@ -1,6 +1,9 @@
 # Journal
 
 ## 2026-11-06
+- C7 and C17 verified, the I5 orbit rows' Lean statements checked: refuter SURVIVES (`scratch/refuter/round2`), 3,050 rows ready to settle once the root builds; instance names fixed (they collided)
+- C18 proved (n ≥ 2): refuter SURVIVES (`scratch/refuter/c18`)
+- C19 in Lean (`GaussChars.lean`, 297 rows `GaussCharsRows.lean`); refuter pending
 - 20 open rows → exists: O13–O32's Lean answers build (`Answer/N<id>.hasSDS`), each refuter-checked against the literature (found-sets, nl-family); proposed under "Needs the user"
 - E11 done: E10's 3,583 remaining rows at cap 10⁵, 110 none, 3,473 cut
 - C17 in Lean: `RealChars.lean`, 213 rows (`RealCharsRows.lean`); refuter on the Lean statement pending
