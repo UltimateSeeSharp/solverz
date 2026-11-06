@@ -84,7 +84,7 @@ theorem dvd_pair_term {y y' : ℤ} (hd : (2 : ℤ) ∣ y' - y) :
 /-- C26: on a quotient `ZMod (2r) × K` (`2^i ≡ −1` on `K`, `c = |G| / (2r |K|)`) with `4 ∣ k − λ`,
 `8 ∣ 2s' − (k + λ(2c − 1))` for `s' = ±s`. -/
 theorem not_hasSDS_of_maDescent {G K : Type} [AddCommGroup G] [Fintype G] [AddCommGroup K]
-    [Fintype K] [DecidableEq K] {r i c k : ℕ} {lam : ℤ} [NeZero (r * 2)]
+    [Fintype K] {r i c k : ℕ} {lam : ℤ} [NeZero (r * 2)]
     {φ : G →+ ZMod (r * 2) × K} (hφ : Function.Surjective φ)
     (hcard : Fintype.card G = c * Fintype.card (ZMod (r * 2) × K)) (hr : 0 < r) (hi : 0 < i)
     (hc : ∀ x : K, 2 ^ i • x = -x) (hn : (2 : ℤ) ^ 2 ∣ (k : ℤ) - lam) (hcert : CycloFacts 2 r)
@@ -92,6 +92,7 @@ theorem not_hasSDS_of_maDescent {G K : Type} [AddCommGroup G] [Fintype G] [AddCo
     (hkill : ¬ (8 : ℤ) ∣ 2 * s - (k + lam * (2 * (c : ℤ) - 1)) ∧
       ¬ (8 : ℤ) ∣ -2 * s - (k + lam * (2 * (c : ℤ) - 1))) :
     ¬ HasSDS G k lam := by
+  classical
   intro ⟨D, hD⟩
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
   set Y := contract φ D with hYdef
@@ -105,8 +106,9 @@ theorem not_hasSDS_of_maDescent {G K : Type} [AddCommGroup G] [Fintype G] [AddCo
     omega
   have huu : u + u = 0 := by
     ext
-    · simp only [hu, Prod.fst_add, Prod.fst_zero, ← Nat.cast_add, ← two_mul]
-      rw [mul_comm, ZMod.natCast_self]
+    · simp only [hu, Prod.fst_add, Prod.fst_zero, ← two_mul]
+      rw [show (2 : ZMod (r * 2)) * r = ((r * 2 : ℕ) : ZMod (r * 2)) by push_cast; ring,
+        ZMod.natCast_self]
     · simp [hu]
   have hdiv : ∀ h, (2 : ℤ) ∣ Y (h + u) - Y h := by
     rintro ⟨x, kk⟩
