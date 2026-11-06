@@ -2,9 +2,10 @@
 gcd(|H|, n) = 1, fixed by a multiplier t) and the verified coset search (`CosetSearch.lean`).
 
 `a7rows.py stats`: recomputes every kill and prints the counts.
-`a7rows.py write <sqfree|other> <first part>`: writes
+`a7rows.py write <sqfree|other> <first part> [skip.tsv]`: writes
 lean/SignedDifferenceSets/CosetRows/Part<NN>.lean, one theorem per row (squarefree n through C16;
-other n for the general C10 once it is in the library).
+other n for the general C10 once it is in the library); rows listed in `skip.tsv` (a pending settle
+batch of another rule) are left out.
 
 Reads the exploration's kills (scratch/a7/mc2_*.out, scratch/ideator/mc_*.out, mcb_*.out), keeps
 rows still `open` in instances.csv and reruns each kill with `search`, which visits exactly the
@@ -171,8 +172,11 @@ class Search:
         return [n for ch in self.children(node) if ch is not None for n in self.frontier(ch, d - 1)]
 
 
+SKIP = set()
+
+
 def kills():
-    """The killed rows still open, keyed as in instances.csv (a key that differs is an error)."""
+    """The killed rows still open and not in SKIP, keyed as in instances.csv (a key that differs is an error)."""
     table = {r["id"]: r for r in csv.DictReader(open(ROOT / "instances.csv", encoding="utf-8"))}
     status = {i: r["status"] for i, r in table.items()}
     seen = {}
@@ -180,7 +184,7 @@ def kills():
         for path in sorted(glob.glob(str(ROOT / pat))):
             for line in open(path, encoding="utf-8"):
                 m = LINE.fullmatch(line.strip())
-                if not m or status.get(m.group(1)) != OPEN or m.group(1) in seen:
+                if not m or status.get(m.group(1)) != OPEN or m.group(1) in seen or m.group(1) in SKIP:
                     continue
                 nid, v, k, lam, shape, ds, r, nodes = m.groups()
                 key = line.split()[1]
@@ -391,4 +395,6 @@ if __name__ == "__main__":
     if sys.argv[1] == "stats":
         stats_main()
     elif sys.argv[1] == "write":
+        if len(sys.argv) > 4:
+            SKIP.update(line.split("	")[0] for line in open(sys.argv[4], encoding="utf-8") if line.strip())
         write(sys.argv[2], int(sys.argv[3]))
