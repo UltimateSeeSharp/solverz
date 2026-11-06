@@ -1,6 +1,6 @@
 # State
 
-**Focus.** C1 (Lean `CatchUp.Conjecture`) reduces in Lean to each of these open statements; every route ends at the same barrier, the leader's defense in the low phase (understanding.md, Blocks).
+**Focus.** C1 (Lean `CatchUp.Goal`) reduces in Lean to each of these open statements; every route ends at the same barrier, the leader's defense in the low phase (understanding.md, Blocks).
 - C119 (cheapest): ({1..N−1}, N) is not a mover win for every even-total N ≥ 13 (`conjecture_of_max_opening`, I33).
 - C110, the one-hole band: odd blocks of 2k + 1 numbers minus any one, every deficit d ≤ k − 1 of the draw parity, every height (`conjecture_of_one_hole_band`; by C13 heights a ≤ k(2k + 1) + k suffice, `oneHoleBand_of_bounded_heights`). Data: every height for k ≤ 9 (E45). Lean has its high part from linear height for d = 0 and 1 ≤ d ≤ o + 1 − k with holes o ≥ k (`one_hole_block_draw_linear`, `one_hole_band_draw_linear`).
 - C104, the low column (`conjecture_of_low_column`); C86, the band (`conjecture_of_band`); C92's three families (`conjecture_of_canonical_ray`); C74's ray (`conjecture_of_lower_ray`); C112, no controller wins (`conjecture_of_controller_games`, C111 verified).

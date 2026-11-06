@@ -41,7 +41,7 @@ theorem sum_Icc_one_mul_two (N : ℕ) : (∑ x ∈ Finset.Icc 1 N, x) * 2 = N * 
     ring
 
 /-- **I23's reduction**: the low column (C104) gives the conjecture. -/
-theorem conjecture_of_low_column (h : LowColumnConjecture) : Conjecture := by
+theorem conjecture_of_low_column (h : LowColumnConjecture) : Goal := by
   intro N hN
   by_cases h12 : N ≤ 12
   · exact conjecture_le_twelve N h12 hN

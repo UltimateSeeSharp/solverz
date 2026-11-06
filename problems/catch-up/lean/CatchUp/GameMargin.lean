@@ -212,7 +212,7 @@ private theorem sum_Icc_mul_two (N : ℕ) : (∑ x ∈ Finset.Icc 1 N, x) * 2 = 
 /-- **C37 (3)**: if the starting margin of `{1..N}` is at most 1 in absolute value for every
 even total, the conjecture holds: an even total makes the margin even, hence 0, a draw. -/
 theorem conjecture_of_margin_le_one
-    (h : ∀ N : ℕ, Even (N * (N + 1) / 2) → |margin (Finset.Icc 1 N) 0 0| ≤ 1) : Conjecture := by
+    (h : ∀ N : ℕ, Even (N * (N + 1) / 2) → |margin (Finset.Icc 1 N) 0 0| ≤ 1) : Goal := by
   intro N hN
   have hS : ∑ x ∈ Finset.Icc 1 N, x = N * (N + 1) / 2 :=
     (Nat.div_eq_of_eq_mul_left (by norm_num) (sum_Icc_mul_two N).symm).symm

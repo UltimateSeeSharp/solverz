@@ -137,7 +137,7 @@ theorem even_triangle_iff (N : ℕ) : Even (N * (N + 1) / 2) ↔ N % 4 = 0 ∨ N
 at deficit 1 for `N ≡ 3 (mod 4)` (scores read at 0). -/
 theorem conjecture_of_two_families
     (h0 : ∀ N, N % 4 = 0 → valueAux (Finset.Icc 1 N) 0 0 false = .draw)
-    (h3 : ∀ N, N % 4 = 3 → valueAux (Finset.Icc 2 N) 0 1 false = .draw) : Conjecture := by
+    (h3 : ∀ N, N % 4 = 3 → valueAux (Finset.Icc 2 N) 0 1 false = .draw) : Goal := by
   intro N hN
   rw [value, valueAux_true_eq_false]
   rcases (even_triangle_iff N).1 hN with h | h
@@ -155,7 +155,7 @@ theorem conjecture_of_two_families
 with `1 + ⋯ + N` even. -/
 theorem conjecture_of_height_two
     (h : ∀ N, 2 ≤ N → Even (N * (N + 1) / 2) → valueAux (Finset.Icc 2 N) 0 1 false = .draw) :
-    Conjecture := by
+    Goal := by
   intro N hN
   rw [value, valueAux_true_eq_false]
   rcases Nat.lt_or_ge N 2 with hlt | hge
@@ -294,7 +294,7 @@ theorem conjecture_of_leader_pair
     (h : ∀ N, 4 ≤ N → Even (N * (N + 1) / 2) →
       valueAux ((Finset.Icc 1 N).erase 1) 0 1 false ≠ .win ∧
       valueAux ((Finset.Icc 1 N).erase 2) 0 2 false ≠ .win) :
-    Conjecture := by
+    Goal := by
   intro N hN
   rcases Nat.lt_or_ge N 4 with hlt | hge
   · exact conjecture_le_three N (by omega) hN
@@ -310,7 +310,7 @@ the opening 1 with 2). -/
 theorem conjecture_of_suffix_pair
     (h : ∀ N, 4 ≤ N → Even (N * (N + 1) / 2) →
       valueAux (Finset.Icc 2 N) 0 1 false ≠ .win ∧ valueAux (Finset.Icc 3 N) 1 2 false ≠ .win) :
-    Conjecture := by
+    Goal := by
   refine conjecture_of_height_two ?_
   intro N hN2 hN
   rcases Nat.lt_or_ge N 4 with hlt | hge

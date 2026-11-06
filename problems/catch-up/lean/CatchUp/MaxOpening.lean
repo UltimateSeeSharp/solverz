@@ -1,6 +1,6 @@
 module
 
-public import CatchUp.DenseLossGeneral
+public import CatchUp.BoCowgill.DenseLossGeneral
 public import CatchUp.Small
 
 /-!
@@ -36,7 +36,7 @@ even-total `N ≥ 13`, the conjecture holds. -/
 theorem conjecture_of_max_opening
     (h : ∀ N : ℕ, 13 ≤ N → Even (N * (N + 1) / 2) →
       valueAux (Finset.Icc 1 (N - 1)) 0 N false ≠ .win) :
-    Conjecture := by
+    Goal := by
   intro N hN
   by_cases h12 : N ≤ 12
   · exact conjecture_le_twelve N h12 hN

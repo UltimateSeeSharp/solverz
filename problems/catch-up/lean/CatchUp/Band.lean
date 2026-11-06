@@ -1,7 +1,7 @@
 module
 
 public import CatchUp.Hyb2
-public import CatchUp.Executable
+public import CatchUp.BoCowgill.Executable
 public import CatchUp.Token
 
 /-!
@@ -76,7 +76,7 @@ private theorem Icc_eq_block {a p : ℕ} (hp : 1 ≤ p) :
     omega
 
 /-- **I17's reduction**: the band at heights 1 and 2 (C27's two families) gives the conjecture. -/
-theorem conjecture_of_band (h : BandConjecture) : Conjecture := by
+theorem conjecture_of_band (h : BandConjecture) : Goal := by
   apply conjecture_of_two_families
   · intro N hN
     rcases Nat.eq_zero_or_pos N with rfl | hpos

@@ -29,6 +29,6 @@ def Valid {n : ℕ} (c : Sym2 (Fin n) → Fin 3) : Prop :=
   (colourClass c 0).CliqueFree 3 ∧ k4e.Free (colourClass c 1) ∧ k4e.Free (colourClass c 2)
 
 /-- A valid colouring of K₂₁ exists, so R(K₃, K₄−e, K₄−e) = 22. -/
-def Conjecture : Prop := ∃ c : Sym2 (Fin 21) → Fin 3, Valid c
+def Goal : Prop := ∃ c : Sym2 (Fin 21) → Fin 3, Valid c
 
 end RamseyK3K4eK4e

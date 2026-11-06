@@ -107,7 +107,7 @@ conjecture holds. -/
 theorem conjecture_of_controller_games
     (h : ∀ N : ℕ, Even (N * (N + 1) / 2) →
       ctlMargin (Finset.Icc 1 N) 0 0 true ≤ 0 ∧ 0 ≤ ctlMargin (Finset.Icc 1 N) 0 0 false) :
-    Conjecture := by
+    Goal := by
   apply conjecture_of_margin_le_one
   intro N hN
   obtain ⟨h1, h2⟩ := h N hN

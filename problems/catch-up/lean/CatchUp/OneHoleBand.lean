@@ -47,7 +47,7 @@ theorem Icc_two_eq_oneHole_bottom (k : ℕ) :
     omega
 
 /-- **I24's reduction**: the one-hole band (C110) gives the conjecture. -/
-theorem conjecture_of_one_hole_band (h : OneHoleBandConjecture) : Conjecture := by
+theorem conjecture_of_one_hole_band (h : OneHoleBandConjecture) : Goal := by
   intro N hN
   by_cases h12 : N ≤ 12
   · exact conjecture_le_twelve N h12 hN

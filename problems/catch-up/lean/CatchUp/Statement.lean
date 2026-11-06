@@ -22,7 +22,7 @@ Each number a player removes is added to their score.
 * If even all remaining numbers would leave the mover behind, the mover loses.
 * When `S` is empty, the higher score wins; equal scores are a draw.
 
-`value S` is the outcome for player 1 under optimal play. `Conjecture` states that the game on
+`value S` is the outcome for player 1 under optimal play. `Goal` states that the game on
 `{1, …, N}` is a draw whenever `1 + ⋯ + N` is even.
 -/
 
@@ -98,7 +98,7 @@ noncomputable def value (S : Finset ℕ) : Outcome :=
 
 /-- **Catch-Up conjecture.** If `1 + ⋯ + N = N (N + 1) / 2` is even, optimal play on
 `{1, …, N}` ends in a draw. -/
-def Conjecture : Prop :=
+def Goal : Prop :=
   ∀ N : ℕ, Even (N * (N + 1) / 2) → value (Finset.Icc 1 N) = .draw
 
 end CatchUp

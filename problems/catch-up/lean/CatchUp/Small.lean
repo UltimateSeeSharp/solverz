@@ -1,6 +1,6 @@
 module
 
-public import CatchUp.Executable
+public import CatchUp.BoCowgill.Executable
 public import CatchUp.Token
 
 /-!

@@ -1,6 +1,6 @@
 module
 
-public import CatchUp.LowerRayInteriorReduction
+public import CatchUp.BoCowgill.LowerRayInteriorReduction
 public import CatchUp.Small
 
 /-!
@@ -26,7 +26,7 @@ theorem conjecture_of_lower_ray
     (hboundary : ∀ N, 13 ≤ N → Even (N * (N + 1) / 2) → ∀ b, 3 ≤ b → b ≤ N →
       ∀ y ∈ lowerRayExactDeficitResidual N b, (y = 2 ∨ y = b - 2 ∨ y = b + 1 ∨ y = N) →
         (afterOpening (lowerRayExactDeficitResidual N b) y).value ≠ .loss) :
-    Conjecture := by
+    Goal := by
   intro N hN
   by_cases h13 : 13 ≤ N
   · exact value_Icc_eq_draw_of_lower_ray_interior_and_boundary N (by omega) (hstart N h13 hN)
@@ -41,7 +41,7 @@ theorem conjecture_of_canonical_ray
       (lowerRayExactDeficitOpeningFourPosition N).value = .draw)
     (htwo : ∀ N, 13 ≤ N → Even (N * (N + 1) / 2) → ∀ b, 4 ≤ b → b ≤ N →
       (lowerRayExactDeficitOpeningTwoPosition N b).value = .draw) :
-    Conjecture := by
+    Goal := by
   intro N hN
   by_cases h13 : 13 ≤ N
   · exact value_Icc_eq_draw_of_exact_deficit_canonical_openings N (by omega) (hstart N h13 hN)
