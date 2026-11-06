@@ -44,3 +44,4 @@ marked element per line: its coordinates, then `+` or `-`. The Lean form is a
 | O36 | [O36.txt](O36.txt) | (217, 193, 168) SDS in C₂₁₇, constant on the orbits of a multiplier group of order 6 (42 orbits) | N11650 | E10 | 0 | — (pending) |
 | O37 | [O37.txt](O37.txt) | (222, 69, 20) SDS in C₂₂₂, constant on the orbits of a multiplier group of order 9 (30 orbits) | N11991 | E10 | 0 | — (pending) |
 | O38 | [O38.txt](O38.txt) | (455, 71, 7) SDS in C₄₅₅, constant on the orbits of a multiplier group of order 12 (41 orbits) | N58470 | E10 | 0 | — (pending) |
+| O39 | [O39.txt](O39.txt) | (300, 55, 6) SDS in C₃₀₀: R − H, R a (50, 6, 49, 8) relative difference set (Bose, projected) relative to the subgroup H of order 6 (C18) | N24177 | refuter (e10-objects, F2) | 0 | — (pending) |

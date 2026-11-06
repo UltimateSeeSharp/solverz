@@ -1,6 +1,9 @@
 # Journal
 
 ## 2026-11-06
+- C18 new, open: an RDS minus its subgroup is an SDS when q = (n + 1)²; found by the refuter of E10's objects; gives O39 for the open N24177 (300, 55, 6), Lean pending
+- O34–O38: refuter SURVIVES, new (O38 is C18's n = 7 member, `scratch/refuter/e10-objects`); C11 verified (`Pds.lean`, refuter SURVIVES)
+- C17 proved: refuter SURVIVES (`scratch/refuter/c17`); 213 open rows at r = R, Lean by helper F in progress
 - 7,835 open rows → none by the verified rules in Lean (C5 3,858, C13 2,213, C14 1,387, C8 377; root `lake build --wfail` passes): Gordon's table 68.2% → 79.3% settled; proposed as four Solutions under "Needs the user"
 - C15 and C16 new and verified: C9 and C10 for squarefree n in Lean (`Multiplier.lean`), refuter SURVIVES (`scratch/refuter/c9-lean`); C9, C10 stay proved for general n
 - C13 and C14 verified: refuter SURVIVES the Lean statements, the checkers and all 16 row chunks (`scratch/refuter/sc-rows`)
