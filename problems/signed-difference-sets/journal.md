@@ -1,5 +1,9 @@
 # Journal
 
+## 2026-11-07
+- 00:30 Two new sets by doubling (I21): O79 (54, 38, 2) for N448 and O80 (54, 46, 10) for N463, both open; Lean checks building
+- 00:20 C26 at c = 1 in Lean (`MaDescentFull.lean`): 112 rows through their halved row (`HalfRows.lean`), with `DescentRows.lean` (177) building
+
 ## 2026-11-06
 - 23:40 1,620 more open rows settled in Lean by I13 (C9, C10 verified for every n: `MultiplierWitt.lean`, `OrbitRows/Part33–59`); refuter SURVIVES (`scratch/refuter/i13/report-2026-11-06-2316.md`). Gordon's table 89.16% settled
 - 23:15 Eight published Paley-and-zero / quartic sets (core class 0a, open in the table) recorded as O71–O78, each rechecked exactly; Lean checks building

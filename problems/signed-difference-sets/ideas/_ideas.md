@@ -22,3 +22,4 @@
 | [I18](I18.md) | Self-conjugate primes enlarge A7's multiplier group (none) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 3 (N1); Miller | C5, C10, C25 | new |
 | [I19](I19.md) | Cyclotomic and Singer constructions (exists) | `T437` Difference sets and cyclic constructions | ideator round 3 (X1–X3) | C2 | new |
 | [I20](I20.md) | Ma's lemma at equality (none, filter) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 3 (core class A) | C21 | new |
+| [I21](I21.md) | Doubling: an SDS on C₂ × K from a halved SDS and a weighing matrix (exists) | `T437` Difference sets and cyclic constructions | us (from C26) | C2 | alive |
