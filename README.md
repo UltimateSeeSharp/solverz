@@ -48,4 +48,4 @@ In Claude Code, from the repo folder:
 - `/choose`: pick a new problem and set it up.
 - `/solve <problem>`: work on a problem (its folder name), until you stop it (Esc).
 - `/maintain`: work on the repo itself (workflow, skills, templates); never
-  inside an attack.
+  inside `/solve`.

@@ -17,9 +17,16 @@ Sorted by score, highest first. Who is working on what:
   lists all their IDs, comma-separated.
 - **Problem:** plain English a non-mathematician can follow, at most 25
   words, linked to the source.
-- **Kind:** `prove`, `find`, `bound`, `compute` (CLAUDE.md, Problem), or
-  `none` (no finite check, or not well posed). **Framings:** other kinds
-  that could also apply.
+- **Kind:** what the question asks and how Lean checks an answer:
+  - `prove`: a statement holds in all cases; a Lean proof.
+  - `find`: an object with a property exists; Lean checks the object.
+  - `bound`: improve a best-known value: a better object, or a proof of a
+    tighter limit; Lean checks either.
+  - `compute`: an exact value or complete list; Lean checks a certificate.
+  - `none`: no finite check, or not well posed; not taken on (the user
+    decides).
+
+  **Framings:** other kinds that could also apply.
 - **Fit** 1–5: 5 = clearly feasible on this machine, 1 = cluster-scale.
 - **Lean** 1–5: 5 = an answer is cheap for Lean to check, 1 = needs a huge
   certificate or theory Mathlib lacks.

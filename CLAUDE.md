@@ -4,32 +4,31 @@ AI-assisted attacks on open math problems; every result is checked in Lean 4.
 
 ## Problem
 
-What we want to solve, of one kind; an attack loads the core (skill
-`solve`) and the modules its README lists.
+What we want to solve. `/solve <problem>` runs the core skill `solve` with
+the modules its README lists.
 
-- `prove`: a statement holds in all cases; a Lean proof.
-- `find`: an object with a property exists; Lean checks the object.
-- `bound`: improve a best-known value: a better object, or a proof of a
-  tighter limit; Lean checks either.
-- `compute`: an exact value or complete list; Lean checks a certificate.
+A module is a skill whose folder also holds a `template/`: the skill adds its
+files, their relations and steps to `solve`'s loop; setup copies its
+`template/` next to the problem template (`template/`).
 
-A problem that fits no kind, or has no finite check, is not taken on; the
-user decides.
+Modules:
+
+- `find`: questions answered by an object (Instances, patterns, objects).
 
 ## Where things live
 
 ```
 .claude/               skills and agents
-templates/             what a new problem is set up from (Files)
+template/              what every new problem is set up from (Files)
 problems/              the problem lists and one folder per problem (Files)
 toolbox/               techniques to draw on; toolbox/check.ps1 validates it
 principles.md          how we think and work
-.worktrees/<problem>/  the git worktree each problem's attack runs in (Rules)
+.worktrees/<problem>/  the git worktree each problem is solved in (Rules)
 ```
 
 ## Files
 
-Every problem has these (`templates/_shared/`); each module it lists adds more (`templates/<module>/`), described in its skill.
+Every problem has these (`template/`); each module it lists adds more (its skill's `template/`), described in its skill.
 In a template, `<…>` in the text and `{…}` in file and folder names are placeholders to replace; an example row with nothing to fill is deleted.
 
 | File               | What it holds, how it is used                                                                                                                                                                                                                                                                                                                                            |
@@ -59,7 +58,7 @@ In a template, `<…>` in the text and `{…}` in file and folder names are plac
 
 | Role       | Who             | Started by                  | Job                                                                                                                                                                                                                                                                                           |
 | ---------- | --------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Researcher | main session    | `/solve <problem>`          | Runs the attack loop. It knows what the problem's files hold, builds the understanding of the problem, decides from it what is most promising and works it itself; it never hands its line off or waits. It keeps `understanding.md` current: rewritten when its understanding changes; single failures stay in the files of what they tested. |
+| Researcher | main session    | `/solve <problem>`          | Runs `solve`'s loop. It knows what the problem's files hold, builds the understanding of the problem, decides from it what is most promising and works it itself; it never hands its line off or waits. It keeps `understanding.md` current: rewritten when its understanding changes; single failures stay in the files of what they tested. |
 | Ideator    | agent `ideator` | the researcher              | Brings fresh angles; its ideas are proposals. Optional, never a step anything waits on; a round takes 30–90 min.                                                                                                    |
 | Refuter    | agent `refuter` | the researcher              | Tries to break something before its status changes (a proof, a computation's outcome, a Lean statement, …). SURVIVES: the new status stands. REFUTED: it is wrong; its opposite is recorded. FLAWED: the old status stays, the flaw is recorded. UNCLEAR: settling it is the next step.                     |
 
@@ -80,7 +79,7 @@ In a template, `<…>` in the text and `{…}` in file and folder names are plac
 
 ### Worktrees
 
-- Each attack runs in its own worktree `.worktrees/<problem>/` on the
+- Each problem is solved in its own worktree `.worktrees/<problem>/` on the
   long-lived branch `attack/<problem>`.
 - It is made once and reused by every session of that problem.
 - One commit per step.
