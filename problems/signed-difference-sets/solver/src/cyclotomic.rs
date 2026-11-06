@@ -1,4 +1,4 @@
-//! Pattern P2: sign vectors on the additive group of GF(q) constant on the cyclotomic
+//! Idea I2: sign vectors on the additive group of GF(q) constant on the cyclotomic
 //! classes of order e: D = ε_z·[0] + Σⱼ εⱼ·Cⱼ, Cⱼ = {α^(e·t + j)}, every ε ∈ {−1, 0, +1}.
 //! D(βx) = D(x) for β ∈ C₀, so Σₓ D(x)·D(x + g) is constant on each class: D is an SDS
 //! iff its autocorrelations at α⁰, …, α^(e−1) agree.
@@ -84,10 +84,10 @@ impl Field {
     }
 }
 
-/// Signs of one P2 vector: ε for C₀, …, C_{e−1}, then ε_z for {0}.
+/// Signs of one I2 vector: ε for C₀, …, C_{e−1}, then ε_z for {0}.
 pub type ClassSigns = Vec<Sign>;
 
-/// A P2 vector that is an SDS (q, k, λ).
+/// An I2 vector that is an SDS (q, k, λ).
 pub struct Hit {
     pub signs: ClassSigns,
     pub k: usize,

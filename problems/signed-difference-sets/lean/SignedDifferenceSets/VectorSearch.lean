@@ -3,7 +3,7 @@ module
 public import SignedDifferenceSets.Loops
 
 /-!
-# Searching integer vectors (contraction, F3)
+# Searching integer vectors (contraction, C3)
 
 `noVector n add c Q t k s` searches every integer vector `w` of length `n` with `|wᵢ| ≤ c`,
 `|w₀|` the largest, `Σ w = s`, `Σ w² = Q`, `Σ |w| ≤ k` with `k − Σ |w|` even, and

@@ -7,7 +7,7 @@ public import SignedDifferenceSets.Contraction
 # N32: no (20, 17, 8) SDS in C₂ × C₁₀
 
 Open in Gordon's table (`SDS(20,17,8,[2,10])`, 2026-11-05). Contract along
-C₂ × C₁₀ → C₅ (F3): every fibre has 4 elements, so the coset sums `a` lie in [−4, 4],
+C₂ × C₁₀ → C₅ (C3): every fibre has 4 elements, so the coset sums `a` lie in [−4, 4],
 have square sum 17 + 8 · 3 = 41 and autocorrelation 8 · 4 = 32 at every shift `g ≠ 0`;
 `decide` finds no such vector.
 -/

@@ -7,7 +7,7 @@ public import SignedDifferenceSets.Symmetry
 # N3: no (9, 8, 1) SDS in C₃ × C₃
 
 Open in Gordon's table (`SDS(9,8,1,[3,3])`, 2026-11-05). One of the nine elements is
-unmarked; translating it to `0` (F2) leaves 3⁸ sign patterns, which `decide` rules out.
+unmarked; translating it to `0` (C2) leaves 3⁸ sign patterns, which `decide` rules out.
 -/
 
 @[expose] public section

@@ -1,7 +1,7 @@
 # State
 
 **Focus.** Paused for a repo migration by the user (2026-11-06): nothing new starts until the user says so. The session plan of 2026-11-05 (user), stepped with the user (each step reported, the next only on the user's go, until the user says "go loop"):
-1. P2, octic cyclotomic sets: done (E6, sporadic; N35840 found, O12).
+1. I2, octic cyclotomic sets: done (E6, sporadic; N35840 found, O12).
 2. A Lean non-existence checker: contraction done and checked by the kernel (`VectorSearch`, `ContractionCheck`; 11 of E5's 12 kills build); exhaustion still to design, shown to the user before any code.
 3. Background: E4's 9 found but unchecked sets as objects, Lean-checked and compared with the known constructions; E4's 22 unreached Instances (E7, suspended at 11).
 4. With the user, once the checker settles its first cases: the range (open entries with v < 50, v < 100, or more).
@@ -9,8 +9,8 @@
 **Next step.** In order:
 1. Contraction, N93: make `answer.py contract`'s split adaptive (split only branches above `BRANCH_NODES`; uniform depth gives N93 1,114 checks at depth 6), then `python -I solver/answer.py contract N93 2,7` and build it alone with `scratch/lean-build.ps1`; add it to `SignedDifferenceSets.lean`.
 2. Rebuild: `VectorSearch.lean` changed after the 11 contraction Answers were built, so `ContractionCheck`, `Tests.Checks` and Answer N46, N47, N79, N80, N95, N168, N176, N220, N221, N223, N224 are stale. Rebuild one module per call through `scratch/lean-build.ps1`; never `lake build` the root while they are stale (Lake would build them in parallel).
-3. `#print axioms` of the 12 `Answer.N<id>.not_hasSDS` (one scratch file importing them, one Lean process); then the refuter on them, on F4, on `noVector_sound` / `not_hasSDS_of_noVector`, and on each Instance's literature status; then `settle.py N<id> none "E5; F3; F4" SignedDifferenceSets.Answer.N<id>.not_hasSDS`, journal lines, and each proposed under "Needs the user".
-4. Exhaustion design for the user (step 2): Instances P1 exhausted that contraction does not kill: N30, N75, N89, N90, N99, N134, N135, N136, N138, N140 (E4); N70, N71, N76, N77, N177, N178, N194 (E7). Kernel exhaustion runs about 300 P1 nodes/s, these need 10⁸ to 10¹⁰; options: lift above the contraction vectors, more symmetry, SAT with LRAT proofs checked by Mathlib's `lrat_proof` (a SAT solver install is the user's call).
+3. `#print axioms` of the 12 `Answer.N<id>.not_hasSDS` (one scratch file importing them, one Lean process); then the refuter on them, on C4, on `noVector_sound` / `not_hasSDS_of_noVector`, and on each Instance's literature status; then `settle.py N<id> none "E5; C3; C4" SignedDifferenceSets.Answer.N<id>.not_hasSDS`, journal lines, and each proposed under "Needs the user".
+4. Exhaustion design for the user (step 2): Instances I1 exhausted that contraction does not kill: N30, N75, N89, N90, N99, N134, N135, N136, N138, N140 (E4); N70, N71, N76, N77, N177, N178, N194 (E7). Kernel exhaustion runs about 300 I1 nodes/s, these need 10⁸ to 10¹⁰; options: lift above the contraction vectors, more symmetry, SAT with LRAT proofs checked by Mathlib's `lrat_proof` (a SAT solver install is the user's call).
 5. Step 3: O13 (N131, E7) to Lean (`answer.py fast O13 N131`), compared with Gordon, He–Chen–Ge, He–Wu, then the refuter. E4's 9 sets (N127–N130, N132, N137, N139, N169, N170): `answer.py object scratch/r4.out N<id> O<n>` (O14 on), Lean, constructions, refuter. Resume E7 (Running).
 
 Results only in scratch (git-ignored):

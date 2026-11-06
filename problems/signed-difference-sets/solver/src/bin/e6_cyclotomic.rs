@@ -1,4 +1,4 @@
-//! E6: P2 on every prime power q ≡ 1 mod e, q ≤ `max_q`: every sign choice on the
+//! E6: I2 on every prime power q ≡ 1 mod e, q ≤ `max_q`: every sign choice on the
 //! cyclotomic classes of order e and on 0 that is an SDS. Validates the engine first.
 //! Usage: `e6_cyclotomic <instances.csv> <e> <max_q> <threads>`; one line per hit up to
 //! the symmetries of `canonical`: q, p^m, k, λ, signs (C₀ … C_{e−1} | 0), how many sign
@@ -89,7 +89,7 @@ fn validate_known(field: &Field, e: usize, hits: &[Hit]) {
         hits.iter().any(|h| h.signs == signs && h.k == k && h.lam == lam)
     };
     let q = field.q;
-    // Paley (Gordon): the quadratic character, (q, q − 1, −1); e is even, so it is a P2 vector.
+    // Paley (Gordon): the quadratic character, (q, q − 1, −1); e is even, so it is an I2 vector.
     let mut chi: Vec<Sign> = (0..e).map(|j| if j % 2 == 0 { 1 } else { -1 }).collect();
     chi.push(0);
     assert!(has(&chi, q - 1, -1), "q = {q}: Paley missed");
@@ -100,7 +100,7 @@ fn validate_known(field: &Field, e: usize, hits: &[Hit]) {
         assert!(has(&c0, 9, 1), "Lehmer's (73, 9, 1) missed");
     }
     if e == 8 && q == 25 {
-        // O6 (N49) is affinely a P2 vector (refuter, r4-report.md).
+        // O6 (N49) is affinely an I2 vector (refuter, r4-report.md).
         assert!(hits.iter().any(|h| h.k == 12 && h.lam == 1), "O6's (25, 12, 1) missed");
     }
 }

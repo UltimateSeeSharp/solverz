@@ -1,5 +1,5 @@
-//! E5: contraction (F3) on every open Instance of `instances.csv` with v ≤ `max_v`: for each
-//! quotient H = ∏ ℤ_{dᵢ} of G, smallest first, an exact search for coset sums meeting F3's
+//! E5: contraction (C3) on every open Instance of `instances.csv` with v ≤ `max_v`: for each
+//! quotient H = ∏ ℤ_{dᵢ} of G, smallest first, an exact search for coset sums meeting C3's
 //! demands, on H numbered as Lean's `Indexed` numbers it (so Lean's `noVector` visits the
 //! same nodes). First validates: no Instance with v ≤ `max_v` that exists is killed, and N32
 //! dies at C₅. Usage: `e5_contraction <instances.csv> <max_v> <max_nodes> <threads>`; one
@@ -17,7 +17,7 @@ fn run(inst: &Instance, max_nodes: u64) -> (bool, String) {
     let mut notes = Vec::new();
     for quo in quotients(&inst.shape) {
         let group = Group::new(&quo.divisors);
-        let dem = Demand::new(inst.v, inst.k, inst.lam, group.order).expect("F1 holds");
+        let dem = Demand::new(inst.v, inst.k, inst.lam, group.order).expect("C1 holds");
         let out = search(&group, inst.k, &dem, max_nodes);
         let name = format!("{:?}", quo.invariants).replace(' ', "");
         let divisors = format!("{:?}", quo.divisors).replace(' ', "");

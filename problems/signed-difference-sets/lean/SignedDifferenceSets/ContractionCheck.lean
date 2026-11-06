@@ -7,7 +7,7 @@ public import SignedDifferenceSets.VectorSearch
 /-!
 # Non-existence by contraction, checked by the kernel
 
-`not_hasSDS_of_noVector`: if `noVector` finds no integer vector on `H` meeting what F3
+`not_hasSDS_of_noVector`: if `noVector` finds no integer vector on `H` meeting what C3
 demands of the coset sums along a surjection `G → H` with fibres of size `c`, then `G`
 has no SDS (v, k, λ). A `Proj` builds the surjection factor by factor
 (`ZMod m → ZMod d` for `d ∣ m`, identities, products).
@@ -45,7 +45,7 @@ theorem sum_mul_sum_eq (a : H → ℤ) : (∑ h, a h) * ∑ h, a h = ∑ g, ∑ 
           (Fintype.sum_equiv (Equiv.addLeft i) _ (fun j => a i * a j) fun _ => rfl).symm
     _ = _ := Finset.sum_comm
 
-/-- What contraction with fibres of size `c` demands of the coset sums `b` (F3, and the
+/-- What contraction with fibres of size `c` demands of the coset sums `b` (C3, and the
 absolute sum and parity of `IsSDS.sum_abs_contract_le`, `IsSDS.sum_abs_contract_parity`). -/
 structure Demands (c k : ℕ) (lam : ℤ) (b : H → ℤ) : Prop where
   bound : ∀ h, |b h| ≤ c
@@ -152,7 +152,7 @@ theorem false_of_noVector {s : ℤ}
 variable {G : Type*} [AddCommGroup G] [Fintype G]
 
 /-- No SDS (v, k, λ) on `G` when `noVector` rules out the coset sums along `p`, whose
-fibres have `c = |G| / |H|` elements; `s² = k + λ(v − 1)` (F1). -/
+fibres have `c = |G| / |H|` elements; `s² = k + λ(v − 1)` (C1). -/
 theorem not_hasSDS_of_noVector (p : Proj G H) (c : ℕ) (s : ℤ)
     (hc : Fintype.card G = c * Fintype.card H)
     (hs : s * s = k + lam * ((Fintype.card G : ℤ) - 1))

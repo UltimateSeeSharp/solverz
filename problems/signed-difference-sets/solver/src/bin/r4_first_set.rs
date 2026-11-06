@@ -1,4 +1,4 @@
-//! E4: P1 on every open Instance of `instances.csv` with v ≤ `max_v`, stopping at the first
+//! E4: I1 on every open Instance of `instances.csv` with v ≤ `max_v`, stopping at the first
 //! set or after `max_nodes` nodes, `threads` Instances at a time. Validates the engine first.
 //! Usage: `r4_first_set <instances.csv> <max_v> <max_nodes> <threads> [ids]`, `ids` a
 //! comma-separated list restricting the run (E7); one line per Instance: id, key,
@@ -46,7 +46,7 @@ fn parse_key(id: &str, key: &str) -> Instance {
 fn run(inst: &Instance, max_nodes: u64) -> String {
     let group = Group::new(&inst.shape);
     let t = Instant::now();
-    let out = search_capped(&group, inst.k, inst.lam, 1, max_nodes).expect("F1 holds");
+    let out = search_capped(&group, inst.k, inst.lam, 1, max_nodes).expect("C1 holds");
     let (result, set) = match out.solutions.first() {
         Some(d) => {
             let marked: Vec<String> = (0..group.order)
@@ -79,7 +79,7 @@ fn validate() {
         let out = search_capped(&Group::new(&shape), k, lam, 1, u64::MAX).unwrap();
         assert!(!out.solutions.is_empty(), "engine misses a known SDS ({k}, {lam}, {shape:?})");
     }
-    // F1 already rules it out: parity of k + s fails.
+    // C1 already rules it out: parity of k + s fails.
     let none = search_capped(&Group::new(&[2, 2]), 3, -1, 1, u64::MAX);
     assert!(none.is_none_or(|o| o.solutions.is_empty()), "engine finds a set Lean rules out");
     // E1's node counts: the search tree must not change.

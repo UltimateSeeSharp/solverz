@@ -3,7 +3,7 @@ module
 public import SignedDifferenceSets.Statement
 
 /-!
-# Contraction to a quotient (F3)
+# Contraction to a quotient (C3)
 
 Push an SDS `D` on `G` along a homomorphism `φ : G →+ H`: the coset sums
 `a h = ∑_{φ x = h} D x` satisfy `∑_h a h · a (h + g') = λ · #φ⁻¹(g')` for `g' ≠ 0`, and
@@ -53,7 +53,7 @@ theorem contract_autocorr_eq (D : G → SignType) (φ : G →+ H) (g' : H) :
     _ = ∑ g ∈ Finset.univ.filter (fun g => φ g = g'), ∑ x, (D x : ℤ) * D (x + g) :=
         Finset.sum_comm
 
-/-- F3: the autocorrelation of the coset sums at `g' ≠ 0` is `λ` times the fibre size. -/
+/-- C3: the autocorrelation of the coset sums at `g' ≠ 0` is `λ` times the fibre size. -/
 theorem IsSDS.contract_autocorr {k : ℕ} {lam : ℤ} {D : G → SignType} (hD : IsSDS k lam D)
     (φ : G →+ H) (g' : H) (hg' : g' ≠ 0) :
     ∑ h, contract φ D h * contract φ D (h + g') = lam * (fibre φ g').card := by
@@ -62,7 +62,7 @@ theorem IsSDS.contract_autocorr {k : ℕ} {lam : ℤ} {D : G → SignType} (hD :
   · rintro rfl
     exact hg' ((Finset.mem_filter.1 hg).2.symm.trans (map_zero φ))
 
-/-- F3 at shift `0`: the coset sums have square sum `k + λ (#ker φ − 1)`. -/
+/-- C3 at shift `0`: the coset sums have square sum `k + λ (#ker φ − 1)`. -/
 theorem IsSDS.contract_sq {k : ℕ} {lam : ℤ} {D : G → SignType} (hD : IsSDS k lam D)
     (φ : G →+ H) :
     ∑ h, contract φ D h * contract φ D h = k + lam * ((fibre φ 0).card - 1 : ℕ) := by

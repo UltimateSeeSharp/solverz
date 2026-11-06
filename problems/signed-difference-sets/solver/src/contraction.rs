@@ -1,4 +1,4 @@
-//! Contraction (F3): an SDS (v, k, λ) on G pushed to a quotient H of order n gives integer
+//! Contraction (C3): an SDS (v, k, λ) on G pushed to a quotient H of order n gives integer
 //! coset sums a on H with |a_h| ≤ c = v/n, Σ a_h² = k + λ(c − 1), Σ_h a_h a_{h+g} = λc for
 //! g ≠ 0, and (so) Σ a_h = ±s. No such vector: no SDS.
 

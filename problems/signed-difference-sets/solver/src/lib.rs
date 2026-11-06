@@ -1,5 +1,5 @@
 //! Signed difference sets solver: exhaustive search of sign vectors on a finite abelian
-//! group (pattern P1), mirroring `SignedDifferenceSets.IsSDS`: k marked elements and
+//! group (idea I1), mirroring `SignedDifferenceSets.IsSDS`: k marked elements and
 //! Σₓ D(x)·D(x + g) = λ for every g ≠ 0.
 
 pub mod contraction;
@@ -68,7 +68,7 @@ pub fn is_sds(group: &Group, k: usize, lam: i64, d: &[Sign]) -> bool {
 
 /// Result of an exhaustive search of one case.
 pub struct Outcome {
-    /// Solutions with element 0 marked and sign sum +s (F1, F2); every SDS is a translate
+    /// Solutions with element 0 marked and sign sum +s (C1, C2); every SDS is a translate
     /// and possibly the negation of one of them.
     pub solutions: Vec<Vec<Sign>>,
     /// Search nodes visited.
@@ -76,7 +76,7 @@ pub struct Outcome {
 }
 
 /// Every SDS (v, k, λ) on `group` with 0 marked and sign sum +s, up to `limit` solutions.
-/// `None` when k + λ(v − 1) is not a perfect square (F1: no SDS at all).
+/// `None` when k + λ(v − 1) is not a perfect square (C1: no SDS at all).
 pub fn search(group: &Group, k: usize, lam: i64, limit: usize) -> Option<Outcome> {
     search_capped(group, k, lam, limit, u64::MAX)
 }

@@ -16,7 +16,7 @@ factors])`; G is the product of `ZMod` over the factors.
 **Goal:** for each open Instance, `HasSDS G k λ` (Lean checks the set) or
 `¬ HasSDS G k λ`; Lean `SignedDifferenceSets.HasSDS` in
 `lean/SignedDifferenceSets/Statement.lean`, approved 2026-11-05.
-Kind: find, many Instances, both goals open.
+Kind: find, many Instances, both goals open. Modules: find.
 Estimate: small cases are exhaustive or SAT searches of seconds to hours on
 this machine; a found set is a v-entry sign vector that Lean checks by
 `decide` in seconds. Non-existence counts only with a Lean proof: plain
