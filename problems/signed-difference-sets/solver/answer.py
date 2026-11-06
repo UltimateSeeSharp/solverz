@@ -6,6 +6,7 @@ the run's line for that Instance (`id key yes nodes time coords± …`).
 whose `hasSDS` Lean checks by `decide`.
 `answer.py fast <object id> <instance id>`: the same through `checkSet` and `decide +kernel`,
 for sets too large for `decide`.
+`answer.py split <object id> <instance id> <parts>`: as `fast`, the shifts in `parts` ranges.
 `answer.py contract <instance id> <d1,…,dr>`: writes Answer/N<id>.lean proving no SDS by
 contraction along ∏ ZMod mᵢ → ∏ ZMod dᵢ (`not_hasSDS_of_noVector`, `decide +kernel`); a search
 of more than SPLIT_NODES nodes is split into one kernel check per prefix (`noVector_of_top`).
@@ -45,7 +46,7 @@ def write_object(run_file: str, instance: str, obj: str) -> None:
             lines = [f"{'x'.join(f'C{m}' for m in shape)} ({v},{k},{lam})"]
             for t in parts[5:]:
                 lines.append(f"{' '.join(t[:-1].split('.'))} {t[-1]}")
-            (ROOT / "objects" / f"{obj}.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+            (ROOT / "objects" / f"{obj}.txt").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
             return
     sys.exit(f"no set for {instance} in {run_file}")
 
@@ -114,7 +115,7 @@ theorem hasSDS : HasSDS ({group}) {k} {lam_lean} := ⟨sds, isSDS⟩
 
 end SignedDifferenceSets.Answer.{instance}
 """
-    (ANSWER_DIR / f"{instance}.lean").write_text(text, encoding="utf-8")
+    (ANSWER_DIR / f"{instance}.lean").write_text(text, encoding="utf-8", newline="\n")
 
 
 def masks(shape, signs):
@@ -182,7 +183,73 @@ theorem hasSDS :
 
 end SignedDifferenceSets.Answer.{instance}
 """
-    (ANSWER_DIR / f"{instance}.lean").write_text(text, encoding="utf-8")
+    (ANSWER_DIR / f"{instance}.lean").write_text(text, encoding="utf-8", newline="\n")
+
+
+def write_split(obj: str, instance: str, parts: str) -> None:
+    """As `write_fast`, with the shifts checked in `parts` ranges, one `decide +kernel` each,
+    which bounds the kernel's memory per declaration (N58470, v = 455: one check passed 8.8 GB)."""
+    shape, v, k, lam, signs = read_object(obj)
+    key = instance_key(instance)
+    assert parse_key(key) == (v, k, lam, shape), f"{obj} does not answer {key}"
+    group = " × ".join(f"ZMod {m}" for m in shape)
+    pretty = " × ".join(f"C{str(m).translate(SUB)}" for m in shape)
+    lam_lean = f"({lam})" if lam < 0 else str(lam)
+    plus, minus = masks(shape, signs)
+    n = int(parts)
+    bounds = [v * i // n for i in range(n + 1)]
+    chunks = "\n".join(f"""set_option maxRecDepth 100000 in
+/-- Shifts {lo} to {hi - 1}. -/
+theorem shifts{i + 1} : allFrom (shiftOk ({group}) {lam_lean} plus minus) {lo} {hi - lo} = true := by
+  decide +kernel
+""" for i, (lo, hi) in enumerate(zip(bounds, bounds[1:])))
+    joined = "".join(f"  have h := allFrom_append h shifts{i}\n" for i in range(2, n + 1))
+    text = f"""module
+
+public import SignedDifferenceSets.SetCheckSplit
+
+/-!
+# {instance}: a ({v}, {k}, {lam}) SDS in {pretty}
+
+Open in Gordon's table (`{key}`, 2026-11-05). The set is object {obj}
+(`objects/{obj}.txt`); this file is generated from it by `solver/answer.py`, its shifts
+checked in {n} ranges.
+-/
+
+@[expose] public section
+
+namespace SignedDifferenceSets.Answer.{instance}
+
+-- A literal cannot span lines.
+set_option linter.style.longLine false in
+/-- Object {obj}'s plus elements, as bits over the element numbers of `Indexed`. -/
+def plus : ℕ := {plus:#x}
+
+set_option linter.style.longLine false in
+/-- Object {obj}'s minus elements, as bits over the element numbers of `Indexed`. -/
+def minus : ℕ := {minus:#x}
+
+/-- Object {obj}: the sign of each element. -/
+def sds : {group} → SignType :=
+  fun x => ofMasks plus minus (Indexed.equiv x)
+
+set_option maxRecDepth 100000 in
+theorem count : countOk ({group}) {k} plus minus = true := by decide +kernel
+
+{chunks}
+theorem isSDS : IsSDS {k} {lam_lean} sds := by
+  have h := shifts1
+{joined}  exact isSDS_of_checkSplit count h
+
+/-- {instance}: {pretty} has a signed difference set with
+parameters ({v}, {k}, {lam}). -/
+theorem hasSDS :
+    HasSDS ({group}) {k} {lam_lean} :=
+  ⟨sds, isSDS⟩
+
+end SignedDifferenceSets.Answer.{instance}
+"""
+    (ANSWER_DIR / f"{instance}.lean").write_text(text, encoding="utf-8", newline="\n")
 
 
 # The kernel keeps about 0.1 MB per search node of one declaration (N79: 51,596 nodes, 7.5 GB).
@@ -306,11 +373,12 @@ theorem not_hasSDS : ¬ HasSDS ({group}) {k} {lam_lean} :=
 
 end SignedDifferenceSets.Answer.{instance}
 """
-    (ANSWER_DIR / f"{instance}.lean").write_text(text, encoding="utf-8")
+    (ANSWER_DIR / f"{instance}.lean").write_text(text, encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":
     cmd, *args = sys.argv[1:]
-    {"object": write_object, "lean": write_lean, "fast": write_fast, "contract": write_contract}[
+    {"object": write_object, "lean": write_lean, "fast": write_fast, "split": write_split,
+     "contract": write_contract}[
         cmd
     ](*args)

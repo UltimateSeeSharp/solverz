@@ -1,6 +1,9 @@
 # Journal
 
 ## 2026-11-06
+- 20:05 C21 proved (Ma's lemma on mixed quotients): refuter SURVIVES (`scratch/refuter/c21`), 1,483 open rows; I11 alive
+- 19:50 I15 alive: O40–O60 built by `solver/rdscomb.py`, N3243's Lean answer builds (kill test)
+- 19:40 Ideator round 2 recorded: ideas I11–I15 (new), claims C21–C23 (open); refuters on C21, C22; helper W on I13's spike
 - 3,496 more open rows settled in Lean: I5 orbit rows (C15 + verified orbit search) 2,607, C7 236, C17 213, C19 297, C20 144 → none; O34–O37 and O39 (N24177) → exists. Gordon's table 84.3% settled; every module built alone with `--wfail`, the root build waits for free RAM (it needs ~9 GB)
 - C20 verified: refuter SURVIVES (`scratch/refuter/c20`); its kills are the ramified-prime congruence at 3
 - C7 and C17 verified, the I5 orbit rows' Lean statements checked: refuter SURVIVES (`scratch/refuter/round2`), 3,050 rows ready to settle once the root builds; instance names fixed (they collided)

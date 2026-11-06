@@ -5,11 +5,12 @@
 **Done in Lean (built, `--wfail`).** Verified: C1, C5, C7, C8, C13, C14, C15, C16, C17, C19, C20 and the I5 orbit search; row checks for 11,357 rows settled 2026-11-06 (`journal.md`). C18 proved (n ≥ 2).
 
 **Next step.** Ideator round 2 (`scratch/ideator/2026-11-06-1837.md`), by rows settled as the user ordered:
-1. I11 Ma's lemma on mixed quotients (C21): 1,241 open rows. Refuter on C21's sketch; then Lean, K = 1 first (269 rows).
+1. I11 Ma's lemma on mixed quotients (C21, proved, refuter SURVIVES): 1,483 open rows. Now: C21 in Lean (the researcher), then its row check.
 2. I12 Sylow trace rule (C22): 464 open rows (905 hit; C19/C20 settled 441). Refuter on C22 (weakest: p = 2); then Lean on ℤ[i]/ℤ[ω] first.
 3. I13 C9 for every n via Witt vectors: 1,992 open E10/E11 `none` rows with n not squarefree. Kill test: a one-hour Lean spike in scratch.
-4. I14 composite modulus (C23): 94 rows; a CRT lemma on C5/C13/C14, `selfconj.py` with composite moduli.
-5. I15 RDS combinations: 19 sets (exists) plus valid sets for N1134, N9807; `SetCheck` on N3243 first, literature check for credit.
+4. I14 composite modulus (C23): 132 open rows, Lean written (`CompositeModulus.lean`, rows by `solver/compositemodulus.py`), building; refuter round 4; then settle (`scratch/settle-round4.tsv`).
+5. I15 RDS combinations (alive): O40–O60 in Lean (19 open rows `exists`, valid sets for N1134, N9807); refuter round 4; then settle.
+6. A7 row checker (C10/C16 coset sums fixed by the multiplier, VectorSearch's pattern with one value per t-orbit; ~400–600 lines): its first 386 rows of the new run killed 167, 164 of them with n not squarefree, so it pays mostly after I13 (C10 for every n). Decide when A7's counts and I13's spike are in.
 Alongside: the root `lake build --wfail` alone when RAM allows (needs ~9 GB); N58470's object build (8.9 GB). Later: I5 leaf-heavy squarefree rows (~323), the remaining heavy contraction rows, I7/I8, the exhaustion design.
 
 Results only in scratch (git-ignored):
@@ -17,8 +18,9 @@ Results only in scratch (git-ignored):
 - The **main folder's** `problems/signed-difference-sets/scratch/` (the overnight work of 2026-11-06, outside the worktree; copy it into the worktree's scratch before citing it there): `refuter/` with the reports C5–C12 and the objects cite (`rule-sc`, `extensions`, `a5-a3`, `found-sets`, `db-lags`, `nl-family`, each with its scripts); `ideator/` (report `2026-11-06-0110.md`, rule scripts and outputs); `e8/` (exploration: the all-rows contraction passes, the orbit search, `turyn.py`, README); `other-session/` (another session's hand-off, N735 and N17201). Keep.
 
 **Running.**
-- Agents (limit 3): none yet; refuters on C21 (I11) and C22 (I12) next, then Lean helpers as slots free.
-- Exploration (scratch only): `scratch/c7_lp.py`, does C7's LP relaxation alone kill its rows (`scratch/c7_lp.out`).
+- Agents (3 of 3): refuter on C22 (19:45, `scratch/refuter/c22/`); Lean helper W, I13's Witt-vector spike (19:55, `scratch/agentW/`); refuter round 4 on C23 and I15's objects (20:06, `scratch/refuter/round4/`, brief `scratch/refuter/round4-brief.md`).
+- Lean, one process at a time through the lock `scratch/lean.lock` (`scratch/lean-locked.ps1` for builds, `scratch/lenv-locked.sh` for scratch checks): I15's 21 answer builds (`Answer/N3243` … `N9807`, O40–O60), then `CompositeModulus` and its rows (C23, 132 rows), then the root.
+- Exploration (scratch, 2 processes below normal, started 19:56): A7's multiplier-fixed coset-sum search (`scratch/ideator/mcontract.py`, rmax 10, cap 3·10⁵) over the 11,099 open rows the old run did not reach → `scratch/a7/mc2_{0,1}.out`; counts what C16 (squarefree n) could settle once a Lean row checker exists.
 - E7, **suspended** 2026-11-06 00:30 at the user's request: process 33500 (`target/release/r4_first_set.exe problems/signed-difference-sets/instances.csv 40 10000000000 10 N70,N71,N76,N77,N131,N133,N168,N172,N173,N174,N176,N177,N178,N194,N204,N205,N207,N212,N220,N221,N223,N224`, from the worktree root, commit 95d6f8c), all threads suspended. Partial output `scratch/e7.out` (11 of 22, E7.md). Resume (PowerShell): `Add-Type -Namespace Win -Name Nt -MemberDefinition '[DllImport("ntdll.dll")] public static extern int NtResumeProcess(IntPtr h);'; [Win.Nt]::NtResumeProcess((Get-Process -Id 33500).Handle)`. If gone, rerun `N133,N204,N205,N207,N212` with the same command, appending to `scratch/e7.out`.
 
 **Resources.** The user, relayed 2026-11-06: keep at least 4 GB RAM and 2 threads free; heavy Lean builds strictly one at a time, no second Lean process while one runs; check free RAM before every job; below-normal priority; at most 3 agents (helpers plus refuters), the limits in every brief. Lean: one module per `lake build` through `scratch/lean-build.ps1` (kills above 20 GB or under 4 GB free). A parallel build of 12 modules beside E7 froze the machine on 2026-11-05.
