@@ -17,12 +17,12 @@ Results only in scratch (git-ignored):
 
 **Running.**
 - Lean build queues, one module at a time: `scratch/stale-rebuild.log` (stale contraction answers, then root; N32 regenerated with `noVector`, N80 killed at 9 GB, retried alone at 13 GB), then `scratch/objects-build.log` (C11 `Pds`, N32, the 20 answers O13–O32), then `scratch/objects-build2.log` (O34–O38's answers, N80).
-- E10 orbit exhaust (pid 35192, 3 threads, below normal), started 2026-11-06 16:39, output `scratch/e10.out`; at 17:05 8,049 of 12,209 rows (7,546 none, 14 found, 489 cut); the rest (> 40 orbits) mostly cut at ~10 s each, ~3–4 h. Resumable (E10.md).
+- E11 orbit exhaust (pid 13616, 3 threads, below normal), started 2026-11-06 17:26, E10's 3,583 remaining rows at cap 10⁵, output `scratch/e11.out` (E11.md). E10 stopped at 17:26 (outcome in E10.md).
 - `scratch/c7_lp.py` (C7's LP relaxation on its 224 rows, all of the first 40 killed), output `scratch/c7_lp.out`.
 - Helper E (Lean): verified orbit search `OrbitSearch.lean` (`scratch/agentE/`), then the I5 row theorem with C15.
 - Helper F (Lean): C17 `RealChars.lean`, `RealCharsRows.lean`, 183 rows (`scratch/agentF/`).
 - Helper G (Lean): C7 by LP dual certificates, `MarkedCounts*.lean` (`scratch/agentG/`).
-- Refuter e10-objects: O34–O38 new or known, and C11's Lean statement (`scratch/refuter/e10-objects/`). Refuter c17: C17 on paper (`scratch/refuter/c17/`).
+- No new agents until 18:05 (the user, token limits). Then: refuter on C18 (RDS minus subgroup), C₄-quotient extension of C17 (288 rows, ℤ[i] characters).
 - Idea for after C17: the same on C₄-type quotients (Gaussian character values, elementary via C3's identities): 288 more open rows (`scratch/gauss_chars.py`, `.out`).
 - E7, **suspended** 2026-11-06 00:30 at the user's request: process 33500 (`target/release/r4_first_set.exe problems/signed-difference-sets/instances.csv 40 10000000000 10 N70,N71,N76,N77,N131,N133,N168,N172,N173,N174,N176,N177,N178,N194,N204,N205,N207,N212,N220,N221,N223,N224`, from the worktree root, commit 95d6f8c), all threads suspended. Partial output `scratch/e7.out` (11 of 22, E7.md). Resume (PowerShell): `Add-Type -Namespace Win -Name Nt -MemberDefinition '[DllImport("ntdll.dll")] public static extern int NtResumeProcess(IntPtr h);'; [Win.Nt]::NtResumeProcess((Get-Process -Id 33500).Handle)`. If gone, rerun `N133,N204,N205,N207,N212` with the same command, appending to `scratch/e7.out`.
 
