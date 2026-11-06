@@ -15,6 +15,7 @@ public import SignedDifferenceSets.Square
 public import SignedDifferenceSets.Iso
 public import SignedDifferenceSets.Parity
 public import SignedDifferenceSets.Moments
+public import SignedDifferenceSets.Multiplier
 public import SignedDifferenceSets.Box
 public import SignedDifferenceSets.SelfConjugacyCheck
 public import SignedDifferenceSets.BoxCheck
