@@ -80,7 +80,7 @@ In a template, `<…>` in the text and `{…}` in file and folder names are plac
 ### Worktrees
 
 - Each problem is solved in its own worktree `.worktrees/<problem>/` on the
-  long-lived branch `attack/<problem>`.
+  long-lived branch `solve/<problem>`.
 - It is made once and reused by every session of that problem.
 - One commit per step.
 - Only the researcher works in a worktree; everything else (choose,

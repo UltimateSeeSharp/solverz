@@ -32,5 +32,5 @@ Picture of the low phase (2026-11-05): the defender never needs turns of more th
 - Before offering N = 33–35 to anyone, rerun them from a committed engine with a second engine as a cross-check.
 
 ## Needs the user
-- Merge attack/catch-up into main when you want this session's records there (nothing depends on it).
+- Merge solve/catch-up into main when you want this session's records there (nothing depends on it).
 - Start of the overnight session (the queue above) and when agents may run again.
