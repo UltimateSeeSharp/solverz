@@ -13,7 +13,7 @@ files, their relations and steps to `solve`'s loop; setup copies its
 
 Modules:
 
-- `find`: questions answered by an object (Instances, patterns, objects).
+- `find`: questions answered by an object (Instances, objects).
 
 ## Where things live
 

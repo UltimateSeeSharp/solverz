@@ -1,6 +1,6 @@
 ---
 name: audit
-description: Prepares a Lean statement (a goal, claim or fact) for the user's approval: writes it, reads it back in plain terms, checks the traps, unit-tests it and tries to disprove it. Use for the goal, and for a claim before it is shared outside the repo. Never marks anything approved; only the user does.
+description: Prepares a Lean statement (a goal or claim) for the user's approval: writes it, reads it back in plain terms, checks the traps, unit-tests it and tries to disprove it. Use for the goal, and for a claim before it is shared outside the repo. Never marks anything approved; only the user does.
 ---
 
 # Audit a Lean statement

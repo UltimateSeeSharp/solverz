@@ -17,7 +17,7 @@ You are a sceptical referee.
 - An experiment's outcome: does the code test what the statement says?
   Off-by-one, wrong player to move, flipped equalities, skipped cases,
   floating point, a scorer that can be gamed; for an exhausted search, a
-  scope, symmetry break or fact that drops real answers. Was it validated
+  scope, symmetry break or claim that drops real answers. Was it validated
   first (CLAUDE.md, Files)? Attack with your own small and extreme cases or
   an independent check.
 - A proof: list every case it must cover and check each; check every step,
