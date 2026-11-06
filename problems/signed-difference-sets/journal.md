@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-06
+- C15 and C16 new and verified: C9 and C10 for squarefree n in Lean (`Multiplier.lean`), refuter SURVIVES (`scratch/refuter/c9-lean`); C9, C10 stay proved for general n
 - C13 and C14 verified: refuter SURVIVES the Lean statements, the checkers and all 16 row chunks (`scratch/refuter/sc-rows`)
 - C1 and C8 verified: `Square.lean`, `Parity.lean` build, axioms clean, refuter SURVIVES (`scratch/refuter/c1-c8-lean`)
 - C14 new (box bound), proved in Lean (`Box.lean`): with C5 and C13 it kills exactly C6's 7,458 open rows, so C6 needs no search; refuter pending

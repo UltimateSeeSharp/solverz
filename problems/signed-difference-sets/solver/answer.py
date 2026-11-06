@@ -165,15 +165,20 @@ set_option linter.style.longLine false in
 def minus : ℕ := {minus:#x}
 
 /-- Object {obj}: the sign of each element. -/
-def sds : {group} → SignType := fun x => ofMasks plus minus (Indexed.equiv x)
+def sds : {group} → SignType :=
+  fun x => ofMasks plus minus (Indexed.equiv x)
 
 set_option maxRecDepth 100000 in
 -- `decide +kernel` evaluates `checkSet`: the count and every shift's signed count.
 theorem isSDS : IsSDS {k} {lam_lean} sds :=
-  isSDS_of_checkSet (G := {group}) (P := plus) (N := minus) (by decide +kernel)
+  isSDS_of_checkSet (G := {group})
+    (P := plus) (N := minus) (by decide +kernel)
 
-/-- {instance}: {pretty} has a signed difference set with parameters ({v}, {k}, {lam}). -/
-theorem hasSDS : HasSDS ({group}) {k} {lam_lean} := ⟨sds, isSDS⟩
+/-- {instance}: {pretty} has a signed difference set with
+parameters ({v}, {k}, {lam}). -/
+theorem hasSDS :
+    HasSDS ({group}) {k} {lam_lean} :=
+  ⟨sds, isSDS⟩
 
 end SignedDifferenceSets.Answer.{instance}
 """

@@ -16,3 +16,5 @@
 | [C12](C12.md) | NL family: NL_{2^m}(2^(m−1)+1) PDS for every m | C11 | open | — | — |
 | [C13](C13.md) | Moments test: C6's arithmetic part, no search | C1, C3, C5 | verified | `not_hasSDS_of_moments` | — |
 | [C14](C14.md) | Box bound: C13 with \|a_h\| ≤ c, replaces C6's search | C13 | verified | `not_hasSDS_of_box` | — |
+| [C15](C15.md) | C9 for squarefree n: one translate fixed by every multiplier | C1, C2 | verified | `IsSDS.exists_translate_fixed` | — |
+| [C16](C16.md) | C10 for squarefree n: multiplier-fixed coset sums | C3, C15 | verified | `IsSDS.exists_translate_fixed_contract` | — |
