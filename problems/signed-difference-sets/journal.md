@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-06
+- 22:40 C22 (divisibility form) verified: refuter round 6 SURVIVES; its 159 still-open rows settled (127 of its 286 went to C21 first). N58470 settled `exists` (O38). C22's p = 2 equality in Lean (`SylowTwo.lean`, 63 rows). Gordon's table 86.77% settled
 - 22:05 1,457 more open rows settled in Lean by C21 (`MaRows`, `maRule`): refuter round 5 SURVIVES (`scratch/refuter/round5`). Gordon's table 86.55% settled
 - 22:00 C22 in Lean (divisibility form): `not_hasSDS_of_sylow` (`SylowTrace.lean`), `SylowCheck.lean` built
 - 21:05 C21 in Lean: `maRule : MaRule` (`MaLemma.lean`) builds with `--wfail`, axioms clean; rows by helper U, refuter next
