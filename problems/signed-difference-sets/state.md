@@ -10,6 +10,7 @@
 3. Done: C22's rest (p = 2 equality, 63 rows settled 2026-11-06; the 5 rows needing primes above 19 were settled by other rules).
 4. Done: contraction rows N79, N80 (settled 2026-11-06).
 6. Ideator round 3: objects O61–O70 (X1–X3) building through the lock (`scratch/r3obj/build.log`), then settle and credit check; N1 (A7 with self-conjugate primes, 25 rows only it reaches), N2 (mod-q split, 6 rows), the core reports' class A (Ma at equality, 504 rows).
+4b. C26 (Ma descent at equality, I20): `MaDescent.lean` (rule, `DescentCert`) and `DescentRows.lean` (125 rows, `solver/descentrows.py`) written, compiling; then refuter and settle. Next on this line: the full descent (an SDS on G/P) for the 5 + 24 rows whose reduced row is `none`, and the c ≥ 2 rows.
 5. The exhaustion design for the 41 open rows with v < 50: I16 (`ideas/I16.md`): 8 settle with I13, 4 need the orbit search in slices, 27 need contraction-then-lift; cheapest experiment: count quotient vectors and lift nodes per row.
 Later: I5 heavy rows (322, leaves above 1,500), the rows no line reaches.
 
@@ -19,7 +20,7 @@ Results only in scratch (git-ignored):
 
 **Running.**
 - Agents (3 of 3): Lean helper X, the orbit search in slices for I16's group B and the heavy rows (22:50, `scratch/agentX/progress.md`); refuter on A7 (23:35, `scratch/refuter/a7/`, brief `scratch/refuter/a7-brief.md`, batch `scratch/settle-a7.tsv`); Lean helper Y, C25 (I18) from W's design (23:50, `scratch/agentY/progress.md`, brief `scratch/agentW/c25-brief.md`). Helper W done (report `scratch/agentW/report.md`); refuter on I13 done, SURVIVES.
-- Lean, one process at a time through the lock `scratch/lean.lock`: the root build with I13's 30 modules (gates settling `scratch/settle-i13.tsv`); `ModQ` (C24); object answers O61–O78 (`scratch/r3obj/build.sh`, `build2.sh`, logs `build.log`, `build2.log`); A7's parts 01–39 (`sh scratch/agentV/build_parts.sh 1 39`, log `scratch/agentV/parts.log`); parts 41–94 paused until the root build is through (restart: `sh scratch/agentV/build_parts.sh 41 94`).
+- Lean, one process at a time through the lock `scratch/lean.lock`: `ModQ` (C24); object answers O61–O78 (`scratch/r3obj/build.sh`, `build2.sh`, logs `build.log`, `build2.log`); A7's parts 01–39 (`sh scratch/agentV/build_parts.sh 1 39`, log `scratch/agentV/parts.log`); parts 41–94 (`sh scratch/agentV/build_parts.sh 41 94`, restarted 23:40).
 - Exploration (scratch, below normal): I17's mod-q prototype over the 272 cyclic B1 rows → `scratch/n2/b1_cyc_{a,b}.out` (since 23:05); I16's lift engine, controls N73, N137 then N70, N134, N135, N76 → `scratch/i16/run1.out` (since 23:30).
 - E7, **suspended** 2026-11-06 00:30 at the user's request: process 33500 (`target/release/r4_first_set.exe problems/signed-difference-sets/instances.csv 40 10000000000 10 N70,N71,N76,N77,N131,N133,N168,N172,N173,N174,N176,N177,N178,N194,N204,N205,N207,N212,N220,N221,N223,N224`, from the worktree root, commit 95d6f8c), all threads suspended. Partial output `scratch/e7.out` (11 of 22, E7.md). Resume (PowerShell): `Add-Type -Namespace Win -Name Nt -MemberDefinition '[DllImport("ntdll.dll")] public static extern int NtResumeProcess(IntPtr h);'; [Win.Nt]::NtResumeProcess((Get-Process -Id 33500).Handle)`. If gone, rerun `N133,N204,N205,N207,N212` with the same command, appending to `scratch/e7.out`.
 
