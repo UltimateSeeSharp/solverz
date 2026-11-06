@@ -4,7 +4,7 @@
 
 **Done in Lean (built, `--wfail`).** Verified: C1, C5, C7, C8, C13, C14, C15, C16, C17, C19, C20 and the I5 orbit search; row checks for 11,357 rows settled 2026-11-06 (`journal.md`). C18 proved (n ≥ 2).
 
-**Next step.** The user's backlog, in order (no new ideator round until it is worked down; ideator round 3 already ran from the user's other session: main folder's `scratch/ideator/2026-11-06-2034-none.md`, `2036-exists.md`, `core-none.md`, `core-exists.md`):
+**Next step.** The user's backlog, in order (ideator round 3's reports, from the user's other session: main folder's `scratch/ideator/2026-11-06-2034-none.md`, `2036-exists.md`):
 1. I13's remaining row parts: helper W builds `OrbitRows/Part33–59` (1,620 rows, n not squarefree, `not_hasSDS_of_orbitRow'`); then the I13 refuter (`scratch/refuter/i13-brief.md`); then settle.
 2. A7's rows: `CosetSearch`/`CosetSearchWitt` built (helper V); the 39 squarefree parts (345 rows, C16) building (`scratch/agentV/parts.log`); the non-squarefree parts regenerated after I13's rows are settled (`solver/a7rows.py write other <n>`), then built; refuter on both.
 3. C22's rest: the p = 2 equality (`SylowTwo.lean`, 63 rows `SylowTwoRows.lean`) built, refuter next; 5 rows need primes above 19 (base certificates for more pairs in `MaRows/Polys.lean`).
