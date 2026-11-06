@@ -7,3 +7,4 @@
 | [E5](E5.md) | Contraction engine, open v ≤ 40 | C3 on open, v ≤ 40 | 12 killed (Lean rechecks: `Answer/N<id>`), 34 not decided |
 | [E6](E6.md) | I2 engine, every q ≡ 1 mod 8 up to 10⁵ | I2 on q ≤ 10⁵ | found: O12 for N35840 (Lean-checked); otherwise sporadic sets, none for another open Instance |
 | [E7](E7.md) | I1 engine to the first set, E4's unreached Instances | I1 on 22 open, v ≤ 40 | suspended at 11 of 22: N131 found (O13, Lean pending), 9 exhausted, N133 cut |
+| [E10](E10.md) | Orbit exhaust (C9 multipliers), open with gcd(v, n) = 1 | I5 (A5) on 12,209 open | running |
