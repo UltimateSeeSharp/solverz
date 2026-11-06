@@ -5,10 +5,10 @@
 **Done in Lean (built, `--wfail`).** Verified: C1 (`Square.lean`), C5 (`SelfConjugacy.lean`), C8 (`Parity.lean`), C13 (`Moments.lean`), C14 (`Box.lean`); infrastructure `Rows.lean`, `Iso.lean`. Row checks: `SelfConjugacyRows/Part01–13` (C5, C13: 6,071 rows), `BoxRows/Part01–03` (C14: 1,387), `ParityRows.lean` (C8: 553, 377 beyond). 7,835 open rows in all, refuters SURVIVE (sc-rows, c1-c8-lean); batch ready in `scratch/settle-rules.tsv`. C14 makes C6's search unnecessary (same 7,458 rows).
 
 **Next step.**
-1. Done: 7,835 rows by C5/C13/C14/C8 and 20 objects (O13–O32) settled; root build passes.
-2. Building: `OrbitRows/Part01–31` (2,601 I5 rows: C15 + verified orbit search; `scratch/orbit-parts.log`), O34–O38 and O39's answers (`scratch/objects-build2.log`). Built: C17 (`RealChars*`, 213 rows), C7 (`MarkedCounts*`, 237 rows), `OrbitSearch.lean`.
-3. At 18:05 (agents allowed again): refuter on the Lean statements of C7, C17, the orbit search and the orbit rows; refuter on C18. Then settle `scratch/settle-round2.tsv` (3,050 rows), add the modules to the root, root build, propose the Solutions (C7, C17, I5 rows, O34–O39).
-4. Next rules: C₄-type quotients (ℤ[i] characters, 288 rows, `scratch/gauss_chars.py`); I5 rows with ≥ 1,500 leaves (~210) need a faster leaf; I5 rows with non-squarefree n (~5,000) need C9 for general n (cyclotomic ideals); the 91 heavy contraction rows (74 left after C17).
+1. Done: 7,835 rows (C5/C13/C14/C8) and 20 objects settled; C7, C17, C15, the I5 orbit search verified (refuter round2).
+2. Finish the builds (`scratch/orbit-parts.log` Part01–31, Part19 retry; `scratch/rebuild-names.log`; N58470, N24177), then add every new module to the root (OrbitSearch, OrbitRows/*, MarkedCounts*, GaussChars*, Multiplier is in), root `lake build --wfail` alone, then settle `scratch/settle-round2.tsv` (3,050 rows: C7, C17, I5) and O34–O39's rows; propose the Solutions.
+3. C19 (297 rows, Lean built/building): refuter running. C20 (Eisenstein, 144 rows): helper H writing the Lean.
+4. Next rules: I5 leaf-heavy squarefree rows (~250, faster leaf); C9 for non-squarefree n (1,992 E10 rows; cyclotomic ideals); characters of order 8/9 quotients; the 74 heavy contraction rows.
 5. Later as before: I8's kill test, I7's 49 PDS targets, exhaustion design for the rows no rule reaches.
 
 Results only in scratch (git-ignored):
@@ -16,8 +16,8 @@ Results only in scratch (git-ignored):
 - The **main folder's** `problems/signed-difference-sets/scratch/` (the overnight work of 2026-11-06, outside the worktree; copy it into the worktree's scratch before citing it there): `refuter/` with the reports C5–C12 and the objects cite (`rule-sc`, `extensions`, `a5-a3`, `found-sets`, `db-lags`, `nl-family`, each with its scripts); `ideator/` (report `2026-11-06-0110.md`, rule scripts and outputs); `e8/` (exploration: the all-rows contraction passes, the orbit search, `turyn.py`, README); `other-session/` (another session's hand-off, N735 and N17201). Keep.
 
 **Running.**
-- Lean build queues (one module at a time, heavy ones alone): `scratch/orbit-parts.log` (OrbitRows Part01–31), `scratch/objects-build2.log` (O34–O38, N80, then N24177).
-- No agents running; none started before 18:05 (the user, token limits).
+- Lean build queues (one module at a time): `scratch/orbit-parts.log`, `scratch/rebuild-names.log`, `scratch/objects-build2.log`.
+- Agents (normal limit 3): refuter on C19 (`scratch/refuter/c19/`); helper H, C20 in Lean (`scratch/agentH/`).
 - E7, **suspended** 2026-11-06 00:30 at the user's request: process 33500 (`target/release/r4_first_set.exe problems/signed-difference-sets/instances.csv 40 10000000000 10 N70,N71,N76,N77,N131,N133,N168,N172,N173,N174,N176,N177,N178,N194,N204,N205,N207,N212,N220,N221,N223,N224`, from the worktree root, commit 95d6f8c), all threads suspended. Partial output `scratch/e7.out` (11 of 22, E7.md). Resume (PowerShell): `Add-Type -Namespace Win -Name Nt -MemberDefinition '[DllImport("ntdll.dll")] public static extern int NtResumeProcess(IntPtr h);'; [Win.Nt]::NtResumeProcess((Get-Process -Id 33500).Handle)`. If gone, rerun `N133,N204,N205,N207,N212` with the same command, appending to `scratch/e7.out`.
 
 **Resources.** This session with all its agents: at most 7 threads and 20 GB RAM (from 16:38) (another session shares the PC; the user works on it), below-normal priority, at most 3 light Lean processes at once, heavy kernel checks alone. One Lean module per `lake build`, through `scratch/lean-build.ps1` (below-normal, killed above 10 GB or under 6 GB free RAM); never several Lean jobs beside an experiment. A parallel build of 12 modules beside E7 froze the user's machine for an hour on 2026-11-05. Agents and experiments together keep 2 threads spare: a 10-process agent job beside a 12-thread search froze the machine on 2026-11-06.
