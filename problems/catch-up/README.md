@@ -5,7 +5,7 @@ Optimal play on {1..N} is a draw when 1 + … + N is even. Now: [state.md](state
 ## Problem
 Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taking one number; afterwards the mover keeps taking numbers while strictly behind, and the turn ends on the pick that catches up (≥). A mover who can't catch up even with everything left loses. When the numbers run out, the higher score wins.
 **Goal:** if 1 + … + N is even (N ≡ 0, 3 mod 4), optimal play is a draw; claim C1, Lean `CatchUp.Conjecture` in `lean/CatchUp/Statement.lean` (from formal-conjectures' `value_of_even_mul_succ_self_div_two`).
-Kind: prove.
+Kind: prove. Modules: none.
 
 ## Literature
 - von Stengel computed optimal play through N = 34: a winning opening is unique, and from N = 21 odd totals are won by an opening ≤ 3 (LSE PhD seminar abstract, 22 Feb 2019, [pdf p. 5](https://www.lse.ac.uk/Mathematics/assets/documents/Events-Archive/CGO-PhD/PhD-Seminar-on-Combinatorics-2019-update.pdf#page=5); earlier to N = 28: CGT Colloquium III talk, Lisbon 2019, [ludicum.org/?p=4151](https://ludicum.org/?p=4151)). A private report reaches N = 38 (2024, via catch-up-research CU-L043; not public).

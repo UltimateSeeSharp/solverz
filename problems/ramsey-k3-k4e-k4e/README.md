@@ -9,7 +9,7 @@ colour 1 has no triangle and neither colour 2 nor colour 3 has a K₄−e
 colouring exists iff R(K₃, K₄−e, K₄−e) = 22; otherwise it is 21.
 **Goal:** such a colouring of K₂₁ exists, Lean `RamseyK3K4eK4e.Conjecture`,
 approved 2026-10-30.
-Kind: find. Estimate: as SAT, 630 variables (210 edges × 3 colours) and
+Kind: find. Modules: find. Estimate: as SAT, 630 variables (210 edges × 3 colours) and
 about 74,000 clauses, memory trivial; hardness unknown, minutes to weeks
 depending on symmetry breaking. Lean: 1,330 triangles and 5,985 four-point
 sets through a list-based checker proved correct. If no colouring exists
