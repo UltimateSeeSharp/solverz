@@ -170,6 +170,8 @@ public import SignedDifferenceSets.Tests.MaCheck
 public import SignedDifferenceSets.SylowTrace
 public import SignedDifferenceSets.SylowCheck
 public import SignedDifferenceSets.SylowRows
+public import SignedDifferenceSets.SylowTwo
+public import SignedDifferenceSets.SylowTwoRows
 public import SignedDifferenceSets.Tests.Statement
 public import SignedDifferenceSets.Tests.Checks
 

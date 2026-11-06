@@ -1,6 +1,8 @@
 # Journal
 
 ## 2026-11-06
+- 23:05 C22's p = 2 equality verified (refuter round 7 SURVIVES): 63 rows settled; N79, N80 settled by contraction (`Answer.N79`, `Answer.N80`, E5). Gordon's table 86.86% settled
+- 23:00 Ideator round 3's ten sets recorded as O61–O70 (X1–X3), each rechecked by direct autocorrelation; Lean checks building
 - 22:40 C22 (divisibility form) verified: refuter round 6 SURVIVES; its 159 still-open rows settled (127 of its 286 went to C21 first). N58470 settled `exists` (O38). C22's p = 2 equality in Lean (`SylowTwo.lean`, 63 rows). Gordon's table 86.77% settled
 - 22:05 1,457 more open rows settled in Lean by C21 (`MaRows`, `maRule`): refuter round 5 SURVIVES (`scratch/refuter/round5`). Gordon's table 86.55% settled
 - 22:00 C22 in Lean (divisibility form): `not_hasSDS_of_sylow` (`SylowTrace.lean`), `SylowCheck.lean` built
