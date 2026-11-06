@@ -10,7 +10,7 @@
 3. Done: C22's rest (p = 2 equality, 63 rows settled 2026-11-06; the 5 rows needing primes above 19 were settled by other rules).
 4. Done: contraction rows N79, N80 (settled 2026-11-06).
 6. Ideator round 3: objects O61–O70 (X1–X3) building through the lock (`scratch/r3obj/build.log`), then settle and credit check; N1 (A7 with self-conjugate primes, 25 rows only it reaches), N2 (mod-q split, 6 rows), the core reports' class A (Ma at equality, 504 rows).
-4b. C26 (Ma descent at equality, I20): `MaDescent.lean` (rule, `DescentCert`) and `DescentRows.lean` (125 rows, `solver/descentrows.py`) written, compiling; then refuter and settle. Next on this line: the full descent (an SDS on G/P) for the 5 + 24 rows whose reduced row is `none`, and the c ≥ 2 rows.
+4b. C26 (Ma's lemma at the edge, I20): `MaDescent.lean` (rule for every c, `DescentCert`) and `DescentRows.lean` (177 rows, `solver/descentrows.py`) building; then refuter and settle. Next on this line: the full descent (an SDS on G/P) for the 5 + 24 rows whose reduced row is `none`, and the c ≥ 2 rows.
 5. The exhaustion design for the 41 open rows with v < 50: I16 (`ideas/I16.md`): 8 settle with I13, 4 need the orbit search in slices, 27 need contraction-then-lift; cheapest experiment: count quotient vectors and lift nodes per row.
 Later: I5 heavy rows (322, leaves above 1,500), the rows no line reaches.
 

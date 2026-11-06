@@ -1,12 +1,14 @@
-"""Rows killed by C26 (Ma's lemma at equality, parity of the halved SDS), written as Lean.
+"""Rows killed by C26 (Ma's lemma at the edge: parity of the halved coset sums), written as Lean.
 
-`descentrows.py [skip.tsv ...]`: for each open row of instances.csv whose group is C_{2^j} x K with K odd, 2 self-conjugate
-mod exp K (so c = 1), v2(k - lambda) in {2, 3} and s = sqrt(k + lambda (v - 1)), the row dies when neither
-2s - (k + lambda) nor -2s - (k + lambda) is divisible by 8. Rows listed in the skip files (pending batches of other rules)
-are left out. Writes lean/SignedDifferenceSets/DescentRows.lean, one `decide +kernel` per chunk. Mirrors
-`DescentCert.Kills`; the map and its preimages are built as in `marows.py`. Standard library only.
+`descentrows.py [skip.tsv ...]`: for each open row of instances.csv with 4 | k - lambda and s = sqrt(k + lambda (v - 1)),
+looks for a quotient ZMod (2^j) x K of its group (2^j dividing one factor, K = prod Z_(d_t) with d_t | odd part of
+factor t, 2 self-conjugate mod exp K), c = v / (2^j |K|), with 8 dividing neither 2s - (k + lambda (2c - 1)) nor
+-2s - (k + lambda (2c - 1)). Rows listed in the skip files (pending batches of other rules) are left out. Writes
+lean/SignedDifferenceSets/DescentRows.lean, one `decide +kernel` per chunk. Mirrors `DescentCert.Kills`; the map and
+its preimages are built as in `marows.py`. Standard library only.
 """
 import csv
+import itertools
 import math
 import sys
 from pathlib import Path
@@ -19,41 +21,50 @@ CHUNK = 40
 PAIRS = {2 ** a for a in range(8)}  # r with (2, r) in MaRows.maPairs
 
 
+def divisors(n):
+    return [d for d in range(1, n + 1) if n % d == 0]
+
+
+def kills(ms, k, lam, c):
+    r, i, s, ks, A, P = c
+    v, ds = math.prod(ms), [r * 2] + ks
+    q = r * 2 * math.prod(ks)
+    if not (r > 0 and i > 0 and all(m > 0 for m in ms) and ks and all((2 ** i + 1) % d == 0 for d in ks)
+            and map_ok(ms, ds, A) and surj_cert(ms, ds, A, P) and v % q == 0 and (k - lam) % 4 == 0
+            and s * s == k + lam * (v - 1) and r in PAIRS):
+        return False
+    cc = v // q
+    return (2 * s - (k + lam * (2 * cc - 1))) % 8 != 0 and (-2 * s - (k + lam * (2 * cc - 1))) % 8 != 0
+
+
 def cert(ms, k, lam):
     v, n = math.prod(ms), k - lam
-    if n <= 0 or vp(n, 2) not in (2, 3):
-        return None
-    even = [t for t, m in enumerate(ms) if m % 2 == 0]
-    if len(even) != 1:
-        return None
-    s_ix = even[0]
-    pj = 2 ** vp(ms[s_ix], 2)
-    r = pj // 2
-    if r not in PAIRS:
-        return None
-    kap = [m // 2 ** vp(m, 2) for m in ms]
-    src = [t for t, x in enumerate(kap) if x > 1]
-    ks = [kap[t] for t in src] or [1]
-    src = src or [s_ix]
-    i = conj_exp(2, math.lcm(*ks))
-    if i is None:
-        return None
     S = k + lam * (v - 1)
-    s = math.isqrt(S) if S >= 0 else -1
-    if s < 0 or s * s != S:
+    if n <= 0 or n % 4 or S < 0 or math.isqrt(S) ** 2 != S:
         return None
-    if (2 * s - (k + lam)) % 8 == 0 or (-2 * s - (k + lam)) % 8 == 0:
-        return None
-    A = [[0] * s_ix + [1]] + [[0] * t + [1] for t in src]
-    P = [[0] * s_ix + [crt(1, pj, 0, kap[s_ix])]]
-    for t, d in zip(src, ks):
-        P.append([0] * t + [crt(1, d, 0, pj) if t == s_ix else 1 % d])
-    ds = [r * 2] + ks
-    ok = (r > 0 and i > 0 and all(m > 0 for m in ms) and all((2 ** i + 1) % d == 0 for d in ks)
-          and map_ok(ms, ds, A) and surj_cert(ms, ds, A, P) and v == r * 2 * math.prod(ks)
-          and n % 4 == 0)
-    assert ok, (ms, k, lam)
-    return r, i, s, ks, A, P
+    s = math.isqrt(S)
+    odd = [m // 2 ** vp(m, 2) for m in ms]
+    best = None
+    for s_ix, m in enumerate(ms):
+        for j in range(1, vp(m, 2) + 1):
+            pj = 2 ** j
+            for dl in itertools.product(*[divisors(o) for o in odd]):
+                i = conj_exp(2, math.lcm(*dl))
+                if i is None:
+                    continue
+                src = [t for t, d in enumerate(dl) if d > 1]
+                ks = [dl[t] for t in src] or [1]
+                srcs = src or [s_ix]
+                A = [[0] * s_ix + [1]] + [[0] * t + [1] for t in srcs]
+                P = [[0] * s_ix + [crt(1, pj, 0, dl[s_ix])]]
+                for t, d in zip(srcs, ks):
+                    P.append([0] * t + [crt(1, d, 0, pj) if t == s_ix else 1 % d])
+                c = (pj // 2, i, s, ks, A, P)
+                if kills(ms, k, lam, c):
+                    key = (j, len(src), math.prod(ks))
+                    if best is None or key < best[0]:
+                        best = (key, c)
+    return best[1] if best else None
 
 
 def main():
@@ -96,10 +107,10 @@ theorem descentRows{j}_not_hasSDS {{x : Row × DescentCert}} (hx : x ∈ descent
 public import SignedDifferenceSets.MaDescent
 
 /-!
-# Rows killed by C26 (Ma's lemma at equality)
+# Rows killed by C26 (Ma's lemma at the edge)
 
-{len(entries)} open rows on `C_(2^j) × K` (`c = 1`, `v₂(k − λ) ∈ {{2, 3}}`) whose halved SDS
-fails parity, checked by `DescentCert.Kills` in chunks of {CHUNK}, one `decide +kernel` each;
+{len(entries)} open rows with `4 ∣ k − λ` and a quotient `ZMod (2r) × K` on which the halved coset
+sums fail parity, checked by `DescentCert.Kills` in chunks of {CHUNK}, one `decide +kernel` each;
 generated by `solver/descentrows.py`.
 -/
 

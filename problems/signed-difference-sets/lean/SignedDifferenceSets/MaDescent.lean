@@ -6,16 +6,14 @@ public import SignedDifferenceSets.MaRows.Polys
 public import SignedDifferenceSets.SylowTwo
 
 /-!
-# C26: Ma's lemma at equality
+# C26: Ma's lemma at the edge, parity of the halved coset sums
 
 C21's argument without its last step: on a quotient `ZMod (r p) × K`, the coset sums `Y` satisfy
 `p^b ∣ Y(h + u) − Y(h)` for the generator `u = (r, 0)` of the subgroup of order `p`
-(`Ma.dvd_contract_sub`). At `p = 2`, `c = 1` (the quotient is `G` itself) and `4 ∣ n`, `D(x)` and
-`D(x + u)` are both zero or both nonzero, so `F = Y + Y(· + u)` lies in `{−2, 0, 2}`, and each
-term of `Σ (2F − F²) = 4s' − 2k − 2λ` is `0` or `−8` and pairs up under `h ↦ h + u`:
-`8 ∣ 2s' − (k + λ)` with
-`s' = ±s` (`not_hasSDS_of_maDescent`). This is the parity of the halved SDS `(v/2, (k+λ)/4, λ/2)` on
-`G/P`. `DescentCert` checks it on the table's rows.
+(`Ma.dvd_contract_sub`). At `p = 2` with `4 ∣ n`, `F = Y + Y(· + u)` is even, so each term of
+`Σ (2F − F²) = 4s' − 2k − 2λ(2c − 1)` is divisible by `8` and pairs up under `h ↦ h + u`:
+`8 ∣ 2s' − (k + λ(2c − 1))` with `s' = ±s` (`not_hasSDS_of_maDescent`). For `c = 1` this is the
+parity of the halved SDS `(v/2, (k + λ)/4, λ/2)` on `G/P`. `DescentCert` checks it on the rows.
 -/
 
 @[expose] public section
@@ -73,24 +71,26 @@ theorem Ma.dvd_contract_sub {G K : Type} [AddCommGroup G] [Fintype G] [AddCommGr
     Finsupp.coe_smul, Pi.sub_apply, Pi.smul_apply, smul_eq_mul, coeff_ofFun] at e1
   exact ⟨W.coeff (x + (r : ZMod (r * p)), kk) - W.coeff (x, kk), by linear_combination e1⟩
 
-/-- The pair term: for `y, y' ∈ [−1, 1]` with `2 ∣ y' − y`, `16 ∣ 2 (2F − F²)`, `F = y + y'`. -/
-theorem dvd_pair_term {y y' : ℤ} (h1 : |y| ≤ 1) (h2 : |y'| ≤ 1) (hd : (2 : ℤ) ∣ y' - y) :
-    (16 : ℤ) ∣ 2 * (2 * (y + y') - (y + y') ^ 2) := by
-  rw [abs_le] at h1 h2
-  obtain ⟨t, ht⟩ := hd
-  have hy : y = -1 ∨ y = 0 ∨ y = 1 := by omega
-  have hy' : y' = -1 ∨ y' = 0 ∨ y' = 1 := by omega
-  rcases hy with rfl | rfl | rfl <;> rcases hy' with rfl | rfl | rfl <;> first | omega | decide
 
-/-- C26 (parity form): at C21's equality with `p = 2`, `c = 1` and `4 ∣ k − λ`,
-`8 ∣ 2s' − (k + λ)` for `s' = ±s`. -/
+/-- The pair term: for `2 ∣ y' − y`, `16 ∣ 2 (2F − F²)` with `F = y + y' = 2Z` (`8 ∣ 4Z(1 − Z)`). -/
+theorem dvd_pair_term {y y' : ℤ} (hd : (2 : ℤ) ∣ y' - y) :
+    (16 : ℤ) ∣ 2 * (2 * (y + y') - (y + y') ^ 2) := by
+  obtain ⟨t, ht⟩ := hd
+  obtain ⟨m, hm⟩ := Int.even_mul_succ_self (y + t - 1)
+  have hy' : y' = y + 2 * t := by linarith
+  subst hy'
+  exact ⟨-m, by linear_combination (-8 : ℤ) * hm⟩
+
+/-- C26: on a quotient `ZMod (2r) × K` (`2^i ≡ −1` on `K`, `c = |G| / (2r |K|)`) with `4 ∣ k − λ`,
+`8 ∣ 2s' − (k + λ(2c − 1))` for `s' = ±s`. -/
 theorem not_hasSDS_of_maDescent {G K : Type} [AddCommGroup G] [Fintype G] [AddCommGroup K]
-    [Fintype K] [DecidableEq K] {r i k : ℕ} {lam : ℤ} [NeZero (r * 2)]
+    [Fintype K] [DecidableEq K] {r i c k : ℕ} {lam : ℤ} [NeZero (r * 2)]
     {φ : G →+ ZMod (r * 2) × K} (hφ : Function.Surjective φ)
-    (hcard : Fintype.card G = 1 * Fintype.card (ZMod (r * 2) × K)) (hr : 0 < r) (hi : 0 < i)
+    (hcard : Fintype.card G = c * Fintype.card (ZMod (r * 2) × K)) (hr : 0 < r) (hi : 0 < i)
     (hc : ∀ x : K, 2 ^ i • x = -x) (hn : (2 : ℤ) ^ 2 ∣ (k : ℤ) - lam) (hcert : CycloFacts 2 r)
     {s : ℤ} (hs : s ^ 2 = k + lam * ((Fintype.card G : ℤ) - 1))
-    (hkill : ¬ (8 : ℤ) ∣ 2 * s - (k + lam) ∧ ¬ (8 : ℤ) ∣ -2 * s - (k + lam)) :
+    (hkill : ¬ (8 : ℤ) ∣ 2 * s - (k + lam * (2 * (c : ℤ) - 1)) ∧
+      ¬ (8 : ℤ) ∣ -2 * s - (k + lam * (2 * (c : ℤ) - 1))) :
     ¬ HasSDS G k lam := by
   intro ⟨D, hD⟩
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
@@ -113,21 +113,12 @@ theorem not_hasSDS_of_maDescent {G K : Type} [AddCommGroup G] [Fintype G] [AddCo
     have := Ma.dvd_contract_sub (b := 1) (e := 2) hφ hcard hr hi hc hn (by norm_num) hcert hD x kk
     simpa [hu] using this
   have hfib := card_fibre_eq hφ hcard
-  have hab : ∀ h, |Y h| ≤ 1 := fun h => by
-    have := abs_contract_le φ D h
-    rw [hfib] at this
-    exact_mod_cast this
-  have hsq : ∑ h, Y h * Y h = k := by
-    have := hD.contract_sq φ
-    rw [hfib] at this
-    rw [← hYdef] at this
-    simpa using this
-  have hac : ∑ h, Y h * Y (h + u) = lam := by
-    have := hD.contract_autocorr φ u hu0
-    rw [hfib] at this
-    simpa using this
+  have hsq : ∑ h, Y h * Y h = k + lam * ((c : ℤ) - 1) := by
+    rw [hD.contract_sq φ, hfib, Nat.cast_sub (one_le_of_card hcard), Nat.cast_one]
+  have hac : ∑ h, Y h * Y (h + u) = lam * c := by
+    rw [hD.contract_autocorr φ u hu0, hfib]
   have hsum : (∑ h, Y h) ^ 2 = s ^ 2 := by
-    rw [hs, hD.sum_contract_sq φ hφ hcard]
+    rw [hs, hD.sum_contract_sq φ hφ hcard, hcard]
     push_cast
     ring
   set q : ZMod (r * 2) × K → ℤ := fun h => 2 * (Y h + Y (h + u)) - (Y h + Y (h + u)) ^ 2 with hq
@@ -141,27 +132,27 @@ theorem not_hasSDS_of_maDescent {G K : Type} [AddCommGroup G] [Fintype G] [AddCo
       (fun h _ => ⟨Finset.mem_univ _, fun he => hu0 (by simpa using he)⟩)
       (fun h _ => by
         rw [hqsym, ← two_mul, Ideal.mem_span_singleton]
-        exact dvd_pair_term (hab h) (hab (h + u)) (hdiv h))
+        exact dvd_pair_term (hdiv h))
     exact Ideal.mem_span_singleton.1 hmem
   have hshift : ∑ h, Y (h + u) * Y (h + u) = ∑ h, Y h * Y h :=
     Fintype.sum_equiv (Equiv.addRight u) _ _ fun h => rfl
   have hshift1 : ∑ h, Y (h + u) = ∑ h, Y h :=
     Fintype.sum_equiv (Equiv.addRight u) _ _ fun h => rfl
-  have hval : ∑ h, q h = 4 * ∑ h, Y h - 2 * k - 2 * lam := by
+  have hcomm : ∑ h, Y (h + u) * Y h = lam * c := by
+    rw [← hac]
+    exact Finset.sum_congr rfl fun h _ => mul_comm _ _
+  have hval : ∑ h, q h = 4 * ∑ h, Y h - 2 * k - 2 * lam * (2 * (c : ℤ) - 1) := by
     simp only [hq, sq, mul_add, add_mul, Finset.sum_sub_distrib, Finset.sum_add_distrib,
-      ← Finset.mul_sum, hshift, hshift1, hsq, hac]
-    have hcomm : ∑ h, Y (h + u) * Y h = lam := by
-      rw [← hac]
-      exact Finset.sum_congr rfl fun h _ => mul_comm _ _
-    rw [hcomm]
+      ← Finset.mul_sum, hshift, hshift1, hsq, hac, hcomm]
     ring
   rw [hval] at hQ
+  obtain ⟨t, ht⟩ := hQ
   rcases sq_eq_sq_iff_eq_or_eq_neg.1 hsum with h | h
-  · exact hkill.1 (by rw [h] at hQ; obtain ⟨t, ht⟩ := hQ; exact ⟨2 * t, by linarith⟩)
-  · exact hkill.2 (by rw [h] at hQ; obtain ⟨t, ht⟩ := hQ; exact ⟨2 * t, by linarith⟩)
+  · exact hkill.1 ⟨t, by rw [h] at ht; linarith⟩
+  · exact hkill.2 ⟨t, by rw [h] at ht; linarith⟩
 
 /-- A C26 certificate: `r = 2^(j−1)`, `i` with `2^i ≡ −1` on `Grp ks`, `s = √(k + λ(v − 1))`,
-and the isomorphism onto `ZMod (2r) × Grp ks` as forms `A` with preimages `P`. -/
+and the quotient map onto `ZMod (2r) × Grp ks` as forms `A` with preimages `P`. -/
 structure DescentCert where
   r : ℕ
   i : ℕ
@@ -171,13 +162,14 @@ structure DescentCert where
   P : List (List ℕ)
   deriving DecidableEq
 
-/-- C26's hypotheses on the row: `c = 1`, `4 ∣ k − λ`, and the parity kill. -/
+/-- C26's hypotheses on the row, `c = |G| / (2r |K|)`, and the kill. -/
 def DescentCert.Kills (w : Row) (c : DescentCert) : Prop :=
   0 < c.r ∧ 0 < c.i ∧ (∀ m ∈ w.ms, 0 < m) ∧ c.ks ≠ [] ∧ (∀ d ∈ c.ks, d ∣ 2 ^ c.i + 1) ∧
     MapOk w.ms (c.r * 2 :: c.ks) c.A ∧ SurjCert w.ms (c.r * 2 :: c.ks) c.A c.P ∧
-    w.ms.prod = c.r * 2 * c.ks.prod ∧ (2 : ℤ) ^ 2 ∣ (w.k : ℤ) - w.lam ∧
+    c.r * 2 * c.ks.prod ∣ w.ms.prod ∧ (2 : ℤ) ^ 2 ∣ (w.k : ℤ) - w.lam ∧
     c.s ^ 2 = w.k + w.lam * ((w.ms.prod : ℤ) - 1) ∧
-    ¬ (8 : ℤ) ∣ 2 * c.s - (w.k + w.lam) ∧ ¬ (8 : ℤ) ∣ -2 * c.s - (w.k + w.lam) ∧
+    ¬ (8 : ℤ) ∣ 2 * c.s - (w.k + w.lam * (2 * ((w.ms.prod / (c.r * 2 * c.ks.prod) : ℕ) : ℤ) - 1)) ∧
+    ¬ (8 : ℤ) ∣ -2 * c.s - (w.k + w.lam * (2 * ((w.ms.prod / (c.r * 2 * c.ks.prod) : ℕ) : ℤ) - 1)) ∧
     (2, c.r) ∈ MaRows.maPairs
 
 instance (w : Row) (c : DescentCert) : Decidable (c.Kills w) := by
@@ -189,14 +181,15 @@ theorem DescentCert.not_hasSDS {w : Row} {c : DescentCert} (h : c.Kills w)
   obtain ⟨hr, hi, -, hne, hks, hmap, hsurj, hprod, hn, hs, hkill1, hkill2, hpair⟩ := h
   obtain ⟨k₀, ks, hks0⟩ := List.exists_cons_of_ne_nil hne
   have : NeZero (c.r * 2) := ⟨(Nat.mul_pos hr two_pos).ne'⟩
-  rw [hks0] at hks hmap hsurj hprod
+  rw [hks0] at hks hmap hsurj hprod hkill1 hkill2
   let _ : Fintype (Grp (k₀ :: ks)) :=
     Grp.fintype _ fun d hd => Nat.pos_of_dvd_of_pos (hks d hd) (by positivity)
   let φ : Grp w.ms →+ ZMod (c.r * 2) × Grp (k₀ :: ks) :=
     linMap w.ms (c.r * 2 :: k₀ :: ks) c.A hmap
   have hφ : Function.Surjective φ := linMap_surjective hmap hsurj
-  have hcard : Fintype.card (Grp w.ms) = 1 * Fintype.card (ZMod (c.r * 2) × Grp (k₀ :: ks)) := by
-    rw [Fintype.card_prod, ZMod.card, Grp.card_eq, Grp.card_eq, hprod, one_mul]
+  have hcard : Fintype.card (Grp w.ms) = w.ms.prod / (c.r * 2 * (k₀ :: ks).prod) *
+      Fintype.card (ZMod (c.r * 2) × Grp (k₀ :: ks)) := by
+    rw [Fintype.card_prod, ZMod.card, Grp.card_eq, Grp.card_eq, Nat.div_mul_cancel hprod]
   have hconj (x : Grp (k₀ :: ks)) : 2 ^ c.i • x = -x := by
     have := Grp.nsmul_eq_zero (N := 2 ^ c.i + 1) (k₀ :: ks) hks x
     rw [add_smul, one_smul] at this
