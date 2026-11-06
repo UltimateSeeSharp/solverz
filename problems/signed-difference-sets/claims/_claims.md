@@ -14,5 +14,5 @@
 | [C10](C10.md) | Multiplier-fixed coset sums on a quotient (A7) | C3, C4, C9 | proved | — | — |
 | [C11](C11.md) | PDS lemma: λ′ − μ = 2 gives an SDS | — | proved | — | — |
 | [C12](C12.md) | NL family: NL_{2^m}(2^(m−1)+1) PDS for every m | C11 | open | — | — |
-| [C13](C13.md) | Moments test: C6's arithmetic part, no search | C1, C3, C5 | proved (Lean, refuter pending) | `not_hasSDS_of_moments` | — |
-| [C14](C14.md) | Box bound: C13 with \|a_h\| ≤ c, replaces C6's search | C13 | proved (Lean, refuter pending) | `not_hasSDS_of_box` | — |
+| [C13](C13.md) | Moments test: C6's arithmetic part, no search | C1, C3, C5 | verified | `not_hasSDS_of_moments` | — |
+| [C14](C14.md) | Box bound: C13 with \|a_h\| ≤ c, replaces C6's search | C13 | verified | `not_hasSDS_of_box` | — |

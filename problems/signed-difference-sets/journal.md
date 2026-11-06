@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-06
+- C13 and C14 verified: refuter SURVIVES the Lean statements, the checkers and all 16 row chunks (`scratch/refuter/sc-rows`)
 - C1 and C8 verified: `Square.lean`, `Parity.lean` build, axioms clean, refuter SURVIVES (`scratch/refuter/c1-c8-lean`)
 - C14 new (box bound), proved in Lean (`Box.lean`): with C5 and C13 it kills exactly C6's 7,458 open rows, so C6 needs no search; refuter pending
 - C13 new (C6's arithmetic part), proved in Lean (`Moments.lean`); refuter pending

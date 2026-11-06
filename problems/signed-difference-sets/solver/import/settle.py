@@ -2,6 +2,8 @@
 
 Run from the problem folder:
 python -I solver/import/settle.py <id> <exists|none> <evidence: our IDs> <lean theorem> [<Solution ID>]
+python -I solver/import/settle.py --batch <file>: one row per line, tab-separated
+`id status evidence lean [solution]`; all rows checked before anything is written.
 """
 
 import csv
