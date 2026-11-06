@@ -31,11 +31,11 @@ def modulusProd (L : List (ℕ × ℕ × ℕ)) : ℤ := (L.map fun x => (x.1 : �
 theorem isCoprime_modulusProd {p j : ℕ} (hp : p.Prime) :
     ∀ L : List (ℕ × ℕ × ℕ), (∀ x ∈ L, x.1.Prime ∧ p ≠ x.1) →
       IsCoprime ((p : ℤ) ^ j) (modulusProd L)
-  | [], _ => by simp [modulusProd]
+  | [], _ => by simpa [modulusProd] using isCoprime_one_right
   | x :: L, h => by
     have hx := h x List.mem_cons_self
-    have ih := isCoprime_modulusProd hp L fun y hy => h y (List.mem_cons_of_mem _ hy)
-    simp only [modulusProd, List.map_cons, List.prod_cons] at ih ⊢
+    have ih := isCoprime_modulusProd (j := j) hp L fun y hy => h y (List.mem_cons_of_mem _ hy)
+    rw [modulusProd, List.map_cons, List.prod_cons]
     exact IsCoprime.mul_right (IsCoprime.pow (Nat.isCoprime_iff_coprime.2
       ((Nat.coprime_primes hp hx.1).2 hx.2))) ih
 
