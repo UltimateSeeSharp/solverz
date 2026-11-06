@@ -5,11 +5,11 @@
 **Done in Lean (built, `--wfail`).** Verified: C1, C5, C7, C8, C13, C14, C15, C16, C17, C19, C20 and the I5 orbit search; row checks for 11,357 rows settled 2026-11-06 (`journal.md`). C18 proved (n ≥ 2).
 
 **Next step.** Ideator round 2 (`scratch/ideator/2026-11-06-1837.md`), by rows settled as the user ordered:
-1. I11 Ma's lemma on mixed quotients (C21, proved, refuter SURVIVES): 1,483 open rows. Interface `MaRule.lean` (built); the researcher proves `maRule` (`scratch/ma/MaDev.lean`: the ring A, π a non-zero-divisor, σ, the Frobenius step done); helper U builds the rows from `MaRule`.
-2. I12 Sylow trace rule (C22, proved, refuter SURVIVES): 464 open rows. Lean after C21's core (it reuses A = ℤ[X]/Ψ, π, σ and the step with K = 1); state it with divisibility (s = 0 occurs).
+1. I11 Ma's lemma on mixed quotients (C21, proved, refuter SURVIVES): 1,483 open rows. Interface `MaRule.lean` (built); `maRule : MaRule` proved (`MaLemma.lean`, built, axioms clean); helper U builds the rows from `MaRule`.
+2. I12 Sylow trace rule (C22, proved, refuter SURVIVES): 464 open rows. Now the researcher's line: Lean over B = ℤ[X]/(Φ_{p^J}) (a domain), reusing C21's σ, step and induction; p odd first; divisibility form (s = 0 occurs).
 3. I13 C9 for every n via Witt vectors (alive: helper W's spike proves it in scratch): 1,992 open E10/E11 `none` rows with n not squarefree. Now: helper W integrates (`MultiplierWitt.lean`, `OrbitRow'`, parts Part33…); then a refuter on the new statements; then settle. Also unlocks C10 for A7's non-squarefree kills (item 6).
 4. Done: I14 (C23, 132 rows) and I15 (19 rows) settled 2026-11-06.
-6. A7 row checker (C10 coset sums fixed by the multiplier): helper V building it; the new run killed 491 still-open rows in its first 1,701 (mostly n not squarefree, so with I13's C10). Then a refuter on it and on I13.
+6. A7 row checker (C10 coset sums fixed by the multiplier): helper V building it; the new run killed 707 still-open rows in its first 3,134 (mostly n not squarefree, so with I13's C10). Then a refuter on it and on I13.
 Alongside: the root `lake build --wfail` alone when RAM allows (needs ~9 GB); N58470's object build (8.9 GB). Later: I5 leaf-heavy squarefree rows (~323), the remaining heavy contraction rows, I7/I8, the exhaustion design.
 
 Results only in scratch (git-ignored):

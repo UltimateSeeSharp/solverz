@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-06
+- 21:05 C21 in Lean: `maRule : MaRule` (`MaLemma.lean`) builds with `--wfail`, axioms clean; rows by helper U, refuter next
 - 20:55 Root `lake build --wfail` of the whole library passes (33 s, 2.5 GB)
 - 20:50 C22 proved (Sylow trace rule): refuter SURVIVES (`scratch/refuter/c22`), 464 open rows; I12 alive
 - 20:35 151 more open rows settled in Lean: C23 (CRT over self-conjugate primes, `CompositeModulusRows`) 132 → none; I15's O40–O58 (signed RDS combinations) 19 → exists. Refuter round 4 SURVIVES (`scratch/refuter/round4`). Gordon's table 84.48% settled
