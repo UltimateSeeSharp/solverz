@@ -134,4 +134,83 @@ theorem noVector_sound {n : ℕ} {add : ℕ → ℕ → ℕ} {c Q t k s : ℤ}
     (by simp only [absSum]; linarith) (by simp only [absSum]; exact hp)
     (by simpa using hw)
 
+/-! ### Splitting the search into separate kernel checks
+
+The kernel keeps every reduction of one declaration in memory, about 0.1 MB per node of
+the search. `noVectorTop` runs only the top levels and leaves each node at depth `d + 1`,
+prefix `p`, to its own declaration `below … p = true`; `noVector_of_top` joins them. -/
+
+/-- The search below the prefix `p` (coordinates in order; `|p₀|` bounds the rest). -/
+def below (n : ℕ) (add : ℕ → ℕ → ℕ) (c Q t k s : ℤ) (p : List ℤ) : Bool :=
+  go n add c Q t k s |p.headD 0| (n - p.length) p.reverse p.sum (sqSum p) (absSum p)
+
+/-- `go`'s top `d` levels; a node `d` levels down, reversed prefix `pre`, is left to `P`. -/
+def goTop (n : ℕ) (add : ℕ → ℕ → ℕ) (c Q t k s top : ℤ) (P : List (List ℤ)) :
+    ℕ → ℕ → List ℤ → ℤ → ℤ → ℤ → Bool
+  | 0, _, pre, _, _, _ => P.contains pre.reverse
+  | _ + 1, 0, pre, sum, sq, abs => !leafOK n add Q t k s pre.reverse sum sq abs
+  | d + 1, rem + 1, pre, sum, sq, abs =>
+    cut c Q s (rem + 1) sum sq ||
+      allRange (fun x => decide (Q - sq < x * x) ||
+        goTop n add c Q t k s top P d rem (x :: pre) (sum + x) (sq + x * x) (abs + |x|))
+        (-top) (2 * top + 1).toNat
+
+/-- `noVector` with each node `d + 1` levels down left to `P`. -/
+def noVectorTop (n : ℕ) (add : ℕ → ℕ → ℕ) (c Q t k s : ℤ) (P : List (List ℤ)) (d : ℕ) :
+    Bool :=
+  cut c Q s n 0 0 ||
+    allRange (fun x => decide (Q < x * x) ||
+      goTop n add c Q t k s |x| P d (n - 1) [x] x (x * x) |x|) (-c) (2 * c + 1).toNat
+
+theorem headD_reverse_cons {x : ℤ} {pre : List ℤ} (h : pre ≠ []) :
+    (x :: pre).reverse.headD 0 = pre.reverse.headD 0 := by
+  obtain ⟨y, l, hl⟩ := List.exists_cons_of_ne_nil (List.reverse_ne_nil_iff.2 h)
+  rw [List.reverse_cons, hl]
+  rfl
+
+theorem go_of_goTop {n : ℕ} {add : ℕ → ℕ → ℕ} {c Q t k s top : ℤ} {P : List (List ℤ)}
+    (hP : ∀ p ∈ P, below n add c Q t k s p = true) :
+    ∀ (d rem : ℕ) (pre : List ℤ) (sum sq abs : ℤ), pre ≠ [] →
+      top = |pre.reverse.headD 0| → rem + pre.length = n → sum = pre.sum → sq = sqSum pre →
+      abs = absSum pre → goTop n add c Q t k s top P d rem pre sum sq abs = true →
+      go n add c Q t k s top rem pre sum sq abs = true
+  | 0, rem, pre, sum, sq, abs, _, htop, hlen, hs, hq, ha, h => by
+    simp only [goTop, List.contains_iff_mem] at h
+    have hb := hP _ h
+    simp only [below, List.reverse_reverse, List.length_reverse, sqSum, absSum,
+      List.map_reverse, List.sum_reverse_int] at hb
+    rw [htop, hs, hq, ha, show rem = n - pre.length by omega]
+    exact hb
+  | _ + 1, 0, pre, sum, sq, abs, _, _, _, _, _, _, h => by
+    simpa only [goTop, go] using h
+  | d + 1, rem + 1, pre, sum, sq, abs, hne, htop, hlen, hs, hq, ha, h => by
+    simp only [goTop, Bool.or_eq_true, allRange_iff] at h
+    simp only [go, Bool.or_eq_true, allRange_iff]
+    rcases h with h | h
+    · exact Or.inl h
+    refine Or.inr fun x h1 h2 => ?_
+    rcases h x h1 h2 with hx | hx
+    · exact Or.inl hx
+    refine Or.inr (go_of_goTop hP d rem (x :: pre) (sum + x) (sq + x * x) (abs + |x|)
+      (List.cons_ne_nil _ _) (by rw [headD_reverse_cons hne, htop]) ?_ ?_ ?_ ?_ hx)
+    · simp only [List.length_cons]; omega
+    · rw [List.sum_cons, hs]; ring
+    · simp only [sqSum, List.map_cons, List.sum_cons] at hq ⊢; rw [hq]; ring
+    · simp only [absSum, List.map_cons, List.sum_cons] at ha ⊢; rw [ha]; ring
+
+/-- `noVector` from its top levels and the checks of the nodes they leave to `P`. -/
+theorem noVector_of_top {n : ℕ} {add : ℕ → ℕ → ℕ} {c Q t k s : ℤ} {P : List (List ℤ)} {d : ℕ}
+    (hn : 0 < n) (htop : noVectorTop n add c Q t k s P d = true)
+    (hP : ∀ p ∈ P, below n add c Q t k s p = true) : noVector n add c Q t k s = true := by
+  simp only [noVectorTop, Bool.or_eq_true, allRange_iff] at htop
+  simp only [noVector, Bool.or_eq_true, allRange_iff]
+  rcases htop with h | h
+  · exact Or.inl h
+  refine Or.inr fun x h1 h2 => ?_
+  rcases h x h1 h2 with hx | hx
+  · exact Or.inl hx
+  exact Or.inr (go_of_goTop hP d (n - 1) [x] x (x * x) |x| (List.cons_ne_nil _ _) (by simp)
+    (by simp only [List.length_singleton]; omega) (by simp) (by simp [sqSum]) (by simp [absSum])
+    hx)
+
 end SignedDifferenceSets
