@@ -28,11 +28,11 @@
 | [I24](I24.md) | Tied one-hole blocks | `T301` generalize | ideator | C105, C106, C108, C109, C110 | alive |
 | [I25](I25.md) | Tie-rule sandwich | `T301` generalize | ideator | C111, C112 | alive |
 | [I26](I26.md) | Small change under a block | `T301` generalize | ideator | C113 | dead |
-| [I27](I27.md) | Short defender turns | `—` turn restriction | us | C114, C116 | alive |
+| [I27](I27.md) | Short defender turns | — turn restriction | us | C114, C116 | alive |
 | [I28](I28.md) | Inert opening depth | `T300` specialize | ideator | C115 | dead |
 | [I29](I29.md) | Complement mirror | `T809` mirror strategy | user (toolbox) | — | dead |
 | [I30](I30.md) | Automatic rows | `T21` Walnut | user (toolbox) | — | dead |
 | [I31](I31.md) | Rule variants that separate the lemmas from C1 | `T1011` prove the approach cannot work | user (toolbox) | — | dead |
 | [I32](I32.md) | Temperature of the low phase | `T816` temperature theory | user (toolbox) | — | dead |
-| [I33](I33.md) | One start: the maximal opening | `—` one-start reduction | ideator | C119 | alive |
+| [I33](I33.md) | One start: the maximal opening | — one-start reduction | ideator | C119 | alive |
 | [I34](I34.md) | Universal catch-up rules | `T301` generalize | us | C120 | dead |
