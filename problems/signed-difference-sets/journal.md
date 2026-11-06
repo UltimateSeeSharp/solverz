@@ -1,6 +1,9 @@
 # Journal
 
 ## 2026-11-06
+- 20 open rows → exists: O13–O32's Lean answers build (`Answer/N<id>.hasSDS`), each refuter-checked against the literature (found-sets, nl-family); proposed under "Needs the user"
+- E11 done: E10's 3,583 remaining rows at cap 10⁵, 110 none, 3,473 cut
+- C17 in Lean: `RealChars.lean`, 213 rows (`RealCharsRows.lean`); refuter on the Lean statement pending
 - C18 new, open: an RDS minus its subgroup is an SDS when q = (n + 1)²; found by the refuter of E10's objects; gives O39 for the open N24177 (300, 55, 6), Lean pending
 - O34–O38: refuter SURVIVES, new (O38 is C18's n = 7 member, `scratch/refuter/e10-objects`); C11 verified (`Pds.lean`, refuter SURVIVES)
 - C17 proved: refuter SURVIVES (`scratch/refuter/c17`); 213 open rows at r = R, Lean by helper F in progress
