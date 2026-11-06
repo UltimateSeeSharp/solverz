@@ -1,15 +1,31 @@
 # State
 
-**Focus.** Settle the most rows first: the rules I3 (7,682 rows), I5 (4,088 + 232), I4 (553) need their Lean theorems; the 21 refuter-checked sets (O13–O32) need Lean; then I6's per-row searches and the constructions I7, I8. Paused for the repo migration until the user says to go on.
+**Focus.** Lean for the rules, most rows per effort first: shared infrastructure, then I3 (C5–C7, up to 7,682 rows), then I4 and the 21 objects, then I5. Each rule is one generic theorem plus one kernel check over the rows it settles (find, Settling rows). Paused for the repo migration until the user says to go on.
 
-**Next step.** In order (rows settled per step in brackets):
-1. I3 in Lean [up to 7,682]: C5 for j = 1 first (Frobenius in F_p[H], y nilpotent and Frobenius-fixed ⇒ y = 0; 3,185 of C5's 3,858 rows), in its topic file with one Lean check over all its rows (find, Settling rows); then j ≥ 2, C6, C7. The refuter on each Lean statement; `settle.py` once Lean checks.
-2. I5 [4,088 + 232]: the orbit exhaust (A5) and A7 as experiments on committed code under `solver/` (the ideator's Python is exploration), the refuter and a second engine on them, A7's 7,498 unreached rows; Lean: C9 for squarefree n (2,486 rows) first.
-3. I4 in Lean [553]: C8, the easiest rule.
-4. Objects to Lean [21]: O13–O32 through `answer.py lean` / `fast` (one module at a time, Resources); each was checked against Gordon, He–Chen–Ge and He–Wu by the refuter (found-sets, nl-family), so each goes under "Needs the user" as a proposed Solution once Lean checks it.
-5. I6 [132]: rerun the all-rows contraction (exploration in the main folder's `scratch/e8/`) as an experiment; finish E5's 12 first: N93's adaptive split (`answer.py contract N93 2,7`), rebuild the 11 stale contraction Answers one module per call, `#print axioms`, the refuter on them and on C4, then `settle.py`.
-6. I8's cheap kill test (the m = 6 norm-class recipe at m = 8, 10 with a Walsh transform, minutes); I7's 49 PDS targets (`lemma_targets.out`).
-7. Exhaustion design for the user, now only for rows no rule reaches: N70, N75, N76, N77, N134, N135, N136, N138, N140, N177, N178 (C5/C6, C8 and A5 cover N30, N71, N89, N90, N99, N194); E7's unreached N133, N204, N205, N207, N212 (N172–N174 die by C6).
+**Next step.** In order (rows settled in brackets):
+- **Phase 0, infrastructure (needed by every rule):**
+  1. C1 in Lean (sign sum s, s² = k + λ(v − 1)); a corollary of C3 at the trivial quotient.
+  2. `HasSDS` respects group isomorphism, so a rule proved for any finite abelian group reaches each row's nested `ZMod a × ZMod b × …`.
+  3. Rows as data (v, k, λ, factors) and the quotient by divisors dᵢ | mᵢ, reusing `Index.lean` and `Contraction.lean`.
+- **Phase 1, I3 [up to 7,682]:**
+  4. C5 for j = 1 (Frobenius in F_p[H]: y nilpotent and Frobenius-fixed ⇒ y = 0) [3,185].
+  5. C5 for j ≥ 2 (the same on (a − tH)/p) [+673].
+  6. C6: residue class plus the two moments, a small finite search per row as a kernel check [+3,600].
+  7. C7: the marked-count bound, half of it in C4 [+224].
+  Each with its row check, chunked (e.g. 500 rows per declaration, one module per build, Resources); the refuter on each Lean statement; `settle.py` once Lean checks.
+- **Phase 2, quick wins:**
+  8. C8, support parity [553].
+  9. C11 and the 21 objects O13–O32 through `answer.py lean` / `fast` [21]; each was already checked against Gordon, He–Chen–Ge and He–Wu by the refuter (found-sets, nl-family).
+- **Phase 3, I5 [4,088 + 232]:**
+  10. The orbit exhaust (A5) and A7 rerun as experiments on committed code under `solver/`, with the refuter and a second engine; A7's 7,498 unreached rows.
+  11. C9 for squarefree n [2,486].
+  12. A verified orbit search proved sound once (as `noVector`); C10 on quotients [232+].
+- **Phase 4, the rest:**
+  13. I6 per row [132]: rerun the all-rows contraction as an experiment; finish E5's 12 first (N93's adaptive split, rebuild the 11 stale contraction Answers one module per call, `#print axioms`, the refuter on them and on C4, `settle.py`).
+  14. I8's cheap kill test (the m = 6 recipe at m = 8, 10, Walsh transform) and I7's 49 PDS targets.
+  15. C9 for non-squarefree n [1,602]: cyclotomic ideals in Lean, weeks; last or never.
+  16. Exhaustion design for the user, only for rows no rule reaches: N70, N75, N76, N77, N134, N135, N136, N138, N140, N177, N178; E7's unreached N133, N204, N205, N207, N212.
+- Then one proposed Solution per claim, each answering the table rows it settles (refuter on its Lean statement, then the user).
 
 Results only in scratch (git-ignored):
 - The worktree's `scratch/`: `e5.out`, `e6.out`, `e7.out`, `r4.out` (recorded in E5, E6, E7, E4 with SHA-256; `e7.out` still open in the suspended E7); `refuter/n35840-report.md`; `lean-build.ps1` (the RAM watchdog, no committed home: the user's call); `build-*.log`, `bench/*.lean`, `n93_branches.py`, `r5-40.out` (nothing more to record). Keep.
