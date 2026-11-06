@@ -80,4 +80,65 @@ theorem IsSDS.contract_sq {k : ℕ} {lam : ℤ} {D : G → SignType} (hD : IsSDS
     Finset.card_erase_of_mem hmem]
   simp [mul_comm]
 
+omit [Fintype H] in
+/-- Every fibre of a surjective homomorphism is as large as the kernel. -/
+theorem card_fibre {φ : G →+ H} (hφ : Function.Surjective φ) (h : H) :
+    (fibre φ h).card = (fibre φ 0).card := by
+  obtain ⟨x, rfl⟩ := hφ h
+  refine Finset.card_bij (fun y _ => y - x) (fun y hy => ?_) (fun a _ b _ hab => ?_)
+    (fun z hz => ⟨z + x, ?_, by simp⟩)
+  · simp only [fibre, Finset.mem_filter, Finset.mem_univ, true_and] at hy ⊢
+    rw [map_sub, hy, sub_self]
+  · simpa using hab
+  · simp only [fibre, Finset.mem_filter, Finset.mem_univ, true_and] at hz ⊢
+    rw [map_add, hz, zero_add]
+
+/-- The fibres of a surjective homomorphism have `|G| / |H|` elements. -/
+theorem card_fibre_eq {φ : G →+ H} (hφ : Function.Surjective φ) {c : ℕ}
+    (hc : Fintype.card G = c * Fintype.card H) (h : H) : (fibre φ h).card = c := by
+  have hsum := Finset.card_eq_sum_card_fiberwise (s := Finset.univ) (t := Finset.univ)
+    (f := φ) (fun _ _ => Finset.mem_univ _)
+  simp only [Finset.card_univ] at hsum
+  change Fintype.card G = ∑ b, (fibre φ b).card at hsum
+  rw [Finset.sum_congr rfl fun h' _ => card_fibre hφ h'] at hsum
+  have hpos : 0 < Fintype.card H := Fintype.card_pos
+  rw [card_fibre hφ h]
+  simp only [Finset.sum_const, Finset.card_univ, smul_eq_mul] at hsum
+  exact Nat.eq_of_mul_eq_mul_left hpos (by rw [← hsum, hc, mul_comm])
+
+theorem abs_sign_eq (s : SignType) : |(s : ℤ)| = if s = 0 then 0 else 1 := by
+  cases s <;> simp
+
+theorem IsSDS.sum_abs {k : ℕ} {lam : ℤ} {D : G → SignType} (hD : IsSDS k lam D) :
+    ∑ x, |(D x : ℤ)| = k := by
+  rw [← hD.1, Finset.card_filter, Nat.cast_sum]
+  exact Finset.sum_congr rfl fun x _ => by rw [abs_sign_eq]; split_ifs <;> simp_all
+
+theorem sum_fibre (φ : G →+ H) (f : G → ℤ) : ∑ h, ∑ x ∈ fibre φ h, f x = ∑ x, f x :=
+  Finset.sum_fiberwise _ _ _
+
+/-- The coset sums' absolute values add up to at most `k`. -/
+theorem IsSDS.sum_abs_contract_le {k : ℕ} {lam : ℤ} {D : G → SignType} (hD : IsSDS k lam D)
+    (φ : G →+ H) : ∑ h, |contract φ D h| ≤ k := by
+  calc ∑ h, |contract φ D h|
+      ≤ ∑ h, ∑ x ∈ fibre φ h, |(D x : ℤ)| :=
+        Finset.sum_le_sum fun h _ => Finset.abs_sum_le_sum_abs _ _
+    _ = k := by rw [sum_fibre, hD.sum_abs]
+
+/-- `k` and the coset sums' absolute values have the same parity. -/
+theorem IsSDS.sum_abs_contract_parity {k : ℕ} {lam : ℤ} {D : G → SignType} (hD : IsSDS k lam D)
+    (φ : G →+ H) : ((k : ℤ) - ∑ h, |contract φ D h|) % 2 = 0 := by
+  have hk : (k : ℤ) = ∑ h, ∑ x ∈ fibre φ h, |(D x : ℤ)| := by rw [sum_fibre, hD.sum_abs]
+  rw [hk, ← Finset.sum_sub_distrib, ← Int.even_iff]
+  refine Finset.even_sum _ fun h _ => ?_
+  have e : ∑ x ∈ fibre φ h, |(D x : ℤ)| - |contract φ D h| =
+      ∑ x ∈ fibre φ h, (|(D x : ℤ)| - D x) + (contract φ D h - |contract φ D h|) := by
+    rw [Finset.sum_sub_distrib]; unfold contract fibre; ring
+  rw [e]
+  refine Even.add (Finset.even_sum _ fun x _ => ?_) ?_
+  · cases D x <;> simp
+  · rcases abs_choice (contract φ D h) with h' | h' <;> rw [h']
+    · simp
+    · exact ⟨contract φ D h, by ring⟩
+
 end SignedDifferenceSets

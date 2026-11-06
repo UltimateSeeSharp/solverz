@@ -1,6 +1,15 @@
 # Journal
 
+## 2026-11-06
+- F4 new (coset sums: absolute sum ≤ k with k's parity; fibre sizes): proved in Lean (`Contraction.lean`), refuter pending
+- E7 suspended at 11 of 22 at the user's request: N131 found (O13, Lean pending), N70, N71, N76, N77, N168, N176, N177, N178, N194 exhausted (no Lean proof), N133 cut
+- N79, N80: Lean proofs by contraction build (11 of E5's 12); N93 needs the split search (`noVector_of_top`), not yet built; statuses after axioms and the refuter
+- Refuter SURVIVES on N35840 (claim and status, `scratch/refuter/n35840-report.md`): proposed as a Solution under "Needs the user"
+- E5 (contraction, open v ≤ 40): 12 Instances have no vector on a quotient; Lean's `noVector` proves 9 so far (N46, N47, N95, N168, N176, N220, N221, N223, N224), statuses after axioms and the refuter
+
 ## 2026-11-05
+- N35840 (361, 316, 141) in C₁₉ × C₁₉: exists, O12 Lean-checked by the new fast set check (`SetCheck.lean`, `decide +kernel`, 77 s); refuter and the literature check next
+- E6 (P2, octic cyclotomic sign vectors, every q ≡ 1 mod 8 up to 10⁵): sporadic sets at 9 fields, no family; one open Instance hit, N35840 (361, 316, 141) in C₁₉ × C₁₉: O12, Lean pending
 - N67, N73: credited to Gordon 2022 (Prop 2.3, Thm 4.1) by the importer, which now lets a literature construction take the credit over our own set
 - Z3 (N49), Z4 (N61), Z5 (N62), Z6 (N68) approved by the user: Solutions in `solutions.md` and the repo README
 - Research stopped by the user; E4 stopped at 31 of 53 Instances (`experiments/E4.md`), E5 stopped in its validation with no output

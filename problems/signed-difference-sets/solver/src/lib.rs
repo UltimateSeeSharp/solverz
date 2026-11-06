@@ -2,6 +2,10 @@
 //! group (pattern P1), mirroring `SignedDifferenceSets.IsSDS`: k marked elements and
 //! Σₓ D(x)·D(x + g) = λ for every g ≠ 0.
 
+pub mod contraction;
+pub mod cyclotomic;
+pub mod instances;
+
 /// A finite abelian group ℤ_{m₁} × … × ℤ_{m_r}, elements indexed 0..v in mixed radix
 /// (first factor most significant).
 pub struct Group {

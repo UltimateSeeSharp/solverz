@@ -5,3 +5,4 @@
 | [F1](F1.md) | Square condition: k + λ(v − 1) = s², and the signs sum to ±s | all | — | open | — | — |
 | [F2](F2.md) | Translation and negation keep an SDS an SDS | all | — | verified | `IsSDS.translate`, `IsSDS.neg` | — |
 | [F3](F3.md) | Contraction: coset sums along G → H have autocorrelation λ times the fibre size | all | — | verified | `IsSDS.contract_autocorr`, `abs_contract_le` | — |
+| [F4](F4.md) | Coset sums: Σ |a| ≤ k with the same parity; fibres of a surjection have |G|/|H| elements | all | F3 | open (Lean proof, refuter pending) | `IsSDS.sum_abs_contract_le`, `IsSDS.sum_abs_contract_parity`, `card_fibre_eq` | — |
