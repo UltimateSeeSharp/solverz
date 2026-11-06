@@ -5,7 +5,7 @@ AI-assisted attacks on open math problems; every result is checked in Lean 4.
 ## Problem
 
 What we want to solve, of one kind; an attack loads the core (skill
-`workflow`) and the modules its README lists.
+`solve`) and the modules its README lists.
 
 - `prove`: a statement holds in all cases; a Lean proof.
 - `find`: an object with a property exists; Lean checks the object.
@@ -59,32 +59,9 @@ In a template, `<…>` in the text and `{…}` in file and folder names are plac
 
 | Role       | Who             | Started by                  | Job                                                                                                                                                                                                                                                                                           |
 | ---------- | --------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Researcher | main session    | "attack <problem>" (Attack) | Runs the attack loop. It knows what the problem's files hold, builds the understanding of the problem, decides from it what is most promising and works it itself; it never hands its line off or waits. It keeps `understanding.md` current: rewritten when its understanding changes; single failures stay in the files of what they tested. |
+| Researcher | main session    | `/solve <problem>`          | Runs the attack loop. It knows what the problem's files hold, builds the understanding of the problem, decides from it what is most promising and works it itself; it never hands its line off or waits. It keeps `understanding.md` current: rewritten when its understanding changes; single failures stay in the files of what they tested. |
 | Ideator    | agent `ideator` | the researcher              | Brings fresh angles; its ideas are proposals. Optional, never a step anything waits on; a round takes 30–90 min.                                                                                                    |
 | Refuter    | agent `refuter` | the researcher              | Tries to break something before its status changes (a proof, a computation's outcome, a Lean statement, …). SURVIVES: the new status stands. REFUTED: it is wrong; its opposite is recorded. FLAWED: the old status stays, the flaw is recorded. UNCLEAR: settling it is the next step.                     |
-
-## Attack
-
-**NEVER STOP** until the user interrupts (Esc). When the problem's skill says
-it is solved, tell the user. When a step has to wait (on Running, the
-user, the machine, …), take one that doesn't (paper work, Lean statements,
-checking code before it runs, …).
-
-### Start
-
-1. "attack <problem>" invokes the skill of the problem's kind.
-2. Enter the problem's worktree (Rules).
-3. Check `git status`.
-4. Merge main into it.
-5. Read `understanding.md`, `state.md` and the files they link.
-6. Check each job under Running: read its output, or rerun it if lost.
-7. Continue from its next step.
-
-### Stopping
-
-- Never stop for context: compaction is automatic; `state.md` carries the
-  loop.
-- After answering the user, go on with the loop.
 
 ## Rules
 
