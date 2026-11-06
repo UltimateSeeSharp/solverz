@@ -10,8 +10,8 @@
 | [C6](C6.md) | Rule SC++: residue class and moments | C1, C3, C5 | proved | — | — |
 | [C7](C7.md) | Rule A2: marked counts per coset | C4, C6 | verified (LP form, 237 rows) | `not_hasSDS_of_marked` | — |
 | [C8](C8.md) | Rule A3: support parity | — | verified | `not_hasSDS_of_supportParity` | — |
-| [C9](C9.md) | Multiplier theorem with a fixed translate | C2 | proved | — | — |
-| [C10](C10.md) | Multiplier-fixed coset sums on a quotient (A7) | C3, C4, C9 | proved | — | — |
+| [C9](C9.md) | Multiplier theorem with a fixed translate | C2 | verified | `IsSDS.exists_translate_fixed'` | — |
+| [C10](C10.md) | Multiplier-fixed coset sums on a quotient (A7) | C3, C4, C9 | verified | `IsSDS.exists_translate_fixed_contract'` | — |
 | [C11](C11.md) | PDS lemma: λ′ − μ = 2 gives an SDS | — | verified | `IsPDS.hasSDS` | — |
 | [C12](C12.md) | NL family: NL_{2^m}(2^(m−1)+1) PDS for every m | C11 | open | — | — |
 | [C13](C13.md) | Moments test: C6's arithmetic part, no search | C1, C3, C5 | verified | `not_hasSDS_of_moments` | — |

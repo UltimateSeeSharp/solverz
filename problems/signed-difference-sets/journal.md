@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-06
+- 23:40 1,620 more open rows settled in Lean by I13 (C9, C10 verified for every n: `MultiplierWitt.lean`, `OrbitRows/Part33–59`); refuter SURVIVES (`scratch/refuter/i13/report-2026-11-06-2316.md`). Gordon's table 89.16% settled
 - 23:15 Eight published Paley-and-zero / quartic sets (core class 0a, open in the table) recorded as O71–O78, each rechecked exactly; Lean checks building
 - 23:05 C22's p = 2 equality verified (refuter round 7 SURVIVES): 63 rows settled; N79, N80 settled by contraction (`Answer.N79`, `Answer.N80`, E5). Gordon's table 86.86% settled
 - 23:00 Ideator round 3's ten sets recorded as O61–O70 (X1–X3), each rechecked by direct autocorrelation; Lean checks building
