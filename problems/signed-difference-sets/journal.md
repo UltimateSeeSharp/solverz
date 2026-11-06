@@ -1,6 +1,9 @@
 # Journal
 
 ## 2026-11-06
+- C1 and C8 verified: `Square.lean`, `Parity.lean` build, axioms clean, refuter SURVIVES (`scratch/refuter/c1-c8-lean`)
+- C14 new (box bound), proved in Lean (`Box.lean`): with C5 and C13 it kills exactly C6's 7,458 open rows, so C6 needs no search; refuter pending
+- C13 new (C6's arithmetic part), proved in Lean (`Moments.lean`); refuter pending
 - C5 verified: `not_hasSDS_of_selfConj` (any j) builds, axioms clean, refuter SURVIVES its Lean statement (`scratch/refuter/c5-lean`)
 - I3–I9 new and alive (rules I3, I4, I5, I6 for `none`; constructions I7, I8 and the orbit search I9 for `exists`); I10 (Schmidt's bound) new
 - C5–C11 new, proved on paper, refuter SURVIVES each (rules SC, SC++, A2, A3; the multiplier theorem with a fixed translate; A7; the PDS lemma λ′ − μ = 2): `scratch/refuter/rule-sc`, `extensions`, `a5-a3`, `nl-family`; no Lean yet
