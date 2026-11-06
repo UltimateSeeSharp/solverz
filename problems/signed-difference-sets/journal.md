@@ -1,6 +1,8 @@
 # Journal
 
 ## 2026-11-06
+- 3,496 more open rows settled in Lean: I5 orbit rows (C15 + verified orbit search) 2,607, C7 236, C17 213, C19 297, C20 144 → none; O34–O37 and O39 (N24177) → exists. Gordon's table 84.3% settled; every module built alone with `--wfail`, the root build waits for free RAM (it needs ~9 GB)
+- C20 verified: refuter SURVIVES (`scratch/refuter/c20`); its kills are the ramified-prime congruence at 3
 - C7 and C17 verified, the I5 orbit rows' Lean statements checked: refuter SURVIVES (`scratch/refuter/round2`), 3,050 rows ready to settle once the root builds; instance names fixed (they collided)
 - C18 proved (n ≥ 2): refuter SURVIVES (`scratch/refuter/c18`)
 - C19 in Lean (`GaussChars.lean`, 297 rows `GaussCharsRows.lean`); refuter pending
