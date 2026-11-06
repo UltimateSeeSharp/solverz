@@ -39,3 +39,8 @@ marked element per line: its coordinates, then `+` or `-`. The Lean form is a
 | O31 | [O31.txt](O31.txt) | (256, 106, 42) SDS in C₁₆ × C₁₆: P − {0}, P an L₁₆(7) PDS (C11) | N16957 | refuter (nl-family) | 0 | — |
 | O32 | [O32.txt](O32.txt) | (256, 154, 90) SDS in C₂⁸: P − {0}, P three of the five order-5 classes of GF(256), NL₁₆(9) (C11, C12) | N17201 | other session; refuter SURVIVES (nl-family) | 0 | — |
 | O33 | [O33.txt](O33.txt) | (4096, 2146, 1122) SDS in C₂¹²: P − {0}, P an NL₆₄(33) PDS from 30 norm classes of GF(2¹²) (C11, C12); beyond the table | — | refuter (nl-family, `verify_m6.py`), checked on every shift | 0 | — |
+| O34 | [O34.txt](O34.txt) | (79, 61, 38) SDS in C₇₉, constant on the orbits of a multiplier group of order 3 (27 orbits) | N1164 | E10 | 0 | — (pending) |
+| O35 | [O35.txt](O35.txt) | (127, 109, 90) SDS in C₁₂₇, constant on the orbits of a multiplier group of order 3 (43 orbits) | N3486 | E10 | 0 | — (pending) |
+| O36 | [O36.txt](O36.txt) | (217, 193, 168) SDS in C₂₁₇, constant on the orbits of a multiplier group of order 6 (42 orbits) | N11650 | E10 | 0 | — (pending) |
+| O37 | [O37.txt](O37.txt) | (222, 69, 20) SDS in C₂₂₂, constant on the orbits of a multiplier group of order 9 (30 orbits) | N11991 | E10 | 0 | — (pending) |
+| O38 | [O38.txt](O38.txt) | (455, 71, 7) SDS in C₄₅₅, constant on the orbits of a multiplier group of order 12 (41 orbits) | N58470 | E10 | 0 | — (pending) |
