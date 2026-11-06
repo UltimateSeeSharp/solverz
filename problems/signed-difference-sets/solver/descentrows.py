@@ -70,7 +70,7 @@ def cert(ms, k, lam):
 def main():
     skip = set()
     for f in sys.argv[1:]:
-        skip |= {line.split("\t")[0] for line in open(f, encoding="utf-8") if line.strip()}
+        skip |= {line.split("\t")[0].strip() for line in open(f, encoding="utf-8") if line.strip()}
     entries = []
     for row in csv.DictReader(open(ROOT / "instances.csv", encoding="utf-8")):
         if row["status"] != OPEN or row["id"] in skip:

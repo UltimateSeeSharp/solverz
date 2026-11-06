@@ -2,8 +2,8 @@
 
 `halfrows.py [skip.tsv ...]`: for each open row on C_(2^j) x K (one even factor, K the odd part, 2 self-conjugate mod
 exp K) with 4 | k - lambda, the halved row (v/2, (k + lambda)/4, lambda/2) on C_(2^(j-1)) x K is looked up in
-instances.csv. When it is `none` with a Lean proof this script can cite or make (a MaRows or MarkedCountsRows entry, an
-orbit-search certificate with at most MAX_LEAVES leaves, or a C21 certificate), the row is written with its HalfCert
+instances.csv. When it is `none` (or not in the table) with a Lean proof this script can cite or make (a MaRows or MarkedCountsRows entry, an
+orbit-search certificate with at most MAX_LEAVES leaves, a C21 or a C26 certificate), the row is written with its HalfCert
 (the forms A, P onto ZMod (2r) x Grp ks and B, Q from the halved row's group onto ZMod r x Grp ks, each checked here by
 the mirrors of MapOk and SurjCert). Rows in the skip files are left out. Writes lean/SignedDifferenceSets/HalfRows.lean
 and scratch/c26/half_rows.tsv. Standard library only.
@@ -16,6 +16,7 @@ import sys
 from pathlib import Path
 
 from marows import KEY, NL, OPEN, conj_exp, crt, lst, map_ok, surj_cert, vp, wrap
+import descentrows
 import marows
 import orbitrows
 
@@ -82,8 +83,9 @@ def part_entry(prefix, nid):
 
 
 def reduced_proof(r2, ms2, k2, lam2):
-    """A Lean term for `¬ @HasSDS (Grp ms2) _ inst' k2 lam2`, given `inst'`, or None."""
-    lean = r2["lean"]
+    """A Lean term for `¬ @HasSDS (Grp ms2) _ inst' k2 lam2`, given `inst'`, or None (r2: its table row or None)."""
+    lean = r2["lean"] if r2 else ""
+    rid = r2["id"][1:] if r2 else "0"
     if lean.startswith("SignedDifferenceSets.MaRows.not_hasSDS_of_mem_part"):
         e = part_entry("MaRows", r2["id"])
         if e:
@@ -104,15 +106,20 @@ def reduced_proof(r2, ms2, k2, lam2):
     if c:
         p, r, i, e, b, ks, A, P = c
         cert = f"⟨{p}, {r}, {i}, {e}, {b}, {lst(ks)}, {lst([lst(a) for a in A])}, {lst([lst(q) for q in P])}⟩"
-        return (f"MaRowCert.not_hasSDS maRule (w := ⟨{r2['id'][1:]}, {lst(ms2)}, {k2}, {lam2}⟩) (c := {cert}) "
+        return (f"MaRowCert.not_hasSDS maRule (w := ⟨{rid}, {lst(ms2)}, {k2}, {lam2}⟩) (c := {cert}) "
                 f"(by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (by decide)) inst'")
+    d = descentrows.cert(ms2, k2, lam2)
+    if d:
+        r, i, s, ks, A, P = d
+        cert = f"⟨{r}, {i}, {s}, {lst(ks)}, {lst([lst(a) for a in A])}, {lst([lst(q) for q in P])}⟩"
+        return f"DescentCert.not_hasSDS (w := ⟨{rid}, {lst(ms2)}, {k2}, {lam2}⟩) (c := {cert}) (by decide +kernel) inst'"
     return None
 
 
 def main():
     skip = set()
     for f in sys.argv[1:]:
-        skip |= {line.split("\t")[0] for line in open(f, encoding="utf-8") if line.strip()}
+        skip |= {line.split("\t")[0].strip() for line in open(f, encoding="utf-8") if line.strip()}
     table = list(csv.DictReader(open(ROOT / "instances.csv", encoding="utf-8")))
     bykey = {r["key"]: r for r in table}
     out, tsv = [], []
@@ -145,7 +152,7 @@ def main():
         k2, lam2 = (k + lam) // 4, lam // 2
         ms2 = inv_factors([r] + ks)
         r2 = bykey.get(f"SDS({v // 2},{k2},{lam2},[{','.join(map(str, ms2))}])")
-        if not r2 or r2["status"] != NONE:
+        if r2 and r2["status"] != NONE:
             continue
         fq = forms_onto(ms2, [r] + ks)
         proof = reduced_proof(r2, ms2, k2, lam2)
@@ -156,7 +163,9 @@ def main():
                 f"{lam2}, {lst([lst(b) for b in B])}, {lst([lst(q) for q in Q])}⟩")
         lam_l = f"({lam})" if lam < 0 else str(lam)
         nid = row["id"]
-        out.append(f"""/-- {nid}: halved row {r2['id']} {r2['key']} has no SDS. -/
+        about = (f"halved row {r2['id']} {r2['key']}" if r2
+                 else f"halved SDS({v // 2},{k2},{lam2},{lst(ms2)}), not in the table,")
+        out.append(f"""/-- {nid}: {about} has no SDS. -/
 theorem {nid.lower()}_not_hasSDS (inst : Fintype (Grp {lst(ms)})) :
     ¬ @HasSDS (Grp {lst(ms)}) _ inst {k} {lam_l} :=
   have inst' : Fintype (Grp {lst(ms2)}) := Grp.fintype _ (by decide)
@@ -166,7 +175,7 @@ theorem {nid.lower()}_not_hasSDS (inst : Fintype (Grp {lst(ms)})) :
     ({proof})
     inst
 """)
-        tsv.append(f"{nid}\tnone\tC26 (halved row {r2['id']}); HalfRows\tSignedDifferenceSets.HalfRows.{nid.lower()}_not_hasSDS")
+        tsv.append(f"{nid}\tnone\tC26 (halved row {r2['id'] if r2 else 'off the table'}); HalfRows\tSignedDifferenceSets.HalfRows.{nid.lower()}_not_hasSDS")
     out = [NL.join(wrap(line.strip(), " " * (len(line) - len(line.lstrip()))) if len(line) > 100 else line
                    for line in block.split(NL)) for block in out]
     OUT.write_text(f"""module
