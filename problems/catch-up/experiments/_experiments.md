@@ -35,3 +35,16 @@
 | [E31](E31.md) | Simple Z rules under the one-pick cap | C86 | No Hyb2 variant goes below 2p − 1; the optimum ≈ 3p/2 is not a local rule |
 | [E32](E32.md) | Collapsed blocks under the one-pick cap | C85 | One-pick play needs height ≈ 4p − 8 (blocks: ≈ 3p/2); the real game draws far lower |
 | [E33](E33.md) | The lower ray's other forms | C91, C92 | Both hold at every even-total N from 11 to 28; fail only at N = 7, 8 |
+| [E34](E34.md) | Tied odd blocks minus one number, every height (C105) | C105 | k ≤ 9 at every a ≤ 2(2k + 1) and a = (2k + 1)²: every draw-parity hole draws; \|m\| ≤ 1 at every hole |
+| [E35](E35.md) | Tied blocks minus one number, every height (C106) | C106 | n ≤ 19: no loss at the draw parity; at a = 1 every {1..n} ∖ {h} of even total draws |
+| [E36](E36.md) | The low column of blocks (C104) | C104 | n = 6..20, a ≤ n/2: every draw-parity d ≤ n − 1 draws, \|m\| ≤ 1; the column runs to the block's maximum from n = 12 |
+| [E37](E37.md) | Tied odd blocks minus one number at every real height (C109) | C109 | k ≤ 7: every draw-parity hole draws on all of (0, ∞), exactly |
+| [E38](E38.md) | The one-hole band (C110) | C110 | k = 3..9, every height tested, every hole: every draw-parity d ≤ k − 1 draws; the band ends exactly at d = k |
+| [E39](E39.md) | The controller games on {1..N} (C112) | C112 | N ≤ 24: no controller wins at an even total; the controller wins every odd total by exactly 1 |
+| [E40](E40.md) | C99's deficit-1 endpoint families | C99 | even-total N ≤ 24: no loss in either family, all draws from N = 11; a C99 loss at d ≥ 7 needs the upper witness |
+| [E41](E41.md) | Two-number turns for the defender (C114) | C114 | C110 k ≤ 9 at heights ≤ 2(2k + 1) and C1 N ≤ 20: no draw lost with turns of at most two numbers |
+| [E42](E42.md) | The largest change number (C116) | C116 | C110 k ≤ 7, C1 and C92's families N ≤ 20: no draw lost with the largest change number |
+| [E43](E43.md) | Two inequalities break (C117, C118) | C117, C118 | both refuted: deficit Lipschitz at sets with max 18, the extra-number bound both ways |
+| [E44](E44.md) | The largest change number at k = 8, 9 (C116) | C116 | no draw lost at k = 8, 9; C116 holds for k ≤ 9 |
+| [E45](E45.md) | The one-hole band at every height (C110) | C110 | k ≤ 9, every height up to k(2k + 1) + k + 1: all draws; with C13, every integer height |
+| [E46](E46.md) | Threshold variants on {1..N} (C120) | C120 | θ ≤ 5 draw from N₀ ≤ 15 to 23; θ = 6..10 still have non-draws at N ≤ 23, shrinking toward ±2 |

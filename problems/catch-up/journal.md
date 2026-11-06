@@ -3,6 +3,37 @@
 Before 2026-10-30: titles of the old log; full entries: `git show 4a38f61:archive/catch-up/log.md`.
 
 ## 2026-11-05
+- 21:38 E46: threshold variants draw from N₀ ≤ 15 for θ ≤ 5; θ = 6..10 unsettled at N = 23 (C120 open)
+- 21:31 I34 dead as an easier target: low and dense families are rule-robust, the medium-height bands are not, and play from {1..N} is forced into medium heights from N = 15
+- 21:22 I31: θ = 6, 7 draw again at N = 23 (θ = 8 still +2): the large-threshold failures are a small-N effect, no separation
+- 21:03 I31 dead: θ ≥ 6–7 separates the high phase from the draw (fine change is what the low phase needs); the level law fails from θ = 2 with the draw intact
+- 21:01 C104 ⇒ C1 in Lean (`conjecture_of_low_column`)
+- 21:00 I31 alive again at its edge: the threshold variant θ = 6 loses at N = 16 and 20 (θ ≤ 5 draws to N = 20)
+- 20:58 I33 kill test (2): canonical play from the maximal opening fails at the first defender turn for every N; C119 stays as the cheapest Lean target only
+- 20:55 I33 alive: C1 needs only the no-win half at the maximal opening (C119 ⇒ C1 in Lean, `conjecture_of_max_opening`); I31 dead as a separation (the draw is universal across catch-up-like rules); ideator fresh08 kept I33, cut 14 angles
+- 20:47 I32 dead (temperature: cooling Catch-Up is the height deformation C32; flat at N ≡ 0 mod 4, isolated draws at N ≡ 3 mod 4)
+- 20:43 I29 dead (complement mirror loses from N = 4 and on high blocks); I30 dead (rows are period 4, but Walnut cannot link the game to the automaton)
+- 20:41 C110 at every integer height for k ≤ 9 (E45 with `oneHoleBand_of_bounded_heights`, C13)
+- 20:29 refuter SURVIVES today's Lean statements (C110, C111/C112, OneHoleLinear); C110 data now covers every height for k ≤ 9
+- 20:17 C117 and C118 refuted (deficit Lipschitz, extra-number bound; E43); ideator fresh07 kept no angle
+- 19:53 C110 partly verified at linear height: holes o ≥ k at 1 ≤ d ≤ o + 1 − k (`one_hole_band_draw_linear`)
+- 19:47 E42: the defender's change number can be the largest below its deficit (C116) on C110 (k ≤ 7), C1 and C92 (N ≤ 20)
+- 19:41 I28 dead (inert opening depth, C115, not a route); ideator fresh06 cut three more angles
+- 19:39 I27 alive: two-number defender turns keep every C110 draw for k ≤ 9 and C1 for N ≤ 20 (E41)
+- 19:33 I27 new: the defender of C1 and C110 needs turns of at most two numbers (C114, scratch data)
+- 19:22 C108 verified at linear height: tied one-hole blocks (k ≤ o) draw once a > 3(2k + 1) (`one_hole_block_draw_linear`)
+- 19:10 E40: C99's deficit-1 endpoint families never lose for N ≤ 24 (I20 kill test 1 passed)
+- 19:03 C111 verified: Catch-Up lies between the two controller games, so C112 gives C1 (`conjecture_of_controller_games`)
+- 19:00 I25 alive: no controller wins at an even total for N ≤ 24, and every odd total goes to the controller by exactly 1 (E39)
+- 18:55 I25 new (tie-rule sandwich, C111, C112) and I26 dead (POOL, C113, cannot be forced) (ideator fresh05)
+- 18:52 C110 open (the one-hole band, k = 3..9 at every height tested, E38) and C110 ⇒ C1 in Lean (`conjecture_of_one_hole_band`)
+- 18:44 C108 verified (`CatchUp/OneHoleRounds.lean`); C105 at k = 2 verified at every height through C11
+- 18:40 C108 proved: tied one-hole odd blocks draw above the rounds threshold for every hole o ≥ k of the parity (refuter SURVIVES)
+- 18:36 C109 open: tied odd blocks minus one number draw at every real height h > 0, k ≤ 7 (E37, exact)
+- 18:20 C108 open (paper): C105 in the rounds regime for the upper holes, from C23; refuter running
+- 18:21 C107 verified: the neighbour bound in margins (`CatchUp/Neighbour.lean`)
+- 17:58 I23 and I24 alive: C104 holds for n ≤ 20 (E36), C105 for k ≤ 9 at every height tested (E34), C106 for n ≤ 19 (E35)
+- 17:45 I23 new (the low column of blocks, C104) and I24 new (tied one-hole blocks, C105, C106), with the neighbour bound C107 open (ideator fresh04c)
 - 11:27 C83's partial case (y = N, b = N − 1) verified: `interval_tail_value_ne_loss_of_deficit_eq_top_add_three`, ported 2026-11-04 (refuter SURVIVES)
 - 11:27 E33: the ray's successor and canonical forms (C91, C92) hold at every even-total N from 11 to 28, fail only at N = 7, 8
 - 11:27 C103 open (ours): C74's boundary shrinks to y ∈ {b+1, N} by C77 (b) (refuter SURVIVES proof mode)

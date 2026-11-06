@@ -1,17 +1,36 @@
 # State
 
-**Focus.** Two routes with new footing. I17: the block band C86 holds at integer heights to p = 10 and implies C1 in Lean (`conjecture_of_band`); one-pick-per-turn play reaches it only down to a ≈ 3p/2 (E28), so the open part is the band below that, where multi-pick turns of no simple shape carry it (C86 Tried). I16: a fixed rounds-game strategy draws every collapsed block (E24, p ≤ 9), a candidate high base for C85. The route through C31 (b)'s ray (C74's hypotheses C81 at j = 2, C82, C83) stays open; C83 holds to N = 28. In Lean the ray now gives C1 once those three hold for every even-total N ≥ 13 (`conjecture_of_lower_ray`, 2026-11-05), so both routes end in exact Lean obligations. The ray has two simpler verified forms (C91 successor, C92 canonical), whose one-parameter hypotheses hold at every even-total N from 11 to 28 (E33); C92 needs only draws: ({3..N}, 1), ({5..N}, 4) and {3..N} minus one adjacent pair at 2. catch-up-research's written routes are migrated (C90–C103, I20–I22, 2026-11-05).
-**Next step.** The goal is `CatchUp.Conjecture` (the skill's `<Problem>.Goal`; the rename is pending). Both proof searches are parked for now (C85 Tried: no sufficient class for E24's rule; C86 Tried: the least capped height depends on more of R than C25's features). An ideator round is running (Running); meanwhile weigh C92 as the ray's target (assemble it in Lean like `conjecture_of_lower_ray`; compare its draw families with C81's two-sided draw data), or extend `band_draw_le_four` to p = 5 if the user allows a few minutes of kernel time. C83's partial case (y = N, b = N − 1) is already verified (`interval_tail_value_ne_loss_of_deficit_eq_top_add_three`).
-**After that.** Return to E24's rule with a new idea (ideator round, or literature on pairing strategies for sum games).
-- Before offering N = 33–35 to anyone, rerun them from a committed engine with a second engine as a cross-check.
-**Limits (user, 2026-11-04).** Ask before heavy runs while the user works on the machine; light runs (one thread, seconds) are fine.
+**Focus.** C1 (Lean `CatchUp.Conjecture`) reduces in Lean to each of these open statements; every route ends at the same barrier, the leader's defense in the low phase (understanding.md, Blocks).
+- C119 (cheapest): ({1..N−1}, N) is not a mover win for every even-total N ≥ 13 (`conjecture_of_max_opening`, I33).
+- C110, the one-hole band: odd blocks of 2k + 1 numbers minus any one, every deficit d ≤ k − 1 of the draw parity, every height (`conjecture_of_one_hole_band`; by C13 heights a ≤ k(2k + 1) + k suffice, `oneHoleBand_of_bounded_heights`). Data: every height for k ≤ 9 (E45). Lean has its high part from linear height for d = 0 and 1 ≤ d ≤ o + 1 − k with holes o ≥ k (`one_hole_block_draw_linear`, `one_hole_band_draw_linear`).
+- C104, the low column (`conjecture_of_low_column`); C86, the band (`conjecture_of_band`); C92's three families (`conjecture_of_canonical_ray`); C74's ray (`conjecture_of_lower_ray`); C112, no controller wins (`conjecture_of_controller_games`, C111 verified).
+Picture of the low phase (2026-11-05): the defender never needs turns of more than two numbers, the second after the largest number below its deficit (C114, C116, E41/E42/E44); along optimal play the attacker's best turns are short too, but its long turns must be answered and have no canonical shape (I27). The draw at even totals is universal across catch-up-like turn rules at large N (I31, C120, E46), and low and dense families are rule-robust, but play from {1..N} is forced into medium-height positions, where values depend on the exact rule (I34). No fixed defender rule works (ideators fresh05–08; I29 mirror dead).
+
+**Next step.**
+1. When the user starts the overnight session: run the queue under Optional long runs, one at a time, each stated as an experiment first.
+2. Promote scratch-only results that a decision may rest on (each is recorded in the file named, with scratch evidence only; a committed experiment, two engines where possible, makes it count):
+   - C116 on C104's low column, n ≤ 18: `scratch/a19/uni/src/bin/c104short.rs` (committed `ShortTurns`); record in C116.
+   - I27's measures (turn lengths, slack, domination on the defender's tree, tempo, reactive change, the windowed attacker): `scratch/a19/short/{short,short2,short3,shape,react,tempo,reach,turnlen,ashape}.rs`, `scratch/a19/variant/extreme.rs`; recorded in I27, C114, C116.
+   - Rule robustness (I31, I34): `scratch/a19/variant/{var,asym,order,window,partner2,level,vararr}.rs` (outputs `far.txt`, `edge.txt`), `scratch/a19/uni/src/bin/{bandtheta,c104theta,densetheta}.rs`, `scratch/a19/short/robust.rs`; recorded in I31, I34, C120 (E46 is committed for the {1..N} roots only).
+   - C110's profile and high part: `scratch/a19/uni/src/bin/{col1,band10}.rs`, `scratch/a19/cap/cap1.rs`, `scratch/a19/{rb1,c18,c18cls,gfp}.rs`; recorded in C110.
+   - Smaller checks, recorded where named: `uni/src/bin/{mono,thermo,rows,depth,tied5,lowab,lowj,tiedloss}.rs` (C109, I32, I30, I33, I20, C104, C99, C106), `scratch/a19/mirror/mirror.rs` (I29), `scratch/a19/ctl/ctl.rs` (I25, C112), `scratch/ideator/2026-11-05-*.md` (fresh05–08, recorded as I25–I28, I33, C111–C113, C115, C117–C119).
+3. Research, light runs only: C110's band at linear height for the remaining holes needs a class for AM+T (the greatest closed class inside C18's condition is irregular; hole o = 1 needs its own answer rule, C110 Proof); C119's play enters C104's low blocks after the attacker drains the change (I33).
+4. When agents are allowed again: a refuter on `ShortTurns`/`Threshold` (one implementation each) and on C114/C116, I31's data; an ideator round.
+
+**Limits (user, 2026-11-04).** Ask before heavy runs while the user works on the machine; light runs (one thread, seconds to a few minutes, under 1 GB) are fine. Lean: one module per `lake build` (memory: a parallel build beside an experiment froze the PC).
+**Agents paused (user, 2026-11-05 20:55).** No ideator, refuter or other agent until the user allows it again or a new session starts.
 **Running.**
-- Ideator round fresh04c (model fable, light runs only), started 2026-11-04; notes in `scratch/ideator/fresh04c/`.
+(none) — nothing running or suspended at the 2026-11-06 migration pause; no agent active.
 
 ## Optional long runs
-- C86 for p = 5 in Lean (draft `scratch/a17/BandFive.lean`, to append to `lean/CatchUp/Band.lean`; kernel evaluation, 1 thread, 2–4 GB; 28 600 distinct positions against 4 265 for p = 4, so about 7× its build time or more if the evaluator does not share subtrees): ask the user first.
+- Queued for the overnight session (user, 2026-11-05 21:20: "not yet, later in the overnight session"); start when the user says it has begun, one at a time, each stated as an experiment first:
+  - C116 at the C1 roots N = 23, 24 and C92's families: `target/release/e42_largest_change.exe 3 3 24` (about 5 GB at N = 24, 1 thread).
+  - C120, θ = 6..10 at N = 24 (about 1.3 GB each) and θ = 6, 7 at N = 27 (about 11 GB): `target/release/e46_threshold_variants.exe <θ> <θ> 24 24` (committed `Threshold` engine).
+  - C86 for p = 5 in Lean (draft `scratch/a17/BandFive.lean`, to append to `lean/CatchUp/Band.lean`; kernel evaluation, 1 thread, 2–4 GB; 28 600 distinct positions against 4 265 for p = 4).
 - E24 at p = 10 (about 5 h on 6 threads): `target/release/e24_collapsed_rounds.exe 10 10 6`.
 - Stopped, rerun when needed: `scratch/a13/lexap.exe 9 9 5 20 > scratch/a13/lexap-9.txt` (C62 progressions, k = 9).
+- Before offering N = 33–35 to anyone, rerun them from a committed engine with a second engine as a cross-check.
 
 ## Needs the user
 - Merge attack/catch-up into main when you want this session's records there (nothing depends on it).
+- Start of the overnight session (the queue above) and when agents may run again.

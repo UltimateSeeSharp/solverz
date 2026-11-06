@@ -93,7 +93,7 @@
 | [C89](C89.md) | Pair-deleted sets never lose below half their size (NLB*) | — | refuted | counterexample: `CatchUp.pair_deleted_loss_19` (`CatchUp/PairDeletions.lean`) | — |
 | [C90](C90.md) | Maximum companion | — | verified | `CatchUp.reply_edge_from_max_has_companion`, `…_not_unique` (`CatchUp/ReplyMaximumCompanion.lean`) | — |
 | [C91](C91.md) | The lower ray, successor form | — | verified | `value_Icc_eq_draw_of_interior_successor_nonwin`, `pair_deletion_position_value_ne_loss_of_successor_value_ne_win` (`CatchUp/Earlier/LowerRaySuccessor.lean`) | — |
-| [C92](C92.md) | The lower ray, canonical exact-deficit form | C28 | verified | `value_Icc_eq_draw_of_exact_deficit_canonical_openings` (`CatchUp/Earlier/LowerRayExactDeficit.lean`) | — |
+| [C92](C92.md) | The lower ray, canonical exact-deficit form | C28 | verified | `value_Icc_eq_draw_of_exact_deficit_canonical_openings` (`CatchUp/Earlier/LowerRayExactDeficit.lean`); for every N ⇒ C1: `CatchUp.conjecture_of_canonical_ray` (`CatchUp/LowerRay.lean`) | — |
 | [C93](C93.md) | Four consecutive numbers | — | verified | `CatchUpSearch.TopFourClassification.value_top_four`, `value_top_four_deficit_four` (`CatchUp/Earlier/TopFourClassification.lean`) | — |
 | [C94](C94.md) | Pair sets at small deficits | — | verified | `DeficitTwo.three_pairs_three_win_iff`, `CanonicalFour.four_four_win_iff`, `AnchorFour.win_requires_four_and_eight`, `FivePair.first_pair_fifteen_nonloss` and more (`CatchUp/DeficitTwo.lean`, `CanonicalSmall`, `CanonicalFour`, `CanonicalFive`, `AnchorFour`, `AnchorFive`, `FivePair`) | — |
 | [C95](C95.md) | Three-number endgames | — | verified | `TiedFour.three_close_nonwin_iff`, `…_nonloss_iff` (`CatchUp/ThreePairClose.lean`), `AdjacentPairRepair.orphan_minus_draw_iff` (`CatchUp/AdjacentPairGeometryRepair.lean`), `CatchUpSearch.ThreeCounterSafety.can_avoid_loss_three_counters` (`CatchUp/Earlier/ThreeCounterSafety.lean`) | — |
@@ -105,3 +105,20 @@
 | [C101](C101.md) | The ray point b = 6 | C77 | open | frontier: `CatchUp.RootUpperEightFrontier.interval_parent_loss_frontier`, `CatchUp.RootUpperEightCriterion.interval_reserve_nonwin_iff_core_nonloss` | — |
 | [C102](C102.md) | Copying repaired with a score debt ≤ 2 | C33 | open | one instance: `CatchUp.TwoBuffer.mandatory_protocol` (`CatchUp/TwoBufferMandatory.lean`) | — |
 | [C103](C103.md) | C74's boundary shrinks | C74, C77 | open | — | — |
+| [C104](C104.md) | The low column of blocks (EB) | — | open | C104 ⇒ C1: `CatchUp.conjecture_of_low_column` (`CatchUp/LowColumn.lean`) | — |
+| [C105](C105.md) | Tied odd blocks minus one number draw (B1) | — | open | — | — |
+| [C106](C106.md) | Tied blocks minus one number never lose (B2) | — | open | — | — |
+| [C107](C107.md) | Neighbour bound (NB) | — | verified | `CatchUp.neg_margin_erase_le_of_succ`, `…_of_pred` (`CatchUp/Neighbour.lean`) | — |
+| [C108](C108.md) | Tied one-hole blocks in the rounds regime, upper holes | C13, C23 | verified | `CatchUp.roundsValue_oneHole_draw`, `CatchUp.one_hole_block_draw_high`, `CatchUp.one_hole_block_draw_two` (`CatchUp/OneHoleRounds.lean`), `CatchUp.one_hole_block_draw_linear` (`CatchUp/OneHoleLinear.lean`) | — |
+| [C109](C109.md) | Tied odd blocks minus one number draw at every real height | — | open | — | — |
+| [C110](C110.md) | The one-hole band | — | open | C110 ⇒ C1: `CatchUp.conjecture_of_one_hole_band` (`CatchUp/OneHoleBand.lean`) | — |
+| [C111](C111.md) | Tie-rule sandwich | — | verified | `CatchUp.ctlMargin_sandwich`, C112 ⇒ C1: `CatchUp.conjecture_of_controller_games` (`CatchUp/Controller.lean`) | — |
+| [C112](C112.md) | The controller cannot win | — | open | — | — |
+| [C113](C113.md) | Small change under a block (POOL) | — | open | — | — |
+| [C114](C114.md) | Two-number turns suffice for the defender | — | open | — | — |
+| [C115](C115.md) | Inert opening depth | — | open | — | — |
+| [C116](C116.md) | The change number is the largest one below the deficit | C114 | open | — | — |
+| [C117](C117.md) | Deficit Lipschitz | — | refuted | — | — |
+| [C118](C118.md) | Extra-number bound | — | refuted | — | — |
+| [C119](C119.md) | The maximal opening is not a win for the answerer | C77 | open | C119 ⇒ C1: `CatchUp.conjecture_of_max_opening` (`CatchUp/MaxOpening.lean`) | — |
+| [C120](C120.md) | The draw for every stopping threshold | — | open | — | — |

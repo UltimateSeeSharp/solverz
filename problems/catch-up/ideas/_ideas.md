@@ -24,3 +24,15 @@
 | [I20](I20.md) | Dense intervals | `T335` induction variants | catch-up-research (CU-L003, CU-L014) | C99, C100 | alive |
 | [I21](I21.md) | The ray point b = 6 | `T324` reduce to a finite check | catch-up-research (RootUpper route) | C101 | alive |
 | [I22](I22.md) | A debt-repair translator | — strategy transfer | catch-up-research (CU-L022, CU-L024–L027) | C102 | alive |
+| [I23](I23.md) | The low column of blocks | `T301` generalize | ideator | C104, C27 | alive |
+| [I24](I24.md) | Tied one-hole blocks | `T301` generalize | ideator | C105, C106, C108, C109, C110 | alive |
+| [I25](I25.md) | Tie-rule sandwich | `T301` generalize | ideator | C111, C112 | alive |
+| [I26](I26.md) | Small change under a block | `T301` generalize | ideator | C113 | dead |
+| [I27](I27.md) | Short defender turns | `—` turn restriction | us | C114, C116 | alive |
+| [I28](I28.md) | Inert opening depth | `T300` specialize | ideator | C115 | dead |
+| [I29](I29.md) | Complement mirror | `T809` mirror strategy | user (toolbox) | — | dead |
+| [I30](I30.md) | Automatic rows | `T21` Walnut | user (toolbox) | — | dead |
+| [I31](I31.md) | Rule variants that separate the lemmas from C1 | `T1011` prove the approach cannot work | user (toolbox) | — | dead |
+| [I32](I32.md) | Temperature of the low phase | `T816` temperature theory | user (toolbox) | — | dead |
+| [I33](I33.md) | One start: the maximal opening | `—` one-start reduction | ideator | C119 | alive |
+| [I34](I34.md) | Universal catch-up rules | `T301` generalize | us | C120 | dead |
