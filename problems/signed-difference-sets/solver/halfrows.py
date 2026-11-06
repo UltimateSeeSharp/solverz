@@ -3,7 +3,7 @@
 `halfrows.py [skip.tsv ...]`: for each open row on C_(2^j) x K (one even factor, K the odd part, 2 self-conjugate mod
 exp K) with 4 | k - lambda, the halved row (v/2, (k + lambda)/4, lambda/2) on C_(2^(j-1)) x K is looked up in
 instances.csv. When it is `none` (or not in the table) with a Lean proof this script can cite or make (a MaRows or MarkedCountsRows entry, an
-orbit-search certificate with at most MAX_LEAVES leaves, a C21 or a C26 certificate), the row is written with its HalfCert
+orbit-search certificate with at most MAX_LEAVES leaves, a C21, C26 or C7 certificate), the row is written with its HalfCert
 (the forms A, P onto ZMod (2r) x Grp ks and B, Q from the halved row's group onto ZMod r x Grp ks, each checked here by
 the mirrors of MapOk and SurjCert). Rows in the skip files are left out. Writes lean/SignedDifferenceSets/HalfRows.lean
 and scratch/c26/half_rows.tsv. Standard library only.
@@ -113,7 +113,22 @@ def reduced_proof(r2, ms2, k2, lam2):
         r, i, s, ks, A, P = d
         cert = f"⟨{r}, {i}, {s}, {lst(ks)}, {lst([lst(a) for a in A])}, {lst([lst(q) for q in P])}⟩"
         return f"DescentCert.not_hasSDS (w := ⟨{rid}, {lst(ms2)}, {k2}, {lam2}⟩) (c := {cert}) (by decide +kernel) inst'"
+    mc = markedcounts().cert(v2_, k2, lam2, ms2)
+    if mc:
+        p, j, i, ds, s, ws = mc
+        wl = ", ".join("⟨" + ", ".join(map(str, w)) + "⟩" for _, w in ws)
+        cert = f"⟨⟨{p}, {j}, {i}, {lst(ds)}, {s}⟩, [{wl}]⟩"
+        return f"McCert.not_hasSDS (r := ⟨{rid}, {lst(ms2)}, {k2}, {lam2}⟩) (c := {cert}) (by decide +kernel) inst'"
     return None
+
+
+def markedcounts():
+    """The C7 generator, imported quietly (it prints on import)."""
+    import contextlib
+    import io
+    with contextlib.redirect_stdout(io.StringIO()):
+        import markedcounts as mc
+    return mc
 
 
 def main():
