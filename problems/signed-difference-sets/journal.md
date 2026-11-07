@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-07
+- 17:13 Z11's credit corrected (approved by the user; P1 refuter round 2, R2-2): He–Wu Cor 4.5 covers d = 1 only with v = p^m, p ≡ 3 mod 4, m even (N30948 (337,336,20) in C₃₃₇ is a Z11 row with d = 1 open after He–Wu)
 - 16:25 Credits corrected in `solutions.md` (approved by the user; refuter on P1, main folder `scratch/refuter/p1/report.md` F7, F9, F10, F12): Z9 on Gordon Lemma 5.2; Z11 general λ ours beyond d = 1 (He–Wu Cor 4.5); Z14 P − {0} step He–Wu Thm 5.3; Z28 the search of Gordon §5 (after Arasu–Gordon–Zhang Algorithm 1); Z33 contraction and lift as in Gordon §5; Z29 halving Schmidt–Smith 2013 Lemma 6.2; Z19 wording
 - 13:10 The user approved Solutions Z7–Z33 (19 rules: 16,049 rows `none`; 6 object families and N35840: 46 rows `exists`; `solutions.md`, `instances.csv` solution column) and `corrections.md` (11 rows Gordon lists Open that published constructions settle).
 - 12:47 Settled 96 rows none: 94 by C26 at c = 1 through their halved row (HalfRows, refuter c26 SURVIVES; 15 parts and 9 rows built alone; 6 rows deferred, their halved orbit check needs over 13 GB in one process), N177, N178 SDS(36,29,20) by I16's lift (LiftRows Part08, 09; the lift refuter's engine also finds none). Root build clean, axioms clean on all. Table 91.03% (none 63,986, exists 226, open 6,331)
