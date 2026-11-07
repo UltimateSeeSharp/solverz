@@ -1,0 +1,36 @@
+claim          p=2 K=[3] exp=3 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=2 K=[5] exp=5 sc(exp)=True i=2 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=2 K=[9] exp=9 sc(exp)=True i=3 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=2 K=[3, 3] exp=3 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=2 K=[11] exp=11 sc(exp)=True i=5 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=2 K=[13] exp=13 sc(exp)=True i=6 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+CONTROL        p=2 K=[7] exp=7 sc(exp)=False i=None frobenius mismatches=0 nonzero y with y*ybar=0: 14
+per-order only p=2 K=[15] exp=15 sc(exp)=False i=None frobenius mismatches=0 nonzero y with y*ybar=0: 30
+per-order only p=2 K=[3, 5] exp=15 sc(exp)=False i=None frobenius mismatches=0 nonzero y with y*ybar=0: 30
+claim          p=3 K=[2] exp=2 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=3 K=[4] exp=4 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=3 K=[2, 2] exp=2 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=3 K=[5] exp=5 sc(exp)=True i=2 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=3 K=[7] exp=7 sc(exp)=True i=3 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+CONTROL        p=3 K=[8] exp=8 sc(exp)=False i=None frobenius mismatches=0 nonzero y with y*ybar=0: 16
+claim          p=3 K=[2, 4] exp=4 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=3 K=[10] exp=10 sc(exp)=True i=2 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=5 K=[3] exp=3 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=5 K=[6] exp=6 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+claim          p=5 K=[2, 2] exp=2 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+CONTROL        p=5 K=[4] exp=4 sc(exp)=False i=None frobenius mismatches=0 nonzero y with y*ybar=0: 8
+claim          p=7 K=[4] exp=4 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+CONTROL        p=7 K=[3] exp=3 sc(exp)=False i=None frobenius mismatches=0 nonzero y with y*ybar=0: 12
+claim          p=7 K=[2, 2] exp=2 sc(exp)=True i=1 frobenius mismatches=0 nonzero y with y*ybar=0: 0
+p=2 j=1: (1-x)^phi mod Phi divisible by p: True; N(u) = 1.000000
+p=2 j=2: (1-x)^phi mod Phi divisible by p: True; N(u) = 1.000000
+p=2 j=3: (1-x)^phi mod Phi divisible by p: True; N(u) = 1.000000
+p=2 j=4: (1-x)^phi mod Phi divisible by p: True; N(u) = 1.000000
+p=3 j=1: (1-x)^phi mod Phi divisible by p: True; N(u) = 1.000000
+p=3 j=2: (1-x)^phi mod Phi divisible by p: True; N(u) = 1.000000
+p=3 j=3: (1-x)^phi mod Phi divisible by p: True; N(u) = 11.452921
+p=5 j=1: (1-x)^phi mod Phi divisible by p: True; N(u) = 1.000000
+p=5 j=2: (1-x)^phi mod Phi divisible by p: True; N(u) = 245.943256
+p=7 j=1: (1-x)^phi mod Phi divisible by p: True; N(u) = 1.000000
+p=11 j=1: (1-x)^phi mod Phi divisible by p: True; N(u) = 1.000000
+p=13 j=1: (1-x)^phi mod Phi divisible by p: True; N(u) = 1.000000

@@ -1,0 +1,5 @@
+(27,17,8) in [3, 9], N = {0}: 108 sets; full check of all: True
+
+real	0m22.565s
+user	0m0.047s
+sys	0m0.015s

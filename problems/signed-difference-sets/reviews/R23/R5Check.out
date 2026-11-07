@@ -1,0 +1,35 @@
+'SignedDifferenceSets.maRule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.MaRows.not_hasSDS_of_mem_part01' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.MaRows.not_hasSDS_of_mem_part02' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.MaRows.not_hasSDS_of_mem_part03' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.MaRows.not_hasSDS_of_mem_part04' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.MaRows.not_hasSDS_of_mem_part05' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.MaRows.not_hasSDS_of_mem_part06' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.MaRows.not_hasSDS_of_mem_maRows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.MaRows.part03_kills' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.CycloFacts.mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.MaRows.cycloFacts_of_mem_maPairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+@not_hasSDS_of_mem_part01 : ∀ {x : Row × MaRowCert},
+  x ∈ part01 → ∀ (inst : Fintype (Grp x.1.ms)), ¬HasSDS (Grp x.1.ms) x.1.k x.1.lam
+def SignedDifferenceSets.MaRule : Prop :=
+∀ (G K : Type) [inst : AddCommGroup G] [inst_1 : Fintype G] [inst_2 : AddCommGroup K] [inst_3 : Fintype K]
+  [DecidableEq K] (p r i e b c k : ℕ) (lam : ℤ) [Fact (Nat.Prime p)] [inst_6 : NeZero (r * p)]
+  (φ : G →+ ZMod (r * p) × K),
+  Function.Surjective ⇑φ →
+    Fintype.card G = c * Fintype.card (ZMod (r * p) × K) →
+      0 < r →
+        0 < i →
+          (∀ (x : K), p ^ i • x = -x) →
+            ↑p ^ e ∣ ↑k - lam →
+              ↑k ≠ lam →
+                2 * b ≤ e →
+                  2 * c < p ^ b →
+                    (∀ (S : Type) [inst : CommRing S] (x : S),
+                        ∑ l ∈ Finset.range p, (x ^ r) ^ l = 0 →
+                          ∃ y z, ↑p = (x - 1) ^ ((p - 1) * r) * y ∧ (x - 1) ^ ((p - 1) * r) = ↑p * z) →
+                      ¬HasSDS G k lam
+
+real	0m35.589s
+user	0m0.078s
+sys	0m0.217s
+EXIT 0

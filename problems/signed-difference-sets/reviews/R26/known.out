@@ -1,0 +1,73 @@
+O1.txt [7] (7, 3, 1) n=2 sqf SDS |M|=3 fixed at (6,) all-units control: None
+O2.txt [7] (7, 4, 0) n=4 NONSQF SDS |M|=3 fixed at (0,) all-units control: None
+\O3.txt 4 4 0 4 True C9 n/a
+\O4.txt 5 4 -1 5 True C9 n/a
+\O5.txt 9 8 -1 9 True C9 n/a
+O6.txt [5, 5] (25, 12, 1) n=11 sqf SDS |M|=1 fixed at (0, 0) all-units control: None
+\O7.txt 27 10 1 9 True C9 n/a
+\O8.txt 27 10 1 9 True C9 n/a
+\O9.txt 27 14 5 9 True C9 n/a
+O10.txt 27 14 5 9 True C9 n/a
+O11.txt 27 17 8 9 True C9 n/a
+O12.txt [19, 19] (361, 316, 141) n=175 NONSQF SDS |M|=3 fixed at (0, 0) all-units control: None
+O13.txt 32 20 4 16 True C9 n/a
+O14.txt 32 20 4 16 True C9 n/a
+O15.txt 32 20 4 16 True C9 n/a
+O16.txt 32 20 4 16 True C9 n/a
+O17.txt 32 20 4 16 True C9 n/a
+O18.txt 32 20 4 16 True C9 n/a
+O19.txt 32 28 12 16 True C9 n/a
+O20.txt 32 28 12 16 True C9 n/a
+O21.txt 36 11 2 9 True C9 n/a
+O22.txt 36 11 2 9 True C9 n/a
+O23.txt 45 37 1 36 True C9 n/a
+O24.txt [7, 7] (49, 33, 1) n=32 NONSQF SDS |M|=3 fixed at (0, 0) all-units control: None
+O25.txt 63 47 11 36 True C9 n/a
+O26.txt 64 22 6 16 True C9 n/a
+O27.txt 64 22 6 16 True C9 n/a
+O28.txt 64 46 30 16 True C9 n/a
+O29.txt 64 46 30 16 True C9 n/a
+O30.txt 64 46 30 16 True C9 n/a
+O31.txt 256 106 42 64 True C9 n/a
+O32.txt 256 154 90 64 True C9 n/a
+O33.txt 4096 2146 1122 1024 True C9 n/a
+O34.txt [79] (79, 61, 38) n=23 sqf SDS |M|=3 fixed at (0,) all-units control: None
+O35.txt [127] (127, 109, 90) n=19 sqf SDS |M|=3 fixed at (0,) all-units control: None
+O36.txt [217] (217, 193, 168) n=25 NONSQF SDS |M|=6 fixed at (0,) all-units control: None
+O37.txt [222] (222, 69, 20) n=49 NONSQF SDS |M|=9 fixed at (0,) all-units control: None
+O38.txt [455] (455, 71, 7) n=64 NONSQF SDS |M|=12 fixed at (0,) all-units control: None
+O39.txt [300] (300, 55, 6) n=49 NONSQF SDS |M|=4 fixed at (25,) all-units control: None
+O40.txt 125 28 3 25 True C9 n/a
+O41.txt 343 54 5 49 True C9 n/a
+O42.txt 343 54 5 49 True C9 n/a
+O43.txt 125 97 72 25 True C9 n/a
+O44.txt 125 97 72 25 True C9 n/a
+O45.txt 343 289 240 49 True C9 n/a
+O46.txt 343 289 240 49 True C9 n/a
+O47.txt 64 18 2 16 True C9 n/a
+O48.txt 64 18 2 16 True C9 n/a
+O49.txt 64 18 2 16 True C9 n/a
+O50.txt 64 18 2 16 True C9 n/a
+O51.txt 64 18 2 16 True C9 n/a
+O52.txt 64 18 2 16 True C9 n/a
+O53.txt 64 46 30 16 True C9 n/a
+O54.txt 64 46 30 16 True C9 n/a
+O55.txt 64 46 30 16 True C9 n/a
+O56.txt 64 46 30 16 True C9 n/a
+O57.txt 312 300 200 100 True C9 n/a
+O58.txt [410] (410, 329, 248) n=81 NONSQF SDS |M|=8 fixed at (41,) all-units control: None
+O59.txt [78] (78, 53, 28) n=25 NONSQF SDS |M|=4 fixed at (13,) all-units control: None
+O60.txt [200] (200, 151, 102) n=49 NONSQF SDS |M|=4 fixed at (25,) all-units control: None
+O61.txt 42 18 2 16 True C9 n/a
+O62.txt 75 26 1 25 True C9 n/a
+O63.txt [217] (217, 112, 12) n=100 NONSQF SDS |M|=1 fixed at (0,) all-units control: None
+O64.txt 243 121 40 81 True C9 n/a
+O65.txt 243 177 96 81 True C9 n/a
+O66.txt 343 199 3 196 True C9 n/a
+O67.txt 343 247 51 196 True C9 n/a
+O68.txt [182] (182, 101, 20) n=81 NONSQF SDS |M|=6 fixed at (0,) all-units control: None
+O69.txt [51] (51, 19, 3) n=16 NONSQF SDS |M|=8 fixed at (0,) all-units control: None
+O70.txt [111] (111, 66, 17) n=49 NONSQF SDS |M|=9 fixed at (0,) all-units control: None
+O71.txt [211] (211, 106, 51) n=55 sqf SDS |M|=35 fixed at (0,) all-units control: None
+O72.txt [251] (251, 126, 61) n=65 sqf SDS |M|=25 fixed at (0,) all-units control: None
+O73.txt [271] (271, 136, 66) n=70 sqf SDS |M|=27 fixed at (0,) all-units control: None

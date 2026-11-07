@@ -1,0 +1,54 @@
+'SignedDifferenceSets.not_hasSDS_of_evenContraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.EvenCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.onGrp_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.noVector_of_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Ma.dvd_contract_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.totient_mul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.DescentRowCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+@SignedDifferenceSets.not_hasSDS_of_evenContraction : ∀ {G K : Type} [inst : AddCommGroup G] [inst_1 : Fintype G]
+  [inst_2 : AddCommGroup K] [inst_3 : Fintype K] {r i c k : ℕ} {lam : ℤ} [inst_4 : NeZero (r * 2)] [NeZero r]
+  [inst_6 : SignedDifferenceSets.Indexed (ZMod r × K)] {φ : G →+ ZMod (r * 2) × K},
+  Function.Surjective ⇑φ →
+    Fintype.card G = c * Fintype.card (ZMod (r * 2) × K) →
+      0 < r →
+        0 < i →
+          (∀ (x : K), 2 ^ i • x = -x) →
+            2 ^ 2 ∣ ↑k - lam →
+              SignedDifferenceSets.CycloFacts 2 r →
+                ∀ {s s₂ Q t K' : ℤ},
+                  s * s = ↑k + lam * (↑(Fintype.card G) - 1) →
+                    s = 2 * s₂ →
+                      4 * Q = ↑k + lam * (2 * ↑c - 1) →
+                        2 * t = lam * ↑c →
+                          (K' - s₂) % 2 = 0 →
+                            ↑k < 2 * K' + 4 →
+                              SignedDifferenceSets.noVector (SignedDifferenceSets.Indexed.size (ZMod r × K))
+                                    (SignedDifferenceSets.Indexed.addIdx (ZMod r × K)) (↑c) Q t K' s₂ =
+                                  true →
+                                ¬SignedDifferenceSets.HasSDS G k lam
+@SignedDifferenceSets.EvenCert.not_hasSDS : ∀ {w : SignedDifferenceSets.Row} {e : SignedDifferenceSets.EvenCert},
+  SignedDifferenceSets.EvenCert.Ok w e →
+    SignedDifferenceSets.EvenCert.search w e = true →
+      ∀ (inst : Fintype (SignedDifferenceSets.Grp w.ms)),
+        ¬SignedDifferenceSets.HasSDS (SignedDifferenceSets.Grp w.ms) w.k w.lam
+def SignedDifferenceSets.EvenCert.Ok : SignedDifferenceSets.Row → SignedDifferenceSets.EvenCert → Prop :=
+fun w e =>
+  0 < e.r ∧
+    0 < e.i ∧
+      (∀ m ∈ w.ms, 0 < m) ∧
+        e.ks ≠ [] ∧
+          (∀ d ∈ e.ks, d ∣ 2 ^ e.i + 1) ∧
+            SignedDifferenceSets.MapOk w.ms (e.r * 2 :: e.ks) e.A ∧
+              SignedDifferenceSets.SurjCert w.ms (e.r * 2 :: e.ks) e.A e.P ∧
+                e.r * 2 * e.ks.prod ∣ w.ms.prod ∧
+                  2 ^ 2 ∣ ↑w.k - w.lam ∧
+                    e.s * e.s = ↑w.k + w.lam * (↑w.ms.prod - 1) ∧
+                      e.s % 2 = 0 ∧
+                        (↑w.k + w.lam * (2 * ↑(SignedDifferenceSets.EvenCert.c w e) - 1)) % 4 = 0 ∧
+                          w.lam * ↑(SignedDifferenceSets.EvenCert.c w e) % 2 = 0 ∧
+                            (e.K - e.s / 2) % 2 = 0 ∧
+                              ↑w.k < 2 * e.K + 4 ∧ (2, e.r) ∈ SignedDifferenceSets.MaRows.maPairs
+
+real	0m27.989s
+user	0m0.108s
+sys	0m0.155s

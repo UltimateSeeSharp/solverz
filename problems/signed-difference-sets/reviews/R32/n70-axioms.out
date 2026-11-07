@@ -1,0 +1,7 @@
+'SignedDifferenceSets.LiftRows.n70_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.LiftSearch.not_hasSDS_of_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+SignedDifferenceSets.LiftRows.n70_not_hasSDS : ¬SignedDifferenceSets.HasSDS (ZMod 3 × ZMod 3 × ZMod 3) 17 4
+
+real	0m33.116s
+user	0m0.062s
+sys	0m0.172s

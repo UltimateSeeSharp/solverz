@@ -1,0 +1,14 @@
+import SignedDifferenceSets.EvenRows
+open SignedDifferenceSets
+#print axioms SignedDifferenceSets.not_hasSDS_of_evenContraction
+#print axioms SignedDifferenceSets.EvenCert.not_hasSDS
+#print axioms SignedDifferenceSets.EvenRows.n664_not_hasSDS
+#print axioms SignedDifferenceSets.EvenRows.n675_not_hasSDS
+#print axioms SignedDifferenceSets.EvenRows.n741_not_hasSDS
+#print axioms SignedDifferenceSets.EvenRows.n763_not_hasSDS
+#print axioms SignedDifferenceSets.EvenRows.n4672_not_hasSDS
+#print axioms SignedDifferenceSets.EvenRows.n4712_not_hasSDS
+#print axioms SignedDifferenceSets.EvenRows.n4762_not_hasSDS
+#print axioms SignedDifferenceSets.EvenRows.n20961_not_hasSDS
+#check @SignedDifferenceSets.not_hasSDS_of_evenContraction
+#check @SignedDifferenceSets.EvenRows.n20961_not_hasSDS

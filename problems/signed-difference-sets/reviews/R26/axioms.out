@@ -1,0 +1,46 @@
+'SignedDifferenceSets.dvd_cross' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.exists_multiplier'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.exists_translate_fixed'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.exists_translate_fixed_contract'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_orbitRow'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.OrbitRows.n1157_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.OrbitRows.n15759_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.OrbitRows.n4630_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+@IsSDS.exists_translate_fixed' : ∀ {G : Type u_1} [inst : AddCommGroup G] [inst_1 : Fintype G] {k : ℕ} {lam : ℤ}
+  {D : G → SignType},
+  IsSDS k lam D →
+    ↑k - lam ≠ 0 →
+      IsCoprime (↑(Fintype.card G)) (↑k - lam) →
+        ∃ a,
+          ∀ (t : ℕ),
+            t.Coprime (Fintype.card G) →
+              (∀ (p : ℕ), Nat.Prime p → ↑p ∣ ↑k - lam → ∃ f, ∀ (x : G), t • x = p ^ f • x) →
+                ∀ (x : G), D (t • x + a) = D (x + a)
+@IsSDS.exists_translate_fixed_contract' : ∀ {G : Type u_1} [inst : AddCommGroup G] [inst_1 : Fintype G] {k : ℕ}
+  {lam : ℤ} {D : G → SignType} {H : Type u_2} [inst_2 : AddCommGroup H] [inst_3 : Fintype H] [inst_4 : DecidableEq H],
+  IsSDS k lam D →
+    ∀ (φ : G →+ H),
+      Function.Surjective ⇑φ →
+        ∀ {c : ℕ},
+          Fintype.card G = c * Fintype.card H →
+            ↑k - lam ≠ 0 →
+              IsCoprime (↑(Fintype.card H)) (↑k - lam) →
+                ∃ b,
+                  ∀ (t : ℕ),
+                    t.Coprime (Fintype.card H) →
+                      (∀ (p : ℕ), Nat.Prime p → ↑p ∣ ↑k - lam → ∃ f, ∀ (x : H), t • x = p ^ f • x) →
+                        ∀ (h : H), contract φ D (t • h + b) = contract φ D (h + b)
+OrbitRows.n1157_not_hasSDS : ¬HasSDS (ZMod 79) 52 8
+OrbitRows.n4630_not_hasSDS : ¬HasSDS (ZMod 143) 80 32
+def SignedDifferenceSets.OrbitRow' : List ℕ → ℕ → ℤ → ℕ → ℤ → Prop :=
+fun ms k lam t s =>
+  0 < ↑k - lam ∧
+    ms.prod.Coprime (↑k - lam).toNat ∧
+      t.Coprime ms.prod ∧
+        (∀ p ∈ List.range ((↑k - lam).toNat + 1),
+            (↑k - lam).toNat % p = 0 → IsPrimeTD p → ∃ f ∈ List.range ms.prod, ∀ m ∈ ms, t % m = p ^ f % m) ∧
+          s * s = ↑k + lam * (↑ms.prod - 1) ∧ orbitExhaust ms k lam t s = true
+
+real	0m37.832s
+user	0m0.092s
+sys	0m0.202s

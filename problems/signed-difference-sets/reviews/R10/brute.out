@@ -1,0 +1,39 @@
+A (3,) p 2 selfconj i = 1 nonzero b with zero autocorr: 0
+A (3,) p 5 selfconj i = 1 nonzero b with zero autocorr: 0
+A (5,) p 2 selfconj i = 2 nonzero b with zero autocorr: 0
+A (5,) p 3 selfconj i = 2 nonzero b with zero autocorr: 0
+A (5,) p 7 selfconj i = 2 nonzero b with zero autocorr: 0
+A (4,) p 3 selfconj i = 1 nonzero b with zero autocorr: 0
+A (4,) p 7 selfconj i = 1 nonzero b with zero autocorr: 0
+A (2, 2) p 3 selfconj i = 1 nonzero b with zero autocorr: 0
+A (2, 2) p 5 selfconj i = 1 nonzero b with zero autocorr: 0
+A (6,) p 5 selfconj i = 1 nonzero b with zero autocorr: 0
+A (7,) p 3 selfconj i = 3 nonzero b with zero autocorr: 0
+A (7,) p 5 selfconj i = 3 nonzero b with zero autocorr: 0
+A (9,) p 2 selfconj i = 3 nonzero b with zero autocorr: 0
+A (3, 3) p 2 selfconj i = 1 nonzero b with zero autocorr: 0
+A (11,) p 2 selfconj i = 5 nonzero b with zero autocorr: 0
+A (10,) p 3 selfconj i = 2 nonzero b with zero autocorr: 0
+A (2, 4) p 3 selfconj i = 1 nonzero b with zero autocorr: 0
+A (2, 2, 2) p 3 selfconj i = 1 nonzero b with zero autocorr: 0
+A (9,) p 5 selfconj i = 3 nonzero b with zero autocorr: 0
+A (3, 3) p 5 selfconj i = 1 nonzero b with zero autocorr: 0
+A (8,) p 7 selfconj i = 1 nonzero b with zero autocorr: 0
+A (7,) p 2 selfconj i = None nonzero b with zero autocorr: 14
+A (8,) p 3 selfconj i = None nonzero b with zero autocorr: 16
+A (3,) p 7 selfconj i = None nonzero b with zero autocorr: 12
+A (5,) p 11 selfconj i = None nonzero b with zero autocorr: 440
+A (2, 4) p 5 selfconj i = None nonzero b with zero autocorr: 80
+A (15,) p 2 selfconj i = None nonzero b with zero autocorr: 30
+A (13,) p 3 selfconj i = None nonzero b with zero autocorr: 2808
+B (3,) B 9 {(True, True, 'n0', 3): 57, (False, True, 'n0', 3): 57, (True, True, 0, 1): 1602, (False, True, 0, 1): 684, (True, True, 0, 2): 318, (True, True, 0, 3): 102, (False, True, 0, 2): 66, (False, False, 0, 1): 288, (False, True, 1, 1): 168, (False, True, 1, 2): 6}  []
+B (4,) B 6 {(False, True, 'n0', 3): 39, (True, True, 'n0', 3): 39, (False, True, 0, 1): 272, (True, True, 0, 1): 208, (False, True, 0, 2): 80, (False, True, 0, 3): 40, (True, True, 0, 2): 32, (False, False, 0, 1): 128}  []
+B (5,) B 4 {(True, True, 'n0', 3): 36, (False, True, 'n0', 3): 18, (True, True, 0, 1): 330, (True, True, 0, 2): 60, (False, True, 0, 1): 40, (True, True, 0, 3): 10}  []
+B (2, 2) B 6 {(False, True, 'n0', 3): 13, (True, True, 'n0', 3): 65, (False, True, 0, 1): 168, (True, True, 0, 1): 296, (False, True, 0, 2): 80, (False, True, 0, 3): 40, (True, True, 0, 2): 32}  []
+B (6,) B 3 {(False, True, 'n0', 3): 28, (True, True, 'n0', 3): 14, (False, True, 0, 1): 168, (False, True, 0, 2): 36, (True, True, 0, 1): 24, (False, False, 0, 1): 204, (False, False, 0, 2): 72}  []
+B (7,) B 2 {(False, True, 'n0', 3): 15, (True, True, 'n0', 3): 15, (False, True, 0, 1): 56, (True, True, 0, 1): 84, (False, True, 0, 2): 14, (False, True, 1, 1): 84, (False, True, 1, 2): 28, (False, False, 0, 1): 84, (False, False, 1, 1): 56, (False, False, 0, 2): 84}  []
+B (8,) B 2 {(False, True, 'n0', 3): 25, (True, True, 'n0', 3): 5, (False, True, 0, 1): 80, (False, True, 0, 2): 16, (False, False, 0, 1): 208, (False, False, 0, 2): 48}  []
+B (9,) B 1 {(True, True, 'n0', 3): 9, (False, True, 'n0', 3): 9, (True, True, 0, 1): 18}  []
+B (3, 3) B 1 {(True, True, 'n0', 3): 9, (False, True, 'n0', 3): 9, (True, True, 0, 1): 18, (False, False, 0, 1): 54}  []
+B (2, 4) B 2 {(False, True, 'n0', 3): 15, (True, True, 'n0', 3): 15, (False, True, 0, 1): 48, (True, True, 0, 1): 32, (False, True, 0, 2): 16, (False, False, 0, 1): 336, (False, False, 0, 2): 112}  []
+B (10,) B 1 {(False, True, 'n0', 3): 9, (True, True, 'n0', 3): 9, (False, True, 0, 1): 20, (False, False, 0, 1): 80}  []

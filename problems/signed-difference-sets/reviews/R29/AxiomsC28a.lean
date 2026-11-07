@@ -1,0 +1,12 @@
+import SignedDifferenceSets.EvenContraction
+import SignedDifferenceSets.UnramifiedDescent
+#print axioms SignedDifferenceSets.not_hasSDS_of_evenContraction
+#print axioms SignedDifferenceSets.EvenCert.not_hasSDS
+#print axioms SignedDifferenceSets.onGrp_of
+#print axioms SignedDifferenceSets.noVector_of_top
+#print axioms SignedDifferenceSets.Ma.dvd_contract_sub
+#print axioms SignedDifferenceSets.IsSDS.totient_mul_le
+#print axioms SignedDifferenceSets.DescentRowCert.not_hasSDS
+#check @SignedDifferenceSets.not_hasSDS_of_evenContraction
+#check @SignedDifferenceSets.EvenCert.not_hasSDS
+#print SignedDifferenceSets.EvenCert.Ok

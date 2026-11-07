@@ -1,0 +1,13 @@
+note: element format [2, 3, 3] for SDS(18,13,4,[3,6])
+{'sets': 692, 'G:': 133, 'A1 tests': 216, 'class tests': 216, 'j>=2': 55, 'c=1': 10, 'P:': 17, 'O:': 12, 'C:': 521, 'F:': 9}
+violations/kills: 10
+('C:Trivial[5]', 'tiers.tier', 1)
+('C:Trivial[9]', 'tiers.tier', 1)
+('C:Trivial[3, 3]', 'tiers.tier', 1)
+('C:Trivial[11]', 'tiers.tier', 1)
+('C:Trivial[13]', 'tiers.tier', 1)
+('C:Trivial[25]', 'tiers.tier', 1)
+('C:Trivial[5, 5]', 'tiers.tier', 1)
+('C:Trivial[27]', 'tiers.tier', 1)
+('C:Trivial[3, 9]', 'tiers.tier', 1)
+('C:Trivial[3, 3, 3]', 'tiers.tier', 1)

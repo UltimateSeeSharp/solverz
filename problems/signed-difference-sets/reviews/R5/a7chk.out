@@ -1,0 +1,232 @@
+N1951 SDS(99,57,8,[3,33]) H=[1, 33] r=6 theirs_r=6 leaves+=0 leaves-=0 good=0
+N579 SDS(60,51,2,[60]) H=[20] r=7 theirs_r=7 leaves+=356 leaves-=356 good=0
+N871 SDS(69,49,10,[69]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N1264 SDS(81,41,10,[3,27]) H=[1, 27] r=7 theirs_r=7 leaves+=234 leaves-=234 good=0
+N1953 SDS(99,58,21,[3,33]) H=[1, 33] r=9 theirs_r=9 leaves+=1170 leaves-=1170 good=0
+N1989 SDS(99,86,55,[3,33]) H=[1, 33] r=9 theirs_r=9 leaves+=105 leaves-=105 good=0
+N1336 SDS(81,80,19,[9,9]) H=[1, 9] r=5 theirs_r=5 leaves+=108 leaves-=108 good=0
+N874 SDS(69,52,4,[69]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N1309 SDS(81,64,33,[3,27]) H=[1, 27] r=7 theirs_r=7 leaves+=87 leaves-=87 good=0
+N1954 SDS(99,58,21,[99]) H=[33] r=9 theirs_r=9 leaves+=1170 leaves-=1170 good=0
+N2007 SDS(99,98,1,[3,33]) H=[1, 11] r=3 theirs_r=3 leaves+=2 leaves-=2 good=0
+N881 SDS(69,60,33,[69]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N1594 SDS(90,72,8,[90]) H=[45] r=8 theirs_r=8 leaves+=93 leaves-=93 good=0
+N1955 SDS(99,58,27,[3,33]) H=[1, 33] r=9 theirs_r=9 leaves+=1233 leaves-=1233 good=0
+N2011 SDS(99,98,17,[3,33]) H=[1, 11] r=3 theirs_r=3 leaves+=4 leaves-=4 good=0
+N1100 SDS(76,75,26,[2,38]) H=[1, 19] r=7 theirs_r=7 leaves+=455 leaves-=455 good=0
+N1274 SDS(81,49,6,[3,27]) H=[1, 27] r=7 theirs_r=7 leaves+=309 leaves-=309 good=0
+N1962 SDS(99,65,28,[99]) H=[33] r=9 theirs_r=9 leaves+=1170 leaves-=1170 good=0
+N2014 SDS(99,98,31,[99]) H=[9] r=5 theirs_r=5 leaves+=156 leaves-=156 good=0
+N2729 SDS(114,106,6,[114]) H=[19] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N3270 SDS(125,64,23,[5,25]) H=[1, 25] r=9 theirs_r=9 leaves+=9780 leaves-=9780 good=0
+N794 SDS(65,64,3,[65]) H=[13] r=5 theirs_r=5 leaves+=46 leaves-=46 good=0
+N1576 SDS(90,18,2,[90]) H=[45] r=8 theirs_r=8 leaves+=15 leaves-=15 good=0
+N573 SDS(60,45,20,[60]) H=[12] r=8 theirs_r=8 leaves+=4216 leaves-=4216 good=0
+N1334 SDS(81,80,19,[3,3,9]) H=[1, 1, 9] r=5 theirs_r=5 leaves+=108 leaves-=108 good=0
+N2413 SDS(108,83,34,[2,54]) H=[1, 27] r=7 theirs_r=7 leaves+=102 leaves-=102 good=0
+N4241 SDS(135,127,3,[135]) H=[27] r=7 theirs_r=7 leaves+=1026 leaves-=1026 good=0
+N4560 SDS(141,85,1,[141]) H=[47] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N5465 SDS(153,49,13,[3,51]) H=[1, 17] r=3 theirs_r=3 leaves+=1 leaves-=1 good=0
+N6923 SDS(171,121,48,[171]) H=[19] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N7507 SDS(177,64,7,[177]) H=[59] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N8564 SDS(189,165,137,[189]) H=[27] r=7 theirs_r=7 leaves+=54 leaves-=54 good=0
+N8585 SDS(189,173,1,[189]) H=[27] r=7 theirs_r=7 leaves+=3564 leaves-=3564 good=0
+N10338 SDS(207,68,16,[3,69]) H=[1, 69] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N10485 SDS(207,186,69,[207]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11050 SDS(213,121,64,[213]) H=[71] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N3312 SDS(125,97,66,[5,25]) H=[1, 25] r=9 theirs_r=9 leaves+=3180 leaves-=3180 good=0
+N4114 SDS(135,65,16,[3,45]) H=[1, 45] r=10 theirs_r=10 leaves+=7788 leaves-=7788 good=0
+N6858 SDS(171,69,26,[3,57]) H=[1, 57] r=9 theirs_r=9 leaves+=270 leaves-=270 good=0
+N6930 SDS(171,134,73,[3,57]) H=[1, 19] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N7305 SDS(175,151,107,[175]) H=[25] r=9 theirs_r=9 leaves+=5980 leaves-=5980 good=0
+N7696 SDS(180,61,12,[180]) H=[45] r=10 theirs_r=10 leaves+=12222 leaves-=12222 good=0
+N10346 SDS(207,82,9,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10486 SDS(207,194,1,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N12677 SDS(225,177,33,[15,15]) H=[5, 5] r=7 theirs_r=7 leaves+=3570 leaves-=3570 good=0
+N12760 SDS(225,224,13,[5,45]) H=[1, 9] r=5 theirs_r=5 leaves+=486 leaves-=486 good=0
+N13171 SDS(231,39,3,[231]) H=[77] r=9 theirs_r=9 leaves+=90 leaves-=90 good=0
+N13216 SDS(231,151,51,[231]) H=[77] r=9 theirs_r=9 leaves+=40 leaves-=40 good=0
+N13254 SDS(231,209,88,[231]) H=[21] r=6 theirs_r=6 leaves+=183 leaves-=183 good=0
+N13898 SDS(238,88,24,[238]) H=[119] r=9 theirs_r=9 leaves+=4 leaves-=4 good=0
+N14426 SDS(243,45,2,[3,81]) H=[1, 27] r=7 theirs_r=7 leaves+=477 leaves-=477 good=0
+N15048 SDS(243,218,139,[3,9,9]) H=[1, 1, 9] r=5 theirs_r=5 leaves+=180 leaves-=180 good=0
+N15181 SDS(243,242,1,[3,9,9]) H=[1, 1, 9] r=5 theirs_r=5 leaves+=576 leaves-=576 good=0
+N15207 SDS(243,242,49,[3,3,3,9]) H=[1, 1, 1, 9] r=5 theirs_r=5 leaves+=468 leaves-=468 good=0
+N15246 SDS(243,242,199,[9,27]) H=[1, 9] r=5 theirs_r=5 leaves+=42 leaves-=42 good=0
+N15461 SDS(245,169,48,[245]) H=[49] r=5 theirs_r=5 leaves+=4 leaves-=4 good=0
+N15511 SDS(245,208,17,[245]) H=[49] r=5 theirs_r=5 leaves+=0 leaves-=0 good=0
+N15925 SDS(249,121,10,[249]) H=[83] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N16671 SDS(255,129,48,[255]) H=[85] r=7 theirs_r=7 leaves+=0 leaves-=0 good=0
+N16750 SDS(255,242,121,[255]) H=[51] r=5 theirs_r=5 leaves+=12 leaves-=12 good=0
+N18015 SDS(259,102,31,[259]) H=[37] r=5 theirs_r=5 leaves+=0 leaves-=0 good=0
+N18086 SDS(259,219,7,[259]) H=[37] r=5 theirs_r=5 leaves+=24 leaves-=24 good=0
+N18145 SDS(260,127,6,[260]) H=[52] r=7 theirs_r=7 leaves+=284 leaves-=284 good=0
+N18233 SDS(261,29,1,[261]) H=[29] r=5 theirs_r=5 leaves+=12 leaves-=12 good=0
+N19413 SDS(270,233,184,[270]) H=[27] r=7 theirs_r=7 leaves+=102 leaves-=102 good=0
+N19889 SDS(273,169,48,[273]) H=[39] r=5 theirs_r=5 leaves+=3 leaves-=3 good=0
+N20324 SDS(276,191,22,[276]) H=[46] r=6 theirs_r=6 leaves+=72 leaves-=72 good=0
+N20572 SDS(279,77,14,[3,93]) H=[1, 31] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N20604 SDS(279,125,22,[3,93]) H=[1, 31] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N20623 SDS(279,145,12,[279]) H=[93] r=9 theirs_r=9 leaves+=1260 leaves-=1260 good=0
+N20676 SDS(279,185,88,[3,93]) H=[1, 31] r=7 theirs_r=7 leaves+=1275 leaves-=1275 good=0
+N20789 SDS(279,261,90,[279]) H=[31] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N3255 SDS(125,40,9,[5,25]) H=[1, 25] r=9 theirs_r=9 leaves+=7130 leaves-=7130 good=0
+N6477 SDS(165,132,96,[165]) H=[55] r=9 theirs_r=9 leaves+=88 leaves-=88 good=0
+N6860 SDS(171,70,9,[3,57]) H=[1, 57] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N7523 SDS(177,97,22,[177]) H=[59] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N8411 SDS(189,56,13,[189]) H=[27] r=7 theirs_r=7 leaves+=477 leaves-=477 good=0
+N8483 SDS(189,128,16,[189]) H=[27] r=7 theirs_r=7 leaves+=1920 leaves-=1920 good=0
+N9207 SDS(195,129,8,[195]) H=[39] r=5 theirs_r=5 leaves+=0 leaves-=0 good=0
+N10115 SDS(203,198,1,[203]) H=[29] r=5 theirs_r=5 leaves+=36 leaves-=36 good=0
+N10356 SDS(207,97,24,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10470 SDS(207,182,19,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11536 SDS(216,189,20,[2,108]) H=[1, 27] r=7 theirs_r=7 leaves+=3888 leaves-=3888 good=0
+N11612 SDS(217,144,2,[217]) H=[31] r=7 theirs_r=7 leaves+=3720 leaves-=3720 good=0
+N1961 SDS(99,65,28,[3,33]) H=[1, 33] r=9 theirs_r=9 leaves+=1170 leaves-=1170 good=0
+N3005 SDS(120,67,18,[120]) H=[20] r=7 theirs_r=7 leaves+=620 leaves-=620 good=0
+N4201 SDS(135,106,57,[3,45]) H=[1, 45] r=10 theirs_r=10 leaves+=3156 leaves-=3156 good=0
+N4583 SDS(141,121,10,[141]) H=[47] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N5566 SDS(154,52,16,[154]) H=[77] r=9 theirs_r=9 leaves+=54 leaves-=54 good=0
+N6498 SDS(165,160,129,[165]) H=[33] r=9 theirs_r=9 leaves+=90 leaves-=90 good=0
+N6866 SDS(171,81,20,[3,57]) H=[1, 57] r=9 theirs_r=9 leaves+=1020 leaves-=1020 good=0
+N7548 SDS(177,144,81,[177]) H=[59] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N8396 SDS(189,32,4,[189]) H=[27] r=7 theirs_r=7 leaves+=174 leaves-=174 good=0
+N9231 SDS(195,162,81,[195]) H=[65] r=10 theirs_r=10 leaves+=1096 leaves-=1096 good=0
+N10471 SDS(207,182,19,[207]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11075 SDS(213,169,40,[213]) H=[71] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11187 SDS(215,136,12,[215]) H=[43] r=7 theirs_r=7 leaves+=1116 leaves-=1116 good=0
+N11507 SDS(216,181,132,[2,2,54]) H=[1, 1, 27] r=7 theirs_r=7 leaves+=102 leaves-=102 good=0
+N11973 SDS(221,196,96,[221]) H=[17] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N12763 SDS(225,224,55,[3,75]) H=[1, 15] r=6 theirs_r=6 leaves+=1962 leaves-=1962 good=0
+N12991 SDS(228,188,88,[228]) H=[57] r=9 theirs_r=9 leaves+=1350 leaves-=1350 good=0
+N13919 SDS(238,174,110,[238]) H=[119] r=9 theirs_r=9 leaves+=12 leaves-=12 good=0
+N4402 SDS(138,74,10,[138]) H=[69] r=6 theirs_r=6 leaves+=0 leaves-=0 good=0
+N5572 SDS(154,72,8,[154]) H=[77] r=6 theirs_r=6 leaves+=0 leaves-=0 good=0
+N6876 SDS(171,89,16,[3,57]) H=[1, 57] r=9 theirs_r=9 leaves+=1560 leaves-=1560 good=0
+N6902 SDS(171,106,63,[3,57]) H=[1, 57] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N7058 SDS(172,153,32,[2,86]) H=[1, 43] r=7 theirs_r=7 leaves+=600 leaves-=600 good=0
+N7549 SDS(177,148,1,[177]) H=[59] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N7765 SDS(180,147,98,[2,90]) H=[1, 45] r=10 theirs_r=10 leaves+=3354 leaves-=3354 good=0
+N8572 SDS(189,168,89,[3,63]) H=[1, 9] r=5 theirs_r=5 leaves+=180 leaves-=180 good=0
+N8620 SDS(190,88,24,[190]) H=[95] r=5 theirs_r=5 leaves+=2 leaves-=2 good=0
+N10444 SDS(207,162,89,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10476 SDS(207,184,60,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10822 SDS(210,168,104,[210]) H=[35] r=6 theirs_r=6 leaves+=45 leaves-=45 good=0
+N11021 SDS(213,52,4,[213]) H=[71] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11200 SDS(215,151,27,[215]) H=[43] r=7 theirs_r=7 leaves+=570 leaves-=570 good=0
+N12472 SDS(225,57,8,[5,45]) H=[1, 45] r=10 theirs_r=10 leaves+=14313 leaves-=14313 good=0
+N12764 SDS(225,224,55,[5,45]) H=[1, 15] r=6 theirs_r=6 leaves+=1962 leaves-=1962 good=0
+N13221 SDS(231,156,12,[231]) H=[77] r=9 theirs_r=9 leaves+=1982 leaves-=1982 good=0
+N13930 SDS(238,198,54,[238]) H=[17] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N1702 SDS(93,72,9,[93]) H=[31] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N1978 SDS(99,78,41,[99]) H=[33] r=9 theirs_r=9 leaves+=840 leaves-=840 good=0
+N4425 SDS(138,136,72,[138]) H=[23] r=3 theirs_r=3 leaves+=2 leaves-=2 good=0
+N5449 SDS(152,145,96,[2,2,38]) H=[1, 1, 19] r=7 theirs_r=7 leaves+=455 leaves-=455 good=0
+N5513 SDS(153,112,12,[3,51]) H=[1, 17] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N5579 SDS(154,106,6,[154]) H=[77] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N6438 SDS(165,45,9,[165]) H=[55] r=9 theirs_r=9 leaves+=146 leaves-=146 good=0
+N6877 SDS(171,89,16,[171]) H=[57] r=9 theirs_r=9 leaves+=1560 leaves-=1560 good=0
+N6904 SDS(171,110,37,[3,57]) H=[1, 57] r=9 theirs_r=9 leaves+=1710 leaves-=1710 good=0
+N6948 SDS(171,149,10,[3,57]) H=[1, 57] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N9242 SDS(195,178,57,[195]) H=[39] r=5 theirs_r=5 leaves+=0 leaves-=0 good=0
+N10148 SDS(204,123,42,[204]) H=[68] r=7 theirs_r=7 leaves+=32 leaves-=32 good=0
+N10368 SDS(207,110,29,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10406 SDS(207,133,6,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10445 SDS(207,162,89,[207]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10478 SDS(207,185,16,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11091 SDS(213,196,67,[213]) H=[71] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11509 SDS(216,181,132,[2,108]) H=[1, 27] r=7 theirs_r=7 leaves+=102 leaves-=102 good=0
+N12003 SDS(222,152,88,[222]) H=[111] r=5 theirs_r=5 leaves+=0 leaves-=0 good=0
+N12455 SDS(225,32,1,[3,75]) H=[1, 25] r=9 theirs_r=9 leaves+=7400 leaves-=7400 good=0
+N12765 SDS(225,224,55,[15,15]) H=[1, 15] r=6 theirs_r=6 leaves+=1962 leaves-=1962 good=0
+N13187 SDS(231,104,4,[231]) H=[77] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N13225 SDS(231,164,16,[231]) H=[77] r=9 theirs_r=9 leaves+=568 leaves-=568 good=0
+N13935 SDS(238,208,64,[238]) H=[119] r=9 theirs_r=9 leaves+=180 leaves-=180 good=0
+N14511 SDS(243,93,14,[9,27]) H=[1, 27] r=7 theirs_r=7 leaves+=1377 leaves-=1377 good=0
+N14622 SDS(243,125,58,[3,81]) H=[1, 81] r=9 theirs_r=9 leaves+=651 leaves-=651 good=0
+N14755 SDS(243,158,1,[3,81]) H=[1, 27] r=7 theirs_r=7 leaves+=5535 leaves-=5535 good=0
+N14991 SDS(243,210,113,[3,3,27]) H=[1, 1, 27] r=7 theirs_r=7 leaves+=957 leaves-=957 good=0
+N15064 SDS(243,221,70,[9,27]) H=[1, 27] r=7 theirs_r=7 leaves+=2664 leaves-=2664 good=0
+N15200 SDS(243,242,31,[3,3,3,9]) H=[1, 1, 1, 9] r=5 theirs_r=5 leaves+=486 leaves-=486 good=0
+N15211 SDS(243,242,49,[9,27]) H=[1, 9] r=5 theirs_r=5 leaves+=468 leaves-=468 good=0
+N15585 SDS(246,86,22,[246]) H=[123] r=8 theirs_r=8 leaves+=0 leaves-=0 good=0
+N16688 SDS(255,153,32,[255]) H=[51] r=5 theirs_r=5 leaves+=0 leaves-=0 good=0
+N19286 SDS(270,57,8,[3,90]) H=[1, 45] r=10 theirs_r=10 leaves+=14571 leaves-=14571 good=0
+N19766 SDS(272,224,80,[272]) H=[17] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N20304 SDS(276,141,60,[276]) H=[92] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N20370 SDS(276,251,82,[276]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N20609 SDS(279,129,32,[279]) H=[31] r=7 theirs_r=7 leaves+=1275 leaves-=1275 good=0
+N20630 SDS(279,150,53,[3,93]) H=[1, 31] r=7 theirs_r=7 leaves+=1350 leaves-=1350 good=0
+N20652 SDS(279,173,2,[3,93]) H=[1, 31] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N20702 SDS(279,205,42,[3,93]) H=[1, 31] r=7 theirs_r=7 leaves+=4410 leaves-=4410 good=0
+N20725 SDS(279,218,121,[279]) H=[31] r=7 theirs_r=7 leaves+=1350 leaves-=1350 good=0
+N20800 SDS(279,266,103,[3,93]) H=[1, 31] r=7 theirs_r=7 leaves+=2190 leaves-=2190 good=0
+N21461 SDS(285,217,156,[285]) H=[57] r=9 theirs_r=9 leaves+=180 leaves-=180 good=0
+N5450 SDS(152,145,96,[2,76]) H=[1, 19] r=7 theirs_r=7 leaves+=455 leaves-=455 good=0
+N5514 SDS(153,112,12,[153]) H=[17] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N5580 SDS(154,106,70,[154]) H=[77] r=9 theirs_r=9 leaves+=36 leaves-=36 good=0
+N6905 SDS(171,110,37,[171]) H=[57] r=9 theirs_r=9 leaves+=1710 leaves-=1710 good=0
+N6966 SDS(171,154,15,[3,57]) H=[1, 57] r=9 theirs_r=9 leaves+=3150 leaves-=3150 good=0
+N7151 SDS(174,78,14,[174]) H=[87] r=5 theirs_r=5 leaves+=0 leaves-=0 good=0
+N10369 SDS(207,110,29,[207]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10407 SDS(207,133,6,[207]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10432 SDS(207,158,7,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10452 SDS(207,166,3,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10480 SDS(207,185,104,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11038 SDS(213,100,43,[213]) H=[71] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11103 SDS(213,205,157,[213]) H=[71] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N5515 SDS(153,112,76,[3,51]) H=[1, 17] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N6968 SDS(171,154,81,[3,57]) H=[1, 57] r=9 theirs_r=9 leaves+=540 leaves-=540 good=0
+N7298 SDS(175,151,7,[5,35]) H=[5, 5] r=7 theirs_r=7 leaves+=3570 leaves-=3570 good=0
+N7692 SDS(180,59,10,[180]) H=[45] r=10 theirs_r=10 leaves+=11574 leaves-=11574 good=0
+N7724 SDS(180,101,52,[180]) H=[45] r=10 theirs_r=10 leaves+=7035 leaves-=7035 good=0
+N10408 SDS(207,135,11,[3,69]) H=[1, 69] r=9 theirs_r=9 leaves+=1260 leaves-=1260 good=0
+N10454 SDS(207,167,43,[3,69]) H=[1, 69] r=9 theirs_r=9 leaves+=378 leaves-=378 good=0
+N10481 SDS(207,185,104,[207]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11756 SDS(219,152,4,[219]) H=[73] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N5099 SDS(147,138,101,[7,21]) H=[1, 21] r=9 theirs_r=9 leaves+=1398 leaves-=1398 good=0
+N5283 SDS(150,120,56,[150]) H=[75] r=8 theirs_r=8 leaves+=18 leaves-=18 good=0
+N5516 SDS(153,112,76,[153]) H=[17] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N6969 SDS(171,154,81,[171]) H=[57] r=9 theirs_r=9 leaves+=540 leaves-=540 good=0
+N7693 SDS(180,61,12,[2,90]) H=[1, 45] r=10 theirs_r=10 leaves+=12222 leaves-=12222 good=0
+N8510 SDS(189,145,102,[189]) H=[27] r=7 theirs_r=7 leaves+=228 leaves-=228 good=0
+N9193 SDS(195,105,24,[195]) H=[65] r=10 theirs_r=10 leaves+=2970 leaves-=2970 good=0
+N10418 SDS(207,141,14,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10482 SDS(207,186,35,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N11047 SDS(213,117,9,[213]) H=[71] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N2730 SDS(114,109,60,[114]) H=[19] r=7 theirs_r=7 leaves+=455 leaves-=455 good=0
+N2864 SDS(117,81,20,[3,39]) H=[1, 13] r=5 theirs_r=5 leaves+=50 leaves-=50 good=0
+N3300 SDS(125,81,40,[5,25]) H=[1, 25] r=9 theirs_r=9 leaves+=9610 leaves-=9610 good=0
+N4555 SDS(141,81,18,[141]) H=[47] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N6762 SDS(169,121,60,[13,13]) H=[1, 13] r=5 theirs_r=5 leaves+=50 leaves-=50 good=0
+N6922 SDS(171,121,48,[3,57]) H=[1, 19] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N7193 SDS(175,52,8,[175]) H=[25] r=9 theirs_r=9 leaves+=21250 leaves-=21250 good=0
+N7712 SDS(180,87,38,[180]) H=[45] r=10 theirs_r=10 leaves+=8688 leaves-=8688 good=0
+N10419 SDS(207,141,14,[207]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N10436 SDS(207,159,107,[3,69]) H=[1, 69] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N10484 SDS(207,186,69,[3,69]) H=[1, 23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N12463 SDS(225,36,5,[3,75]) H=[1, 25] r=9 theirs_r=9 leaves+=7400 leaves-=7400 good=0
+N12675 SDS(225,177,33,[3,75]) H=[1, 25] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N13137 SDS(230,158,14,[230]) H=[115] r=6 theirs_r=6 leaves+=0 leaves-=0 good=0
+N14424 SDS(243,45,2,[3,3,27]) H=[1, 1, 27] r=7 theirs_r=7 leaves+=477 leaves-=477 good=0
+N14595 SDS(243,121,24,[9,27]) H=[1, 27] r=7 theirs_r=7 leaves+=2037 leaves-=2037 good=0
+N14650 SDS(243,130,63,[3,81]) H=[1, 81] r=9 theirs_r=9 leaves+=450 leaves-=450 good=0
+N14748 SDS(243,157,66,[3,81]) H=[1, 81] r=9 theirs_r=9 leaves+=402 leaves-=402 good=0
+N14811 SDS(243,170,67,[3,81]) H=[1, 27] r=7 theirs_r=7 leaves+=1839 leaves-=1839 good=0
+N15046 SDS(243,218,139,[3,3,3,9]) H=[1, 1, 1, 9] r=5 theirs_r=5 leaves+=180 leaves-=180 good=0
+N15179 SDS(243,242,1,[3,3,3,9]) H=[1, 1, 1, 9] r=5 theirs_r=5 leaves+=576 leaves-=576 good=0
+N15204 SDS(243,242,31,[9,27]) H=[1, 9] r=5 theirs_r=5 leaves+=486 leaves-=486 good=0
+N15244 SDS(243,242,199,[3,9,9]) H=[1, 1, 9] r=5 theirs_r=5 leaves+=42 leaves-=42 good=0
+N15369 SDS(245,48,4,[245]) H=[49] r=5 theirs_r=5 leaves+=1 leaves-=1 good=0
+N15447 SDS(245,161,10,[245]) H=[49] r=5 theirs_r=5 leaves+=4 leaves-=4 good=0
+N15481 SDS(245,188,89,[245]) H=[49] r=5 theirs_r=5 leaves+=8 leaves-=8 good=0
+N15910 SDS(249,72,9,[249]) H=[83] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N18968 SDS(267,169,72,[267]) H=[89] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N19876 SDS(273,144,23,[273]) H=[39] r=5 theirs_r=5 leaves+=0 leaves-=0 good=0
+N19919 SDS(273,217,117,[273]) H=[13] r=4 theirs_r=4 leaves+=3 leaves-=3 good=0
+N20111 SDS(275,171,27,[5,55]) H=[5, 5] r=7 theirs_r=7 leaves+=3570 leaves-=3570 good=0
+N20322 SDS(276,181,12,[276]) H=[23] r=3 theirs_r=3 leaves+=0 leaves-=0 good=0
+N20674 SDS(279,185,52,[3,93]) H=[1, 93] r=9 theirs_r=9 leaves+=1260 leaves-=1260 good=0
+N20737 SDS(279,222,89,[279]) H=[93] r=9 theirs_r=9 leaves+=0 leaves-=0 good=0
+N21413 SDS(285,96,15,[285]) H=[95] r=5 theirs_r=5 leaves+=1 leaves-=1 good=0
+N21561 SDS(286,244,48,[286]) H=[143] r=5 theirs_r=5 leaves+=0 leaves-=0 good=0

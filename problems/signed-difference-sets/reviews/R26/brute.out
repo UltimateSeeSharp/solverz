@@ -1,0 +1,5 @@
+2x5 {'sds': 142, 'applicable': 40, 'nonsqf': 0, 'fail': 0, 'ctrl_fixed': 0, 'ctrl_tested': 0}
+11 {'sds': 266, 'applicable': 242, 'nonsqf': 66, 'fail': 0, 'ctrl_fixed': 0, 'ctrl_tested': 44}
+13 {'sds': 626, 'applicable': 598, 'nonsqf': 338, 'fail': 0, 'ctrl_fixed': 0, 'ctrl_tested': 312}
+2x7 {'sds': 310, 'applicable': 56, 'nonsqf': 0, 'fail': 0, 'ctrl_fixed': 0, 'ctrl_tested': 0}
+3x5 {'sds': 272, 'applicable': 270, 'nonsqf': 210, 'fail': 0, 'ctrl_fixed': 30, 'ctrl_tested': 210}

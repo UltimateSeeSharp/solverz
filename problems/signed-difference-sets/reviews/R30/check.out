@@ -1,0 +1,38 @@
+'SignedDifferenceSets.IsSDS.exists_translate_fixed_contract_selfConj' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SignedDifferenceSets.exists_translate_fixed_of_autocorr_selfConj' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_cosetRowSelfConj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_cosetRowCongr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n29176_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n9541_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n9543_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n43664_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n69318_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n37651_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n43469_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n43472_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n37613_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n68992_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n69187_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n69188_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n22696_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n31579_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n53298_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n53285_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n31578_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n49068_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n69100_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n43533_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n43536_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n69166_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n69042_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n36412_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n58654_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n42350_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	7m39.839s
+user	0m0.905s
+sys	0m2.436s

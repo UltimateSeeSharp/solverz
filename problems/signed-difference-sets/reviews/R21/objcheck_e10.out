@@ -1,0 +1,34 @@
+N13963 [239] (239, 120, 58) sds violations: []
+N18527 [263] (263, 132, 64) sds violations: []
+N49624 [421] (421, 316, 25) sds violations: []
+N10864 [211] (211, 106, 51) sds violations: []
+N12056 [223] (223, 112, 54) sds violations: []
+N16190 [251] (251, 126, 61) sds violations: []
+N19488 [271] (271, 136, 66) sds violations: []
+N352 [7, 7] (49, 33, 1) sds violations: []
+N49190 [419] (419, 210, 103) sds violations: []
+N1164 [79] (79, 61, 38) sds violations: []
+N11991 [222] (222, 69, 20) sds violations: []
+N58470 [455] (455, 71, 7) sds violations: []
+N11650 [217] (217, 193, 168) sds violations: []
+N3486 [127] (127, 109, 90) sds violations: []
+N13963 p=239 e=0 skipped chars
+N18527 p=263 e=0 skipped chars
+N49624 p=421 e=0 skipped chars
+N10864 p=211 e=0 skipped chars
+N12056 p=223 e=0 skipped chars
+N16190 p=251 e=0 skipped chars
+N19488 p=271 e=0 skipped chars
+N352 p=7 e=0 skipped chars
+N49190 p=419 e=0 skipped chars
+N1164 p=79 e=0 skipped chars
+N11991 [222] (222, 69, 20) p=2 t=1 e=0 s=67 q=2 pairs=0
+N11991 p=3 e=0 skipped chars
+N11991 p=37 e=0 skipped chars
+N58470 p=5 e=0 skipped chars
+N58470 p=7 e=0 skipped chars
+N58470 p=13 e=0 skipped chars
+N11650 p=7 e=0 skipped chars
+N11650 p=31 e=0 skipped chars
+N3486 p=127 e=0 skipped chars
+TOTAL violations 0

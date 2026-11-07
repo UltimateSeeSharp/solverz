@@ -1,0 +1,74 @@
+note: element format [2, 3, 3] for SDS(18,13,4,[3,6])
+5 C:CW(13,9)xCW(13,9)xCW(4,4)
+3 C:CW(13,9)xCW(4,4)
+2 C:CW(13,9)xCW(7,4)
+6 C:CW(13,9)xCW(7,4)xCW(4,4)
+9 C:CW(4,4)xCW(13,9)xCW(4,4)
+6 C:CW(7,4)xCW(13,9)xCW(4,4)
+2 C:Singer(16,3)
+2 C:Singer(16,3)^c
+2 C:Singer(2,4)
+2 C:Singer(2,4)^c
+2 C:Singer(2,6)
+2 C:Singer(2,6)^c
+3 C:Singer(2,8)
+3 C:Singer(2,8)^c
+3 C:Singer(25,3)
+3 C:Singer(25,3)^c
+4 C:Singer(3,4)
+4 C:Singer(3,4)^c
+5 C:Singer(3,6)
+5 C:Singer(3,6)^c
+1 C:Singer(4,3)
+1 C:Singer(4,3)^c
+2 C:Singer(4,4)
+2 C:Singer(4,4)^c
+5 C:Singer(5,4)
+5 C:Singer(5,4)^c
+1 C:Singer(9,3)
+1 C:Singer(9,3)^c
+1 C:Trivial[11]
+1 C:Trivial[13]
+2 C:Trivial[15]
+1 C:Trivial[21]
+2 C:Trivial[25]
+3 C:Trivial[27]
+4 C:Trivial[3, 15]
+7 C:Trivial[3, 3, 3]
+3 C:Trivial[3, 3]
+5 C:Trivial[3, 9]
+3 C:Trivial[45]
+3 C:Trivial[5, 5]
+1 C:Trivial[5]
+2 C:Trivial[9]
+2 C:TwinPrime(11,13)
+2 C:TwinPrime(11,13)^c
+2 C:TwinPrime(17,19)
+2 C:TwinPrime(17,19)^c
+3 C:TwinPrime(29,31)
+3 C:TwinPrime(29,31)^c
+2 C:TwinPrime(3,5)
+2 C:TwinPrime(3,5)^c
+2 C:TwinPrime(5,7)
+2 C:TwinPrime(5,7)^c
+3 C:TwinPrime(7,9)
+3 C:TwinPrime(7,9)^c
+6 G:SDS(126,96,32,[126])
+1 G:SDS(143,98,23,[143])
+1 G:SDS(18,13,4,[3,6])
+2 G:SDS(187,97,48,[187])
+1 G:SDS(219,172,108,[219])
+1 G:SDS(219,83,19,[219])
+1 G:SDS(35,19,3,[35])
+3 G:SDS(391,199,99,[391])
+1 G:SDS(55,10,1,[55])
+2 G:SDS(55,31,15,[55])
+25 G:SDS(80,44,8,[80])
+5 G:SDS(80,72,36,[80])
+2 G:SDS(91,49,24,[91])
+1 G:SDS(91,76,60,[91])
+1 G:SDS(93,32,7,[93])
+1 G:SDS(93,73,48,[93])
+2 P:r4:SDS(36,11,2,[3,12])
+3 P:r4:SDS(36,11,2,[6,6])
+{'sets': 683, 'tests': 216, 'j>=2': 55, 'c=1': 10, 'not_sds': 147} 0

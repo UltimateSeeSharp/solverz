@@ -1,0 +1,297 @@
+q=5 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(5,4,3,[5]) db=ABSENT '' csv=-
+q=5 signs(C0..C3,0)=(-1, -1, -1, 0, -1): SDS(5,4,3,[5]) db=ABSENT '' csv=-
+q=5 signs(C0..C3,0)=(-1, -1, 0, -1, -1): SDS(5,4,3,[5]) db=ABSENT '' csv=-
+q=5 signs(C0..C3,0)=(-1, -1, 0, 1, 1): SDS(5,4,-1,[5]) db=Yes 'Paley' csv=N1 exists
+q=5 signs(C0..C3,0)=(-1, 0, -1, -1, -1): SDS(5,4,3,[5]) db=ABSENT '' csv=-
+q=5 signs(C0..C3,0)=(-1, 0, 0, 0, 0): SDS(5,1,0,[5]) db=ABSENT '' csv=-
+q=5 signs(C0..C3,0)=(-1, 0, 1, -1, 1): SDS(5,4,-1,[5]) db=Yes 'Paley' csv=N1 exists
+q=5 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(5,4,-1,[5]) db=Yes 'Paley' csv=N1 exists
+q=5 signs(C0..C3,0)=(-1, 1, 1, 0, -1): SDS(5,4,-1,[5]) db=Yes 'Paley' csv=N1 exists
+q=5 signs(C0..C3,0)=(0, -1, -1, -1, -1): SDS(5,4,3,[5]) db=ABSENT '' csv=-
+q=5 signs(C0..C3,0)=(0, -1, 0, 0, 0): SDS(5,1,0,[5]) db=ABSENT '' csv=-
+q=5 signs(C0..C3,0)=(0, -1, 1, 1, -1): SDS(5,4,-1,[5]) db=Yes 'Paley' csv=N1 exists
+q=5 signs(C0..C3,0)=(0, 0, -1, 0, 0): SDS(5,1,0,[5]) db=ABSENT '' csv=-
+q=5 signs(C0..C3,0)=(0, 0, 0, -1, 0): SDS(5,1,0,[5]) db=ABSENT '' csv=-
+q=5 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(5,1,0,[5]) db=ABSENT '' csv=-
+q=9 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(9,8,7,[3,3]) db=ABSENT '' csv=-
+q=9 signs(C0..C3,0)=(-1, -1, 1, 1, 0): SDS(9,8,-1,[3,3]) db=Yes 'PDS construction of He, Chen and Ge' csv=N2 exists
+q=9 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(9,8,-1,[3,3]) db=Yes 'PDS construction of He, Chen and Ge' csv=N2 exists
+q=9 signs(C0..C3,0)=(-1, 1, 1, -1, 0): SDS(9,8,-1,[3,3]) db=Yes 'PDS construction of He, Chen and Ge' csv=N2 exists
+q=9 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(9,1,0,[3,3]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(13,12,11,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, -1, -1, 0, 0): SDS(13,9,6,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, -1, -1, 1, 1): SDS(13,13,1,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, -1, 0, -1, 0): SDS(13,9,6,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, -1, 1, -1, 1): SDS(13,13,1,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, -1, 1, 0, 0): SDS(13,9,0,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, 0, -1, -1, 0): SDS(13,9,6,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, 0, -1, 1, 0): SDS(13,9,0,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, 0, 0, 0, -1): SDS(13,4,1,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, 0, 1, 1, 0): SDS(13,9,0,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, 1, -1, -1, 1): SDS(13,13,1,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, 1, -1, 0, 0): SDS(13,9,0,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(13,12,-1,[13]) db=Yes 'Paley' csv=N8 exists
+q=13 signs(C0..C3,0)=(-1, 1, 0, -1, 0): SDS(13,9,0,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, 1, 0, 1, 0): SDS(13,9,0,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(-1, 1, 1, 1, -1): SDS(13,13,1,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(0, -1, -1, -1, 0): SDS(13,9,6,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(0, -1, -1, 1, 0): SDS(13,9,0,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(0, -1, 0, 0, -1): SDS(13,4,1,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(0, -1, 1, -1, 0): SDS(13,9,0,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(0, 0, -1, 0, -1): SDS(13,4,1,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(0, 0, 0, -1, -1): SDS(13,4,1,[13]) db=ABSENT '' csv=-
+q=13 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(13,1,0,[13]) db=ABSENT '' csv=-
+q=17 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(17,16,15,[17]) db=ABSENT '' csv=-
+q=17 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(17,16,-1,[17]) db=Yes 'Paley' csv=N16 exists
+q=17 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(17,1,0,[17]) db=ABSENT '' csv=-
+q=25 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(25,24,23,[5,5]) db=ABSENT '' csv=-
+q=25 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(25,24,-1,[5,5]) db=Yes 'PDS construction of He, Chen and Ge' csv=N53 exists
+q=25 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(25,1,0,[5,5]) db=ABSENT '' csv=-
+q=29 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(29,28,27,[29]) db=ABSENT '' csv=-
+q=29 signs(C0..C3,0)=(-1, 0, 0, 0, 1): SDS(29,8,1,[29]) db=All 'Quartic residues and zero' csv=N101 exists
+q=29 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(29,28,-1,[29]) db=Yes 'Paley' csv=N107 exists
+q=29 signs(C0..C3,0)=(0, -1, 0, 0, 1): SDS(29,8,1,[29]) db=All 'Quartic residues and zero' csv=N101 exists
+q=29 signs(C0..C3,0)=(0, 0, -1, 0, 1): SDS(29,8,1,[29]) db=All 'Quartic residues and zero' csv=N101 exists
+q=29 signs(C0..C3,0)=(0, 0, 0, -1, 1): SDS(29,8,1,[29]) db=All 'Quartic residues and zero' csv=N101 exists
+q=29 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(29,1,0,[29]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(37,36,35,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(-1, -1, -1, 0, -1): SDS(37,28,21,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(-1, -1, -1, 1, -1): SDS(37,37,9,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(-1, -1, 0, -1, -1): SDS(37,28,21,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(-1, -1, 1, -1, -1): SDS(37,37,9,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(-1, 0, -1, -1, -1): SDS(37,28,21,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(-1, 0, 0, 0, 0): SDS(37,9,2,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(-1, 1, -1, -1, -1): SDS(37,37,9,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(37,36,-1,[37]) db=Yes 'Paley' csv=N192 exists
+q=37 signs(C0..C3,0)=(-1, 1, 1, 1, 1): SDS(37,37,9,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(0, -1, -1, -1, -1): SDS(37,28,21,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(0, -1, 0, 0, 0): SDS(37,9,2,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(0, 0, -1, 0, 0): SDS(37,9,2,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(0, 0, 0, -1, 0): SDS(37,9,2,[37]) db=ABSENT '' csv=-
+q=37 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(37,1,0,[37]) db=ABSENT '' csv=-
+q=41 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(41,40,39,[41]) db=ABSENT '' csv=-
+q=41 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(41,40,-1,[41]) db=Yes 'Paley' csv=N234 exists
+q=41 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(41,1,0,[41]) db=ABSENT '' csv=-
+q=49 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(49,48,47,[7,7]) db=ABSENT '' csv=-
+q=49 signs(C0..C3,0)=(-1, -1, 1, 1, 0): SDS(49,48,-1,[7,7]) db=Yes 'PDS construction of He, Chen and Ge' csv=N360 exists
+q=49 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(49,48,-1,[7,7]) db=Yes 'PDS construction of He, Chen and Ge' csv=N360 exists
+q=49 signs(C0..C3,0)=(-1, 1, 1, -1, 0): SDS(49,48,-1,[7,7]) db=Yes 'PDS construction of He, Chen and Ge' csv=N360 exists
+q=49 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(49,1,0,[7,7]) db=ABSENT '' csv=-
+q=53 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(53,52,51,[53]) db=ABSENT '' csv=-
+q=53 signs(C0..C3,0)=(-1, -1, -1, 0, 1): SDS(53,40,27,[53]) db=All 'Orbit exhaust' csv=N435 exists
+q=53 signs(C0..C3,0)=(-1, -1, 0, -1, 1): SDS(53,40,27,[53]) db=All 'Orbit exhaust' csv=N435 exists
+q=53 signs(C0..C3,0)=(-1, 0, -1, -1, 1): SDS(53,40,27,[53]) db=All 'Orbit exhaust' csv=N435 exists
+q=53 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(53,52,-1,[53]) db=Yes 'Paley' csv=N443 exists
+q=53 signs(C0..C3,0)=(0, -1, -1, -1, 1): SDS(53,40,27,[53]) db=All 'Orbit exhaust' csv=N435 exists
+q=53 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(53,1,0,[53]) db=ABSENT '' csv=-
+q=61 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(61,60,59,[61]) db=ABSENT '' csv=-
+q=61 signs(C0..C3,0)=(-1, 0, 0, 0, 1): SDS(61,16,3,[61]) db=All 'Quartic residues and zero' csv=N584 exists
+q=61 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(61,60,-1,[61]) db=Yes 'Paley' csv=N598 exists
+q=61 signs(C0..C3,0)=(0, -1, 0, 0, 1): SDS(61,16,3,[61]) db=All 'Quartic residues and zero' csv=N584 exists
+q=61 signs(C0..C3,0)=(0, 0, -1, 0, 1): SDS(61,16,3,[61]) db=All 'Quartic residues and zero' csv=N584 exists
+q=61 signs(C0..C3,0)=(0, 0, 0, -1, 1): SDS(61,16,3,[61]) db=All 'Quartic residues and zero' csv=N584 exists
+q=61 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(61,1,0,[61]) db=ABSENT '' csv=-
+q=73 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(73,72,71,[73]) db=ABSENT '' csv=-
+q=73 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(73,72,-1,[73]) db=Yes 'Paley' csv=N985 exists
+q=73 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(73,1,0,[73]) db=ABSENT '' csv=-
+q=81 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(81,80,79,[3,3,3,3]) db=ABSENT '' csv=-
+q=81 signs(C0..C3,0)=(-1, -1, 1, 1, 0): SDS(81,80,-1,[3,3,3,3]) db=Yes 'PDS construction of He, Chen and Ge' csv=N1327 exists
+q=81 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(81,80,-1,[3,3,3,3]) db=Yes 'PDS construction of He, Chen and Ge' csv=N1327 exists
+q=81 signs(C0..C3,0)=(-1, 1, 1, -1, 0): SDS(81,80,-1,[3,3,3,3]) db=Yes 'PDS construction of He, Chen and Ge' csv=N1327 exists
+q=81 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(81,1,0,[3,3,3,3]) db=ABSENT '' csv=-
+q=89 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(89,88,87,[89]) db=ABSENT '' csv=-
+q=89 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(89,88,-1,[89]) db=Yes 'Paley' csv=N1573 exists
+q=89 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(89,1,0,[89]) db=ABSENT '' csv=-
+q=97 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(97,96,95,[97]) db=ABSENT '' csv=-
+q=97 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(97,96,-1,[97]) db=Yes 'Paley' csv=N1877 exists
+q=97 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(97,1,0,[97]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(101,100,99,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(-1, -1, -1, 0, -1): SDS(101,76,57,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(-1, -1, -1, 1, -1): SDS(101,101,25,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(-1, -1, 0, -1, -1): SDS(101,76,57,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(-1, -1, 1, -1, -1): SDS(101,101,25,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(-1, 0, -1, -1, -1): SDS(101,76,57,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(-1, 0, 0, 0, 0): SDS(101,25,6,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(-1, 1, -1, -1, -1): SDS(101,101,25,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(101,100,-1,[101]) db=Yes 'Paley' csv=N2139 exists
+q=101 signs(C0..C3,0)=(-1, 1, 1, 1, 1): SDS(101,101,25,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(0, -1, -1, -1, -1): SDS(101,76,57,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(0, -1, 0, 0, 0): SDS(101,25,6,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(0, 0, -1, 0, 0): SDS(101,25,6,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(0, 0, 0, -1, 0): SDS(101,25,6,[101]) db=ABSENT '' csv=-
+q=101 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(101,1,0,[101]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(109,108,107,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(-1, -1, -1, 0, 0): SDS(109,81,60,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(-1, -1, -1, 1, 1): SDS(109,109,25,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(-1, -1, 0, -1, 0): SDS(109,81,60,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(-1, -1, 1, -1, 1): SDS(109,109,25,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(-1, 0, -1, -1, 0): SDS(109,81,60,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(-1, 0, -1, 1, 0): SDS(109,81,6,[109]) db=Yes 'Orbit exhaust with forced multiplier' csv=N2495 exists
+q=109 signs(C0..C3,0)=(-1, 0, 0, 0, -1): SDS(109,28,7,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(-1, 1, -1, -1, 1): SDS(109,109,25,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(-1, 1, -1, 0, 0): SDS(109,81,6,[109]) db=Yes 'Orbit exhaust with forced multiplier' csv=N2495 exists
+q=109 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(109,108,-1,[109]) db=Yes 'Paley' csv=N2512 exists
+q=109 signs(C0..C3,0)=(-1, 1, 0, 1, 0): SDS(109,81,6,[109]) db=Yes 'Orbit exhaust with forced multiplier' csv=N2495 exists
+q=109 signs(C0..C3,0)=(-1, 1, 1, 1, -1): SDS(109,109,25,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(0, -1, -1, -1, 0): SDS(109,81,60,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(0, -1, 0, 0, -1): SDS(109,28,7,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(0, -1, 1, -1, 0): SDS(109,81,6,[109]) db=Yes 'Orbit exhaust with forced multiplier' csv=N2495 exists
+q=109 signs(C0..C3,0)=(0, 0, -1, 0, -1): SDS(109,28,7,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(0, 0, 0, -1, -1): SDS(109,28,7,[109]) db=ABSENT '' csv=-
+q=109 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(109,1,0,[109]) db=ABSENT '' csv=-
+q=113 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(113,112,111,[113]) db=ABSENT '' csv=-
+q=113 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(113,112,-1,[113]) db=Yes 'Paley' csv=N2707 exists
+q=113 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(113,1,0,[113]) db=ABSENT '' csv=-
+q=121 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(121,120,119,[11,11]) db=ABSENT '' csv=-
+q=121 signs(C0..C3,0)=(-1, -1, 1, 1, 0): SDS(121,120,-1,[11,11]) db=Yes 'PDS construction of He, Chen and Ge' csv=N3106 exists
+q=121 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(121,120,-1,[11,11]) db=Yes 'PDS construction of He, Chen and Ge' csv=N3106 exists
+q=121 signs(C0..C3,0)=(-1, 1, 1, -1, 0): SDS(121,120,-1,[11,11]) db=Yes 'PDS construction of He, Chen and Ge' csv=N3106 exists
+q=121 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(121,1,0,[11,11]) db=ABSENT '' csv=-
+q=125 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(125,124,123,[5,5,5]) db=ABSENT '' csv=-
+q=125 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(125,124,-1,[5,5,5]) db=Yes 'PDS construction of He, Chen and Ge' csv=N3377 exists
+q=125 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(125,1,0,[5,5,5]) db=ABSENT '' csv=-
+q=137 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(137,136,135,[137]) db=ABSENT '' csv=-
+q=137 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(137,136,-1,[137]) db=Yes 'Paley' csv=N4396 exists
+q=137 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(137,1,0,[137]) db=ABSENT '' csv=-
+q=149 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(149,148,147,[149]) db=ABSENT '' csv=-
+q=149 signs(C0..C3,0)=(-1, -1, -1, 0, 1): SDS(149,112,81,[149]) db=All 'Orbit exhaust' csv=N5218 exists
+q=149 signs(C0..C3,0)=(-1, -1, 0, -1, 1): SDS(149,112,81,[149]) db=All 'Orbit exhaust' csv=N5218 exists
+q=149 signs(C0..C3,0)=(-1, 0, -1, -1, 1): SDS(149,112,81,[149]) db=All 'Orbit exhaust' csv=N5218 exists
+q=149 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(149,148,-1,[149]) db=Yes 'Paley' csv=N5248 exists
+q=149 signs(C0..C3,0)=(0, -1, -1, -1, 1): SDS(149,112,81,[149]) db=All 'Orbit exhaust' csv=N5218 exists
+q=149 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(149,1,0,[149]) db=ABSENT '' csv=-
+q=157 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(157,156,155,[157]) db=ABSENT '' csv=-
+q=157 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(157,156,-1,[157]) db=Yes 'Paley' csv=N5780 exists
+q=157 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(157,1,0,[157]) db=ABSENT '' csv=-
+q=169 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(169,168,167,[13,13]) db=ABSENT '' csv=-
+q=169 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(169,168,-1,[13,13]) db=Yes 'PDS construction of He, Chen and Ge' csv=N6796 exists
+q=169 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(169,1,0,[13,13]) db=ABSENT '' csv=-
+q=173 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(173,172,171,[173]) db=ABSENT '' csv=-
+q=173 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(173,172,-1,[173]) db=Yes 'Paley' csv=N7144 exists
+q=173 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(173,1,0,[173]) db=ABSENT '' csv=-
+q=181 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(181,180,179,[181]) db=ABSENT '' csv=-
+q=181 signs(C0..C3,0)=(-1, 0, -1, 1, -1): SDS(181,136,11,[181]) db=All 'Orbit Exhaust' csv=N7858 exists
+q=181 signs(C0..C3,0)=(-1, 1, -1, 0, -1): SDS(181,136,11,[181]) db=All 'Orbit Exhaust' csv=N7858 exists
+q=181 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(181,180,-1,[181]) db=Yes 'Paley' csv=N7885 exists
+q=181 signs(C0..C3,0)=(-1, 1, 0, 1, 1): SDS(181,136,11,[181]) db=All 'Orbit Exhaust' csv=N7858 exists
+q=181 signs(C0..C3,0)=(0, -1, 1, -1, -1): SDS(181,136,11,[181]) db=All 'Orbit Exhaust' csv=N7858 exists
+q=181 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(181,1,0,[181]) db=ABSENT '' csv=-
+q=193 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(193,192,191,[193]) db=ABSENT '' csv=-
+q=193 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(193,192,-1,[193]) db=Yes 'Paley' csv=N9118 exists
+q=193 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(193,1,0,[193]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(197,196,195,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(-1, -1, -1, 0, -1): SDS(197,148,111,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(-1, -1, -1, 1, -1): SDS(197,197,49,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(-1, -1, 0, -1, -1): SDS(197,148,111,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(-1, -1, 1, -1, -1): SDS(197,197,49,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(-1, 0, -1, -1, -1): SDS(197,148,111,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(-1, 0, 0, 0, 0): SDS(197,49,12,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(-1, 1, -1, -1, -1): SDS(197,197,49,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(197,196,-1,[197]) db=Yes 'Paley' csv=N9495 exists
+q=197 signs(C0..C3,0)=(-1, 1, 1, 1, 1): SDS(197,197,49,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(0, -1, -1, -1, -1): SDS(197,148,111,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(0, -1, 0, 0, 0): SDS(197,49,12,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(0, 0, -1, 0, 0): SDS(197,49,12,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(0, 0, 0, -1, 0): SDS(197,49,12,[197]) db=ABSENT '' csv=-
+q=197 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(197,1,0,[197]) db=ABSENT '' csv=-
+q=229 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(229,228,227,[229]) db=ABSENT '' csv=-
+q=229 signs(C0..C3,0)=(-1, 0, -1, 1, 1): SDS(229,172,13,[229]) db=All 'Orbit Exhaust' csv=N13075 exists
+q=229 signs(C0..C3,0)=(-1, 1, -1, 0, 1): SDS(229,172,13,[229]) db=All 'Orbit Exhaust' csv=N13075 exists
+q=229 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(229,228,-1,[229]) db=Yes 'Paley' csv=N13116 exists
+q=229 signs(C0..C3,0)=(-1, 1, 0, 1, -1): SDS(229,172,13,[229]) db=All 'Orbit Exhaust' csv=N13075 exists
+q=229 signs(C0..C3,0)=(0, -1, 1, -1, 1): SDS(229,172,13,[229]) db=All 'Orbit Exhaust' csv=N13075 exists
+q=229 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(229,1,0,[229]) db=ABSENT '' csv=-
+q=233 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(233,232,231,[233]) db=ABSENT '' csv=-
+q=233 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(233,232,-1,[233]) db=Yes 'Paley' csv=N13496 exists
+q=233 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(233,1,0,[233]) db=ABSENT '' csv=-
+q=241 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(241,240,239,[241]) db=ABSENT '' csv=-
+q=241 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(241,240,-1,[241]) db=Yes 'Paley' csv=N14312 exists
+q=241 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(241,1,0,[241]) db=ABSENT '' csv=-
+q=257 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(257,256,255,[257]) db=ABSENT '' csv=-
+q=257 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(257,256,-1,[257]) db=Yes 'Paley' csv=N17930 exists
+q=257 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(257,1,0,[257]) db=ABSENT '' csv=-
+q=269 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(269,268,267,[269]) db=ABSENT '' csv=-
+q=269 signs(C0..C3,0)=(-1, -1, 0, 1, 0): SDS(269,201,16,[269]) db=Yes 'Orbit Exhaust with forced multiplier' csv=N19221 exists
+q=269 signs(C0..C3,0)=(-1, 0, 1, -1, 0): SDS(269,201,16,[269]) db=Yes 'Orbit Exhaust with forced multiplier' csv=N19221 exists
+q=269 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(269,268,-1,[269]) db=Yes 'Paley' csv=N19280 exists
+q=269 signs(C0..C3,0)=(-1, 1, 1, 0, 0): SDS(269,201,16,[269]) db=Yes 'Orbit Exhaust with forced multiplier' csv=N19221 exists
+q=269 signs(C0..C3,0)=(0, -1, 1, 1, 0): SDS(269,201,16,[269]) db=Yes 'Orbit Exhaust with forced multiplier' csv=N19221 exists
+q=269 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(269,1,0,[269]) db=ABSENT '' csv=-
+q=277 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(277,276,275,[277]) db=ABSENT '' csv=-
+q=277 signs(C0..C3,0)=(-1, 0, -1, 1, -1): SDS(277,208,17,[277]) db=All 'Orbit Exhaust' csv=N20453 exists
+q=277 signs(C0..C3,0)=(-1, 1, -1, 0, -1): SDS(277,208,17,[277]) db=All 'Orbit Exhaust' csv=N20453 exists
+q=277 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(277,276,-1,[277]) db=Yes 'Paley' csv=N20500 exists
+q=277 signs(C0..C3,0)=(-1, 1, 0, 1, 1): SDS(277,208,17,[277]) db=All 'Orbit Exhaust' csv=N20453 exists
+q=277 signs(C0..C3,0)=(0, -1, 1, -1, -1): SDS(277,208,17,[277]) db=All 'Orbit Exhaust' csv=N20453 exists
+q=277 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(277,1,0,[277]) db=ABSENT '' csv=-
+q=281 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(281,280,279,[281]) db=ABSENT '' csv=-
+q=281 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(281,280,-1,[281]) db=Yes 'Paley' csv=N21088 exists
+q=281 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(281,1,0,[281]) db=ABSENT '' csv=-
+q=289 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(289,288,287,[17,17]) db=ABSENT '' csv=-
+q=289 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(289,288,-1,[17,17]) db=Yes 'PDS construction of He, Chen and Ge' csv=N22648 exists
+q=289 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(289,1,0,[17,17]) db=ABSENT '' csv=-
+q=293 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(293,292,291,[293]) db=ABSENT '' csv=-
+q=293 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(293,292,-1,[293]) db=Yes 'Paley' csv=N23140 exists
+q=293 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(293,1,0,[293]) db=ABSENT '' csv=-
+q=313 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(313,312,311,[313]) db=ABSENT '' csv=-
+q=313 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(313,312,-1,[313]) db=Yes 'Paley' csv=N26191 exists
+q=313 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(313,1,0,[313]) db=ABSENT '' csv=-
+q=317 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(317,316,315,[317]) db=ABSENT '' csv=-
+q=317 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(317,316,-1,[317]) db=Yes 'Paley' csv=N26851 exists
+q=317 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(317,1,0,[317]) db=ABSENT '' csv=-
+q=337 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(337,336,335,[337]) db=ABSENT '' csv=-
+q=337 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(337,336,-1,[337]) db=Yes 'Paley' csv=N30947 exists
+q=337 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(337,1,0,[337]) db=ABSENT '' csv=-
+q=349 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(349,348,347,[349]) db=ABSENT '' csv=-
+q=349 signs(C0..C3,0)=(-1, 0, 0, 0, 1): SDS(349,88,21,[349]) db=All 'Quartic residues and zero' csv=N32978 exists
+q=349 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(349,348,-1,[349]) db=Yes 'Paley' csv=N33113 exists
+q=349 signs(C0..C3,0)=(0, -1, 0, 0, 1): SDS(349,88,21,[349]) db=All 'Quartic residues and zero' csv=N32978 exists
+q=349 signs(C0..C3,0)=(0, 0, -1, 0, 1): SDS(349,88,21,[349]) db=All 'Quartic residues and zero' csv=N32978 exists
+q=349 signs(C0..C3,0)=(0, 0, 0, -1, 1): SDS(349,88,21,[349]) db=All 'Quartic residues and zero' csv=N32978 exists
+q=349 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(349,1,0,[349]) db=ABSENT '' csv=-
+q=353 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(353,352,351,[353]) db=ABSENT '' csv=-
+q=353 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(353,352,-1,[353]) db=Yes 'Paley' csv=N34419 exists
+q=353 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(353,1,0,[353]) db=ABSENT '' csv=-
+q=361 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(361,360,359,[19,19]) db=ABSENT '' csv=-
+q=361 signs(C0..C3,0)=(-1, -1, 1, 1, 0): SDS(361,360,-1,[19,19]) db=Yes 'PDS construction of He, Chen and Ge' csv=N35872 exists
+q=361 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(361,360,-1,[19,19]) db=Yes 'PDS construction of He, Chen and Ge' csv=N35872 exists
+q=361 signs(C0..C3,0)=(-1, 1, 1, -1, 0): SDS(361,360,-1,[19,19]) db=Yes 'PDS construction of He, Chen and Ge' csv=N35872 exists
+q=361 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(361,1,0,[19,19]) db=ABSENT '' csv=-
+q=373 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(373,372,371,[373]) db=ABSENT '' csv=-
+q=373 signs(C0..C3,0)=(-1, -1, -1, 0, 1): SDS(373,280,207,[373]) db=All 'Orbit exhaust' csv=N38097 exists
+q=373 signs(C0..C3,0)=(-1, -1, 0, -1, 1): SDS(373,280,207,[373]) db=All 'Orbit exhaust' csv=N38097 exists
+q=373 signs(C0..C3,0)=(-1, 0, -1, -1, 1): SDS(373,280,207,[373]) db=All 'Orbit exhaust' csv=N38097 exists
+q=373 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(373,372,-1,[373]) db=Yes 'Paley' csv=N38164 exists
+q=373 signs(C0..C3,0)=(0, -1, -1, -1, 1): SDS(373,280,207,[373]) db=All 'Orbit exhaust' csv=N38097 exists
+q=373 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(373,1,0,[373]) db=ABSENT '' csv=-
+q=389 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(389,388,387,[389]) db=ABSENT '' csv=-
+q=389 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(389,388,-1,[389]) db=Yes 'Paley' csv=N42271 exists
+q=389 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(389,1,0,[389]) db=ABSENT '' csv=-
+q=397 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(397,396,395,[397]) db=ABSENT '' csv=-
+q=397 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(397,396,-1,[397]) db=Yes 'Paley' csv=N43941 exists
+q=397 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(397,1,0,[397]) db=ABSENT '' csv=-
+q=401 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(401,400,399,[401]) db=ABSENT '' csv=-
+q=401 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(401,400,-1,[401]) db=Yes 'Paley' csv=N45211 exists
+q=401 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(401,1,0,[401]) db=ABSENT '' csv=-
+q=409 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(409,408,407,[409]) db=ABSENT '' csv=-
+q=409 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(409,408,-1,[409]) db=Yes 'Paley' csv=N47257 exists
+q=409 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(409,1,0,[409]) db=ABSENT '' csv=-
+q=421 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(421,420,419,[421]) db=ABSENT '' csv=-
+q=421 signs(C0..C3,0)=(-1, 0, -1, 1, 1): SDS(421,316,25,[421]) db=Open '' csv=N49624 open   <-- Open
+q=421 signs(C0..C3,0)=(-1, 1, -1, 0, 1): SDS(421,316,25,[421]) db=Open '' csv=N49624 open   <-- Open
+q=421 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(421,420,-1,[421]) db=Yes 'Paley' csv=N49690 exists
+q=421 signs(C0..C3,0)=(-1, 1, 0, 1, -1): SDS(421,316,25,[421]) db=Open '' csv=N49624 open   <-- Open
+q=421 signs(C0..C3,0)=(0, -1, 1, -1, 1): SDS(421,316,25,[421]) db=Open '' csv=N49624 open   <-- Open
+q=421 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(421,1,0,[421]) db=ABSENT '' csv=-
+q=433 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(433,432,431,[433]) db=ABSENT '' csv=-
+q=433 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(433,432,-1,[433]) db=Yes 'Paley' csv=N53134 exists
+q=433 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(433,1,0,[433]) db=ABSENT '' csv=-
+q=449 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(449,448,447,[449]) db=ABSENT '' csv=-
+q=449 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(449,448,-1,[449]) db=Yes 'Paley' csv=N57327 exists
+q=449 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(449,1,0,[449]) db=ABSENT '' csv=-
+q=457 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(457,456,455,[457]) db=ABSENT '' csv=-
+q=457 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(457,456,-1,[457]) db=Yes 'Paley' csv=N59137 exists
+q=457 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(457,1,0,[457]) db=ABSENT '' csv=-
+q=461 signs(C0..C3,0)=(-1, -1, -1, -1, 0): SDS(461,460,459,[461]) db=ABSENT '' csv=-
+q=461 signs(C0..C3,0)=(-1, 1, -1, 1, 0): SDS(461,460,-1,[461]) db=Yes 'Paley' csv=N60331 exists
+q=461 signs(C0..C3,0)=(0, 0, 0, 0, -1): SDS(461,1,0,[461]) db=ABSENT '' csv=-

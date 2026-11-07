@@ -1,0 +1,10 @@
+'R4Refuter.has_n49' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R4Refuter.has_n61' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R4Refuter.has_n62' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R4Refuter.has_n67' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R4Refuter.has_n68' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R4Refuter.has_n73' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	1m1.893s
+user	0m0.015s
+sys	0m0.015s

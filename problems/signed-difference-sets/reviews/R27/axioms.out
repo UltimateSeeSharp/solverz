@@ -1,0 +1,24 @@
+'SignedDifferenceSets.CosetSearch.valSearch_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetSearch.valSearch_of_frontier' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.CosetSearch.cosetCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetSearch.cosetCheck_of_nodes' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.false_of_cosetCheck' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.cosetSearch_of_slices' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.c10Holds_of_squarefree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.c10Holds_of_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_cosetSearch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_cosetRow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_cosetRow'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n27861_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n1978_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n14741_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n11103_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CosetRows.n31630_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+CosetRows.n14741_not_hasSDS : ¬HasSDS (ZMod 3 × ZMod 81) 157 54
+CosetRows.n31630_not_hasSDS : ¬HasSDS (ZMod 3 × ZMod 114) 253 28
+@not_hasSDS_of_cosetRow' : ∀ {ms ds : List ℕ} {c k : ℕ} {lam : ℤ} {t : ℕ} {s : ℤ},
+  CosetRow ms ds c k lam t s → cosetSearch ds c k lam t s = true → ∀ (inst : Fintype (Grp ms)), ¬HasSDS (Grp ms) k lam
+
+real	1m41.292s
+user	0m0.217s
+sys	0m0.656s

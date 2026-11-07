@@ -1,0 +1,10 @@
+'SignedDifferenceSets.Answer.N49.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N61.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N62.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N67.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N68.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N73.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m36.944s
+user	0m0.000s
+sys	0m0.015s

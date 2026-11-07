@@ -1,0 +1,33 @@
+problems/signed-difference-sets/reviews/R24/R6Control.lean:7:2: error: Type mismatch
+  sylowRows1_not_hasSDS ?m.37 inferInstance
+has type
+  ¬HasSDS
+      (Grp
+        ({ id := 1539, ms := [88], k := 78, lam := 14 },
+              { p := 2, r := 4, e := 6, q := 2, t := 3, s := 36, ds := [8] }).1.ms)
+      ({ id := 1539, ms := [88], k := 78, lam := 14 },
+            { p := 2, r := 4, e := 6, q := 2, t := 3, s := 36, ds := [8] }).1.k
+      ({ id := 1539, ms := [88], k := 78, lam := 14 },
+            { p := 2, r := 4, e := 6, q := 2, t := 3, s := 36, ds := [8] }).1.lam
+but is expected to have type
+  ¬HasSDS (ZMod 88) 79 14
+problems/signed-difference-sets/reviews/R24/R6Control.lean:9:78: error: Tactic `decide` proved that the proposition
+  SyCert.Kills { id := 0, ms := [2, 16], k := 20, lam := 4 }
+    { p := 2, r := 8, e := 4, q := 1, t := 5, s := 12, ds := [2, 16] }
+is false
+problems/signed-difference-sets/reviews/R24/R6Control.lean:11:75: error: Tactic `decide` proved that the proposition
+  SyCert.Kills { id := 1539, ms := [88], k := 78, lam := 14 }
+    { p := 2, r := 4, e := 6, q := 3, t := 3, s := 36, ds := [8] }
+is false
+problems/signed-difference-sets/reviews/R24/R6Control.lean:13:75: error: Tactic `decide` proved that the proposition
+  SyCert.Kills { id := 1539, ms := [88], k := 78, lam := 14 }
+    { p := 2, r := 3, e := 6, q := 2, t := 3, s := 36, ds := [8] }
+is false
+problems/signed-difference-sets/reviews/R24/R6Control.lean:15:70: error: Tactic `decide` proved that the proposition
+  SyCert.Kills { id := 0, ms := [12], k := 11, lam := 2 } { p := 2, r := 2, e := 0, q := 0, t := 1, s := 3, ds := [6] }
+is false
+
+real	0m47.303s
+user	0m0.342s
+sys	0m0.343s
+EXIT 0

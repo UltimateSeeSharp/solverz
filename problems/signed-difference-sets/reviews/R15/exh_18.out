@@ -1,0 +1,16 @@
+group [18] v=18 R=1 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=32 fired=0
+  k=17 lam=16 |s|=17 sets=17 fired=0
+  k=18 lam=14 |s|=16 sets=18 fired=0
+  k=18 lam=18 |s|=18 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=19
+group [3, 6] v=18 R=1 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=32 fired=0
+  k=9 lam=0 |s|=3 sets=1404 fired=0
+  k=13 lam=4 |s|=9 sets=468 fired=0
+  k=17 lam=16 |s|=17 sets=17 fired=0
+  k=18 lam=14 |s|=16 sets=18 fired=0
+  k=18 lam=18 |s|=18 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=19

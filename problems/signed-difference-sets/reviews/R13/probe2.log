@@ -1,0 +1,6 @@
+'d731_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'d321_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m40.230s
+user	0m0.092s
+sys	0m0.125s

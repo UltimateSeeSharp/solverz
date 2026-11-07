@@ -1,0 +1,17 @@
+'SignedDifferenceSets.IsSDS.exists_multiplier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.exists_translate_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.exists_translate_fixed_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.exists_multiplier_of_autocorr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.exists_translate_fixed_of_autocorr' depends on axioms: [propext, Classical.choice, Quot.sound]
+problems/signed-difference-sets/reviews/R13/C9Probe.lean:14:40: error: failed to synthesize
+  Decidable (IsSDS 3 1 d731)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+problems/signed-difference-sets/reviews/R13/C9Probe.lean:36:40: error: failed to synthesize
+  Decidable (IsSDS 2 1 d321)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+
+real	0m38.640s
+user	0m0.061s
+sys	0m0.342s

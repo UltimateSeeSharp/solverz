@@ -1,0 +1,6 @@
+2x7 R = 1 2-selfconj K: False (a,b) counts: {(True, True): 196, (False, True): 56}
+  fail ([0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 1, -1, -1], 4, 0)
+  fail ([0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, -1, -1], 4, 0)
+  fail ([0, 0, 0, 0, 0, 0, 0, -1, -1, 1, 0, 0, -1, 0], 4, 0)
+2x9 R = 1 2-selfconj K: True (a,b) counts: {(True, True): 324}
+2x3x3 R = 1 2-selfconj K: True (a,b) counts: {(True, True): 324}

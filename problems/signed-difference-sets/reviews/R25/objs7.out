@@ -1,0 +1,70 @@
+O1 [7] (7,3,1) sds=True s=3: v odd
+O2 [7] (7,4,0) sds=True s=2: v odd
+O3 [4] (4,4,0) sds=True s=2: w=1<t=2, v2(s)=1 ok
+O4 [5] (5,4,-1) sds=True s=0: v odd
+O5 [3, 3] (9,8,-1) sds=True s=0: v odd
+O6 [5, 5] (25,12,1) sds=True s=6: v odd
+O7 [3, 3, 3] (27,10,1) sds=True s=6: v odd
+O8 [3, 9] (27,10,1) sds=True s=6: v odd
+O9 [3, 3, 3] (27,14,5) sds=True s=12: v odd
+O10 [3, 9] (27,14,5) sds=True s=12: v odd
+O11 [3, 3, 3] (27,17,8) sds=True s=15: v odd
+O12 [19, 19] (361,316,141) sds=True s=226: v odd
+O13 [2, 16] (32,20,4) sds=True s=12: w=2<t=5, v2(s)=2 ok
+O14 [2, 2, 2, 2, 2] (32,20,4) sds=True s=12: w=2<t=5, v2(s)=2 ok
+O15 [2, 2, 2, 4] (32,20,4) sds=True s=12: w=2<t=5, v2(s)=2 ok
+O16 [2, 2, 8] (32,20,4) sds=True s=12: w=2<t=5, v2(s)=2 ok
+O17 [2, 4, 4] (32,20,4) sds=True s=12: w=2<t=5, v2(s)=2 ok
+O18 [4, 8] (32,20,4) sds=True s=12: w=2<t=5, v2(s)=2 ok
+O19 [2, 4, 4] (32,28,12) sds=True s=20: w=2<t=5, v2(s)=2 ok
+O20 [4, 8] (32,28,12) sds=True s=20: w=2<t=5, v2(s)=2 ok
+O21 [3, 12] (36,11,2) sds=True s=9: w=0<t=2, v2(s)=0 ok
+O22 [6, 6] (36,11,2) sds=True s=9: w=0<t=2, v2(s)=0 ok
+O23 [3, 15] (45,37,1) sds=True s=9: v odd
+O24 [7, 7] (49,33,1) sds=True s=9: v odd
+O25 [3, 21] (63,47,11) sds=True s=27: v odd
+O26 [2, 2, 4, 4] (64,22,6) sds=True s=20: w=2<t=6, v2(s)=2 ok
+O27 [8, 8] (64,22,6) sds=True s=20: w=2<t=6, v2(s)=2 ok
+O28 [2, 2, 2, 2, 2, 2] (64,46,30) sds=True s=44: w=2<t=6, v2(s)=2 ok
+O29 [2, 2, 4, 4] (64,46,30) sds=True s=44: w=2<t=6, v2(s)=2 ok
+O30 [8, 8] (64,46,30) sds=True s=44: w=2<t=6, v2(s)=2 ok
+O31 [16, 16] (256,106,42) sds=True s=104: w=3<t=8, v2(s)=3 ok
+O32 [2, 2, 2, 2, 2, 2, 2, 2] (256,154,90) sds=True s=152: w=3<t=8, v2(s)=3 ok
+O33 [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] (4096,2146,1122) sds=True s=2144: w=5<t=12, v2(s)=5 ok
+O34 [79] (79,61,38) sds=True s=55: v odd
+O35 [127] (127,109,90) sds=True s=107: v odd
+O36 [217] (217,193,168) sds=True s=191: v odd
+O37 [222] (222,69,20) sds=True s=67: w=0<t=1, v2(s)=0 ok
+O38 [455] (455,71,7) sds=True s=57: v odd
+O39 [300] (300,55,6) sds=True s=43: w=0<t=2, v2(s)=0 ok
+O40 [5, 25] (125,28,3) sds=True s=20: v odd
+O41 [7, 7, 7] (343,54,5) sds=True s=42: v odd
+O42 [7, 49] (343,54,5) sds=True s=42: v odd
+O43 [5, 5, 5] (125,97,72) sds=True s=95: v odd
+O44 [5, 25] (125,97,72) sds=True s=95: v odd
+O45 [7, 7, 7] (343,289,240) sds=True s=287: v odd
+O46 [7, 49] (343,289,240) sds=True s=287: v odd
+O47 [2, 2, 2, 2, 2, 2] (64,18,2) sds=True s=12: w=2<t=6, v2(s)=2 ok
+O48 [2, 2, 2, 2, 4] (64,18,2) sds=True s=12: w=2<t=6, v2(s)=2 ok
+O49 [2, 2, 2, 8] (64,18,2) sds=True s=12: w=2<t=6, v2(s)=2 ok
+O50 [2, 2, 4, 4] (64,18,2) sds=True s=12: w=2<t=6, v2(s)=2 ok
+O51 [2, 4, 8] (64,18,2) sds=True s=12: w=2<t=6, v2(s)=2 ok
+O52 [4, 4, 4] (64,18,2) sds=True s=12: w=2<t=6, v2(s)=2 ok
+O53 [2, 2, 2, 2, 4] (64,46,30) sds=True s=44: w=2<t=6, v2(s)=2 ok
+O54 [2, 2, 2, 8] (64,46,30) sds=True s=44: w=2<t=6, v2(s)=2 ok
+O55 [2, 4, 8] (64,46,30) sds=True s=44: w=2<t=6, v2(s)=2 ok
+O56 [4, 4, 4] (64,46,30) sds=True s=44: w=2<t=6, v2(s)=2 ok
+O57 [312] (312,300,200) sds=True s=250: w=1<t=3, v2(s)=1 ok
+O58 [410] (410,329,248) sds=True s=319: w=0<t=1, v2(s)=0 ok
+O59 [78] (78,53,28) sds=True s=47: w=0<t=1, v2(s)=0 ok
+O60 [200] (200,151,102) sds=True s=143: w=0<t=3, v2(s)=0 ok
+O61 [42] (42,18,2) sds=True s=-10: w=2>=t=1, untested
+O62 [5, 15] (75,26,1) sds=True s=10: v odd
+O63 [217] (217,112,12) sds=True s=52: v odd
+O64 [3, 3, 3, 3, 3] (243,121,40) sds=True s=99: v odd
+O65 [3, 3, 3, 3, 3] (243,177,96) sds=True s=-153: v odd
+O66 [7, 7, 7] (343,199,3) sds=True s=-35: v odd
+O67 [7, 7, 7] (343,247,51) sds=True s=133: v odd
+O68 [182] (182,101,20) sds=True s=61: w=0<t=1, v2(s)=0 ok
+O69 [51] (51,19,3) sds=True s=-13: v odd
+O70 [111] (111,66,17) sds=True s=44: v odd

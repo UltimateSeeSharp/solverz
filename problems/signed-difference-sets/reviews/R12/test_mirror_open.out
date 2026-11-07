@@ -1,0 +1,3 @@
+chunk entries 6071 mirror rejects [] C5 3858 C6 2213
+admissible-cert kills by status Counter({'open': 6071})
+open: mine 6071 chunks 6071 mine-chunks [] chunks-mine []

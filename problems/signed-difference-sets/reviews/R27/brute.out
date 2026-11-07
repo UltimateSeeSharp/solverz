@@ -1,0 +1,6 @@
+[6] SDS with n>0, gcd(v,n)>1: 36 {'sds': 36, 'cases': 36, 'notfixed': 0, 'killed': 0, 'searched': 36}
+[10] SDS with n>0, gcd(v,n)>1: 100 {'sds': 136, 'cases': 136, 'notfixed': 0, 'killed': 0, 'searched': 236}
+[12] SDS with n>0, gcd(v,n)>1: 144 {'sds': 280, 'cases': 280, 'notfixed': 0, 'killed': 0, 'searched': 380}
+[2, 6] SDS with n>0, gcd(v,n)>1: 336 {'sds': 616, 'cases': 616, 'notfixed': 0, 'killed': 0, 'searched': 716}
+[14] SDS with n>0, gcd(v,n)>1: 252 {'sds': 868, 'cases': 868, 'notfixed': 0, 'killed': 0, 'searched': 1220}
+[15] SDS with n>0, gcd(v,n)>1: 0 {'sds': 868, 'cases': 868, 'notfixed': 0, 'killed': 0, 'searched': 1220}

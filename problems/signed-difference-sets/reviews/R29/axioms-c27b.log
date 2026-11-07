@@ -1,0 +1,47 @@
+'SignedDifferenceSets.IsSDS.totient_mul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.DescentRowCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.unramifiedRows1_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.unramifiedRows2_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.unramifiedRows3_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.unramifiedRows4_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.unramifiedRows5_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+@IsSDS.totient_mul_le : ∀ {G : Type u_1} [inst : AddCommGroup G] [inst_1 : Fintype G] {k : ℕ} {lam : ℤ}
+  {D : G → SignType},
+  IsSDS k lam D →
+    ∀ {m c F d : ℕ} [NeZero m],
+      1 < m →
+        ∀ (φ : G →+ ZMod m),
+          Function.Surjective ⇑φ →
+            Fintype.card G = c * m →
+              ↑k - lam ≠ 0 →
+                IsCoprime (↑m) (↑k - lam) →
+                  F * d = m →
+                    (∀ u < d,
+                        (1 + F * u).Coprime m ∧
+                          ∀ (p : ℕ), Nat.Prime p → ↑p ∣ ↑k - lam → ∃ e, (1 + F * u) % m = p ^ e % m) →
+                      ↑m.totient * (↑k - lam) ≤ ↑m * ↑F * ↑c ^ 2
+@unramifiedRows1_not_hasSDS : ∀ {x : Row × DescentRowCert},
+  x ∈ unramifiedRows1 → ∀ (inst : Fintype (Grp x.1.ms)), ¬HasSDS (Grp x.1.ms) x.1.k x.1.lam
+def SignedDifferenceSets.DescentRowCert.Kills : Row → DescentRowCert → Prop :=
+fun w c =>
+  (∀ x ∈ w.ms, 0 < x) ∧
+    1 < c.m ∧
+      c.m ∣ w.ms.prod ∧
+        MapOk w.ms [c.m] [c.A] ∧
+          SurjCert w.ms [c.m] [c.A] [c.P] ∧
+            c.F ∣ c.m ∧
+              0 < ↑w.k - w.lam ∧
+                c.m.Coprime (↑w.k - w.lam).toNat ∧
+                  (∀ u ∈ List.range (c.m / c.F),
+                      (1 + c.F * u).Coprime c.m ∧
+                        ∀ p ∈ List.range ((↑w.k - w.lam).toNat + 1),
+                          2 ≤ p →
+                            p ∣ (↑w.k - w.lam).toNat →
+                              (∀ q ∈ List.range p, 2 ≤ q → p % q ≠ 0) →
+                                ∃ e ∈ List.range c.m, (1 + c.F * u) % c.m = p ^ e % c.m) ∧
+                    c.m * c.F * (w.ms.prod / c.m) ^ 2 < c.m.totient * (↑w.k - w.lam).toNat
+[60, 60, 60, 60, 19]
+
+real	0m35.014s
+user	0m0.139s
+sys	0m0.093s

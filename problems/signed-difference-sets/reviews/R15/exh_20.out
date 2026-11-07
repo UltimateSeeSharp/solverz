@@ -1,0 +1,8 @@
+group [2, 10] v=20 R=2 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=100 fired=0
+  k=16 lam=0 |s|=4 sets=768 fired=0
+  k=19 lam=18 |s|=19 sets=19 fired=0
+  k=20 lam=16 |s|=18 sets=20 fired=0
+  k=20 lam=20 |s|=20 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=1

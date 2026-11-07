@@ -1,0 +1,24 @@
+'SignedDifferenceSets.IsSDS.sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.HasSDS.isSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_not_isSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.card_zeros' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.exists_zeros_of_parity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_supportParity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Grp.card_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Grp.natCard_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Grp.nsmul_eq_zero' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.Grp.exists_ne_zero' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.quot_surjective' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.IsSDS.comp_addEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.HasSDS.of_addEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.hasSDS_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.hasSDS_congr_fintype' depends on axioms: [propext, Classical.choice, Quot.sound]
+@not_hasSDS_of_supportParity : ∀ {G : Type u_1} [inst : AddCommGroup G] [inst_1 : Fintype G] {k : ℕ} {lam : ℤ} {v : ℕ},
+  Fintype.card G = v → SupportParity v k lam → ¬HasSDS G k lam
+@not_hasSDS_of_not_isSquare : ∀ {G : Type u_1} [inst : AddCommGroup G] [inst_1 : Fintype G] {k : ℕ} {lam : ℤ},
+  ¬IsSquare (↑k + lam * (↑(Fintype.card G) - 1)) → ¬HasSDS G k lam
+Grp.card_eq : ∀ (ms : List ℕ) {x : Fintype (Grp ms)}, Fintype.card (Grp ms) = ms.prod
+
+real	0m44.518s
+user	0m0.171s
+sys	0m0.249s

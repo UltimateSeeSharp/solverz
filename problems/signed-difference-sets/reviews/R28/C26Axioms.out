@@ -1,0 +1,61 @@
+'SignedDifferenceSets.Ma.dvd_contract_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.dvd_pair_term' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_maDescent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.DescentCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.descentRows1_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.descentRows2_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.descentRows3_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.descentRows4_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.descentRows5_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.comp_addEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.contract_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.hasSDS_half_of_maDescent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.HalfCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.sum_abs_contract_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.sum_abs_contract_parity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.card_fibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@not_hasSDS_of_maDescent : ∀ {G K : Type} [inst : AddCommGroup G] [inst_1 : Fintype G] [inst_2 : AddCommGroup K]
+  [inst_3 : Fintype K] {r i c k : ℕ} {lam : ℤ} [inst_4 : NeZero (r * 2)] {φ : G →+ ZMod (r * 2) × K},
+  Function.Surjective ⇑φ →
+    Fintype.card G = c * Fintype.card (ZMod (r * 2) × K) →
+      0 < r →
+        0 < i →
+          (∀ (x : K), 2 ^ i • x = -x) →
+            2 ^ 2 ∣ ↑k - lam →
+              CycloFacts 2 r →
+                ∀ {s : ℤ},
+                  s ^ 2 = ↑k + lam * (↑(Fintype.card G) - 1) →
+                    ¬8 ∣ 2 * s - (↑k + lam * (2 * ↑c - 1)) ∧ ¬8 ∣ -2 * s - (↑k + lam * (2 * ↑c - 1)) → ¬HasSDS G k lam
+@hasSDS_half_of_maDescent : ∀ {G K : Type} [inst : AddCommGroup G] [inst_1 : Fintype G] [inst_2 : AddCommGroup K]
+  [inst_3 : Fintype K] {r i k k' : ℕ} {lam lam' : ℤ} [inst_4 : NeZero (r * 2)] [inst_5 : NeZero r]
+  {φ : G →+ ZMod (r * 2) × K},
+  Function.Surjective ⇑φ →
+    Fintype.card G = 1 * Fintype.card (ZMod (r * 2) × K) →
+      0 < r →
+        0 < i →
+          (∀ (x : K), 2 ^ i • x = -x) →
+            2 ^ 2 ∣ ↑k - lam →
+              CycloFacts 2 r → 4 * ↑k' = ↑k + lam → 2 * lam' = lam → HasSDS G k lam → HasSDS (ZMod r × K) k' lam'
+@IsSDS.sum_abs_contract_parity : ∀ {G : Type u_1} {H : Type u_2} [inst : AddCommGroup G] [inst_1 : Fintype G]
+  [inst_2 : AddCommGroup H] [inst_3 : Fintype H] [inst_4 : DecidableEq H] {k : ℕ} {lam : ℤ} {D : G → SignType},
+  IsSDS k lam D → ∀ (φ : G →+ H), (↑k - ∑ h, |contract φ D h|) % 2 = 0
+def SignedDifferenceSets.DescentCert.Kills : Row → DescentCert → Prop :=
+fun w c =>
+  0 < c.r ∧
+    0 < c.i ∧
+      (∀ m ∈ w.ms, 0 < m) ∧
+        c.ks ≠ [] ∧
+          (∀ d ∈ c.ks, d ∣ 2 ^ c.i + 1) ∧
+            MapOk w.ms (c.r * 2 :: c.ks) c.A ∧
+              SurjCert w.ms (c.r * 2 :: c.ks) c.A c.P ∧
+                c.r * 2 * c.ks.prod ∣ w.ms.prod ∧
+                  2 ^ 2 ∣ ↑w.k - w.lam ∧
+                    c.s ^ 2 = ↑w.k + w.lam * (↑w.ms.prod - 1) ∧
+                      ¬8 ∣ 2 * c.s - (↑w.k + w.lam * (2 * ↑(w.ms.prod / (c.r * 2 * c.ks.prod)) - 1)) ∧
+                        ¬8 ∣ -2 * c.s - (↑w.k + w.lam * (2 * ↑(w.ms.prod / (c.r * 2 * c.ks.prod)) - 1)) ∧
+                          (2, c.r) ∈ MaRows.maPairs
+SignedDifferenceSets.descentRows5 : List (Row × DescentCert)
+
+real	0m36.741s
+user	0m0.171s
+sys	0m0.170s
