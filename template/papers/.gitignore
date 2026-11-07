@@ -1,0 +1,2 @@
+# Everything a build generates: the PDF, the numbers, LaTeX's intermediate files.
+build/
