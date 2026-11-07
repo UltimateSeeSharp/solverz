@@ -1,6 +1,6 @@
 # Corrections
 
-Where the source is wrong or behind. Not Solutions; sent to its maintainer only on the user's approval.
+Where the source is wrong or behind, as the user approved. Not Solutions; sent to its maintainer only on the user's approval.
 
 | Instances | Source says | What holds | Evidence | Sent |
 |---|---|---|---|---|
