@@ -183,6 +183,14 @@ def HasSDS (G : Type*) [AddCommGroup G] [Fintype G] (k : ℕ) (lam : ℤ) : Prop
 theorem not_hasSDS : ¬ HasSDS (ZMod 3 × ZMod 3) 8 1
 \end{Verbatim}
 
+\noindent Every case's statement is generated from its table entry, with the group
+$\mathbb{Z}_{m_1} \times \dots \times \mathbb{Z}_{m_r}$ of its invariant factors
+$[m_1, \dots, m_r]$: written out, as above, or, where a rule's check runs over a list of rows,
+through one definition \texttt{Grp} that unfolds to that product (Lean proves it has
+$m_1 \cdots m_r$ elements). So besides the definition of an SDS, a reader needs to check only
+that each statement's group, $k$ and $\lambda$ match its table entry, which a script can
+compare.
+
 \noindent From the repository root,
 
 \begin{Verbatim}[fontsize=\small]
