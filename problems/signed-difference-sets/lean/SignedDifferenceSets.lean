@@ -151,6 +151,8 @@ public import SignedDifferenceSets.LiftRows.Part04
 public import SignedDifferenceSets.LiftRows.Part05
 public import SignedDifferenceSets.LiftRows.Part06
 public import SignedDifferenceSets.LiftRows.Part07
+public import SignedDifferenceSets.LiftRows.Part08
+public import SignedDifferenceSets.LiftRows.Part09
 public import SignedDifferenceSets.OrbitSearchSplit
 public import SignedDifferenceSets.Tests.OrbitSearchSplit
 public import SignedDifferenceSets.OrbitRows.Part60
@@ -263,6 +265,7 @@ public import SignedDifferenceSets.Answer.N49190
 public import SignedDifferenceSets.Answer.N49624
 public import SignedDifferenceSets.MaDescent
 public import SignedDifferenceSets.MaDescentFull
+public import SignedDifferenceSets.HalfRows
 public import SignedDifferenceSets.DescentRows
 public import SignedDifferenceSets.UnramifiedDescent
 public import SignedDifferenceSets.UnramifiedRows

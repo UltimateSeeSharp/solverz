@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-07
+- 12:47 Settled 96 rows none: 94 by C26 at c = 1 through their halved row (HalfRows, refuter c26 SURVIVES; 15 parts and 9 rows built alone; 6 rows deferred, their halved orbit check needs over 13 GB in one process), N177, N178 SDS(36,29,20) by I16's lift (LiftRows Part08, 09; the lift refuter's engine also finds none). Root build clean, axioms clean on all. Table 91.03% (none 63,986, exists 226, open 6,331)
 - 11:19 Settled 6 rows none by I16's lift search (LiftRows Part02–07; the refuter's own engine also finds none): N76, N77 SDS(27,22,3), N134, N135, N136, N138 SDS(32,28,12); root build clean, axioms clean. Table 90.89% (none 63,890, exists 226, open 6,427)
 - 09:20 N70 SDS(27,17,4) on C₃³ settled none: I16's contraction-then-lift (`LiftRows.n70_not_hasSDS`, helper L's `LiftSearch.lean`, refuter SURVIVES), root build clean, axioms clean. Table 90.88% (none 63,884, exists 226, open 6,433)
 - 07:50 N363, N71 settled none: I5's orbit exhaustion in slices (helper X's `OrbitSearchSplit.lean`, refuter SURVIVES, `scratch/refuter/xsplit/report-2026-11-07-0700.md`); OrbitRows Part60–77 in the root, build clean, axioms clean. Table 90.88% (none 63,883, exists 226, open 6,434)

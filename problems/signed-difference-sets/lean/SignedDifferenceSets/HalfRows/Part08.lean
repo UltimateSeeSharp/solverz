@@ -20,78 +20,68 @@ set_option maxRecDepth 100000
 -- one kernel check at a time: parts of 15 rows peaked at 7–14 GB in parallel
 set_option Elab.async false
 
-/-- N11260: halved SDS(108,13,4,[3, 36]), not in the table, has no SDS. -/
-theorem n11260_not_hasSDS (inst : Fintype (Grp [3, 72])) :
-    ¬ @HasSDS (Grp [3, 72]) _ inst 44 8 :=
-  have inst' : Fintype (Grp [3, 36]) := Grp.fintype _ (by decide)
-  HalfCert.not_hasSDS (w := ⟨11260, [3, 72], 44, 8⟩)
-    (c := ⟨4, 3, [3, 9], [[0, 1], [1], [0, 1]], [[0, 9], [1], [0, 64]], [3, 36], 13, 4, [[0, 1],
-      [1], [0, 1]], [[0, 9], [1], [0, 28]]⟩)
+/-- N12961: halved SDS(114,41,16,[114]), not in the table, has no SDS. -/
+theorem n12961_not_hasSDS (inst : Fintype (Grp [228])) :
+    ¬ @HasSDS (Grp [228]) _ inst 132 32 :=
+  have inst' : Fintype (Grp [114]) := Grp.fintype _ (by decide)
+  HalfCert.not_hasSDS (w := ⟨12961, [228], 132, 32⟩)
+    (c := ⟨2, 9, [57], [[1], [1]], [[57], [172]], [114], 41, 16, [[1], [1]], [[57], [58]]⟩)
     (by decide +kernel) inst'
-    (McCert.not_hasSDS (r := ⟨0, [3, 36], 13, 4⟩) (c := ⟨⟨3, 1, 1, [1, 2], 21⟩, [⟨0, 1, 0, 1⟩, ⟨0,
-      -1, 0, 1⟩]⟩) (by decide +kernel) inst')
+    (not_hasSDS_of_orbitRow' (ms := [114]) (t := 5) (s := 43) (by decide +kernel) inst')
     inst
 
-/-- N11263: halved SDS(108,13,4,[108]), not in the table, has no SDS. -/
-theorem n11263_not_hasSDS (inst : Fintype (Grp [216])) :
-    ¬ @HasSDS (Grp [216]) _ inst 44 8 :=
-  have inst' : Fintype (Grp [108]) := Grp.fintype _ (by decide)
-  HalfCert.not_hasSDS (w := ⟨11263, [216], 44, 8⟩)
-    (c := ⟨4, 9, [27], [[1], [1]], [[81], [136]], [108], 13, 4, [[1], [1]], [[81], [28]]⟩)
+/-- N18649: halved SDS(132,43,18,[132]), not in the table, has no SDS. -/
+theorem n18649_not_hasSDS (inst : Fintype (Grp [264])) :
+    ¬ @HasSDS (Grp [264]) _ inst 136 36 :=
+  have inst' : Fintype (Grp [132]) := Grp.fintype _ (by decide)
+  HalfCert.not_hasSDS (w := ⟨18649, [264], 136, 36⟩)
+    (c := ⟨4, 5, [33], [[1], [1]], [[33], [232]], [132], 43, 18, [[1], [1]], [[33], [100]]⟩)
     (by decide +kernel) inst'
-    (MaRowCert.not_hasSDS maRule (w := ⟨0, [108], 13, 4⟩) (c := ⟨3, 9, 1, 2, 1, [4], [[1], [1]],
-      [[28], [81]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (pr := (3, 9)) (by
-      decide)) inst')
+    (McCert.not_hasSDS (r := ⟨0, [132], 43, 18⟩) (c := ⟨⟨5, 1, 1, [2], 49⟩, [⟨0, 1, 0, 1⟩, ⟨0, -1,
+      0, 1⟩]⟩) (by decide +kernel) inst')
     inst
 
-/-- N11492: halved SDS(108,79,70,[3, 3, 12]), not in the table, has no SDS. -/
-theorem n11492_not_hasSDS (inst : Fintype (Grp [3, 3, 24])) :
-    ¬ @HasSDS (Grp [3, 3, 24]) _ inst 176 140 :=
-  have inst' : Fintype (Grp [3, 3, 12]) := Grp.fintype _ (by decide)
-  HalfCert.not_hasSDS (w := ⟨11492, [3, 3, 24], 176, 140⟩)
-    (c := ⟨4, 1, [3, 3, 3], [[0, 0, 1], [1], [0, 1], [0, 0, 1]], [[0, 0, 9], [1], [0, 1], [0, 0,
-      16]], [3, 3, 12], 79, 70, [[0, 0, 1], [1], [0, 1], [0, 0, 1]], [[0, 0, 9], [1], [0, 1], [0,
-      0, 4]]⟩)
+/-- N18664: halved SDS(132,53,28,[132]), not in the table, has no SDS. -/
+theorem n18664_not_hasSDS (inst : Fintype (Grp [264])) :
+    ¬ @HasSDS (Grp [264]) _ inst 156 56 :=
+  have inst' : Fintype (Grp [132]) := Grp.fintype _ (by decide)
+  HalfCert.not_hasSDS (w := ⟨18664, [264], 156, 56⟩)
+    (c := ⟨4, 5, [33], [[1], [1]], [[33], [232]], [132], 53, 28, [[1], [1]], [[33], [100]]⟩)
     (by decide +kernel) inst'
-    (McCert.not_hasSDS (r := ⟨0, [3, 3, 12], 79, 70⟩) (c := ⟨⟨3, 1, 1, [1, 1, 2], 87⟩, [⟨0, 1, 0,
-      1⟩, ⟨0, -1, 0, 1⟩]⟩) (by decide +kernel) inst')
+    (McCert.not_hasSDS (r := ⟨0, [132], 53, 28⟩) (c := ⟨⟨5, 1, 1, [2], 61⟩, [⟨0, 1, 0, 1⟩, ⟨0, -1,
+      0, 1⟩]⟩) (by decide +kernel) inst')
     inst
 
-/-- N11494: halved SDS(108,79,70,[3, 36]), not in the table, has no SDS. -/
-theorem n11494_not_hasSDS (inst : Fintype (Grp [3, 72])) :
-    ¬ @HasSDS (Grp [3, 72]) _ inst 176 140 :=
-  have inst' : Fintype (Grp [3, 36]) := Grp.fintype _ (by decide)
-  HalfCert.not_hasSDS (w := ⟨11494, [3, 72], 176, 140⟩)
-    (c := ⟨4, 3, [3, 9], [[0, 1], [1], [0, 1]], [[0, 9], [1], [0, 64]], [3, 36], 79, 70, [[0, 1],
-      [1], [0, 1]], [[0, 9], [1], [0, 28]]⟩)
+/-- N18676: halved SDS(132,63,38,[132]), not in the table, has no SDS. -/
+theorem n18676_not_hasSDS (inst : Fintype (Grp [264])) :
+    ¬ @HasSDS (Grp [264]) _ inst 176 76 :=
+  have inst' : Fintype (Grp [132]) := Grp.fintype _ (by decide)
+  HalfCert.not_hasSDS (w := ⟨18676, [264], 176, 76⟩)
+    (c := ⟨4, 5, [33], [[1], [1]], [[33], [232]], [132], 63, 38, [[1], [1]], [[33], [100]]⟩)
     (by decide +kernel) inst'
-    (McCert.not_hasSDS (r := ⟨0, [3, 36], 79, 70⟩) (c := ⟨⟨3, 1, 1, [1, 2], 87⟩, [⟨0, 1, 0, 1⟩, ⟨0,
-      -1, 0, 1⟩]⟩) (by decide +kernel) inst')
+    (McCert.not_hasSDS (r := ⟨0, [132], 63, 38⟩) (c := ⟨⟨5, 1, 1, [2], 71⟩, [⟨0, 1, 0, 1⟩, ⟨0, -1,
+      0, 1⟩]⟩) (by decide +kernel) inst')
     inst
 
-/-- N11497: halved SDS(108,79,70,[108]), not in the table, has no SDS. -/
-theorem n11497_not_hasSDS (inst : Fintype (Grp [216])) :
-    ¬ @HasSDS (Grp [216]) _ inst 176 140 :=
-  have inst' : Fintype (Grp [108]) := Grp.fintype _ (by decide)
-  HalfCert.not_hasSDS (w := ⟨11497, [216], 176, 140⟩)
-    (c := ⟨4, 9, [27], [[1], [1]], [[81], [136]], [108], 79, 70, [[1], [1]], [[81], [28]]⟩)
+/-- N18703: halved SDS(132,77,52,[132]), not in the table, has no SDS. -/
+theorem n18703_not_hasSDS (inst : Fintype (Grp [264])) :
+    ¬ @HasSDS (Grp [264]) _ inst 204 104 :=
+  have inst' : Fintype (Grp [132]) := Grp.fintype _ (by decide)
+  HalfCert.not_hasSDS (w := ⟨18703, [264], 204, 104⟩)
+    (c := ⟨4, 5, [33], [[1], [1]], [[33], [232]], [132], 77, 52, [[1], [1]], [[33], [100]]⟩)
     (by decide +kernel) inst'
-    (MaRowCert.not_hasSDS maRule (w := ⟨0, [108], 79, 70⟩) (c := ⟨3, 9, 1, 2, 1, [4], [[1], [1]],
-      [[28], [81]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (pr := (3, 9)) (by
-      decide)) inst')
+    (McCert.not_hasSDS (r := ⟨0, [132], 77, 52⟩) (c := ⟨⟨5, 1, 1, [2], 83⟩, [⟨0, 1, 0, 1⟩, ⟨0, -1,
+      0, 1⟩]⟩) (by decide +kernel) inst')
     inst
 
-/-- N11564: halved SDS(108,89,80,[3, 3, 12]), not in the table, has no SDS. -/
-theorem n11564_not_hasSDS (inst : Fintype (Grp [3, 3, 24])) :
-    ¬ @HasSDS (Grp [3, 3, 24]) _ inst 196 160 :=
-  have inst' : Fintype (Grp [3, 3, 12]) := Grp.fintype _ (by decide)
-  HalfCert.not_hasSDS (w := ⟨11564, [3, 3, 24], 196, 160⟩)
-    (c := ⟨4, 1, [3, 3, 3], [[0, 0, 1], [1], [0, 1], [0, 0, 1]], [[0, 0, 9], [1], [0, 1], [0, 0,
-      16]], [3, 3, 12], 89, 80, [[0, 0, 1], [1], [0, 1], [0, 0, 1]], [[0, 0, 9], [1], [0, 1], [0,
-      0, 4]]⟩)
+/-- N19621: halved row N4268 SDS(136,31,6,[136]) has no SDS. -/
+theorem n19621_not_hasSDS (inst : Fintype (Grp [272])) :
+    ¬ @HasSDS (Grp [272]) _ inst 112 12 :=
+  have inst' : Fintype (Grp [136]) := Grp.fintype _ (by decide)
+  HalfCert.not_hasSDS (w := ⟨19621, [272], 112, 12⟩)
+    (c := ⟨8, 4, [17], [[1], [1]], [[17], [256]], [136], 31, 6, [[1], [1]], [[17], [120]]⟩)
     (by decide +kernel) inst'
-    (McCert.not_hasSDS (r := ⟨0, [3, 3, 12], 89, 80⟩) (c := ⟨⟨3, 1, 1, [1, 1, 2], 93⟩, [⟨0, 1, 0,
-      1⟩, ⟨0, -1, 0, 1⟩]⟩) (by decide +kernel) inst')
+    (not_hasSDS_of_orbitRow' (ms := [136]) (t := 5) (s := 29) (by decide +kernel) inst')
     inst
 
 end SignedDifferenceSets.HalfRows

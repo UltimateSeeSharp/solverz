@@ -28,6 +28,8 @@ PER_PART = 6
 # rows each built alone: the parts holding them peaked over 14 GB (2026-11-07)
 SOLO_ROWS = {"N5436", "N5454", "N5887", "N6055", "N7342", "N7452", "N58699", "N58708", "N58765", "N58804",
              "N58828", "N58834", "N58879", "N60667"}
+# rows left out: their halved row's single orbit check needs over 13.6 GB alone (needs OrbitSearchSplit's slices)
+DEFER_ROWS = {"N58699", "N58708", "N5887", "N6055", "N60667", "N58828"}
 ORBIT_CAP = 2_000_000  # search nodes before an orbit proof is given up
 PAIRS = {2 ** a for a in range(8)}
 NONE = "none"
@@ -162,7 +164,7 @@ def main():
     bykey = {r["key"]: r for r in table}
     out, tsv = [], []
     for row in table:
-        if row["status"] != OPEN or row["id"] in skip:
+        if row["status"] != OPEN or row["id"] in skip or row["id"] in DEFER_ROWS:
             continue
         m = KEY.fullmatch(row["key"])
         v, k, lam = map(int, m.groups()[:3])
