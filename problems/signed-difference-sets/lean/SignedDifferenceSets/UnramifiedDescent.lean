@@ -250,7 +250,8 @@ def DescentRowCert.Kills (w : Row) (c : DescentRowCert) : Prop :=
           ∃ e ∈ List.range c.m, (1 + c.F * u) % c.m = p ^ e % c.m) ∧
     c.m * c.F * (w.ms.prod / c.m) ^ 2 < Nat.totient c.m * (w.k - w.lam).toNat
 
-instance (w : Row) (c : DescentRowCert) : Decidable (c.Kills w) := by
+instance DescentRowCert.instDecidableKills (w : Row) (c : DescentRowCert) :
+    Decidable (c.Kills w) := by
   unfold DescentRowCert.Kills; infer_instance
 
 /-- A killed row has no SDS. -/
