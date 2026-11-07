@@ -6,10 +6,10 @@ without trusting the AI or the search code behind it.
 
 ## Solutions
 
-| Date | Problem | Solution | Proof |
-|---|---|---|---|
-| 2026-11-07 | [Signed difference sets](problems/signed-difference-sets/README.md) | 16,095 more open entries of Gordon's table settled: 46 sets found, 16,049 proved impossible by 19 Lean-checked rules | [solutions.md](problems/signed-difference-sets/solutions.md) |
-| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/README.md) | 6 open entries of Gordon's table settled: 4 sets found, 2 proved impossible | [solutions.md](problems/signed-difference-sets/solutions.md) |
+| Date | Problem | Solution | Proof | Paper |
+|---|---|---|---|---|
+| 2026-11-07 | [Signed difference sets](problems/signed-difference-sets/README.md) | 16,095 more open entries of Gordon's table settled: 46 sets found, 16,049 proved impossible by 19 Lean-checked rules | [solutions.md](problems/signed-difference-sets/solutions.md) | — |
+| 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/README.md) | 6 open entries of Gordon's table settled: 4 sets found, 2 proved impossible | [solutions.md](problems/signed-difference-sets/solutions.md) | — |
 
 ## Problems
 

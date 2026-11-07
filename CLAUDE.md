@@ -44,6 +44,7 @@ In a template, `<…>` in the text and `{…}` in file and folder names are plac
 | `scratch/`         | Git-ignored playground; nothing there counts. Exploring there is always allowed; the rules apply to what gets recorded.                                                                                                                                                                                                                                                  |
 | `journal.md`       | Steps that changed a status, newest first; one timestamped line each, under its date.                                                                                                                                                                                                                                                                                    |
 | `solutions.md`     | Its Solutions (`Z1`…), newest first: Lean-checked statements that solve published open questions (one or many table entries, a record, a conjecture). One is listed once the refuter SURVIVES it, its origin credits whoever had it first, and the user approves it. Until then it waits under "Needs the user" in `state.md`; `solutions.md` gets it only on approval. |
+| `papers/` | Our own papers (`P1`…), one folder each with its source and built PDF; `_papers.md` lists them: title, kind (paper, note), what it presents, status `draft` → `checked` (the refuter: each statement matches its Lean theorem, each number its file) → `approved` (the user), and where it was shared. |
 
 ### Relations
 
@@ -53,6 +54,8 @@ In a template, `<…>` in the text and `{…}` in file and folder names are plac
 - An experiment found wrong reopens every claim it refuted, and every idea
   those claims killed.
 - An idea whose claims are all verified solves the problem.
+- A paper presents only approved entries (Solutions, and a module's, like
+  corrections); a Solution's `Shared` names the paper that carries it.
 
 ## Roles
 
