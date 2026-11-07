@@ -25,7 +25,6 @@ Results only in scratch (git-ignored):
 
 ## Needs the user
 
-- Merging `solve/signed-difference-sets` into main (Solutions Z7–Z33, `corrections.md`).
 - Sending `corrections.md` (11 rows, none sent) to Gordon.
 - Proposed corrections (refuter db-lags and a5-a3; listed in `corrections.md` only on approval):
   - "Yes" there but no construction applies: N63320 (475, 241, 120) in C₄₇₅, filed as "Prime Power Pair", which needs GF(25)'s additive group; it should be open.
