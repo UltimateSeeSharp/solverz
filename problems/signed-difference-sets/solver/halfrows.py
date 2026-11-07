@@ -25,6 +25,7 @@ LEAN = ROOT / "lean" / "SignedDifferenceSets"
 OUT = LEAN / "HalfRows.lean"
 MAX_LEAVES = 1500
 PER_PART = 6
+ORBIT_CAP = 2_000_000  # search nodes before an orbit proof is given up
 PAIRS = {2 ** a for a in range(8)}
 NONE = "none"
 
@@ -127,8 +128,18 @@ def reduced_proof(r2, ms2, k2, lam2):
 def orbit_none(ms, k, lam, t, s):
     """The Lean orbit search (mirrored by `orbitsplit.Search`) finds no set: True only when exhausted."""
     from orbitsplit import Search
-    S = Search(ms, k, lam, t, s)
-    return S.run(S.root(), [0, 0, 0])
+
+    class Capped(Search):
+        def run(self, node, st):
+            if st[0] > ORBIT_CAP:
+                raise TimeoutError
+            return super().run(node, st)
+
+    S = Capped(ms, k, lam, t, s)
+    try:
+        return S.run(S.root(), [0, 0, 0])
+    except TimeoutError:
+        return False
 
 
 def markedcounts():
