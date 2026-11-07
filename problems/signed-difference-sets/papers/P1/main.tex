@@ -13,6 +13,7 @@
 \usepackage[hidelinks]{hyperref}
 
 \input{build/numbers}
+\emergencystretch=1.5em % room for lines with long code words
 \newcommand{\zrows}[1]{\csname zrows#1\endcsname}
 \newcommand{\repo}{\url{https://github.com/UltimateSeeSharp/solverz}}
 \newcommand{\todo}[1]{\textbf{[TODO: #1]}}
@@ -21,7 +22,7 @@
 with Lean-checked proofs: a summary}
 \author{\todo{your name}}
 \address{Independent researcher}
-\email{\todo{email}}
+\email{david.schneider1920@gmail.com}
 \date{\todo{date}}
 
 \begin{document}
@@ -29,7 +30,8 @@ with Lean-checked proofs: a summary}
 \begin{abstract}
 Of the \openAfterHeWu{} cases of Gordon's signed difference set table~\cite{gordon} that
 remain open after He and Wu~\cite{he-wu}, we settle \ourRows: \ourNone{} have no signed difference set and \ourExists{} have
-one. A further \corrections{} cases listed as open are settled by published constructions.
+one. A further \corrections{} cases listed as open are already settled by published
+constructions; we list them as corrections.
 Every result is a theorem checked by the Lean~4 proof assistant. The work was done with AI
 tools; see the end of the note. This note summarizes the results, the database corrections and
 how to check them; it is not a paper.
@@ -42,12 +44,14 @@ how to check them; it is not a paper.
 We use the notation of~\cite{gordon}: an SDS with parameters $(v,k,\lambda)$ in an abelian
 group $G$ of order $v$, $n = k - \lambda$, and $s^2 = k + \lambda(v-1)$ its squared sign sum.
 Most rules work with the \emph{coset sums} $a_h = \sum_{\phi(x) = h} D(x)$ of $D$ on a
-quotient $\phi \colon G \to H$, with $c = v/|H|$; they satisfy $|a_h| \le c$ and
-$\sum_h a_h a_{h+g} = \lambda c$ for $g \neq 0$.
+quotient $\phi \colon G \to H$, with $c = v/|H|$ (the intersection numbers
+of~\cite[Lemma~5.2]{gordon}); they satisfy $|a_h| \le c$ and $\sum_h a_h a_{h+g} = \lambda c$
+for $g \neq 0$. Theorem numbers of cited papers are those of their arXiv versions.
 
-Table~\ref{tab:rules} lists the rules. Each is one Lean theorem that holds for every group;
-a row of the table is settled by checking the rule's hypotheses for that row inside Lean.
-Rows are counted once, by the first rule that settles them. ``Ours'' means we found no
+Table~\ref{tab:rules} lists the rules. Each is a Lean theorem that holds for every group (Z25
+and Z29 are two each; Z1, Z2 and Z26 settle single cases directly); a row of the table is
+settled by checking the rule's hypotheses for that row inside Lean. Rows are counted once, by
+the first rule in the order the rules were found (their numbers). ``Ours'' means we found no
 earlier statement for signed difference sets; it does not mean the idea is new.
 
 \begingroup\small
@@ -63,46 +67,50 @@ Z8 & Self-conjugacy: $p^{2j} \mid n$, $p \nmid |H|$, $p$ self-conjugate modulo $
   $a_h$ agree modulo $p^j$, impossible when $p^j > 2c$ & \zrows{8} & Turyn~\cite{turyn};
   SDS form ours (odd exponent:~\cite{he-wu}) \\
 Z9 & Moments: the same congruence with $\sum a_h = \pm s$ and $\sum a_h^2 = k + \lambda(c-1)$
-  & \zrows{9} & ours \\
+  & \zrows{9} & ours, on~\cite[Lemma~5.2]{gordon} \\
 Z10 & Box bound: the same, with $|a_h| \le c$ & \zrows{10} & ours \\
 Z22 & The congruence for several self-conjugate primes at once (CRT) & \zrows{22} & ours \\
 Z11 & Support parity: $v$ odd, $\lambda$ even, $d(d-1) < v-1$ with $d = v - k$ & \zrows{11}
-  & classical for $\lambda = 0$~\cite{wallis-whiteman}; general $\lambda$ ours \\
+  & classical for $\lambda = 0$~\cite{wallis-whiteman}; general $\lambda$ ours beyond
+  $d = 1$~\cite[Cor.~4.5]{he-wu} \\
 Z16 & Marked elements per coset (an LP certificate) & \zrows{16} & ours \\
 Z17 & Real characters on a quotient $C_2^r$ & \zrows{17} & extends~\cite[Thm.~4.2]{he-wu} \\
 Z18 & Characters on a quotient of exponent 4 & \zrows{18} & ours \\
-Z19 & Characters on a quotient of exponent 3 & \zrows{19} & the ramified prime above 3 \\
+Z19 & Characters on a quotient of exponent 3 & \zrows{19} & classical (the ramified prime above 3); SDS form ours \\
 Z25 & Sylow quotient of order $p^t$: $p^{\min(t, \lceil e/2 \rceil)} \mid s$, $e = v_p(n)$;
   for $p = 2$ a sharper equality case & \zrows{25} & ours, on Turyn's argument \\
 Z24 & Ma's lemma on a quotient $C_{p^j} \times K$, $p$ self-conjugate on $K$:
   impossible when $p^{\lfloor e/2 \rfloor} > 2c$ & \zrows{24} & Ma's lemma~\cite{pott};
   SDS form ours \\
 Z29 & Ma's lemma at its edge ($p = 2$, $4 \mid n$): $8 \mid 2s' - (k + \lambda(2c-1))$;
-  for $c = 1$, a halved SDS & \zrows{29} & halving known for weighing matrices~\cite{tan};
+  for $c = 1$, a halved SDS & \zrows{29} & halving for $c = 1$:~\cite[Lemma~6.2]{schmidt-smith};
   general $c$ ours \\
-Z32 & The halved coset sums for any $c$ (even contraction) & \zrows{32} & ours \\
+Z32 & The halved coset sums for any $c$ (even contraction) & \zrows{32} & ours, on Ma's lemma \\
 Z15 & Multiplier theorem ($\gcd(v,n) = 1$, $n$ squarefree), then an exhaustive search over
   multiplier orbits & \zrows{15} & McFarland, as in~\cite[Thm.~5.1]{gordon};
   fixed translate~\cite{mcfarland-rice} \\
-Z27 & The same for every $n$ (Lean proof through Witt vectors) & \zrows{27} & as Z15 \\
-Z28 & Multiplier-fixed coset sums on a quotient, searched exhaustively & \zrows{28} & ours \\
+Z27 & The same for every $n$ prime to $v$ (Lean proof through Witt vectors) & \zrows{27} & as Z15 \\
+Z28 & Multiplier-fixed coset sums on a quotient, searched exhaustively & \zrows{28} & the search of~\cite[\S5]{gordon}; its Lean proof ours \\
 Z31 & Self-conjugate primes enlarge the multiplier group of the coset sums & \zrows{31} &
   for difference sets~\cite{gordon-schmidt,miller}; SDS form ours \\
 Z30 & Field descent without ramification: $\varphi(m)\,n \le m F c^2$ on a quotient
-  $\mathbb{Z}_m$, $\gcd(m,n) = 1$ & \zrows{30} & Schmidt's field descent~\cite{tan};
+  $\mathbb{Z}_m$, $\gcd(m,n) = 1$, when every $t \equiv 1 \pmod F$ is a multiplier & \zrows{30} & Schmidt's field descent~\cite{tan};
   this form ours \\
 Z1, Z2, & Exhaustive search and contraction for & 4 & ours \\
 Z26 & single small cases & & \\
-Z33 & Contraction to a quotient, then a lift coset by coset & \zrows{33} & ours \\
+Z33 & Contraction to a quotient, then a lift coset by coset & \zrows{33} & as in~\cite[\S5]{gordon}; the rows and the Lean proof ours \\
 \bottomrule
 \end{longtable}
 \endgroup
 
-The \ourExists{} cases with a set are listed in Appendix~\ref{app:sets}. They come from
-exhaustive and orbit searches, from cyclotomic classes, from partial difference sets
-($P - \{0\}$ is an SDS when $\lambda' - \mu = 2$), and from signed combinations of relative
-difference sets, among them a cyclic family $(n((n+1)^2+1),\, (n+1)^2+n,\, n)$ for every prime
-power $n+1$. The largest is a $(361, 316, 141)$ set in $C_{19}^2$.
+The \ourExists{} cases with a set are listed in Appendix~\ref{app:sets}; Lean checks each set.
+They come from exhaustive and orbit searches, from cyclotomic classes, from partial difference
+sets ($P - \{0\}$ is an SDS when $\lambda' - \mu = 2$, the step in the proof
+of~\cite[Thm.~5.3]{he-wu}), and from signed combinations of relative difference sets (Bose's
+affine and Pott's semiregular ones, see~\cite{pott}). One such combination gives, on paper, a
+cyclic family $((q-1)(q^2+1),\, q^2+q-1,\, q-1)$ for every prime power $q$; Lean checks its two
+members that were open, $q = 7$ and $q = 8$. The $(27,10,1)$ set in $C_3^3$ is the construction
+of~\cite[Thm.~4.1]{he-chen-ge} at $m = 1$, outside its stated range.
 
 \section{Corrections to the database}
 
@@ -125,8 +133,8 @@ N14471 & $(243,82,1)$ in $C_3^5$ & \cite[Thm.~4.1]{he-chen-ge} with $x_1 = 0$ \\
 \end{tabular}
 \end{center}
 
-For N14471, Example~4.2 of~\cite{he-chen-ge} as printed (with $x_1 = (1,0)$) is not a signed
-set; the theorem with $x_1 = 0$ gives one.
+For N14471, Theorem~4.1 of~\cite{he-chen-ge} needs $x_1 = 0$: for $x_1 \neq 0$, as in their
+Example~4.2 ($x_1 = (1,0)$), the construction is not a signed set.
 
 \section{How to check it}
 
@@ -143,25 +151,34 @@ def HasSDS (G : Type*) [AddCommGroup G] [Fintype G] (k : ℕ) (lam : ℤ) : Prop
   ∃ D : G → SignType, IsSDS k lam D
 \end{Verbatim}
 
-\noindent A single case then reads, for example,
+\noindent A single case then reads, for example
+(\texttt{SignedDifferenceSets.Answer.N3.not\_hasSDS}),
 
 \begin{Verbatim}[fontsize=\small]
 theorem not_hasSDS : ¬ HasSDS (ZMod 3 × ZMod 3) 8 1
 \end{Verbatim}
 
-\noindent The command \texttt{lake build --wfail} checks everything; \texttt{\#print axioms} on any result
-shows only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. No result uses
-\texttt{native\_decide}: every computation is checked by Lean's kernel.
+\noindent From the repository root,
+
+\begin{Verbatim}[fontsize=\small]
+lake build --wfail SignedDifferenceSets
+\end{Verbatim}
+
+\noindent checks every result. For any result, \texttt{\#print axioms} shows only the three
+standard axioms \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. No result
+uses \texttt{native\_decide}: every computation is checked by Lean's kernel.
 
 \section{What is still open}
 
-\stillOpen{} cases remain: \csname openBelow50\endcsname{} with $v < 50$,
+\stillOpen{} cases remain open in the database after our results: \csname openBelow50\endcsname{} with $v < 50$,
 \csname openBelow100\endcsname{} with $50 \le v < 100$, \csname openBelow200\endcsname{} with
 $100 \le v < 200$ and \csname openBelow500\endcsname{} with $200 \le v < 500$. Roughly, they
-fall into three kinds: cases where a multiplier applies but the orbit search is too large;
-cases where a rule above fails by a small margin; and a core where no multiplier applies and
-every congruence modulus is below $c$. We expect most of the core to have no SDS, but none of
-the local arguments above can show it.
+fall into four kinds: cases where a multiplier applies but the orbit search is too large;
+cases where a rule above fails by a small margin; $p$-groups with $n$ a power of $p$, where a
+construction seems more likely; and a core where no multiplier applies and every congruence
+modulus is below $c$. We expect most of the core to have no SDS, but none of the local
+arguments above can show it. Work on these cases continues; results beyond this summary,
+including further corrections to the database, will be reported separately.
 
 \section*{Use of AI}
 
