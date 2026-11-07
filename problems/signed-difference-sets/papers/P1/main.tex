@@ -32,7 +32,7 @@ Of the \openAfterHeWu{} cases of Gordon's table of signed difference sets~\cite{
 remain open after He and Wu~\cite{he-wu}, we settle \ourRows: \ourNone{} have no signed difference set and \ourExists{} have
 one. A further \corrections{} cases listed as open are already settled by published
 constructions; we list them as corrections.
-Every result is a theorem checked by the Lean~4 proof assistant. The research, the proofs and
+Every case we settle or correct is checked by the Lean~4 proof assistant. The research, the proofs and
 their Lean formalization were produced with AI tools under my direction; see the end of the
 note. This note summarizes the results, the database corrections and
 how to check them.
@@ -49,7 +49,7 @@ and $s^2 = k + \lambda(v-1)$ for its squared sign sum.
 Most rules work with the \emph{coset sums} $a_h = \sum_{\phi(x) = h} D(x)$ of $D$ on a
 quotient $\phi \colon G \to H$, with $c = v/|H|$ (the intersection numbers
 of~\cite[Lemma~5.2]{gordon}); they satisfy $|a_h| \le c$ and $\sum_h a_h a_{h+g} = \lambda c$
-for $g \neq 0$. Theorem numbers of cited papers are those of their arXiv versions.
+for $g \neq 0$. Theorem numbers of cited papers are those of their arXiv versions, where there is one.
 
 Table~\ref{tab:rules} lists the rules. Each is a Lean theorem that holds for every group (Z25
 and Z29 are two each; Z1, Z2 and Z26 settle single cases directly); a row of the table is
@@ -77,8 +77,8 @@ Z22 & The congruence for several self-conjugate primes at once (CRT) & \zrows{22
 \addlinespace
 \multicolumn{4}{@{}l}{\emph{Counting and parity}} \\
 Z11 & Support parity: $v$ odd, $\lambda$ even, $d(d-1) < v-1$ with $d = v - k$ & \zrows{11}
-  & classical for $\lambda = 0$~\cite{wallis-whiteman}; general $\lambda$ ours beyond
-  $d = 1$~\cite[Cor.~4.5]{he-wu} \\
+  & classical for $\lambda = 0$~\cite{wallis-whiteman}; general $\lambda$ ours (for $d = 1$,
+  $v = p^m$, $p \equiv 3 \pmod 4$, $m$ even:~\cite[Cor.~4.5]{he-wu}) \\
 Z16 & Marked elements per coset (an LP certificate) & \zrows{16} & ours \\
 \addlinespace
 \multicolumn{4}{@{}l}{\emph{Characters}} \\
@@ -92,8 +92,10 @@ Z25 & Sylow quotient of order $p^t$: $p^{\min(t, \lceil e/2 \rceil)} \mid s$, $e
 Z24 & Ma's lemma on a quotient $C_{p^j} \times K$, $p$ self-conjugate on $K$:
   impossible when $p^{\lfloor e/2 \rfloor} > 2c$ & \zrows{24} & Ma's lemma~\cite{pott};
   SDS form ours \\
-Z29 & Ma's lemma at its edge ($p = 2$, $4 \mid n$): $8 \mid 2s' - (k + \lambda(2c-1))$;
-  for $c = 1$, a halved SDS & \zrows{29} & halving for $c = 1$:~\cite[Lemma~6.2]{schmidt-smith};
+Z29 & Ma's lemma at its edge ($p = 2$, $4 \mid n$, on a quotient $C_{2^j} \times K$ as in Z24):
+  $8 \mid 2s' - (k + \lambda(2c-1))$ with $s' = \sum D = \pm s$; for $c = 1$, a halved SDS &
+  \zrows{29} & halving for $c = 1$: the argument of~\cite[Lemma~6.2]{schmidt-smith} (there for
+  weight 36);
   general $c$ ours \\
 Z32 & The halved coset sums for any $c$ (even contraction) & \zrows{32} & ours, on Ma's lemma \\
 \addlinespace
@@ -106,7 +108,8 @@ Z28 & Multiplier-fixed coset sums on a quotient, searched exhaustively & \zrows{
 Z31 & Self-conjugate primes enlarge the multiplier group of the coset sums & \zrows{31} &
   for difference sets~\cite{gordon-schmidt,miller}; SDS form ours \\
 Z30 & Field descent without ramification: $\varphi(m)\,n \le m F c^2$ on a quotient
-  $\mathbb{Z}_m$, $\gcd(m,n) = 1$, when every $t \equiv 1 \pmod F$ is a multiplier & \zrows{30} & Schmidt's field descent~\cite{tan};
+  $\mathbb{Z}_m$, $\gcd(m,n) = 1$, $F \mid m$, and every $t \equiv 1 \pmod F$ prime to $m$ and congruent
+  modulo $m$ to a power of each prime dividing $n$ & \zrows{30} & Schmidt's field descent~\cite{tan};
   this form ours \\
 \addlinespace
 \multicolumn{4}{@{}l}{\emph{Exhaustive search}} \\
@@ -207,8 +210,9 @@ including further corrections to the database, will be reported separately.
 I did this work with AI tools (Anthropic's Claude models). They searched the literature, found
 and proved the nonexistence rules, ran the searches, wrote the Lean proofs and drafted this
 note; I directed the work and decided which results to keep. So that nothing rests on the AI
-alone, every result is a theorem checked by Lean~4, with no unproved steps and no axioms beyond
-the three standard ones, and before I accepted a result a separate AI agent tried to break it:
+alone, every case we settle or correct is checked by Lean~4, with no unproved steps and no
+axioms beyond the three standard ones (the cyclic family above and the remark
+on~\cite[Thm.~4.1]{he-chen-ge} are on paper), and before I accepted a result a separate AI agent tried to break it:
 its proof, its Lean statement, the cases it settles and its credit to earlier work. The Lean
 statements are the authoritative form of every claim; all code, proofs and data are public
 (\repo).
