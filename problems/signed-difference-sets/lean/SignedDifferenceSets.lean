@@ -237,6 +237,8 @@ public import SignedDifferenceSets.MaDescentFull
 public import SignedDifferenceSets.DescentRows
 public import SignedDifferenceSets.UnramifiedDescent
 public import SignedDifferenceSets.UnramifiedRows
+public import SignedDifferenceSets.EvenContraction
+public import SignedDifferenceSets.EvenRows
 public import SignedDifferenceSets.MultiplierSelfConj
 public import SignedDifferenceSets.CosetSearchSelfConj
 public import SignedDifferenceSets.CosetSearchCongr
