@@ -1,6 +1,6 @@
 # Papers
 
-Our own papers on this problem; each in its folder `P<n>/` (source and built PDF).
+Our own papers on this problem; each in its folder `P<n>/`: `main.tex`, `refs.bib`, a script for its numbers, `latexmkrc` (builds into the git-ignored `build/`).
 
 | ID | Title | Kind | Presents | Status | Shared |
 |---|---|---|---|---|---|
