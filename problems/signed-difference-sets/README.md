@@ -1,7 +1,14 @@
 # Signed difference sets
 
-Settle open cases of Gordon's signed difference set table, circulant weighing
-matrices included. Now: [state.md](state.md).
+Which ±1 patterns with perfectly flat autocorrelation exist? Settling open entries of
+Gordon's table of signed difference sets, circulant weighing matrices included.
+**Status:** 16,101 open entries settled: 50 sets found, 16,051 proved impossible; 91% of
+Gordon's table settled, counting results from the literature.
+
+## Solutions
+[solutions.md](solutions.md) (Z1–Z33); entries the table lists as open although published work
+settles them: [corrections.md](corrections.md); papers: [papers](papers/_papers.md).
+Check it yourself: `lake exe cache get`, then `lake build --wfail SignedDifferenceSets`.
 
 ## Problem
 A signed difference set (SDS) with parameters (v, k, λ) in a finite abelian
@@ -16,19 +23,13 @@ factors])`; G is the product of `ZMod` over the factors.
 **Goal:** for each open Instance, `HasSDS G k λ` (Lean checks the set) or
 `¬ HasSDS G k λ`; Lean `SignedDifferenceSets.HasSDS` in
 `lean/SignedDifferenceSets/Statement.lean`, approved 2026-11-05.
-Kind: find, many Instances, both goals open. Modules: find.
-Estimate: small cases are exhaustive or SAT searches of seconds to hours on
-this machine; a found set is a v-entry sign vector that Lean checks by
-`decide` in seconds. Non-existence counts only with a Lean proof: plain
-exhaustion (one element fixed, `decide`) reaches v ≈ 12; beyond that it needs
-facts (quotient and character arguments) proved in Lean.
 
 ## Literature
-- Gordon, Signed difference sets, Designs, Codes and Cryptography
+- Gordon, Signed difference sets, Designs, Codes and Cryptography 91 (2023)
   ([arXiv:2212.10630](https://arxiv.org/abs/2212.10630), 2022): defines SDSs,
   generalizing difference sets and circulant weighing matrices, with existence
   results. Database [dmgordo/signed-difference-sets](https://github.com/dmgordo/signed-difference-sets)
-  (`sds.json`, CC-BY-4.0): every group-specific case, Yes, No or Open. Its
+  (`sds.json`, CC-BY-4.0; our use: [NOTICE.md](NOTICE.md)): every group-specific case, Yes, No or Open. Its
   searches covered cyclic groups; tiny non-cyclic cases stay Open, e.g.
   (9, 8, 1) in C₃ × C₃. Imported 2026-11-05 at e3bf810 (2026-04-24): 70,543
   cases, 146 Yes or All, 2,574 No (Orbit Exhaust), 67,823 Open.
@@ -51,3 +52,12 @@ facts (quotient and character arguments) proved in Lean.
   120, 155, 156, 165, 182, 195), all expected not to exist.
 - Searched 2026-11-05 (arXiv, the web, the AI-contribution lists in
   problems.md): no other work on the open SDS cases, no AI attention.
+
+## Working on it
+State: [state.md](state.md) (the current work; it may hold unchecked proposals).
+Kind: find, many Instances, both goals open. Modules: find.
+Estimate: small cases are exhaustive or SAT searches of seconds to hours on
+this machine; a found set is a v-entry sign vector that Lean checks by
+`decide` in seconds. Non-existence counts only with a Lean proof: plain
+exhaustion (one element fixed, `decide`) reaches v ≈ 12; beyond that it needs
+facts (quotient and character arguments) proved in Lean.

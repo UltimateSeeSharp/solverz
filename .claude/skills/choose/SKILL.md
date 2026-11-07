@@ -23,8 +23,9 @@ disable-model-invocation: true
    rename `lean/Problem*` and the namespace to the library name, and the
    crate to the folder name. Add a `[[lean_lib]]`
    with `srcDir` and a `defaultTargets` entry to `lakefile.toml`.
-6. Write the README: problem, kind and the estimate, literature with dated
-   searches.
+6. Write the README (`template/README.md`): the question and its status,
+   Solutions (none yet), problem and goal, literature with dated searches,
+   and under Working on it the kind, modules and estimate.
 7. State the goal in Lean and run `audit`; the user approves it.
 8. Start the attack as the kind's skill says under Start; set
    `understanding.md` and `state.md`.

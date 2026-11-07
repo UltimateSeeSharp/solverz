@@ -1,11 +1,14 @@
 # Catch-Up conjecture
 
-Optimal play on {1..N} is a draw when 1 + … + N is even. Now: [state.md](state.md).
+Optimal play on {1..N} is a draw when 1 + … + N is even.
+**Status:** open; partial results.
+
+## Solutions
+None yet ([solutions.md](solutions.md)).
 
 ## Problem
 Catch-Up (Isaksen, Ismail, Brams, Nealen 2015) on {1..N}: player 1 opens by taking one number; afterwards the mover keeps taking numbers while strictly behind, and the turn ends on the pick that catches up (≥). A mover who can't catch up even with everything left loses. When the numbers run out, the higher score wins.
 **Goal:** if 1 + … + N is even (N ≡ 0, 3 mod 4), optimal play is a draw; claim C1, Lean `CatchUp.Goal` in `lean/CatchUp/Statement.lean` (from formal-conjectures' `value_of_even_mul_succ_self_div_two`).
-Kind: prove. Modules: none.
 
 ## Literature
 - von Stengel computed optimal play through N = 34: a winning opening is unique, and from N = 21 odd totals are won by an opening ≤ 3 (LSE PhD seminar abstract, 22 Feb 2019, [pdf p. 5](https://www.lse.ac.uk/Mathematics/assets/documents/Events-Archive/CGO-PhD/PhD-Seminar-on-Combinatorics-2019-update.pdf#page=5); earlier to N = 28: CGT Colloquium III talk, Lisbon 2019, [ludicum.org/?p=4151](https://ludicum.org/?p=4151)). A private report reaches N = 38 (2024, via catch-up-research CU-L043; not public).
@@ -20,3 +23,7 @@ Kind: prove. Modules: none.
 
 ## Reading catch-up-research
 Their terms in ours: counter = number; support = set; eligible N = even-total N; effective total = d + sum(R); mate = partner; their "C" = our C1. Their canonical pairs start at even numbers, unlike our aligned pairs (start ≡ k mod 2). "Reserve" and "shadow" name several things there (a shadow is a companion position whose value is assumed); our records say which. Their IDs: CU-Lnnn (Aug–Sep ledger), CU-Rnnn (recovered results); cite them with the prefix.
+
+## Working on it
+State: [state.md](state.md) (the current work; it may hold unchecked proposals).
+Kind: prove. Modules: none.
