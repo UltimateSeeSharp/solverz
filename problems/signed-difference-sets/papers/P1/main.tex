@@ -199,7 +199,9 @@ lake build --wfail SignedDifferenceSets
 
 \noindent checks every result. For any result, \texttt{\#print axioms} shows only the three
 standard axioms \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. No result
-uses \texttt{native\_decide}: every computation is checked by Lean's kernel.
+uses \texttt{native\_decide}: every computation is checked by Lean's kernel. A build from
+scratch takes hours, and single modules need up to 12.3~GB of RAM; the problem's README says
+how to build it on smaller machines.
 
 \section{What is still open}\label{sec:open}
 
@@ -221,9 +223,9 @@ note; I directed the work and decided which results to keep. So that nothing res
 alone, every case we settle or correct is checked by Lean~4, with no unproved steps and no
 axioms beyond the three standard ones (the cyclic family above and the remark
 on~\cite[Thm.~4.1]{he-chen-ge} are on paper), and before I accepted a result a separate AI agent tried to break it:
-its proof, its Lean statement, the cases it settles and its credit to earlier work. The Lean
-statements are the authoritative form of every claim; all code, proofs and data are public
-(\repo).
+its proof, its Lean statement, the cases it settles and its credit to earlier work; these
+reports are public too, in the problem's folder \texttt{reviews/}. The Lean statements are the
+authoritative form of every claim; all code, proofs and data are public (\repo).
 
 \appendix
 \section{The cases settled with a set}\label{app:sets}
