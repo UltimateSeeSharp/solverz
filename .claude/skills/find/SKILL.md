@@ -12,6 +12,7 @@ files (CLAUDE.md, Files).
 |---|---|
 | `instances.csv` | Its Instances (`N1`…): one question each, its parameters and its source's key and status; its statement is `∃ x, Valid x` for those parameters. Status `open` → `exists` \| `none`, with the evidence that settles it (an object, a claim, or a reference). A problem with one Instance states the `none` side only once the user opens it. Columns: id, key, source (its status there @ snapshot), status, evidence, lean (the theorem), solution (its Solution's ID). Written by the importer (`solver/import/`) and the settle tool, never by hand. |
 | `objects/` | Its Objects (`O1`…): one answer as a data file (found, a near-miss with its score, or known from the literature), naming the Instances it answers. Counts once Lean checks `Valid` on it. |
+| `corrections.md` | Where the source is wrong or behind: an Instance it lists open that the literature already settles, a stored object that fails `Valid`, a status its evidence does not support. Per entry: Instances, what the source says, what holds, the evidence, when it was sent. Not a Solution: the answer was known, or only the source erred. Listed once the refuter SURVIVES it and the user approves it; until then it waits under "Needs the user". |
 | `lean/<Problem>/Answer/` | `N<id>.lean`: checks one object, or settles one row. A claim that settles many rows lives in its topic file. |
 
 ## Settling rows
@@ -28,8 +29,10 @@ files (CLAUDE.md, Files).
 - An exhausted search kills its idea for its rows; it settles `none` only
   through a claim Lean checks.
 - A refuted claim reopens every row it settled.
-- Where our status contradicts the source's, it goes under "Needs the user"
-  (CLAUDE.md, The user decides: sharing outside the repo).
+- Where the source is wrong or behind, it goes under "Needs the user" as a
+  proposed correction; `corrections.md` gets it only on approval. Sending
+  them is the user's call too (CLAUDE.md, The user decides: sharing outside
+  the repo).
 
 ## Loop
 
@@ -51,6 +54,7 @@ Additions to `solve`'s steps:
 - **Record:** `instances.csv` only through the settle tool.
 - **Solved:** every row in scope settled, or the user's scope covered: tell
   the user. A row the source had open, newly settled, is part of a proposed
-  Solution: the claim or object that settles it (CLAUDE.md, Files). With one
+  Solution: the claim or object that settles it (CLAUDE.md, Files); if the
+  literature had already settled it, a proposed correction instead. With one
   Instance: when the evidence favours no object, propose opening the `none`
   side under "Needs the user"; the search goes on.
