@@ -17,9 +17,9 @@
 | [I13](I13.md) | C9 for every n through Witt vectors (none) | `T584` Localize and complete | ideator round 2 (B2) | C3, C9 | alive |
 | [I14](I14.md) | Self-conjugacy with a composite modulus (none) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 2 (B3) | C5, C13, C14, C23 | alive |
 | [I15](I15.md) | Signed combinations of a relative difference set (exists) | `T437` Difference sets and cyclic constructions | ideator round 2 (B4) | C2 | alive |
-| [I16](I16.md) | Exhaustion of the open rows with v < 50 (contraction, then lift) | `T27` Prescribed automorphism group | us (the user's backlog) | C1, C3 | new |
+| [I16](I16.md) | Exhaustion of the open rows with v < 50 (contraction, then lift) | `T27` Prescribed automorphism group | us | C1, C3 | alive |
 | [I17](I17.md) | Mod-q split of the orbit search (none, and finds sets) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 3 (N2) | C9, C24 | new |
 | [I18](I18.md) | Self-conjugate primes enlarge A7's multiplier group (none) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 3 (N1); Miller | C5, C10, C25 | new |
-| [I19](I19.md) | Cyclotomic and Singer constructions (exists) | `T437` Difference sets and cyclic constructions | ideator round 3 (X1–X3) | C2 | new |
-| [I20](I20.md) | Ma's lemma at equality (none, filter) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 3 (core class A) | C21 | new |
+| [I19](I19.md) | Cyclotomic and Singer constructions (exists) | `T437` Difference sets and cyclic constructions | ideator round 3 (X1–X3) | C2 | alive |
+| [I20](I20.md) | Ma's lemma at equality (none, filter) | `T438` Multiplier theorems and character sums for nonexistence | ideator round 3 (core class A) | C21 | alive |
 | [I21](I21.md) | Doubling: an SDS on C₂ × K from a halved SDS and a weighing matrix (exists) | `T437` Difference sets and cyclic constructions | us (from C26) | C2 | alive |
