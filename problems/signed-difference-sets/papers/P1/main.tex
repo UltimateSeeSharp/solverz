@@ -41,8 +41,10 @@ how to check them.
 
 \section{Results}
 
-We use the notation of~\cite{gordon}: an SDS with parameters $(v,k,\lambda)$ in an abelian
-group $G$ of order $v$, $n = k - \lambda$, and $s^2 = k + \lambda(v-1)$ its squared sign sum.
+A signed difference set (SDS) with parameters $(v,k,\lambda)$ in an abelian group $G$ of
+order $v$ is a map $D \colon G \to \{0, \pm 1\}$ with $k$ nonzero values such that
+$\sum_x D(x) D(x+g) = \lambda$ for every $g \neq 0$~\cite{gordon}. We write $n = k - \lambda$
+and $s^2 = k + \lambda(v-1)$ for its squared sign sum.
 Most rules work with the \emph{coset sums} $a_h = \sum_{\phi(x) = h} D(x)$ of $D$ on a
 quotient $\phi \colon G \to H$, with $c = v/|H|$ (the intersection numbers
 of~\cite[Lemma~5.2]{gordon}); they satisfy $|a_h| \le c$ and $\sum_h a_h a_{h+g} = \lambda c$
@@ -55,7 +57,7 @@ the first rule in the order the rules were found (their numbers). ``Ours'' means
 earlier statement for signed difference sets; it does not mean the idea is new.
 
 \begingroup\small
-\begin{longtable}{@{}l p{0.5\textwidth} r p{0.26\textwidth}@{}}
+\begin{longtable}{@{}l >{\raggedright\arraybackslash}p{0.5\textwidth} r >{\raggedright\arraybackslash}p{0.26\textwidth}@{}}
 \caption{Rules settling open cases (no SDS).}\label{tab:rules}\\
 \toprule
 & Rule & Rows & Origin \\ \midrule
@@ -63,6 +65,7 @@ earlier statement for signed difference sets; it does not mean the idea is new.
 \toprule
 & Rule & Rows & Origin \\ \midrule
 \endhead
+\multicolumn{4}{@{}l}{\emph{Congruences from self-conjugacy}} \\
 Z8 & Self-conjugacy: $p^{2j} \mid n$, $p \nmid |H|$, $p$ self-conjugate modulo $\exp H$; the
   $a_h$ agree modulo $p^j$, impossible when $p^j > 2c$ & \zrows{8} & Turyn~\cite{turyn};
   SDS form ours (odd exponent:~\cite{he-wu}) \\
@@ -70,15 +73,21 @@ Z9 & Moments: the same congruence with $\sum a_h = \pm s$ and $\sum a_h^2 = k + 
   & \zrows{9} & ours, on~\cite[Lemma~5.2]{gordon} \\
 Z10 & Box bound: the same, with $|a_h| \le c$ & \zrows{10} & ours \\
 Z22 & The congruence for several self-conjugate primes at once (CRT) & \zrows{22} & ours \\
+\addlinespace
+\multicolumn{4}{@{}l}{\emph{Counting and parity}} \\
 Z11 & Support parity: $v$ odd, $\lambda$ even, $d(d-1) < v-1$ with $d = v - k$ & \zrows{11}
   & classical for $\lambda = 0$~\cite{wallis-whiteman}; general $\lambda$ ours beyond
   $d = 1$~\cite[Cor.~4.5]{he-wu} \\
 Z16 & Marked elements per coset (an LP certificate) & \zrows{16} & ours \\
+\addlinespace
+\multicolumn{4}{@{}l}{\emph{Characters}} \\
 Z17 & Real characters on a quotient $C_2^r$ & \zrows{17} & extends~\cite[Thm.~4.2]{he-wu} \\
 Z18 & Characters on a quotient of exponent 4 & \zrows{18} & ours \\
 Z19 & Characters on a quotient of exponent 3 & \zrows{19} & classical (the ramified prime above 3); SDS form ours \\
 Z25 & Sylow quotient of order $p^t$: $p^{\min(t, \lceil e/2 \rceil)} \mid s$, $e = v_p(n)$;
   for $p = 2$ a sharper equality case & \zrows{25} & ours, on Turyn's argument \\
+\addlinespace
+\multicolumn{4}{@{}l}{\emph{Ma's lemma}} \\
 Z24 & Ma's lemma on a quotient $C_{p^j} \times K$, $p$ self-conjugate on $K$:
   impossible when $p^{\lfloor e/2 \rfloor} > 2c$ & \zrows{24} & Ma's lemma~\cite{pott};
   SDS form ours \\
@@ -86,6 +95,8 @@ Z29 & Ma's lemma at its edge ($p = 2$, $4 \mid n$): $8 \mid 2s' - (k + \lambda(2
   for $c = 1$, a halved SDS & \zrows{29} & halving for $c = 1$:~\cite[Lemma~6.2]{schmidt-smith};
   general $c$ ours \\
 Z32 & The halved coset sums for any $c$ (even contraction) & \zrows{32} & ours, on Ma's lemma \\
+\addlinespace
+\multicolumn{4}{@{}l}{\emph{Multipliers}} \\
 Z15 & Multiplier theorem ($\gcd(v,n) = 1$, $n$ squarefree), then an exhaustive search over
   multiplier orbits & \zrows{15} & McFarland, as in~\cite[Thm.~5.1]{gordon};
   fixed translate~\cite{mcfarland-rice} \\
@@ -96,6 +107,8 @@ Z31 & Self-conjugate primes enlarge the multiplier group of the coset sums & \zr
 Z30 & Field descent without ramification: $\varphi(m)\,n \le m F c^2$ on a quotient
   $\mathbb{Z}_m$, $\gcd(m,n) = 1$, when every $t \equiv 1 \pmod F$ is a multiplier & \zrows{30} & Schmidt's field descent~\cite{tan};
   this form ours \\
+\addlinespace
+\multicolumn{4}{@{}l}{\emph{Exhaustive search}} \\
 Z1, Z2, & Exhaustive search and contraction for & 4 & ours \\
 Z26 & single small cases & & \\
 Z33 & Contraction to a quotient, then a lift coset by coset & \zrows{33} & as in~\cite[\S5]{gordon}; the rows and the Lean proof ours \\
