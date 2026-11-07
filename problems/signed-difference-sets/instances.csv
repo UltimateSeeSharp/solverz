@@ -447,7 +447,7 @@ N445,"SDS(54,15,2,[3,3,6])",Open@e3bf810,none,He-Wu Thm 3.2: n=13; p=13; m=2; j=
 N446,"SDS(54,15,2,[3,18])",Open@e3bf810,none,He-Wu Thm 3.2: n=13; p=13; m=2; j=1,,
 N447,"SDS(54,15,2,[54])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N448,"SDS(54,38,2,[3,3,6])",Open@e3bf810,exists,I21; O79,SignedDifferenceSets.Answer.N448.hasSDS,
-N449,"SDS(54,38,2,[3,18])",Open@e3bf810,open,,,
+N449,"SDS(54,38,2,[3,18])",Open@e3bf810,exists,I21 (doubling); O101,SignedDifferenceSets.Answer.N449.hasSDS,
 N450,"SDS(54,38,2,[54])",Open@e3bf810,none,C21; MaRows part01,SignedDifferenceSets.MaRows.not_hasSDS_of_mem_part01,
 N451,"SDS(54,40,12,[3,3,6])",Open@e3bf810,none,He-Wu Thm 3.2: n=28; p=7; m=2; j=1,,
 N452,"SDS(54,40,12,[3,18])",Open@e3bf810,none,He-Wu Thm 3.2: n=28; p=7; m=2; j=1,,
