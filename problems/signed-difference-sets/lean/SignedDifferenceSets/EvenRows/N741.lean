@@ -84,6 +84,8 @@ theorem n741_below2 : ∀ p ∈ n741Batch2, n741Check p = true := by
 def n741Prefixes : List (List ℤ) :=
   n741Batch0 ++ n741Batch1 ++ n741Batch2
 
+-- elaborating the join of many batches needs more than the default heartbeats
+set_option maxHeartbeats 4000000 in
 theorem n741_search : n741Cert.search n741Row = true :=
   onGrp_of n741_pos (noVector_of_top (P := n741Prefixes) (d := 2) (by decide)
     (by decide +kernel) fun p hp => by

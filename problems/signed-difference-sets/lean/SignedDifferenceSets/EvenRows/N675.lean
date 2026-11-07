@@ -89,6 +89,8 @@ theorem n675_below2 : ∀ p ∈ n675Batch2, n675Check p = true := by
 def n675Prefixes : List (List ℤ) :=
   n675Batch0 ++ n675Batch1 ++ n675Batch2
 
+-- elaborating the join of many batches needs more than the default heartbeats
+set_option maxHeartbeats 4000000 in
 theorem n675_search : n675Cert.search n675Row = true :=
   onGrp_of n675_pos (noVector_of_top (P := n675Prefixes) (d := 2) (by decide)
     (by decide +kernel) fun p hp => by
