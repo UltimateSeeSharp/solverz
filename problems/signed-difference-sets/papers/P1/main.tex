@@ -126,10 +126,18 @@ cyclic family $((q-1)(q^2+1),\, q^2+q-1,\, q-1)$ for every prime power $q$; Lean
 members that were open, $q = 7$ and $q = 8$. The $(27,10,1)$ set in $C_3^3$ is the construction
 of~\cite[Thm.~4.1]{he-chen-ge} at $m = 1$, outside its stated range.
 
+For example, the $(25,12,1)$ set in $C_5 \times C_5$ (case N49), with $D(a,b)$ in row $a$
+and column $b$, $a, b = 0, \dots, 4$, and blanks for $0$:
+\[
+\csname @@input\endcsname build/example % TeX's primitive \input, as for the appendix
+\]
+
 \section{Corrections to the database}
 
 These \corrections{} cases are listed as open in the database~\cite{gordon-db},
-although published constructions settle them. For each we give a set checked in Lean.
+although published constructions settle them. For each we give a set checked in Lean. We found
+them while checking published constructions against the open cases; the list is not complete
+(Section~\ref{sec:open}).
 
 \begin{center}\small
 \begin{tabular}{@{}lll@{}}
@@ -182,7 +190,7 @@ lake build --wfail SignedDifferenceSets
 standard axioms \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. No result
 uses \texttt{native\_decide}: every computation is checked by Lean's kernel.
 
-\section{What is still open}
+\section{What is still open}\label{sec:open}
 
 \stillOpen{} cases remain open in the database after our results: \csname openBelow50\endcsname{} with $v < 50$,
 \csname openBelow100\endcsname{} with $50 \le v < 100$, \csname openBelow200\endcsname{} with

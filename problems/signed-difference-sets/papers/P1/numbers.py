@@ -12,6 +12,7 @@ BUILD = Path(__file__).parent / "build"
 SIZE_BANDS = [(0, 50), (50, 100), (100, 200), (200, 500), (500, 10**9)]
 OPEN_IN_SOURCE = "Open"
 HE_WU = "He-Wu"
+EXAMPLE_OBJECT = "O6"  # the (25, 12, 1) set in C5 x C5 (N49), shown in the note
 
 
 def fmt(n: int) -> str:
@@ -30,8 +31,25 @@ def group_tex(shape: list[int]) -> str:
     return r" \times ".join(parts)
 
 
+def write_example() -> None:
+    """build/example.tex: the example set as a grid, entry (a, b) = D(a, b), blank for 0."""
+    lines = (PROBLEM / "objects" / f"{EXAMPLE_OBJECT}.txt").read_text(encoding="utf-8").split("\n")
+    m = int(re.match(r"C(\d+)xC\1 ", lines[0]).group(1))
+    signs = {}
+    for ln in lines[1:]:
+        if ln.strip():
+            a, b, s = ln.split()
+            signs[(int(a), int(b))] = "+" if s == "+" else "-"
+    grid = [" & ".join(signs.get((a, b), "") for b in range(m)) + r" \\" for a in range(m)]
+    body = "\n".join(grid)
+    (BUILD / "example.tex").write_text(
+        rf"\begin{{array}}{{|{'c' * m}|}}\hline" + "\n" + body + "\n" + r"\hline\end{array}" + "\n",
+        encoding="utf-8")
+
+
 def main() -> None:
     BUILD.mkdir(exist_ok=True)
+    write_example()
     rows = list(csv.DictReader(open(PROBLEM / "instances.csv", encoding="utf-8")))
     corrected = set(re.findall(r"N\d+", (PROBLEM / "corrections.md").read_text(encoding="utf-8")))
     source_open = [r for r in rows if r["source"].startswith(OPEN_IN_SOURCE)]
