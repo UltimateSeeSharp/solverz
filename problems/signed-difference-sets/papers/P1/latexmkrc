@@ -1,0 +1,2 @@
+# Build with LuaLaTeX (Unicode in the Lean listings).
+$pdf_mode = 4;

@@ -1,0 +1,198 @@
+% Note for D. M. Gordon: a summary of run 1 (tag signed-difference-sets/run1).
+% Build: latexmk note.tex (LuaLaTeX, see latexmkrc). Numbers: python numbers.py.
+\documentclass[11pt]{amsart}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{fancyvrb}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+
+\input{numbers}
+\newcommand{\zrows}[1]{\csname zrows#1\endcsname}
+\newcommand{\repo}{\url{https://github.com/UltimateSeeSharp/solverz}}
+\newcommand{\todo}[1]{\textbf{[TODO: #1]}}
+
+\title[Open cases of the SDS table]{Settling open cases of the signed difference set table,
+with Lean-checked proofs: a summary}
+\author{\todo{your name}}
+\address{Independent researcher}
+\email{\todo{email}}
+\date{\todo{date}}
+
+\begin{document}
+
+\begin{abstract}
+Of the \openAfterHeWu{} cases of Gordon's signed difference set table~\cite{gordon} that
+remain open after He and Wu~\cite{he-wu}, we settle \ourRows: \ourNone{} have no signed difference set and \ourExists{} have
+one. A further \corrections{} cases listed as open are settled by published constructions.
+Every result is a theorem checked by the Lean~4 proof assistant. This note summarizes the
+results, the database corrections and how to check them; it is not a paper.
+\end{abstract}
+
+\maketitle
+
+\section{How this work was done}
+
+The author is a software developer, not a mathematician. The research was done by AI agents
+(Anthropic's Claude models): they searched the literature, proposed and proved the
+nonexistence rules, ran the searches and wrote the Lean proofs. Two safeguards decide what
+counts. First, nothing is reported unless Lean~4 checks it, with no unproved steps and no
+axioms beyond the three standard ones of Lean's logic. Second, before any result was accepted,
+a separate agent tried to break it: the proof, the Lean statement, the rows it settles, and
+the credit to earlier work. All code, proofs and data are public (\repo).
+
+The author's part was to run and direct this process and to approve each result. Errors in
+this note's prose, credits and attributions are possible; the Lean statements are the
+authoritative form of every claim.
+
+\section{Results}
+
+We use the notation of~\cite{gordon}: an SDS with parameters $(v,k,\lambda)$ in an abelian
+group $G$ of order $v$, $n = k - \lambda$, and $s^2 = k + \lambda(v-1)$ its squared sign sum.
+Most rules work with the \emph{coset sums} $a_h = \sum_{\phi(x) = h} D(x)$ of $D$ on a
+quotient $\phi \colon G \to H$, with $c = v/|H|$; they satisfy $|a_h| \le c$ and
+$\sum_h a_h a_{h+g} = \lambda c$ for $g \neq 0$.
+
+Table~\ref{tab:rules} lists the rules. Each is one Lean theorem that holds for every group;
+a row of the table is settled by checking the rule's hypotheses for that row inside Lean.
+Rows are counted once, by the first rule that settles them. ``Ours'' means we found no
+earlier statement for signed difference sets; it does not mean the idea is new.
+
+\begingroup\small
+\begin{longtable}{@{}l p{0.5\textwidth} r p{0.26\textwidth}@{}}
+\caption{Rules settling open cases (no SDS).}\label{tab:rules}\\
+\toprule
+& Rule & Rows & Origin \\ \midrule
+\endfirsthead
+\toprule
+& Rule & Rows & Origin \\ \midrule
+\endhead
+Z8 & Self-conjugacy: $p^{2j} \mid n$, $p \nmid |H|$, $p$ self-conjugate modulo $\exp H$; the
+  $a_h$ agree modulo $p^j$, impossible when $p^j > 2c$ & \zrows{8} & Turyn~\cite{turyn};
+  SDS form ours (odd exponent:~\cite{he-wu}) \\
+Z9 & Moments: the same congruence with $\sum a_h = \pm s$ and $\sum a_h^2 = k + \lambda(c-1)$
+  & \zrows{9} & ours \\
+Z10 & Box bound: the same, with $|a_h| \le c$ & \zrows{10} & ours \\
+Z22 & The congruence for several self-conjugate primes at once (CRT) & \zrows{22} & ours \\
+Z11 & Support parity: $v$ odd, $\lambda$ even, $d(d-1) < v-1$ with $d = v - k$ & \zrows{11}
+  & classical for $\lambda = 0$~\cite{wallis-whiteman}; general $\lambda$ ours \\
+Z16 & Marked elements per coset (an LP certificate) & \zrows{16} & ours \\
+Z17 & Real characters on a quotient $C_2^r$ & \zrows{17} & extends~\cite[Thm.~4.2]{he-wu} \\
+Z18 & Characters on a quotient of exponent 4 & \zrows{18} & ours \\
+Z19 & Characters on a quotient of exponent 3 & \zrows{19} & the ramified prime above 3 \\
+Z25 & Sylow quotient of order $p^t$: $p^{\min(t, \lceil e/2 \rceil)} \mid s$, $e = v_p(n)$;
+  for $p = 2$ a sharper equality case & \zrows{25} & ours, on Turyn's argument \\
+Z24 & Ma's lemma on a quotient $C_{p^j} \times K$, $p$ self-conjugate on $K$:
+  impossible when $p^{\lfloor e/2 \rfloor} > 2c$ & \zrows{24} & Ma's lemma~\cite{pott};
+  SDS form ours \\
+Z29 & Ma's lemma at its edge ($p = 2$, $4 \mid n$): $8 \mid 2s' - (k + \lambda(2c-1))$;
+  for $c = 1$, a halved SDS & \zrows{29} & halving known for weighing matrices~\cite{tan};
+  general $c$ ours \\
+Z32 & The halved coset sums for any $c$ (even contraction) & \zrows{32} & ours \\
+Z15 & Multiplier theorem ($\gcd(v,n) = 1$, $n$ squarefree), then an exhaustive search over
+  multiplier orbits & \zrows{15} & McFarland, as in~\cite[Thm.~5.1]{gordon};
+  fixed translate~\cite{mcfarland-rice} \\
+Z27 & The same for every $n$ (Lean proof through Witt vectors) & \zrows{27} & as Z15 \\
+Z28 & Multiplier-fixed coset sums on a quotient, searched exhaustively & \zrows{28} & ours \\
+Z31 & Self-conjugate primes enlarge the multiplier group of the coset sums & \zrows{31} &
+  for difference sets~\cite{gordon-schmidt,miller}; SDS form ours \\
+Z30 & Field descent without ramification: $\varphi(m)\,n \le m F c^2$ on a quotient
+  $\mathbb{Z}_m$, $\gcd(m,n) = 1$ & \zrows{30} & Schmidt's field descent~\cite{tan};
+  this form ours \\
+Z1, Z2, & Exhaustive search and contraction for & 4 & ours \\
+Z26 & single small cases & & \\
+Z33 & Contraction to a quotient, then a lift coset by coset & \zrows{33} & ours \\
+\bottomrule
+\end{longtable}
+\endgroup
+
+The \ourExists{} cases with a set are listed in Appendix~\ref{app:sets}. They come from
+exhaustive and orbit searches, from cyclotomic classes, from partial difference sets
+($P - \{0\}$ is an SDS when $\lambda' - \mu = 2$), and from signed combinations of relative
+difference sets, among them a cyclic family $(n((n+1)^2+1),\, (n+1)^2+n,\, n)$ for every prime
+power $n+1$. The largest is a $(361, 316, 141)$ set in $C_{19}^2$.
+
+\section{Corrections to the database}
+
+These \corrections{} cases are listed as open in \texttt{sds.json} (commit \texttt{e3bf810}),
+although published constructions settle them. For each we give a set checked in Lean.
+
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Cases & Parameters & Construction \\ \midrule
+N10864, N12056, N13963, & $(211,106,51)$, $(223,112,54)$, $(239,120,58)$, & \cite[Prop.~2.3]{gordon}
+  (Paley and zero) \\
+N16190, N18527, N19488, & $(251,126,61)$, $(263,132,64)$, $(271,136,66)$, & \\
+N49190 & $(419,210,103)$, all cyclic & \\
+N67 & $(27,14,5)$ in $C_3^3$ & \cite[Prop.~2.3]{gordon} in $\mathrm{GF}(27)$ \\
+N73 & $(27,17,8)$ in $C_3^3$ & \cite[Thm.~4.1]{gordon}, $q = 3$ \\
+N49624 & $(421,316,25)$ cyclic & \cite[Prop.~5.5(2)]{he-chen-ge} \\
+N14471 & $(243,82,1)$ in $C_3^5$ & \cite[Thm.~4.1]{he-chen-ge} with $x_1 = 0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For N14471, Example~4.2 of~\cite{he-chen-ge} as printed (with $x_1 = (1,0)$) is not a signed
+set; the theorem with $x_1 = 0$ gives one.
+
+\section{How to check it}
+
+The Lean library lives in the repository \repo, in the folder
+\path{problems/signed-difference-sets/lean} (Lean~4 v4.35.0 with Mathlib). The statement every
+result refers to is:
+
+\begin{Verbatim}[fontsize=\small]
+def IsSDS (k : ℕ) (lam : ℤ) (D : G → SignType) : Prop :=
+  (Finset.univ.filter fun x => D x ≠ 0).card = k ∧
+    ∀ g : G, g ≠ 0 → ∑ x, ((D x : ℤ) * (D (x + g) : ℤ)) = lam
+
+def HasSDS (G : Type*) [AddCommGroup G] [Fintype G] (k : ℕ) (lam : ℤ) : Prop :=
+  ∃ D : G → SignType, IsSDS k lam D
+\end{Verbatim}
+
+\noindent A single case then reads, for example,
+
+\begin{Verbatim}[fontsize=\small]
+theorem not_hasSDS : ¬ HasSDS (ZMod 3 × ZMod 3) 8 1
+\end{Verbatim}
+
+\noindent The command \texttt{lake build --wfail} checks everything; \texttt{\#print axioms} on any result
+shows only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. No result uses
+\texttt{native\_decide}: every computation is checked by Lean's kernel.
+
+\section{What is still open}
+
+\stillOpen{} cases remain: \csname openBelow50\endcsname{} with $v < 50$,
+\csname openBelow100\endcsname{} with $50 \le v < 100$, \csname openBelow200\endcsname{} with
+$100 \le v < 200$ and \csname openBelow500\endcsname{} with $200 \le v < 500$. Roughly, they
+fall into three kinds: cases where a multiplier applies but the orbit search is too large;
+cases where a rule above fails by a small margin; and a core where no multiplier applies and
+every congruence modulus is below $c$. We expect most of the core to have no SDS, but none of
+the local arguments above can show it.
+
+\appendix
+\section{The cases settled with a set}\label{app:sets}
+
+\begingroup\small
+\begin{longtable}{@{}llll@{}}
+\toprule
+Case & $(v,k,\lambda)$ & Group & Solution \\ \midrule
+\endfirsthead
+\toprule
+Case & $(v,k,\lambda)$ & Group & Solution \\ \midrule
+\endhead
+\csname @@input\endcsname sets % TeX's primitive \input: LaTeX's breaks inside a table
+\bottomrule
+\end{longtable}
+\endgroup
+
+\bibliographystyle{amsplain}
+\bibliography{refs}
+
+\end{document}
