@@ -1,5 +1,5 @@
 % Note for D. M. Gordon: a summary of run 1 (tag signed-difference-sets/run1).
-% Build: latexmk note.tex (LuaLaTeX, see latexmkrc). Numbers: python numbers.py.
+% Build: latexmk (see latexmkrc); the PDF is build/main.pdf.
 \documentclass[11pt]{amsart}
 
 \usepackage{fontspec}
@@ -12,7 +12,7 @@
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 
-\input{numbers}
+\input{build/numbers}
 \newcommand{\zrows}[1]{\csname zrows#1\endcsname}
 \newcommand{\repo}{\url{https://github.com/UltimateSeeSharp/solverz}}
 \newcommand{\todo}[1]{\textbf{[TODO: #1]}}
@@ -185,7 +185,7 @@ Case & $(v,k,\lambda)$ & Group & Solution \\ \midrule
 \toprule
 Case & $(v,k,\lambda)$ & Group & Solution \\ \midrule
 \endhead
-\csname @@input\endcsname sets % TeX's primitive \input: LaTeX's breaks inside a table
+\csname @@input\endcsname build/sets % TeX's primitive \input: LaTeX's breaks inside a table
 \bottomrule
 \end{longtable}
 \endgroup

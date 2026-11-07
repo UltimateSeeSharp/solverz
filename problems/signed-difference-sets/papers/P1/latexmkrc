@@ -1,2 +1,6 @@
-# Build with LuaLaTeX (Unicode in the Lean listings).
+# Build: latexmk (or save in VS Code). Numbers first, then LuaLaTeX (Unicode in the Lean
+# listings); everything generated goes to build/.
+system('python numbers.py') == 0 or die "numbers.py failed\n";
 $pdf_mode = 4;
+$out_dir = 'build';
+@default_files = ('main.tex');

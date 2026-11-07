@@ -1,6 +1,6 @@
-"""Writes numbers.tex and sets.tex for the note from instances.csv and corrections.md.
+"""Writes build/numbers.tex and build/sets.tex from instances.csv and corrections.md.
 
-Run from this folder: python numbers.py. Every number in the note comes from here.
+latexmk runs it before every build; every number in the text comes from here.
 """
 import csv
 import re
@@ -8,6 +8,7 @@ from collections import Counter
 from pathlib import Path
 
 PROBLEM = Path(__file__).resolve().parents[2]
+BUILD = Path(__file__).parent / "build"
 SIZE_BANDS = [(0, 50), (50, 100), (100, 200), (200, 500), (500, 10**9)]
 OPEN_IN_SOURCE = "Open"
 HE_WU = "He-Wu"
@@ -30,6 +31,7 @@ def group_tex(shape: list[int]) -> str:
 
 
 def main() -> None:
+    BUILD.mkdir(exist_ok=True)
     rows = list(csv.DictReader(open(PROBLEM / "instances.csv", encoding="utf-8")))
     corrected = set(re.findall(r"N\d+", (PROBLEM / "corrections.md").read_text(encoding="utf-8")))
     source_open = [r for r in rows if r["source"].startswith(OPEN_IN_SOURCE)]
@@ -64,14 +66,14 @@ def main() -> None:
     for lo, hi in SIZE_BANDS:
         n = sum(lo <= parse_key(r["key"])[0] < hi for r in still_open)
         lines.append(rf"\expandafter\newcommand\csname openBelow{hi if hi < 10**9 else 'Max'}\endcsname{{{fmt(n)}}}")
-    (Path(__file__).parent / "numbers.tex").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (BUILD / "numbers.tex").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     found = sorted((r for r in ours if r["status"] == "exists"), key=lambda r: parse_key(r["key"])[:3])
     table = []
     for r in found:
         v, k, lam, shape = parse_key(r["key"])
         table.append(rf"{r['id']} & $({v}, {k}, {lam})$ & ${group_tex(shape)}$ & {r['solution']} \\")
-    (Path(__file__).parent / "sets.tex").write_text("\n".join(table) + "\n", encoding="utf-8")
+    (BUILD / "sets.tex").write_text("\n".join(table) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

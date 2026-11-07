@@ -1,0 +1,5 @@
+{
+  // Papers build with each folder's latexmkrc (LuaLaTeX, output in build/).
+  "latex-workshop.latex.recipe.default": "latexmk (latexmkrc)",
+  "latex-workshop.latex.outDir": "%DIR%/build"
+}
