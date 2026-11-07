@@ -237,6 +237,14 @@ public import SignedDifferenceSets.MaDescentFull
 public import SignedDifferenceSets.DescentRows
 public import SignedDifferenceSets.UnramifiedDescent
 public import SignedDifferenceSets.UnramifiedRows
+public import SignedDifferenceSets.MultiplierSelfConj
+public import SignedDifferenceSets.CosetSearchSelfConj
+public import SignedDifferenceSets.CosetSearchCongr
+public import SignedDifferenceSets.Tests.MultiplierSelfConj
+public import SignedDifferenceSets.CosetRows.Part95
+public import SignedDifferenceSets.CosetRows.Part96
+public import SignedDifferenceSets.CosetRows.Part97
+public import SignedDifferenceSets.CosetRows.Part98
 public import SignedDifferenceSets.Answer.N11602
 public import SignedDifferenceSets.Answer.N31880
 public import SignedDifferenceSets.Answer.N31994

@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-07
+- 05:10 C25 verified (refuter SURVIVES, root build clean): 26 rows settled none (CosetRows Part95–98, A7 with self-conjugate primes, helper Y). Table 90.80% (none 63,825, exists 225, open 6,493)
 - 04:45 Settled 447 rows (round 10, root build clean): C26's parity rule (`DescentRows`, refuter SURVIVES) → 177 none; C27 (`UnramifiedRows`, refuter SURVIVES) → 259 none; objects → 11 exists: N11602 (O63), N31880 (O66), N31994 (O67), N14597 (O64), N14828 (O65), N931 (O84), N933 (O82), N934 (O83), N939 (O104), N14471 (O102), N14472 (O103). C26, C27 verified. Table 90.76% (none 63,799, exists 225, open 6,519)
 - 02:36 C27 proved and in Lean (`UnramifiedDescent.lean`, built clean): Schmidt's field-descent bound for n prime to m, the descent from C10's multipliers, φ(m) n ≤ m F c²; it kills 259 open rows (`UnramifiedRows.lean` building) and no `exists` row; I10's ramified part stays open
 - 02:05 O104: a (72, 48, 12) SDS in C₃ × C₂₄ for N939 (open), by twisted doubling of a (36, 15, 6) Menon–Hadamard difference set in C₄ × C₃² (the halved parameters are an ordinary difference set, so not in Gordon's table)
