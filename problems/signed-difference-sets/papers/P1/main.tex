@@ -108,7 +108,7 @@ Z28 & Multiplier-fixed coset sums on a quotient, searched exhaustively & \zrows{
 Z31 & Self-conjugate primes enlarge the multiplier group of the coset sums & \zrows{31} &
   for difference sets~\cite{gordon-schmidt,miller}; SDS form ours \\
 Z30 & Field descent without ramification: $\varphi(m)\,n \le m F c^2$ on a quotient
-  $\mathbb{Z}_m$, $\gcd(m,n) = 1$, $F \mid m$, and every $t \equiv 1 \pmod F$ prime to $m$ and congruent
+  $\mathbb{Z}_m$, $\gcd(m,n) = 1$, $F \mid m$, and every $t \equiv 1 \pmod F$ is prime to $m$ and congruent
   modulo $m$ to a power of each prime dividing $n$ & \zrows{30} & Schmidt's field descent~\cite{tan};
   this form ours \\
 \addlinespace
@@ -183,10 +183,9 @@ def HasSDS (G : Type*) [AddCommGroup G] [Fintype G] (k : ℕ) (lam : ℤ) : Prop
 theorem not_hasSDS : ¬ HasSDS (ZMod 3 × ZMod 3) 8 1
 \end{Verbatim}
 
-\noindent Every case's statement is generated from its table entry, with the group
+\noindent Every case's statement comes from its table entry, with the group
 $\mathbb{Z}_{m_1} \times \dots \times \mathbb{Z}_{m_r}$ of its invariant factors
-$[m_1, \dots, m_r]$: written out, as above, or, where a rule's check runs over a list of rows,
-through one definition \texttt{Grp} that unfolds to that product (Lean proves it has
+$[m_1, \dots, m_r]$: written out, as above, or through one definition \texttt{Grp} that unfolds to that product (Lean proves it has
 $m_1 \cdots m_r$ elements). So besides the definition of an SDS, a reader needs to check only
 that each statement's group, $k$ and $\lambda$ match its table entry, which a script can
 compare.
