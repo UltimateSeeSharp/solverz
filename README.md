@@ -8,13 +8,14 @@ without trusting the AI or the search code behind it.
 
 | Date | Problem | Solution | Proof |
 |---|---|---|---|
+| 2026-11-07 | [Signed difference sets](problems/signed-difference-sets/README.md) | 16,095 more open entries of Gordon's table settled: 46 sets found, 16,049 proved impossible by 19 Lean-checked rules | [solutions.md](problems/signed-difference-sets/solutions.md) |
 | 2026-11-05 | [Signed difference sets](problems/signed-difference-sets/README.md) | 6 open entries of Gordon's table settled: 4 sets found, 2 proved impossible | [solutions.md](problems/signed-difference-sets/solutions.md) |
 
 ## Problems
 
 | Problem | The question | Status |
 |---|---|---|
-| [Signed difference sets](problems/signed-difference-sets/README.md) | Which ±1 patterns with perfectly flat autocorrelation exist? Settling open entries of Gordon's table. | 6 open entries settled: 4 sets found, 2 proved impossible |
+| [Signed difference sets](problems/signed-difference-sets/README.md) | Which ±1 patterns with perfectly flat autocorrelation exist? Settling open entries of Gordon's table. | 16,101 open entries settled: 50 sets found, 16,051 proved impossible; 91% of Gordon's table settled, counting results from the literature |
 | [Catch-Up](problems/catch-up/README.md) | Is the number game Catch-Up on 1..N always a draw when the total is even? | open; partial results |
 | [R(K₃, K₄−e, K₄−e)](problems/ramsey-k3-k4e-k4e/README.md) | Is this three-colour Ramsey number 21 or 22? | open; search engine being built |
 
