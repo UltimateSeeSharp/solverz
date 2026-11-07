@@ -28,36 +28,50 @@ def sds : ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 → SignType :=
   fun x => ofMasks plus minus (Indexed.equiv x)
 
 set_option maxRecDepth 100000 in
-theorem count : countOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 121 plus minus = true := by decide +kernel
+theorem count :
+    countOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 121 plus minus = true := by
+  decide +kernel
 
 set_option maxRecDepth 100000 in
 /-- Shifts 0 to 39. -/
-theorem shifts1 : allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 0 40 = true := by
+theorem shifts1 :
+    allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 0 40 =
+      true := by
   decide +kernel
 
 set_option maxRecDepth 100000 in
 /-- Shifts 40 to 80. -/
-theorem shifts2 : allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 40 41 = true := by
+theorem shifts2 :
+    allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 40 41 =
+      true := by
   decide +kernel
 
 set_option maxRecDepth 100000 in
 /-- Shifts 81 to 120. -/
-theorem shifts3 : allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 81 40 = true := by
+theorem shifts3 :
+    allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 81 40 =
+      true := by
   decide +kernel
 
 set_option maxRecDepth 100000 in
 /-- Shifts 121 to 161. -/
-theorem shifts4 : allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 121 41 = true := by
+theorem shifts4 :
+    allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 121 41 =
+      true := by
   decide +kernel
 
 set_option maxRecDepth 100000 in
 /-- Shifts 162 to 201. -/
-theorem shifts5 : allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 162 40 = true := by
+theorem shifts5 :
+    allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 162 40 =
+      true := by
   decide +kernel
 
 set_option maxRecDepth 100000 in
 /-- Shifts 202 to 242. -/
-theorem shifts6 : allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 202 41 = true := by
+theorem shifts6 :
+    allFrom (shiftOk (ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3 × ZMod 3) 40 plus minus) 202 41 =
+      true := by
   decide +kernel
 
 theorem isSDS : IsSDS 121 40 sds := by

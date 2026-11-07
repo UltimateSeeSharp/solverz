@@ -200,7 +200,9 @@ def write_split(obj: str, instance: str, parts: str) -> None:
     bounds = [v * i // n for i in range(n + 1)]
     chunks = "\n".join(f"""set_option maxRecDepth 100000 in
 /-- Shifts {lo} to {hi - 1}. -/
-theorem shifts{i + 1} : allFrom (shiftOk ({group}) {lam_lean} plus minus) {lo} {hi - lo} = true := by
+theorem shifts{i + 1} :
+    allFrom (shiftOk ({group}) {lam_lean} plus minus) {lo} {hi - lo} =
+      true := by
   decide +kernel
 """ for i, (lo, hi) in enumerate(zip(bounds, bounds[1:])))
     joined = "".join(f"  have h := allFrom_append h shifts{i}\n" for i in range(2, n + 1))
@@ -234,7 +236,9 @@ def sds : {group} → SignType :=
   fun x => ofMasks plus minus (Indexed.equiv x)
 
 set_option maxRecDepth 100000 in
-theorem count : countOk ({group}) {k} plus minus = true := by decide +kernel
+theorem count :
+    countOk ({group}) {k} plus minus = true := by
+  decide +kernel
 
 {chunks}
 theorem isSDS : IsSDS {k} {lam_lean} sds := by
