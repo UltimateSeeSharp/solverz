@@ -1,0 +1,38 @@
+'SignedDifferenceSets.not_hasSDS_of_sylow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.SyCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sylowRows1_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sylowRows2_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sylowRows3_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sylowRows4_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sylowRows5_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sylowRows6_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sylowRows1_kill' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.sylowRows2_kill' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.sylowRows3_kill' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.sylowRows4_kill' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.sylowRows5_kill' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.sylowRows6_kill' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.MaRows.cycloFacts_of_mem_maPairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+@not_hasSDS_of_sylow : ∀ {G : Type u_1} [inst : AddCommGroup G] [inst_1 : Fintype G] (ds : List ℕ)
+  [inst_2 : Fintype (Grp ds)] {p r : ℕ} [hp : Fact (Nat.Prime p)] [NeZero (r * p)],
+  SylowTrace.PPowers p (r * p) ds →
+    ∀ (φ : G →+ Grp ds),
+      Function.Surjective ⇑φ →
+        ∀ {c : ℕ},
+          Fintype.card G = c * Fintype.card (Grp ds) →
+            ∀ {k : ℕ} {lam : ℤ} {e q t : ℕ},
+              ↑p ^ e ∣ ↑k - lam →
+                2 * (q * ((p - 1) * r) + 1) ≤ e * ((p - 1) * r) →
+                  Fintype.card (Grp ds) = p ^ t →
+                    ∀ {s : ℤ},
+                      s ^ 2 = ↑k + lam * (↑c * ↑(Fintype.card (Grp ds)) - 1) →
+                        ¬↑p ^ min t (q + 1) ∣ s →
+                          (∀ (S : Type) [inst : CommRing S] (x : S),
+                              ∑ l ∈ Finset.range p, (x ^ r) ^ l = 0 →
+                                ∃ y z, ↑p = (x - 1) ^ ((p - 1) * r) * y ∧ (x - 1) ^ ((p - 1) * r) = ↑p * z) →
+                            ¬HasSDS G k lam
+
+real	0m49.884s
+user	0m0.264s
+sys	0m0.498s
+EXIT 0

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "problems/signed-difference-sets/solver/liftrows.py", line 418, in <module>
+    main()
+  File "problems/signed-difference-sets/solver/liftrows.py", line 397, in main
+    print(gen_row(row, out))
+          ^^^^^^^^^^^^^^^^^
+  File "problems/signed-difference-sets/solver/liftrows.py", line 297, in gen_row
+    assert ok, f"{row.rid}: lift found for {Y}"
+           ^^
+AssertionError: N73: lift found for (2, -1, 2, 2, 2, 2, 2, 2, 2)

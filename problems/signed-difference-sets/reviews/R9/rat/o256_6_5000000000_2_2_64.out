@@ -1,0 +1,2 @@
+group [2, 2, 64]: v = 256, n = 16, NL_16(6) k = 102, values {6, -10}, 27 rational classes (sizes histogram {1: 7, 2: 4, 4: 4, 8: 4, 16: 4, 32: 4})
+done: 0 hits, 113 nodes

@@ -1,0 +1,7 @@
+'SignedDifferenceSets.onGrp_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.EvenCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_evenContraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m37.156s
+user	0m0.138s
+sys	0m0.233s

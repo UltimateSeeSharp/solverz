@@ -1,22 +1,22 @@
 # Journal
 
 ## 2026-11-07
-- 17:13 Z11's credit corrected (approved by the user; P1 refuter round 2, R2-2): He–Wu Cor 4.5 covers d = 1 only with v = p^m, p ≡ 3 mod 4, m even (N30948 (337,336,20) in C₃₃₇ is a Z11 row with d = 1 open after He–Wu)
-- 16:25 Credits corrected in `solutions.md` (approved by the user; refuter on P1, main folder `scratch/refuter/p1/report.md` F7, F9, F10, F12): Z9 on Gordon Lemma 5.2; Z11 general λ ours beyond d = 1 (He–Wu Cor 4.5); Z14 P − {0} step He–Wu Thm 5.3; Z28 the search of Gordon §5 (after Arasu–Gordon–Zhang Algorithm 1); Z33 contraction and lift as in Gordon §5; Z29 halving Schmidt–Smith 2013 Lemma 6.2; Z19 wording
+- 17:13 Z11's credit corrected (approved by the user; P1 refuter round 2, [R33](reviews/R33.md) R2-2): He–Wu Cor 4.5 covers d = 1 only with v = p^m, p ≡ 3 mod 4, m even (N30948 (337,336,20) in C₃₃₇ is a Z11 row with d = 1 open after He–Wu)
+- 16:25 Credits corrected in `solutions.md` (approved by the user; refuter on P1, main folder [R33](reviews/R33.md) F7, F9, F10, F12): Z9 on Gordon Lemma 5.2; Z11 general λ ours beyond d = 1 (He–Wu Cor 4.5); Z14 P − {0} step He–Wu Thm 5.3; Z28 the search of Gordon §5 (after Arasu–Gordon–Zhang Algorithm 1); Z33 contraction and lift as in Gordon §5; Z29 halving Schmidt–Smith 2013 Lemma 6.2; Z19 wording
 - 13:10 The user approved Solutions Z7–Z33 (19 rules: 16,049 rows `none`; 6 object families and N35840: 46 rows `exists`; `solutions.md`, `instances.csv` solution column) and `corrections.md` (11 rows Gordon lists Open that published constructions settle).
-- 12:47 Settled 96 rows none: 94 by C26 at c = 1 through their halved row (HalfRows, refuter c26 SURVIVES; 15 parts and 9 rows built alone; 6 rows deferred, their halved orbit check needs over 13 GB in one process), N177, N178 SDS(36,29,20) by I16's lift (LiftRows Part08, 09; the lift refuter's engine also finds none). Root build clean, axioms clean on all. Table 91.03% (none 63,986, exists 226, open 6,331)
+- 12:47 Settled 96 rows none: 94 by C26 at c = 1 through their halved row (HalfRows, refuter c26 SURVIVES, [R28](reviews/R28.md); 15 parts and 9 rows built alone; 6 rows deferred, their halved orbit check needs over 13 GB in one process), N177, N178 SDS(36,29,20) by I16's lift (LiftRows Part08, 09; the lift refuter's engine also finds none). Root build clean, axioms clean on all. Table 91.03% (none 63,986, exists 226, open 6,331)
 - 11:19 Settled 6 rows none by I16's lift search (LiftRows Part02–07; the refuter's own engine also finds none): N76, N77 SDS(27,22,3), N134, N135, N136, N138 SDS(32,28,12); root build clean, axioms clean. Table 90.89% (none 63,890, exists 226, open 6,427)
 - 09:20 N70 SDS(27,17,4) on C₃³ settled none: I16's contraction-then-lift (`LiftRows.n70_not_hasSDS`, helper L's `LiftSearch.lean`, refuter SURVIVES), root build clean, axioms clean. Table 90.88% (none 63,884, exists 226, open 6,433)
-- 07:50 N363, N71 settled none: I5's orbit exhaustion in slices (helper X's `OrbitSearchSplit.lean`, refuter SURVIVES, `scratch/refuter/xsplit/report-2026-11-07-0700.md`); OrbitRows Part60–77 in the root, build clean, axioms clean. Table 90.88% (none 63,883, exists 226, open 6,434)
+- 07:50 N363, N71 settled none: I5's orbit exhaustion in slices (helper X's `OrbitSearchSplit.lean`, refuter SURVIVES, [R31](reviews/R31.md)); OrbitRows Part60–77 in the root, build clean, axioms clean. Table 90.88% (none 63,883, exists 226, open 6,434)
 - 07:20 N449 settled exists: O101 (I21 doubling) checked in Lean (`Answer.N449.hasSDS`, root build clean, axioms clean). Table 90.88% (none 63,881, exists 226, open 6,436)
 - 07:05 C28 verified (refuter SURVIVES, root build clean, axioms clean): 7 rows settled none (EvenRows N664, N675, N741, N763, N4672, N4712, N4762); N20961 waits for a lighter build. Table 90.88% (none 63,881, exists 225, open 6,437)
-- 06:35 Settled 49 rows none by A7 (C10, C16; refuter a7 SURVIVES): CosetRows Part08–14, 16, 18–21, 46–49, 51 imported, root build clean, axioms clean on all 49. Table 90.87% (none 63,874, exists 225, open 6,444)
+- 06:35 Settled 49 rows none by A7 (C10, C16; refuter a7 SURVIVES, [R27](reviews/R27.md)): CosetRows Part08–14, 16, 18–21, 46–49, 51 imported, root build clean, axioms clean on all 49. Table 90.87% (none 63,874, exists 225, open 6,444)
 - 05:10 C25 verified (refuter SURVIVES, root build clean): 26 rows settled none (CosetRows Part95–98, A7 with self-conjugate primes, helper Y). Table 90.80% (none 63,825, exists 225, open 6,493)
 - 04:45 Settled 447 rows (round 10, root build clean): C26's parity rule (`DescentRows`, refuter SURVIVES) → 177 none; C27 (`UnramifiedRows`, refuter SURVIVES) → 259 none; objects → 11 exists: N11602 (O63), N31880 (O66), N31994 (O67), N14597 (O64), N14828 (O65), N931 (O84), N933 (O82), N934 (O83), N939 (O104), N14471 (O102), N14472 (O103). C26, C27 verified. Table 90.76% (none 63,799, exists 225, open 6,519)
 - 02:36 C27 proved and in Lean (`UnramifiedDescent.lean`, built clean): Schmidt's field-descent bound for n prime to m, the descent from C10's multipliers, φ(m) n ≤ m F c²; it kills 259 open rows (`UnramifiedRows.lean` building) and no `exists` row; I10's ramified part stays open
 - 02:05 O104: a (72, 48, 12) SDS in C₃ × C₂₄ for N939 (open), by twisted doubling of a (36, 15, 6) Menon–Hadamard difference set in C₄ × C₃² (the halved parameters are an ordinary difference set, so not in Gordon's table)
 - 01:50 Two (243, 82, 1) sets: O102 in C₃⁵ (N14471, He–Chen–Ge Thm 4.1 with x₁ = 0) and O103 in C₃³ × C₉ (N14472, the same construction on a non-split index-3 subgroup C₃⁴; new); both open, Lean checks queued
-- 01:45 Settled 680 rows (refuter a7 SURVIVES, root build clean): A7's built parts (CosetRows Part01–07, 40–43, 45) → 667 none; objects O61, O62, O71–O81 → 13 exists (N236, N448, N463, N1008, N3539, N10864, N12056, N13963, N16190, N18527, N19488, N49190, N49624). Table 90.13% (none 63,363, exists 214, open 6,966)
+- 01:45 Settled 680 rows (refuter a7 SURVIVES, [R27](reviews/R27.md), root build clean): A7's built parts (CosetRows Part01–07, 40–43, 45) → 667 none; objects O61, O62, O71–O81 → 13 exists (N236, N448, N463, N1008, N3539, N10864, N12056, N13963, N16190, N18527, N19488, N49190, N49624). Table 90.13% (none 63,363, exists 214, open 6,966)
 - 01:10 I10 alive: Schmidt's F-bound (F from Tan's survey) fires on 538 open rows, 347 in no pending batch, on no `exists` row; Lean route open
 - 00:55 Doubling over all halved sets: O101 for N449; N464 fails on all 648 halved sets, so it has no SDS by exhaustion (exploration, not yet in Lean)
 - 00:50 Database audit: 22 `exists` rows of Gordon's database have no valid stored set; valid sets built for 10 more (O85–O94, Paley and zero, quartic classes), 7 still without a witness (state.md, Needs the user)
@@ -27,46 +27,46 @@
 - 00:20 C26 at c = 1 in Lean (`MaDescentFull.lean`): 112 rows through their halved row (`HalfRows.lean`), with `DescentRows.lean` (177) building
 
 ## 2026-11-06
-- 23:40 1,620 more open rows settled in Lean by I13 (C9, C10 verified for every n: `MultiplierWitt.lean`, `OrbitRows/Part33–59`); refuter SURVIVES (`scratch/refuter/i13/report-2026-11-06-2316.md`). Gordon's table 89.16% settled
+- 23:40 1,620 more open rows settled in Lean by I13 (C9, C10 verified for every n: `MultiplierWitt.lean`, `OrbitRows/Part33–59`); refuter SURVIVES ([R26](reviews/R26.md)). Gordon's table 89.16% settled
 - 23:15 Eight published Paley-and-zero / quartic sets (core class 0a, open in the table) recorded as O71–O78, each rechecked exactly; Lean checks building
-- 23:05 C22's p = 2 equality verified (refuter round 7 SURVIVES): 63 rows settled; N79, N80 settled by contraction (`Answer.N79`, `Answer.N80`, E5). Gordon's table 86.86% settled
+- 23:05 C22's p = 2 equality verified (refuter round 7 SURVIVES, [R25](reviews/R25.md)): 63 rows settled; N79, N80 settled by contraction (`Answer.N79`, `Answer.N80`, E5). Gordon's table 86.86% settled
 - 23:00 Ideator round 3's ten sets recorded as O61–O70 (X1–X3), each rechecked by direct autocorrelation; Lean checks building
-- 22:40 C22 (divisibility form) verified: refuter round 6 SURVIVES; its 159 still-open rows settled (127 of its 286 went to C21 first). N58470 settled `exists` (O38). C22's p = 2 equality in Lean (`SylowTwo.lean`, 63 rows). Gordon's table 86.77% settled
-- 22:05 1,457 more open rows settled in Lean by C21 (`MaRows`, `maRule`): refuter round 5 SURVIVES (`scratch/refuter/round5`). Gordon's table 86.55% settled
+- 22:40 C22 (divisibility form) verified: refuter round 6 SURVIVES ([R24](reviews/R24.md)); its 159 still-open rows settled (127 of its 286 went to C21 first). N58470 settled `exists` (O38). C22's p = 2 equality in Lean (`SylowTwo.lean`, 63 rows). Gordon's table 86.77% settled
+- 22:05 1,457 more open rows settled in Lean by C21 (`MaRows`, `maRule`): refuter round 5 SURVIVES ([R23](reviews/R23.md)). Gordon's table 86.55% settled
 - 22:00 C22 in Lean (divisibility form): `not_hasSDS_of_sylow` (`SylowTrace.lean`), `SylowCheck.lean` built
 - 21:05 C21 in Lean: `maRule : MaRule` (`MaLemma.lean`) builds with `--wfail`, axioms clean; rows by helper U, refuter next
 - 20:55 Root `lake build --wfail` of the whole library passes (33 s, 2.5 GB)
-- 20:50 C22 proved (Sylow trace rule): refuter SURVIVES (`scratch/refuter/c22`), 464 open rows; I12 alive
-- 20:35 151 more open rows settled in Lean: C23 (CRT over self-conjugate primes, `CompositeModulusRows`) 132 → none; I15's O40–O58 (signed RDS combinations) 19 → exists. Refuter round 4 SURVIVES (`scratch/refuter/round4`). Gordon's table 84.48% settled
+- 20:50 C22 proved (Sylow trace rule): refuter SURVIVES ([R21](reviews/R21.md)), 464 open rows; I12 alive
+- 20:35 151 more open rows settled in Lean: C23 (CRT over self-conjugate primes, `CompositeModulusRows`) 132 → none; I15's O40–O58 (signed RDS combinations) 19 → exists. Refuter round 4 SURVIVES ([R22](reviews/R22.md)). Gordon's table 84.48% settled
 - 20:30 C23 verified; I13 alive: helper W proved C9 for every n ≠ 0 prime to v through Witt vectors in scratch (`scratch/agentW/report.md`, no `sorry`, axioms clean); integration into the library started
-- 20:05 C21 proved (Ma's lemma on mixed quotients): refuter SURVIVES (`scratch/refuter/c21`), 1,483 open rows; I11 alive
+- 20:05 C21 proved (Ma's lemma on mixed quotients): refuter SURVIVES ([R20](reviews/R20.md)), 1,483 open rows; I11 alive
 - 19:50 I15 alive: O40–O60 built by `solver/rdscomb.py`, N3243's Lean answer builds (kill test)
 - 19:40 Ideator round 2 recorded: ideas I11–I15 (new), claims C21–C23 (open); refuters on C21, C22; helper W on I13's spike
 - 3,496 more open rows settled in Lean: I5 orbit rows (C15 + verified orbit search) 2,607, C7 236, C17 213, C19 297, C20 144 → none; O34–O37 and O39 (N24177) → exists. Gordon's table 84.3% settled; every module built alone with `--wfail`, the root build waits for free RAM (it needs ~9 GB)
-- C20 verified: refuter SURVIVES (`scratch/refuter/c20`); its kills are the ramified-prime congruence at 3
-- C7 and C17 verified, the I5 orbit rows' Lean statements checked: refuter SURVIVES (`scratch/refuter/round2`), 3,050 rows ready to settle once the root builds; instance names fixed (they collided)
-- C18 proved (n ≥ 2): refuter SURVIVES (`scratch/refuter/c18`)
+- C20 verified: refuter SURVIVES ([R19](reviews/R19.md)); its kills are the ramified-prime congruence at 3
+- C7 and C17 verified, the I5 orbit rows' Lean statements checked: refuter SURVIVES ([R17](reviews/R17.md)), 3,050 rows ready to settle once the root builds; instance names fixed (they collided)
+- C18 proved (n ≥ 2): refuter SURVIVES ([R16](reviews/R16.md))
 - C19 in Lean (`GaussChars.lean`, 297 rows `GaussCharsRows.lean`); refuter pending
 - 20 open rows → exists: O13–O32's Lean answers build (`Answer/N<id>.hasSDS`), each refuter-checked against the literature (found-sets, nl-family); proposed under "Needs the user"
 - E11 done: E10's 3,583 remaining rows at cap 10⁵, 110 none, 3,473 cut
 - C17 in Lean: `RealChars.lean`, 213 rows (`RealCharsRows.lean`); refuter on the Lean statement pending
 - C18 new, open: an RDS minus its subgroup is an SDS when q = (n + 1)²; found by the refuter of E10's objects; gives O39 for the open N24177 (300, 55, 6), Lean pending
-- O34–O38: refuter SURVIVES, new (O38 is C18's n = 7 member, `scratch/refuter/e10-objects`); C11 verified (`Pds.lean`, refuter SURVIVES)
-- C17 proved: refuter SURVIVES (`scratch/refuter/c17`); 213 open rows at r = R, Lean by helper F in progress
+- O34–O38: refuter SURVIVES, new (O38 is C18's n = 7 member, [R14](reviews/R14.md)); C11 verified (`Pds.lean`, refuter SURVIVES)
+- C17 proved: refuter SURVIVES ([R15](reviews/R15.md)); 213 open rows at r = R, Lean by helper F in progress
 - 7,835 open rows → none by the verified rules in Lean (C5 3,858, C13 2,213, C14 1,387, C8 377; root `lake build --wfail` passes): Gordon's table 68.2% → 79.3% settled; proposed as four Solutions under "Needs the user"
-- C15 and C16 new and verified: C9 and C10 for squarefree n in Lean (`Multiplier.lean`), refuter SURVIVES (`scratch/refuter/c9-lean`); C9, C10 stay proved for general n
-- C13 and C14 verified: refuter SURVIVES the Lean statements, the checkers and all 16 row chunks (`scratch/refuter/sc-rows`)
-- C1 and C8 verified: `Square.lean`, `Parity.lean` build, axioms clean, refuter SURVIVES (`scratch/refuter/c1-c8-lean`)
+- C15 and C16 new and verified: C9 and C10 for squarefree n in Lean (`Multiplier.lean`), refuter SURVIVES ([R13](reviews/R13.md)); C9, C10 stay proved for general n
+- C13 and C14 verified: refuter SURVIVES the Lean statements, the checkers and all 16 row chunks ([R12](reviews/R12.md))
+- C1 and C8 verified: `Square.lean`, `Parity.lean` build, axioms clean, refuter SURVIVES ([R11](reviews/R11.md))
 - C14 new (box bound), proved in Lean (`Box.lean`): with C5 and C13 it kills exactly C6's 7,458 open rows, so C6 needs no search; refuter pending
 - C13 new (C6's arithmetic part), proved in Lean (`Moments.lean`); refuter pending
-- C5 verified: `not_hasSDS_of_selfConj` (any j) builds, axioms clean, refuter SURVIVES its Lean statement (`scratch/refuter/c5-lean`)
+- C5 verified: `not_hasSDS_of_selfConj` (any j) builds, axioms clean, refuter SURVIVES its Lean statement ([R10](reviews/R10.md))
 - I3–I9 new and alive (rules I3, I4, I5, I6 for `none`; constructions I7, I8 and the orbit search I9 for `exists`); I10 (Schmidt's bound) new
-- C5–C11 new, proved on paper, refuter SURVIVES each (rules SC, SC++, A2, A3; the multiplier theorem with a fixed translate; A7; the PDS lemma λ′ − μ = 2): `scratch/refuter/rule-sc`, `extensions`, `a5-a3`, `nl-family`; no Lean yet
+- C5–C11 new, proved on paper, refuter SURVIVES each (rules SC, SC++, A2, A3; the multiplier theorem with a fixed translate; A7; the PDS lemma λ′ − μ = 2): [R4](reviews/R4.md), `extensions`, `a5-a3`, `nl-family`; no Lean yet
 - C12 new, open: NL_{2^m}(2^(m−1)+1) PDS for every m (members m = 3–6)
 - C4 new (coset sums: absolute sum ≤ k with k's parity; fibre sizes): proved in Lean (`Contraction.lean`), refuter pending
 - E7 suspended at 11 of 22 at the user's request: N131 found (O13, Lean pending), N70, N71, N76, N77, N168, N176, N177, N178, N194 exhausted (no Lean proof), N133 cut
 - N79, N80: Lean proofs by contraction build (11 of E5's 12); N93 needs the split search (`noVector_of_top`), not yet built; statuses after axioms and the refuter
-- Refuter SURVIVES on N35840 (claim and status, `scratch/refuter/n35840-report.md`): proposed as a Solution under "Needs the user"
+- Refuter SURVIVES on N35840 (claim and status, [R3](reviews/R3.md)): proposed as a Solution under "Needs the user"
 - E5 (contraction, open v ≤ 40): 12 Instances have no vector on a quotient; Lean's `noVector` proves 9 so far (N46, N47, N95, N168, N176, N220, N221, N223, N224), statuses after axioms and the refuter
 
 ## 2026-11-05

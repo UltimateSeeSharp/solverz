@@ -1,0 +1,5 @@
+16 SDS: 322 with 4|n: 256 quotient checks (a,b): {(True, True): 3840} violations: 0 non-selfconj K control: {}
+2x8 SDS: 1858 with 4|n: 1792 quotient checks (a,b): {(True, True): 26880} violations: 0 non-selfconj K control: {}
+4x4 SDS: 1858 with 4|n: 1792 quotient checks (a,b): {(True, True): 26880} violations: 0 non-selfconj K control: {}
+2x2x4 SDS: 3906 with 4|n: 3840 quotient checks (a,b): {(True, True): 57600} violations: 0 non-selfconj K control: {}
+2x2x2x2 SDS: 3906 with 4|n: 3840 quotient checks (a,b): {(True, True): 57600} violations: 0 non-selfconj K control: {}

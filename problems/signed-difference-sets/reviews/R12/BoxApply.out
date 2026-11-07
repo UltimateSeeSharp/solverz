@@ -1,0 +1,26 @@
+@not_hasSDS_of_box : ∀ {H : Type u_1} [inst : AddCommGroup H] [inst_1 : Fintype H] {G : Type u_2}
+  [inst_2 : AddCommGroup G] [inst_3 : Fintype G] (φ : G →+ H),
+  Function.Surjective ⇑φ →
+    ∀ {c : ℕ},
+      Fintype.card G = c * Fintype.card H →
+        ∀ {p i j : ℕ} [inst_4 : Fact (Nat.Prime p)],
+          0 < i →
+            (∀ (h : H), p ^ i • h = -h) →
+              ↑(Fintype.card H) ≠ 0 →
+                (∃ (g : H), g ≠ 0) →
+                  ∀ {k : ℕ} {lam : ℤ},
+                    ↑p ^ (2 * j) ∣ ↑k - lam →
+                      ↑k ≠ lam →
+                        ∀ {s : ℤ},
+                          s ^ 2 = ↑k + lam * (↑c * ↑(Fintype.card H) - 1) →
+                            (∀ s' ∈ [s, -s],
+                                ∀ t0 ∈ Finset.Ico 0 (↑p ^ j),
+                                  ¬BoxOk (↑(Fintype.card H)) (↑p ^ j) s' (↑k + lam * (↑c - 1)) t0 ↑c) →
+                              ¬HasSDS G k lam
+'SignedDifferenceSets.BoxRows.sample_kills' depends on axioms: [propext]
+'SignedDifferenceSets.not_hasSDS_of_box' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.ScCert.not_hasSDS_of_boxKills' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m40.368s
+user	0m0.093s
+sys	0m0.264s

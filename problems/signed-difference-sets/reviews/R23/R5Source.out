@@ -1,0 +1,23 @@
+problems/signed-difference-sets/reviews/R23/R5Source.lean:7:2: error: Type mismatch
+  not_hasSDS_of_mem_part01 ?m.57 inferInstance
+has type
+  ¬HasSDS
+      (Grp
+        ({ id := 571, ms := [60], k := 35, lam := 10 },
+              { p := 5, r := 1, i := 1, e := 2, b := 1, ks := [6], A := [[1], [1]], P := [[6], [25]] }).1.ms)
+      ({ id := 571, ms := [60], k := 35, lam := 10 },
+            { p := 5, r := 1, i := 1, e := 2, b := 1, ks := [6], A := [[1], [1]], P := [[6], [25]] }).1.k
+      ({ id := 571, ms := [60], k := 35, lam := 10 },
+            { p := 5, r := 1, i := 1, e := 2, b := 1, ks := [6], A := [[1], [1]], P := [[6], [25]] }).1.lam
+but is expected to have type
+  ¬HasSDS (ZMod 60) 36 10
+problems/signed-difference-sets/reviews/R23/R5Source.lean:9:107: error: Tactic `decide` proved that the proposition
+  ({ id := 571, ms := [60], k := 35, lam := 11 },
+      { p := 5, r := 1, i := 1, e := 2, b := 1, ks := [6], A := [[1], [1]], P := [[6], [25]] }) ∈
+    part01
+is false
+
+real	0m40.712s
+user	0m0.109s
+sys	0m0.405s
+DONE

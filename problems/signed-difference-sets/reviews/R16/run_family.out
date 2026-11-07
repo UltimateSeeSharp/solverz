@@ -1,0 +1,7 @@
+s=2 n=1 q=4 poly_tail=(1, 0, 0, 1) |R|=4 bigRDS(q+1,q-1,q,1) lam=1 proj distinct=True RDS lam=n/a (want 3) missed=[0] (v,k,lam)=(5,5,1) SDS direct=True DFT err=2.7e-15 +4 -1
+s=3 n=2 q=9 poly_tail=(1, 0, 0, 1) |R|=9 bigRDS(q+1,q-1,q,1) lam=1 proj distinct=True RDS lam=4 (want 4) missed=[5] (v,k,lam)=(20,11,2) SDS direct=True DFT err=9.6e-14 +9 -2
+s=4 n=3 q=16 poly_tail=(1, 0, 0, 0, 1, 1, 1, 0) |R|=16 bigRDS(q+1,q-1,q,1) lam=1 proj distinct=True RDS lam=5 (want 5) missed=[0] (v,k,lam)=(51,19,3) SDS direct=True DFT err=4.3e-13 +16 -3
+s=5 n=4 q=25 poly_tail=(2, 0, 2, 1) |R|=25 bigRDS(q+1,q-1,q,1) lam=1 proj distinct=True RDS lam=6 (want 6) missed=[13] (v,k,lam)=(104,29,4) SDS direct=True DFT err=2.8e-12 +25 -4
+s=7 n=6 q=49 poly_tail=(2, 0, 1, 1) |R|=49 bigRDS(q+1,q-1,q,1) lam=1 proj distinct=True RDS lam=8 (want 8) missed=[25] (v,k,lam)=(300,55,6) SDS direct=True DFT err=1.4e-11 +49 -6
+s=8 n=7 q=64 poly_tail=(1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1) |R|=64 bigRDS(q+1,q-1,q,1) lam=1 proj distinct=True RDS lam=9 (want 9) missed=[0] (v,k,lam)=(455,71,7) SDS direct=True DFT err=3.2e-11 +64 -7
+s=9 n=8 q=81 poly_tail=(1, 0, 0, 0, 0, 1, 0, 0) |R|=81 bigRDS(q+1,q-1,q,1) lam=1 proj distinct=True RDS lam=10 (want 10) missed=[41] (v,k,lam)=(656,89,8) SDS direct=True DFT err=6.7e-11 +81 -8

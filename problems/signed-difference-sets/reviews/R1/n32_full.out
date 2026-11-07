@@ -1,0 +1,5 @@
+shape [2, 10] v=20 k=17 lam=8: supports 1140, patterns 149422080, SDS found 0
+
+real	0m7.001s
+user	0m0.015s
+sys	0m0.000s

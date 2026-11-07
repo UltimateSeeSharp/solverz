@@ -1,0 +1,10 @@
+[8] range 3 p 2 vectors 608 violations 0 []
+   (v_p(s') capped 9, e or w) counts: {(0, 0): 272, (1, 1): 240, (2, 2): 96}
+[2, 4] range 3 p 2 vectors 768 violations 0 []
+   (v_p(s') capped 9, e or w) counts: {(0, 0): 192, (1, 1): 384, (2, 2): 192}
+[2, 2, 2] range 3 p 2 vectors 672 violations 0 []
+   (v_p(s') capped 9, e or w) counts: {(0, 0): 96, (1, 1): 384, (2, 2): 192}
+[9] range 2 p 3 vectors 342 violations 0 []
+   (v_p(s') capped 9, e or w) counts: {(0, 0): 234, (1, 2): 108}
+[3, 3] range 2 p 3 vectors 1854 violations 0 []
+   (v_p(s') capped 9, e or w) counts: {(0, 0): 504, (1, 2): 810, (2, 2): 270, (9, 2): 270}

@@ -1,0 +1,12 @@
+'SignedDifferenceSets.Answer.N35840.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+SignedDifferenceSets.Answer.N35840.hasSDS : SignedDifferenceSets.HasSDS (ZMod 19 × ZMod 19) 316 141
+def SignedDifferenceSets.HasSDS.{u_1} : (G : Type u_1) → [AddCommGroup G] → [Fintype G] → ℕ → ℤ → Prop :=
+fun G [AddCommGroup G] [Fintype G] k lam => ∃ D, SignedDifferenceSets.IsSDS k lam D
+def SignedDifferenceSets.IsSDS.{u_1} : {G : Type u_1} →
+  [AddCommGroup G] → [Fintype G] → ℕ → ℤ → (G → SignType) → Prop :=
+fun {G} [AddCommGroup G] [Fintype G] k lam D =>
+  {x | D x ≠ 0}.card = k ∧ ∀ (g : G), g ≠ 0 → ∑ x, ↑(D x) * ↑(D (x + g)) = lam
+
+real	0m36.979s
+user	0m0.015s
+sys	0m0.000s

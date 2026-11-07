@@ -1,0 +1,58 @@
+@part01_not_hasSDS : ∀ {x : Row × ScCert},
+  x ∈ part01 → ∀ (inst : Fintype (Grp x.1.ms)), ¬HasSDS (Grp x.1.ms) x.1.k x.1.lam
+@not_hasSDS_of_moments : ∀ {H : Type u_1} [inst : AddCommGroup H] [inst_1 : Fintype H] {G : Type u_2}
+  [inst_2 : AddCommGroup G] [inst_3 : Fintype G] (φ : G →+ H),
+  Function.Surjective ⇑φ →
+    ∀ {c : ℕ},
+      Fintype.card G = c * Fintype.card H →
+        ∀ {p i j : ℕ} [inst_4 : Fact (Nat.Prime p)],
+          0 < i →
+            (∀ (h : H), p ^ i • h = -h) →
+              ↑(Fintype.card H) ≠ 0 →
+                (∃ g, g ≠ 0) →
+                  ∀ {k : ℕ} {lam : ℤ},
+                    ↑p ^ (2 * j) ∣ ↑k - lam →
+                      ↑k ≠ lam →
+                        ∀ {s : ℤ},
+                          s ^ 2 = ↑k + lam * (↑c * ↑(Fintype.card H) - 1) →
+                            (∀ s' ∈ [s, -s],
+                                ∀ t0 ∈ Finset.Ico 0 (↑p ^ j),
+                                  ¬MomentsOk (↑(Fintype.card H)) (↑p ^ j) s' (↑k + lam * (↑c - 1)) t0) →
+                              ¬HasSDS G k lam
+MomentsOk : ℤ → ℤ → ℤ → ℤ → ℤ → Prop
+'SignedDifferenceSets.SelfConjugacyRows.part01_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.SelfConjugacyRows.part01_kills' depends on axioms: [propext]
+'SignedDifferenceSets.ScCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.not_hasSDS_of_moments' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.momentsOk_of_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+problems/signed-difference-sets/reviews/R12/RowsApply.lean:33:2: error: Type mismatch
+  part01_not_hasSDS ?m.41 ?m.42
+has type
+  ¬HasSDS (Grp ({ id := 30, ms := [2, 10], k := 11, lam := 2 }, { p := 3, j := 1, i := 2, ds := [2, 10], s := 0 }).1.ms)
+      ({ id := 30, ms := [2, 10], k := 11, lam := 2 }, { p := 3, j := 1, i := 2, ds := [2, 10], s := 0 }).1.k
+      ({ id := 30, ms := [2, 10], k := 11, lam := 2 }, { p := 3, j := 1, i := 2, ds := [2, 10], s := 0 }).1.lam
+but is expected to have type
+  ¬HasSDS (ZMod 2 × ZMod 10) 12 2
+problems/signed-difference-sets/reviews/R12/RowsApply.lean:35:2: error: Type mismatch
+  part01_not_hasSDS ?m.41 ?m.42
+has type
+  ¬HasSDS (Grp ({ id := 30, ms := [2, 10], k := 11, lam := 2 }, { p := 3, j := 1, i := 2, ds := [2, 10], s := 0 }).1.ms)
+      ({ id := 30, ms := [2, 10], k := 11, lam := 2 }, { p := 3, j := 1, i := 2, ds := [2, 10], s := 0 }).1.k
+      ({ id := 30, ms := [2, 10], k := 11, lam := 2 }, { p := 3, j := 1, i := 2, ds := [2, 10], s := 0 }).1.lam
+but is expected to have type
+  ¬HasSDS (ZMod 10 × ZMod 2) 11 2
+problems/signed-difference-sets/reviews/R12/RowsApply.lean:38:77: error: (kernel) application type mismatch
+  id (Eq.refl true)
+argument has type
+  true = true
+but function has type
+  decide
+        (({ id := 30, ms := [2, 10], k := 11, lam := 3 }, { p := 3, j := 1, i := 2, ds := [2, 10], s := 0 }) ∈ part01) =
+      true →
+    decide
+        (({ id := 30, ms := [2, 10], k := 11, lam := 3 }, { p := 3, j := 1, i := 2, ds := [2, 10], s := 0 }) ∈ part01) =
+      true
+
+real	0m42.831s
+user	0m0.078s
+sys	0m0.249s

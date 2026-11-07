@@ -1,0 +1,27 @@
+== 3,6 3,3 13 4
+v=18 n=9 c=2 s=9 vectors(sum=+s)=270 reps=30
+RESULT found=2 nodes=161 vecs=270 reps=30 time=0.0s
+== 18 9 13 4
+v=18 n=9 c=2 s=9 vectors(sum=+s)=0 reps=0
+RESULT found=0 nodes=0 vecs=0 reps=0 time=0.0s
+== 18 6 13 4
+v=18 n=6 c=3 s=9 vectors(sum=+s)=18 reps=3
+RESULT found=0 nodes=4578 vecs=18 reps=3 time=0.0s
+== 20 10 11 2
+v=20 n=10 c=2 s=7 vectors(sum=+s)=10 reps=1
+RESULT found=4 nodes=1023 vecs=10 reps=1 time=0.2s
+== 20 10 17 8
+v=20 n=10 c=2 s=13 vectors(sum=+s)=0 reps=0
+RESULT found=0 nodes=0 vecs=0 reps=0 time=0.0s
+== 15 5 8 2
+v=15 n=5 c=3 s=6 vectors(sum=+s)=0 reps=0
+RESULT found=0 nodes=0 vecs=0 reps=0 time=0.0s
+== 15 3 11 1
+v=15 n=3 c=5 s=5 vectors(sum=+s)=0 reps=0
+RESULT found=0 nodes=0 vecs=0 reps=0 time=0.0s
+== 21 7 16 9
+v=21 n=7 c=3 s=14 vectors(sum=+s)=14 reps=2
+RESULT found=0 nodes=1236 vecs=14 reps=2 time=0.0s
+== 14 7 12 4
+v=14 n=7 c=2 s=8 vectors(sum=+s)=28 reps=4
+RESULT found=0 nodes=80 vecs=28 reps=4 time=0.0s

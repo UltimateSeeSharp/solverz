@@ -1,0 +1,120 @@
+group [2] v=2 R=1 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=2 lam=-2 |s|=0 sets=1 fired=0
+  k=2 lam=2 |s|=2 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=2
+group [4] v=4 R=1 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=3 lam=2 |s|=3 sets=3 fired=0
+  k=4 lam=0 |s|=2 sets=4 fired=0
+  k=4 lam=4 |s|=4 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=0
+group [2, 2] v=4 R=2 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=3 lam=2 |s|=3 sets=3 fired=0
+  k=4 lam=0 |s|=2 sets=4 fired=0
+  k=4 lam=4 |s|=4 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=1
+group [6] v=6 R=1 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=8 fired=0
+  k=5 lam=4 |s|=5 sets=5 fired=0
+  k=6 lam=2 |s|=4 sets=6 fired=0
+  k=6 lam=6 |s|=6 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=7
+group [8] v=8 R=1 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=12 fired=0
+  k=7 lam=6 |s|=7 sets=7 fired=0
+  k=8 lam=4 |s|=6 sets=8 fired=0
+  k=8 lam=8 |s|=8 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=0
+group [2, 4] v=8 R=2 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=28 fired=0
+  k=7 lam=6 |s|=7 sets=7 fired=0
+  k=8 lam=4 |s|=6 sets=8 fired=0
+  k=8 lam=8 |s|=8 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=0
+group [2, 2, 2] v=8 R=3 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=28 fired=0
+  k=7 lam=6 |s|=7 sets=7 fired=0
+  k=8 lam=4 |s|=6 sets=8 fired=0
+  k=8 lam=8 |s|=8 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=1
+group [10] v=10 R=1 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=16 fired=0
+  k=9 lam=8 |s|=9 sets=9 fired=0
+  k=10 lam=6 |s|=8 sets=10 fired=0
+  k=10 lam=10 |s|=10 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=11
+group [12] v=12 R=1 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=20 fired=0
+  k=11 lam=10 |s|=11 sets=11 fired=0
+  k=12 lam=8 |s|=10 sets=12 fired=0
+  k=12 lam=12 |s|=12 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=0
+group [2, 6] v=12 R=2 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=52 fired=0
+  k=11 lam=10 |s|=11 sets=11 fired=0
+  k=12 lam=8 |s|=10 sets=12 fired=0
+  k=12 lam=12 |s|=12 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=1
+group [14] v=14 R=1 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=32 fired=0
+  k=13 lam=12 |s|=13 sets=13 fired=0
+  k=14 lam=10 |s|=12 sets=14 fired=0
+  k=14 lam=14 |s|=14 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=15
+group [16] v=16 R=1 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=28 fired=0
+  k=15 lam=14 |s|=15 sets=15 fired=0
+  k=16 lam=12 |s|=14 sets=16 fired=0
+  k=16 lam=16 |s|=16 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=0
+group [2, 8] v=16 R=2 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=76 fired=0
+  k=6 lam=2 |s|=6 sets=72 fired=0
+  k=10 lam=6 |s|=10 sets=120 fired=0
+  k=15 lam=14 |s|=15 sets=15 fired=0
+  k=16 lam=0 |s|=4 sets=192 fired=0
+  k=16 lam=12 |s|=14 sets=16 fired=0
+  k=16 lam=16 |s|=16 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=0
+group [4, 4] v=16 R=2 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=76 fired=0
+  k=6 lam=2 |s|=6 sets=72 fired=0
+  k=10 lam=6 |s|=10 sets=120 fired=0
+  k=15 lam=14 |s|=15 sets=15 fired=0
+  k=16 lam=0 |s|=4 sets=192 fired=0
+  k=16 lam=12 |s|=14 sets=16 fired=0
+  k=16 lam=16 |s|=16 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=0
+group [2, 2, 4] v=16 R=3 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=140 fired=0
+  k=6 lam=2 |s|=6 sets=168 fired=0
+  k=10 lam=6 |s|=10 sets=280 fired=0
+  k=15 lam=14 |s|=15 sets=15 fired=0
+  k=16 lam=0 |s|=4 sets=448 fired=0
+  k=16 lam=12 |s|=14 sets=16 fired=0
+  k=16 lam=16 |s|=16 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=0
+group [2, 2, 2, 2] v=16 R=4 identity_violations=0
+  k=1 lam=0 |s|=1 sets=1 fired=0
+  k=4 lam=0 |s|=2 sets=140 fired=0
+  k=6 lam=2 |s|=6 sets=168 fired=0
+  k=10 lam=6 |s|=10 sets=280 fired=0
+  k=15 lam=14 |s|=15 sets=15 fired=0
+  k=16 lam=0 |s|=4 sets=448 fired=0
+  k=16 lam=12 |s|=14 sets=16 fired=0
+  k=16 lam=16 |s|=16 sets=1 fired=0
+  FIRED_TOTAL=0 control_r_plus_1_fires=1

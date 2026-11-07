@@ -1,0 +1,37 @@
+'SignedDifferenceSets.not_hasSDS_of_sylow_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.SyTwoCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sylowTwoRows1_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sylowTwoRows2_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sylowTwoRows1_kill' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.sylowTwoRows2_kill' depends on axioms: [propext, Quot.sound]
+'SignedDifferenceSets.Answer.N79.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N80.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.R7.N79.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.R7.N80.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+@not_hasSDS_of_sylow_two : ∀ {G : Type u_1} [inst : AddCommGroup G] [inst_1 : Fintype G] (ds : List ℕ)
+  [inst_2 : Fintype (Grp ds)] {r : ℕ} [NeZero (r * 2)],
+  SylowTrace.PPowers 2 (r * 2) ds →
+    ∀ (φ : G →+ Grp ds),
+      Function.Surjective ⇑φ →
+        ∀ {c : ℕ},
+          Fintype.card G = c * Fintype.card (Grp ds) →
+            ∀ {k : ℕ} {lam m : ℤ} {w t : ℕ},
+              ↑k - lam = m ^ 2 →
+                2 ^ w ∣ m →
+                  ¬2 ^ (w + 1) ∣ m →
+                    w < t →
+                      Fintype.card (Grp ds) = 2 ^ t →
+                        ∀ {s : ℤ},
+                          s ^ 2 = ↑k + lam * (↑c * ↑(Fintype.card (Grp ds)) - 1) →
+                            2 ^ (w + 1) ∣ s →
+                              (∀ (S : Type) [inst : CommRing S] (x : S),
+                                  ∑ l ∈ Finset.range 2, (x ^ r) ^ l = 0 →
+                                    ∃ y z, 2 = (x - 1) ^ ((2 - 1) * r) * y ∧ (x - 1) ^ ((2 - 1) * r) = 2 * z) →
+                                ¬HasSDS G k lam
+Answer.N79.not_hasSDS : ¬HasSDS (ZMod 3 × ZMod 3 × ZMod 3) 22 9
+Answer.N80.not_hasSDS : ¬HasSDS (ZMod 3 × ZMod 9) 22 9
+
+real	2m39.557s
+user	0m0.436s
+sys	0m0.984s
+EXIT 0

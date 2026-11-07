@@ -1,0 +1,16 @@
+Part01: parsed 250 entries, raw tuples 250
+Part02: parsed 250 entries, raw tuples 250
+Part03: parsed 250 entries, raw tuples 250
+Part04: parsed 250 entries, raw tuples 250
+Part05: parsed 250 entries, raw tuples 250
+Part06: parsed 207 entries, raw tuples 207
+parts total 1457
+row/key mismatches 0 statuses of part rows {'open': 1457}
+my Kills check: {'ok': 1457}
+my open hits 1457 | parts 1457 | parts - mine [] | mine - parts 0
+mine - parts (first 40): []
+all hits by status {'none': 3150, 'open': 1457}
+exists rows hit: []
+tsv rows 1457 unique 1457 set == parts: True
+tsv mismatches 0
+object instance ids 56 in parts: []

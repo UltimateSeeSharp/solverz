@@ -1,0 +1,60 @@
+'SignedDifferenceSets.not_hasSDS_of_compositeModulus' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.CmCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.modulusProd_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.compositeModulusRows1_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.compositeModulusRows2_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.compositeModulusRows3_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.compositeModulusRows4_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N3243.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N31721.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N31722.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N3314.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N3315.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N32087.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N32088.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N658.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N659.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N660.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N661.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N663.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N665.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N736.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N737.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N740.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N742.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N26075.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N47314.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N1134.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N9807.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.Answer.N58470.hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+Answer.N3243.hasSDS : HasSDS (ZMod 5 × ZMod 25) 28 3
+Answer.N658.hasSDS : HasSDS (ZMod 2 × ZMod 2 × ZMod 2 × ZMod 2 × ZMod 2 × ZMod 2) 18 2
+Answer.N742.hasSDS : HasSDS (ZMod 4 × ZMod 4 × ZMod 4) 46 30
+Answer.N26075.hasSDS : HasSDS (ZMod 312) 300 200
+Answer.N47314.hasSDS : HasSDS (ZMod 410) 329 248
+Answer.N1134.hasSDS : HasSDS (ZMod 78) 53 28
+Answer.N9807.hasSDS : HasSDS (ZMod 200) 151 102
+Answer.N58470.hasSDS : HasSDS (ZMod 455) 71 7
+@not_hasSDS_of_compositeModulus : ∀ {G : Type u_1} {H : Type u_2} [inst : AddCommGroup G] [inst_1 : Fintype G]
+  [inst_2 : AddCommGroup H] [inst_3 : Fintype H] (φ : G →+ H),
+  Function.Surjective ⇑φ →
+    ∀ {c : ℕ},
+      Fintype.card G = c * Fintype.card H →
+        (∃ g, g ≠ 0) →
+          ∀ {k : ℕ} {lam : ℤ},
+            ↑k ≠ lam →
+              ∀ {L : List (ℕ × ℕ × ℕ)},
+                (∀ x ∈ L, SelfConjOn H k lam x) →
+                  List.Pairwise (fun x y => x.1 ≠ y.1) L →
+                    ∀ {s : ℤ},
+                      s ^ 2 = ↑k + lam * (↑c * ↑(Fintype.card H) - 1) →
+                        (∀ s' ∈ [s, -s],
+                            ∀ t0 ∈ Finset.Ico 0 (modulusProd L),
+                              ¬BoxOk (↑(Fintype.card H)) (modulusProd L) s' (↑k + lam * (↑c - 1)) t0 ↑c) →
+                          ¬HasSDS G k lam
+@CmCert.not_hasSDS : ∀ {r : Row} {c : CmCert},
+  CmCert.Kills r c → ∀ (inst : Fintype (Grp r.ms)), ¬HasSDS (Grp r.ms) r.k r.lam
+
+real	0m34.232s
+user	0m0.061s
+sys	0m0.201s

@@ -1,0 +1,4 @@
+(27,17,8) in [27], N = {0}: 0 sets; full check of all: True
+(27,14,5) in [3, 9], N = {0}: 216 sets; full check of all: True
+(27,14,5) in [27], N = {0}: 0 sets; full check of all: True
+(27,14,5) in [3, 3, 3], N = {0}: 6840 sets; full check of all: True

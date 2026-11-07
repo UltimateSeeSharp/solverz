@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "problems/signed-difference-sets/reviews/R8/e8_lemma.py", line 42, in <module>
+    ok &= (A * A[:, add[g]]).sum(1) == mu
+               ~^^^^^^^^^^^
+IndexError: index 3 is out of bounds for axis 1 with size 2

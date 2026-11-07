@@ -1,0 +1,4 @@
+2 R = 3 2-selfconj K: True (a,b) counts: {(True, True): 18}
+4 R = 3 2-selfconj K: True (a,b) counts: {(True, True): 72}
+2x3 R = 3 2-selfconj K: True (a,b) counts: {(True, True): 336}
+8 R = 3 2-selfconj K: True (a,b) counts: {(True, True): 672}

@@ -1,0 +1,25 @@
+@not_hasSDS_of_eisensteinChars : ∀ {G : Type u_1} {H : Type u_2} [inst : AddCommGroup G] [inst_1 : Fintype G]
+  [inst_2 : AddCommGroup H] {k : ℕ} {lam : ℤ} [inst_3 : Fintype H] {φ : G →+ H},
+  Function.Surjective ⇑φ →
+    (∀ (h : H), 3 • h = 0) →
+      ∀ {s : ℤ}, s ^ 2 = ↑k + lam * (↑(Fintype.card G) - 1) → EisKills (Fintype.card H) s (↑k - lam) → ¬HasSDS G k lam
+def SignedDifferenceSets.EisKills : ℕ → ℤ → ℤ → Prop :=
+fun N s n => ∀ s' ∈ [s, -s], 0 ∉ reachMod (↑N) (eisTraces n) ((N - 1) / 2) [s' % ↑N]
+'SignedDifferenceSets.not_hasSDS_of_eisensteinChars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.charSumEis_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.charSumTr_cast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.charSumTr_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.neg_ne_self_of_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.sum_charSumTr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.mem_eisTraces' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.EcCert.not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.eisensteinCharsRows1_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.eisensteinCharsRows2_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.eisensteinCharsRows3_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+@eisensteinCharsRows1_not_hasSDS : ∀ {x : Row × EcCert},
+  x ∈ eisensteinCharsRows1 → ∀ (inst : Fintype (Grp x.1.ms)), ¬HasSDS (Grp x.1.ms) x.1.k x.1.lam
+'n1605' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m46.010s
+user	0m0.249s
+sys	0m0.358s

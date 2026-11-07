@@ -1,0 +1,7 @@
+box entries 1387 overlap with SC chunks 0
+row mismatches 0
+mirror rejects box entries []
+exists killed: c5/c13 [] box []
+open c5/c13 6071 open box (any cert) 7458 box-only 1387 box-only == chunk B True B - opb []
+sc2 open-row kills 7458 Lean C5+C13+C14 7458 sc2-Lean [] 0 Lean-sc2 [] 0
+sc2 first verdict on box rows Counter({'R2dp': 1069, 'R1': 318})

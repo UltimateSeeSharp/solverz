@@ -1,0 +1,6 @@
+'SignedDifferenceSets.OrbitRows.n9513_not_hasSDS' depends on axioms: [propext, Classical.choice, Quot.sound]
+OrbitRows.n9513_not_hasSDS : ∀ (inst : Fintype (Grp [198])), ¬HasSDS (Grp [198]) 53 4
+
+real	0m35.825s
+user	0m0.124s
+sys	0m0.140s

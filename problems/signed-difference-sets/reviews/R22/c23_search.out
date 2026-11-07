@@ -1,0 +1,8 @@
+lean rows parsed 132 row tuples in file 132
+rows with problems: 0
+distinct ids 132
+settle none == lean ids: True
+own search: kills 1181 open 132
+by status: {'none': 1049, 'open': 132}
+open killed, not in lean: [] 0
+lean, not killed by own: []

@@ -1,0 +1,17 @@
+@not_hasSDS_of_selfConj : ∀ {G : Type u_1} {H : Type u_2} [inst : AddCommGroup G] [inst_1 : Fintype G]
+  [inst_2 : AddCommGroup H] [inst_3 : Fintype H] (φ : G →+ H),
+  Function.Surjective ⇑φ →
+    ∀ {c : ℕ},
+      Fintype.card G = c * Fintype.card H →
+        ∀ {p i j : ℕ} [inst_4 : Fact (Nat.Prime p)],
+          0 < i →
+            (∀ (h : H), p ^ i • h = -h) →
+              ↑(Fintype.card H) ≠ 0 →
+                (∃ (g : H), g ≠ 0) →
+                  ∀ {k : ℕ} {lam : ℤ}, ↑p ^ (2 * j) ∣ ↑k - lam → ↑k ≠ lam → 2 * c < p ^ j → ¬HasSDS G k lam
+'SignedDifferenceSets.not_hasSDS_of_selfConj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignedDifferenceSets.IsSDS.contract_congr_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m38.877s
+user	0m0.093s
+sys	0m0.280s

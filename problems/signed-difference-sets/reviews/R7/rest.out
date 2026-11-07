@@ -1,0 +1,37 @@
+Thm 4.1 m=11 q=19 r=25 -> (475,241,120) in Z19 x GF(25)+, poly tail (1, 1): group Z(19, 5, 5), (|P|,|N|) = (240, 1), direct=True  fft=True (max dev 6.3e-13)
+  mapped by CRT into the key's Z5 x Z95: group Z(5, 95), (|P|,|N|) = (240, 1), direct=True  fft=True (max dev 2.3e-13)
+Thm 4.1 m=3 q=3 r=9 -> (27,17,8) in Z3 x GF(9)+, poly tail (1, 0): group Z(3, 3, 3), (|P|,|N|) = (16, 1), direct=True  fft=True (max dev 0.0e+00)
+Traceback (most recent call last):
+  File "problems/signed-difference-sets/reviews/R7/build.py", line 167, in <module>
+    gordon41(3, 3, 2)  # control: (27,17,8) in C3^3, credited by the importer
+    ^^^^^^^^^^^^^^^^^
+  File "problems/signed-difference-sets/reviews/R7/build.py", line 101, in gordon41
+    crt = {(a, b): next(z for z in range(big) if z % q == a and z % r_p == b) for a in range(q) for b in range(r_p)}
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "problems/signed-difference-sets/reviews/R7/build.py", line 101, in <dictcomp>
+    crt = {(a, b): next(z for z in range(big) if z % q == a and z % r_p == b) for a in range(q) for b in range(r_p)}
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+real	0m0.444s
+user	0m0.000s
+sys	0m0.046s
+HCG 5.5(2) q=421 f=105 (f mod 4 = 1) w=2 (s,t)=[(-15, 14)] -> (421,316,25.0)
+  ordered (i,j) giving an SDS by direct check: [(0, 2), (1, 3), (2, 0), (3, 1)]
+  (i,j)=(0,2): group Z(421,), (|P|,|N|) = (210, 106), direct=True  fft=True (max dev 6.8e-13)
+HCG 5.5(2) q=29 f=7 (f mod 4 = 3) w=2 (s,t)=[(5, -2)] -> (29,22,0.5)
+  ordered (i,j) giving an SDS by direct check: []
+
+real	0m0.696s
+user	0m0.031s
+sys	0m0.000s
+  D' = P' - N' of Example 4.2: group Z(3, 3), (|P|,|N|) = (4, 4), direct=True  fft=True (max dev 0.0e+00)
+HCG Thm 4.1 m=2, x0=1, x1=(1, 0): coefficient values [-1, 0, 1, 2], nonzero 70
+  NOT a signed set: coefficient 2 at [(0, 0, 1, 1, 0), (0, 0, 2, 1, 0), (0, 1, 0, 1, 0), (0, 2, 0, 1, 0)]
+  D' = P' - N' of Example 4.2: group Z(3, 3), (|P|,|N|) = (4, 4), direct=True  fft=True (max dev 0.0e+00)
+HCG Thm 4.1 m=2, x0=1, x1=(0, 0): coefficient values [-1, 1], nonzero 82
+  : group Z(3, 3, 3, 3, 3), (|P|,|N|) = (50, 32), direct=True  fft=True (max dev 0.0e+00)
+
+real	0m0.255s
+user	0m0.015s
+sys	0m0.016s

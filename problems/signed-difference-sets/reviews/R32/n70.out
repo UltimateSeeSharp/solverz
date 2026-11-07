@@ -1,0 +1,3 @@
+v=27 n=9 c=3 s=11 vectors(sum=+s)=144 reps=16
+RESULT found=0 nodes=3051424 vecs=144 reps=16 time=5.8s
+real	0m6.003s

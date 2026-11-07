@@ -1,0 +1,10 @@
+(3,) 12 {'vec': 8112, 'odd': 0, 'tests': 2440, 'viol': 0, 'ctrl': 7870, 'ctrlviol': 7680}
+(4,) 8 {'vec': 732, 'odd': 0, 'tests': 248, 'viol': 0, 'ctrl': 260, 'ctrlviol': 156}
+(5,) 6 {'vec': 1582, 'odd': 0, 'tests': 637, 'viol': 0, 'ctrl': 974, 'ctrlviol': 964}
+(6,) 4 {'vec': 621, 'odd': 0, 'tests': 24, 'viol': 0, 'ctrl': 76, 'ctrlviol': 64}
+(7,) 3 {'vec': 1392, 'odd': 0, 'tests': 196, 'viol': 0, 'ctrl': 1392, 'ctrlviol': 1286}
+(2, 2) 9 {'vec': 720, 'odd': 0, 'tests': 464, 'viol': 0, 'ctrl': 0, 'ctrlviol': 0}
+(8,) 2 {'vec': 270, 'odd': 0, 'tests': 0, 'viol': 0, 'ctrl': 58, 'ctrlviol': 42}
+(9,) 2 {'vec': 448, 'odd': 0, 'tests': 45, 'viol': 0, 'ctrl': 226, 'ctrlviol': 226}
+(10,) 2 {'vec': 344, 'odd': 0, 'tests': 20, 'viol': 0, 'ctrl': 0, 'ctrlviol': 0}
+(3, 3) 2 {'vec': 2422, 'odd': 0, 'tests': 75, 'viol': 0, 'ctrl': 592, 'ctrlviol': 592}

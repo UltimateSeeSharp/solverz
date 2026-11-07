@@ -1,0 +1,15 @@
+sc2_all first-verdict on C5 rows Counter({'R1': 1622, 'R2dp': 1190, 'R2basic': 1046})
+sc2_all first-verdict on C6 rows Counter({'R2basic': 1757, 'R1': 255, 'R2dp': 201})
+lite kills (open) 6469 C5 rows in lite with R1 3858
+C6 rows not in lite [] 0
+lite not in Lean ['N194', 'N523', 'N1297', 'N1298', 'N1299', 'N1300', 'N1301', 'N1385', 'N2143', 'N3090', 'N3091', 'N3174', 'N3347', 'N3348', 'N3349', 'N3435', 'N3904', 'N3933', 'N3940', 'N4167', 'N4168', 'N5226', 'N5701', 'N5849', 'N6667', 'N6668', 'N6738', 'N6739', 'N6868', 'N6869'] 398
+ + N194 R1 p=2 j=1 h=37 m=37 c=1 {'R1'}
+ + N523 R1 p=2 j=1 h=57 m=57 c=1 {'R1'}
+ + N1297 R1 p=2 j=1 h=81 m=3 c=1 {'R1'}
+ + N1298 R1 p=2 j=1 h=81 m=9 c=1 {'R1'}
+ + N1299 R1 p=2 j=1 h=81 m=27 c=1 {'R1'}
+ + N1300 R1 p=2 j=1 h=81 m=9 c=1 {'R1'}
+ + N1301 R1 p=2 j=1 h=81 m=81 c=1 {'R1'}
+ + N1385 R1 p=2 j=1 h=83 m=83 c=1 {'R1'}
+ + N2143 R1 p=2 j=1 h=101 m=101 c=1 {'R1'}
+ + N3090 R1 p=2 j=1 h=121 m=11 c=1 {'R1'}

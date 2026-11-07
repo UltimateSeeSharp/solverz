@@ -1,0 +1,18 @@
+GF(256) modulus used: 0x139 (note used 0x11d)
+ classes (0, 1, 2) P: 153 {92} {90} | D SDS direct True spectral True support 154 autocorr [90]
+ classes (0, 1, 3) P: 153 {92} {90} | D SDS direct True spectral True support 154 autocorr [90]
+ classes (0, 1, 4) P: 153 {92} {90} | D SDS direct True spectral True support 154 autocorr [90]
+ classes (0, 2, 3) P: 153 {92} {90} | D SDS direct True spectral True support 154 autocorr [90]
+ classes (0, 2, 4) P: 153 {92} {90} | D SDS direct True spectral True support 154 autocorr [90]
+ classes (0, 3, 4) P: 153 {92} {90} | D SDS direct True spectral True support 154 autocorr [90]
+ classes (1, 2, 3) P: 153 {92} {90} | D SDS direct True spectral True support 154 autocorr [90]
+ classes (1, 2, 4) P: 153 {92} {90} | D SDS direct True spectral True support 154 autocorr [90]
+ classes (1, 3, 4) P: 153 {92} {90} | D SDS direct True spectral True support 154 autocorr [90]
+ classes (2, 3, 4) P: 153 {92} {90} | D SDS direct True spectral True support 154 autocorr [90]
+N17201 all 10: True
+ control 2 classes: (102, {38}, {42}) (False, False)
+ control identity +1: (False, False) (False, False)
+hyperovals in PG(2,4): 168
+N735: hyperovals failing (T2*(O) PDS / complement PDS / SDS): 0 of 168
+ first hyperoval ((0, 0, 1), (0, 1, 0), (1, 0, 0), (1, 1, 1), (1, 2, 3), (1, 3, 2)) P: (45, {32}, {30}) D: (True, True, 46, [30])
+ control non-hyperoval: (False, False)

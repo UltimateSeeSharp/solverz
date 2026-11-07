@@ -1,0 +1,50 @@
+O1 [7] (7,3,1) n=2 H=[7] c=1 SDS=True fixed=True t=2:found:1 t=4:found:1
+O2 [7] (7,4,0) n=4 H=[7] c=1 SDS=True fixed=True t=2:found:1 t=4:found:1
+O6 [5, 5] (25,12,1) n=11 H=[1, 5] c=5 SDS=True fixed=True t=1:found:1
+O6 [5, 5] (25,12,1) n=11 H=[5, 1] c=5 SDS=True fixed=True t=1:found:1
+O6 [5, 5] (25,12,1) n=11 H=[5, 5] c=1 SDS=True fixed=True t=1:cap:2000001
+O12 [19, 19] (361,316,141) n=175 H=[1, 19] c=19 SDS=True fixed=True t=7:found:122 t=11:found:122
+O12 [19, 19] (361,316,141) n=175 H=[19, 1] c=19 SDS=True fixed=True t=7:found:122 t=11:found:122
+O24 [7, 7] (49,33,1) n=32 H=[1, 7] c=7 SDS=True fixed=True t=2:found:1 t=4:found:1
+O24 [7, 7] (49,33,1) n=32 H=[7, 1] c=7 SDS=True fixed=True t=2:found:1 t=4:found:1
+O24 [7, 7] (49,33,1) n=32 H=[7, 7] c=1 SDS=True fixed=True t=2:found:73908 t=4:found:73908
+O34 [79] (79,61,38) n=23 H=[79] c=1 SDS=True fixed=True t=23:found:142949 t=55:found:142949
+O35 [127] (127,109,90) n=19 H=[127] c=1 SDS=True fixed=True t=19:found:206493 t=107:found:206493
+O36 [217] (217,193,168) n=25 H=[7] c=31 SDS=True fixed=True t=2:found:1 t=3:found:1 t=4:found:1 t=5:found:1 t=6:found:1
+O36 [217] (217,193,168) n=25 H=[31] c=7 SDS=True fixed=True t=5:found:129 t=25:found:129
+O36 [217] (217,193,168) n=25 H=[217] c=1 SDS=True fixed=True t=5:found:15281 t=25:cap:2000001 t=87:found:15281 t=125:cap:2000001 t=191:cap:2000001
+O37 [222] (222,69,20) n=49 H=[2] c=111 SDS=True fixed=True t=1:found:1
+O37 [222] (222,69,20) n=49 H=[3] c=74 SDS=True fixed=True t=1:found:1
+O37 [222] (222,69,20) n=49 H=[6] c=37 SDS=True fixed=True t=1:found:14
+O37 [222] (222,69,20) n=49 H=[37] c=6 SDS=True fixed=True t=7:found:3 t=9:found:3 t=10:found:1741782 t=12:found:3 t=16:found:3 t=26:found:1741782
+O37 [222] (222,69,20) n=49 H=[74] c=3 SDS=True fixed=True t=7:found:58 t=9:found:58 t=33:found:58 t=47:cap:2000001 t=49:found:58 t=53:found:58
+O37 [222] (222,69,20) n=49 H=[111] c=2 SDS=True fixed=True t=7:found:621 t=10:cap:2000001 t=16:found:621 t=34:found:621 t=46:found:621 t=49:found:621
+O37 [222] (222,69,20) n=49 H=[222] c=1 SDS=True fixed=True t=7:found:38950 t=49:found:38950 t=121:cap:2000001 t=127:found:38950 t=145:found:38950 t=157:found:38950
+O38 [455] (455,71,7) n=64 H=[5] c=91 SDS=True fixed=True t=2:found:1 t=3:found:1 t=4:found:1
+O38 [455] (455,71,7) n=64 H=[7] c=65 SDS=True fixed=True t=2:found:1 t=4:found:1
+O38 [455] (455,71,7) n=64 H=[13] c=35 SDS=True fixed=True t=2:found:1 t=3:found:1 t=4:found:1 t=5:found:1 t=6:found:1 t=7:found:1
+O38 [455] (455,71,7) n=64 H=[35] c=13 SDS=True fixed=True t=2:found:4 t=4:found:36 t=8:found:60826 t=9:found:36 t=11:found:146693 t=16:found:146693
+O38 [455] (455,71,7) n=64 H=[65] c=7 SDS=True fixed=True t=2:found:1 t=4:found:1 t=8:found:1 t=16:found:1 t=32:found:1 t=33:found:1
+O38 [455] (455,71,7) n=64 H=[91] c=5 SDS=True fixed=True t=2:found:400 t=4:found:1002790 t=8:cap:2000001 t=16:cap:2000001 t=23:found:1002790 t=32:found:400
+O39 [300] (300,55,6) n=49 H=[2] c=150 SDS=True fixed=True t=1:found:1
+O39 [300] (300,55,6) n=49 H=[3] c=100 SDS=True fixed=True t=1:found:1
+O39 [300] (300,55,6) n=49 H=[4] c=75 SDS=True fixed=True t=3:found:1
+O39 [300] (300,55,6) n=49 H=[5] c=60 SDS=True fixed=True t=2:found:1 t=3:found:1 t=4:found:1
+O39 [300] (300,55,6) n=49 H=[6] c=50 SDS=True fixed=True t=1:found:14
+O39 [300] (300,55,6) n=49 H=[10] c=30 SDS=True fixed=True t=3:found:1 t=7:found:1 t=9:found:1
+O39 [300] (300,55,6) n=49 H=[12] c=25 SDS=True fixed=True t=7:found:3298
+O39 [300] (300,55,6) n=49 H=[15] c=20 SDS=True fixed=True t=4:found:655 t=7:found:4 t=13:found:4
+O39 [300] (300,55,6) n=49 H=[20] c=15 SDS=True fixed=True t=3:found:240 t=7:found:240 t=9:found:475695
+O39 [300] (300,55,6) n=49 H=[25] c=12 SDS=True fixed=True t=7:found:1 t=18:found:1 t=24:found:1
+O39 [300] (300,55,6) n=49 H=[30] c=10 SDS=True fixed=True t=7:found:52646 t=13:found:52646 t=19:cap:2000001
+O39 [300] (300,55,6) n=49 H=[50] c=6 SDS=True fixed=True t=7:found:1 t=43:found:1 t=49:found:1
+O39 [300] (300,55,6) n=49 H=[60] c=5 SDS=True fixed=True t=7:cap:2000001 t=43:cap:2000001 t=49:cap:2000001
+O39 [300] (300,55,6) n=49 H=[75] c=4 SDS=True fixed=True t=7:cap:2000001 t=43:cap:2000001 t=49:cap:2000001
+O39 [300] (300,55,6) n=49 H=[100] c=3 SDS=True fixed=True t=7:cap:2000001 t=43:cap:2000001 t=49:cap:2000001
+O39 [300] (300,55,6) n=49 H=[150] c=2 SDS=True fixed=True t=7:cap:2000001 t=43:cap:2000001 t=49:cap:2000001
+O39 [300] (300,55,6) n=49 H=[300] c=1 SDS=True fixed=True t=7:cap:2000001 t=43:cap:2000001 t=49:cap:2000001
+O58 [410] (410,329,248) n=81 H=[2] c=205 SDS=True fixed=True t=1:found:1
+O58 [410] (410,329,248) n=81 H=[5] c=82 SDS=True fixed=True t=2:found:1 t=3:found:1 t=4:found:5
+O58 [410] (410,329,248) n=81 H=[10] c=41 SDS=True fixed=True t=3:found:7 t=7:found:7 t=9:found:637
+O58 [410] (410,329,248) n=81 H=[41] c=10 SDS=True fixed=True t=3:found:1 t=9:found:1 t=14:found:1 t=27:found:1 t=32:found:1 t=38:found:1
+O58 [410] (410,329,248) n=81 H=[82] c=5 SDS=True fixed=True t=3:found:1 t=9:found:1 t=27:found:1 t=55:found:1 t=73:found:1 t=79:found:1

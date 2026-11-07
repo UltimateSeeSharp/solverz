@@ -1,0 +1,7 @@
+H=[16] B=1: 323 Y with constant off-peak autocorrelation, 0 violations, 2620 tight checks
+H=[4, 4] B=1: 1859 Y with constant off-peak autocorrelation, 0 violations, 25172 tight checks
+H=[2, 8] B=1: 1859 Y with constant off-peak autocorrelation, 0 violations, 21576 tight checks
+H=[2, 2, 4] B=1: 3907 Y with constant off-peak autocorrelation, 0 violations, 53844 tight checks
+H=[2, 2, 2, 2] B=1: 3907 Y with constant off-peak autocorrelation, 0 violations, 57694 tight checks
+done
+EXIT 0

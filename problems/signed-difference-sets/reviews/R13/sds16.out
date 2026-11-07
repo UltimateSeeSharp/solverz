@@ -1,0 +1,26 @@
+group [1] v 1 vectors 3 {'applies': 0, 'fail': 0, 'n1': 0, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 0}
+group [2] v 2 vectors 9 {'applies': 4, 'fail': 0, 'n1': 4, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 1}
+group [3] v 3 vectors 27 {'applies': 12, 'fail': 0, 'n1': 12, 'units_fail': 0, 'nonsqf': 6, 'nonsqf_fail': 0, 'Tmax': 2}
+group [2, 2] v 4 vectors 27 {'applies': 16, 'fail': 0, 'n1': 16, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 1}
+group [4] v 4 vectors 27 {'applies': 16, 'fail': 0, 'n1': 16, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 2}
+group [5] v 5 vectors 43 {'applies': 20, 'fail': 0, 'n1': 20, 'units_fail': 0, 'nonsqf': 10, 'nonsqf_fail': 0, 'Tmax': 4}
+group [6] v 6 vectors 63 {'applies': 24, 'fail': 0, 'n1': 24, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 2}
+group [7] v 7 vectors 171 {'applies': 84, 'fail': 0, 'n1': 28, 'units_fail': 56, 'nonsqf': 70, 'nonsqf_fail': 0, 'Tmax': 6}
+group [2, 2, 2] v 8 vectors 163 {'applies': 32, 'fail': 0, 'n1': 32, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 1}
+group [2, 4] v 8 vectors 163 {'applies': 32, 'fail': 0, 'n1': 32, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 2}
+group [8] v 8 vectors 99 {'applies': 32, 'fail': 0, 'n1': 32, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 4}
+group [3, 3] v 9 vectors 111 {'applies': 36, 'fail': 0, 'n1': 36, 'units_fail': 0, 'nonsqf': 18, 'nonsqf_fail': 0, 'Tmax': 2}
+group [9] v 9 vectors 57 {'applies': 36, 'fail': 0, 'n1': 36, 'units_fail': 0, 'nonsqf': 18, 'nonsqf_fail': 0, 'Tmax': 6}
+group [10] v 10 vectors 143 {'applies': 40, 'fail': 0, 'n1': 40, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 4}
+group [11] v 11 vectors 267 {'applies': 176, 'fail': 0, 'n1': 44, 'units_fail': 132, 'nonsqf': 66, 'nonsqf_fail': 0, 'Tmax': 10}
+group [2, 6] v 12 vectors 387 {'applies': 48, 'fail': 0, 'n1': 48, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 2}
+group [12] v 12 vectors 195 {'applies': 48, 'fail': 0, 'n1': 48, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 4}
+group [13] v 13 vectors 627 {'applies': 260, 'fail': 0, 'n1': 52, 'units_fail': 208, 'nonsqf': 338, 'nonsqf_fail': 0, 'Tmax': 12}
+group [14] v 14 vectors 311 {'applies': 56, 'fail': 0, 'n1': 56, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 6}
+group [15] v 15 vectors 273 {'applies': 60, 'fail': 0, 'n1': 60, 'units_fail': 0, 'nonsqf': 210, 'nonsqf_fail': 0, 'Tmax': 8}
+group [2, 2, 2, 2] v 16 vectors 3907 {'applies': 64, 'fail': 0, 'n1': 64, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 1}
+group [2, 2, 4] v 16 vectors 3907 {'applies': 64, 'fail': 0, 'n1': 64, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 2}
+group [2, 8] v 16 vectors 1859 {'applies': 64, 'fail': 0, 'n1': 64, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 4}
+group [4, 4] v 16 vectors 1859 {'applies': 64, 'fail': 0, 'n1': 64, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 2}
+group [16] v 16 vectors 323 {'applies': 64, 'fail': 0, 'n1': 64, 'units_fail': 0, 'nonsqf': 0, 'nonsqf_fail': 0, 'Tmax': 8}
+TOTAL {'vec': 15021, 'applies': 1352, 'ok': 1352, 'fail': 0, 'nonpos': 75, 'units_fail': 396, 'nonsqf_ok': 736, 'nonsqf_fail': 0}
