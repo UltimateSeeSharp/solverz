@@ -332,7 +332,7 @@ def write_contract(instance: str, divisors: str) -> None:
 /-- `below` with this Instance's search arguments (those `not_hasSDS_of_noVector` asks for). -/
 abbrev check (p : List ℤ) : Bool :=
   below (Indexed.size ({quotient})) (Indexed.addIdx ({quotient})) ({c} : ℕ)
-    (({k} : ℕ) + ({lam_lean} : ℤ) * (({c} : ℕ) - 1)) (({lam_lean} : ℤ) * ({c} : ℕ)) ({k} : ℕ) {s}
+    (({k} : ℕ) + ({lam_lean} : ℤ) * (({c} : ℕ) - 1)) (({lam_lean} : ℤ) * ({c} : ℕ)) ({k} : ℕ) {s} p
 
 /-- The prefixes of {depth} coordinates whose subtrees are checked one by one ({total} nodes in
 all, at most {BRANCH_NODES} per check), from `solver/answer.py`. -/

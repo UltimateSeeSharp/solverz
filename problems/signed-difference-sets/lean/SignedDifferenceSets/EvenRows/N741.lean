@@ -35,7 +35,7 @@ abbrev n741Check (p : List ℤ) : Bool :=
     (@Indexed.addIdx (Grp (n741Cert.r :: n741Cert.ks)) _ (Grp.indexed _ n741_pos))
     (n741Cert.c n741Row)
     ((n741Row.k + n741Row.lam * (2 * (n741Cert.c n741Row : ℤ) - 1)) / 4)
-    (n741Row.lam * n741Cert.c n741Row / 2) n741Cert.K (n741Cert.s / 2)
+    (n741Row.lam * n741Cert.c n741Row / 2) n741Cert.K (n741Cert.s / 2) p
 
 /-- Prefixes, batch 0. -/
 def n741Batch0 : List (List ℤ) :=

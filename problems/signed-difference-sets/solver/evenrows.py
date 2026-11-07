@@ -140,7 +140,7 @@ abbrev {low}Check (p : List ℤ) : Bool :=
     (@Indexed.addIdx (Grp ({low}Cert.r :: {low}Cert.ks)) _ (Grp.indexed _ {low}_pos))
     ({low}Cert.c {low}Row)
     (({low}Row.k + {low}Row.lam * (2 * ({low}Cert.c {low}Row : ℤ) - 1)) / 4)
-    ({low}Row.lam * {low}Cert.c {low}Row / 2) {low}Cert.K ({low}Cert.s / 2)
+    ({low}Row.lam * {low}Cert.c {low}Row / 2) {low}Cert.K ({low}Cert.s / 2) p
 
 {defs}
 

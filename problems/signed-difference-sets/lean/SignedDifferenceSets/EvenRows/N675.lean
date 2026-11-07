@@ -35,7 +35,7 @@ abbrev n675Check (p : List ℤ) : Bool :=
     (@Indexed.addIdx (Grp (n675Cert.r :: n675Cert.ks)) _ (Grp.indexed _ n675_pos))
     (n675Cert.c n675Row)
     ((n675Row.k + n675Row.lam * (2 * (n675Cert.c n675Row : ℤ) - 1)) / 4)
-    (n675Row.lam * n675Cert.c n675Row / 2) n675Cert.K (n675Cert.s / 2)
+    (n675Row.lam * n675Cert.c n675Row / 2) n675Cert.K (n675Cert.s / 2) p
 
 /-- Prefixes, batch 0. -/
 def n675Batch0 : List (List ℤ) :=

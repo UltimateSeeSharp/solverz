@@ -35,7 +35,7 @@ abbrev n20961Check (p : List ℤ) : Bool :=
     (@Indexed.addIdx (Grp (n20961Cert.r :: n20961Cert.ks)) _ (Grp.indexed _ n20961_pos))
     (n20961Cert.c n20961Row)
     ((n20961Row.k + n20961Row.lam * (2 * (n20961Cert.c n20961Row : ℤ) - 1)) / 4)
-    (n20961Row.lam * n20961Cert.c n20961Row / 2) n20961Cert.K (n20961Cert.s / 2)
+    (n20961Row.lam * n20961Cert.c n20961Row / 2) n20961Cert.K (n20961Cert.s / 2) p
 
 /-- Prefixes, batch 0. -/
 def n20961Batch0 : List (List ℤ) :=

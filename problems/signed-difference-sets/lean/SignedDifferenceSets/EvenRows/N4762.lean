@@ -35,7 +35,7 @@ abbrev n4762Check (p : List ℤ) : Bool :=
     (@Indexed.addIdx (Grp (n4762Cert.r :: n4762Cert.ks)) _ (Grp.indexed _ n4762_pos))
     (n4762Cert.c n4762Row)
     ((n4762Row.k + n4762Row.lam * (2 * (n4762Cert.c n4762Row : ℤ) - 1)) / 4)
-    (n4762Row.lam * n4762Cert.c n4762Row / 2) n4762Cert.K (n4762Cert.s / 2)
+    (n4762Row.lam * n4762Cert.c n4762Row / 2) n4762Cert.K (n4762Cert.s / 2) p
 
 /-- Prefixes, batch 0. -/
 def n4762Batch0 : List (List ℤ) :=
