@@ -9,6 +9,19 @@ Gordon's table settled, counting results from the literature.
 [solutions.md](solutions.md) (Z1–Z33); entries the table lists as open although published work
 settles them: [corrections.md](corrections.md); papers: [papers](papers/_papers.md).
 Check it yourself: `lake exe cache get`, then `lake build --wfail SignedDifferenceSets`.
+A fresh build compiles about 360 modules, about 12 hours of single-process time on an 8-core
+desktop; single modules need up to 12.3 GB of RAM. Lake runs several modules at once and has no
+option to limit that, so with less than 32 GB build the heaviest ones first, one at a time; the
+others we measured need under 8 GB each:
+```
+lake build SignedDifferenceSets.HalfRows.Part10      # 12.3 GB
+lake build SignedDifferenceSets.EvenRows.N664        #  8.9 GB
+lake build SignedDifferenceSets.UnramifiedRows       #  8.6 GB
+lake build SignedDifferenceSets.OrbitRows.Part59     #  8.5 GB
+lake build SignedDifferenceSets.LiftRows.Part04      #  8.0 GB
+lake build --wfail SignedDifferenceSets
+```
+The Mathlib cache is a 455 MB download, 6.5 GB unpacked.
 
 ## Problem
 A signed difference set (SDS) with parameters (v, k, λ) in a finite abelian

@@ -35,6 +35,8 @@ lake exe cache get                         # prebuilt Mathlib, once
 lake build --wfail SignedDifferenceSets    # one problem's library
 ```
 
+A fresh build takes hours and much RAM; each problem's README says what it needs.
+
 ## How it works
 
 A problem is chosen from the rated list and stated in Lean. An attack
