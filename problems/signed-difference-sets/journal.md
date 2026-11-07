@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-07
+- 06:35 Settled 49 rows none by A7 (C10, C16; refuter a7 SURVIVES): CosetRows Part08–14, 16, 18–21, 46–49, 51 imported, root build clean, axioms clean on all 49. Table 90.87% (none 63,874, exists 225, open 6,444)
 - 05:10 C25 verified (refuter SURVIVES, root build clean): 26 rows settled none (CosetRows Part95–98, A7 with self-conjugate primes, helper Y). Table 90.80% (none 63,825, exists 225, open 6,493)
 - 04:45 Settled 447 rows (round 10, root build clean): C26's parity rule (`DescentRows`, refuter SURVIVES) → 177 none; C27 (`UnramifiedRows`, refuter SURVIVES) → 259 none; objects → 11 exists: N11602 (O63), N31880 (O66), N31994 (O67), N14597 (O64), N14828 (O65), N931 (O84), N933 (O82), N934 (O83), N939 (O104), N14471 (O102), N14472 (O103). C26, C27 verified. Table 90.76% (none 63,799, exists 225, open 6,519)
 - 02:36 C27 proved and in Lean (`UnramifiedDescent.lean`, built clean): Schmidt's field-descent bound for n prime to m, the descent from C10's multipliers, φ(m) n ≤ m F c²; it kills 259 open rows (`UnramifiedRows.lean` building) and no `exists` row; I10's ramified part stays open

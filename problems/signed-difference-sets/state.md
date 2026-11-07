@@ -1,6 +1,6 @@
 # State
 
-**Focus.** New rules for the rows no method reaches, most rows per effort first (find, Settling rows): each rule is one generic theorem plus one kernel check over the rows it settles. Table 90.80% settled (none 63,825, exists 225, open 6,493).
+**Focus.** New rules for the rows no method reaches, most rows per effort first (find, Settling rows): each rule is one generic theorem plus one kernel check over the rows it settles. Table 90.87% settled (none 63,874, exists 225, open 6,444).
 
 **Done in Lean (built, `--wfail`).** Verified: C1, C5, C7, C8, C13, C14, C15, C16, C17, C19, C20 and the I5 orbit search; row checks for 11,357 rows settled 2026-11-06 (`journal.md`). C18 proved (n ≥ 2).
 
