@@ -120,8 +120,8 @@ theorem n763_below4 : ∀ p ∈ n763Batch4, n763Check p = true := by
 def n763Prefixes : List (List ℤ) :=
   n763Batch0 ++ n763Batch1 ++ n763Batch2 ++ n763Batch3 ++ n763Batch4
 
--- elaborating the join of many batches needs more than the default heartbeats
 set_option maxHeartbeats 4000000 in
+-- elaborating the join of many batches needs more than the default heartbeats
 theorem n763_search : n763Cert.search n763Row = true :=
   onGrp_of n763_pos (noVector_of_top (P := n763Prefixes) (d := 3) (by decide)
     (by decide +kernel) fun p hp => by

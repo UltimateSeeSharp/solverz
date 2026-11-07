@@ -118,8 +118,8 @@ theorem n4762_below2 : ∀ p ∈ n4762Batch2, n4762Check p = true := by
 def n4762Prefixes : List (List ℤ) :=
   n4762Batch0 ++ n4762Batch1 ++ n4762Batch2
 
--- elaborating the join of many batches needs more than the default heartbeats
 set_option maxHeartbeats 4000000 in
+-- elaborating the join of many batches needs more than the default heartbeats
 theorem n4762_search : n4762Cert.search n4762Row = true :=
   onGrp_of n4762_pos (noVector_of_top (P := n4762Prefixes) (d := 1) (by decide)
     (by decide +kernel) fun p hp => by

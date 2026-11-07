@@ -1050,8 +1050,8 @@ def n20961Prefixes : List (List ℤ) :=
     n20961Batch5 ++ n20961Batch6 ++ n20961Batch7 ++ n20961Batch8 ++ n20961Batch9 ++
     n20961Batch10 ++ n20961Batch11 ++ n20961Batch12 ++ n20961Batch13 ++ n20961Batch14
 
--- elaborating the join of many batches needs more than the default heartbeats
 set_option maxHeartbeats 4000000 in
+-- elaborating the join of many batches needs more than the default heartbeats
 theorem n20961_search : n20961Cert.search n20961Row = true :=
   onGrp_of n20961_pos (noVector_of_top (P := n20961Prefixes) (d := 3) (by decide)
     (by decide +kernel) fun p hp => by

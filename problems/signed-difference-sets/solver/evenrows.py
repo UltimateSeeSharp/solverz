@@ -149,8 +149,8 @@ abbrev {low}Check (p : List ℤ) : Bool :=
 def {low}Prefixes : List (List ℤ) :=
   {plist}
 
--- elaborating the join of many batches needs more than the default heartbeats
 set_option maxHeartbeats 4000000 in
+-- elaborating the join of many batches needs more than the default heartbeats
 theorem {low}_search : {low}Cert.search {low}Row = true :=
   onGrp_of {low}_pos (noVector_of_top (P := {low}Prefixes) (d := {depth - 1}) (by decide)
     (by decide +kernel) fun p hp => by
