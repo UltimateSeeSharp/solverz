@@ -36,4 +36,4 @@ The refuter's reports that statuses here rest on, oldest first.
 | [R30](R30.md) | C25 (Z31) | SURVIVES | 2026-11-07 |
 | [R31](R31.md) | I5, N363, N71 (Z15) | SURVIVES | 2026-11-07 |
 | [R32](R32.md) | I16, N70 (Z33) | SURVIVES | 2026-11-07 |
-| [R33](R33.md) | P1 | REFUTED (round 1); FLAWED (round 2) | 2026-11-07 |
+| [R33](R33.md) | P1 | REFUTED (round 1); FLAWED (round 2); FLAWED, minor (round 3, fixed in 71368a3) | 2026-11-07 |
