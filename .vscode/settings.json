@@ -1,5 +1,7 @@
 {
   // Papers build with each folder's latexmkrc (LuaLaTeX, output in build/).
   "latex-workshop.latex.recipe.default": "latexmk (latexmkrc)",
-  "latex-workshop.latex.outDir": "%DIR%/build"
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  // Build on save only: edits by other tools must not start a second build into build/.
+  "latex-workshop.latex.autoBuild.run": "onSave"
 }

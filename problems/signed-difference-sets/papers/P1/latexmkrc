@@ -1,6 +1,8 @@
 # Build: latexmk (or save in VS Code). Numbers first, then LuaLaTeX (Unicode in the Lean
-# listings); everything generated goes to build/.
+# listings); everything generated goes to build/. On an error LaTeX stops instead of
+# waiting for keyboard input.
 system('python numbers.py') == 0 or die "numbers.py failed\n";
 $pdf_mode = 4;
+$lualatex = 'lualatex -interaction=nonstopmode -halt-on-error -file-line-error -synctex=1 %O %S';
 $out_dir = 'build';
 @default_files = ('main.tex');
