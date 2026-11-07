@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-07
+- 11:19 Settled 6 rows none by I16's lift search (LiftRows Part02–07; the refuter's own engine also finds none): N76, N77 SDS(27,22,3), N134, N135, N136, N138 SDS(32,28,12); root build clean, axioms clean. Table 90.89% (none 63,890, exists 226, open 6,427)
 - 09:20 N70 SDS(27,17,4) on C₃³ settled none: I16's contraction-then-lift (`LiftRows.n70_not_hasSDS`, helper L's `LiftSearch.lean`, refuter SURVIVES), root build clean, axioms clean. Table 90.88% (none 63,884, exists 226, open 6,433)
 - 07:50 N363, N71 settled none: I5's orbit exhaustion in slices (helper X's `OrbitSearchSplit.lean`, refuter SURVIVES, `scratch/refuter/xsplit/report-2026-11-07-0700.md`); OrbitRows Part60–77 in the root, build clean, axioms clean. Table 90.88% (none 63,883, exists 226, open 6,434)
 - 07:20 N449 settled exists: O101 (I21 doubling) checked in Lean (`Answer.N449.hasSDS`, root build clean, axioms clean). Table 90.88% (none 63,881, exists 226, open 6,436)

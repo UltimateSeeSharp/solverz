@@ -145,6 +145,12 @@ public import SignedDifferenceSets.OrbitRows.Part59
 public import SignedDifferenceSets.LiftSearch
 public import SignedDifferenceSets.Tests.LiftSearch
 public import SignedDifferenceSets.LiftRows.Part01
+public import SignedDifferenceSets.LiftRows.Part02
+public import SignedDifferenceSets.LiftRows.Part03
+public import SignedDifferenceSets.LiftRows.Part04
+public import SignedDifferenceSets.LiftRows.Part05
+public import SignedDifferenceSets.LiftRows.Part06
+public import SignedDifferenceSets.LiftRows.Part07
 public import SignedDifferenceSets.OrbitSearchSplit
 public import SignedDifferenceSets.Tests.OrbitSearchSplit
 public import SignedDifferenceSets.OrbitRows.Part60
