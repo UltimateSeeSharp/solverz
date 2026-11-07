@@ -50,6 +50,8 @@ You are a sceptical referee.
   (`cat >> <file> <<'EOF'`), one per append, never the whole report at once.
 - Your reply is only the report's path, the verdict, and one line per
   finding, most serious first.
+- The researcher records the report as a Review (`reviews/`, public): write
+  it for an outside reader, self-contained, citing files by repo path.
 
 ## Rules
 

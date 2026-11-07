@@ -34,7 +34,8 @@ code before it runs, …).
    - Verify it in Lean while it is open, when Lean settles it faster than
      paper; otherwise once every claim of the idea is proved on paper.
 3. **Check** before a claim becomes `proved` or `refuted`: the `refuter`
-   attacks it (CLAUDE.md, Roles); a flaw goes under Tried.
+   attacks it (CLAUDE.md, Roles); a flaw goes under Tried. Its report is
+   recorded as a Review (`reviews/R<n>.md`, its scripts in `R<n>/`).
    - A counterexample refutes a claim once it is an Experiment's outcome
      (CLAUDE.md, Files); in Lean if the claim is stated there and the check
      is quick.
