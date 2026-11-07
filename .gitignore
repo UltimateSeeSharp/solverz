@@ -17,3 +17,6 @@ problems/*/scratch/
 
 # Attack checkouts (one worktree per problem)
 .worktrees/
+
+# The user's private notes: local only
+user.md

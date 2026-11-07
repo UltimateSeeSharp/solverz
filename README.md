@@ -28,7 +28,12 @@ All candidate problems, rated: [problems/problems.md](problems/problems.md).
 - A separate agent tries to break each result before it counts.
 - Work by others is credited; their results are not listed as ours.
 
-Check it yourself: `lake build --wfail`.
+Check it yourself (Lean 4 and Mathlib v4.35.0), from the repo root:
+
+```
+lake exe cache get                         # prebuilt Mathlib, once
+lake build --wfail SignedDifferenceSets    # one problem's library
+```
 
 ## How it works
 
@@ -50,3 +55,11 @@ In Claude Code, from the repo folder:
 - `/solve <problem>`: work on a problem (its folder name), until you stop it (Esc).
 - `/maintain`: work on the repo itself (workflow, skills, templates); never
   inside `/solve`.
+
+## License
+
+- Code and Lean proofs: [Apache-2.0](LICENSE).
+- Data and text (problem tables, objects, documentation, papers): [CC BY 4.0](LICENSE-CC-BY-4.0.txt).
+- Imported files keep their own license and notice, next to them (e.g.
+  `problems/catch-up/lean/CatchUp/BoCowgill/`); data from others is credited in the problem's
+  `NOTICE.md` (e.g. [Gordon's SDS data](problems/signed-difference-sets/NOTICE.md)).
