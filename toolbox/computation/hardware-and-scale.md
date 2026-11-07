@@ -22,7 +22,7 @@ aka: BOINC, PrimeGrid, Charity Engine, distributed.net, Condor, master-worker br
 ### T154 One-PC sizing rule
 `find` `prove` `bound` `compute` · stage: judge
 aka: compute budget, thread-hours, certificate size, disk writes, feasibility estimate, CPU-years, what fits one PC
-- What: estimate thread-hours, RAM, disk writes and certificate bytes before starting, against the machine in CLAUDE.md (This machine).
+- What: estimate thread-hours, RAM, disk writes and certificate bytes before starting, against the machine in the user's CLAUDE.md (This machine).
 - Fits when: every experiment.
 - Lean: add the kernel's check time to the budget; it often dominates.
 - Example: fits: Hex 8×8 (301 h on one desktop) ([Henderson–Arneson–Hayward](https://www.ijcai.org/Abstract/09/091)) and the Erdős–Szekeres hexagon case (about 1 GHz-hour) ([Marić](https://research.matf.bg.ac.rs/handle/123456789/597)); fits to solve, but a kernel-only check does not: R(4,4)=18 (6.5 h, 85.5 GB of LRAT) and Keller G(7,3) (51 h) ([Szeider 2026](https://arxiv.org/abs/2607.00815)); borderline: the empty hexagon (17,300 CPU-hours, about 7 weeks) ([Heule–Scheucher](https://arxiv.org/abs/2403.00737)); does not fit: Boolean Pythagorean triples (800 cores for 2 days, 200 TB) ([Heule–Kullmann–Marek](https://arxiv.org/abs/1605.00723)), Schur number 5 (CPU-years, 2 PB) ([Heule](https://arxiv.org/abs/1711.08076)), Rubik's God's number (35 CPU-years) ([cube20.org](https://www.cube20.org/)).

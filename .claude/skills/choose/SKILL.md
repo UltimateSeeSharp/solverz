@@ -14,8 +14,8 @@ disable-model-invocation: true
    claims in the last 90 days)? Update its Status and Checked date.
 3. Frame it in each kind that could apply (CLAUDE.md, Problem). For each
    framing estimate what it needs (compute, memory, the cost of the Lean
-   check, whether it hinges on a new idea) against this machine (CLAUDE.md,
-   This machine). Keep only framings that fit and whose kind has a skill.
+   check, whether it hinges on a new idea) against this machine (the user's
+   CLAUDE.md, This machine). Keep only framings that fit and whose kind has a skill.
 4. The user picks a problem and its framing.
 5. Everything here is done in the main folder on main. Add the problem to
    `problems/active.md`, remove it from `candidates.md`. Copy

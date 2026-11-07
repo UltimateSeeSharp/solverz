@@ -144,18 +144,6 @@ working on what doesn't depend on it.
 
 ## This machine
 
-- CPU: AMD Ryzen 7 3700X (8 cores, 16 threads). GPU: RTX 3060 Ti, 8 GB,
-  driver 610.88 (CUDA ≤ 13.3); CUDA Toolkit 13.3 in
-  `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3` (`CUDA_PATH`;
-  `bin\x64` must be on `PATH` for NVRTC).
-- RAM: 32 GB. Disks: F: SanDisk SSD PLUS 2 TB (QLC, reads ~500 MB/s,
-  writes ~100 MB/s sustained once its cache fills); C: Samsung 870 EVO 1 TB. Jobs that spill gigabytes to disk
-  are bound by F:'s writes.
-- Lean is on F: (C: is short on space): `ELAN_HOME=F:\WIN_DATA\lean\elan`,
-  `MATHLIB_CACHE_DIR=F:\WIN_DATA\lean\mathlib-cache`, `F:\WIN_DATA\lean\elan\bin`
-  on the user PATH. If `lake` isn't found, the shell predates the install;
-  set them in-process. If VS Code offers to install Lean or elan, decline and
-  restart it from the Start menu.
-- Rust is on F: too: `RUSTUP_HOME=F:\WIN_DATA\rust\rustup`,
-  `CARGO_HOME=F:\WIN_DATA\rust\cargo`; MSVC toolchain with Visual Studio Build
-  Tools 2022 and the Windows SDK.
+The machine's resources and tool paths (CPU, GPU, RAM, disks, where Lean, Rust and
+TeX Live live) are in the user's own CLAUDE.md (`~/.claude/CLAUDE.md`, This machine),
+outside the repo.
