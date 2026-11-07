@@ -68,7 +68,7 @@ N66,"SDS(27,12,2,[27])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N67,"SDS(27,14,5,[3,3,3])",Open@e3bf810,exists,Gordon: paper Prop 2.3 (Paley and zero in GF(27)),SignedDifferenceSets.Answer.N67.hasSDS,
 N68,"SDS(27,14,5,[3,9])",Open@e3bf810,exists,E4; O10,SignedDifferenceSets.Answer.N68.hasSDS,Z6
 N69,"SDS(27,14,5,[27])",No@e3bf810,none,Gordon: Orbit Exhaust,,
-N70,"SDS(27,17,4,[3,3,3])",Open@e3bf810,open,,,
+N70,"SDS(27,17,4,[3,3,3])",Open@e3bf810,none,"I16 (contraction to C3 x C3, lift by cosets); LiftRows Part01",SignedDifferenceSets.LiftRows.n70_not_hasSDS,
 N71,"SDS(27,17,4,[3,9])",Open@e3bf810,none,I5 orbit exhaustion in slices (C15); OrbitRows Part62,SignedDifferenceSets.OrbitRows.n71_not_hasSDS,
 N72,"SDS(27,17,4,[27])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N73,"SDS(27,17,8,[3,3,3])",Open@e3bf810,exists,"Gordon: paper Thm 4.1 (prime power pair q = 3, GF(3) + GF(9))",SignedDifferenceSets.Answer.N73.hasSDS,
