@@ -75,7 +75,7 @@ theorem hasSDS_half_of_maDescent {G K : Type} [AddCommGroup G] [Fintype G] [AddC
     simp only [hu, Prod.fst_zero, ZMod.val_zero, hrv] at this
     omega
   have hψu : ψ u = 0 := by
-    simp [hψdef, hu, ZMod.castHom_apply, ZMod.cast_natCast (dvd_mul_right r 2), ZMod.natCast_self]
+    simp [hψdef, hu]
   set χ := ψ.comp φ with hχdef
   have hχ : Function.Surjective χ := hψ.comp hφ
   have hcardH : Fintype.card (ZMod (r * 2) × K) = 2 * Fintype.card (ZMod r × K) := by
