@@ -69,7 +69,7 @@ N67,"SDS(27,14,5,[3,3,3])",Open@e3bf810,exists,Gordon: paper Prop 2.3 (Paley and
 N68,"SDS(27,14,5,[3,9])",Open@e3bf810,exists,E4; O10,SignedDifferenceSets.Answer.N68.hasSDS,Z6
 N69,"SDS(27,14,5,[27])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N70,"SDS(27,17,4,[3,3,3])",Open@e3bf810,open,,,
-N71,"SDS(27,17,4,[3,9])",Open@e3bf810,open,,,
+N71,"SDS(27,17,4,[3,9])",Open@e3bf810,none,I5 orbit exhaustion in slices (C15); OrbitRows Part62,SignedDifferenceSets.OrbitRows.n71_not_hasSDS,
 N72,"SDS(27,17,4,[27])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N73,"SDS(27,17,8,[3,3,3])",Open@e3bf810,exists,"Gordon: paper Thm 4.1 (prime power pair q = 3, GF(3) + GF(9))",SignedDifferenceSets.Answer.N73.hasSDS,
 N74,"SDS(27,17,8,[3,9])",Yes@e3bf810,exists,Gordon: Prime Power Pair,,
@@ -361,7 +361,7 @@ N359,"SDS(49,36,18,[49])",Open@e3bf810,none,C5; SelfConjugacyRows part01,SignedD
 N360,"SDS(49,48,-1,[7,7])",Yes@e3bf810,exists,"Gordon: PDS construction of He, Chen and Ge",,
 N361,"SDS(49,48,2,[7,7])",Open@e3bf810,none,He-Wu Thm 4.4: h=7; q=7,,
 N362,"SDS(49,48,2,[49])",Open@e3bf810,none,He-Wu Thm 4.4: h=7; q=7,,
-N363,"SDS(49,48,11,[7,7])",Open@e3bf810,open,,,
+N363,"SDS(49,48,11,[7,7])",Open@e3bf810,none,I5 orbit exhaustion in slices (C15); OrbitRows Part60,SignedDifferenceSets.OrbitRows.n363_not_hasSDS,
 N364,"SDS(49,48,11,[49])",No@e3bf810,none,Gordon: Orbit Exhaust,,
 N365,"SDS(49,48,26,[7,7])",Open@e3bf810,none,He-Wu Thm 4.4: h=7; q=7,,
 N366,"SDS(49,48,26,[49])",Open@e3bf810,none,He-Wu Thm 4.4: h=7; q=7,,

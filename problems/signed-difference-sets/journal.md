@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-07
+- 07:50 N363, N71 settled none: I5's orbit exhaustion in slices (helper X's `OrbitSearchSplit.lean`, refuter SURVIVES, `scratch/refuter/xsplit/report-2026-11-07-0700.md`); OrbitRows Part60–77 in the root, build clean, axioms clean. Table 90.88% (none 63,883, exists 226, open 6,434)
 - 07:20 N449 settled exists: O101 (I21 doubling) checked in Lean (`Answer.N449.hasSDS`, root build clean, axioms clean). Table 90.88% (none 63,881, exists 226, open 6,436)
 - 07:05 C28 verified (refuter SURVIVES, root build clean, axioms clean): 7 rows settled none (EvenRows N664, N675, N741, N763, N4672, N4712, N4762); N20961 waits for a lighter build. Table 90.88% (none 63,881, exists 225, open 6,437)
 - 06:35 Settled 49 rows none by A7 (C10, C16; refuter a7 SURVIVES): CosetRows Part08–14, 16, 18–21, 46–49, 51 imported, root build clean, axioms clean on all 49. Table 90.87% (none 63,874, exists 225, open 6,444)
