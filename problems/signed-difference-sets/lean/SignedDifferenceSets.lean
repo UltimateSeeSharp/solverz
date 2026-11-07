@@ -256,6 +256,15 @@ public import SignedDifferenceSets.Answer.N8667
 public import SignedDifferenceSets.Answer.N9609
 public import SignedDifferenceSets.Answer.N15663
 public import SignedDifferenceSets.Answer.N32701
+public import SignedDifferenceSets.Answer.N14471
+public import SignedDifferenceSets.Answer.N14472
+public import SignedDifferenceSets.Answer.N939
+public import SignedDifferenceSets.Answer.N14597
+public import SignedDifferenceSets.Answer.N14828
+public import SignedDifferenceSets.Answer.N39499
+public import SignedDifferenceSets.Answer.N55268
+public import SignedDifferenceSets.Answer.N68249
+public import SignedDifferenceSets.Answer.N70360
 public import SignedDifferenceSets.Tests.Statement
 public import SignedDifferenceSets.Tests.Checks
 
