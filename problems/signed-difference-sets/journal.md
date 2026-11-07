@@ -1,6 +1,7 @@
 # Journal
 
 ## 2026-11-07
+- 02:36 C27 proved and in Lean (`UnramifiedDescent.lean`, built clean): Schmidt's field-descent bound for n prime to m, the descent from C10's multipliers, φ(m) n ≤ m F c²; it kills 259 open rows (`UnramifiedRows.lean` building) and no `exists` row; I10's ramified part stays open
 - 02:05 O104: a (72, 48, 12) SDS in C₃ × C₂₄ for N939 (open), by twisted doubling of a (36, 15, 6) Menon–Hadamard difference set in C₄ × C₃² (the halved parameters are an ordinary difference set, so not in Gordon's table)
 - 01:50 Two (243, 82, 1) sets: O102 in C₃⁵ (N14471, He–Chen–Ge Thm 4.1 with x₁ = 0) and O103 in C₃³ × C₉ (N14472, the same construction on a non-split index-3 subgroup C₃⁴; new); both open, Lean checks queued
 - 01:45 Settled 680 rows (refuter a7 SURVIVES, root build clean): A7's built parts (CosetRows Part01–07, 40–43, 45) → 667 none; objects O61, O62, O71–O81 → 13 exists (N236, N448, N463, N1008, N3539, N10864, N12056, N13963, N16190, N18527, N19488, N49190, N49624). Table 90.13% (none 63,363, exists 214, open 6,966)
