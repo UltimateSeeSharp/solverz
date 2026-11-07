@@ -101,7 +101,8 @@ theorem n9801_not_hasSDS (inst : Fintype (Grp [200])) :
     (c := ⟨4, 10, [25], [[1], [1]], [[25], [176]], [100], 45, 20, [[1], [1]], [[25], [76]]⟩)
     (by decide +kernel) inst'
     (MaRowCert.not_hasSDS maRule (w := ⟨0, [100], 45, 20⟩) (c := ⟨5, 5, 1, 2, 1, [2], [[1], [1]],
-      [[26], [25]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (by decide)) inst')
+      [[26], [25]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (pr := (5, 5)) (by
+      decide)) inst')
     inst
 
 /-- N9831: halved SDS(100,55,30,[100]), not in the table, has no SDS. -/
@@ -112,7 +113,8 @@ theorem n9831_not_hasSDS (inst : Fintype (Grp [200])) :
     (c := ⟨4, 10, [25], [[1], [1]], [[25], [176]], [100], 55, 30, [[1], [1]], [[25], [76]]⟩)
     (by decide +kernel) inst'
     (MaRowCert.not_hasSDS maRule (w := ⟨0, [100], 55, 30⟩) (c := ⟨5, 5, 1, 2, 1, [2], [[1], [1]],
-      [[26], [25]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (by decide)) inst')
+      [[26], [25]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (pr := (5, 5)) (by
+      decide)) inst')
     inst
 
 /-- N9879: halved row N2058 SDS(100,67,42,[100]) has no SDS. -/
@@ -159,7 +161,8 @@ theorem n11254_not_hasSDS (inst : Fintype (Grp [216])) :
     (c := ⟨4, 9, [27], [[1], [1]], [[81], [136]], [108], 11, 2, [[1], [1]], [[81], [28]]⟩)
     (by decide +kernel) inst'
     (MaRowCert.not_hasSDS maRule (w := ⟨0, [108], 11, 2⟩) (c := ⟨3, 9, 1, 2, 1, [4], [[1], [1]],
-      [[28], [81]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (by decide)) inst')
+      [[28], [81]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (pr := (3, 9)) (by
+      decide)) inst')
     inst
 
 /-- N11258: halved SDS(108,13,4,[3, 3, 12]), not in the table, has no SDS. -/

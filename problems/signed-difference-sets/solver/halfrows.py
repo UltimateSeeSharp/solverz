@@ -108,7 +108,7 @@ def reduced_proof(r2, ms2, k2, lam2):
         p, r, i, e, b, ks, A, P = c
         cert = f"⟨{p}, {r}, {i}, {e}, {b}, {lst(ks)}, {lst([lst(a) for a in A])}, {lst([lst(q) for q in P])}⟩"
         return (f"MaRowCert.not_hasSDS maRule (w := ⟨{rid}, {lst(ms2)}, {k2}, {lam2}⟩) (c := {cert}) "
-                f"(by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (by decide)) inst'")
+                f"(by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (pr := ({p}, {r})) (by decide)) inst'")
     d = descentrows.cert(ms2, k2, lam2)
     if d:
         r, i, s, ks, A, P = d

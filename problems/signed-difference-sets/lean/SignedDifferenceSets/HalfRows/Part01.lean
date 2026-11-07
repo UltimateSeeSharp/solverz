@@ -26,7 +26,8 @@ theorem n935_not_hasSDS (inst : Fintype (Grp [72])) :
     (c := ⟨4, 3, [9], [[1], [1]], [[9], [64]], [36], 11, 2, [[1], [1]], [[9], [28]]⟩)
     (by decide +kernel) inst'
     (MaRowCert.not_hasSDS maRule (w := ⟨171, [36], 11, 2⟩) (c := ⟨3, 3, 1, 2, 1, [4], [[1], [1]],
-      [[28], [9]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (by decide)) inst')
+      [[28], [9]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (pr := (3, 3)) (by
+      decide)) inst')
     inst
 
 /-- N941: halved SDS(36,15,6,[36]), not in the table, has no SDS. -/
@@ -37,7 +38,8 @@ theorem n941_not_hasSDS (inst : Fintype (Grp [72])) :
     (c := ⟨4, 3, [9], [[1], [1]], [[9], [64]], [36], 15, 6, [[1], [1]], [[9], [28]]⟩)
     (by decide +kernel) inst'
     (MaRowCert.not_hasSDS maRule (w := ⟨0, [36], 15, 6⟩) (c := ⟨3, 3, 1, 2, 1, [4], [[1], [1]],
-      [[28], [9]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (by decide)) inst')
+      [[28], [9]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (pr := (3, 3)) (by
+      decide)) inst')
     inst
 
 /-- N965: halved SDS(36,21,12,[36]), not in the table, has no SDS. -/
@@ -48,7 +50,8 @@ theorem n965_not_hasSDS (inst : Fintype (Grp [72])) :
     (c := ⟨4, 3, [9], [[1], [1]], [[9], [64]], [36], 21, 12, [[1], [1]], [[9], [28]]⟩)
     (by decide +kernel) inst'
     (MaRowCert.not_hasSDS maRule (w := ⟨0, [36], 21, 12⟩) (c := ⟨3, 3, 1, 2, 1, [4], [[1], [1]],
-      [[28], [9]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (by decide)) inst')
+      [[28], [9]]⟩) (by decide +kernel) (MaRows.cycloFacts_of_mem_maPairs (pr := (3, 3)) (by
+      decide)) inst')
     inst
 
 /-- N1524: halved SDS(44,17,8,[44]), not in the table, has no SDS. -/
