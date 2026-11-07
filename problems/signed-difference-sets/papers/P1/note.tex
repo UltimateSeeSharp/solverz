@@ -30,25 +30,12 @@ with Lean-checked proofs: a summary}
 Of the \openAfterHeWu{} cases of Gordon's signed difference set table~\cite{gordon} that
 remain open after He and Wu~\cite{he-wu}, we settle \ourRows: \ourNone{} have no signed difference set and \ourExists{} have
 one. A further \corrections{} cases listed as open are settled by published constructions.
-Every result is a theorem checked by the Lean~4 proof assistant. This note summarizes the
-results, the database corrections and how to check them; it is not a paper.
+Every result is a theorem checked by the Lean~4 proof assistant. The work was done with AI
+tools; see the end of the note. This note summarizes the results, the database corrections and
+how to check them; it is not a paper.
 \end{abstract}
 
 \maketitle
-
-\section{How this work was done}
-
-The author is a software developer, not a mathematician. The research was done by AI agents
-(Anthropic's Claude models): they searched the literature, proposed and proved the
-nonexistence rules, ran the searches and wrote the Lean proofs. Two safeguards decide what
-counts. First, nothing is reported unless Lean~4 checks it, with no unproved steps and no
-axioms beyond the three standard ones of Lean's logic. Second, before any result was accepted,
-a separate agent tried to break it: the proof, the Lean statement, the rows it settles, and
-the credit to earlier work. All code, proofs and data are public (\repo).
-
-The author's part was to run and direct this process and to approve each result. Errors in
-this note's prose, credits and attributions are possible; the Lean statements are the
-authoritative form of every claim.
 
 \section{Results}
 
@@ -175,6 +162,17 @@ fall into three kinds: cases where a multiplier applies but the orbit search is 
 cases where a rule above fails by a small margin; and a core where no multiplier applies and
 every congruence modulus is below $c$. We expect most of the core to have no SDS, but none of
 the local arguments above can show it.
+
+\section*{Use of AI}
+
+I did this work with AI tools (Anthropic's Claude models). They searched the literature, found
+and proved the nonexistence rules, ran the searches, wrote the Lean proofs and drafted this
+note; I directed the work and decided which results to keep. So that nothing rests on the AI
+alone, every result is a theorem checked by Lean~4, with no unproved steps and no axioms beyond
+the three standard ones, and before I accepted a result a separate AI agent tried to break it:
+its proof, its Lean statement, the cases it settles and its credit to earlier work. The Lean
+statements are the authoritative form of every claim; all code, proofs and data are public
+(\repo).
 
 \appendix
 \section{The cases settled with a set}\label{app:sets}
